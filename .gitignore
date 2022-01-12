@@ -1,3 +1,17 @@
-*.sw?
-*.bib
+## exclude following folders
 docs
+
+# vim swap files
+.*.tex.sw?
+
+## exclude following file extensions regardless of folder
+# files created during compiling
+thesis/main.pdf
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc

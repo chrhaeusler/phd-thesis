@@ -1,0 +1,108 @@
+\documentclass[english,12pt]{report}
+\usepackage[utf8]{inputenc}
+% \graphicspath{{images/}}
+\usepackage[
+    a4paper,
+    left=30mm,
+    right=20mm,
+    top=20mm,
+    bottom=20mm
+]
+{geometry}
+
+% stuff for header, footers, and page numbers
+\usepackage{fancyhdr}
+\pagestyle{plain}
+
+
+\title{
+    {Evaluating high-dimensional models}\\
+    {\large Institute Name}\\
+    % {\includegraphics{university-logo.jpg}}
+}
+
+
+\author{Christian~O.~Häusler}
+\date{March 2022}
+
+
+\begin{document}
+% don't show page number
+\pagenumbering{gobble}
+
+
+\maketitle
+
+
+\chapter*{Angaben der Gutachter/innen}
+
+
+\chapter*{Dedication}
+To my father
+
+
+\chapter*{Declaration of Authorship}
+%
+I declare I hereby certify that this thesis has been composed by me and is based
+on my own work, unless stated otherwise. No other person’s work has been used
+without due acknowledgment. All references have been quoted and all sources of
+information have been specifically acknowledged.
+
+
+\chapter*{Zusammenfassung}
+% shop page number
+\pagenumbering{Roman}
+\setcounter{page}{1}
+
+% lore ipsum
+lore ipsum
+
+
+\chapter*{Abstract}
+% lore ipsum
+lore ipsum
+
+
+\chapter*{Abbreviations}
+%
+
+\tableofcontents
+
+
+\chapter{Introduction}
+
+% formatting stuff
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% use an external file for the ext
+% \input{introduction}
+
+
+\chapter{Methods}
+
+
+\chapter{Results}
+
+
+\chapter{Discussion}
+
+
+\section{Conclusions}
+
+%%% References
+{\small\bibliographystyle{unsrtnat}
+\bibliography{references}}
+
+%%% Appendix
+\appendix
+\chapter{Appendix Title}
+\input{appendix}
+
+\chapter*{Acknowledgments}
+% don't show page number
+\pagenumbering{gobble}
+% text
+I want to thank...
+
+\end{document}
