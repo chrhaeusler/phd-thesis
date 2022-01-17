@@ -1,6 +1,16 @@
+% font size 11-12pt
 \documentclass[english,12pt]{report}
 \usepackage[utf8]{inputenc}
-% \graphicspath{{images/}}
+
+% use ä, ü, ...
+\usepackage[T1]{fontenc}
+
+% use a common font like Times New Roman or Arial:
+% LaTex standard is Knuth's "Computer Modern" with serifs
+
+% margins of the pages;
+% left: 30-35mm (due to binding)
+% right, top, bottom: 20-25mm
 \usepackage[
     a4paper,
     left=30mm,
@@ -10,93 +20,335 @@
 ]
 {geometry}
 
-% stuff for header, footers, and page numbers
+
+% manage header, footers, and page numbers
 \usepackage{fancyhdr}
-\pagestyle{plain}
+
+% add to dos as comments
+\usepackage{todonotes}
+
+% manage spacing between lines
+\usepackage{setspace}
+
+% format the chapters' header
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]{\bf\huge}{\thechapter}{2pc}{}
+% other way without showing the number before the chapter title:
+%\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge}
 
 
-\title{
-    {Evaluating high-dimensional models}\\
-    {\large Institute Name}\\
-    % {\includegraphics{university-logo.jpg}}
-}
+% citation
+% numerical citations:
+%\usepackage[numbers]{natbib}
+% superscript citations:
+%\usepackage[super]{natbib}
+% author-year citations:
+% \usepackage[round]{natbib}
+% just use APA-style bibiliography
+\usepackage[natbibapa]{apacite}
 
+% make the bibliography appear in the table of contents
+\usepackage[nottoc,numbib]{tocbibind}
 
-\author{Christian~O.~Häusler}
-\date{March 2022}
+% units: provided as a bundle with the nicefrac package for typing fractions.
+% Units uses nicefrac in typesetting physical units in a standard-looking way.
+\usepackage{units}
+
+\usepackage[
+    colorlinks=true,
+    citecolor=black,
+    urlcolor=black,
+    linkcolor=black
+]{hyperref}
 
 
 \begin{document}
-% don't show page number
+% set pagestyle to 'no header' and 'page number at bottom in the middle'
+\pagestyle{plain}
+% don't show page number (for now)
 \pagenumbering{gobble}
+% set spacing between lines to 1.5
+\begin{spacing}{1.5}
 
 
-\maketitle
+\begin{titlepage}
+\begin{center}
+
+From the Institute Institute of Neuroscience and Medicine,\\
+Brain \& Behaviour (INM-7),\\
+at Research Centre Jülich, Jülich, Germany
+
+\vfill
+
+    \textbf{{\large Evaluating common high-dimensional models of cortical
+    representational spaces for improving the power of neuroimaging-based
+    clinical diagnostics}}
+
+ggf. Untertitel
+
+\vfill
+
+{\large Dissertation}
+
+\vfill
+
+to obtain the academic title of Doctor of Philosophy (PhD) in Medical Sciences\\
+from the Faculty of Medicine at Heinrich Heine University Düsseldorf
+
+\vfill
+
+submitted by\\
+\textbf{Christian~Olaf~Häusler}\\
+(2022)
+
+\end{center}
+\end{titlepage}
 
 
-\chapter*{Angaben der Gutachter/innen}
 
 
-\chapter*{Dedication}
-To my father
+%\chapter*{Examiner Details}
+\newpage
+%pagebreak[4]
+
+\todo[inline]{This page 2 will not be included in the examination copies,
+    but will only be inserted in the copies for publication after the review
+    process and the oral examination.}
+
+\todo[inline]{You will be notified of the exact text for page 2 once print
+    approval is granted.}
+
+\vfill
+\noindent As an inaugural dissertation printed by permission of the\\
+Faculty of Medicine at Heinrich Heine University Düsseldorf
+
+\vspace*{\fill}
+\noindent signed:\\
+dean:\\
+examiner: Name A\\
+co-examiner: Name B
 
 
-\chapter*{Declaration of Authorship}
-%
-I declare I hereby certify that this thesis has been composed by me and is based
-on my own work, unless stated otherwise. No other person’s work has been used
-without due acknowledgment. All references have been quoted and all sources of
-information have been specifically acknowledged.
+
+%\chapter*{Dedication}
+\newpage
+%pagebreak[4]
+
+\begin{center}
+\null\vspace{\stretch{1}}
+    \textit{pectus amico, cuspis hosti}
+\vspace{\stretch{2}}\null
+\end{center}
 
 
+\newpage
+%pagebreak[4]
+
+%\chapter*{List of Publications}
+
+
+
+\todo[inline]{Own publications are listed here, if applicable. Submitted
+    manuscripts / manuscripts under revision are not listed here. These will be
+    listed in the “Application for authorization to the doctorate”
+    (Zulassungsantrag)}
+
+\todo[inline]{Please note that you must include a reference for all
+    information you take from your own publications. The publications mentioned
+    on page 4 must therefore also be listed in the bibliography. Direct
+    quotations must be marked with quotation marks}
+
+\vspace*{\fill}
+
+\noindent \textbf{Parts of this work have been published:}\\
+
+\todo[inline]{just testing the bibliography}
+
+% just testing the bibliography
+\citep{haeusler2021speechanno},
+\citep{halchenko2021datalad},
+\citep{haeusler2021ppadata}
 \chapter*{Zusammenfassung}
-% shop page number
+% show page number
 \pagenumbering{Roman}
 \setcounter{page}{1}
 
-% lore ipsum
-lore ipsum
+\todo[inline]{The German and English summary should be exactly one page long
+each. The summary represents a coherent text. Please do not use subheadings. The
+summary should include the following content in a shortened form:\\
+the scientific background and current state of research\\
+research question and objectives\\
+methodology\\
+results\\
+discussion and conclusions.
+}
+
+\todo[inline]{The summary is needed twice:\\
+    a) Bound into your dissertation.\\
+    b) As a pdf-document, submitted together with the application for
+    admission to doctoral examination proceedings.
+}
 
 
-\chapter*{Abstract}
-% lore ipsum
+% wissenschaftlicher Hintergrund
 lore ipsum
+% aktuelle5 Forschungsstand
+
+% Fragestellung und Ziele
+
+% Methodik
+
+% Ergebnisse
+
+% Diskussion
+
+% Schlussfolgerungen
+
+
+
+
+\chapter*{Summary}
+
+% scientific background
+lore ipsum
+% current state of research
+
+% research question and objectives
+
+% methodology
+
+% results
+
+% discussion
+
+% conclusions
+
+% lore ipsum
+
+
 
 
 \chapter*{Abbreviations}
+
 %
+\todo[inline]{The list of abbreviations contains and explains all abbreviations
+used in the thesis (except for common linguistic abbreviations as defined in the
+dictionary, e.g. Duden, Merriam-Webster). In the case of physical or chemical
+quantities, it is also necessary to specify the unit. An alphabetical order is
+useful, a subdivision (e.g. SI units, own abbreviations) is possible. For
+example, you can format the page in two columns, the abbreviations in bold and
+the corresponding explanations in non-bold.}
+
+
+
 
 \tableofcontents
 
+\todo[inline]{The entire table of contents should not be longer than 2 pages.}
+%
+\todo[inline]{A chapter with only one subchapter is not allowed}
+
+
+
+
+\listoftables
+
+\todo[inline]{does not seem to be mandatory?}
+
+
+
+
+\listoffigures
+
+\todo[inline]{does not seem to be mandatory?}
+
+
+
 
 \chapter{Introduction}
-
 % formatting stuff
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
-% use an external file for the ext
-% \input{introduction}
+% use an external file
+\input{introduction}
 
 
-\chapter{Methods}
+
+
+\chapter{Material and Methods}
+
+\todo[inline]{This chapter contains information on patients, examination
+materials and methods, depending on the research project. With the help of this
+chapter, readers must be able to understand and, if necessary, repeat all
+examinations and experiments.}
+
+\todo[inline]{Information on Patients: The statistical information to be
+mentioned or described includes number of patients, gender distribution, and age
+of patients (mean and median).}
+
+\todo[inline]{Reference Number issued by Ethics Committee: When results from
+clinical studies are part of the research project, the reference number assigned
+by the Ethics Committee of Heinrich Heine University upon approval must be
+stated in the chapter Material and Methods.}
+
+\todo[inline]{Reference Number issued by LANUV or ZETT: For work comprising
+results from animal testing, the file reference assigned by LANUV during the
+approval procedure must be given in the chapter Materials and Methods, or, in
+the case of organ removal, the file reference allocated by ZETT of Heinrich
+Heine University. A proof of participation in the laboratory animal science
+course must also be given, if applicable.}
+
+\todo[inline]{Methods and Material: This chapter lists: Type and origin of the
+material, hardware/equipment with type, manufacturer, location, a detailed
+description of the methods used.}
+
+\todo[inline]{Statistical Analysis A short and clear
+description of the methods used for material processing, data processing and
+statistical analysis.}
 
 
 \chapter{Results}
 
+\todo[inline]{This chapter contains a clear and concise presentation of your own
+results with reference to the research question of the thesis. Results that do
+not directly relate to the aim of the thesis should not be included here. Avoid
+any interpretation or discussion of the findings in the results chapter. Cite
+your own, already published data in the results chapter if you use them in your
+work. Further literature citations do not belong in the results chapter.
+%
+Results of others may not be included in the results chapter. Refer to other
+people's results either in the introduction or in the discussion. In order to
+use data as a graph, illustration or table, you must obtain written permission
+by the author.}
+
 
 \chapter{Discussion}
 
+% use an external file
+\input{discussion}
 
-\section{Conclusions}
+
 
 %%% References
-{\small\bibliographystyle{unsrtnat}
-\bibliography{references}}
+% \bibliographystyle{unsrtnat}
+\bibliographystyle{apacite}
+\bibliography{references}
 
-%%% Appendix
-\appendix
-\chapter{Appendix Title}
+\todo[inline]{if APA-style is used, show all (i.e. more than 7) authors}
+
+
+
+% Appendix
+%\appendix
+
+\chapter{Appendix}
+
+\todo[inline]{The appendix contains:\\
+a) any existing survey materials, e.g. questionnaires\\
+b) detailed description of formulas and derivations\\
+Please do not include signed documents (e.g. the vote of the Ethics Committee)}
+
 \input{appendix}
 
 \chapter*{Acknowledgments}
@@ -104,5 +356,34 @@ lore ipsum
 \pagenumbering{gobble}
 % text
 I want to thank...
+% family
+Vadda; Gabriele; Nico, Anna, Antonia, Julius; Annelie, Johannes;
+%
+Niklas Lampe, Ken Waigel, Brahim Sokoli, Stefan Mysliwietz, Ilja Rabinovitch,
+Ruwen Jeffe;
+% colleagues
+Adina Wagner, Alex and Laura Waite, Julia Mahns, Markus Thoma;
+% Mitbewohner
+Christian Fröhlich, Kyesam Jung, Binny Davis;
+% landlord
+Mr. Halking;
+% job
+Anika Völkel;
+% eating
+Trojan Pizzeria;
+% bands
+Heaven Shall Burn, Black Sun Empire, Hatebreed, The Ghost Inside, Emmure,
+Babymetal, Lorna Shore ("...And I Return To Nothingness EP"!);
+% bosses
+Simon Eickhoff, Gerhard Jocham, foremost Michael Hanke
+%
 
+
+\chapter*{Declaration of authorship}
+%
+\todo[inline]{The affidavit (declaration of Authorship) is signed in the
+``Application for authorization to the doctorate'' (Zulassungsantrag). According
+to the PO, the affidavit is no longer inserted in the dissertation itself.}
+
+\end{spacing}
 \end{document}

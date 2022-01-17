@@ -5,6 +5,6 @@ main.pdf: main.tex
 
 clean:
 	latexmk -C
-	rm -f main.aux main.bbl main.blg main.fb_latexmk main.fls main.log main.out
+	rm -f *.acr *.aux *.bbl *.blg *.fdb_latexmk *.fls *.lof *.log *.lot *.out *.run.xml *.toc
 
 .PHONY: clean

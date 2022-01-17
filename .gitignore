@@ -7,11 +7,15 @@ docs
 ## exclude following file extensions regardless of folder
 # files created during compiling
 thesis/main.pdf
+*.acr
 *.aux
 *.bbl
 *.blg
 *.fdb_latexmk
 *.fls
+*.lof
 *.log
+*.lot
 *.out
+*.run.xml
 *.toc
