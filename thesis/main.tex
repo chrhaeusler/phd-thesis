@@ -1,3 +1,19 @@
+%% LaTex template for a monographic dissertation
+%% at the Faculty of Medicine at Heinrich Heine University Düsseldorf
+
+%% author: Christian Olaf Häusler
+%% date: January 2022
+%% license:
+%% Creative Commons Attribution 4.0 International Public License
+%% https://creativecommons.org/licenses/by/4.0/
+
+%% This template was created to meet the requirements as provided by:
+%% ENG-PhD_Ordnung_vom_05.03.2018.pdf
+%% DE-PhD_Ordnung_vom_05.03.2018.pdf
+%% 2020-06-19_GZ-Guidelines_for_preparation_of_Dissertations_-_Monograph.pdf
+%% 2021-04-01_GZ-Leitfaden_zur_Erstellung_von_klassischen_Dissertationen.pdf
+
+
 % font size 11-12pt
 \documentclass[english,12pt]{report}
 \usepackage[utf8]{inputenc}
@@ -6,7 +22,7 @@
 \usepackage[T1]{fontenc}
 
 % use a common font like Times New Roman or Arial:
-% LaTex standard is Knuth's "Computer Modern" with serifs
+% keep LaTex' standard ("Computer Modern")
 
 % margins of the pages;
 % left: 30-35mm (due to binding)
@@ -44,7 +60,7 @@
 %\usepackage[super]{natbib}
 % author-year citations:
 % \usepackage[round]{natbib}
-% just use APA-style bibiliography
+% APA-style citing and bibiliography
 \usepackage[natbibapa]{apacite}
 
 % make the bibliography appear in the table of contents
@@ -54,12 +70,15 @@
 % Units uses nicefrac in typesetting physical units in a standard-looking way.
 \usepackage{units}
 
+% how to handle links in the PDF
 \usepackage[
     colorlinks=true,
     citecolor=black,
     urlcolor=black,
     linkcolor=black
 ]{hyperref}
+
+
 
 
 \begin{document}
@@ -71,6 +90,9 @@
 \begin{spacing}{1.5}
 
 
+
+
+% create the title page
 \begin{titlepage}
 \begin{center}
 
@@ -80,11 +102,11 @@ at Research Centre Jülich, Jülich, Germany
 
 \vfill
 
-    \textbf{{\large Evaluating common high-dimensional models of cortical
-    representational spaces for improving the power of neuroimaging-based
-    clinical diagnostics}}
+\textbf{{\large Evaluating common high-dimensional models of cortical
+representational spaces for improving the power of neuroimaging-based
+clinical diagnostics}}
 
-ggf. Untertitel
+maybe add subtitle
 
 \vfill
 
@@ -141,15 +163,14 @@ co-examiner: Name B
 \end{center}
 
 
+
+
+%\chapter*{List of Publications}
 \newpage
 %pagebreak[4]
 
-%\chapter*{List of Publications}
-
-
-
-\todo[inline]{Own publications are listed here, if applicable. Submitted
-    manuscripts / manuscripts under revision are not listed here. These will be
+\todo[inline]{Own publications are listed here. Submitted manuscripts or
+    manuscripts under revision are not listed here. These will be
     listed in the “Application for authorization to the doctorate”
     (Zulassungsantrag)}
 
@@ -188,7 +209,6 @@ discussion and conclusions.
     b) As a pdf-document, submitted together with the application for
     admission to doctoral examination proceedings.
 }
-
 
 % wissenschaftlicher Hintergrund
 lore ipsum
@@ -308,6 +328,8 @@ description of the methods used for material processing, data processing and
 statistical analysis.}
 
 
+
+
 \chapter{Results}
 
 \todo[inline]{This chapter contains a clear and concise presentation of your own
@@ -323,6 +345,8 @@ use data as a graph, illustration or table, you must obtain written permission
 by the author.}
 
 
+
+
 \chapter{Discussion}
 
 % use an external file
@@ -330,7 +354,7 @@ by the author.}
 
 
 
-%%% References
+%% References
 % \bibliographystyle{unsrtnat}
 \bibliographystyle{apacite}
 \bibliography{references}
@@ -350,6 +374,9 @@ b) detailed description of formulas and derivations\\
 Please do not include signed documents (e.g. the vote of the Ethics Committee)}
 
 \input{appendix}
+
+
+
 
 \chapter*{Acknowledgments}
 % don't show page number
