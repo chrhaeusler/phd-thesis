@@ -14,12 +14,35 @@
 %% 2021-04-01_GZ-Leitfaden_zur_Erstellung_von_klassischen_Dissertationen.pdf
 
 
+%% requirements that did not fit anywhere else:
+
+
+%% Copyright information: For all illustrations and tables that you have not
+%% created yourself, but have taken over or modified from other sources, a
+%% source reference, analogous to the citation of text sources, must be given
+%% in the caption. The source reference must be included in the reference
+%% list/bibliography.
+
+%% Please note, especially in view of the fact that your dissertation will be
+%% published online, that the reproduction of illustrations and tables is subject
+%% to copyright. [...] you should always ask the responsible publisher for
+%% permission. This also applies to illustrations from publications in which
+%% you are listed as the author, as the reproduction rights are usually
+%% transferred to the publisher. However, most publishers allow the re-use of
+%% parts of your own publications. In the case of journals, this is usually
+%% stipulated in a contract. Therefore, please refer to the websites of the
+%% respective publishers for information on author rights and licenses. The
+%% granting of a licence by a publisher may also be subject to fees.
+
 % font size 11-12pt
 \documentclass[english,12pt]{report}
 \usepackage[utf8]{inputenc}
 
 % use ä, ü, ...
 \usepackage[T1]{fontenc}
+
+% language settings
+\usepackage[USenglish]{babel}
 
 % use a common font like Times New Roman or Arial:
 % keep LaTex' standard ("Computer Modern")
@@ -78,7 +101,15 @@
     linkcolor=black
 ]{hyperref}
 
-
+% manage list of abbreviations
+% acronyms/abbreviations are defined in the corresponding chapter (s. below)
+% if a given acronym is given by \ac{my-acronym} for the first time in the text
+% body its full name will be written and it will show up in the list of
+% abbreviation
+% \acs{} -> force short version
+% \acl{} -> force long version
+% \acp{} -> make it plural (adds an "s")
+\usepackage[printonlyused]{acronym}
 
 
 \begin{document}
@@ -133,12 +164,10 @@ submitted by\\
 \newpage
 %pagebreak[4]
 
-\todo[inline]{This page 2 will not be included in the examination copies,
-    but will only be inserted in the copies for publication after the review
-    process and the oral examination.}
-
-\todo[inline]{You will be notified of the exact text for page 2 once print
-    approval is granted.}
+\noindent This page 2 will not be included in the examination copies, but will
+only be inserted in the copies for publication after the review process and
+the oral examination. You will be notified of the exact text for page 2 once
+print approval is granted.
 
 \vfill
 \noindent As an inaugural dissertation printed by permission of the\\
@@ -158,7 +187,8 @@ co-examiner: Name B
 
 \begin{center}
 \null\vspace{\stretch{1}}
-    \textit{pectus amico, cuspis hosti}
+    \textit{``Gladius ultor noster! Pectus amico, cuspis hosti!''}\\
+    \hspace{0.3\textwidth} --- old studential motto
 \vspace{\stretch{2}}\null
 \end{center}
 
@@ -169,15 +199,27 @@ co-examiner: Name B
 \newpage
 %pagebreak[4]
 
-\todo[inline]{Own publications are listed here. Submitted manuscripts or
-    manuscripts under revision are not listed here. These will be
-    listed in the “Application for authorization to the doctorate”
-    (Zulassungsantrag)}
+%% Own publications are listed here.
+%% Submitted manuscripts or manuscripts under revision are not listed here.
+%% These will be listed in the “Application for authorization to the doctorate”
+%% (Zulassungsantrag).
+%% Please note that you must include a reference for all information you take
+%% from your own publications.
+%% The publications mentioned on page 4 must therefore also be listed in the
+%% bibliography.
+%% Direct quotations must be marked with quotation marks.
 
-\todo[inline]{Please note that you must include a reference for all
-    information you take from your own publications. The publications mentioned
-    on page 4 must therefore also be listed in the bibliography. Direct
-    quotations must be marked with quotation marks}
+\todo[inline]{Legenden von Tabellen und Abbildungen sind kleinere Schriftgröße
+(10pt-11pt)}
+
+\todo[inline]{Abbildungen: im Text, nicht im Anhang; im Text erwähnt (Abb.1) und
+erläutert; mit Titel ("Fig. x: \textbf{Titel.} weitere Informationen") und
+Bildunterschrift; Bildunterschrift bzw. Legende: alle verwendeten Maßeinheiten
+und Abkürzungen aufgeführt und erläutert}
+
+\todo[inline]{Tabellen: Überschrift ("Table 1: \textbf{Überschrift.} Information,
+die zu deren Verständnis erforderlich ist."); Legende ist wie bei Abbildungen
+unterhalb der Tabelle}
 
 \vspace*{\fill}
 
@@ -189,168 +231,141 @@ co-examiner: Name B
 \citep{haeusler2021speechanno},
 \citep{halchenko2021datalad},
 \citep{haeusler2021ppadata}
+
+
+
+
 \chapter*{Zusammenfassung}
-% show page number
+% show page number, set it to Roman number
 \pagenumbering{Roman}
+% set page counter to 1
 \setcounter{page}{1}
 
-\todo[inline]{The German and English summary should be exactly one page long
-each. The summary represents a coherent text. Please do not use subheadings. The
-summary should include the following content in a shortened form:\\
-the scientific background and current state of research\\
-research question and objectives\\
-methodology\\
-results\\
-discussion and conclusions.
-}
+%% The German and English summary should be exactly one page long each.
+%% The summary represents a coherent text. Please do not use subheadings.
+%% should include the following content in a shortened form:
+%% - scientific background and current state of research
+%% - research question and objectives
+%% - methodology
+%% - results
+%% - discussion and conclusions.
 
-\todo[inline]{The summary is needed twice:\\
-    a) Bound into your dissertation.\\
-    b) As a pdf-document, submitted together with the application for
-    admission to doctoral examination proceedings.
-}
+%% The summary is needed twice:
+%% a) Bound into your dissertation.
+%% b) As a pdf-document, submitted together with the application for
+%%    admission to doctoral examination proceedings.
 
-% wissenschaftlicher Hintergrund
-lore ipsum
-% aktuelle5 Forschungsstand
-
-% Fragestellung und Ziele
-
-% Methodik
-
-% Ergebnisse
-
-% Diskussion
-
-% Schlussfolgerungen
+% take input from external file
+\input{summary-de}
 
 
 
 
 \chapter*{Summary}
-
-% scientific background
-lore ipsum
-% current state of research
-
-% research question and objectives
-
-% methodology
-
-% results
-
-% discussion
-
-% conclusions
-
-% lore ipsum
+% take input from external file
+\input{summary-en}
 
 
 
 
-\chapter*{Abbreviations}
+\chapter*{List of Abbreviations}
+%% The list of abbreviations contains and explains all abbreviations used in
+%% the thesis (except for common linguistic abbreviations as defined in the
+%% dictionary, e.g. Duden, Merriam-Webster).
+%% In the case of physical or chemical quantities, it is also necessary to
+%% specify the unit.
+%% An alphabetical order is useful, a subdivision (e.g. SI units, own
+%% abbreviations) is possible.
+%% For example, you can format the page in two columns, the abbreviations in
+%% bold and the corresponding explanations in non-bold.}
 
-%
-\todo[inline]{The list of abbreviations contains and explains all abbreviations
-used in the thesis (except for common linguistic abbreviations as defined in the
-dictionary, e.g. Duden, Merriam-Webster). In the case of physical or chemical
-quantities, it is also necessary to specify the unit. An alphabetical order is
-useful, a subdivision (e.g. SI units, own abbreviations) is possible. For
-example, you can format the page in two columns, the abbreviations in bold and
-the corresponding explanations in non-bold.}
+
+
+% decrease line spacing
+\renewcommand{\baselinestretch}{0.75}\normalsize
+
+% definition table of acronyms
+% see documentation on how if your acronym needs special formatting, and
+% the unit needs to be added to the list of abbreviations
+% set space between acronym and full definition to [longest]
+\begin{acronym}[longest]
+    \acro{GLM}{general linear model}
+    \acro{glm}[GLM]{general linear model}
+    \acro{PPA}{parahippocampal place area}
+    \acro{SRM}{shared response model}
+\end{acronym}
+
+% set line spacing back to normal
+\renewcommand{\baselinestretch}{1}\normalsize
 
 
 
 
 \tableofcontents
+%% The entire table of contents should not be longer than 2 pages.
+%% A chapter with only one subchapter is not allowed
 
-\todo[inline]{The entire table of contents should not be longer than 2 pages.}
-%
-\todo[inline]{A chapter with only one subchapter is not allowed}
-
-
-
-
-\listoftables
-
-\todo[inline]{does not seem to be mandatory?}
+% imo it makes more sense in following order:
+% ToC, list of abbreviations, list of tables, list of figures, actual text
 
 
 
+%\listoftables
+%% List of tables is not mandatory
+%% if not "not allowed"
 
-\listoffigures
 
-\todo[inline]{does not seem to be mandatory?}
+
+
+%\listoffigures
+%% List of figures is not mandatory
+%% if not "not allowed"
 
 
 
 
 \chapter{Introduction}
-% formatting stuff
+% set format of page numbers to arabic numbers
 \pagenumbering{arabic}
+% set page counter to 1
 \setcounter{page}{1}
 
-% use an external file
+% take input from external file
 \input{introduction}
 
 
 
 
-\chapter{Material and Methods}
-
-\todo[inline]{This chapter contains information on patients, examination
-materials and methods, depending on the research project. With the help of this
-chapter, readers must be able to understand and, if necessary, repeat all
-examinations and experiments.}
-
-\todo[inline]{Information on Patients: The statistical information to be
-mentioned or described includes number of patients, gender distribution, and age
-of patients (mean and median).}
-
-\todo[inline]{Reference Number issued by Ethics Committee: When results from
-clinical studies are part of the research project, the reference number assigned
-by the Ethics Committee of Heinrich Heine University upon approval must be
-stated in the chapter Material and Methods.}
-
-\todo[inline]{Reference Number issued by LANUV or ZETT: For work comprising
-results from animal testing, the file reference assigned by LANUV during the
-approval procedure must be given in the chapter Materials and Methods, or, in
-the case of organ removal, the file reference allocated by ZETT of Heinrich
-Heine University. A proof of participation in the laboratory animal science
-course must also be given, if applicable.}
-
-\todo[inline]{Methods and Material: This chapter lists: Type and origin of the
-material, hardware/equipment with type, manufacturer, location, a detailed
-description of the methods used.}
-
-\todo[inline]{Statistical Analysis A short and clear
-description of the methods used for material processing, data processing and
-statistical analysis.}
+\chapter{Study 1}
+\input{study1}
 
 
 
 
-\chapter{Results}
 
-\todo[inline]{This chapter contains a clear and concise presentation of your own
-results with reference to the research question of the thesis. Results that do
-not directly relate to the aim of the thesis should not be included here. Avoid
-any interpretation or discussion of the findings in the results chapter. Cite
-your own, already published data in the results chapter if you use them in your
-work. Further literature citations do not belong in the results chapter.
-%
-Results of others may not be included in the results chapter. Refer to other
-people's results either in the introduction or in the discussion. In order to
-use data as a graph, illustration or table, you must obtain written permission
-by the author.}
+\chapter{Study 2}
+\input{study2}
 
 
 
 
-\chapter{Discussion}
 
-% use an external file
+\chapter{Study 3}
+\input{study3}
+
+
+
+
+
+\chapter{General discussion}
+%% In the [general] discussion, a critical evaluation of your own results is
+%% made against the background of the literature. At this point, further
+%% results that have not already been listed in the results section can also be
+%% discussed.
+
+% take input from external file
 \input{discussion}
+
 
 
 
@@ -359,20 +374,19 @@ by the author.}
 \bibliographystyle{apacite}
 \bibliography{references}
 
-\todo[inline]{if APA-style is used, show all (i.e. more than 7) authors}
+\todo[inline]{if APA-style is used, show all (i.e. more than 7) authors; ggf.
+andere APA-style-Vorlage oder anpassen}
 
 
 
-% Appendix
-%\appendix
 
 \chapter{Appendix}
-
-\todo[inline]{The appendix contains:\\
-a) any existing survey materials, e.g. questionnaires\\
-b) detailed description of formulas and derivations\\
-Please do not include signed documents (e.g. the vote of the Ethics Committee)}
-
+%% The appendix contains:\\
+%% a) any existing survey materials, e.g. questionnaires\\
+%% b) detailed description of formulas and derivations\\
+%% Please do not include signed documents
+%% (e.g. the vote of the Ethics Committee)}
+%\appendix
 \input{appendix}
 
 
@@ -406,11 +420,15 @@ Simon Eickhoff, Gerhard Jocham, foremost Michael Hanke
 %
 
 
-\chapter*{Declaration of authorship}
-%
-\todo[inline]{The affidavit (declaration of Authorship) is signed in the
-``Application for authorization to the doctorate'' (Zulassungsantrag). According
-to the PO, the affidavit is no longer inserted in the dissertation itself.}
+
+
+%\chapter*{Declaration of authorship}
+%% The affidavit (declaration of Authorship) is signed in the
+%% "Application for authorization to the doctorate" (Zulassungsantrag).
+%% According to the PO, the affidavit is no longer inserted in the dissertation
+
+
+
 
 \end{spacing}
 \end{document}

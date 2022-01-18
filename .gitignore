@@ -1,6 +1,9 @@
 ## exclude following folders
 docs
 
+## exclude files containing general plan, notes, to dos
+00_Dissplan.odt
+
 # vim swap files
 .*.tex.sw?
 
