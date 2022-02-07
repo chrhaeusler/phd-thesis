@@ -49,15 +49,18 @@ cognitive processes (e.g. theory of mind; \citep{spunt2014validating}).
 %
 Typically, localizers are dedicated measurements that are used to define
 individual \acp{roi}, for example to improve the statistical power of the main
-experiment's analysis. They are also used to locate brain functions prior to
-neurosurgery.
+experiment's analysis.
+% practical use
+They are also used to locate brain functions prior to neurosurgery.
 %
 Surgical procedures might impact the post-operative quality of life so much
 (e.g. concerning cognitive control or speech production) that it potentially
-outweighs the therapeutic benefits.  The challenge is therefore to precisely
-localize relevant brain areas with limited resources (time, availability and
-applicability of diagnostic measures for an individual patient) in order to
-correctly predict the impact of the planned procedure.
+outweighs the therapeutic benefits.
+%
+The challenge is therefore to precisely localize relevant brain areas with
+limited resources (time, availability and applicability of diagnostic measures
+for an individual patient) in order to correctly predict the impact of the
+planned procedure.
 %
 Importantly, functional localizers, despite being tuned for detection power,
 quickly become inefﬁcient if one wants to map many different processes in a
@@ -73,11 +76,15 @@ perform in a 5-minute routine.
 Diagnostic quality of such paradigms relies heavily on participants' compliance
 and comprehension of the task instructions, a criterion that can be difficult to
 meet in certain target populations, such as patients with dementia.
+
+\todo[inline]{explain functional alignment in general; Hyperalignment vs. SRM}
 %
 An alternative approach to individual localization has been proposed by
-\citet{haxby2011common}.  They showed that target brain areas in ventral
-temporal cortex can be reliably predicted from the result of dedicated localizer
-scans for other individuals.
+\citet{haxby2011common}.
+%
+They (and e.g. \citet{jiahui2019predicting}) showed that target brain areas in
+ventral temporal cortex can be reliably predicted from the result of dedicated
+localizer scans for other individuals.
 %
 The key difference of this approach is to rely on similarity of representational
 geometry of brain activity patterns for aligning individual brains into a group
@@ -114,8 +121,8 @@ subjects (i.e. all subjects watching the exact same full-length movie) as used
 by Haxby and colleagues are not required to derive a valid alignment of
 individuals with a common representational space \citep{kaule2017examination}.
 %
-Comparable prediction performance can be achieved by using functional
-connectivity patterns (correlation of a voxel's time series with reference
+Comparable prediction performance can be achieved by using \textbf{functional
+connectivity patterns} (correlation of a voxel's time series with reference
 regions in the same brain).
 %
 This finding enables, in principle, the use of different ``calibration'' scans
@@ -127,6 +134,7 @@ Once a valid alignment is established, known functional properties of a
 (normative) reference, derived from extensive scans and analysis of other
 subjects, can then be projected into the respective individual voxel space (s.
 Fig. 1 in \citep{nishimoto2016lining}).
+
 %
 While the hyperalignment procedure can also be applied to fMRI data from more
 focused stimulation paradigms with simplified stimuli, the transformations for
@@ -146,6 +154,7 @@ order to intentionally manipulate the viewers' attentional focus and mental
 states \citep{brown2012cinematography, dancyger2011film-technique}.
 %
 In general, movie stimuli promise several advantages over simplified stimuli:
+
 \begin{itemize}
     \item improved subject compliance and compatibility due to
             minimal instruction requirements and task demands (e.g., no fixation
