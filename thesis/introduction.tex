@@ -2,6 +2,632 @@ this text is located in introduction.tex
 
 \section{Overview}
 %% The introduction begins with an overview of the topic
+\todo[inline]{some sentences are kinda quotes from other paper; e.g. ?}
+
+\todo[inline]{andere Kontraste, aber wenig results:
+                Phoneme, Audio-Tags, Prosody, Sex}
+%
+Introduction Brain imaging with blood oxygen level-dependent \ac{bold}
+functional magnetic resonance imaging \ac{fmri} has been used extensively for
+almost three decades to investigate brain function.
+%
+Typical analysis procedures average (voxel-wise) data of at least 10-15 subjects
+to improve the \ac{snr}.
+%
+Consequently, these studies do not characterize brain function at the level of
+an individual.
+%
+It is not implausible to assume that models of brain function that are based on
+a lowest common denominator approach only capture a fraction of individual
+functional brain properties.
+%
+Therefore, those models are an incomplete foundation for an investigation of
+inter-individual differences.
+%
+However, characterization of individual brain function is by far the most
+important application of BOLD fMRI in a clinical context.
+%
+For example, for pre-surgical screening, or diagnosis of brain function in
+health and disease.
+%
+The goal of the proposed project is to pave the way towards adopting an approach
+to the investigation of individual brain function that is based on individual
+differences with respect to large normative samples --- a proven strategy that
+has been standard in psychological diagnostics and other clinical research for a
+long time.
+
+
+\subsection{State of research}
+
+%
+The most frequently employed paradigm for characterizing individual brains with
+BOLD fMRI are so called functional localizers.
+%
+Functional localizers aim at isolating and localizing brain activity correlated
+with specific perceptual processes (e.g. faces; \citep{kanwisher1997ffa}) or
+cognitive processes (e.g. theory of mind; \citep{spunt2014validating}).
+%
+Typically, localizers are dedicated measurements that are used to define
+individual \acp{roi}, for example to improve the statistical power of the main
+experiment's analysis. They are also used to locate brain functions prior to
+neurosurgery.
+%
+Surgical procedures might impact the post-operative quality of life so much
+(e.g. concerning cognitive control or speech production) that it potentially
+outweighs the therapeutic benefits.  The challenge is therefore to precisely
+localize relevant brain areas with limited resources (time, availability and
+applicability of diagnostic measures for an individual patient) in order to
+correctly predict the impact of the planned procedure.
+%
+Importantly, functional localizers, despite being tuned for detection power,
+quickly become inefﬁcient if one wants to map many different processes in a
+limited amount of time.
+%
+One example of a time-efficient multi-functional localizer for reading, language
+comprehension, calculation, motor response, and basic retinotopy was developed
+by \citep{pinel2007fast}).
+%
+It employs a range of dedicated stimuli and specific tasks participants have to
+perform in a 5-minute routine.
+%
+Diagnostic quality of such paradigms relies heavily on participants' compliance
+and comprehension of the task instructions, a criterion that can be difficult to
+meet in certain target populations, such as patients with dementia.
+%
+An alternative approach to individual localization has been proposed by
+\citet{haxby2011common}.  They showed that target brain areas in ventral
+temporal cortex can be reliably predicted from the result of dedicated localizer
+scans for other individuals.
+%
+The key difference of this approach is to rely on similarity of representational
+geometry of brain activity patterns for aligning individual brains into a group
+space.
+%
+This is contrary to presently dominating approaches in neuroimaging group
+analyses that rely on topological constraints defined by a anatomical reference
+space (e.g. the MNI152 template brain).
+%
+\citet{haxby2011common} used BOLD response patterns evoked by a 2h action movie
+to derive a common representational space.
+%
+The algorithm, namely hyperalignment, derives this representation using a
+variant of Procrustes analysis and computes invertible (orthonormal)
+transformations from each individual brain’s voxel-space into this common
+reference space.
+%
+Importantly, the study also showed that an individual's \ac{ffa} or the
+\ac{ppa}, can be localized precisely based on data from a reference group.
+\todo{explain FFA, PPA}
+%
+The to be diagnosed individuals were scanned while they were watching a movie
+without any explicit task or instruction other than just to ``enjoy the movie''.
+%
+The same authors later showed that this approach can be extended to predict
+functional organization across large proportions of the cortical surface, for
+example to predict the represented visual field coordinate in visual cortex
+based on retinotopic mapping scans of other individuals
+\citep{guntupalli2016model}.
+%
+In his doctoral thesis, recently submitted to the Faculty of Natural Sciences in
+Magdeburg, Falko Kaule showed that congruent time-locked BOLD responses across
+subjects (i.e. all subjects watching the exact same full-length movie) as used
+by Haxby and colleagues are not required to derive a valid alignment of
+individuals with a common representational space \citep{kaule2017examination}.
+%
+Comparable prediction performance can be achieved by using functional
+connectivity patterns (correlation of a voxel's time series with reference
+regions in the same brain).
+%
+This finding enables, in principle, the use of different ``calibration'' scans
+to determine an alignment with a common representational space, for example with
+an age-appropriate stimulus, or a shortened scan time to fit into a particular
+clinical schedule.
+%
+Once a valid alignment is established, known functional properties of a
+(normative) reference, derived from extensive scans and analysis of other
+subjects, can then be projected into the respective individual voxel space (s.
+Fig. 1 in \citep{nishimoto2016lining}).
+%
+While the hyperalignment procedure can also be applied to fMRI data from more
+focused stimulation paradigms with simplified stimuli, the transformations for
+functional alignment have greatly diminished general validity
+\citep{haxby2011common}, presumably because such experiments sample a sparser
+range of brain states \citep{guntupalli2016model}.
+%
+Taken together, these findings suggest that a movie offers both a higher general
+validity and, because it better mimics statistics in our natural dynamic
+environment, higher ecological validity. Numerous studies have shown that
+watching a movie leads to correlated time-locked brain responses across subjects
+in many brain regions, and to synchronized eye movements
+\citep{hasson2010reliability, lankinen2014isc-meg}.
+%
+This can be attributed to the way professional movies are shot and edited in
+order to intentionally manipulate the viewers' attentional focus and mental
+states \citep{brown2012cinematography, dancyger2011film-technique}.
+%
+In general, movie stimuli promise several advantages over simplified stimuli:
+\begin{itemize}
+    \item improved subject compliance and compatibility due to
+            minimal instruction requirements and task demands (e.g., no fixation
+            requirement, hence more appropriate for elderly or visually impaired
+        persons).
+    \item improved data quality, as an interesting and
+            easy-to-follow stimulus is more capable of putting a participant at
+            ease in the otherwise claustrophobic, uncomfortable and noisy fMRI
+        scanner.
+    \item increased validity of derived transformation for
+            functional alignment by sampling a more diverse set of mental states
+            that reflect (confound) statistics of the natural environment, and
+            enable investigation of the acquired data for a variety of research
+            questions (e.g. visual or auditory perception, spatial cognition;
+            emotion; music, speech or social perception)
+\end{itemize}
+
+
+\subsection{Own work}
+
+\todo[inline]{following part can probably be deleted; or restructured towards
+open science and reproducibility, fuck yeah! -> Aims of study}
+%
+For the past three years I have been involved in the studyforrest project run by
+J.-Prof. Michael Hanke at the Psychoinformatics Laboratory
+(www.psychoinformatics.de) at the Institute of Psychology in Magdeburg.
+%
+The
+studyforrest project is an open science project that aims at providing a
+versatile resource for investigating human brain function under quasi-natural
+conditions.
+%
+The core of this dataset are two hour long BOLD fMRI scans of
+participants watching the movie Forrest Gump (and also listening to a version
+for the blind in another scan of equal length).
+%
+Since its first publication in
+2014 \citep{hanke2014audiomovie}, this resources has led to eight independent studies
+of international research groups outside Magdeburg that were published in
+peer-reviewed journals (http://studyforrest.org).
+%
+As part of my work as a
+student assistant in the psychoinformatics lab I contributed to two major
+extensions of the dataset by implementing and executing a number of fMRI data
+analyses:
+\begin{itemize}
+    \item a high-resolution fMRI dataset of participants listening to music
+    (Hanke et al., 2015), and
+    \item functional localizers for visual brain areas and
+        retinotopic mappings for the studyforrest participants
+        \citep{sengupta2016extension}. In both cases my analysis
+        implementations are published alongside the original data.
+\end{itemize}
+
+For my master's thesis (Häusler, 2016) I investigated the hypothesis that cuts
+in a movie cause participants to repeatedly re-orient themselves in the virtual
+spatial environment depicted by the movie[t][u], and that a movie can be used to
+study aspects of spatial cognition without a dedicated task.
+%
+Based on my knowledge about cinematographic editing techniques, I annotated the
+~870 movie cuts with respect to depicted major locations, scene settings,
+within-scene rooms and perspectives.
+%
+The annotation served as prerequisite to investigate cognitive functions, such
+as spatial reorientation, perspective taking, and memory retrieval for known
+spatial layouts in terms of their occurrence in the movie stimulus.
+%
+This resulted in a third peer-reviewed publication (Häusler and Hanke, 2016),
+and my first individual contribution to the studyforrest project.
+%
+I also implemented a reproducible fMRI data analysis procedure for automated
+parallel processing of the movie dataset on the computer cluster of the
+Institute of Psychology.
+%
+Empirical results of analysis contrasts comparing brain activity patterns
+between different types of cuts revealed networks for spatial cognition closely
+resembling the results reported by previous studies \citep{epstein1998ppa,
+vanassche2016functional} using dedicated task-fMRI paradigms.
+%
+These results are in line with previous research \citep{bartels2004mapping}
+suggesting functional segregation in the brain is preserved during complex,
+lifelike stimulation.
+%
+Another recently completed master's thesis submitted by my co-worker Pierre Ibe
+(Ibe, 2017) provides further evidence for this interpretation in the domain of
+social cognition, and the processing of pleasant and unpleasant events of
+``interpersonal touch'' in the movie ``Forrest Gump''.
+
+
+\subsection{Work program}
+%
+Previous work has shown that it is, in principle, possible to combine BOLD fMRI
+with a rich naturalistic stimulus for the purpose of localizing areas associated
+with particular brain functions \citep{bartels2004mapping}.
+%
+This can be approached by either modeling specific stimulus features, or by
+using the high-dimensional nature of such a stimulus to derive a common
+representational space for aligning functional properties of cortex.
+%
+To my knowledge, however, there has been no study aimed at replacing one or more
+established localizer paradigms for the purpose of improving routine (clinical)
+diagnostics by means of natural stimulation.
+%
+As listed above, using a (short) movie would have substantial advantages (e.g.
+task demands, compliance, and data quality) over simplified stimuli presently
+used in localizer paradigms[ab][ac].
+%
+Improved efficiency by replacing multiple dedicated localizer scans with a
+single natural stimulation potentially enables more comprehensive diagnostics in
+a similar or even less amount of time.
+%
+For this purpose, I want to evaluate two strategies:
+
+\begin{itemize}
+    \item direct modeling of a natural stimulus and
+    \item prediction via functional alignment to a reference population
+\end{itemize}
+
+In order to guarantee validity and cost-effectiveness of
+my approach, the project will be embedded in two already ongoing lines of
+research:
+
+\begin{itemize}
+    \item the aforementioned studyforrest project, and
+    \item BOLD fMRI based diagnostic routine for speech lateralization (Bethmann
+        et al., 2007) that is performed for all new participants of MRI studies
+        at the Leibniz Institute for Neurobiology (LIN), Magdeburg.
+\end{itemize}
+
+The proposed work is split into two semi-parallel work packages (s. Figure 1).
+%
+The first investigates a direct modeling.
+%
+The second explores the suitability of functional alignment.
+%
+All required algorithms and analyses will be implemented in a way that enables
+automated processing.
+%
+This will facilitate documentation and efficient processing of large number of
+datasets.
+%
+Implementations will be based on open-source software tools to guarantee a
+maximum level of reproducibility, and relative ease of long-term maintenance
+\citep{eglen2017toward}.
+%
+Once available, the developed stimulation paradigm and analysis implementations
+will be integrated in the upcoming CBBS imaging platform that aim at providing
+reusable software components for neuroimaging research to all groups in
+Magdeburg.
+%
+The goal is to provide researchers with efficient, validated, ready to use
+solutions (stimulation, MR sequence configuration, analysis software) for
+functional localization that can be incorporated into their study protocols.
+%
+Moreover, beyond the scope of this project the targeted homogenization of
+acquisition procedures will further the goal of large scale data collection for
+the purpose of producing a normative reference of brain function as measured by
+fMRI.
+%
+Figure 1 provides an overview of the specific unit in both work packages.
+%
+Each unit is described in more detail in the following sections.
+%
+The schedule is designed to align similar tasks across work packages in time and
+minimize the number of units that have to be processed in parallel.
+%
+The schedule leaves sufficient time to compensate for possible delays in the
+overall progress and includes dedicated time to prepare and finalize
+publications and PhD thesis within the funding period.
+%
+Figure 1. Gantt chart of the work package timing.
+%
+Components in gray correspond to work primarily performed as part of routine
+data acquisitions at the LIN with very low workload for the PhD student.
+
+\subsubsection{WP1: Speech lateralization diagnosis from
+natural stimulation BOLD fMRI}
+
+%
+The goal of this work package is to develop a short routine for localizing brain
+areas associated with neural processing of human speech using a task-free
+natural stimulation paradigm.
+%
+The package is designed so that work can start immediately, because essential
+fMRI data is already available.
+
+
+\paragraph{a) Evaluate candidates for diagnostic contrasts}
+%
+Existing BOLD fMRI data from the
+studyforrest project will be used to evaluate a number of (non-exclusive)
+candidates for contrasting brain activity patterns evoked by different aspects
+of speech perception and comprehension throughout the Forrest Gump
+movie.
+%
+Examples include: speech vs. non-speech vocalizations (moans, screams,
+etc.; more than 150 events are annotated already); active vs. passive voice;
+speech vs. natural sounds (e.g. a dog barking, gun fire, non-vocal music).
+%
+Candidates will be evaluated regarding their ability to isolate functional areas
+known to be associated with processing of speech using standard mass-univariate
+GLM analyses.
+%
+Alternatively, manipulating the movie's speech content or its
+temporal structure provide additional experimental conditions for a contrast
+candidate \citep{silbert2014coupled}.
+
+
+\paragraph{b) Test cross-modal reliability}
+
+For 15 participants in the studyforrest datasets two different full-length movie
+scans are readily available: one with the normal audio-visual movie
+\citep{hanke2016simultaneous}, and a second one with an audio-only movie variant
+(originally produced for a visually impaired audience) that is time-locked to
+the audio-visual version \citep{hanke2014audiomovie}.
+%
+Based on these data within-subject retest reliability of localizer contrast
+candidates developed in WP1a will be assessed.
+%
+This investigation will also
+provide insight if it is feasible to produce an audio-only localizer paradigm as
+an alternative for studies where no visual stimulation is feasible or desired.
+%
+Previous results show that there are significant voxelwise BOLD response time
+series correlations between the two datasets in brain areas associated with
+speech and story processing (s. Figure 3 in \citep{hanke2016simultaneous}).
+
+
+\paragraph{c) Test adequate stimulus length and choosing a short(ened) movie}
+%
+With the results from WP1a (specificity) and WP1b (reliability) a specific
+diagnostic contrasts can be selected.
+%
+However, all analyses up to this point will have been performed on 2h-long
+scans, but any clinical application must aim to minimize the scan time/cost.
+%
+In this work package I will estimate the trade-off between diagnostic quality
+and required effective scan time by progressively reducing the duration of input
+BOLD fMRI data and comparing the results of the reduced model to the reference
+computed from the full length scan.
+%
+Based on this estimate, and the corresponding number of critical events and
+their timing a shortened movie stimulus can be produced (target duration about
+15 min).
+%
+Depending on the nature of the diagnostic contrast and the required number
+of events, this can either been a contiguous segment of the original movie, a
+different and shortened cut, or a completely different movie stimulus that
+matches the desired properties.
+
+\paragraph{d) fMRI Data acquisition for the short movie}
+
+%
+Once a short movie stimulus is available, the stimulation paradigm will be
+implemented.
+%
+In collaboration with the Non-Invasive Brain Imaging Unit at the LIN fMRI data
+for this short movie will be acquired.
+%
+The acquisition will be integrated into an existing protocol and an ongoing
+acquisition effort performed by the LIN group that is designed to diagnose the
+lateralization of speech processing in the brain, using a standard task-based
+localizer paradigm (Fernandez et al., 2001).
+%
+This integrative approach will yield comparative within-subject BOLD fMRI
+datasets for the task-free movie stimulation and a dedicated established
+localizer paradigm.
+%
+A sufficient number of participants will be required to properly assess the
+performance of the new short movie stimulus (N greater/equal 50).
+%
+Over the past three years about 50 individuals per year have been participating
+in these data acquisitions, hence 15 months are scheduled for this data
+acquisition phase.
+
+\paragraph{e) Compare task-free localizer to dedicated task-based speech
+localizer}
+%
+Using the data from WP1d, the diagnostic performance of the task-free movie fMRI
+recording will be compared to the results of the localizer paradigm currently
+employed at the LIN. The approach will be two-fold:
+%
+1) quantification of the similarity of identified speech-related brain areas
+(e.g. Jaccard index or Dice coefficient).
+%
+However, it is likely that a rich natural stimulation evokes more widespread
+network activity, compared to a simplified stimulus that additionally requires
+the subject to perform a  task as in Fernandez (2001).
+%
+Therefore, the performance of the two paradigms will also be compared directly
+in terms of their diagnostic classification performance (i.e. left vs. right
+lateralized speech processing).
+%
+The ability of performing the latter assessment depends, however, on a
+sufficient number of individuals in each category (the majority of people
+exhibit left-lateralized speech).
+
+\paragraph{f) Evaluate short movie with respect to localization of other brain
+functions}
+%
+Lastly, the new short movie stimulus will be assessed with respect to its
+diagnostic potential for other functionally defined regions in the brain.
+%
+Again, data from the studyforrest project will be used to perform assessments
+analog to WP1e for a range of additional individually determined regions based
+on established localizer paradigms (Sengupta, et al., 2016).
+%
+These regions include: the \ac{ffa}, \ac{ppa}, and the extrastriate body area
+(EBA) which are associated with face perception \citep{kanwisher1997ffa,
+pitcher2011occipitalfacearea}, scene perception \citep{epstein1998ppa}, and the
+perception of human bodies \citep{downing2001bodyarea}, respectively.
+%
+The actual selection will depend on the specific properties of the chosen short
+movie stimulus.
+
+
+\subsubsection{WP2: Predict speech processing related areas from a reference
+group}
+%
+The goal of this work package is to develop an alternative short routine for
+localizing brain areas associated with neural processing of human speech, also
+using a task-free natural stimulation paradigm. In contrast to WP1 the short
+movie fMRI data acquired from an individual will not be analyzed directly
+regarding a specific cognitive function, such as speech processing, but will be
+used to align that individual brain’s voxel space with a common high-dimensional
+representational reference space. Once a valid alignment is established, the
+inverse transformation is then used to project functional properties of the
+common reference into that individual’s voxel space. The required fMRI data
+measurements are largely identical to those in WP1, and acquisitions are
+scheduled in a way that minimizes dependencies between work packages.
+Importantly, WP2 does not depend on a complete success of WP1. WP2 does not rely
+on the ability to achieve a localization performance based on a short movie that
+is on par with that of a dedicated localizer scan. However, the short movie
+stimulus developed in WP1 will be used to test whether reliable functional
+alignment can be achieved with a task-free, natural stimulation “calibration”
+scan that requires no more acquisition time than a conventional localizer
+paradigm.
+
+
+\paragraph{a) Extend the studyforrest dataset with standard speech
+localizer[ar]}
+%
+In order to be able to evaluate the prediction performance of
+brain areas associated with speech processing, the studyforrest dataset has to
+be extended with BOLD fMRI scans for an established localizer paradigm (the same
+as in WP1 that is already in use at the LIN; Fernandez et al., 2001). At the
+same time, additional fMRI data acquisitions for the full-length movie might
+have to be performed in order to compensate for original studyforrest
+participants that may no longer be able or willing to volunteer for additional
+measurements (N expected to be less than 10). This work will be performed in
+collaboration with the Non-Invasive Brain Imaging Unit at the LIN.
+
+
+\paragraph{b) Predict dedicated speech localizer from reference group data}
+
+With the data from WP2a
+the whole-brain hyperalignment procedure -- using an implementation of a
+locally constrained estimation of a sparse whole-brain transformation
+(Guntupalli et al., 2016) that is already available in the lab -- will be
+employed to derive a common functional reference space from the BOLD response
+time series for the full movie.
+%
+Each axis in this common space can be seen as a
+kind of cortical tuning function.
+%
+The orthonormal transformation of an
+individual voxel space into this common reference reflects the particular linear
+combination of voxel response time series with respect to each common space
+component.
+%
+Using a leave-one-subject-out strategy, individual results of the
+conventional speech localizer will then be projected into the common space,
+aggregated, and re-projected into the voxel space of the left out individual for
+comparison with the localizer results for that individual (see Figure 2).
+
+%
+Figure 2. Schematic of Hyperalignment and an Example of its Use. (Left)
+Schematic of hyperalignment.
+%
+Using movie-evoked brain activity, hyperalignment procedure learns subject-wise
+optimal transformations of brain activity into a common representational space.
+%
+(Right) An example of how hyperalignment might be used.
+%
+Once hyperaligned, the brain activity of one or more subjects can be used to
+predict the activity of another subject.
+%
+This allows, for example, the inference of a retinotopic map for a subject
+without conducting a retinotopic mapping experiment for the subject;
+%
+adapted from Nishimoto et al. (2016).
+
+%
+As noted before, a prolonged complex natural stimulus might reveal additional
+speech-related brain areas.
+%
+Based on the results of WP1a and WP1b localization of speech areas will also be
+performed in the common reference space directly (the stimulation time axis is
+preserved in the common space), and the results will be projected into the voxel
+space of the left-out individual, where they can be compared with the
+localisation result derived from that subject’s movie scan.
+
+
+\paragraph{c) Test functional alignment to a reference space using a short
+calibration scan}
+%
+With the availability of a short movie stimulus from WP1c, the studyforrest
+dataset will be extended with fMRI data for this stimulus.
+%
+The joint dataset will enable me to study whether a functional alignment to the
+common reference space produced in WP2b can be performed based on this short
+scan. Two principal strategies will be tested:
+%
+1) Compute an additional common reference space from the fMRI scans of N-1
+subjects using the new short movie scans, while keeping the actual voxel space
+transformation fixed and identical to WP2b.
+%
+This will yield a new short common reference with the same axes as the previous
+full length reference that can be used in the same way for aligning a left-out
+subject as the full-length reference in WP2b.
+%
+2) The functional alignment on the full-length movie from WP2b will be
+recomputed, but this time based on functional connectivity vectors, as opposed
+to BOLD response time series.
+%
+This will be performed using an implementation developed by Falko Kaule as part
+of his PhD project.
+%
+Analog connectivity vectors will then by estimated from the short movie scan of
+the left-out subject and will be used for direct hyperalignment.
+%
+Differences in the transformations between the two approaches will be quantified
+in terms of overall similarity, but also in terms of within-subject differences
+regarding the weighting of individual brain areas across all common space
+components.
+%
+This comparison is possible, because in both cases the subject’s voxel space is
+identical, and the orthonormal transformation into the respective common space
+preserves all variance.
+
+%
+It should be noted that the number of voxels that can be considered
+simultaneously for functional BOLD response time series alignment is limited by
+the number of timepoints in the calibration scan (about 300-400 voxels for a
+15min scan with a 2s TR, corresponding to a local cortical neighborhood of about
+1cm in diameter for a standard resolution).
+%
+This limitation does not exist in
+this form for a functional alignment that is based on connectivity vectors.
+%
+The
+length of these connectivity vectors is determined by the number of reference
+(or seed) regions in the brain.
+%
+The results of this work package will
+determine whether it is necessary to include dedicated reference scans for short
+calibration stimulation sequences in a future collection of normative data.
+
+
+\paragraph{d) Test minimum data requirement for reliable functional alignment
+(within-subject test-retest)}
+%
+Analog to WP1c, in this last work unit I will estimate the minimum scan time
+requirement for deriving a valid functional alignment by further reducing the
+amount of input data for the short movie scan of the left-out individual.
+%
+Due to the aforementioned constraints of the time series hyperalignment
+regarding the number of simultaneously considered voxels, this work will be
+performed using the connectivity hyperalignment from WP2c only.
+%
+Taken together, the results of all work packages detail what performance and
+versatility can be expected from an approach to localization that is based on
+task-free natural stimulation fMRI.
+%
+Moreover, it comprehensively informs a future study about scan type, and scan
+time requirements for the collection of a normative reference.
+%
+The availability of such a reference would enable quantitative and qualitative
+description of an individual’s brain function with respect to such a norm, and
+consequently progress the field towards neuroimaging studies of individual
+differences that more closely resemble their psychological counterparts
+\citep{dubois2016building}.
 
 
 \section{Introductory remarks}

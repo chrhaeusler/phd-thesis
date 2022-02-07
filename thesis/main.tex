@@ -96,6 +96,9 @@
 % Units uses nicefrac in typesetting physical units in a standard-looking way.
 \usepackage{units}
 
+% for signs ligh less/equl, greater/equal etc.
+\usepackage{amssymb}
+
 % how to handle links in the PDF
 \usepackage[
     colorlinks=true,
@@ -294,10 +297,17 @@ unterhalb der Tabelle}
 % the unit needs to be added to the list of abbreviations
 % set space between acronym and full definition to [longest]
 \begin{acronym}[longest]
+    \acro{bold}[BOLD]{blood oxygen level-dependent}
+    \acro{eba}[EBA]{extrastriate body area}
+    \acro{ffa}[FFA]{fusiform face area}
     \acro{GLM}{general linear model}
     \acro{glm}[GLM]{general linear model}
-    \acro{PPA}{parahippocampal place area}
+    \acro{fmri}[fMRI]{functional magnetic resonance imaging}
+    \acro{ppa}[PPA]{parahippocampal place area}
+    \acro{roi}[ROI]{region of interest}
+    \acrodefplural{roi}[ROI]{regions of interest}
     \acro{SRM}{shared response model}
+    \acro{snr}[SNR]{signal-to-noise ratio}
 \end{acronym}
 
 % set line spacing back to normal
