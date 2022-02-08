@@ -1,1 +1,384 @@
-text in study3.tex
+\section{Abstract}
+%
+Usually researchers conduct dedicated experiments often
+accompanied with a task (so called "functional localizer") to map perceptual or
+cognitive functions onto brain areas of study participants.
+%
+Nevertheless, the approach "one paradigm, one brain function" becomes
+unfeasible if one wants to map a variety of functions in a time-efficient
+manner.
+%
+Currently, we explore a way to project brain mapping data (statistical z-maps)
+from a reference group onto individual brains of study participants after
+performing a functional aligning of participants with a common model space.
+%
+Data were obtained from conducting one functional localizer paradigm and two
+paradigms using naturalistic stimulation during functional magnetic resonance
+imaging (fMRI): participants took part in a task-based, block-design visual
+localizer, and participants were watching an audio-visual movie and listening
+to the movie's audio-description free of any task.
+%
+Based on these data, we created a common model space employing a shared
+response model (SRM; Chen, 2015).
+%
+On the one hand, the common model space allows denoising data from individuals
+that were used to create the common model space.
+%
+On the other hand, data from left-out subjects can be aligned with the common
+model space by using a (preferably short) segment of a naturalistic stimulus as
+a "diagnostic run", a process that provides a subject-specific transformation
+matrices.
+%
+The inverse of the acquired transformation matrices can then be used to project
+data from other paradigms aligned in common space onto the brain of the
+left-out subjects.
+%
+The general goal of the project is to assess the required length of the
+diagnostic run, and to compare empirical z-maps with z-maps that were predicted
+from other participants' data.
+%
+We present preliminary results of predicted z-maps gained from the same
+paradigm as the diagnostic run as well as across paradigms.
+
+
+\section{Introduction}
+
+
+\todo[inline]{vgl.bash-history}
+
+main idea: predict location from other participants' data,problem: individual
+differences in, functional-anatomical correspondence, does functional alignment
+improve the prediction? is a short diagnostic run "sufficient" for alignment?
+%
+Why does it makes sense to predict the location of a functional area in the
+brain of one subject, based on the location of that area in a reference group?
+%
+How can this prediction be improved if you do not just rely on an anatomical
+aligment but on a functional alignment
+
+%
+Topographic mapping:
+%
+Brain mapping maps brain functions, perceptual or cognitive processes, onto
+brain areas.
+%
+Usually, this is done by letting study participants perform a task during a so
+called ``functional localizer''.
+%
+The first problem with these localizers is: they mostly need the participants
+to perform a task, and they are just plain boring which often leads to a
+diminished compliance.
+%
+The second problem is: you usually need one localizer for one domain of brain
+functions
+%
+Which means: if you want to map a variety of domains, you need a variety of
+localizers, and then the whole approach gets time-consuming and inefficient
+(localizer batteries; e.g. Thirion's work)
+%
+focussing on the domain of so called ``higher-visual, category-selective
+areas''
+%
+How do you usually map these category-selective areas onto brains of individual
+study participants?
+%
+You conduct a functional localizer experiments, lasting about 20 minutes,
+%
+You let the participants watch pictures of different categories, while also
+letting them perform a task to force them to pay attention to picture, after
+picture, after picture
+%
+After having collecting the data you do some statistics, and as a result you
+get statistical maps, t- or z-map, that essentially tell you where the
+higher-visual areas are located
+%
+If we need about 20 minutes for just one domain, why don’t we predict the
+location of a functional area in one person from the location that we found in
+other persons?
+
+
+
+\subsection{Prediction from anatomy and CMS}
+
+We can do this in basically two ways:
+a) we do this by performing an anatomical alignment,
+or
+which is a new a approach:
+b) we can do this by performing a functional alignment
+
+First, the case of an anatomical alignment,
+- anatomical alignment aligna vertices or voxels
+- in 2-dimensional or 3-dimensional, anatomical space
+- which means, that we transform the shape of an individual brain
+  into the shape of an average, standard brain
+
+but when we want to predict functional areas from anatomically aligned brains,
+we are running into the problem of poor
+functional-anatomical correspondence.
+
+Poor functional-anatomical correspondence means:
+even if we assume that two persons have anatomically identical brains, still,
+the location, size \& shape of the functional area is probably different.
+
+-------------------------------------
+Here, as an example the location of the „PPA“,
+the Parahippocampal Place Area.
+which is more active when we look at pictures of scenes or landscapes.
+
+Here, we see the location of the PPA in 14 subjects,
+and the brighter the voxel the more subjects have their PPA in that location.
+
+You can see that the location is roughly similar across persons, but still,
+the plot shows that there is individual variation.
+
+Speaking of individual variation as a side note:
+In case you are interested in individual differences,
+poor functional-anatomical might be an issue:
+
+- do you really find differences in individual brain patterns or
+  do differences stem from differences in
+  functional-anatomical correspondence?
+- and vice versa: we might find no differences because of
+  poor functional-anatomical correspondence
+
+but back to the current case:
+we do not want to predict brain anatomy,
+but we want to predict the location of brain functions,
+so wouldn’t it make more sense to not
+perform an anatomical alignment but a functional alignment?
+
+
+\subsection{functional alignment}
+
+well, it does makes sense.
+
+What functional alignment does, is the following.
+Functional alignment...
+- aligns cortical patterns, meaning time-series (or connectivity profiles)
+- in a multi-dimensional function space
+- and here the reference is not an average brain anatomy
+  but a so called „common model space“ or „CMS“ for short
+
+There are two algorithms dominating the field.
+And these are algorithms are
+- Hyperalignment, and the
+- Shared Response Model, that we use in the current project
+
+Here again as a side note:
+If you want to know more about functional alignment in context of more
+fine-grained individual differences.
+You should really take a look at these two papers
+Don’t worry, I will show the references again at the end
+
+
+To give you a rough understanding how functional alignment works:
+
+You let study participants watch a naturalistic stimulus like a movie or an audio-book...
+...which are continuous, naturally engaging,
+and are triggering a wide variety of time-locked brain functions
+
+From that stimuli, you get the time-series per voxel and per subject,
+and what the algorithm essentially does is:
+it learns responses that are shared across participants
+(which is the common model space)
+
+but more importantly, the algorithm also learns individual transformation matrices.
+
+These transformation matrices can be used to project data into
+and out of the Common Model Space.
+
+
+\subsection{Aims \& hypotheses}
+
+We wanted to predict the location of the PPA based on data from a reference group
+
+And we wanted to compare the prediction performance based on
+anatomical alignment \& functional alignment
+
+
+
+\section{Methods}
+
+
+- 14 participants, 3 experiments with 3 tesla, TR = 2 sec
+- functional localizer (4 runs; 650 TRs) as "ground truth"
+- movie \& audiobook (2x8 runs; > 7200 TRs) for model space
+- model space: shared response model (Chen et. al 2015)
+- limited to voxels within ROIs based on other subjects' data
+- goal: align left-out subject to model space using
+  varying amount of data of movie or audiobook
+
+- transform localizer results into left-out subject
+
+
+Which data did we use ?
+
+---------------------------------
+We used data from the studyforrest dataset
+that provides fMRI data
+- from the movie „Forrest Gump“
+- from the audio-description of the movie produced for a visually-impaired audience, and
+- from a localizer experiment for higher-visual areas
+
+Taken together, for 14 subjects,
+we have roughly 7500 data points to let the algorithm learn the shared responses
+which is the common model space,
+and it also learns the transformation matrices.
+
+Given that each brain has far more than 7500 voxels,
+we needed to restrict our analysis to voxels within a region of interest
+that we defined anatomically
+
+Now, how do we predict functional areas?
+First, the easier example: prediction using anatomical alignment
+
+-------------------------------------
+- you conduct the localizer experiment to get the brain responses in the reference group
+- then you align the brains in that reference group anatomically
+  to the standard brain
+- and you also align your left-out subject to the standard brain,
+  which gives you a transformation matrix
+- then you use the inverse of that transformation matrix to project the data
+  from the reference group into the anatomy of the left-out subject,
+  which is essentially the prediction
+
+Second, the prediction using functional alignment
+
+--------------------------------------
+For the prediction through a common model space,
+we first needed to create it
+
+We let participants watch the movie and audio-description of Forrest Gump,
+assuming that the naturalistic stimuli trigger, among others,
+brain responses that a similar to those triggered by the functional localizer
+
+Usually when aligning brain responses (and not connectivity profiles) you would let the left-out subject watch the same and the whole stimuli
+that were used to create the Common Model Space to get the transformation matrices.
+
+But this is not very time-efficient, right?
+
+------------------------------------------------
+Hence, the real question that we asked yourselves was:
+How many minutes of a naturalistic stimulus are necessary to perform what we call a „partial alignment“.
+
+So, we only used parts of the naturalistic stimuli to let the algorithm learn the transformation matrices for the left-out subject
+
+and we tested
+which amount of data is needed to do an alignment to the common model space
+that provides transformation matrices that outperform a prediction using just an anatomical alignment.
+
+
+
+\section{Results}
+
+
+For every subject, we see the correlation of z-maps that tell us the, quote „real“ unquote, PPA and predicted PPA
+
+In green,
+we see the correlations between empirical values from the localizer
+\& the predicted values using anatomical alignment
+
+In orange,
+we see the correlations between empirical values \&
+the predicted values using parts of the movie
+
+In blue,
+we see the correlations between empirical values \&
+the predicted values using parts of the audio-description
+
+What we can see is,
+- that 15 minutes of movie watching outperform an anatomical alignment,
+- and 30 minutes of movie watching outperform 15 minutes of movie watching
+- more than 30 minutes do not lead to a significantly improved prediction performance.
+
+I marked subject 4, because I want to show you how results look like in a horizontal slice of the brain of subject 4
+
+---------------------------
+We have these nice blurry EPI-images and all z-maps are threshold
+at a value of bigger than 2.3.
+
+always in red,
+we can see the z-map from the localizer experiment across the whole brain,
+
+the region of interest that we used is white
+and the predicted values, are blue
+
+The prediction using anatomical alignment
+and the prediction using 15 minutes of movie data show a correlation of about .7
+
+the prediction using 15 minutes of the audio-description correlates about 0 with the empirical z-map
+
+The last one is the extreme case,
+but it can give you an idea of how the z-maps look in a slice of the brain
+
+
+
+\section{Discussion}
+
+
+- 15 min of movie watching
+  used for functional alignment
+  outperform prediction using
+  anatomical alignment
+
+- proof of concept
+- ROIs vs. whole brain
+  via searchlight?
+- predict other t-contrasts?
+- predict other localizers?
+  e.g. retinotopy, language areas
+
+As a summary just three points
+
+1) 15 minutes of movie watching used for functional alignment outperform a prediction using anatomical alignment
+
+2) more than 30 minutes do not increase prediction performance
+
+3) and please rememeber that the visual localizer is considered to be the „ground truth“ which is a kind of a big assumption
+
+at least to me, far more interesting is not the discussion
+but what still needs to be done in the current project
+
+1) how do we test the differences in performance?
+a recent paper used dependent t-tests
+to test for differences in the correlations
+
+2) how do we calculate the reliability of the localizer as kind of a „ceiling“
+
+3) lastly, we currently apply another method to get the „z-map template“
+    on which the prediction is based
+
+Lastly, what is out if scope of the current project:
+
+First,
+we currently have a cross-subject and cross-experiment prediction,
+but we do not have a cross-scanner prediction
+
+hence, we would like to create a CMS from another experiment’s data,
+using another scanner and hopefully more subjects
+
+In case of an alignment of time-series,
+that experiment needs, at least, a part of Forrest Gump as an intersection
+
+Second,
+we do not want to restrict ourselves to a region of interest,
+but perform a whole-brain alignment,
+probably using a search-light algorithm
+
+and finally,
+what is all that leading to?
+
+It leads to the creation of a functional atlas
+
+Imagine you scan a new, unknown subject for just 15 minutes more, and you additionally get results from a whole variety of other paradigms mapped onto that brain
+Results from localizers of low-level perceptual processes, but also higher-level cognitive processes like language, memory, emotions and so on
+
+And I did not write that onto the slides because it is just a vague idea:
+If you have different common model spaces for different subgroups,
+you can investigate which alignment
+onto which „subgroup common model space“
+results in less error,
+that lets you classify to which subgroup your new subject might belong.
+
+
+\section{Conclusion}
