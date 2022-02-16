@@ -268,6 +268,12 @@ using just an anatomical alignment.
 
 
 \subsection{Experiments, i.e. data}
+
+
+\paragraph{functional localizer}
+
+
+
 % functional localizer
 - functional localizer of higher visual areas
 %
@@ -280,7 +286,54 @@ ground truth
 
 \subsection{localizer as ground truth; ceiling}
 %
-how do we calculate the reliability of the localizer as kind of a „ceiling“
+\todo[inline]{how do we calculate the reliability of the localizer as kind of a
+``ceiling''}
+
+datalad install -d . -s https://github.com/psychoinformatics-de/studyforrest-data-visualrois.git inputs/studyforrest-data-visualroi
+
+create union of visual rois: create-roi-overlaps.sh:
+
+\paragraph{re-create 1st lvl results}
+
+% onset files for subject
+datalad get inputs/studyforrest-data-visualrois/sub-*/onsets/run-*/*.txt;
+
+datalad get
+inputs/studyforrest-data-visualrois/src/aligned/sub-*/in\_bold3Tp2/sub-*\_task-objectcategories\_run-*\_bold.nii.gz
+
+despike the raw data: condor\_submit code/despike.submit; run 1st-level analysis
+./code/generate\_1st\_level\_design.sh; condor\_submit code/compute\_1stlvl\_glm.submit
+
+
+\subsubsection{Naturalistic paradigms (aligned data)}
+%
+datalad get -n inputs/studyforrest-ppa-analysis/inputs/studyforrest-data-aligned
+%
+datalad get
+inputs/studyforrest-ppa-analysis/inputs/studyforrest-data-aligned/sub-??/in\_bold3Tp2/sub-??\_task-a?movie\_run-?\_bold*.*
+
+
+\paragraph{results from study 2: from natural stimulation paradigm}
+
+%
+https://gin.g-node.org/chaeusler/studyforrest-ppa-analysis
+
+%# comprises "aligned-data", templates etc. als subdatasets
+
+
+\paragraph{motion parameters from AO study}
+%
+datalad get -n inputs/studyforrest-ppa-analysis/inputs/phase1
+%
+get 4D fMRI data and motion correction parameters: datalad get
+inputs/studyforrest-ppa-analysis/inputs/phase1/sub???/BOLD/task001\_run00?/bold\_dico\_moco.txt
+
+\paragraph{templates and transforms}
+%
+datalad get
+inputs/studyforrest-ppa-analysis/inputs/studyforrest-data-templatetransforms/sub-*/bold3Tp2/;
+datalad get
+inputs/studyforrest-ppa-analysis/inputs/studyforrest-data-templatetransforms/templates/*
 
 
 \subsection{Shared response model and common model space}
@@ -308,6 +361,91 @@ limited to voxels within ROIs based on other subjects' data
 Given that each brain has far more than 7500 voxels,
 we needed to restrict our analysis to voxels within a region of interest
 that we defined anatomically
+
+masks created in fsleyes:
+%
+probablistic ROIs extracted from fsleyes (Harvard-Oxford \& MNI Prob Atlas)'
+%
+AO study FoV mask (in MNI152 space): fov\_tmpl\_0.5.nii.gz
+datalad save -m 'add'
+
+
+\subsection{scripts}
+
+
+\subsubsection{masks-from-mni-to-bold3Tp2.py}
+
+warp MNI masks in to individual subject space; inputs (templates \& transforms)
+will be downloaded by the script; warp MNI masks into individual bold3Tp2 spaces
+
+
+\subsubsection{masks-from-t1w-to-bold3Tp2.py}
+%
+transform masks in t1w into individual bold3Tp2
+
+
+\subsubsection{mask-builder-voxel-counter.py}
+
+builds different individual masks by dilating, merging other masks \& count the
+voxels; create individual AO FoV and (dilated) gray matter masks
+
+
+\subsubsection{grand\_mean\_for\_4d.py (formerly: data\_normalize\_4d.py)}
+
+applies grand mean scaling to filtered functional data per subj \& run of AV,
+AO, VIS
+
+
+\subsubsection{data\_mask\_concat\_runs.py}
+
+add scripts that masks \& concats 4D data (in: *.nii.gz); out: *.npy
+
+
+\subsubsection{data\_srm\_fitting.py}
+%
+scripts to perform SRM fitting
+
+
+\subsubsection{plot\_srm.py}
+
+
+\subsubsection{plot\_corr-of-glm-and-srm.py}
+
+
+\subsubsection{plot\_corr-of-glm-and-srm.py}
+
+
+\subsubsection{get\_wmatrix\_for\_left-out.py}
+
+
+\subsubsection{align\_data\_to\_cms.py}
+
+
+\subsubsection{predict\_ppa.py}
+
+
+\subsubsection{plot\_bland-altman.py}
+
+
+\subsubsection{corrstats.py}
+
+
+\subsubsection{statistics\_t-test-correlations.py}
+
+
+\subsubsection{plot\_stripplot.py}
+
+
+
+\subsection{scripts in test-folder}
+
+
+\subsubsection{statistics\_cronbachs.py}
+
+
+\subsubsection{other method: denoise VIS data first}
+
+data\_denoise-vis.py and data\_srm-vis-to-ind.py
 
 
 \section{Results}
