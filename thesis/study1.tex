@@ -1,12 +1,6 @@
 \input{newcommands/descr-stats-anno-anno-paper.tex}
 \input{newcommands/descr-stats-regressors.tex}
 
-
-\subsection{Original plan}
-%
-IBM Watson vs. Google Cloud
-
-
 \section{Intro to paper}
 
 %
@@ -23,6 +17,8 @@ let's try to use semantic spatial information for a proof of concept
 The goal of this study is to create stimulus annotations to model hemodynamic
 responses during the auditory naturalistic stimulation, and validate its quality
 for the following studies.
+
+\todo[inline]{Original plan using IBM Watson and Google Cloud failed}
 
 
 \section{Abstract}
@@ -119,8 +115,9 @@ All annotations can be used in any study focusing on aspects of real-life
 cognition by serving as additional confound measures describing the  temporal
 structure and feature space of the stimuli.
 
+\section{Materials and methods}
 
-\subsection*{Stimulus}
+\subsection{Stimulus}
 % stimulus != DVD but ``research cut''
 We annotated speech in the slightly shortened ``research cut''
 \citep{hanke2014audiomovie} of the movie ``Forrest Gump'' and its temporally
@@ -133,7 +130,7 @@ main character Forrest Gump. In the audio-description, an additional male
 narrator describes essential aspects of the visual scenery when
 there is no off-screen voice, dialog, or other relevant auditory content.
 
-\subsection*{Annotation procedure}
+\subsection{Annotation procedure}
 % preliminary annotations
 Preliminary, manual orthographic transcripts of dialogues, non-speech
 vocalizations (e.g. laughter or groaning) and the script for the
@@ -270,7 +267,7 @@ the word is one of the most common words of the German language (i.e. if the
 word is part of a stop list).
 
 
-\subsection*{Data legend}
+\subsection{Data legend}
 % TextGrid vs. TSV
 The annotation is available in two different versions, both providing the same
 information: a) as a text-based Praat TextGrid file, and b) as a text-based,
@@ -281,28 +278,28 @@ The following descriptions refer to the ten columns of the TSV file, namely
 \texttt{stop}, \texttt{vector}.
 
 
-\subsubsection*{Start (\texttt{start})} The onset of the sentence, word or
+\subsubsection{Start (\texttt{start})} The onset of the sentence, word or
 phoneme. Time stamps are provided in the format seconds.milliseconds from stimulus
 onset.
 
 
-\subsubsection*{Duration (\texttt{duration})} The duration of the sentence,
+\subsubsection{Duration (\texttt{duration})} The duration of the sentence,
 word or phoneme provided in the format seconds.milliseconds.
 
 
-\subsubsection*{Speaker identity (\texttt{person})} Name of the person that
+\subsubsection{Speaker identity (\texttt{person})} Name of the person that
 speaks the sentence, word or phoneme. See Table \ref{tab:speakers} for the ten
 most often occurring speakers.
 
 
-\subsubsection*{Text (\texttt{text})}
+\subsubsection{Text (\texttt{text})}
 % ``Großphoneme'': n<200
 The text of a spoken sentence or word, or the pronunciation of a phoneme.
 Phonemes of German words follow the Prosodylab PhoneSet, English words follow
 the ARPAbet PhoneSet.
 
 
-\subsubsection*{Simple part-of-speech tag (\texttt{pos})} A simple
+\subsubsection{Simple part-of-speech tag (\texttt{pos})} A simple
 part-of-speech tagging (grammatical tagging; word-category disambiguation) of
 words.
 % annotation scheme
@@ -351,7 +348,7 @@ X & \aPosX & \aPosXAll & \aPosXI & \aPosXII & \aPosXIII & \aPosXIV & \aPosXV & \
 \end{table*}
 
 
-\subsubsection*{Detailed part-of-speech tag (\texttt{tag})}
+\subsubsection{Detailed part-of-speech tag (\texttt{tag})}
 % \href{https://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/germantagsets}{Stuttgart-Tübingen-Tagset}
 A detailed part-of-speech tagging of words following the TIGER Treebank
 annotation scheme \citep{brants2004tiger} which is based on the
@@ -393,7 +390,7 @@ VVPP & \aTagVvpp & \aTagVvppAll & \aTagVvppI & \aTagVvppII & \aTagVvppIII & \aTa
 \end{table*}
 
 
-\subsubsection*{Syntactic dependency (\texttt{dep})} Information about a word's
+\subsubsection{Syntactic dependency (\texttt{dep})} Information about a word's
 syntactic dependencies with other words within the same sentence.
 % annotation scheme
 Information follows the TIGER Treebank annotation scheme \citep{brants2004tiger}
@@ -432,14 +429,14 @@ svp & separable verb prefix & \aDepSvpAll & \aDepSvpI & \aDepSvpII & \aDepSvpIII
 \end{table*}
 
 
-\subsubsection*{Lemmatization (\texttt{lemma})} The base form (root) of a word.
+\subsubsection{Lemmatization (\texttt{lemma})} The base form (root) of a word.
 
 
-\subsubsection*{Common Word (\texttt{stop})}
+\subsubsection{Common Word (\texttt{stop})}
 This column's cell provides information if the word is part of a stop list, hence one of the most common words in the German language or not (\texttt{True} vs. \texttt{False}).
 
 
-\subsubsection*{Word embedding (\texttt{vector})}
+\subsubsection{Word embedding (\texttt{vector})}
 % \href{https://en.wikipedia.org/wiki/Word2vec}{word vector}
 A 300-dimensional word vector providing a multi-dimensional meaning
 representation of a word.
@@ -448,7 +445,7 @@ Out-of-vocabulary words with a vector consisting of 300 dimensions of zeroes
 were set to \texttt{\#} to save space.
 
 
-\subsection*{Dataset content}
+\subsection{Dataset content}
 % \href{https://bids.neuroimaging.io/}{bids.neuroimaging.io} TextGrid format
 The annotation comes in two different versions. First, as a text-based TextGrid
 file (\texttt{annotation/ fg\_rscut\_ad\_ger\_speech\_tagged.TextGrid}) to be
@@ -463,7 +460,10 @@ The source code for all descriptive statistics included in this paper is
 available in \texttt{code/descriptive-statistics.py} (Python script).
 
 
-\section*{Dataset validation}
+\section{Dataset validation}
+
+\todo[inline]{better add subsections with Participants, etc.}
+
 % intro
 In order to assess the annotation's quality, we investigated if contrasting
 speech-related events to events without speech lead to increased activation in
@@ -860,10 +860,10 @@ analyses that investigate language perception under more ecologically valid
 conditions.
 
 
-\section*{Data availability}
+\section{Data availability}
 
 
-\subsection*{Underlying data}
+\subsection{Underlying data}
 
 Open Science Framework:
 studyforrest-paper-speechannotation.
@@ -887,7 +887,7 @@ OpenScienceFramework project, and accessible as DataLad (RRID:SCR\_003931)
 datasets.%Please confirm - I cannot find this RRID number
 
 
-\subsection*{Author contributions}
+\subsection{Author contributions}
 % subsection in Schnitte-Anno
 %In order to give appropriate credit to each author of an article, the
 %individual contributions of each author to the manuscript should be detailed
@@ -896,11 +896,11 @@ datasets.%Please confirm - I cannot find this RRID number
 COH designed, performed, and validated the annotation, and wrote the manuscript.
 MH provided critical feedback on the procedure and wrote the manuscript.
 
-\subsection*{Competing interests}
+\subsection{Competing interests}
 % subsection in Schnitte-Anno
 No competing interests were disclosed.
 
-\subsection*{Grant information}
+\subsection{Grant information}
 %Please ensure all available grant numbers are provided
 COH was supported by a graduate stipend from the German federal state of
 Saxony-Anhalt and MH was, in-part, supported by funds from the German federal
@@ -911,7 +911,7 @@ was co-funded by the US National Science Foundation (NSF 1912266), and the
 German Federal Ministry of Education and Research (BMBF 01GQ1905).
 
 
-\subsection*{Acknowledgements} COH is grateful to Valeri Kippes who took care
+\subsection{Acknowledgements} COH is grateful to Valeri Kippes who took care
 of the author's mental sanity by providing excellent training at his gym in
 Jülich during the mentally draining period of manual corrections of the
 annotation.

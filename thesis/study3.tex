@@ -90,6 +90,28 @@ even if we assume that two persons have anatomically identical brains, still,
 the location, size \& shape of the functional area is probably different.
 
 
+predict brain-patterns across subjects \& across an experiment?
+
+\begin{itemize}
+    \item 1. create CMS from brain patterns (during natural stimulation ) in
+        reference group
+
+    \item 2. project localizer data of reference group into CMS
+
+    \item 3. align left-out subject with CMS using a varying amount of data (1-8
+        runs je per stim.) data (parts) need to be of the same stimulation used
+        to create the CMS (cause we align time-series not connectivity profiles)
+        result: transformation matrix
+
+    \item 4. project localizer data from CMS into left-out subject  using the
+        inverse matrix from step 3
+
+    \item 5. compare predicted localizer results vs. empirical results
+
+    \item 6. compare steps 1-5 to a similar procedure using anatomical alignment
+
+\end{itemize}
+
 \subsubsection{anatomical alignment}
 
 % anatomical alignment
@@ -443,12 +465,12 @@ Preprocessing was performed by FEAT v6.00 (FMRI Expert Analysis Tool
 
 \paragraph{first-level analysis}
 
-% install PPA-Analyse als subdataset
-% enthält "aligned-data", templates etc. als subdatasets
+% install naturalistic ppa analysis as subdataset
+% comprises  "aligned-data", templates etc. as subdatasets
 % datalad install -d . -s https://gin.g-node.org/chaeusler/studyforrest-ppa-analysis
 
 % datalad get inputs/studyforrest-ppa-analysis/inputs/studyforrest-data-aligned/sub-??/in_bold3Tp2/sub-??_task-a?movie_run-?_bold*.*
-The same input data used in study2 werd downloaded as subdataset in
+The same input data used in study2 were downloaded as subdataset in
 \citep{haeusler2021ppadata} for the creation of the \ac{cms}.
 
 % get motion correction parameters for AO data
@@ -509,9 +531,9 @@ We despiked the ``raw'' data
 \todo[inline]{get the parameters from the design-files; cf. with VIS paper}
 
 
-\subsection{Creation of commond model space via Shared response model}
+\subsection{Creation of common model space via Shared response model}
 
-% Eingangs blabla
+% introductory stuff
 \citep{chen2015reduced}: let the algorithm learn the shared responses which is
 the common model space, and it also learns the transformation matrices.
 %
@@ -531,7 +553,7 @@ grand mean scaling to 'filtered\_func\_data.nii.gz)'}
 
 % FSL User Guide:
 % filtered_func_data will normally have been temporally high-pass filtered,
-% it is not zero mean; the mean value for each voxel's timecourse has been
+% it is not zero mean; the mean value for each voxel's time course has been
 % added back in for various practical reasons.
 % When FILM begins the linear modelling, it starts by removing this mean.
 
@@ -542,8 +564,8 @@ grand mean scaling to 'filtered\_func\_data.nii.gz)'}
 The time series of every experiment, subject, and run that has been filtered
 by FSL ('filtered\_func\_data.nii.gz') were used.
 %
-Given that FSL adds back the the mean value for each voxel's timecourse at the
-and of the preprocessing it was substracted again.
+Given that FSL adds back the mean value for each voxel's time course at the
+and of the preprocessing it was subtracted again.
 %
 The each voxel was multiplied by 10000%
 and saved to 'sub-??\_task-*\_run-?\_bold\_filtered.nii.gz'
@@ -553,7 +575,7 @@ and saved to 'sub-??\_task-*\_run-?\_bold\_filtered.nii.gz'
 \todo[inline]{problem 1: grpPPA contains n=14 subject, not n-1 subjects}
 
 \todo[inline]{problem 2: still, there are voxels outside of the PPA-mask;
-prolly, because of the warping procedures}
+probably, because of the warping procedures}
 
 % masks-from-mni-to-bold3Tp2.py:
 % - merges unilateral ROIs overlaps (already in MNI) to bilateral ROI
@@ -581,24 +603,37 @@ prolly, because of the warping procedures}
 % data_mask_concat_runs.py:
 For each subject, and experiment, the corresponding 4d time-series of each run
 were masked with the 'grp PPA' (but undilated and not masked with individual
-gray matter mask) multiplied by the individual's FoV of the audio-description.
+gray matter mask) multiplied by the individual's \ac{fov} of the
+audio-description.
 
 %
-voxel for bilateral PPAs:
-sub-01: 1665;
-sub-02: 1732;
-sub-03: 1400;
-sub-04: 1575;
-sub-05: 1664;
-sub-06: 1951;
-sub-09: 1383;
-sub-14; 1376;
-sub-15; 1683;
-sub-16: 1887;
-sub-17: 1441;
-sub-18: 1729;
-sub-19: 1369;
-sub-20: 1437.
+Number of voxel within the mask can be seen in \ref{tab:ppamaskvoxels}.
+
+\begin{table*}[btp]
+\caption{Number of voxels within the union of individual PPAs projected back
+    into individuals' subject-space.}
+\label{tab:ppamaskvoxels}
+\begin{tabular}{ll}
+\toprule
+\textbf{Subject} & \textbf{no. of voxels} \\
+\midrule
+sub-01 & 1665 \tabularnewline
+sub-02 & 1732 \tabularnewline
+sub-03 & 1400 \tabularnewline
+sub-04 & 1575 \tabularnewline
+sub-05 & 1664 \tabularnewline
+sub-06 & 1951 \tabularnewline
+sub-14 & 1376 \tabularnewline
+sub-09 & 1383 \tabularnewline
+sub-15 & 1683 \tabularnewline
+sub-16 & 1887 \tabularnewline
+sub-17 & 1441 \tabularnewline
+sub-18 & 1729 \tabularnewline
+sub-19 & 1369 \tabularnewline
+sub-20 & 1437 \tabularnewline
+\bottomrule
+\end{tabular}
+\end{table*}
 
 % scaling
 Then, data of every run were scaled using scipy's preprocessing.StandardScaler()
@@ -625,7 +660,7 @@ localizer experiment.
 Fore each subject, we created a \ac{cms} based on other subject's data.
 %
 The runs of the audio-description, movie, and visual localizer were concatenated
-and z-scored usin scipy.stats.zscore().
+to one continuous and z-scored using scipy.stats.zscore().
 % features
 Model fitting was performed using 10 features [WHY?] and 30 iterations;
 calling the fit method if brainIAK's srm object (brainiak.funcalign.srm.SRM)
@@ -641,7 +676,7 @@ every subject before fitting the model.
 \todo[inline]{imo not very informative}
 %
 plots SRM (features*time points) created for a left-out subject; plots
-time-course of top 3 respones (currently, TRs 0-800 = quarter of AO); plots
+time-course of top 3 responses (currently, TRs 0-800 = quarter of AO); plots
 distance matrix of time points in shared space
 
 
@@ -663,7 +698,11 @@ distance matrix of time points in shared space
 
 
 \subsubsection{Partial alignment}
-% get_wmatrix_for_left-out.py
+
+\todo[inline]{matrices have been computed CMS created from AO+AV+VIS, but also
+just from AO+AV}
+
+\paragraph{get\_wmatrix\_for\_left-out.py}
 % AO: 0-451, 0-892, 0-1330, 0-1818, 0-2280, 0-2719, 0-3261, 0-3524
 % AV: 3524-3975, 3524-4416, 3524-4854, 3524-5342, 3524-5804, 3524-6243,
 %     3524-6785, 3524-7123
@@ -671,107 +710,83 @@ distance matrix of time points in shared space
 
 % input 'sub-*/sub-*_task_aomovie-avmovie_run-1-8_bold-filtered.npy'
 We used an increasing number of runs of the filtered audio-description and movie
-data to align the left-out subject to the \ac{cms} (done for AO+AV and AO+AV+VIS).
+data to align each left-out subject to the corresponding \ac{cms}, and obtain
+the subject's transformation matrix.
 %
 The SRM object was sliced according to the used runs and the weight matrix was
-obtained calling the SRM methd srm\_sliced.transform\_subject(runsdata)
+obtained calling the SRM method srm\_sliced.transform\_subject(runsdata)
 % output: f'wmatrix_{model}_feat{n_feat}_{start}-{end}.npy'
 
 
-\subsubsection{predict\_ppa.py}
-\begin{itemize}
-    \item for every subject, transforms the (correct) PPA contrast of the VIS
-        study (and AO PPA) from bold3Tp2 into MNI space (e.g. grpbold3TP2)
-    \item output: 'test/masks/in\_mni/sub-*\_VIS-PPA.nii.gz
-    \item output: 'test/masks/in\_mni/sub-*\_AO-PPA.nii.gz
-    \item warp all individuals' z-maps in group space into left-out subject's
-    bold3Tp2 space
-    \item test/sub-*/masks/in\_bold3Tp2/sub-*\_VIS-PPA.nii.gz
-    \item prediction from anatomy: load the warped z-maps, mask it with left-out
-        subjects PPA overlap mask * FoV, take mean of z-maps, save
-    \item output: predicted-VIS-PPA\_from\_anatomy.nii.gz'; \\
-        predicted-AO-PPA\_from\_anatomy.nii.gz
-    \item calculate correlation between empirical z-map and z-map predicted from
-        anatomy
-    \item predict from CMS: use increasing number of runs of AO and AV
-    \item load wmatrix for current subject (and current no. of runs/stimulus)
-    \item load SRM (based on non-left-out subjects' data)
-    \item for every other subject: load empirical data and mask it
-    \item aligned zmaps to shared space (k feautures x t time-points; 1 time-
-        point cause it's a zmap no time-series) using zmaps\_in\_cms =
-        srm.transform(masked\_zmaps)
-    \item for every zmap in CMS, compute dot product of left-out subject
-        weight-matrix with zmap in cms(= transform zmap from CMS into subject
-        space)
-    \item take the mean of transformed zmaps within the left-out subjects space
-    \item transform the array back into 3d image
-    \item
-\end{itemize}
+\paragraph{predict\_ppa.py}
 
+% prediction from anatomy
+We first created the template/prediction from the anatomy of other subjects.
+%
+We warped the results of the visual localizer (and results of the auditory
+naturalistic stimulus) from each individual's subject-space (bold3Tp2) into MNI
+space (grpbold3Tp2).
+% output 1: 'test/masks/in_mni/sub-*_VIS-PPA.nii.gz'
+% output 2: 'test/masks/in_mni/sub-*_AO-PPA.nii.gz'
+The results of all subjects were warped from MNI space in to the left-out
+subject's space
+% output 1: 'test/sub-*/masks/in_bold3Tp2/sub-*_VIS-PPA.nii.gz'
+% output 2: 'test/sub-*/masks/in_bold3Tp2/sub-*_AO-PPA.nii.gz'
+The transformed z-maps were masked with mask of unions of PPAs and the
+individual's \ac{fov}.
+%
+The mean of these z-maps served as the prediction for the left-out subject.
+% output1: 'test/sub-*/predicted-VIS-PPA_from_anatomy.nii.gz'
+% output2: 'test/sub-*/predicted-AO-PPA_from_anatomy.nii.gz'
 
-\subsubsection{plot\_bland-altman.py}
-\begin{itemize}
+% prediction from CMS
+We then predicted the z-maps of the PPA from the visual localizer experiment and
+the auditory naturistic stimulus.
+%
+The transformation matrices that were created using an increasing number of runs
+of each naturalistic stimulus were used to transform a z-map templated created
+in the \ac{cms} into the left-out subject's space
+% aligned zmaps to shared space: (k features x t time-points); 1 time-point
+% because it's a zmap no time-series) using
 
-\item lore
+First, individual results from the visual localizer and auditory naturalistic
+stimulus were masked with the group PPA mask in each individuals subject space
+and then transformed from each individual's space into the \ac{cms} [by calling
+'zmaps\_in\_cms = srm.transform(masked\_zmaps)'].
+% zmap from CMS into subject space: compute dot product of left-out subject
+% weight-matrix with zmap in cms
+Using the inverse of the left-out subject's transformation matrix, the zmaps
+from the other subjects that were projected into \ac{cms} were then projected
+into the anatomy of the left-out subject.
+%
+Here again, the mean of these z-maps served as the prediction for the left-out
+subject.
 
-\item ipsum
+\todo[inline]{i.e.: in both cases the mean was computed in anatomical space;
+this is more 'similar' than computing the mean in anatomy for prediction from
+anatomy, and computing the mean in CMS for prediction from CMS; but: creating the
+template in CMS does not lead to different results anyway}
 
-\end{itemize}
-
-
-\subsubsection{corrstats.py}
-\begin{itemize}
-
-\item lore
-
-\item ipsum
-
-\end{itemize}
-
-
-\subsubsection{statistics\_t-test-correlations.py}
-\begin{itemize}
-
-\item lore
-
-\item ipsum
-
-\end{itemize}
-
-
-\subsubsection{plot\_stripplot.py}
-\begin{itemize}
-
-\item lore
-
-\item ipsum
-
-\end{itemize}
-
-
-\subsubsection{statistics\_cronbachs.py (in test folder)}
-\begin{itemize}
-
-\item lore
-
-\item ipsum
-
-\end{itemize}
+% correlation between empirical z-map & predicted z-maps
+Finally, we calculated the Pearson correlation coefficients between the
+empirical z-maps of each subject (visual localizer and auditory PPA) and the
+values that were predicted from other subjects' anatomy.
+%
+Further, we calculated the Pearson correlation coefficients between the
+empirical z-maps of each subject (visual localizer and auditory PPA) and the
+values that were predicted from using an increasing number of runs of the
+naturalsitic stimuli to obtain the transformation matrices.
 
 
 \subsubsection{alternative template creation}
 %
 lastly, we currently apply another method to get the „z-map template“ on which
-the prediction is based
-\begin{itemize}
-
-\item data\_srm-vis-to-ind.py
-\item data\_denoise-vis.py
-
-\end{itemize}
+the prediction is based ('test/data\_denoise-vis.py';
+'test/data\_srm-vis-to-ind.py')
 
 
 \section{Results}
+
 %
 For every subject, we see the correlation of z-maps that tell us the, quote
 ``real'' unquote, PPA and predicted PPA
@@ -804,6 +819,31 @@ the empirical z-map
 %
 The last one is the extreme case, but it can give you an idea of how the z-maps
 look in a slice of the brain
+
+
+\subsection{predict\_ppa.py: outputs also the Pearson correlations}
+
+
+\subsection{plot\_stripplot.py}
+
+the lovely stripplots of correlations
+
+\subsection{statistics\_t-test-correlations.py}
+
+Compute if differences between kinds of prediction is significant
+
+
+\subsubsection{test/statistics\_cronbachs.py}
+
+\subsubsection{plot\_bland-altman.py}
+
+I hate that script
+
+% corrstats.py; not necessary anymore; calculates the statistical significant
+% differences between two dependent or independent correlation coefficients
+
+
+
 
 
 
