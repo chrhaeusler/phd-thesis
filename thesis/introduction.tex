@@ -9,7 +9,7 @@
 
 %
 Brain imaging with \ac{bold} \ac{fmri} has been used extensively for almost
-three decades to investigate brain function.
+three decades to investigate perceptual and cognitive brain functions.
 %
 Typical analysis procedures average (voxel-wise) data of at least 10-15 subjects
 to improve the \ac{snr}.
@@ -87,14 +87,18 @@ by \citep{pinel2007fast}).\todo{Thirion's work?}
 It employs a range of dedicated stimuli and specific tasks participants have to
 perform in a 5-minute routine.
 %
-Diagnostic quality of such paradigms relies heavily on participants' compliance
-and comprehension of the task instructions, a criterion that can be difficult to
-meet in certain target populations, such as patients with dementia.
+The diagnostic quality of such paradigms relies heavily on participants'
+compliance and comprehension of the task instructions, a criterion that can be
+difficult to meet in certain target populations, such as patients with dementia.
 
 
 \subsubsection{Anatomical alignment (in order to predict)}
 
-e.g. \citep{weiner2018defining}
+The currently dominating approach in neuroimaging group analyses relies on
+topological constraints defined by an three-dimensional, anatomical reference
+space (e.g. the MNI152 template brain).
+%
+Surface-based: e.g. \citep{weiner2018defining}.
 
 
 \subsubsection{Functional alignment (in order to predict)}
@@ -104,20 +108,21 @@ e.g. \citep{weiner2018defining}
 An alternative approach to individual localization has been proposed by
 \citet{haxby2011common}.
 %
-They (and e.g. \citet{jiahui2019predicting}) showed that target brain areas in
-ventral temporal cortex can be reliably predicted from the result of dedicated
-localizer scans for other individuals.
+They (and e.g. \citet{jiahui2019predicting}) also predicted the location, form,
+and size of  target brain areas in ventral temporal cortex from dedicated
+localizer scans of other individuals.
 %
 The key difference of this approach is to rely on similarity of representational
-geometry of brain activity patterns for aligning individual brains into a group
-space.
-%
-This is contrary to presently dominating approaches in neuroimaging group
-analyses that rely on topological constraints defined by a anatomical reference
-space (e.g. the MNI152 template brain).
+geometry of brain activity patterns and aligning individual brains into a
+multi-dimensional a group space.
+
+\todo[inline]{shift from focussing on (connectivity) hyperaligment more to
+shared response model}
 
 
 \paragraph{Hyperalignment}
+
+\todo[inline]{why didn't we used connectivity alignment in the first place?}
 %
 \citet{haxby2011common} used BOLD response patterns evoked by a 2h action movie
 to derive a common representational space.
@@ -130,7 +135,6 @@ reference space.
 Importantly, the study also showed that an individual's \ac{ffa} or the
 \ac{ppa}, can be localized precisely based on data from a reference group.
 \todo{explain FFA, PPA}
-
 %
 The same authors later showed that this approach can be extended to predict
 functional organization across large proportions of the cortical surface, for
@@ -138,7 +142,7 @@ example to predict the represented visual field coordinate in visual cortex
 based on retinotopic mapping scans of other individuals
 \citep{guntupalli2016model}.
 
-\todo[inline]{adjust to intersecting stimulus time-series as alternative}
+\todo[inline]{we do not do connectivity hyperalignment but SRM now!}
 %
 In his doctoral thesis, recently submitted to the Faculty of Natural Sciences in
 Magdeburg, Falko Kaule showed that congruent time-locked BOLD responses across
@@ -164,6 +168,8 @@ Fig. 1 in \citep{nishimoto2016lining}).
 \paragraph{Shared response model}
 
 \citep{chen2015reduced}
+
+
 
 
 \subsubsection{Naturalistic stimuli in neuroscience}
@@ -195,18 +201,18 @@ states \citep{brown2012cinematography, dancyger2011film-technique}.
 
 \paragraph{Higher validity}
 %
-Findings suggest that naturalistic stimuli offer a higher
-ecological validity \citep{hasson2004intersubject} because they better mimic
-statistics in our natural dynamic environment.
+Findings suggest that naturalistic stimuli offer a higher ecological validity
+\citep{hasson2004intersubject} because they better mimic statistics in our
+natural dynamic environment.
 %
 Further they offer a higher external validity \citep{westfall2016fixing})
 because they sample the stimulus space ``better''.\todo{iykwim}
 %
-While the hyperalignment procedure can also be applied to fMRI data from more
-focused stimulation paradigms with simplified stimuli, the transformations for
-functional alignment have greatly diminished general validity
-\citep{haxby2011common}, presumably because such experiments sample a sparser
-range of brain states \citep{guntupalli2016model}.
+While the functional alignment can also be applied to fMRI data from stimulation
+paradigms with simplified stimuli, the transformations for functional alignment
+have greatly diminished general validity \citep{haxby2011common}, presumably
+because such experiments sample a sparser range of brain states
+\citep{guntupalli2016model}.
 
 %
 Lastly, increased validity of derived transformation for functional alignment by
@@ -217,86 +223,41 @@ cognition; emotion; music, speech or social perception)
 
 
 \paragraph{Better compliance}
+
+\todo{check also \citep{eickhoff2020towards}}
 %
 The to be diagnosed individuals were scanned while they were watching a movie
-without any explicit task or instruction other than just to ``enjoy the movie''.
+without any explicit task or.
 %
 Improved subject compliance and compatibility due to minimal instruction
-requirements and task demands (e.g., no fixation requirement, hence more
-appropriate for elderly or visually impaired persons).
+requirements (e.g., no fixation of eye gaze) and task demands (no task except
+enjoying the movie or audiobook).
 %
-Improved data quality, as an interesting and easy-to-follow stimulus is more
-capable of putting a participant at ease in the otherwise claustrophobic,
-uncomfortable and noisy fMRI scanner.
-
-
-\section{Aims of thesis}
-%% At the end of the introduction, add a subchapter on the Aims of Thesis in
-%% which you describe the research question and the objectives of your work on
-%% a maximum of two pages
-
-
-\subsection{Overview of aims}
+These minimal instructions make naturalistic paradigms appropriate especially
+for elderly or visually impaired persons.
 %
-Previous work has shown that it is, in principle, possible to combine BOLD fMRI
-with a rich naturalistic stimulus for the purpose of localizing areas associated
-with particular brain functions \citep{bartels2004mapping}.
-%
-This can be approached by either modeling specific stimulus features, or by
-using the high-dimensional nature of such a stimulus to derive a common
-representational space for aligning functional properties of cortex.
-%
-To my knowledge, however, there has been no study aimed at replacing one or more
-established localizer paradigms for the purpose of improving routine (clinical)
-diagnostics by means of natural stimulation.
-%
-A (part of a) movie would have substantial advantages (e.g.  task demands,
-compliance, and data quality) over simplified stimuli presently used in
-localizer paradigms.
-%
-Improved efficiency by replacing multiple dedicated localizer scans with a
-single natural stimulation potentially enables more comprehensive diagnostics in
-a similar or even less amount of time.
+Lastly, naturalistic stimuli offer improved data quality, as an interesting and
+easy-to-follow stimulus is more capable of putting a participant at ease in the
+otherwise claustrophobic, uncomfortable and noisy fMRI scanner.
 
-%
-For this purpose, I want to evaluate two strategies:
+``Relative to traditional fMRI experiments that typically use highly controlled
+stimuli, naturalistic stimuli are more ecologically valid (Zaki and Ochsner,
+2009; Hasson and Honey, 2012; Adolphs et al., 2016; Hamilton and Huth, 2018),
+convey rich perceptual and semantic information (Bartels and Zeki, 2004; Huth et
+al., 2012, 2016) and more fully sample neural representational space (Haxby et
+al., 2011, 2014)''\citep{nastase2019measuring}.
 
-\begin{itemize}
-    \item direct modeling of a natural stimulus and
-    \item prediction via functional alignment to a reference population
-\end{itemize}
-
-\subsubsection{Auditory stimulus to localize visual area}
+``Recent work (Vanderwal et al., 2015) also suggests that naturalistic stimuli
+may improve subject compliance (in terms of wakefulness and head motion relative
+to, e.g. rest), which is particularly important when scanning patient
+populations and children. As mentioned previously, different stimuli will
+variably synchronize different brain systems; for example, engaging,
+Hollywood-style movies may yield greater, more widespread ISCs than real-life,
+unedited videos (Hasson et al., 2010; Cohen et al., 2017)''
+\citep{nastase2019measuring}.
 
 
-
-
-\subsubsection{Reproducibility}
-
-\todo{transparency, reproducibility, sharing, connection to
-\citep{halchenko2021datalad}}
-%
-All required algorithms and analyses will be implemented in a way that enables
-automated processing.
-%
-This will facilitate documentation and efficient processing of large number of
-datasets.
-%
-Implementations will be based on open-source software tools to guarantee a
-maximum level of reproducibility, and relative ease of long-term maintenance
-\citep{eglen2017toward}.
-%
-Once available, the developed stimulation paradigm and analysis implementations
-will be integrated in the upcoming CBBS imaging platform that aim at providing
-reusable software components for neuroimaging research to all groups in
-Magdeburg.
-%
-The goal is to provide researchers with efficient, validated, ready to use
-solutions (stimulation, MR sequence configuration, analysis software) for
-functional localization that can be incorporated into their study protocols.
-
-
-\subsubsection{Study 1: Annotation of audio-description}
+\todo[inline]{imo following part can heavily be shortened}
 
 \paragraph{studyforrest}
 %
@@ -327,7 +288,38 @@ scans are readily available: one with the normal audio-visual movie
 (originally produced for a visually impaired audience) that is time-locked to
 the audio-visual version \citep{hanke2014audiomovie}.
 
-\paragraph{actual goal: why we need an annotation of speech}
+
+\section{Aims of thesis}
+%% At the end of the introduction, add a subchapter on the Aims of Thesis in
+%% which you describe the research question and the objectives of your work on
+%% a maximum of two pages
+
+
+\subsection{Overview of aims}
+%
+Previous work has shown that it is, in principle, possible to combine BOLD fMRI
+with a rich naturalistic stimulus for the purpose of localizing areas associated
+with particular brain functions \citep{bartels2004mapping}.
+%
+This can be approached by either modeling specific stimulus features, or by
+using the high-dimensional nature of such a stimulus to derive a common
+representational space for aligning functional properties of cortex.
+%
+However, there has been no study aimed at replacing an established localizer
+paradigm with a naturalistic stimulus as a short diagnostic routine.
+%
+A part of a movie of the same length as a dedicated localizer experiment would
+have substantial advantages (e.g. task demands compliance, and data quality)
+over simplified stimuli presently used in localizer paradigms.
+%
+Given that naturalistic stimuli offer a rich stimulation correlating with a
+variety of different brain functions, they could replace multiple dedicated
+localizers and thus offering a more comprehensive and efficient diagnostic in a
+similar or even less amount of time.
+
+
+
+\subsubsection{Auditory stimulus to localize visual area}
 %
 This investigation will also provide insight if it is feasible to produce an
 audio-only localizer paradigm as an alternative for studies where no visual
@@ -337,82 +329,97 @@ Previous results show that there are significant voxel-wise BOLD response time
 series correlations between the two datasets in brain areas associated with
 speech and story processing (s. Figure 3 in \citep{hanke2016simultaneous}).
 
-% from speech-anno talk
-First, movies are designed to entertain the audience and not to
-conduct research.  Variables or let’s call them stimulus features might be
-confounded.  You can try to control them statistically. but then you might run
-into another problem: Your features of interest might be highly correlated, so
-controlling them statistically is impossible.  This is way data-driven methods
-are often used to analyze the data.  From data-driven approaches, we gained a
-lot of knowledge, but data-driven approaches essentially fall short in case you
-want to correlate discovered brain activation patterns with psychological
-processes.  Unfortunately, some people - especially researchers that use
-data-driven methods – claim that model-driven methods just not suitable.  At the
-moment, my favorite quote in this regard is that model-driven methods are
-difficult to employ because they are based on annotations that are
-"prohibitively difficult" to create.
 %
-``ISC analyses—because they do not require an explicit model of the task or
-stimulus—are particularly useful for naturalistic experimental paradigms, where
-constructing such a model may be prohibitively difficult.  Relative to
-traditional fMRI experiments that typically use highly controlled stimuli,
-naturalistic stimuli are more ecologically valid (Zaki and Ochsner, 2009; Hasson
-and Honey, 2012; Adolphs et al., 2016; Hamilton and Huth, 2018), convey rich
-perceptual and semantic information (Bartels and Zeki, 2004; Huth et al., 2012,
-2016) and more fully sample neu- ral representational space (Haxby et al., 2011,
-2014). Recent work (Vanderwal et al., 2015) also suggests that naturalistic
-stimuli. \citep{nastase2019measuring}
+\todo[inline]{following is actually not true anymore}
+
+For this purpose, I want to evaluate two strategies:
+
+\begin{itemize}
+    \item direct modeling of a natural stimulus and
+    \item prediction via functional alignment to a reference population
+\end{itemize}
+
+
+\subsubsection{Reproducibility}
+
+\todo{transparency, reproducibility, sharing, check \citep{halchenko2021datalad}}
+%
+All required algorithms and analyses will be implemented in a way that enables
+automated processing.
+%
+This will facilitate documentation and efficient processing of large number of
+datasets.
+%
+Implementations will be based on open-source software tools to guarantee a
+maximum level of reproducibility, and relative ease of long-term maintenance
+\citep{eglen2017toward}.
+%
+The goal is to provide researchers with efficient, validated, ready to use
+solutions (stimulation, MR sequence configuration, analysis software) for
+functional localization that can be incorporated into their study protocols.
+
+
+\subsubsection{Study 1: Annotation of audio-description}
+
+
+\todo[inline]{why we need an annotation of speech}
+
+%
+Movies are designed to entertain the audience and not to conduct research.
+%
+Variables (i.e. the ``features'' embedded in the naturalistic stimuli) might be
+confounded.
+%
+Moreover, features of interest might be highly correlated, making a it
+impossible to controlling them statistically.
+%
+Hence, researchers often rely on data-driven methods to analyze the data
+``because they do not require an explicit model of the task or stimulus'' and/or
+``constructing such a model may be prohibitively difficult.''
+\citep{nastase2019measuring}.
+%
+Which is true but the wrong mindset that lead to a lack of annotation in most
+datasets derived from naturalistic paradigms.
+%
+From data-driven approaches, we gained a lot of knowledge, but data-driven
+approaches essentially fall short in case you want to correlate discovered brain
+activation patterns with psychological processes.
+%
+``annotation bottleneck'' \citep{aliko2020naturalistic}.
 
 
 \subsubsection{Study 2: task-based vs. visual vs. auditory}
 %
-Compare task-free localizer to dedicated task-based speech localizer:
-%
-the diagnostic performance of the task-free movie fMRI
-recording will be compared to the results of the localizer paradigm
-%
-1) quantification of the similarity of identified speech-related brain areas
-(e.g. Jaccard index or Dice coefficient).
-%
-However, it is likely that a rich natural stimulation evokes more widespread
+It is likely that a rich natural stimulation evokes more widespread
 network activity, compared to a simplified stimulus that additionally requires
 the subject to perform a task.
-
+%
+Hence: compare task-free localizer to dedicated task-based speech localizer
+%
+compare diagnostic performance of the task-free movie / audio-description fMRI
+recordings will be compared to the results of the localizer paradigm.
+%
+a specific diagnostic contrasts can be selected.
 
 \subsubsection{Study 3: Functional alignment \& stimulus length}
 %
-With the results from WP1a (specificity) and WP1b (reliability) a specific
-diagnostic contrasts can be selected.
-%
-However, all analyses up to this point will have been performed on 2h-long
+All analyses up to this point will have been performed on 2h-long
 scans, but any clinical application must aim to minimize the scan time/cost.
 %
-In this work package I will estimate the trade-off between diagnostic quality
+We test wether reliable functional alignment can be achieved with a task-free,
+natural stimulation ``calibration” scan that requires no more acquisition time
+than a conventional localizer paradigm.
+%
+We will estimate the trade-off between diagnostic quality
 and required effective scan time by progressively reducing the duration of input
 BOLD fMRI data and comparing the results of the reduced model to the reference
 computed from the full length scan.
-%
-Based on this estimate, and the corresponding number of critical events and
-their timing a shortened movie stimulus can be produced (target duration about
-15 min).
-%
-Depending on the nature of the diagnostic contrast and the required number
-of events, this can either been a contiguous segment of the original movie, a
-different and shortened cut, or a completely different movie stimulus that
-matches the desired properties.
 
 \paragraph{Predict ROI from a reference group}
 %
 fMRI data acquired from an individual will not be analyzed directly regarding a
-specific cognitive function, such as speech processing, but will be used to
-align that individual brain's voxel space with a common high-dimensional
-representational reference space.
-%
-With the data from WP2a the whole-brain hyperalignment procedure -- using an
-implementation of a locally constrained estimation of a sparse whole-brain
-transformation (Guntupalli et al., 2016) that is already available in the lab --
-will be employed to derive a common functional reference space from the BOLD
-response time series for the full movie.
+specific cognitive function, but will be used to align that individual brain's
+voxel space with a common high-dimensional representational reference space.
 %
 Each axis in this common space can be seen as a kind of cortical tuning
 function.
@@ -422,21 +429,21 @@ reference reflects the particular linear combination of voxel response time
 series with respect to each common space component.
 %
 Using a leave-one-subject-out strategy, individual results of the conventional
-speech localizer will then be projected into the common space, aggregated, and
-re-projected into the voxel space of the left out individual for comparison with
+localizer will then be projected into the common space, aggregated, and
+re-projected into the voxel space of the left-out individual for comparison with
 the localizer results for that individual (see Figure 2).
 %
 Using movie-evoked brain activity, hyperalignment procedure learns subject-wise
 optimal transformations of brain activity into a common representational space.
 %
-Once hyperaligned, the brain activity of one or more subjects can be used to
-predict the activity of another subject.
+Once aligned, the brain activity of the reference group can be used to predict
+the activity of another subject.
 %
-Based on the results of WP1a and WP1b localization of speech areas will also be
-performed in the common reference space directly (the stimulation time axis is
-preserved in the common space), and the results will be projected into the voxel
-space of the left-out individual, where they can be compared with the
-localisation result derived from that subject’s movie scan.
+The localization of speech areas will also be performed in the common reference
+space directly (the stimulation time axis is preserved in the common space), and
+the results will be projected into the voxel space of the left-out individual,
+where they can be compared with the localisation result derived from that
+subject’s movie scan.
 %
 Once a valid alignment is established, the inverse transformation is then used
 to project functional properties of the common reference into that individual's
@@ -444,24 +451,14 @@ voxel space.
 
 
 \paragraph{minimum length of stimulus; ``calibration scan''}
-
 %
-test minimum data requirement for reliable functional alignment (within-subject
-test-retest
+minimum data requirement for reliable functional alignment (within-subject
+test-retest???
 %
 estimate the minimum scan time requirement for deriving a valid functional
-alignment by further reducing the amount of input data for the short movie scan
-of the left-out individual.
-%
-We test wether reliable functional alignment can be achieved with a task-free,
-natural stimulation ``calibration” scan that requires no more acquisition time
-than a conventional localizer paradigm.
+alignment by further reducing the amount of input data of the left-out
+individual.
+\paragraph{just uses an intersecting time-series between stimulus sets}
 %
 The joint dataset will enable me to study whether a functional alignment to the
 common reference space can be performed based on a short scan.
-
-\todo[inline]{why didn't we used connectivity alignment in the first place?}
-%
-Due to the aforementioned constraints of the time series hyperalignment
-regarding the number of simultaneously considered voxels, this work will be
-performed using the connectivity hyperalignment from WP2c only.
