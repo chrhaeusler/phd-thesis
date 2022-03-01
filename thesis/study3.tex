@@ -125,6 +125,126 @@ the anatomical location of the functional area in the reference group (e.g.
 we transform the shape of an individual brain into the shape of an average,
 standard brain
 
+\subsubsection{Shared response model}
+
+from \citep{cohen2017computational}: ''One such technique is shared response
+modeling (SRM65; see also hyperalignment66), which projects fMRI responses from
+each participant into a low-dimensional space that captures temporal variance
+shared across participants (Box 1; Fig. 4–5).
+%
+If participants are given the same stimulus or task sequence (for example, a
+movie), which leads their brains through a series of cognitive states (for
+example, visual, auditory, semantic), then identifying shared variance has the
+effect of highlighting variance related to these states.
+%
+An added benefit is that SRM helps address the data starvation problem above:
+because the SRM space is by definition shared across individuals, data from
+multiple participants can be combined prior to MVPA or other analyses.
+%
+Cross-participant decoding is possible without SRM67–70 but may be limited to
+cognitive states whose neural representations are coarse and thus tolerant of
+misalignment.
+%
+Indeed, SRM improves MVPA precisely by aligning fine-grained spatial patterns
+within local regions71.
+%
+Moreover, beyond improving alignment and increasing the sensitivity of other
+analyses, the output of SRM itself can be informative.
+%
+For example, it has been used to estimate the dimensionality with which the
+posterior medial cortex represents movies during perception and memory recall72
+`` \citep{cohen2017computational}.
+
+%
+''The flip side of focusing on shared responses is to focus on responses that
+are idiosyncratic to individuals.
+%
+Although these responses are excluded in SRM, they are not necessarily noise and
+may in fact be highly reliable within participants.
+%
+Indeed, SRM can be used to iso- late participant-unique responses by examining
+the residuals after removing shared group responses, or it can be applied
+hierarchically to the residuals to identify subgroups65.
+%
+More generally, there is a growing trend toward investigating individual
+differences as another source of meaningful variance in fMRI73.
+%
+Recognizing that signal exists beyond the average or shared response of a group,
+such studies exploit idiosyncratic but stable responses to account for
+previously unexplained variance in brain function, behavioral performance and
+clinical measures70,74'' \citep{cohen2017computational}.
+
+''Figure 4 Process for SRM. fMRI data are collected from each of m participants
+experiencing the same stimulus and then organized into a matrix X (voxels by
+time). Each matrix X is then factored using a probabilistic latent-factor model
+into the product of a subject-specific matrix W of k brain maps (an orthogonal
+basis) and a shared temporal response matrix S of size k by time. That is, for
+each participant: X = W S + R, where X, W, and the residuals, R (not shown), are
+subject-specific, and S is shared across participantis``
+\citep{cohen2017computational}.
+
+''After standard alignment, fMRI data can be aggregated at the group level by
+averaging the values at each voxel across participants.
+%
+Although this reduces intersubject noise, variation in the anatomical locations
+of functional signals across participants blurs estimates of their shared
+responses.
+%
+SRM offers an alternative approach by jointly factoring each participant’s data
+into a shared set of feature time series and subject-specific topographies for
+each feature (Fig. 4).
+%
+The simplest use of SRM is for extracting a shared response across an anatomical
+ROI. Used this way, SRM and related methods can yield significant gains in
+sensitivity for group-level inference65,66.
+%
+For example, which short segment of a movie is being watched can be classified
+with many times greater accuracy from fMRI data after functional versus
+anatomical alignment65,71.
+%
+Moreover, text annotations of movie segments based on fMRI are consistently
+better, across ROIs and analysis parameters, after SRM98.
+%
+Applying SRM to a large swath of the brain means that all voxels within the
+region contribute to the final derived metric.
+%
+This can conflict with the goal of associating spatially local activity with
+specific cognitive functions. To address such issues, SRM can be applied in
+small overlapping searchlights to obtain localized metrics of shared
+information71,99 \citep{cohen2017computational}``.
+
+%
+''SRM is computed using a subset of the available fMRI data, with the number of
+features, k, determined using cross-validation.
+%
+Naturalistic stimuli such as movies and stories are often used to generate such
+training data, though any study design in which participants perform the same
+sequence of trials—or for which a common sequence can be spliced together from
+the same set of trials—could be used (for example, a battery of cognitive
+tasks).
+%
+SRM highlights the sources of variance elicited by the stimuli or trials that
+are shared across participants in the training data.
+%
+Held-out test data (including from new participants) are then projected into the
+shared response space for further analysis.
+%
+Such test data could be of the same type as the training data, for example,
+allowing for decoding of new movie segments (Fig.  5).
+%
+Alternatively, the test data could be from controlled laboratory
+experiments—there is no requirement for a common trial sequence or set, unlike
+for the training data—with SRM simply replacing standard alignment in the
+preprocessing pipeline.
+%
+As a rule of thumb, SRM will improve sensitivity for detecting a cognitive
+process of interest in the test data if the training stimuli or trials strongly
+and variably engage that process in a way that is reliable across participants.
+%
+One limitation when using SRM for preprocessing is that additional data must be
+collected for training, reducing the amount of data (and potentially statistical
+power) related to the principal question of the study``
+\citep{cohen2017computational}.
 
 \paragraph{procedure}
 %
@@ -221,7 +341,12 @@ Usually when aligning brain responses (and not connectivity profiles) you would
 let the left-out subject watch the same and the whole stimuli that were used to
 create the Common Model Space to get the transformation matrices.
 
+between-subject cross-validation (=external validation) vs. within-subject cross-validation)
+external validation (testing predictive model performance on an idependently
+collected dataset)
 
+external validation: testing a predictive model performance on an independently
+collected dataset.\todo{means: use localizer TRs to predict localizer???}
 
 \subsubsection{our current study: overview, blabla}
 %
@@ -860,8 +985,30 @@ using anatomical alignment
 more than 30 minutes do not lead to a significantly improved prediction
 performance.
 %
-assumption: visual localizer = ``ground truth''
 
+\subsection{ground truth}
+
+``Predictive models based on neuroimaging data will only ever account for a
+fraction of the variance.
+%
+Neuroimaging studies are limited by how much information the signal can capture
+about the measure of interest.
+%
+At the same time, these studies are also limited by the chosen phenotypic
+measure used.  While the success of a model is evaluated by how well it predicts
+a phenotypic measure (and these phenotypic measures have to be treated as gold
+standards), it is well known that such measures are not always the ground truth
+but themselves suffer from confounds and noise.
+%
+When studying brain-behavior associations, one must keep in mind how
+extraordinary it is that neuroimaging data can be distilled to approximate
+phenotypic measures that reﬂect a simpliﬁcation of multiple complex features.
+%
+Thus, even modest results are reasonable and remarkable.
+%
+For a discussion on the reliability of phenotypic measures in the context of
+predictive modeling, we point the interested reader to: (Dubois et al., 2018a,
+2018b; Gignac and Bates, 2017) \citep{scheinost2019ten}.
 
 \subsection{Future questions}
 %
@@ -869,9 +1016,11 @@ assumption: visual localizer = ``ground truth''
 \subsubsection{Proof of concept}
 %
 
+
 \subsubsection{ROI vs. whole brain}
 %
-more (?) data vs. searchlight algorithm
+more (?) data vs. searchlight algorithm; connectivity;
+\citep{nastase2019leveraging}
 
 
 \subsubsection{predict other t-contrasts of localizer}
