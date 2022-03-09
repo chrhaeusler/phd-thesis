@@ -8,7 +8,7 @@
 \todo[inline]{sections are supposed to be numbered}
 
 %
-Brain imaging with \ac{bold} \ac{fmri} has been used extensively for almost
+Brain imaging using with \ac{fmri} of \ac{bold} activity has been used extensively for almost
 three decades to investigate perceptual and cognitive brain functions.
 %
 Typical analysis procedures average (voxel-wise) data of at least 10-15 subjects
@@ -82,7 +82,7 @@ limited amount of time.
 %
 One example of a time-efficient multi-functional localizer for reading, language
 comprehension, calculation, motor response, and basic retinotopy was developed
-by \citep{pinel2007fast}).\todo{Thirion's work?}
+by \citep{pinel2007fast, pinho2018individual, pinho2020individual}.
 %
 It employs a range of dedicated stimuli and specific tasks participants have to
 perform in a 5-minute routine.
@@ -168,6 +168,72 @@ Fig. 1 in \citep{nishimoto2016lining}).
 
 \paragraph{Shared response model}
 
+\todo[inline]{Put following stuff into study3 and then a shorter version here}
+
+Problem: ``One of the main obstacles in leveraging brain activity across
+subjects is the considerable heterogene- ity of functional topographies from
+individual to individual. Variability in functional–anatomical correspondence
+across individuals means that even high-performing anatomical alignment does not
+ensure fine-grained functional alignment [e.g., 36]. As an example, multi-voxel
+pattern analysis models that perform well within subjects often degrade in
+performance when evaluated across subjects [e.g., 37, 38]''
+\citep{kumar2020brainiak}.
+
+``SRM [13], alongside other methods of hyperalignment [39–41], aims to resolve
+this alignment prob- lem by aligning based on functional data. SRM estimation is
+driven by the commonality in func- tional responses induced by a shared stimulus
+(e.g. watching a movie). Unlike ISC analysis, which presupposes (often very
+coarse) functional correspondence, SRM isolates the shared response while
+accommodating misalignment across subjects. SRM decomposes multi-subject fMRI
+data into a lower-dimensional shared space and subject-specific transformation
+matrices for projecting from each subject’s idiosyncratic voxel space into the
+shared space (Figure 2). Each of these topo- graphic transformations effectively
+rotates and reduces each subject’s voxel space to find a subspace of shared
+features where the multivariate trajectory of responses to the stimulus is best
+aligned. These shared features do not correspond to individual voxels; rather,
+they are distributed across the full voxel space of each subject; each shared
+feature can be understood as a weighted sum of many voxels''
+\citep{kumar2020brainiak}.
+
+``Transformations estimated from one subset of data can be used to project
+unseen data into the shared space. Projecting data into shared space increases
+both temporal and spatial ISC (by design), and in many cases improves
+between-subject model performance to the level of within-subject performance.
+Between-subject models with SRM can, in some cases, exceed the performance of
+within-subject models because (a) the reduced-dimension shared space can
+highlight stimulus- related variance by filtering out noisy or
+non-stimulus-related features, and (b) the between-subject model can effectively
+leverage a larger volume of data after functional alignment than is available
+for any single subject. De-noised individual-subject data can be reconstructed
+by projecting data from the reduced-dimension shared space back into any given
+subject’s brain space.  Furthermore, in cases where each subject’s unique
+response is of more interest than the shared signal, SRM can be used to factor
+out the shared component thereby isolating the idiosyncratic response for each
+subject [13]'' \citep{kumar2020brainiak}.
+
+``Building on the initial probabilistic SRM formulation [13, 42], several
+variants of SRM have been developed to address related challenges. For example,
+a fast SRM implementation has been introduced for rapidly analyzing large
+datasets with reduced memory demands [43]. The robust SRM algorithm tolerates
+subject specific outlying response elements [44], and the semi-supervised SRM
+capitalizes on categorical stimulus labels when available [45]. Finally,
+estimating the SRM from functional connectivity data rather than response time
+series circumvents the need for a single shared stimulus across subjects;
+connectivity SRM allows us to derive a single shared response space across
+different stimuli with a shared connectivity profile [46]''
+\citep{kumar2020brainiak}.
+
+``Figure 2: Schematic of the shared response model (SRM). (a) Data are typically
+split into a training set (light gray) used to estimate the SRM and a test set
+(dark gray) used for evaluation. The SRM is estimated from response time series
+from the training set for multiple subjects (top left; transposed here for
+visualization). The multi-subject response time series are decomposed into a set
+of subject- specific orthogonal topographic transformation matrices and a
+reduced-dimension shared response space. The learned subject-specific
+topographic bases can be used to project test data (bottom left) into the shared
+space. This projection functionally aligns the test data''
+\citep{kumar2020brainiak}.
+
 \citep{chen2015reduced}
 
 
@@ -217,7 +283,7 @@ popularity.
 
 \paragraph{Definition}
 
-\todo[inline]{time-locked events}
+\todo[inline]{time-locked events; absence if fixation cross}
 
 \todo[inline]{shorten but add narrative studies; synchronization is also true
 for narratives}
@@ -258,7 +324,7 @@ spatiotemporal responses across multiple subjects in a large part of the brain
 %
 Professionally produced movies evoke inter-subject correlations (ISC) in more
 parts of the brain than, for example, an unedited video of a concert, taken from
-a fixed viewpoint \citep{hasson2010reliabilitiy}.
+a fixed viewpoint \citep{hasson2010reliability}.
 %
 This finding could be attributed to a film director's goal to not only direct a
 movie, but also to capture and direct the audience's attention
@@ -267,6 +333,52 @@ movie, but also to capture and direct the audience's attention
 
 \todo[inline]{reviews on narratives: \citep{hamilton2018revolution}, more M/EEG
 \citep{alday2019meg}}
+
+
+``The advent of digital video and programs for controlling presentation of
+digital video made it feasible to present dynamic, naturalistic movies in
+functional brain imaging experiments. Pioneering studies in 2004 (Bartels and
+Zeki, 2004; Hasson et al., 2004) have led to widespread use of such stimuli,
+producing clear evidence of their utility for evoking reliable, information-rich
+patterns of brain activity over a larger extent of cortex than is activated by
+more controlled experiments. Movies also provide a rich context with narrative
+structure (Hasson et al., 2008a, 2015; Chen et al., 2017), better hold attention
+(Hasson et al., 2008b), and enhance subject compliance (Vanderwal et al.,
+2015)'' \citep{haxby2020naturalistic}.
+
+``Whereas controlled experiments minimize extraneous information in stimuli and
+tasks, experiments with naturalistic stimuli better simulate the full richness
+of natural visual and auditory experience. Movies sample a broad range of brain
+states and engage multiple perceptual and cognitive systems in parallel. Even
+within a sensory modality, such as vision, different types of information are
+layered and simultaneously present in natural movies. The rich, layered
+information in movies has allowed concurrent modeling of multiple stages of
+perceptual processing (Nishimoto et al., 2011; Huth et al., 2012; Güclü and van
+Gerven, 2017). Broader sampling and efﬁcient engagement of multiple systems
+moti- vated the use of movie-viewing data as the basis for developing algo-
+rithms for aligning functional anatomy (Conroy et al., 2009, 2013; Sabuncu et
+al., 2010; Haxby et al., 2011; Chen et al., 2015; Guntupalli et al., 2016,
+2018). Researchers have begun to dissociate overlappingneural representations in
+naturalistic paradigms using analytic methods such as multivariate pattern
+classiﬁcation (MVPC; Haxby et al., 2001, 2014), representational similarity
+analysis (Kriegeskorte et al., 2008; Kriegeskorte and Kievit, 2013), and forward
+encoding models (Naselaris et al., 2010; Nunez-Elizalde et al., 2019).
+Critically, the relative contri- butions of different types of information are
+more faithfully represented in naturalistic stimuli than in controlled
+experimental manipulations'' \citep{haxby2020naturalistic}.
+
+``We argue here that studies of brain activity evoked by viewing a naturalistic,
+dynamic movie better reﬂect the statistics of natural viewing in a complex,
+cluttered, changing, and continuous visual environment. Using naturalistic,
+dynamic stimuli has the potential to lead to surprising new insights about how
+neural resources for visual perception are structured and allocated. We refer
+here to naturalistic, dynamic stimuli as those that present visual episodes,
+sometimes accompanied by a sound- track, with the complexity of natural scenes.
+We examine the use of naturalistic audiovisual clips or movies and distinguish
+these from still images and from highly-controlled or schematic videos (e.g.
+point-light displays or videos of isolated body parts performing simple actions
+with no context), which have an intermediate status between non- naturalistic
+stimuli and naturalistic, complex videos'' \citep{haxby2020naturalistic}.
 
 
 \paragraph{Higher validity}
@@ -278,8 +390,9 @@ natural dynamic environment.
 Further they offer a higher external validity \citep{westfall2016fixing})
 because they sample the stimulus space ``better''.\todo{iykwim}
 %
-''a RSM is only indicated when the stimuli used in the study do not fully
-exhaust the theoretical population of stimuli that might have been used \citep{westfall2016fixing}.
+``a RSM is only indicated when the stimuli used in the study do not fully
+exhaust the theoretical population of stimuli that might have been used
+\citep{westfall2016fixing}''.
 %
 because selectively sample from the stimulus population leading to a
 stimulus-as-fixed-effect fallacy \citep{westfall2016fixing}.(Clarc, The
@@ -289,7 +402,7 @@ psychological research).
 The conclusions cannot be generalized to a broader population of stimuli without
 risking inflated Type I error  (cf. Donnet S, Lavielle
 M, Poline JB: Are fMRI event-related response constant in time? A model
-selection answer\citep{westfall2016fixing)}.
+selection answer\citep{westfall2016fixing}.
 %
 While the functional alignment can also be applied to fMRI data from stimulation
 paradigms with simplified stimuli, the transformations for functional alignment
@@ -338,6 +451,16 @@ variably synchronize different brain systems; for example, engaging,
 Hollywood-style movies may yield greater, more widespread ISCs than real-life,
 unedited videos (Hasson et al., 2010; Cohen et al., 2017)''
 \citep{nastase2019measuring}.
+
+``Naturalistic paradigms do not aim to replace the classic, controlled
+neuroimaging paradigms (Sonkusare et al., 2019). Due to their complexity and
+current limitations in understanding the statistical properties of different
+features in naturalistic conditions, naturalistic stimuli are not optimal for
+model development (see, e.g., Rust and Movshon, 2005). Controlled experiments
+are still needed for hypothesis testing and developing models, while
+naturalistic stimuli are best employed to test models in ecologically valid
+settings and to expand them to situations where context matters
+more'' \citep{saarimaki2021naturalistic}.
 
 
 \todo[inline]{imo following part can heavily be shortened}
@@ -455,9 +578,27 @@ For this purpose, I want to evaluate two strategies:
 \end{itemize}
 
 
-\subsubsection{Reproducibility, transparency, openly shared}
+\subsubsection{open, transparent, and reproducible science}
 
-\todo{transparency, reproducibility, sharing, check \citep{halchenko2021datalad}}
+\todo[inline]{to increase Reproducibility, automated, transparency, openly
+shared; all steps from accquiring the dataset to visualization of results can be
+reproduced and validated by independent researcher and validated by independent
+researchers; documented code, output etc.; DataLad for distribution; provenance
+tracking, repository with version-control system}
+
+\todo{no commercial tools and close, proprietary code, but all free and - if
+possible - open-source tools/packages, all data used as input from publicly
+available, transparency, all code will be released publicly and freely,
+reproducibility, all generated code, analyses, results will be published and
+freely accessible, sharing, check}
+
+\todo{following best practices for coding and scientific computing
+\citep{wilson2014best}, data analysis \citep{nichols2017best}, and sharing code
+\citep{eglen2017toward}, created data and results \citep{nichols2017best}}
+
+\todo[inline]{best practices for transparent and reproducible research
+\citep{poldrack2017scanning}}
+
 %
 All required algorithms and analyses will be implemented in a way that enables
 automated processing.
@@ -468,6 +609,15 @@ datasets.
 Implementations will be based on open-source software tools to guarantee a
 maximum level of reproducibility, and relative ease of long-term maintenance
 \citep{eglen2017toward}.
+
+% datalad
+All input data, code and output data will be provided as standardized and
+easy-to-access \textit{DataLad} (datalad.org) datasets, a free and open-source software
+solution that manages provenience, distribution, version-control of code and
+data, and provides as structured record of all executed steps from downloading
+the input data to visualizing the results.
+\citep{halchenko2021datalad}. The information of past command-line invocations
+can be used to re-execute commands to rerun every step and validate the results.
 %
 The goal is to provide researchers with efficient, validated, ready to use
 solutions (stimulation, MR sequence configuration, analysis software) for
@@ -475,7 +625,25 @@ functional localization that can be incorporated into their study protocols.
 %
 We share results and code in standardized file and data formats und use free and
 open-source software (FSL, Python packages like ...). Only use publicly
-available input data (. \citep{glen2017toward}).
+available input data \citep{eglen2017toward}.
+
+``The entire analysis workflow (including both successful and failed analyses)
+would be completely automated in a workflow engine and packaged in a software
+container or virtual machine to ensure computational reproducibility. All data
+sets and results would be assigned version numbers to enable explicit tracking
+of provenance. Automated quality control would assess the analysis at each stage
+to detect potential errors'' \citep{poldrack2017scanning}.
+
+``The paper would be written using a literate programming technique in which the
+code for figure generation is embedded within the paper and the data depicted in
+figures are transparently accessible. The paper would be distributed along with
+the full codebase to perform the analyses and the data necessary to reproduce
+the analyses, prefera­ bly in a container or virtual machine to enable direct
+reproducibility. Unthresholded statistical maps and the raw data would be shared
+via appropriate community repositories, and the shared raw data would be format­
+ted according to a community standard, such as the Brain Imaging Data Structure
+(BIDS)73, and annotated using an appropriate ontology to enable automated
+meta-analysis'' \citep{poldrack2017scanning}.
 
 
 ``Naturalistic approaches have a strong potential to further transparent and
@@ -493,7 +661,7 @@ answering speciﬁc hypotheses. Ideally, researchers would not only share the
 neuroimaging/ electrophysiological data, but also the details of the para- digm
 including speciﬁc time indications, task descrip- tions and the stimulus ﬁles as
 presented to the participant. This proposal is diﬀerent from previous task
-ontologies (Poldrack & Gorgolewski, 2014; Turner & Laird, 2012) in that it
+ontologies (Poldrack \& Gorgolewski, 2014; Turner \& Laird, 2012) in that it
 captures the speciﬁcs of a more eco- logically valid approach and the use of a
 natural task, a design which has not yet been incorporated into existing task
 ontologies'' \citep{kandylaki2019story}.
@@ -541,6 +709,22 @@ technical difﬁculty of data sharing. Some of these – such as recording
 acquisition and presentation timings as well as annotating stimuli for features
 of interest – are well-recognized from the task-based neuroimaging literature
 and implemented in existing standards such as BIDS'' \citep{dupre2020nature}.
+
+
+``Modeling the stimulus and task properties is a central challenge with
+naturalistic paradigms and one that has great potential if solved (Simony and
+Chang, 2020) \citep{saarimaki2021naturalistic}''.
+%
+``However, modeling the naturalistic stimulus requires a way to extract
+time-varying, emotion-related processes. The interpretations based on combining
+stimulus-driven features with brain imaging data are based on two critical
+assumptions: first, that the researcher knows which features of the stimulus are
+driving the brain activity, and second, that these features have been modeled
+accurately (Chang et al., 2020). Following the terminology in naturalistic
+studies focusing on visual, object, and semantic features (e.g., Huth et al.,
+2012, 2016), the term emotion feature refers to any emotion-related variable
+that we can continuously extract from either the stimulus or the observer
+(Figure 1)'' \citep{saarimaki2021naturalistic}.
 
 
 \subsubsection{Study 2: task-based vs. visual vs. auditory}
