@@ -338,16 +338,11 @@ either pure rest or pure event-related task designs'' \citep{finn2017can}.
 %% a maximum of two pages
 
 \todo[inline]{imo, section should include roadmap/overview of work packages}
-\todo[inline]{titles of subsections are too long}
 
 %
-Previous work has shown that it is possible to combine \ac{bold} \ac{fmri} with
-a naturalistic stimulation in order to localize areas correlating with
-particular brain functions \citep{bartels2004mapping}.
-%
-This can be approached by either modeling specific stimulus features, or by
-using the high-dimensional nature of such a stimulus to derive a \ac{cms} to
-align functional properties of cortex across study participants.
+Previous work has shown on a group average level that it is possible to combine
+\ac{bold} \ac{fmri} with naturalistic stimulation in order to localize areas
+correlating with particular brain functions \citep{bartels2004mapping}.
 %
 This dissertation explores whether a movie and the movie's audio-description
 that was produced for an visually impaired audience can substitute an
@@ -357,115 +352,204 @@ Naturalistic stimuli would have substantial advantages (e.g. task demands
 compliance, and data quality) over simplified stimuli presently used in
 localizer paradigms.
 %
-The time-courses of rich, full-length naturalistic stimuli are correlating with a
-variety of different brain functions ranging from low-level perception (e.g.
+The time-courses of rich, full-length naturalistic stimuli are correlating with
+a variety of different brain functions ranging from low-level perception (e.g.
 luminance) to high-level cognition (social cognition).
 %
 Thus a naturalistic stimulus could, in principle, replace multiple dedicated
 localizers to provide a more comprehensive diagnostic routine.
+
+\todo[inline]{rephrase in line with the (to be written) part regarding.
+\ac{cms}}
 %
 Nevertheless, a 2-hour paradigm would be unsuitable for a clinical population
 and uneconomically.
 %
-For that reason, this dissertation will also explore weather just a part of a
+For that reason, this dissertation will also explore whether just a part of a
 naturalistic stimulus can be used to align an ``unknown'', left-out subject to a
 \ac{cms} in order to a) map results from a functional localizer in a reference
 group onto the unknown subject's anatomy and thus b) predict the results from
 the functional localizer in the left-out subject.
 %
 
+\subsection{Open, transparent, and reproducible science}
+%
+\todo[inline]{write introductory sentences regarding ``reproducibility crisis''}
+%
+\todo[inline]{quote a ``famous'' open science paper}
+%
+\todo[inline]{put more stuff from \citep{halchenko2021datalad} here?}
+%
+On a metalevel, this dissertation thrives to follow the principle of open
+science [quote?], and provide transparent, reproducible procedures and results
+\citep{poldrack2017scanning} that can easily rerun and validated by third-party
+researchers.
+% aim
+Thus [wherever possible and as good as possible], I will follow and implement
+best practices for a) coding and scientific computing \citep{wilson2014best}, b)
+data analyses \citep{nichols2017best}, and c) sharing code, created data and
+results \citep{eglen2017toward, nichols2017best}.
+
+
+\subsubsection{input = open science \& studyforrest}
+
+\todo[inline]{future (``will be created'') vs. perfect (``has been created'')?}
+
+% open data \citep{eglen2017toward}
+As input data, my work will be/is build on top of publicly and freely available,
+\ac{fmri} data that is part of the \textit{studyforrest} project
+(\href{www.studyforrest.org}{studyforrest.org}).
+%
+The studyforrest project is an open science project that aims at providing a
+versatile resource for investigating human brain function under quasi-natural
+conditions.
+%
+The core of this dataset are two hour long \ac{bold} \ac{fmri} scans of
+participants watching the movie Forrest Gump and listening to the movie's
+audio-description of equal length.
+%
+Since its first publication in 2014 \citep{hanke2014audiomovie}, this resource
+has led to independent studies of international research groups that were
+published in peer-reviewed journals (s.
+\href{www.studyforrest.org}{studyforrest.org}).
+
+\begin{comment} \citep{dupre2020nature}:
+%
+Study Forrest is a data collection and curation effort designed to serve as a
+    community resource for new discoveries.
+%
+As of October 2019, 29 unique studies had been published using the
+    studyforrest.org dataset, 17 of which were published without any of the
+    original authors of the data release.
+%
+This is possible in large part thanks to the richness of naturalistic stimuli,
+    where the same movie can be used for both task-free as well as
+    stimulus-driven analyses, with the original stimulus re-annotated for
+    particular features of interest.
+%
+For example, studyforrest.org has been used to test cerebrovascular biomarkers
+    (Voss et al., 2017) but, among other features, was also annotated for
+    expressed emotion (Labs et al., 2015) which later informed a study on
+    emotion encoding gradients in the brain (Lettieri et al., 2019)''
+    \citep{dupre2020nature}.
+%
+\end{comment}
+%
+Data, like stimulus annotations, that will/has been created of the course of the
+dissertation project will provided in standardized file format,
+version-controlled and published, and therefore extended the studyforrest
+project.
+
+%
+\subsubsection{analyses, code, output}
+
+%
+All data analyses pipelines will be implemented in a way that enables automated
+processing.
+%
+First, analyses pipelines will not be implemented using commercial, proprietary
+software but freely available and, if possible, open-source software to
+guarantee reproducibility (s. \citep{eglen2017toward}).
+% which tools to choose why?
+Among potential software packages, we/I will choose the tools that offer the
+most solid documentation and basis of developers and maintainers to ensure
+long-term support.
+% my code
+Second, any custom code written by myself will implemented in open-source
+programming language, will be version-controlled, documented and released
+publicly and freely accessible.\todo[inline]{are we actually allowed regarding
+FZJ rules?}
+%
+Third, all input data, custom code and output data will be provided as
+standardized and easy-to-access \textit{DataLad} (datalad.org) datasets, a free
+and open-source software solution that manages provenience, distribution,
+version-control of code and data, and provides a structured record of all
+executed steps from downloading the input data to visualizing the results. The
+information of past command-line invocations can be used to re-execute commands
+to rerun every step and validate the results
+\citep{halchenko2021datalad}.\todo{is direct quote?}
+
+%
+Consequently, all steps from acquiring the raw data, performing the analyses,
+and visualizing the results can be check, rerun and validated by independent
+badass motherfuckers.
+%
+Unthresholded statistical maps will additionally be accessible at Neurovault.
+
+
+\href{https://neurovault.org/}{neurovault.org}
+%
+Since ``nature abhors a paywall'' \citep{dupre2020nature}, publications
+describing generated data or reporting research results will be published in
+open-access journals.
+%
+``Unthresholded statistical maps and the raw data would be shared
+via appropriate community repositories, and the shared raw data would be format­
+ted according to a community standard, such as the Brain Imaging Data Structure
+(BIDS)73, and annotated using an appropriate ontology to enable automated
+meta-analysis'' \citep{poldrack2017scanning}.
+
 
 \subsection{Specific objectives and hypotheses}
+
 
 \subsubsection{A studyforrest extension, an annotation of spoken language in the
 German dubbed movie ``Forrest Gump'' and its audio-description}
 
 %
-Movies are designed to entertain the audience and not to conduct research.
+The majority of naturalistic stimuli that have been used in neuroscience have
+originally been designed to entertain an audience and not to conduct research.
 %
-Variables (i.e. the ``features'' embedded in the naturalistic stimuli) might be
-confounded.
+The time-courses of variables (i.e. the \textit{features}) embedded in a
+naturalistic stimulus are fixed and thus reproducible [makes sense?].
 %
-Moreover, features of interest might be highly correlated, making a it
-impossible to controlling them statistically.
+Nevertheless, ``modeling the stimulus and task properties is a central challenge
+with naturalistic paradigms [and one that has great potential if solved] [Simony
+and Chang, 2020]'' \citep{saarimaki2021naturalistic} because models of
+hemodynamic activity correlating with/during a naturalistic stimuli rely on
+extensive stimulus annotations.
 %
-Hence, researchers often rely on data-driven methods to analyze the data
-``because they do not require an explicit model of the task or stimulus'' and/or
-``constructing such a model may be prohibitively difficult.''
-\citep{nastase2019measuring}.
+Stimulus annotations need to comprise annotations of features of interest as
+well as annotations of potentially confounding features.
 %
-Which is true but the wrong mindset that lead to a lack of annotation in most
-datasets derived from naturalistic paradigms.
-%
-From data-driven approaches, we gained a lot of knowledge, but data-driven
-approaches essentially fall short in case you want to correlate discovered brain
-activation patterns with psychological processes.
-%
-``annotation bottleneck'' \citep{aliko2020naturalistic}i.
+The lack of extensive annotations of naturalistic stimuli has led to an ``usage
+bottleneck'' \citep{aliko2020naturalistic} and might be the main reason why
+explicit models of task or stimulus are often ``prohibitively difficult'' to
+construct \citep{nastase2019measuring}.
 
-``Nevertheless, naturalistic stimuli add additional layers of complexity to the
-technical difficulty of data sharing. Some of these – such as recording
-acquisition and presentation timings as well as annotating stimuli for features
-of interest – are well-recognized from the task-based neuroimaging literature
-and implemented in existing standards such as BIDS'' \citep{dupre2020nature}.
-
-``Modeling the stimulus and task properties is a central challenge with
-naturalistic paradigms and one that has great potential if solved (Simony and
-Chang, 2020) \citep{saarimaki2021naturalistic}''.
+% yeah, fuck it; I'll do it myself
+Hence, I extended the studyforrest project with an annotation of spoken
+language.
+% content
+``The annotation provides information about the exact timing of each of the more
+than 2500 spoken sentences, 16000 words (including 202 non-speech
+vocalizations), 66000 phonemes, and their corresponding speaker''
+\citep{haeusler2021speechanno}.
 %
-``However, modeling the naturalistic stimulus requires a way to extract
-time-varying, emotion-related processes. The interpretations based on combining
-stimulus-driven features with brain imaging data are based on two critical
-assumptions: first, that the researcher knows which features of the stimulus are
-driving the brain activity, and second, that these features have been modeled
-accurately (Chang et al., 2020). Following the terminology in naturalistic
-studies focusing on visual, object, and semantic features (e.g., Huth et al.,
-2012, 2016), the term emotion feature refers to any emotion-related variable
-that we can continuously extract from either the stimulus or the observer
-(Figure 1)'' \citep{saarimaki2021naturalistic}.
+Further, we explored the stimulus' confound structure and validated the
+annotation's quality by building a model of hemodynamic activity based
+information drawn from it.
+%
+Results suggested that the annotation could be used to model hemodynamic
+responses correlating with auditory, semantic information in study 2.
 
 
 \paragraph{Maybe: what was tried...}
 
-...and did not work: IBM Watson \& Google Cloud text-to-speech
+IBM Watson \& Google Cloud text-to-speech
 
 
+\subsubsection{Processing of visual and non-visual naturalistic spatial
+information in the ``parahippocampal place area''}
 
-
-
 %
-Why does the dataset contain those annotations? Annotations are of utterly
-importance in case you want to perform model-driven analyses
-%
-For example for a GLM: you want to build contrasts of interest; or you want to
-build nuisance regressors just to explain variance
-%
-both movie and the audio-description provide spatial information.
-%
-let's try to use semantic spatial information for a proof of concept
-%
-The goal of this study is to create stimulus annotations to model hemodynamic
-responses during the auditory naturalistic stimulation, and validate its quality
-for the following studies.
-%
-Previous results show that there are significant voxel-wise BOLD response time
+Previous analyses of the audio-visual movie and results show that there are significant voxel-wise BOLD response time
 series correlations between the two datasets in brain areas associated with
 speech and story processing (s. Figure 3 in \citep{hanke2016simultaneous}).
 %
 This investigation will also provide insight if it is feasible to produce an
 audio-only localizer paradigm as an alternative for studies where no visual
 stimulation is feasible or desired.
-
-Hence:
-\begin{itemize}
-    \item direct modeling of a natural stimulus and
-    \item prediction via functional alignment to a reference population
-\end{itemize}
-
-
-\subsubsection{Processing of visual and non-visual naturalistic spatial
-information in the ``parahippocampal place area''}
-
 %
 Comparison of results from a task-based functional localizer to
 results from naturalistic stimulus paradigms
@@ -601,118 +685,6 @@ The joint dataset will enable me to study whether a functional alignment to the
 common reference space can be performed based on a short scan.
 
 
-\subsection{Open, transparent, and reproducible science}
-%
-\todo[inline]{write introductory sentences to ``reproducibility crisis''}
-\todo[inline]{quote a ``famous'' open science paper}
-%
-On a metalevel, this dissertation thrives to follow the principle of open
-science [quote?], and provide
-transparent, reproducible procedures and results \citep{poldrack2017scanning}
-that can easily rerun and validated by third-party researchers.
-% aim
-Thus [wherever possible and as good as possible], I will follow and implement
-best practices for a) coding and scientific computing \citep{wilson2014best}, b)
-data analyses \citep{nichols2017best}, and c) sharing code, created data and
-results \citep{eglen2017toward, nichols2017best}.
-
-
-\subsubsection{input = open science \& studyforrest}
-
-\todo[inline]{future (``will be created'') vs. perfect (``has been created'')?}
-
-% open data \citep{eglen2017toward}
-As input data, my work will be/is build on top of publicly and freely available,
-\ac{fmri} data that is part of the \textit{studyforrest} project.
-%
-The studyforrest project is an open science project that aims at providing a
-versatile resource for investigating human brain function under quasi-natural
-conditions.
-%
-The core of this dataset are two hour long \ac{bold} \ac{fmri} scans of
-participants watching the movie Forrest Gump and listening to the movie's
-audio-description of equal length.
-%
-Since its first publication in 2014 \citep{hanke2014audiomovie}, this resource
-has led to independent studies of international research groups that were
-published in peer-reviewed journals (s. http://studyforrest.org).
-
-\begin{comment} \citep{dupre2020nature}:
-%
-Study Forrest is a data collection and curation effort designed to serve as a
-    community resource for new discoveries.
-%
-As of October 2019, 29 unique studies had been published using the
-    studyforrest.org dataset, 17 of which were published without any of the
-    original authors of the data release.
-%
-This is possible in large part thanks to the richness of naturalistic stimuli,
-    where the same movie can be used for both task-free as well as
-    stimulus-driven analyses, with the original stimulus re-annotated for
-    particular features of interest.
-%
-For example, studyforrest.org has been used to test cerebrovascular biomarkers
-    (Voss et al., 2017) but, among other features, was also annotated for
-    expressed emotion (Labs et al., 2015) which later informed a study on
-    emotion encoding gradients in the brain (Lettieri et al., 2019)''
-    \citep{dupre2020nature}.
-%
-\end{comment}
-%
-Data, like stimulus annotations, that will/has been created of the course of the
-dissertation project will provided in standardized file format,
-version-controlled and published, and therefore extended the studyforrest
-project.
-
-%
-\subsubsection{analyses, code, output}
-
-%
-All data analyses pipelines will be implemented in a way that enables automated
-processing.
-%
-First, analyses pipelines will not be implemented using commercial, proprietary
-software but freely available and, if possible, open-source software to
-guarantee reproducibility (s. \citep{eglen2017toward}).
-% which tools to choose why?
-Among potential software packages, we/I will choose the tools that offer the
-most solid documentation and basis of developers and maintainers to ensure
-long-term support.
-% my code
-Second, any custom code written by myself will implemented in open-source
-programming language, will be version-controlled, documented and released
-publicly and freely accessible.\todo[inline]{are we actually allowed regarding
-FZJ rules?}
-%
-Third, all input data, custom code and output data will be provided as
-standardized and easy-to-access \textit{DataLad} (datalad.org) datasets, a free
-and open-source software solution that manages provenience, distribution,
-version-control of code and data, and provides a structured record of all
-executed steps from downloading the input data to visualizing the results. The information of past command-line invocations can be used to re-execute
-commands to rerun every step and validate the results
-\citep{halchenko2021datalad}.\todo{is direct quote?}
-
-%
-Consequently, all steps from acquiring the raw data, performing the analyses,
-and visualizing the results can be check, rerun and validated by independent
-badass motherfuckers.
-%
-Since ``nature abhors a paywall'' \citep{dupre2020nature}, publications
-describing generated data or reporting research results will be published in
-open-access journals.
-
-``The paper would be written using a literate programming technique in which the
-code for figure generation is embedded within the paper and the data depicted in
-figures are transparently accessible. The paper would be distributed along with
-the full codebase to perform the analyses and the data necessary to reproduce
-the analyses, preferably in a container or virtual machine to enable direct
-reproducibility'' \citep{poldrack2017scanning}.
-%
-``Unthresholded statistical maps and the raw data would be shared
-via appropriate community repositories, and the shared raw data would be format­
-ted according to a community standard, such as the Brain Imaging Data Structure
-(BIDS)73, and annotated using an appropriate ontology to enable automated
-meta-analysis'' \citep{poldrack2017scanning}.
 
 
 \paragraph{just some notes}
