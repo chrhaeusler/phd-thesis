@@ -1,14 +1,14 @@
 \section{Abstract}
-%
-In order to map perceptual or cognitive functions onto brain areas of study
+% intro
+In order to map perceptual or cognitive functions onto brain anatomy of study
 participants, researchers usually conduct dedicated experiments often
-accompanied with a task (so called ``functional localizer'').
-%
+accompanied with a task (so called \textit{functional localizer}).
+% problem
 Nevertheless, the approach ``one paradigm, one brain function'' becomes
 unfeasible if one wants to map a variety of functions in a time-efficient
 manner.
-%
-We explored a way to project brain mapping data (statistical z-maps) from a
+% therefore
+We explored a way to project brain mapping data (statistical $Z$-maps) from a
 reference group onto individual brains of study participants after performing a
 functional aligning of participants with a common model space.
 %
@@ -20,8 +20,8 @@ participants took part in a task-based, block-design visual localizer, and
 participants were watching an audio-visual movie and listening to the movie's
 audio-description, both paradigms free of any task.
 %
-Based on these data, we created a common model space employing a \ac{srm}
-\citep{chen2015reduced}.
+Based on these data, we created a common model space employing a shared response
+model {SRM} \citep{chen2015reduced}.
 %
 On the one hand, the common model space allows denoising data from individuals
 that were used to create the common model space.
@@ -36,254 +36,113 @@ data from other paradigms aligned in common space onto the brain of the left-out
 subjects.
 %
 The general goal of the project is to assess the required length of the
-diagnostic run, and to compare empirical z-maps with z-maps that were predicted
-from other participants' data.
+diagnostic run, and to compare empirical $Z$-maps with $Z$-maps that were
+predicted from other participants' data.
 %
 We present preliminary results of predicted z-maps gained from the same paradigm
 as the diagnostic run as well as across paradigms.
 
 
 \section{Introduction}
+
+\todo[inline]{given this is not a separate publication, I guess it is okay to
+write the introduction (which will be similar to the corresponding parts in the
+introduction) shorter than it would be written in a stand-alone paper}
+
+\todo[inline]{still: imo the text here should probably be more detailed here
+than in the general introduction}
+
+\todo[inline]{to do: extend here, shorten in general introduction / overview}
+
+\todo[inline]{define PPA in intro shortly (maybe \ac{ffa}, too)}
+
 % brain mapping
-topographic brain mapping maps brain functions, perceptual or cognitive
+Topographic brain mapping maps brain functions, perceptual or cognitive
 processes, onto brain areas.
 % localizer
-Usually, this is done by letting study participants perform a task during a so
-called ``functional localizer''.
+Usually, this is done by letting study participants perform a task during a
+\textit{functional localizer}.
 % problem: one localizer for one domain
-The second problem is: you usually need one localizer for one domain of brain
-functions
+Functional localizers are designed to maximize detection power and thus usually
+map just on domain of brain functions (e.g. different object categories;
+\citet{kanwisher1997ffa}) or cognitive processes (e.g. theory of mind;
+\citet{spunt2014validating}).
 % which gets messy
-Which means: if you want to map a variety of domains, you need a variety of
-localizers, and then the whole approach gets time-consuming and inefficient
-(localizer batteries; e.g. Thirion's work)
-% problem: compliance
-Even more severe in a clinical population: they mostly need the participants to
-perform a task, and they are just plain boring which often leads to a diminished
-compliance.
+Consequently, if a researcher or practitioner wants to map a variety of domains,
+the approach ``one paradigm, one brain function'' gets time-consuming and
+inefficient.
+% localizer batteries: intro
+Researchers have tried to tackle this issue by creating time-efficient
+multi-functional \textit{localizer batteries} \citep{pinel2007fast,
+pinho2018individual, pinho2020individual}.\todo{others? H.B.Project?}
+% localizer batteries: example
+For example, \citet{pinel2007fast} employs a range of dedicated stimuli and
+specific tasks participants have to perform in a 5-minute routine.
+\todo[inline]{which domains? what tasks?}
+% task based = shit
+Nevertheless, the diagnostic quality of localizer batteries relies heavily on
+participants' comprehension of the task instruction and their compliance, a
+criterion that can be difficult to meet in clinical or pediatric populations
+\citep{eickhoff2020towards, vanderwal2015inscapes, vanderwal2019movies}.
+% validity?
+Additionally, localizer batteries also rely on carefully chosen and
+tightly-controlled, simplified stimuli that are usually presented in blocks do
+not resemble how we perceive the real-world during every-day life leading to
+questionable external and ecologically validity.\todo{add references}
+
+% interim summary
+In summary, we have two issues: a) validity and compliance, and b) efficiency.
+% foreshadowing to next sections & transition to naturalistic stimuli
+This dissertation will explore how we can both increase validity by using
+\textit{naturalistic stimulus} paradigms as well as increase efficiency by
+predicting individual functional topography from data collected in a reference
+group.
 
 
-\subsection{Our approach}
-% main idea
-The main idead ist to predict location, size, and shape of a functional area in
-an individual person based on location, size, and shape of the same functional
-area in persons of a reference group.
-%
-Based on a prediction of a reference group's data, the diagnostic procedure
-could be more reliable and valid but also more time-efficient and thus more
-affordable.
-%
-We can do this in basically two ways:
-a) we do this by performing an anatomical alignment, or
-%
-which is a new a approach:
-%
-b) we can do this by performing a functional alignment
-%
-
-but when we want to predict functional areas from anatomically aligned brains,
-we are running into the problem of poor
-functional-anatomical correspondence.
-
-Poor functional-anatomical correspondence means:
-even if we assume that two persons have anatomically identical brains, still,
-the location, size \& shape of the functional area is probably different.
-
-
-predict brain-patterns across subjects \& across an experiment?
-
-\begin{itemize}
-    \item 1. create CMS from brain patterns (during natural stimulation ) in
-        reference group
-
-    \item 2. project localizer data of reference group into CMS
-
-    \item 3. align left-out subject with CMS using a varying amount of data (1-8
-        runs je per stim.) data (parts) need to be of the same stimulation used
-        to create the CMS (cause we align time-series not connectivity profiles)
-        result: transformation matrix
-
-    \item 4. project localizer data from CMS into left-out subject  using the
-        inverse matrix from step 3
-
-    \item 5. compare predicted localizer results vs. empirical results
-
-    \item 6. compare steps 1-5 to a similar procedure using anatomical alignment
-
-\end{itemize}
-
-\subsubsection{anatomical alignment}
+\subsection{Anatomical alignment}
 
 % anatomical alignment
 In general, a individual's diagnostic could be based on a prediction based on
 the anatomical location of the functional area in the reference group (e.g.
 \citet{weiner2018defining}.
 %
-- anatomical alignment aligns vertices in 2-dimensional space or voxels in
-3-dimensional anatomical space
+anatomical alignment aligns vertices in 2-dimensional space [is it really
+two-dimensional?] or voxels in three-dimensional anatomical space.
 %
-we transform the shape of an individual brain into the shape of an average,
+We transform the shape of an individual brain into the shape of an average,
 standard brain
 
-\subsubsection{Shared response model}
-
-from \citep{cohen2017computational}: ''One such technique is shared response
-modeling (SRM65; see also hyperalignment66), which projects fMRI responses from
-each participant into a low-dimensional space that captures temporal variance
-shared across participants (Box 1; Fig. 4–5).
 %
-If participants are given the same stimulus or task sequence (for example, a
-movie), which leads their brains through a series of cognitive states (for
-example, visual, auditory, semantic), then identifying shared variance has the
-effect of highlighting variance related to these states.
-%
-An added benefit is that SRM helps address the data starvation problem above:
-because the SRM space is by definition shared across individuals, data from
-multiple participants can be combined prior to MVPA or other analyses.
-%
-Cross-participant decoding is possible without SRM67–70 but may be limited to
-cognitive states whose neural representations are coarse and thus tolerant of
-misalignment.
-%
-Indeed, SRM improves MVPA precisely by aligning fine-grained spatial patterns
-within local regions71.
-%
-Moreover, beyond improving alignment and increasing the sensitivity of other
-analyses, the output of SRM itself can be informative.
-%
-For example, it has been used to estimate the dimensionality with which the
-posterior medial cortex represents movies during perception and memory recall72
-`` \citep{cohen2017computational}.
-
-%
-''The flip side of focusing on shared responses is to focus on responses that
-are idiosyncratic to individuals.
-%
-Although these responses are excluded in SRM, they are not necessarily noise and
-may in fact be highly reliable within participants.
-%
-Indeed, SRM can be used to iso- late participant-unique responses by examining
-the residuals after removing shared group responses, or it can be applied
-hierarchically to the residuals to identify subgroups65.
-%
-More generally, there is a growing trend toward investigating individual
-differences as another source of meaningful variance in fMRI73.
-%
-Recognizing that signal exists beyond the average or shared response of a group,
-such studies exploit idiosyncratic but stable responses to account for
-previously unexplained variance in brain function, behavioral performance and
-clinical measures70,74'' \citep{cohen2017computational}.
-
-''Figure 4 Process for SRM. fMRI data are collected from each of m participants
-experiencing the same stimulus and then organized into a matrix X (voxels by
-time). Each matrix X is then factored using a probabilistic latent-factor model
-into the product of a subject-specific matrix W of k brain maps (an orthogonal
-basis) and a shared temporal response matrix S of size k by time. That is, for
-each participant: X = W S + R, where X, W, and the residuals, R (not shown), are
-subject-specific, and S is shared across participantis``
-\citep{cohen2017computational}.
-
 ''After standard alignment, fMRI data can be aggregated at the group level by
-averaging the values at each voxel across participants.
-%
-Although this reduces intersubject noise, variation in the anatomical locations
-of functional signals across participants blurs estimates of their shared
-responses.
-%
-SRM offers an alternative approach by jointly factoring each participant’s data
-into a shared set of feature time series and subject-specific topographies for
-each feature (Fig. 4).
-%
-The simplest use of SRM is for extracting a shared response across an anatomical
-ROI. Used this way, SRM and related methods can yield significant gains in
-sensitivity for group-level inference65,66.
-%
-For example, which short segment of a movie is being watched can be classified
-with many times greater accuracy from fMRI data after functional versus
-anatomical alignment65,71.
-%
-Moreover, text annotations of movie segments based on fMRI are consistently
-better, across ROIs and analysis parameters, after SRM98.
-%
-Applying SRM to a large swath of the brain means that all voxels within the
-region contribute to the final derived metric.
-%
-This can conflict with the goal of associating spatially local activity with
-specific cognitive functions. To address such issues, SRM can be applied in
-small overlapping searchlights to obtain localized metrics of shared
-information71,99 \citep{cohen2017computational}``.
-
-%
-''SRM is computed using a subset of the available fMRI data, with the number of
-features, k, determined using cross-validation.
-%
-Naturalistic stimuli such as movies and stories are often used to generate such
-training data, though any study design in which participants perform the same
-sequence of trials—or for which a common sequence can be spliced together from
-the same set of trials—could be used (for example, a battery of cognitive
-tasks).
-%
-SRM highlights the sources of variance elicited by the stimuli or trials that
-are shared across participants in the training data.
-%
-Held-out test data (including from new participants) are then projected into the
-shared response space for further analysis.
-%
-Such test data could be of the same type as the training data, for example,
-allowing for decoding of new movie segments (Fig.  5).
-%
-Alternatively, the test data could be from controlled laboratory
-experiments—there is no requirement for a common trial sequence or set, unlike
-for the training data—with SRM simply replacing standard alignment in the
-preprocessing pipeline.
-%
-As a rule of thumb, SRM will improve sensitivity for detecting a cognitive
-process of interest in the test data if the training stimuli or trials strongly
-and variably engage that process in a way that is reliable across participants.
-%
-One limitation when using SRM for preprocessing is that additional data must be
-collected for training, reducing the amount of data (and potentially statistical
-power) related to the principal question of the study``
+averaging the values at each voxel across participants. Although this reduces
+intersubject noise, variation in the anatomical locations of functional signals
+across participants blurs estimates of their shared responses''
 \citep{cohen2017computational}.
 
-\paragraph{procedure}
-%
-\begin{itemize}
-    \item conduct the localizer experiment to get the brain responses in the
-    reference group
-    \item align the brains in that reference group anatomically to the standard
-    brain
-    \item also align your left-out subject to the standard brain, which gives
-    you a transformation matrix
-    \item then you use the inverse of that transformation matrix to project the
-    data
-    \item from the reference group into the anatomy of the left-out subject,
-    which is essentially the prediction
-\end{itemize}
 
-
-\paragraph{but: functional-anatomical correspondence}
+\paragraph{Functional-anatomical correspondence}
 % shitty
 The approach relying on merely anatomical alignment is shitty because of modest
 functional-anatomical correspondence.
 % explain functional-anatomical correspondence
-A modest functional-anatomical correspondence means that even if one would assume
-two persons had an identically shaped brain anatomy the location, size, and
-shape of a functional area would still not be indetical.
-
-% PPA example
-Here, as an example the location of the ``PPA'', the Parahippocampal Place Area.
-which is more active when we look at pictures of scenes or landscapes.
+A modest functional-anatomical correspondence means that even if one would
+assume two persons had an identically shaped brain anatomy the location, size,
+and shape of a functional area would still not be identical.
 %
-location, shape, size of the PPA in 14 subjects,
+Figure XY depicts sum of voxels of participants aligned to an anatomical brain
+template that are located within the \ac{PPA} \ac{roi} mask of 14 subjects
+\citep{sengupta2016extension}.
 %
 the brighter the voxel the more subjects have their PPA in that location.
 %
 location is roughly similar across persons, but still, the plot shows that there
 is individual variation.
-
+%
 
 \paragraph{individual differences}
+
+\todo[inline]{don't know if it makes sense to mention it in context of my
+thesis}
 %
 do you find differences in individual brain patterns or do differences stem from
 differences in functional-anatomical correspondence?
@@ -292,9 +151,9 @@ vice versa: we might find no differences because of poor functional-anatomical
 correspondence
 
 
-\subsubsection{functional alignment}
+\subsection{Functional alignment}
 %
-given that we do not want to predict brain anatomy but predict an accurate
+Given that we do not want to predict brain anatomy but predict an accurate
 mapping of brain functions onto the brain anatomy:
 %
 wouldn't it make more sense to not perform an anatomical alignment but a
@@ -303,104 +162,250 @@ functional alignment?
 Functional alignment aligns cortical patterns (time-series or connectivity
 profiles) in a multi-dimensional function space.
 % reference
-The reference is not an average brain anatomy but a so called \ac{cms}.
-
-
-\paragraph{Hyperalignment}
+The reference is not an average brain anatomy but a \textit{common model space}
+(CMS).
 %
 There are two algorithms dominating the field: hyperalignment and \ac{srm}
 
 
-\paragraph{Shared response model}
+\subsubsection{Hyperalignment}
+
+\todo[inline]{part on hyperalignment will probably still to long}
 %
-\todo[inline]{why did we chose SRM?}
+Hyperalignment, an algorithm that was pioneered by \citet{haxby2011common}, uses
+\ac{bold} response patterns to derive a \ac{cms} using a variant of Procrustes
+analysis and computes invertible (orthonormal) transformations from each
+individual brain's voxel-space into the \ac{cms}.
+%
+Importantly, the study also showed that an individual's \ac{ffa} or the
+\ac{ppa}, can be localized precisely based on data from a reference group.
 
 
-\paragraph{procedure}
+\subsubsection{Shared response model}
+
+\todo[inline]{why did we chose SRM? -> nice performance (s. Chen, 2015;
+Bazeille, 2021); nicely implemented in BrainIAK; probably faster than
+hyperalignment}
+
+\todo[inline]{following is blatantly copied (but little shortened/rephrased)
+from \citep{cohen2017computational}}
+
+``The \ac{srm} \citep{chen2015reduced} projects \ac{fmri} responses from
+each participant into a low-dimensional space that captures temporal variance
+shared across participants [Box 1; Fig. 4–5]'' \citep{cohen2017computational}.
 %
-You let study participants watch a naturalistic stimulus like a movie or an
-audio-book...  ...which are continuous, naturally engaging, and are triggering a
-wide variety of time-locked brain functions
+``If participants are given the same stimulus or task sequence (for example, a
+movie), which leads their brains through a series of cognitive states (for
+example, visual, auditory, semantic), then identifying shared variance has the
+effect of highlighting variance related to these states''
+\citep{cohen2017computational}.
+
+
+\paragraph{SRM procedure}
+
 %
-From that stimuli, you get the time-series per voxel and per subject, and what
-the algorithm essentially does is: it learns responses that are shared across
-participants (which is the common model space)
+``SRM offers jointly factoring each participant's data into a shared set of
+feature time series and subject-specific topographies for each feature (Fig.
+4)''\citep{cohen2017computational}.
 %
-but more importantly, the algorithm also learns individual transformation
-matrices.
+``Figure 4: fMRI data are collected from each of m participants experiencing the
+same stimulus and then organized into a matrix X (voxels by time). Each matrix X
+is then factored using a probabilistic latent-factor model into the product of a
+subject-specific matrix W of k brain maps (an orthogonal basis) and a shared
+temporal response matrix S of size k by time. That is, for each participant: X =
+W S + R, where X, W, and the residuals, R (not shown), are subject-specific, and
+S is shared across participant's''\citep{cohen2017computational}.
+
+% input data
+``Naturalistic stimuli such as movies and stories are often used to generate
+such training data, though any study design in which participants perform the
+same sequence of trials—or for which a common sequence can be spliced together
+from the same set of trials—could be used (for example, a battery of cognitive
+tasks)'' \citep{cohen2017computational}
 %
-These transformation matrices can be used to project data into and out of the
-Common Model Space.
-For the prediction through a common model space, we first needed to create it
+``As a rule of thumb, SRM will improve sensitivity for detecting a cognitive
+process of interest in the test data if the training stimuli or trials strongly
+and variably engage that process in a way that is reliable across participants.
+'' \citep{cohen2017computational}.
+
+\paragraph{applications}
+%
+The simplest use of SRM is for extracting a shared response across an anatomical
+ROI. Used this way, SRM and related methods can yield significant gains in
+sensitivity for group-level inference [\citep{chen2015reduced,haxby2011common}]
+\citep{cohen2017computational}.
+%
+For example, which short segment of a movie is being watched can be classified
+with many times greater accuracy from fMRI data after functional versus
+anatomical alignment [65,71]\citep{cohen2017computational}.
+
+
+%
+Problem: ``One of the main obstacles in leveraging brain activity across
+subjects is the considerable heterogeneity of functional topographies from
+individual to individual. Variability in functional–anatomical correspondence
+across individuals means that even high-performing anatomical alignment does not
+ensure fine-grained functional alignment [e.g., 36]. As an example, multi-voxel
+pattern analysis models that perform well within subjects often degrade in
+performance when evaluated across subjects [e.g., 37, 38]''
+\citep{kumar2020brainiak}.
+
+``SRM [13], alongside other methods of hyperalignment [39–41], aims to resolve
+this alignment problem by aligning based on functional data. SRM estimation is
+driven by the commonality in functional responses induced by a shared stimulus
+(e.g. watching a movie). Unlike ISC analysis, which presupposes (often very
+coarse) functional correspondence, SRM isolates the shared response while
+accommodating misalignment across subjects. SRM decomposes multi-subject fMRI
+data into a lower-dimensional shared space and subject-specific transformation
+matrices for projecting from each subject’s idiosyncratic voxel space into the
+shared space (Figure 2). Each of these topographic transformations effectively
+rotates and reduces each subject’s voxel space to find a subspace of shared
+features where the multivariate trajectory of responses to the stimulus is best
+aligned. These shared features do not correspond to individual voxels; rather,
+they are distributed across the full voxel space of each subject; each shared
+feature can be understood as a weighted sum of many voxels''
+\citep{kumar2020brainiak}.
+
+``Transformations estimated from one subset of data can be used to project
+unseen data into the shared space. Projecting data into shared space increases
+both temporal and spatial ISC (by design), and in many cases improves
+between-subject model performance to the level of within-subject performance.
+Between-subject models with SRM can, in some cases, exceed the performance of
+within-subject models because (a) the reduced-dimension shared space can
+highlight stimulus- related variance by filtering out noisy or
+non-stimulus-related features, and (b) the between-subject model can effectively
+leverage a larger volume of data after functional alignment than is available
+for any single subject. De-noised individual-subject data can be reconstructed
+by projecting data from the reduced-dimension shared space back into any given
+subject’s brain space.  Furthermore, in cases where each subject’s unique
+response is of more interest than the shared signal, SRM can be used to factor
+out the shared component thereby isolating the idiosyncratic response for each
+subject [13]'' \citep{kumar2020brainiak}.
+
+``Building on the initial probabilistic SRM formulation [13, 42], several
+variants of SRM have been developed to address related challenges. For example,
+a fast SRM implementation has been introduced for rapidly analyzing large
+datasets with reduced memory demands [43]. The robust SRM algorithm tolerates
+subject specific outlying response elements [44], and the semi-supervised SRM
+capitalizes on categorical stimulus labels when available [45]. Finally,
+estimating the SRM from functional connectivity data rather than response time
+series circumvents the need for a single shared stimulus across subjects;
+connectivity SRM allows us to derive a single shared response space across
+different stimuli with a shared connectivity profile [46]''
+\citep{kumar2020brainiak}.
+
+``Figure 2: Schematic of the shared response model (SRM). (a) Data are typically
+split into a training set (light gray) used to estimate the SRM and a test set
+(dark gray) used for evaluation. The SRM is estimated from response time series
+from the training set for multiple subjects (top left; transposed here for
+visualization). The multi-subject response time series are decomposed into a set
+of subject- specific orthogonal topographic transformation matrices and a
+reduced-dimension shared response space. The learned subject-specific
+topographic bases can be used to project test data (bottom left) into the shared
+space. This projection functionally aligns the test data''
+\citep{kumar2020brainiak}.
+
+\citep{chen2015reduced}
+
+
+\subsection{What we want to know}
+% main idea
+We want to predict location, size, and shape of a functional area in
+an individual person based on location, size, and shape of the same functional
+area in persons of a reference group.
+
+%
+We want to know if functional alignment based on a \ac{srm} improve the
+prediction compared to a prediction based on merely anatomical alignment?
+%
+We want to know how the parameter ``data points'' influences the results.
+%
+How much data do we need to align an individual subject to a/the \ac{cms} and
+outperform a prediction based on anatomical alignment?
+%
+Is a short diagnostic run ``sufficient''?
+
+\subsection{What we have to do}
+
+We will predict the location of the functional area by performing an
+anatomical alignment as a benchmark, and explore possibly improved prediction
+performance using a functional alignment
+
+Steps for prediction using anatomical alignment to a brain template (anatomical
+standard space):
+%
+conduct the localizer experiment to get the brain responses in the reference
+group
+%
+align the brains in that reference group anatomically to the standard brain
+%
+also align your left-out subject to the standard brain, which gives you a
+transformation matrix
+%
+then you use the inverse of that transformation matrix to project the data
+%
+from the reference group into the anatomy of the left-out subject, which is
+essentially the prediction
+
+Steps for prediction using functional alignment to a \ac{cms} (functional
+standard space):
+
 %
 We let participants watch the movie and audio-description of Forrest Gump,
 assuming that the naturalistic stimuli trigger, among others, brain responses
 that a similar to those triggered by the functional localizer
 %
-Usually when aligning brain responses (and not connectivity profiles) you would
-let the left-out subject watch the same and the whole stimuli that were used to
-create the Common Model Space to get the transformation matrices.
+create CMS from brain patterns (during natural stimulation) in reference group
 
-between-subject cross-validation (=external validation) vs. within-subject cross-validation)
-external validation (testing predictive model performance on an idependently
-collected dataset)
+From that stimuli, you get the time-series per voxel and per subject, and what
+the algorithm essentially does is: it learns responses that are shared across
+participants (which is the common model space)
+%
+algorithm also learns individual transformation matrices.
+%
+project localizer data of reference group into CMS
+%
+align left-out subject with CMS using a varying amount of data (1-8
+%
+runs je per stim.) data (parts) need to be of the same stimulation used to
+create the CMS (cause we align time-series not connectivity profiles) result:
+transformation matrix
+%
+project localizer data from CMS into left-out subject  using the inverse matrix
+from step 3
+%
+compare predicted localizer results vs. empirical results
+%
+compare steps 1-5 to a similar procedure using anatomical alignment
 
-external validation: testing a predictive model performance on an independently
-collected dataset.\todo{means: use localizer TRs to predict localizer???}
-
-\subsubsection{our current study: overview, blabla}
 %
-focussing on the domain of so called ``higher-visual, category-selective
-areas''
+Additionally for anatomical alignment: ``Partial alignment''.
 %
-How do you usually map these category-selective areas onto brains of individual
-study participants?
+e do not use the same time-series that was used to
+create the \ac{cms} but only a part of it.
 %
-You conduct a functional localizer experiments, lasting about 20 minutes,
-%
-You let the participants watch pictures of different categories, while also
-letting them perform a task to force them to pay attention to picture, after
-picture, after picture
-%
-After having collecting the data you do some statistics, and as a result you
-get statistical maps, t- or z-map, that essentially tell you where the
-higher-visual areas are located
-%
-If we need about 20 minutes for just one domain, why don’t we predict the
-location of a functional area in one person from the location that we found in
-other persons?
-
-
-\subsubsection{our questions}
-% questions of current study
-In the current study, we asked ourselves two questions:
-%
-1) does functional alignment based on a the \ac{srm} improve the prediction
-compared to a prediction based on merely anatomical alignment?
-%
-2) how much data do we need to align an individual subject to a/the \ac{cms} and
-outperform a prediction based on anatomical alignment? Is a short diagnostic run
-``sufficient''?
-%
-We wanted to predict the location of the PPA based on data from a reference
-group
-%
-And we wanted to compare the prediction performance based on anatomical
-alignment \& functional alignment
-%
-- goal: align left-out subject to model space using varying amount of data of
+align left-out subject to model space using varying amount of data of
 movie or audiobook - transform localizer results into left-out subject
 %
-Hence, the real question that we asked yourselves was: How many minutes of a
-naturalistic stimulus are necessary to perform what we call a „partial
-alignment“.
-%
-So, we only used parts of the naturalistic stimuli to let the algorithm learn
-the transformation matrices for the left-out subject
-%
-and we tested which amount of data is needed to do an alignment to the common
+Test which amount of data is needed to do an alignment to the common
 model space that provides transformation matrices that outperform a prediction
 using just an anatomical alignment.
+
+%
+\todo[inline]{model validation: needs to be done but not mentioned here: model
+validation: predict localizer results using localizer TRs for alignment; across
+subjects?}
+
+
+\subsection{Hypotheses}
+%
+functional alignment outperforms anatomical alignment.
+%
+The more data for alignment the better.
+%
+for discussion: asymptotical curve might be different for another brain region
+(we look at perception; what about ``higher'' cognition or even executive
+functions?)
 
 
 \section{Methods}
@@ -866,6 +871,12 @@ obtained calling the SRM method srm\_sliced.transform\_subject(runsdata)
 
 \paragraph{predict\_ppa.py}
 
+\todo[inline]{mention that anatomical transformation matrices were precomputed
+and part of the studyforrest dataset}
+\todo[inline]{probably tell a little more how the transformation matrices were
+created; reviewer's question: your anatomical alignment might have been shitty}
+\todo[inline]{check TNT github/gin repo; what is the corresponding paper?}
+
 % prediction from anatomy
 We first created the template/prediction from the anatomy of other subjects.
 %
@@ -930,6 +941,12 @@ lastly, we currently apply another method to get the „z-map template“ on whi
 the prediction is based ('test/data\_denoise-vis.py';
 'test/data\_srm-vis-to-ind.py')
 
+%
+``An added benefit is that SRM helps address the data starvation problem above:
+because the SRM space is by definition shared across individuals, data from
+multiple participants can be combined prior to MVPA or other analyses''
+\citep{cohen2017computational}.
+
 
 \section{Results}
 
@@ -991,63 +1008,107 @@ I hate that script
 % differences between two dependent or independent correlation coefficients
 
 
+\section{Results}
 
+\todo[inline]{plot of the union of PPA mask}
 
 
 
 \section{Discussion}
 
 
+\subsection{Short Summary}
+
+What we did. What the results are
+
 \subsection{Discussion of current results}
+
 %
 15 min of movie watching used for functional alignment outperform prediction
 using anatomical alignment
+
 %
 30 minutes of movie watching outperform 15 minutes of movie watching
+
 %
 more than 30 minutes do not lead to a significantly improved prediction
 performance.
 %
 
-\subsection{ground truth}
+\subsection{self-critique; short comings}
 
-``Predictive models based on neuroimaging data will only ever account for a
-fraction of the variance.
+
+\subsubsection{localizer is ``ground truth''}
+
+\citet{lilienfeld2015fifty} on ``gold standard'': ``In the domains of
+psychological and psychiatric assessment, there are precious few, if any,
+genuine ``gold standards''. Essentially all measures, even those with high
+levels of validity for their intended purposes, are necessarily fallible
+indicators of their respective constructs (Cronbach and Meehl, 1955; Faraone and
+Tsuang, 1994). As a consequence, the widespread practice referring to even
+well-validated measures of personality or psychopathology, such as Hare’s
+(1991/2003) Psychopathy Checklist-Revised, as ``gold standards'' for their
+respective constructs (Ermer et al., 2012) is misleading (see Skeem and Cooke,
+2010). If authors intend to refer to measures as ``extensively validated'', they
+should simply do so'' \citep{lilienfeld2015fifty}
+
+\citet{scheinost2019ten} in context of phenotypic measures: ``Predictive models
+based on neuroimaging data will only ever account for a fraction of the
+variance. Neuroimaging studies are limited by how much information the signal
+can capture about the measure of interest. At the same time, these studies are
+also limited by the chosen phenotypic measure used.  While the success of a
+model is evaluated by how well it predicts a phenotypic measure (and these
+phenotypic measures have to be treated as gold standards), it is well known that
+such measures are not always the ground truth but themselves suffer from
+confounds and noise.  When studying brain-behavior associations, one must keep
+in mind how extraordinary it is that neuroimaging data can be distilled to
+approximate phenotypic measures that reflect a simplification of multiple
+complex features. Thus, even modest results are reasonable and remarkable. For
+a discussion on the reliability of phenotypic measures in the context of
+predictive modeling, we point the interested reader to: [Dubois et al., 2018a,
+2018b; Gignac and Bates, 2017]'' \citep{scheinost2019ten}.
+
+
+\subsubsection{SRM and (dropped) individual idiosyncrasies}
+
+``The flip side of focusing on shared responses is to focus on responses that
+are idiosyncratic to individuals.
 %
-Neuroimaging studies are limited by how much information the signal can capture
-about the measure of interest.
+Although these responses are excluded in SRM, they are not necessarily noise and
+may in fact be highly reliable within participants.
 %
-At the same time, these studies are also limited by the chosen phenotypic
-measure used.  While the success of a model is evaluated by how well it predicts
-a phenotypic measure (and these phenotypic measures have to be treated as gold
-standards), it is well known that such measures are not always the ground truth
-but themselves suffer from confounds and noise.
+Indeed, SRM can be used to isolate participant-unique responses by examining the
+residuals after removing shared group responses, or it can be applied
+hierarchically to the residuals to identify subgroups \citep{chen2017shared}
+\citep{cohen2017computational}.
 %
-When studying brain-behavior associations, one must keep in mind how
-extraordinary it is that neuroimaging data can be distilled to approximate
-phenotypic measures that reﬂect a simpliﬁcation of multiple complex features.
+More generally, there is a growing trend toward investigating individual
+differences as another source of meaningful variance in fMRI [73].
 %
-Thus, even modest results are reasonable and remarkable.
+Recognizing that signal exists beyond the average or shared response of a group,
+such studies exploit idiosyncratic but stable responses to account for
+previously unexplained variance in brain function, behavioral performance and
+clinical measures [70,74]'' \citep{cohen2017computational}.
+
+
+\subsubsection{volume-based registration vs. surface-based normalization}
 %
-For a discussion on the reliability of phenotypic measures in the context of
-predictive modeling, we point the interested reader to: (Dubois et al., 2018a,
-2018b; Gignac and Bates, 2017) \citep{scheinost2019ten}.
+Sengupta did analyses in volume space;
+%
+I could have run the analyses/contrasts on the surface
+%
+but: opportunity costs?
+%
+in a broader broader context as an issue of data sharing (if at all, a point for
+general discussion); how well can you trust data that you did not collect
+yourself (a.k.a. ``did you consider x?'', ``no, does not matter in our case'',
+``but will matter for the person who will use/have used your data'')
+
+
 
 \subsection{Future questions}
-%
 
-\subsubsection{Proof of concept}
-%
-
-
-\subsubsection{ROI vs. whole brain}
-%
-more (?) data vs. searchlight algorithm; connectivity;
-\citep{nastase2019leveraging}
-
-
-\subsubsection{predict other t-contrasts of localizer}
-
+\subsubsection{predict other t-contrasts of higher-visual area localizer}
 
 \subsubsection{predict other localizers}
 %
@@ -1066,9 +1127,57 @@ In case of an alignment of time-series,
 that experiment needs, at least, a part of Forrest Gump as an intersection
 
 
-\subsection{the vision}
+\subsubsection{ROI vs. whole-brain / searchlight}
 %
-functional atlas
+Our union of PPA is XX voxels big.
+%
+Influence of voxel count on performance; take searchlight (but how big should it
+be?
+
+% Guntupalli's searchlight paper
+Later, \citet{guntupalli2016model} showed that this approach can be extended to
+predict functional organization across large proportions of the cortical
+surface, for example to predict the represented visual field coordinate in
+visual cortex based on retinotopic mapping scans of other individuals
+
+``Applying SRM to a large swath of the brain means that all voxels within the
+region contribute to the final derived metric. This can conflict with the goal
+of associating spatially local activity with specific cognitive functions. To
+address such issues, SRM can be applied in small overlapping searchlights to
+obtain localized metrics of shared information [71,99]
+\citep{cohen2017computational}''.
+
+
+\subsubsection{connectivity-based}
+
+\todo[inline]{kind of a killer cause you do not need intersection of
+time-series; but s. Guntupalli's paper: time-series hyperalignment outperforms
+connectivity-based hyperalignment (?)}
+
+% from project proposal
+``In his doctoral thesis, recently submitted to the Faculty of Natural Sciences
+in Magdeburg, Falko Kaule showed that congruent time-locked BOLD responses
+across subjects (i.e. all subjects watching the exact same full-length movie) as
+used by Haxby and colleagues are not required to derive a valid alignment of
+individuals with a common representational space \citep{kaule2017examination}.
+%
+Comparable prediction performance can be achieved by using \textbf{functional
+connectivity patterns} (correlation of a voxel's time series with reference
+regions in the same brain)'' (s. dissertation project proposal).
+
+
+% Nastase's ugly mofo paper
+\citep{nastase2019leveraging}
+
+
+\subsection{Vision}
+
+``Calibration scan'' to align to \ac{cms} and atlas of reference group.
+%
+Once a valid alignment is established, known functional properties of a
+(normative) reference, derived from extensive scans and analysis of other
+subjects, can then be projected into the respective individual voxel space (s.
+Fig. 1 in \citep{nishimoto2016lining}).
 %
 Imagine you scan a new, unknown subject for just 15 minutes more, and you
 additionally get results from a whole variety of other paradigms mapped onto
@@ -1077,12 +1186,10 @@ that brain
 Results from localizers of low-level perceptual processes, but also higher-level
 cognitive processes like language, memory, emotions and so on
 %
-And I did not write that onto the slides because it is just a vague idea:
-%
-If you have different common model spaces for different subgroups, you can
-investigate which alignment onto which ``subgroup common model space'' results
-in less error, that lets you classify to which subgroup your new subject might
-belong.
+Kinda ``adventurous'':If you have different common model spaces for different
+subgroups, you can investigate which alignment onto which ``subgroup common
+model space'' results in less error, that lets you classify to which subgroup
+your new subject might belong.
 
 
 \section{Conclusion}

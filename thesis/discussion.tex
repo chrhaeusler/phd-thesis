@@ -19,9 +19,6 @@ processing, but a bilateral anterior portion also exhibits activation increases
 correlated with the semantic processing of verbal statements of spatial
 references in a rich natural auditory stimulus.
 
-%
-From OHBM-Poster:
-
 
 \section{Study 2}
 
@@ -34,26 +31,60 @@ N=14;
 
 \section{naturalistic stimuli}
 
-cons: just an approximation and setting is still the scanner; data analysis
-challenging: solutions -> share annotations, data analysis pipelines
-implementend in common and well-documented packages and code
+\paragraph{pro}
 
-\section{Reproducuble science, fuck yeah!}
+\todo[inline]{repeat the usual stuff}
 
-The non-standard that needs to become standard
+\todo[inline]{annotations are hard but you can do it}
+
+\todo[inline]{traditional GLM ``works''}
+
+
+\paragraph{contra}
+%
+just an approximation;
+%
+setting is still the scanner;
+%
+passive watching, listening: executive functions?
+%
+challenging data data analysis;
+%
+solutions -> share annotations,
+%
+implement data analysis pipelines in common and well-documented packages and code
+
+
+\paragraph{interim summary}
+
+``Naturalistic paradigms do not aim to replace the classic, controlled
+neuroimaging paradigms (Sonkusare et al., 2019). Due to their complexity and
+current limitations in understanding the statistical properties of different
+features in naturalistic conditions, naturalistic stimuli are not optimal for
+model development (see, e.g., Rust and Movshon, 2005). Controlled experiments
+are still needed for hypothesis testing and developing models, while
+naturalistic stimuli are best employed to test models in ecologically valid
+settings and to expand them to situations where context matters
+more'' \citep{saarimaki2021naturalistic}.
+
+\todo[inline]{my project is using existing data; new investigation; new results}
+
+
+\section{Open, transparent, and reproducible science}
+
+%
+The non-standard procedure that needs to become standard (in study curriculum)
+
+\subsection{input = open science \& studyforrest}
+
+\subsection{analyses, code, output}
+
 
 
 \section{Future research}
 
-\todo[inline]{connectivity based hyperalignment?}
+\paragraph{Other functional areas}
 
-
-\paragraph{Evaluate (short) movie with respect to localization of other brain
-functions}
-%
-Lastly, the new short movie stimulus will be assessed with respect to its
-diagnostic potential for other functionally defined regions in the brain.
-%
 Again, data from the studyforrest project will be used to perform assessments
 analog to WP1e for a range of additional individually determined regions based
 on established localizer paradigms (Sengupta, et al., 2016).
@@ -62,28 +93,9 @@ These regions include: the \ac{ffa}, \ac{ppa}, and \ac{eba}  which are
 associated with face perception \citep{kanwisher1997ffa,
 pitcher2011occipitalfacearea}, scene perception \citep{epstein1998ppa}, and the
 perception of human bodies \citep{downing2001bodyarea}, respectively.
-%
-The actual selection will depend on the specific properties of the chosen short
-movie stimulus.
-%
-2) The functional alignment on the full-length movie from WP2b will be
-recomputed, but this time based on functional connectivity vectors, as opposed
-to BOLD response time series.
-%
-This will be performed using an implementation developed by Falko Kaule as part
-of his PhD project.
-%
-Analog connectivity vectors will then by estimated from the short movie scan of
-the left-out subject and will be used for direct hyperalignment.
-%
-Differences in the transformations between the two approaches will be quantified
-in terms of overall similarity, but also in terms of within-subject differences
-regarding the weighting of individual brain areas across all common space
-components.
-%
-This comparison is possible, because in both cases the subject’s voxel space is
-identical, and the orthonormal transformation into the respective common space
-preserves all variance.
+
+
+\paragraph{connectivity based hyperalignment?}
 %
 It should be noted that the number of voxels that can be considered
 simultaneously for functional BOLD response time series alignment is limited by
@@ -91,16 +103,11 @@ the number of timepoints in the calibration scan (about 300-400 voxels for a
 15min scan with a 2s TR, corresponding to a local cortical neighborhood of about
 1cm in diameter for a standard resolution).
 %
-This limitation does not exist in
-this form for a functional alignment that is based on connectivity vectors.
+This limitation does not exist in this form for a functional alignment that is
+based on connectivity vectors.
 %
-The
-length of these connectivity vectors is determined by the number of reference
-(or seed) regions in the brain.
-%
-The results of this work package will
-determine whether it is necessary to include dedicated reference scans for short
-calibration stimulation sequences in a future collection of normative data.
+The length of these connectivity vectors is determined by the number of
+reference (or seed) regions in the brain.
 
 
 \section{Vision}
@@ -109,44 +116,9 @@ Moreover, beyond the scope of this project the targeted homogenization of
 acquisition procedures will further the goal of large scale data collection for
 the purpose of producing a normative reference of brain function as measured by
 fMRI.
-
-% one stimulus (segment) in every study similar to "anatomic scan"
-The acquisition will be integrated into an existing protocol and an ongoing
-acquisition effort performed by the LIN group that is designed to diagnose the
-lateralization of speech processing in the brain, using a standard task-based
-localizer paradigm (Fernandez et al., 2001).
-%
-This integrative approach will yield comparative within-subject BOLD fMRI
-datasets for the task-free movie stimulation and a dedicated established
-localizer paradigm.
-%
-Taken together, the results of all work packages detail what performance and
-versatility can be expected from an approach to localization that is based on
-task-free natural stimulation fMRI.
-%
-Moreover, it comprehensively informs a future study about scan type, and scan
-time requirements for the collection of a normative reference.
 %
 The availability of such a reference would enable quantitative and qualitative
 description of an individual's brain function with respect to such a norm, and
 consequently progress the field towards neuroimaging studies of individual
 differences that more closely resemble their psychological counterparts
 \citep{dubois2016building}.
-
-
-\paragraph{Extend dataset with standard speech localizer}
-%
-In order to be able to evaluate the prediction performance of brain areas
-associated with speech processing, the studyforrest dataset has to be extended
-with BOLD fMRI scans for an established localizer paradigm.
-%
-At the same time, additional fMRI data acquisitions for the full-length movie
-might have to be performed in order to compensate for original studyforrest
-participants that may no longer be able or willing to volunteer for additional
-measurements (N expected to be less than 10).
-%
-This work will be performed in
-collaboration with the Non-Invasive Brain Imaging Unit at the LIN.
-
-
-
