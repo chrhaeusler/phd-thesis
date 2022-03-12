@@ -154,19 +154,11 @@ complex/rich, dynamic, and often prolonged stimulation.
 % definition
 <Definition here>.
 % claim; is KINDA QUOTE OF Haxby 2020?
-Naturalistic stimuli promise a higher ecological validity [Zaki and Ochsner,
-2009; Hasson and Honey, 2012; Adolphs et al., 2016; Hamilton and Huth, 2018]
-because they, despite being presented in a laboratory setting, still more
-closely mimic the richness real-life visual and auditory experiences
-\citep{hasson2004intersubject, haxby2020naturalistic} \todo{check Hasson}
-%
-and ``convey rich perceptual and semantic information [Bartels and Zeki, 2004;
-Huth et al., 2012, 2016]'' \citep{nastase2019measuring}.
-%
-``We argue here that studies of brain activity evoked by viewing a naturalistic,
-dynamic movie better reflect the statistics of natural viewing in a complex,
-cluttered, changing, and continuous visual environment''
-\citep{haxby2020naturalistic}.
+Naturalistic stimuli promise a higher ecological validity \citep{zaki2009need,
+hasson2012future, hamilton2018revolution} because they, despite being presented
+in a laboratory setting, still more closely mimic the richness of real-life
+visual and auditory experiences \citep{hasson2008neurocinematics,
+haxby2020naturalistic}.
 
 \paragraph{External validity}
 % definition
@@ -189,17 +181,19 @@ might have been used'' \citep{westfall2016fixing}.
 
 \paragraph{Early findings}
 % reviews
-Movies and narratives have been used during \ac{fmri}
+Audio-visual movies and spoken narratives have been used during \ac{fmri}
 (s.\citet{hamilton2018revolution, hasson2008neurocinematics,
 jaaskelainen2021movies, sonkusare2019naturalistic, saarimaki2021naturalistic}
 for reviews), and \ac{eeg} or \ac{meg} data acquisition (s. \citet{alday2019meg,
 kandylaki2019story} for reviews).
 %
-Early studies have shown that watching a movie or listening to an auditory
-narrative synchronized spatiotemporal responses across multiple subjects in a
-large part of the brain compared to, for example, an unedited video of a concert
-taken from a fixed viewpoint \citep{hasson2004intersubject,
-hasson2008neurocinematics, lerner2011topographic, wilson2008beyond}.
+Early studies have shown that watching a movie \citep{hasson2004intersubject,
+hasson2008neurocinematics, hasson2010reliability} or listening to a
+narrative \citep{lerner2011topographic, wilson2008beyond} reliably synchronize spatiotemporal responses across multiple subjects
+in a large part of the brain compared to, for example, an unedited video of a
+concert taken from a fixed viewpoint \citep{hasson2004intersubject,
+hasson2008neurocinematics, hasson2010reliability, lerner2011topographic,
+wilson2008beyond}.
 % This finding could be attributed to a film director's goal to not only direct
 % a movie, but also to capture and direct the audience's attention; this can be
 % attributed to the way professional movies are shot and edited in order to
@@ -207,7 +201,8 @@ hasson2008neurocinematics, lerner2011topographic, wilson2008beyond}.
 % \citep{brown2012cinematography, dancyger2011film-technique}.
 %
 Further, a pioneering study \citep{bartels2004mapping} suggests that functional
-specialization of cortical areas preserved during complex, life-like stimulation.
+specialization of cortical areas preserved during complex, life-like
+stimulation.
 
 
 \paragraph{Better compliance}
@@ -226,7 +221,7 @@ Since movies and audiobooks are interesting and easy-to-follow stimuli that are
 produced to be engaging and immersive, they also promise to put participants at
 ease in the otherwise claustrophobic, uncomfortable and noisy fMRI scanner.
 %
-Lastly, auditory narratives are also appropriate for visually impaired persons
+Lastly, spoken narratives are also appropriate for visually impaired persons
 suffering from diminished or lacking eye-sight.
 
 
@@ -241,53 +236,28 @@ from data of a reference group.
 
 \subsection{Anatomical alignment}
 
-\todo[inline]{read closely \citep{weiner2018defining}, check references and
-papers that cite it}
+\todo[inline]{write text in SRM study first}
+\todo[inline]{text regarding anatomical alignment and functional-anatomical
+correspondence should be kept to a minimum here}
 
-\todo[inline]{shortly explain volume alignment (and surface-based alignment?)}
-
-% current approach
-One approach is based on anatomical alignment in a three-dimensional, anatomical
-reference space (hence, \textit{anatomical alignment}).
-%
-Anatomical alignment aligns functional data of an individual to an anatomical
-brain template (e.g. the MNI152 template brain).
-%
-In order to predict, the functional data in the subject-specific functional
-space, the data of N-1 subjects are mapped from the anatomical template space
-into the functional space of the left-out / new / unknown subject.
-%
-Last step: e.g. mean of projected $Z$-maps.
-
-
-\subsubsection{but functional-anatomical correspondence}
-% problem
-But problematic is the shitty \textit{functional-anatomical correspondence}
-% definition of functional-anatomical correspondence
-<definition of functional-anatomical correspondence here>
-% illustration
-Hence, even assuming two persons had a identically shaped cortex anatomy, still
-location, shape size of functional areas would possibly/probably be different.
-
-\todo[inline]{check \citep{feilong2018reliable}}
-%
-\todo[inline]{check new papers: \citep{feilong2021neural, busch2021hybrid}}
+\subsubsection{Functional-anatomical correspondence}
 
 
 \subsection{Functional alignment}
-%
-An alternative approach, to individual localization has been proposed by
-\citet{haxby2011common}.
-%
-They (and e.g. \citet{jiahui2019predicting}) also predicted the location, form,
-and size of target brain areas in ventral temporal cortex from dedicated
-localizer scans of other individuals.
-%
-The key difference of this approach is to rely on similarity of representational
-geometry of brain activity patterns and aligning individual brains into a
-multi-dimensional functional group space, termed \ac{cms}.
 
-\subsubsection{why naturalistic stimuli are better}
+
+
+%
+``Even within a sensory modality, such as vision, different types of information
+are layered and simultaneously present in natural movies. The rich, layered
+information in movies has allowed concurrent modeling of multiple stages of
+perceptual processing (Nishimoto et al., 2011; Huth et al., 2012; Güclü and van
+Gerven, 2017). Broader sampling and efficient engagement of multiple systems
+motivated the use of movie-viewing data as the basis for developing algorithms
+for aligning functional anatomy (Conroy et al., 2009, 2013; Sabuncu et al.,
+2010; Haxby et al., 2011; Chen et al., 2015; Guntupalli et al., 2016, 2018)''
+\citep{haxby2020naturalistic}.
+
 %
 While the functional alignment can also be applied to fMRI data from stimulation
 paradigms with simplified stimuli, the transformations for functional alignment
@@ -300,16 +270,18 @@ sampling a more diverse set of mental states that reflect (confound) statistics
 of the natural environment, and enable investigation of the acquired data for a
 variety of research questions (e.g. visual or auditory perception, spatial
 cognition; emotion; music, speech or social perception)
+
 %
-``Even within a sensory modality, such as vision, different types of information
-are layered and simultaneously present in natural movies. The rich, layered
-information in movies has allowed concurrent modeling of multiple stages of
-perceptual processing (Nishimoto et al., 2011; Huth et al., 2012; Güclü and van
-Gerven, 2017). Broader sampling and efficient engagement of multiple systems
-motivated the use of movie-viewing data as the basis for developing algorithms
-for aligning functional anatomy (Conroy et al., 2009, 2013; Sabuncu et al.,
-2010; Haxby et al., 2011; Chen et al., 2015; Guntupalli et al., 2016, 2018)''
-\citep{haxby2020naturalistic}.
+An alternative approach, to individual localization has been proposed by
+\citet{haxby2011common}.
+%
+They (and e.g. \citet{jiahui2020predicting}) also predicted the location, form,
+and size of target brain areas in medial ventral temporal cortex from dedicated
+localizer scans of other individuals.
+%
+The key difference of this approach is to rely on similarity of representational
+geometry of brain activity patterns and aligning individual brains into a
+multi-dimensional functional group space, termed \ac{cms}.
 
 
 \subsubsection{Hyperalignment}
@@ -503,13 +475,11 @@ originally been designed to entertain an audience and not to conduct research.
 The time-courses of variables (i.e. the \textit{features}) embedded in a
 naturalistic stimulus are fixed and thus reproducible [makes sense?].
 %
-Nevertheless, ``modeling the stimulus and task properties is a central challenge
-with naturalistic paradigms [and one that has great potential if solved] [Simony
-and Chang, 2020]'' \citep{saarimaki2021naturalistic} because models of
-hemodynamic activity correlating with/during a naturalistic stimuli rely on
-extensive stimulus annotations.
+Nevertheless, modeling brain activity correlating with stimulus features in
+naturalistic stimuli is a challenging \citep{saarimaki2021naturalistic,
+simony2020analysis} because models rely on  extensive stimulus annotations:
 %
-Stimulus annotations need to comprise annotations of features of interest as
+stimulus annotations need to comprise annotations of features of interest as
 well as annotations of potentially confounding features.
 %
 The lack of extensive annotations of naturalistic stimuli has led to an ``usage
@@ -543,75 +513,85 @@ IBM Watson \& Google Cloud text-to-speech
 information in the ``parahippocampal place area''}
 
 %
-Previous analyses of the audio-visual movie and results show that there are significant voxel-wise BOLD response time
-series correlations between the two datasets in brain areas associated with
-speech and story processing (s. Figure 3 in \citep{hanke2016simultaneous}).
-%
-This investigation will also provide insight if it is feasible to produce an
-audio-only localizer paradigm as an alternative for studies where no visual
-stimulation is feasible or desired.
-%
-Comparison of results from a task-based functional localizer to
-results from naturalistic stimulus paradigms
-%
-It is likely that a rich natural stimulation evokes more widespread network
-activity, compared to a simplified stimulus that additionally requires the
-subject to perform a task.
-%
-Hence: compare task-free localizer to dedicated task-based speech localizer
-%
-compare diagnostic performance of the task-free movie / audio-description fMRI
-recordings will be compared to the results of the localizer paradigm.
-%
-a specific diagnostic contrasts can be selected.
+\todo[inline]{text is draft adapted from TeaP talk}
+\todo[inline]{print PPA paper and write text here}
 
-From TeaP talk:
 %
-What is still kind of unclear is if these results generalize from static
-pictures to results from a more ecologically valid stimuli like a movie.
+A previous analysis \citep{hanke2016simultaneous} revealed significant
+correlations between \ac{bold} response time series of audio-visual movie and
+its audio-description in spatially corresponding voxels of the ventral medial
+cortices (s. Figure 3 in \citep{hanke2016simultaneous}).
 %
-What is still unclear is if these results generalize to the auditory domain.  To
-frame it as a question: Does increased hemodynamic activity in the PPA correlate
-with auditory spatial information?
+we investigated if it is possible to localize a visual area, usually
+identified via a task-based functional localizer, via naturalistic stimuli.
 %
-The goals of your study were the following: We asked ourselves:
+\citep{bartels2004mapping} annotated the occurrence (and perceived intensity)
+regarding color, faces, language, and human bodies but, surprisingly, not
+scenes.
 %
-1) How can we operationalize the perception of spatial information that is
+Hence, it is still ``kind of unclear'' is if results generalize from
+static pictures to results from a more ecologically valid stimuli
+like a movie.
+%
+It is still unclear is if these results generalize to the auditory domain
+\citep{aziz2008modulation}.
+%
+How can we operationalize the perception of spatial information that is
 embedded in our naturalistic stimuli?
 %
-2) Further, we wanted to compare our results to a classic visual localizer
-experiment that used blocks of pictures.
+Notably, we operationalized the assumed perceptual process not just in a
+audio-visual movie but also in an exclusively auditory stimulus.
 %
-And lastly, we wanted to explore if an auditory narrative could substitute a
-visual experiment to do individual diagnostics
+Does increased hemodynamic activity in the PPA correlate with auditory spatial
+information (group-level)?
 %
-Which means: can we localize the PPA in individual persons using a more engaging
+Can we localize the PPA in individual persons using a more engaging
 \& entertaining, but also exclusively auditory stimulus
+
+Compare our results to a classic visual localizer experiment that used blocks of
+pictures to results from naturalistic stimulus paradigms.
 %
 To operationalize the perception of spatial information, we looked at time
 points in the stimuli that should correlate with the perception of spatial
-information.
-%
-And we looked for time points correlating with other perceptual processes that
-we needed to build general linear model contrasts.
+information
 %
 For the movie, we used the movie cuts that basically re-orient the observer in
 space.
 %
-In the context of naturalistic stimuli - not just data-driven but also
-model-driven analyses can be applied to data from naturalistic stimuli.
-%
-- but: to model event-related hemodynamic activity you need to know the temporal
-structure of the stimulus
-%
-- and because naturalistic stimuli are so versatile and trigger so many
-perceptual and cognitive processes you can re-use already existing data to
-answer new research questions.
+For the audio-descriptions, we semantically categorized nouns spoken by the
+narrator in case he used them to describe faces or bodies, locations, buildings,
+rooms, and so on.
 
+%
+In both stimuli, we looked for time points correlating with other perceptual
+processes that we needed to build general linear model contrasts.
+%
+create events from stimulus annotations;
+%
+model hemodynamic responses;
+%
+create contrast(s).
 
-results suggest that you can ``localize a auditory PPA'' but not a the ``visual
+%
+Results suggest that you can ``localize a auditory PPA'' but not the ``visual
 PPA'' using an auditory narrative; It's similar but different; SRM study will
 quantify the prediction performance
+%
+The audio-description must somehow at some time points trigger responses in the
+ventromedial cortex.
+
+%
+There are responses in the parahippocampal cortex correlating with
+spatial information.
+%
+But probably our event structure and model is not just an approximation of the
+``real'' events structure that is actually correlated with the response series
+in the parahippocampal cortex.
+%
+Hence: build shared response model and use it for prediction
+%
+2h movie/audio-description is to long anyway
+
 
 \subsubsection{DataLad: distributed system for joint management of code, data,
 and their relationship}
@@ -622,69 +602,45 @@ and their relationship}
 \subsubsection{Using varying amount of data from naturalistic stimulation for
 functional alignment to predict results from a task-based functional localizer
 paradigm}
+
+\todo[inline]{following is mostly an adjusted text from the project proposal}
+
 %
-All analyses up to this point will have been performed on 2h-long scans, but any
+All analyses up so far have been performed on 2h-long scans, but any
 clinical application must aim to minimize the scan time/cost.
 %
-We test whether reliable functional alignment can be achieved with a task-free,
-natural stimulation ``calibration” scan that requires no more acquisition time
+We tested whether reliable functional alignment can be achieved with a task-free,
+natural stimulation ``calibration'' scan that requires no more acquisition time
 than a conventional localizer paradigm.
-%
-We will estimate the trade-off between diagnostic quality and required effective
-scan time by progressively reducing the duration of input BOLD fMRI data and
-comparing the results of the reduced model to the reference computed from the
-full length scan.
-
-
-\paragraph{Predict ROI from a reference group}
 %
 fMRI data acquired from an individual will not be analyzed directly regarding a
 specific cognitive function, but will be used to align that individual brain's
 voxel space with a common high-dimensional representational reference space.
 %
-Each axis in this common space can be seen as a kind of cortical tuning
-function.
+Using movie-evoked brain activity, hyperalignment procedure learns subject-wise
+optimal transformations of brain activity into a common representational space.
+
 %
-The orthonormal transformation of an individual voxel space into this common
-reference reflects the particular linear combination of voxel response time
-series with respect to each common space component.
+Once aligned, the brain activity of the reference group can be used to predict
+the activity of another subject.
 %
 Using a leave-one-subject-out strategy, individual results of the conventional
 localizer will then be projected into the common space, aggregated, and
 re-projected into the voxel space of the left-out individual for comparison with
 the localizer results for that individual (see Figure 2).
 %
-Using movie-evoked brain activity, hyperalignment procedure learns subject-wise
-optimal transformations of brain activity into a common representational space.
-%
-Once aligned, the brain activity of the reference group can be used to predict
-the activity of another subject.
-%
-The localization of speech areas will also be performed in the common reference
-space directly (the stimulation time axis is preserved in the common space), and
-the results will be projected into the voxel space of the left-out individual,
-where they can be compared with the localization result derived from that
-subject’s movie scan.
-%
 Once a valid alignment is established, the inverse transformation is then used
 to project functional properties of the common reference into that individual's
 voxel space.
-
-
-\paragraph{minimum length of stimulus; ``calibration scan''}
-%
-minimum data requirement for reliable functional alignment (within-subject
-test-retest???
 %
 estimate the minimum scan time requirement for deriving a valid functional
 alignment by further reducing the amount of input data of the left-out
 individual.
-\paragraph{just uses an intersecting time-series between stimulus sets}
 %
-The joint dataset will enable me to study whether a functional alignment to the
-common reference space can be performed based on a short scan.
-
-
+We will estimate the trade-off between diagnostic quality and required effective
+scan time by progressively reducing the duration of input BOLD fMRI data and
+comparing the results of the reduced model to the reference computed from the
+full length scan.
 
 
 \paragraph{just some notes}

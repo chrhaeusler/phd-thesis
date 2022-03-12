@@ -1,8 +1,8 @@
 \section{Abstract}
 % intro
-In order to map perceptual or cognitive functions onto brain anatomy of study
-participants, researchers usually conduct dedicated experiments often
-accompanied with a task (so called \textit{functional localizer}).
+In order to map perceptual or cognitive functions onto the brain anatomy of
+study participants, researchers usually conduct dedicated experiments
+\textit{functional localizer} often accompanied with a task.
 % problem
 Nevertheless, the approach ``one paradigm, one brain function'' becomes
 unfeasible if one wants to map a variety of functions in a time-efficient
@@ -10,7 +10,8 @@ manner.
 % therefore
 We explored a way to project brain mapping data (statistical $Z$-maps) from a
 reference group onto individual brains of study participants after performing a
-functional aligning of participants with a common model space.
+functional aligning of participants with a common model space .
+
 %
 Data were obtained from conducting a functional localizer paradigm and two
 paradigms using naturalistic stimulation during functional magnetic resonance
@@ -21,7 +22,7 @@ participants were watching an audio-visual movie and listening to the movie's
 audio-description, both paradigms free of any task.
 %
 Based on these data, we created a common model space employing a shared response
-model {SRM} \citep{chen2015reduced}.
+model \citep{chen2015reduced}.
 %
 On the one hand, the common model space allows denoising data from individuals
 that were used to create the common model space.
@@ -38,9 +39,12 @@ subjects.
 The general goal of the project is to assess the required length of the
 diagnostic run, and to compare empirical $Z$-maps with $Z$-maps that were
 predicted from other participants' data.
+
 %
-We present preliminary results of predicted z-maps gained from the same paradigm
-as the diagnostic run as well as across paradigms.
+Results suggest...
+
+%
+Discussion / Conclusion...
 
 
 \section{Introduction}
@@ -82,8 +86,7 @@ specific tasks participants have to perform in a 5-minute routine.
 % task based = shit
 Nevertheless, the diagnostic quality of localizer batteries relies heavily on
 participants' comprehension of the task instruction and their compliance, a
-criterion that can be difficult to meet in clinical or pediatric populations
-\citep{eickhoff2020towards, vanderwal2015inscapes, vanderwal2019movies}.
+criterion that can be difficult to meet in clinical or pediatric populations.
 % validity?
 Additionally, localizer batteries also rely on carefully chosen and
 tightly-controlled, simplified stimuli that are usually presented in blocks do
@@ -101,6 +104,12 @@ group.
 
 \subsection{Anatomical alignment}
 
+\todo[inline]{es gibt auch prediction from anatomy (i.e. like really from
+anatomy (e.g. cortical folding); not using anatomical template to project data
+into it and than into th left-out subject)
+
+\todo[inline]{shortly explain volume alignment (and surface-based alignment?)}
+
 % anatomical alignment
 In general, a individual's diagnostic could be based on a prediction based on
 the anatomical location of the functional area in the reference group (e.g.
@@ -111,7 +120,6 @@ two-dimensional?] or voxels in three-dimensional anatomical space.
 %
 We transform the shape of an individual brain into the shape of an average,
 standard brain
-
 %
 ''After standard alignment, fMRI data can be aggregated at the group level by
 averaging the values at each voxel across participants. Although this reduces
@@ -120,7 +128,43 @@ across participants blurs estimates of their shared responses''
 \citep{cohen2017computational}.
 
 
+
+
+\citep{weiner2018defining} compares cortex-based alignment
+\citep{fischl1999high} with volume-based (Talairach) alignment: ``we repeated
+our leave-one-out cross-validation procedure across all 24 participants with an
+affine volume-based registration to the Talairach brain and compared this
+performance to the same procedure implemented with CBA in FreeSurfer
+\citep{weiner2018defining}''
+
+% current approach
+One approach is based on anatomical alignment in a three-dimensional, anatomical
+reference space (hence, \textit{anatomical alignment}).
+%
+Anatomical alignment aligns functional data of an individual to an anatomical
+brain template (e.g. the MNI152 template brain).
+%
+In order to predict, the functional data in the subject-specific functional
+space, the data of N-1 subjects are mapped from the anatomical template space
+into the functional space of the left-out / new / unknown subject.
+%
+Last step: e.g. mean of projected $Z$-maps.
+
+
+
 \paragraph{Functional-anatomical correspondence}
+
+\todo[inline]{check \citep{feilong2018reliable}}
+
+Definition
+
+% problem
+But problematic is the shitty \textit{functional-anatomical correspondence}
+% definition of functional-anatomical correspondence
+<definition of functional-anatomical correspondence here>
+% illustration
+Hence, even assuming two persons had a identically shaped cortex anatomy, still
+location, shape size of functional areas would possibly/probably be different.
 % shitty
 The approach relying on merely anatomical alignment is shitty because of modest
 functional-anatomical correspondence.
@@ -138,6 +182,18 @@ the brighter the voxel the more subjects have their PPA in that location.
 location is roughly similar across persons, but still, the plot shows that there
 is individual variation.
 %
+``These probabilistic ROIsere generated using cortex-based alignment (CBA) tools
+in FreeSurfer (Fischl et al., 1999; http://surfer.nmr.mgh.harvard.edu/). Brieﬂy,
+the cortical surface of each of our 12 participants was aligned to the
+FreeSurfer average surface (from 39 healthy adults not used in our study) using
+a high-dimensional nonlinear registration algorithm. Using this alignment, we
+transformed functional ROIs (fROIs) from each subject to the FreeSurfer (FS)
+average brain. Probabilistic maps (Fig. 2) were then generated by summing the 12
+fROIs at each point along the cortical surface of the FS average brain and
+dividing by the number of participants. Each vertex within the map reﬂects the
+proportion of participants exhibiting place selectivity at that location on the
+cortical surface'' \citep{weiner2018defining}.
+
 
 \paragraph{individual differences}
 
@@ -152,6 +208,14 @@ correspondence
 
 
 \subsection{Functional alignment}
+
+``Another promising alignment approach attempts to remap regions across
+participants based on common temporal response profiles to the same
+time-locked external stimulation. Functional alignment algorithms such as
+Hyperalignment (Haxby, 2011; Guntupalli, 2016) and the Shared Response Model
+(SRM) (Chen, 2016) can be highly effective at improving spatial alignment across
+people based on common func- tional responses while still maintaining individual
+differences (Nastase, 2019, Reliable...) \citep{chang2021endogenous}.
 %
 Given that we do not want to predict brain anatomy but predict an accurate
 mapping of brain functions onto the brain anatomy:
@@ -164,8 +228,58 @@ profiles) in a multi-dimensional function space.
 % reference
 The reference is not an average brain anatomy but a \textit{common model space}
 (CMS).
+
+``Fine-grained patterns of activity and connectivity can be studied with
+functional magnetic reso- nance imaging (fMRI), but the topographies of these
+patterns are idiosyncratic, impeding study of their role in the neural basis of
+individual differences in cognitive ability. We used hyperalignment (Feilong et
+al., 2018; Guntupalli et al., 2018; Guntupalli et al., 2016; Haxby et al., 2020;
+Haxby et al., 2011) to resolve the interindividual variation of fine-grained
+topographies of functional connectivityi \citep{feilong2021neural}.
+
 %
 There are two algorithms dominating the field: hyperalignment and \ac{srm}
+
+``Shared information content is represented across brains in idiosyncratic
+functional topographies. Hyperalignment addresses these idiosyncrasies by using
+neural responses to project individuals’ brain data into a common model space
+while maintaining the geometric relationships between distinct patterns of
+activity or connectivity. The dimensions of this common model capture functional
+proﬁles that are shared across individuals such as cortical response proﬁles
+collected during a common time-locked stimulus presentation (e.g. movie viewing)
+or functional connectivity proﬁles'' \citep{busch2021hybrid}.
+
+``Hyperalignment models shared information that is embedded in id- iosyncratic
+cortical patterns across brains. Modeling shared informa- tion makes it possible
+to compare functional anatomy across brains at a ﬁne spatial scale.
+Hyperalignment projects cortical pattern vec- tors into a common,
+high-dimensional information space (Haxby et al., 2020). Derivation of this
+common space can be based on either neural response proﬁles (e.g. data collected
+during tasks, such as movie viewing (Haxby et al., 2011)) or functional
+connectivity profiles ﬁles (Guntupalli et al., 2018)'' \citep{busch2021hybrid}.
+
+``A major objective of the hyperalignment algorithm is to map the shared
+information originally found in idiosyncratic cortical topogra- phies into a
+common space in which this information is better aligned across participants''
+\citep{busch2021hybrid}.
+
+``We performed functional alignment on study 1 using the SRM (Chen, 2015). The
+deterministic SRM algorithm performs a joint Principal Com- ponents Analysis
+(PCA) and can identify a reduced set of functional response components that
+maximally align across participants. We chose an arbitrarily selected
+1000-dimensional embedding for each ROI. This algorithm learns a separate
+transformation matrix that projects each participant into this common space
+(Chen, 2015). Estimating a lower-dimensional common model space can potentially
+aid in filtering out measurement noise that is assumed to be independent across
+individuals. To minimize bias and ensure that ISC analyses were estimated
+independent of computing the SRM (58), we learned transformation matrices using
+data from episode 2 and subse- quently applied these transformations to data
+from episode 1. This allowed us to project each ROI’s voxel responses into the
+common 1000-­dimensional space. To identify regions where spatial ISC sig-
+nificantly improved as a result of functional alignment, we performed a
+paired-sample sign permutation test on the dynamic ISC value using 5000 samples
+and used a threshold of false discovery rate (FDR) q < 0.05 to correct for
+multiple comparisons'' \citep{chang2021endogenous}'s method section.
 
 
 \subsubsection{Hyperalignment}
@@ -416,7 +530,7 @@ functions?)
 We used components of the publicly available
 \href{http://www.studyforrest.org}{studyforrest.org} dataset that has
 been repeatedly used by other research groups in independent studies
-(\citep[e.g.,][]{ben2018hippocampal, jiahui2019predicting, hu2017decoding,
+(\citep[e.g.,][]{ben2018hippocampal, jiahui2020predicting, hu2017decoding,
 lettieri2019emotionotopy, nguyen2016integration}).
 % used studies
 The same participants were
@@ -804,6 +918,9 @@ localizer experiment.
 
 \todo[inline]{2 kinds of flavours: 'ao \& av \& vis' vs. only 'ao \& av'}
 
+leave-one-subject-out folding scheme [?], creating von CMS for every (left-out)
+subject from other subjects' data
+
 Fore each subject, we created a \ac{cms} based on other subject's data.
 %
 The runs of the audio-description, movie, and visual localizer were concatenated
@@ -853,6 +970,11 @@ distance matrix of time points in shared space
 \todo[inline]{matrices have been computed CMS created from AO+AV+VIS, but also
 just from AO+AV}
 
+\todo[inline]{perform alignment wit TRs of localizer for
+cross-subject-prediction; we do cross-subject-cross-experiment-prediction}
+
+In order to derive transformation matrices based on response patterns.
+
 \paragraph{get\_wmatrix\_for\_left-out.py}
 % AO: 0-451, 0-892, 0-1330, 0-1818, 0-2280, 0-2719, 0-3261, 0-3524
 % AV: 3524-3975, 3524-4416, 3524-4854, 3524-5342, 3524-5804, 3524-6243,
@@ -868,6 +990,11 @@ The SRM object was sliced according to the used runs and the weight matrix was
 obtained calling the SRM method srm\_sliced.transform\_subject(runsdata)
 % output: f'wmatrix_{model}_feat{n_feat}_{start}-{end}.npy'
 
+imo, SRM uses procrustes transformation, too, hence: ``the searchlight response
+hyperalignment algorithm, which utilizes Pro- crustes transformations to
+calculate a transformation matrix for each participant that maps their AA data
+into a shared high-dimensional in- formation space shared across participants
+(Guntupalli et al., 2016)'' \citep{busch2021hybrid}.
 
 \paragraph{predict\_ppa.py}
 
@@ -880,28 +1007,28 @@ created; reviewer's question: your anatomical alignment might have been shitty}
 % prediction from anatomy
 We first created the template/prediction from the anatomy of other subjects.
 %
-We warped the results of the visual localizer (and results of the auditory
-naturalistic stimulus) from each individual's subject-space (bold3Tp2) into MNI
-space (grpbold3Tp2).
-% output 1: 'test/masks/in_mni/sub-*_VIS-PPA.nii.gz'
-% output 2: 'test/masks/in_mni/sub-*_AO-PPA.nii.gz'
+We warped/mapped [what kind of transformation?] the results of the visual
+localizer (and results of the auditory naturalistic stimulus) from each
+individual's subject-space (bold3Tp2) into MNI space (grpbold3Tp2).
+% output 1: 'test/masks/in_mni/sub-*_VIS-PPA.nii.gz' output 2:
+% 'test/masks/in_mni/sub-*_AO-PPA.nii.gz'
 The results of all subjects were warped from MNI space in to the left-out
 subject's space
-% output 1: 'test/sub-*/masks/in_bold3Tp2/sub-*_VIS-PPA.nii.gz'
-% output 2: 'test/sub-*/masks/in_bold3Tp2/sub-*_AO-PPA.nii.gz'
+% output 1: 'test/sub-*/masks/in_bold3Tp2/sub-*_VIS-PPA.nii.gz' output 2:
+% 'test/sub-*/masks/in_bold3Tp2/sub-*_AO-PPA.nii.gz'
 The transformed z-maps were masked with mask of unions of PPAs and the
 individual's \ac{fov}.
 %
 The mean of these z-maps served as the prediction for the left-out subject.
-% output1: 'test/sub-*/predicted-VIS-PPA_from_anatomy.nii.gz'
-% output2: 'test/sub-*/predicted-AO-PPA_from_anatomy.nii.gz'
+% output1: 'test/sub-*/predicted-VIS-PPA_from_anatomy.nii.gz' output2:
+% 'test/sub-*/predicted-AO-PPA_from_anatomy.nii.gz'
 
 % prediction from CMS
-We then predicted the z-maps of the PPA from the visual localizer experiment and
-the auditory naturistic stimulus.
+We then predicted the $Z$-maps of the PPA from the visual localizer experiment
+and the auditory naturistic stimulus.
 %
 The transformation matrices that were created using an increasing number of runs
-of each naturalistic stimulus were used to transform a z-map templated created
+of each naturalistic stimulus were used to transform a $Z$-map templated created
 in the \ac{cms} into the left-out subject's space
 % aligned zmaps to shared space: (k features x t time-points); 1 time-point
 % because it's a zmap no time-series) using
@@ -1068,6 +1195,18 @@ a discussion on the reliability of phenotypic measures in the context of
 predictive modeling, we point the interested reader to: [Dubois et al., 2018a,
 2018b; Gignac and Bates, 2017]'' \citep{scheinost2019ten}.
 
+``the identiﬁcation of the PPA is complicated by (at least) four
+methodological considerations. First, the PPA deﬁnition may depend on the type
+of experiment, task, and stimuli used. Second, the boundaries of the PPA may
+depend on the statistical threshold used. Third, the spatial extent and
+localization of the PPA may vary if deﬁned within the native brain space of an
+individual or based on a group analysis. Fourth, the size of the PPA may depend
+on data acquisition choices (e.g. large vs. small voxels) and data analysis
+choices (e.g. liberal smoothing vs. no spatial smoothing). The present study
+aims to identify and to predict the most probable location of place-selective
+voxels within medial VTC of an individual brain that is impervious to these
+methodological decisions'' \citep{weiner2018defining}.
+
 
 \subsubsection{SRM and (dropped) individual idiosyncrasies}
 
@@ -1093,6 +1232,8 @@ clinical measures [70,74]'' \citep{cohen2017computational}.
 
 \subsubsection{volume-based registration vs. surface-based normalization}
 %
+Volume vs. surface: e.g. \citep{desai2005volumetric}
+
 Sengupta did analyses in volume space;
 %
 I could have run the analyses/contrasts on the surface
@@ -1104,6 +1245,7 @@ general discussion); how well can you trust data that you did not collect
 yourself (a.k.a. ``did you consider x?'', ``no, does not matter in our case'',
 ``but will matter for the person who will use/have used your data'')
 
+Compare to hyperalignment or Multimodal Surface Matching (Robinson et al. 2014)
 
 
 \subsection{Future questions}
