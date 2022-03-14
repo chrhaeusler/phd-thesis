@@ -6,41 +6,41 @@ anatomy of study participants, researchers usually conduct dedicated experiments
 
 % problem
 \textit{Current approach \& problem:} Nevertheless, the approach ``one paradigm
-to map one domain of brain functions '' becomes impractical if a variety of
+to map one domain of brain functions'' becomes impractical if a variety of
 domains is supposed to be mapped in a time-efficient manner.
 
 % therefore
-\textit{Therefore:} In the current study, we explore a way to project brain
-mapping data (statistical $Z$-maps) from a reference group onto individual
-brains of study participants in order to predict a subject's idiosyncratic
-functional topography.
+\textit{Therefore:} In the current study, we explore a way and quantity of data
+needed to (reliably) predict individual and idiosyncratic functional
+topographies by projecting results of a localizer experiment (statistical
+$Z$-maps) from a reference group into the brain anatomy of individual
+participants.
 
 \textit{Method:}
 % data
-During functional magnetic resonance imaging (fMRI), participants took part in a
-task-based, block-design visual localizer and two naturalistic stimuli
+During functional magnetic resonance imaging (fMRI), participants ($N=14$) took
+part in a task-based, block-design visual localizer and two naturalistic stimuli
 paradigms: an audio-visual movie and the movie's audio-description, both
 paradigms free of any task.
 % cms creation
-Based on these data, we first created a [N-1 folding stuff] common model space
-employing a shared response model \citep{chen2015reduced}, providing
-transformation matrices for the subjects that provided the data for the creation
-of the model space.
+Based on these response time-series, we first created a common model space
+employing a shared response model \citep{chen2015reduced} following a $N-1$ fold
+procedure [correct term??], a process that also computed transformation matrices
+for the subjects that provided the data for the creation of the model space.
 % alignment
-Then, functional topographies of left-out subjects were aligned with the common
-model space by using  segments the naturalistic stimuli [imo, is Procusted
-transformation, too], providing transformation matrices for the
-left-out-subjects.
+Then, we aligned left-out subjects with the common [via Procusted
+transformation?] to derive transformation matrices for the left-out-subjects by
+also varying the quantity of functional response time-series to perform the
+alignment.
 % prediction
 Lastly, the acquired transformation matrices were used to project the functional
 topographies from the anatomy of the reference group into the common model
 space, and from the common model space into the anatomy of the left-out
 subjects.
 % stimulus length?
-We assessed the relationship between length of naturalistic stimulation used for
-a \textit{partial functional alignment} and the performance of predicting
-empirical $Z$-maps.
-
+[We assessed the relationship between length of naturalistic stimulation used
+for a \textit{partial functional alignment} and the performance of predicting
+empirical $Z$-maps.]
 %
 \textit{Results} suggest that ``a subject's idiosyncratic functional topography
 can be estimated with high fidelity from that subject's fMRI data obtained while
@@ -71,29 +71,29 @@ localizer data from a normative sample'' \citep{jiahui2020predicting}.
 Topographic brain mapping maps brain functions, perceptual or cognitive
 processes, onto anatomical brain areas (\textit{functional areas}).\todo{better
 def. of brain mapping functional areas}
-% localizer
-Usually, location, size, and shape of functional areas is determined by letting
-study participants perform a task during a \textit{functional localizer}
-paradigm.
 
+%
 ``The topographies of category-selective areas are mostly distributed similarly
 across individuals, but great individual variability exists in the locus, the
-size, and the shape of the category-selective areas [Zhen et al., 2015, 2017].
-For example, faces selectively activate areas in the lateral occipital cortex
-(the occipital face area, OFA), ventral temporal cortex (the fusiform face area,
-FFA, and the anterior temporal face area, ATFA), along the superior temporal
-sulcus (the posterior and anterior superior temporal face areas, pSTS and aSTS),
-and in lateral prefrontal cortex (the right inferior frontal face area, rIFFA)
-[Guntupalli et al., 2017; Haxby and Gobbini, 2011; Haxby et al., 1994, 2000;
-Visconti di Oleggio Castello et al., 2017]'' \citep{jiahui2020predicting}.
+size, and the shape of the category-selective areas [Zhen et al., 2015, 2017]''
+\citep{jiahui2020predicting}.
+
+\todo[inline]{examples like PPA and stuff here}
+
+% localizer
+Location, size, and shape of functional areas are traditionally determined by
+letting study participants perform a task during a \textit{functional localizer}
+paradigm.
+
 %
 ``To deal with the idiosyncratic topography of functional areas,
 category-selective areas are identified separately in each individual using a
-“functional localizer” fMRI scan.  Functional localizers use a simple contrast
-between responses to different categories of stimuli, such as responses to faces
-versus responses to objects, to identify category-selective areas or to map a
-category-selectivity topography [Saxe et al., 2006]''
-\citep{jiahui2020predicting}.
+``functional localizer'' fMRI scan.
+%
+Functional localizers use a simple contrast between responses to different
+categories of stimuli, such as responses to faces versus responses to objects,
+to identify category-selective areas or to map a category-selectivity topography
+[Saxe et al., 2006]'' \citep{jiahui2020predicting}.
 
 % problem: one localizer for one domain
 Functional localizers are designed to maximize detection power and thus
@@ -117,7 +117,11 @@ calculation at an individual level'' \citet{pinel2007fast}.
 Nevertheless, the diagnostic quality of localizer batteries relies heavily on
 the participant's comprehension of the task instruction and general compliance,
 a criterion that can be difficult to meet in clinical or pediatric populations.
-% validity?
+
+\todo[inline]{following: why predict results of unecological paradigm at all?}
+\todo[inline]{better delete here; cf. discussion of ``ground truth''}
+
+% localizer: validity
 Further, localizer batteries rely on carefully chosen and tightly-controlled,
 simplified stimuli.
 %
@@ -126,90 +130,60 @@ accompanied with a task to keep participants alert and attentive, localizer
 paradigms to not resemble how we perceive the real-world during every-day life
 leading to questionable external and ecologically validity.\todo{add references}
 
-\todo[inline]{well, but why then do you want to predict results of unecological
-paradigm?}
-
 
 \subsection{Solution: Predict}
 
-An alternative approach to submit a person to a \ac{fMRI} scanning procedure is
-to predict a person's functional topography based on data collected in a
-reference group.
+An alternative approach to submit a person or patient to a \ac{fmri} scanning
+procedure is to predict a person's functional topography based on data collected
+in a reference group. Predictions can be performed based on \textit{anatomical
+alignment} or \textit{functional alignment}
 
-\subsubsection{Anatomical alignment (AA)}
 
-\todo[inline]{the more I think about it: we do not need to explain anatomical
-alignment first but can directly explain functional alignment; anatomical
-alignment get introduced later as a ``benchmark''}
+\subsubsection{Anatomical alignment}
 
 \todo[inline]{there is ``real'' prediction from anatomy (e.g.  cortical folding)
 not using anatomical template to project data into/out of}
 
-\todo[inline]{shortly explain volume alignment (and surface-based alignment?)}
+% \citep{weiner2018defining} compares cortex-based alignment
+% \citep{fischl1999high} with volume-based (Talairach) alignment: ``we repeated
+% our leave-one-out cross-validation procedure across all 24 participants with
+% an affine volume-based registration to the Talairach brain and compared this
+% performance to the same procedure implemented with CBA in FreeSurfer
+% \citep{weiner2018defining}''
 
-% anatomical alignment
-In general, a individual's diagnostic could be based on a prediction based on
-the anatomical location of the functional area in the reference group (e.g.
-\citet{weiner2018defining}.
 
 % current approach
-One approach is based on anatomical alignment in a three-dimensional, anatomical
-reference space (hence, \textit{anatomical alignment}).
+Anatomical alignment (AA) predicts functional topographies based on the
+anatomical location, size, and shape of a functional area in the anatomy
+reference group (e.g. \citet{weiner2018defining})
+% volume based
+Volume-based anatomical alignment \citep{evans19933d} aligns voxel-wise data of
+individual subjects to a three-dimensional brain template [e.g. MNI152 template;
+QUOTE].
+% surface-based
+Surface-based anatomical alignment \citep{fischl1999cortical}  aligns
+vertex-wise data of individual subjects to a two-dimensional template (e.g.
+FreeSurfer fsaverage template; \citep{fischl1999high}).
 %
-anatomical alignment aligns vertices in 2-dimensional space [is it really
-two-dimensional?] or voxels in three-dimensional anatomical space.
-%
-We transform the shape of an individual brain into the shape of an average,
-standard brain
-%
-Anatomical alignment aligns functional data of an individual to an anatomical
-brain template (e.g. the MNI152 template brain).
-%
-In order to predict, the functional data in the subject-specific functional
-space, the data of N-1 subjects are mapped from the anatomical template space
-into the functional space of the left-out / new / unknown subject.
-%
-Last step: e.g. mean of projected $Z$-maps.
+The most probable functional topography of a new subject is predicted by
+projecting averaged functional data of the reference group through the brain
+template into the new subject's subject-specific anatomy.
 
-steps for prediction using anatomical alignment to a brain template (anatomical
-standard space):
-%
-conduct the localizer experiment to get the brain responses in the reference
-group
-%
-align the brains in that reference group anatomically to the standard brain
-%
-also align your left-out subject to the standard brain, which gives you a
-transformation matrix
-%
-then you use the inverse of that transformation matrix to project the data
-%
-from the reference group into the anatomy of the left-out subject, which is
-essentially the prediction
+\paragraph{Functional-anatomical correspondence}
 
-Steps for prediction using functional alignment to a \ac{cms} (functional
-standard space):
-
+\todo[inline]{shorten and rephrase}
 %
-\citep{weiner2018defining} compares cortex-based alignment
-\citep{fischl1999high} with volume-based (Talairach) alignment: ``we repeated
-our leave-one-out cross-validation procedure across all 24 participants with an
-affine volume-based registration to the Talairach brain and compared this
-performance to the same procedure implemented with CBA in FreeSurfer
-\citep{weiner2018defining}''
-
+Nevertheless, one of ``one of the main obstacles in leveraging brain activity
+across subjects is the considerable heterogeneity of functional topographies
+from individual to individual. Variability in functional--anatomical
+correspondence across individuals means that even high-performing anatomical
+alignment does not ensure fine-grained functional alignment [e.g.,
+\citet{frost2012measuring}]'' \citep{kumar2020brainiak}.
 %
-``These probabilistic ROIs were generated using cortex-based alignment (CBA)
-tools in FreeSurfer [Fischl et al., 1999; http://surfer.nmr.mgh.harvard.edu/].
-Briefly, the cortical surface of each of our 12 participants was aligned to the
-FreeSurfer average surface (from 39 healthy adults not used in our study) using
-a high-dimensional nonlinear registration algorithm. Using this alignment, we
-transformed functional ROIs (fROIs) from each subject to the FreeSurfer (FS)
-average brain. Probabilistic maps (Fig. 2) were then generated by summing the 12
-fROIs at each point along the cortical surface of the FS average brain and
-dividing by the number of participants. Each vertex within the map reflects the
-proportion of participants exhibiting place selectivity at that location on the
-cortical surface'' \citep{weiner2018defining}.
+``Fine-grained functional organization of cortex is not well-conserved across
+individuals. As a result, individual differences in cortical functional
+architecture are confounded by topographic idiosyncrasies--i.e., differences in
+functional–anatomical correspondence'' \citep{feilong2018reliable}.
 
 ``Functional architecture of the human brain is relatively consistent across
 individuals at a coarse scale, but idiosyncrasies in functional topography
@@ -225,99 +199,53 @@ state-of-the-art cortical surface-based alignment [Fischl, 2012], the mismatch
 between brain function and anatomy can be reduced but not eliminated [Duncan et
 al., 2009; Frost and Goebel, 2012; Weiner et al., 2018]. Therefore, it is
 problematic to assume that a given anatomical location or topographic
-conformation will have the same functional role across brains. Individual
-differences in neural function are confounded by individual differences in
-functional–anatomical correspondence'' \citep{feilong2018reliable}.
-
-
-\paragraph{Functional-anatomical correspondence}
-
-Problem: ``One of the main obstacles in leveraging brain activity across
-subjects is the considerable heterogeneity of functional topographies from
-individual to individual. Variability in functional–anatomical correspondence
-across individuals means that even high-performing anatomical alignment does not
-ensure fine-grained functional alignment [e.g., Frost \& Goebel, 2012, Measuring
-structural correspondence...]. As an example, multi-voxel
-pattern analysis models that perform well within subjects often degrade in
-performance when evaluated across subjects [e.g., Cox \& Savoy, 2003, detecting
-and classifying; Haxby et al., 2014, decoduing neural representation spaces...]'' \citep{kumar2020brainiak}.
-
-% problem
-But problematic is the shitty \textit{functional-anatomical correspondence}
-% definition of functional-anatomical correspondence
-Definition: ``Fine-grained functional organization of cortex is not
-well-conserved across individuals. As a result, individual differences in
-cortical functional architecture are confounded by topographic
-idiosyncrasies—i.e., differences in functional–anatomical correspondence''
+conformation will have the same functional role across brains''
 \citep{feilong2018reliable}.
 
 
 \subsection{Functional alignment (FA)}
 
-\todo[inline]{explain that you will use the term \ac{cms} for the shared feature
-space of the \ac{srm}, too}
+\todo[inline]{shorten and rephrase}
 
 % definition
-An recently developed alternative to anatomical alignment is \textit{functional
-alignment}.
-
-``SRM [13], alongside other methods of hyperalignment \citep{haxby2011common,
-haxby2020hyperalignment, bazeille2019local} aims to resolve this alignment
-problem by aligning based on functional data \citep{kumar2020brainiak}.
+Functional alignment is a recently developed alternative to anatomical alignment
+and promises to preserve more fine-grained idiosyncrasies.
 
 %
-Functional alignment is a method to align cortical anatomy of different subjects
-based on the maximization of the inter-subject similarity of blood oxygen level
-dependent \ac{bold} response patterns \citep{haxby2011common, chen2015reduced,
-sabuncu2010function} or connectivity profiles \citep{feilong2018reliable,
-guntupalli2018computational}.
-
-%
-``SRM estimation is driven by the commonality in functional responses induced by
-a shared stimulus (e.g. watching a movie). Unlike ISC analysis, which
-presupposes (often very coarse) functional correspondence, SRM isolates the
-shared response while accommodating misalignment across subjects''
-\citep{kumar2020brainiak}.
+Functional alignment algorithms align cortical anatomy of different subjects
+based on the maximization of the inter-subject similarity of \ac{bold} responses
+\citep{haxby2011common, chen2015reduced, sabuncu2010function} correlating with a
+time-locked external stimulation (e.g. movie or auditory narrative), or
+connectivity profiles \citep{feilong2018reliable, guntupalli2018computational}.
 
 %
 ``Functional alignment algorithms that are based on common temporal response
-profiles to the same time-locked external stimulation such as Hyperalignment
-[Haxby, 2011; Guntupalli, 2016] and the Shared Response Model (SRM) [Chen, 2016]
-``attempt to remap regions across participants and can be highly effective at
-improving spatial alignment across people based on common functional responses
-while still maintaining individual differences [\citep{feilong2018reliable}]''
-\citep{chang2021endogenous}.
+profiles such as Hyperalignment [Haxby, 2011; Guntupalli, 2016] and the Shared
+Response Model (SRM) [Chen, 2016] ``attempt to remap regions across participants
+and can be highly effective at improving spatial alignment across people based
+on common functional responses while still maintaining individual differences
+[\citep{feilong2018reliable}]'' \citep{chang2021endogenous}.
 
 %
-``Building on the initial probabilistic SRM formulation \citep{chen2015reduced,
-anderson2016enabling}, several variants of SRM have been developed to address
-related challenges. For example, a fast SRM implementation has been introduced
-for rapidly analyzing large datasets with reduced memory demands
-\citep{richard2019fast}. The robust SRM algorithm tolerates subject specific
-outlying response elements \citep{turek2018capturing}, and the semi-supervised
-SRM capitalizes on categorical stimulus labels when available
-\citep{turek2017semi}. '' \citep{kumar2020brainiak}.
-
-
-\subsubsection{Hyperalignment}
+``Hyperalignment [Guntupalli et al., 2016, 2018; Haxby et al., 2011] is a family
+of methods that can disentangle functional variability from anatomical
+variability. Hyperalignment projects features (voxels or surface vertices) from
+a brain into a common high-dimensional space through linear transformations. In
+this common space, the same features from different individuals will share
+similar functional properties instead of the same anatomical locations or
+topographic conformations. Hyperalignment decomposes the original fMRI data of
+each individual into two parts: a transformation matrix, which reflects
+topographic properties of the individual's functional activations; and a new
+data matrix in the common space, which reflects shared, stimulus-driven
+responses. This hyperaligned data matrix provides an opportunity to study brain
+functions without confounds from topographic variability''
+\citep{feilong2018reliable}.
 
 %
-Hyperalignment, an algorithm that was pioneered by \citet{haxby2011common}, uses
-\ac{bold} response patterns to derive a \ac{cms} using a variant of Procrustes
-analysis and computes invertible (orthonormal) transformations from each
-individual brain's voxel-space into the \ac{cms}.
-%
-Importantly, the study also showed that an individual's \ac{ffa} or the
-\ac{ppa}, can be localized precisely based on data from a reference group.
-
-``Shared information content is represented across brains in idiosyncratic
-functional topographies. Hyperalignment addresses these idiosyncrasies by using
-neural responses to project individuals’ brain data into a common model space
-while maintaining the geometric relationships between distinct patterns of
-activity or connectivity. The dimensions of this common model capture functional
-profiles that are shared across individuals such as cortical response profiles
-collected during a common time-locked stimulus presentation (e.g. movie viewing)
-or functional connectivity profiles'' \citep{busch2021hybrid}.
+``The dimensions of this common model capture functional profiles that are
+shared across individuals such as cortical response profiles collected during a
+common time-locked stimulus presentation (e.g. movie viewing) or functional
+connectivity profiles'' \citep{busch2021hybrid}.
 
 %
 ``Hyperalignment derives individual transformation matrices to project
@@ -335,62 +263,15 @@ information space (Haxby et al., 2020). Derivation of this common space can be
 based on either neural response profiles (e.g. data collected during tasks, such
 as movie viewing (Haxby et al., 2011)) or functional connectivity profiles files
 [Guntupalli et al., 2018]'' \citep{busch2021hybrid}.
+
 %
 ``A major objective of the hyperalignment algorithm is to map the shared
 information originally found in idiosyncratic cortical topographies into a
 common space in which this information is better aligned across participants''
 \citep{busch2021hybrid}.
 
-%
-``Hyperalignment [Guntupalli et al., 2016, 2018; Haxby et al., 2011] is a family
-of methods that can disentangle functional variability from anatomical
-variability. Hyperalignment projects features (voxels or surface vertices) from
-a brain into a common high-dimensional space through linear transformations. In
-this common space, the same features from different individuals will share
-similar functional properties instead of the same anatomical locations or
-topographic conformations. Hyperalignment decomposes the original fMRI data of
-each individual into two parts: a transformation matrix, which reflects
-topographic properties of the individual's functional activations; and a new
-data matrix in the common space, which reflects shared, stimulus-driven
-responses. This hyperaligned data matrix provides an opportunity to study brain
-functions without confounds from topographic variability''
-\citep{feilong2018reliable}.
 
-% reference
-Hence, the reference is not an average brain anatomy but a \textit{common model
-space} (CMS).
-
-
-\paragraph{results from hyperalignment studies}
-%
-``Besides separating interindividual variability in brain function from that in
-functional topography, hyperalignment also makes efficient use of functional
-neuroimaging data by utilizing spatially fine-grained pattern information. For
-example, between-subject classification improves severalfold by using
-hyperalignment instead of anatomical alignment [Guntupalli et al., 2018, 2016;
-Haxby et al., 2011]. Coarse-scale information, such as category selectivity or
-retinotopy, is encoded in a spatially smooth and similar fashion across
-neighboring voxels in a brain region. By contrast, fine-scale information, such
-as within-category distinctions among exemplars, is encoded in spatial
-patterns comprising different responses across voxels within a region.
-Fine-grained topographies exist across all of cortex [Guntupalli et al., 2018,
-2016; Haxby et al., 2014, 2011], and encode fine-scale information [e.g., Haxby
-et al., 2001; Kriegeskorte et al., 2008] and details of interactions between
-brain regions [Guntupalli et al., 2018; Visconti di Oleggio Castello et al.,
-2017] that are not captured by coarse-scale responses such as the average
-response of a brain region. Importantly, individual differences in cognitive
-function may be expressed in differences in the fine-scale functional
-topographies that carry fine-scale information [Charest et al., 2014]. Because
-anatomical alignment does not capture the shared information that is encoded in
-fine-scale topographies, individual differences in anatomically-aligned data
-multiplexes misalignment of functional architecture with individual
-differences in function. Consequently, the spatial granularity of individual
-differences in functional architecture that can be accessed with
-anatomically-aligned data may not match the spatial scale of the functional
-architecture that carries cognitive differences. Many researchers opt to
-sacrifice fine-grained information to boost coarse-grained information through
-spatial smoothing or averaging (Carp, 2012), making fine-grained information
-inaccessible to further analysis'' \citep{feilong2018reliable}.
+\subsubsection{Prediction using hyperalignment}
 
 %
 For example, \citet{haxby2011common, guntupalli2016model} have shown that
@@ -403,6 +284,14 @@ ventral temporal and occipital cortical anatomy'' \citep{jiahui2020predicting}.
 subjects’ data after hyperalignment correlate much more highly with maps
 estimated from that subject's own localizer data than does a group average map
 based on anatomical normalization'' \citep{jiahui2020predicting}.
+%
+Hyperalignment, an algorithm that was pioneered by \citet{haxby2011common}, uses
+\ac{bold} response patterns to derive a \ac{cms} using a variant of Procrustes
+analysis and computes invertible (orthonormal) transformations from each
+individual brain's voxel-space into the \ac{cms}.
+%
+Importantly, the study also showed that an individual's \ac{ffa} or the
+\ac{ppa}, can be localized precisely based on data from a reference group.
 
 
 \subsubsection{Shared response model}
@@ -456,6 +345,21 @@ outlying response elements \citep{turek2018capturing}, and the semi-supervised
 SRM capitalizes on categorical stimulus labels when available
 \citep{turek2017semi}. '' \citep{kumar2020brainiak}.
 
+%
+``SRM estimation is driven by the commonality in functional responses induced by
+a shared stimulus . Unlike ISC analysis, which presupposes (often very coarse)
+functional correspondence, SRM isolates the shared response while accommodating
+misalignment across subjects'' \citep{kumar2020brainiak}.
+
+%
+``Building on the initial probabilistic SRM formulation \citep{chen2015reduced,
+anderson2016enabling}, several variants of SRM have been developed to address
+related challenges. For example, a fast SRM implementation has been introduced
+for rapidly analyzing large datasets with reduced memory demands
+\citep{richard2019fast}. The robust SRM algorithm tolerates subject specific
+outlying response elements \citep{turek2018capturing}, and the semi-supervised
+SRM capitalizes on categorical stimulus labels when available
+\citep{turek2017semi}. '' \citep{kumar2020brainiak}.
 
 \paragraph{What does SRM do}
 
@@ -509,8 +413,6 @@ and a reduced-dimension shared response space. The learned subject-specific
 topographic bases can be used to project test data into the shared space. This
 projection functionally aligns the test data'' \citep{kumar2020brainiak}.
 
-
-\paragraph{application}
 %
 ``Transformations estimated from one subset of data can be used to project
 unseen data into the shared space. Projecting data into shared space increases
@@ -641,14 +543,12 @@ using just an anatomical alignment.
 We want to know if functional alignment based on a \ac{srm} improve the
 prediction compared to a prediction based on merely anatomical alignment?
 %
-%
 We want to know how the parameter ``data points'' influences the results.
 %
 How much data do we need to align an individual subject to a/the \ac{cms} and
 outperform a prediction based on anatomical alignment?
 %
 Is a short diagnostic run ``sufficient''?
-
 %
 project localizer data from CMS into left-out subject using the inverse matrix
 
@@ -658,7 +558,6 @@ project localizer data from CMS into left-out subject using the inverse matrix
 We will predict the location of the functional area by performing an
 anatomical alignment as a benchmark, and explore possibly improved prediction
 performance using a functional alignment
-
 
 
 \paragraph{functional alignment}
@@ -678,8 +577,8 @@ for discussion: asymptotic curve might be different for another brain region
 (we look at perception; what about ``higher'' cognition or even executive
 functions?)
 
-\subsection{Summary of results}
 
+\subsection{Summary of results}
 %
 ``Results expands previous analysis from ventral temporal cortex to the whole
 cortex, showing strong correlations of face-selectivity topographic maps derived
