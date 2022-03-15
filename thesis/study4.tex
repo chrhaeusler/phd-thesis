@@ -67,6 +67,7 @@ localizer data from a normative sample'' \citep{jiahui2020predicting}.
 \todo[inline]{find better definition of 'topographic mapping' and func. areas}
 \todo[inline]{define PPA in intro shortly (maybe \ac{ffa}, too)}
 \todo[inline]{cf. PPA paper}
+\todo[inline]{Definition of functional topography, functional anatomy}
 
 % brain mapping
 Topographic brain mapping maps brain functions, perceptual or cognitive
@@ -173,6 +174,7 @@ The most probable functional topography of a new subject is predicted by
 projecting averaged functional data of the reference group through the brain
 template into the new subject's subject-specific anatomy.
 
+
 \paragraph{Functional-anatomical correspondence}
 
 \todo[inline]{shorten and rephrase}
@@ -210,6 +212,8 @@ conformation will have the same functional role across brains''
 \subsubsection{Functional alignment (FA)}
 
 \todo[inline]{shorten and rephrase}
+\todo[inline]{terms ``\ac{cms}'' and ``shared feature space'' are still kind of
+used interchangeably}
 
 % definition
 Functional alignment is a recently developed alternative to anatomical alignment
@@ -406,6 +410,29 @@ the reduced-dimension shared space back into any given subject’s brain space''
 than the shared signal, SRM can be used to factor out the shared component
 thereby isolating the idiosyncratic response for each subject [13]''
 \citep{kumar2020brainiak}.
+
+In SRM, the brain data for each participant $i$ are represented as an $n$ voxel
+by $t$ time matrix  $X_{i}$. A pre-specified number of features are used to
+learn a $k$ feature by  $t$ time shared space $S$ and a participant-specific $n$
+voxel by $k$  feature matrix $W_{i}$. This weight matrix, reflecting the loading
+of voxels onto features, is randomly initialized then fit over iterations to
+minimize the error in explaining participant data. At the same time, the time
+course of the features in the shared space is learned.
+
+
+
+\paragraph{how we use it: for functional alignment}
+
+``What is reliable across different participants when performing the same task,
+for example watching a movie? In previous notebooks, inter-subject correlation
+and inter-subject functional correlation revealed similarity in patterns of
+brain activity across participants. We can exploit this similarity to find a
+lower-dimensional shared space that retains features of the data that are common
+across participants. The shared response model (SRM) aims to learn this shared
+feature space and how to map individual participant data into it (Chen et al.,
+2015). SRM can be used as a functional alignment technique: once fit, other data
+from the same participants can be transformed into the shared space with these
+mappings, to be used as input for other analyses'' (SRM-Tutorial).
 
 
 \subsubsection{Functional alignment works better with naturalistic stimuli}
@@ -662,7 +689,7 @@ Otto-von-Guericke University of Magdeburg, Germany.
 Stimuli for the block-design localizer study were 24 unique grayscale images of
 faces, bodies, objects, houses, outdoor scenes and scrambled images, matched in
 luminance and size, that were previously used in other studies
-(\citep[e.g.,][]{haxby2011common}).
+\citep[e.g.,][]{haxby2011common}.
 % procedure: presentation & instructions
 Participants performed a one-back image matching task for four block-design
 runs, with two \unit[16]{s} blocks per stimulus category in each run.
@@ -754,13 +781,13 @@ An number of 3599 volumes, identical to the movies study, was recorded for each
 participant in the audio-description study.
 
 %
-T1 from \citep{ben2018hippocampal}: ``High-resolution T1- weighted structural
-images (Hanke et al., 2014) were acquired using a 3D turbo field echo sequence
-[acquisition voxel size of 0.7 mm with a 384 x 384 in-plane reconstruction
-matrix (0.67 mm isotropic resolution), TR = 2500 ms, TE = 5.7 ms, TI = 900 ms,
-flip angle = 8°, FOV = 191.8 x 256 x 256 mm, bandwidth 144.4 Hz/px, sense
-reduction AP 1.2, RL 2.0]''.
-
+High-resolution T1-weighted structural images with 274 sagittal slices (FoV
+191.8 $\times$ 256 $\times$ \unit[256]{mm}) and an acquisition voxel size of
+\unit[0.7]{mm} with a 384 $\times$ 384 in-plane reconstruction matrix
+(\unit[0.67]{mm} isotropic resolution) were recorded using a 3D turbo field echo
+(TFE) sequence (TR = \unit[2500]{ms}, TE = \unit[5.7]{ms}, TI = \unit[900]{ms},
+flip angle = 8 $^{\circ}$, bandwidth 144.4 Hz/px, Sense reduction AP 1.2, RL
+2.0.
 
 \subsection{Preprocessing}
 
@@ -868,7 +895,7 @@ the other categories (e.g., body, place) for each run and averaging t-values
 across the four maps'' \citep{jiahui2020predicting}.
 
 
-\subsection{Shared response modelling for creation of common model spaces}
+\subsection{Modeling of a shared response space}
 
 \todo[inline]{how to reliably (!) hyphenate links??}
 
@@ -957,20 +984,24 @@ probably, because of the warping procedures}
 % data_mask_concat_runs.py: masks are not dilated and not masked with
 % subject-specific gray matter mask
 
-
-
-For each paradigm, subject, the corresponding 4d time-series of each run /
-segment were masked with the union of individual PPA masks (s.
-\citep{haeusler2022processing} that was warped from MNI space into each
-subjects' space. Each subjects' data were further masked with the
-subject-specific \ac{fov} of the audio-description.
+% union of PPA masks
+For each paradigm and subject, the corresponding 4d time-series of each run /
+segment were masked with the union of individual PPA masks
+\citep[s.][]{haeusler2022processing} that was warped from MNI space into each
+subjects' space.
+% AO FoV
+Each subjects' data were further masked with the subject-specific \ac{fov} of
+the audio-description.
 %
-The number of remaining voxels for each subject can be seen in
+The number of remaining voxels for each subject can be seen in Table
 \ref{tab:ppamaskvoxels}.
 
+
 \begin{table*}[btp]
-    \caption{Number of voxels within the union of individual \acp{ppa} that was
-    warped from MNI space into each individual's subjects-space.}
+    \caption{Number of remaining voxels after each subject's brain was masked
+    with the union of individual \acp{ppa} that was warped from MNI space into
+    each individual's subjects-space and a subject's-specific FoV from AO study.}
+
 \label{tab:ppamaskvoxels}
 \begin{tabular}{ll}
 \toprule
@@ -995,138 +1026,138 @@ sub-20 & 1437 \tabularnewline
 \end{table*}
 
 % scaling
-Then, data of every run were scaled independently using the Scipy function
-``preprocessing.StandardScaler()''.
+Data of every run were independently normalized ($z$-scored) to a mean of zero
+and a standard deviation of one ($\mu=0$, $\sigma=1$).
 % output: 'sub-*_task_aomovie-avmovie_run-1-8_bold-filtered.npy; and:
 % 'sub-*_task_visloc_run-1-4_bold-filtered.npy'
 %
-``The number of voxels may be different between subjects. However, the number of
-samples must be the same across subjects'' (s. brainIAK docs)
-% we dropped data
-Given that the last 75 TRs of the audio-description were missing in subject 04
-due to [WHAT?], we also dropped the last 75 TR from the other participants'
-data.
+The last 75 TRs of the audio-description were missing in subject-04 due to an
+image reconstruction problem.
+%
+The \ac{srm} allows the number of voxels to be different across subjects but the
+number of samples must be the same.
+%
+Hence, we removed the last 75 TRs of the audio-description from the other
+subjects' time-series.
 % it's only credits anyway; AO + AV has 7123 TRs; not 7198 volumes anymore;
 % visual localizer has 156 TRs per run
-As a result, the data to create the \ac{cms} in the following step comprised
-3524 TRs of audio-description, 3599 TRs of the movie, 624 TRs of the visual
+As a result, the data to fit the \ac{srm} in the following step comprised 3599
+TRs of the movie, 3524 TRs of audio-description, and 624 TRs of the visual
 localizer experiment.
 
+\todo[inline]{yeah, well, probably I should have cut the last run of AO first,
+and then z-scored the last segment but anyway...; does not make much difference}
 
 
 \paragraph{Fitting of shared response model}
 
-\todo[inline]{check used functions in BrainIAK docs}
-\todo[inline]{explain steps; cf. introduction}
-\todo[inline]{input data: 'ao \& av \& vis'; but also tested 'ao \& av'}
 
-We used the probabilistic SRM algorithm implemented in BrainIAK v.11 (Brain
+\todo[inline]{mention that just 'ao \& av' as input were also tested?}
+
+We used the probabilistic \ac{srm} algorithm implemented in BrainIAK v.11 (Brain
 Imaging Analysis Kit, \citet{kumar2020brainiak, kumar2020brainiaktutorial},
 http://brainiak.org) to fit the \ac{srm}.
 %
 This implementation approximates the \ac{srm} using the Expectation Maximization
 (EM) algorithm proposed by \citep{chen2015reduced} optimized by
 \citet{anderson2016enabling}.
-
 %
-From \citep{jiahui2020predicting} using hyperalignment: ``The SRM builds a
-common model information space where the concatenated fMRI responses to the
-movie, audio-description, and functional localizer are aligned across subjects''
-\citep{jiahui2020predicting}.
+We followed a leave-one-subject-out folding scheme [correct term?]:
 %
-``At the same time, individual transformation matrices are calculated to project
-each participant's [that was used to build the common model space] cortical
-space into the common information space'' \citep{jiahui2020predicting}.
+for every subject $n$, we used the other subjects' ($N-1$) concatenated fMRI
+responses to the movie, audio-description, and functional localizer as training
+set to compute the shared feature space.
 %
-``Transformation matrices are calculated for the ROI(s) in each brain [using an
-iterative procedure and Procrustes alignmen]'' \citep{jiahui2020predicting}.
-%
-Transformation matrices allowed us to project each \ac{roi}'s voxel responses
-into the common k-dimensional space.
-
-We used a leave-one-subject-out ($N-1$) folding scheme [correct term?], creating
-a \ac{cms} for every (left-out) subject from other subjects' data.
-%
-The segment/runs of the audio-description, movie, and visual localizer were
-concatenated to one continuous and z-scored [using scipy.stats.zscore()].
+Concatenated time-series data were z-scored across experimental
+paradigms.\todo{a second z-scoring}
 % features
-Model fitting was performed using 10 features [EXPLAIN WHY] and 30 iterations
-[calling the fit method of brainIAK's srm object (brainiak.funcalign.srm.SRM)].
-
-% negative control; output: 'test/sub-01/srm-ao-av-shuffled\_feat10-iter30.npz'
-As negative control, we also fitted a shared response model to after shuffling
-the order of runs of audio-description and movie (but not visual localizer) of
-every subject before fitting the model.
-
-
-\subsection{Alignment of left-out subjects to \ac{cms}}
+Considering the size of the ROIs the spatial resolution of the fMRI data, we
+chose a value of $k=10$ for the number of features (i.e. the shared responses)
+to be computed.
+% n_iter
+The number of iterations for the algorithm to minimize the error was set to 30.
 
 %
-From \citep{jiahui2020predicting}: ``We used the shared response model as a
-functional alignment tool to predict functional topographies in new subjects. To
-estimate one participant's face-selectivity contrast map, all the other
-participants' localizer data were projected into participant A's cortical
-anatomy using transformation matrices calculated based only on the movie-viewing
-data for all pairings of participant A with each of the other 14 or 20
-participants'' \citep{jiahui2020predicting}.
-
+During model fitting, the algorithm computes the shared feature space $S$ ($k$
+features by $t$ time points) and calculates subject-specific, orthogonal [?]
+transformation matrices $W_{n}$ ($v$ voxel by $k$ features).
 %
-%
-``New data can be projected into any individual brain space by first projecting
-data from other brains into the common model space, and then projecting those
-data from the common model space into that participant's cortical anatomy using
-the transpose of his or her transformation matrix'' \citep{jiahui2020predicting}
+These transformation matrices, or weight matrices, reflect the loadings of
+voxels onto features [i.e. subject-specific functional topographies], and allow
+to project responses of voxels within each subjects' \ac{roi}(s) from anatomical
+space into the $k$-dimensional shared feature space, and thus functionally align
+subjects.
+
+\todo[inline]{negative control: I need to check the code; unfortunately, it is
+still pretty early in the processing pipeline}
+
+% shuffled data
+As negative control, we shuffled the order of runs of audio-description and
+movie (but not visual localizer) before fitting a shared response model to the
+time-series.
 
 
-\paragraph{Partial alignment}
-
-\todo[inline]{perform alignment with TRs of localizer for
-cross-subject-prediction; we do cross-subject-cross-experiment-prediction}
-%
-\todo[inline]{s. script 'get\_wmatrix\_for\_left-out.py'}
-
-\todo[inline]{check code of the object's method in BrainIAK docs whether it uses
-Procrustes transformation; iirc, it's the case}
+\subsection{Alignment of left-out subjects}
 
 % AO: 0-451, 0-892, 0-1330, 0-1818, 0-2280, 0-2719, 0-3261, 0-3524
 % AV: 3524-3975, 3524-4416, 3524-4854, 3524-5342, 3524-5804, 3524-6243,
 %     3524-6785, 3524-7123
 % AO+AV: 0-7123
 
+\todo[inline]{partial alignment: well, explanation makes sense in my head}
 %
-In order to derive transformation matrices based on response patterns,
-we used an increasing number of runs of the filtered audio-description and movie
-data to align each left-out subject to the corresponding \ac{cms}, and obtain
-the subject's transformation matrix.
+\todo[inline]{perform alignment with TRs of localizer for
+cross-subject-prediction = model variation, ceiling ...}
 %
-The SRM object was sliced according to the used runs and the weight matrix was
-obtained calling the SRM method srm\_sliced.transform\_subject(runsdata)
-% output: f'wmatrix_{model}_feat{n_feat}_{start}-{end}.npy'
+\todo[inline]{s. 'get\_wmatrix\_for\_left-out.py'; srm.transform\_subject calls
+np.linalg.svd()}
+
 
 %
-cf. phrasing in \citep{busch2021hybrid}: ``the searchlight response
-hyperalignment algorithm, which utilizes Procrustes transformations to calculate
-a transformation matrix for each participant that maps their AA data into a
-shared high-dimensional information space shared across participants [Guntupalli
-et al., 2016]'' \citep{busch2021hybrid}.
+\citep{busch2021hybrid}: ``the searchlight response hyperalignment algorithm,
+which utilizes Procrustes transformations to calculate a transformation matrix
+for each participant that maps their AA data into a shared high-dimensional
+information space shared across participants [Guntupalli et al., 2016]''
+\citep{busch2021hybrid}.
+
+%
+\citep{jiahui2020predicting}: ``New data can be projected into any individual
+brain space by first projecting data from other brains into the common model
+space, and then projecting those data from the common model space into that
+participant's cortical anatomy using the transpose of his or her transformation
+matrix'' \citep{jiahui2020predicting}
+
+%
+We then aligned each left-out subject to the shared space $S$ that was computed
+from the other subjects' data.
+%
+The algorithm learns a mapping $W_{n}$ of the left-out subject's anatomical
+space into the shared space $S$ that is kept fixed.
+%
+Critically, we performed a \textit{partial alignment} to the shared space:
+%
+We used an increasing number of segments (1 up to 8) of the naturalistic stimuli
+per subject to let the algorithm learn the orthogonal mapping to the TRs of the
+corresponding segment(s) in the shared space.
+%
+As a result, we obtained 8 transformation matrices per subject and naturalistic
+stimulus, each matrix of size $v$ voxel by $k$ features but based on a different
+quantity of data used to calculate the mapping [i.e. subject-specific functional
+topographies].
 
 
 \subsection{Predicting $Z$-maps}
 
+\todo[inline]{predict\_ppa.py}
+%
+To predict the results of functional localizer (statistical $Z$-maps
+representing functional topographies) of the left-out subject, we then projected
+all other participants $Z$-maps from their subject-specific anatomy into the
+shared feature space, and from the shared feature space into the left-out
+subject's anatomy.
+
 
 \subsubsection{Prediction using \ac{cms}}
-%
-From \citep{jiahui2020predicting} (an approach different from ours): ``We
-estimated a participant's map from other participants' data by first projecting
-all other participants' localizer data into that participant's cortical anatomy
-and calculating the GLM univariate contrast map of faces versus all other
-categories for each run in each other participant then averaging t-values across
-the maps (56 maps for StudyForrest, 14 subjects x 4 runs for each; 80 maps for
-Grand Budapest, 20 subjects x 4 runs each)'' \citep{jiahui2020predicting}.
-%
-``Thus, the map estimated from other participants' localizer data was a map of
-average t-values across 56 or 80 maps (four runs per participant) for the
-contrast faces vs all'' \citep{jiahui2020predicting}.
 %
 ``To estimate one participant's face-selectivity map using this algorithm, all
 the other participants' localizer data were projected into the common model
@@ -1134,30 +1165,9 @@ space, and then mapped to participant A's space using the transpose of his or
 her hyperalignment transformation matrix'' \citep{jiahui2020predicting}.
 
 
-\paragraph{predict\_ppa.py}
-
-% prediction from anatomy
-We first created the template/prediction from the anatomy of other subjects.
-%
-We warped/mapped [what kind of transformation?] the results of the visual
-localizer (and results of the auditory naturalistic stimulus) from each
-individual's subject-space (bold3Tp2) into MNI space (grpbold3Tp2).
-% output 1: 'test/masks/in_mni/sub-*_VIS-PPA.nii.gz' output 2:
-% 'test/masks/in_mni/sub-*_AO-PPA.nii.gz'
-The results of all subjects were warped from MNI space in to the left-out
-subject's space
-% output 1: 'test/sub-*/masks/in_bold3Tp2/sub-*_VIS-PPA.nii.gz' output 2:
-% 'test/sub-*/masks/in_bold3Tp2/sub-*_AO-PPA.nii.gz'
-The transformed $Z$-maps were masked with mask of unions of PPAs and the
-individual's \ac{fov}.
-%
-The mean of these $Z$-maps served as the prediction for the left-out subject.
-% output1: 'test/sub-*/predicted-VIS-PPA_from_anatomy.nii.gz' output2:
-% 'test/sub-*/predicted-AO-PPA_from_anatomy.nii.gz'
-
 % prediction from CMS
 We then predicted the $Z$-maps of the PPA from the visual localizer experiment
-and the auditory naturalistic stimulus.
+[and the auditory naturalistic stimulus.]
 %
 The transformation matrices that were created using an increasing number of runs
 of each naturalistic stimulus were used to transform a $Z$-map template created
@@ -1183,6 +1193,21 @@ anatomical space; this is more 'similar' than computing the mean in anatomy for
 prediction from anatomy, and computing the mean in CMS for prediction from CMS;
 but: creating the template in CMS does not lead to different results anyway}
 
+%
+``Thus, the map estimated from other participants' localizer data was a map of
+average t-values across 56 or 80 maps (four runs per participant) for the
+contrast faces vs all'' \citep{jiahui2020predicting}.
+
+``The weight matrices that we created from SRM data are not only useful for
+projecting new data into a shared space but also for the reverse —
+reconstructing data in subject space. The logic of ISC that we covered in a
+previous notebook was that activity that is shared across participants when they
+are experiencing the same task is activity that reflects reliable task-evoked
+responses; comparison across individuals removes idiosyncratic responses. SRM
+can also exploit this logic: the participant-specific weights can be used to
+transform responses in shared space into brain activity in voxel space,
+isolating variance shared across participants and denoising the data''.
+
 
 \subsubsection{Prediction using anatomical alignment}
 
@@ -1198,6 +1223,28 @@ created; reviewer's question: your anatomical alignment might have been shitty}
 participants' anatomically aligned localizer data by simply averaging across the
 maps based on anatomically-normalized data for each N-1 set of 14 (StudyForrest)
 or 20 (Grand Budapest) participants'' \citep{jiahui2020predicting}.
+
+% prediction from anatomy
+We first created the template/prediction from the anatomy of other subjects.
+%
+We warped/mapped [what kind of transformation?] the results of the visual
+localizer (and results of the auditory naturalistic stimulus) from each
+individual's subject-space (bold3Tp2) into MNI space (grpbold3Tp2).
+% output 1: 'test/masks/in_mni/sub-*_VIS-PPA.nii.gz' output 2:
+% 'test/masks/in_mni/sub-*_AO-PPA.nii.gz'
+The results of all subjects were warped from MNI space in to the left-out
+subject's space
+% output 1: 'test/sub-*/masks/in_bold3Tp2/sub-*_VIS-PPA.nii.gz' output 2:
+% 'test/sub-*/masks/in_bold3Tp2/sub-*_AO-PPA.nii.gz'
+The transformed $Z$-maps were masked with mask of unions of PPAs and the
+individual's \ac{fov}.
+%
+The mean of these $Z$-maps served as the prediction for the left-out subject.
+% output1: 'test/sub-*/predicted-VIS-PPA_from_anatomy.nii.gz' output2:
+% 'test/sub-*/predicted-AO-PPA_from_anatomy.nii.gz'
+
+
+
 
 
 \subsection{Quantifying the performance}
@@ -1236,10 +1283,19 @@ lastly, we currently apply another method to get the „z-map template“ on whi
 the prediction is based ('test/data\_denoise-vis.py';
 'test/data\_srm-vis-to-ind.py')
 %
+From \citep{jiahui2020predicting} (an approach different from ours): ``We
+estimated a participant's map from other participants' data by first projecting
+all other participants' localizer data into that participant's cortical anatomy
+and calculating the GLM univariate contrast map of faces versus all other
+categories for each run in each other participant then averaging t-values across
+the maps (56 maps for StudyForrest, 14 subjects x 4 runs for each; 80 maps for
+Grand Budapest, 20 subjects x 4 runs each)'' \citep{jiahui2020predicting}.
+%
 ``An added benefit is that SRM helps address the data starvation problem above:
 because the SRM space is by definition shared across individuals, data from
 multiple participants can be combined prior to MVPA or other analyses''
 \citep{cohen2017computational}.
+
 
 
 \section{Results}
