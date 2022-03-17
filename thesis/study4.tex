@@ -64,6 +64,9 @@ localizer data from a normative sample'' \citep{jiahui2020predicting}.
 \todo[inline]{mih: Dieses Kapitel sollte konzeptuell und inhaltlich deutlich als
 "und jetzt alles zusammen" erscheinen}
 
+\todo[inline]{so far, chapter does not tell a lot about prediction of "auditory
+PPA" kind of localized in PPA-Paper}
+
 \todo[inline]{find better definition of 'topographic mapping' and func. areas}
 \todo[inline]{define PPA in intro shortly (maybe \ac{ffa}, too)}
 \todo[inline]{cf. PPA paper}
@@ -109,9 +112,8 @@ time-consuming and inefficient.
 
 % localizer batteries: intro
 Researchers have tried to tackle this issue by creating time-efficient
-multi-functional \textit{localizer batteries} \citep{pinel2007fast,
-pinho2018individual, pinho2020individual} [ANOTHER'S GROUP LOCALZER?
-H.B.Project?]
+multi-functional \textit{localizer batteries} \citep{barch2013function,
+drobyshevsky2006rapid, pinel2007fast}.
 % localizer batteries: example
 For example, \citet{pinel2007fast} employs a range of dedicated stimuli and
 specific tasks in a 5-minute routine to map processes of ``auditory and visual
@@ -137,7 +139,6 @@ leading to questionable external and ecologically validity.\todo{add references}
 
 \subsection{The solution: predict from reference data}
 
-
 An alternative approach to submit a person or patient to a \ac{fmri} scanning
 procedure is to predict a person's functional topography based on data collected
 in a reference group. Predictions can be performed based on \textit{anatomical
@@ -156,6 +157,7 @@ folding) not using anatomical template to project data into/out of}
 % performance to the same procedure implemented with CBA in FreeSurfer
 % \citep{weiner2018defining}''
 
+Aligns to a ``common cortical topography''
 
 % current approach
 Anatomical alignment (AA) predicts functional topographies based on the
@@ -174,6 +176,24 @@ The most probable functional topography of a new subject is predicted by
 projecting averaged functional data of the reference group through the brain
 template into the new subject's subject-specific anatomy.
 
+``Anatomical alignment methods aim at solving the anatomical structure problem
+us- ing specific anatomical features for alignment [1, 2, 3]. Yet, they fail to
+align functional topographies satisfactorily [2, 4]'' \citep{turek2017semi}.
+
+``More recently, methods that align functional topographies have emerged. These
+methods leverage the smoothness prop- erties of fMRI data [5, 6] to extract
+shared aspects across subjects using factor models. Techniques based on
+Principal Component Analysis [7], Independent Component Analy- sis [8],
+Dictionary Learning [9], and Canonical Correlation Analysis [10] have been
+proposed. Another example is the Hyperalignment method [11] that assumes that
+subjects were presented with a time-synchronized stimulus and extracts shared
+features across subjects with orthogonal projections. The Shared Response Model
+(SRM) [12] follows a similar idea but boosts the predictive power of the
+subsequent analysis methods'' \citep{turek2017semi}.
+
+`FFunctional alignment methods are typically unsupervised and fail to use these
+training labels to learn the shared characteristics of the multi-subject data''
+\citep{turek2017semi}.
 
 \paragraph{Functional-anatomical correspondence}
 
@@ -278,6 +298,18 @@ common space in which this information is better aligned across participants''
 
 
 \subsubsection{Prediction using hyperalignment}
+
+%
+An alternative approach, to individual localization has been proposed by
+\citet{haxby2011common}.
+%
+They (and e.g. \citet{jiahui2020predicting}) also predicted the location, form,
+and size of target brain areas in medial ventral temporal cortex from dedicated
+localizer scans of other individuals.
+%
+The key difference of this approach is to rely on similarity of representational
+geometry of brain activity patterns and aligning individual brains into a
+multi-dimensional functional group space, termed \ac{cms}.
 
 %
 For example, \citet{haxby2011common, guntupalli2016model} have shown that
@@ -440,6 +472,13 @@ mappings, to be used as input for other analyses'' (SRM-Tutorial).
 \todo[inline]{fit shortened version of following text into text about functional
 alignment algorithm that uses response-profiles as input}
 
+%
+Increased validity of derived transformation for functional alignment by
+sampling a more diverse set of mental states that reflect (confound) statistics
+of the natural environment, and enable investigation of the acquired data for a
+variety of research questions (e.g. visual or auditory perception, spatial
+cognition; emotion; music, speech or social perception)
+
 ``Naturalistic stimuli such as movies and stories are often used to generate
 such training data, though any study design in which participants perform the
 same sequence of trials --- or for which a common sequence can be spliced
@@ -476,6 +515,23 @@ face-selective regions than do localizers with still image stimuli (Fox et al.,
 ``Similarly, naturalistic stimuli may better sample the full range of responses
 to faces and other stimuli that contribute to face-selective topographies''
 \citep{jiahui2020predicting}.
+
+``Even within a sensory modality, such as vision, different types of information
+are layered and simultaneously present in natural movies. The rich, layered
+information in movies has allowed concurrent modeling of multiple stages of
+perceptual processing (Nishimoto et al., 2011; Huth et al., 2012; Güclü and van
+Gerven, 2017). Broader sampling and efficient engagement of multiple systems
+motivated the use of movie-viewing data as the basis for developing algorithms
+for aligning functional anatomy (Conroy et al., 2009, 2013; Sabuncu et al.,
+2010; Haxby et al., 2011; Chen et al., 2015; Guntupalli et al., 2016, 2018)''
+\citep{haxby2020naturalistic}.
+
+%
+While the functional alignment can also be applied to fMRI data from stimulation
+paradigms with simplified stimuli, the transformations for functional alignment
+have greatly diminished general validity \citep{haxby2011common}, presumably
+because such experiments sample a sparser range of brain states
+\citep{guntupalli2016model}.
 
 
 \subsection{Aim \& summary of methods (a.k.a. "Here, we...")}
@@ -529,7 +585,7 @@ segments of the naturalistic.
 ``Partial alignment'': we do not use entire time-series that was used to create
 the \ac{cms} but only a part of it.
 %
-project localizer data from CMS into left-out subject using the inverse matrix
+project localizer data from CMS into left-out subject using the transpose matrix
 %
 Test which amount of data is needed to do an alignment to the common model space
 that provides transformation matrices that outperform a prediction using just an
@@ -1109,23 +1165,12 @@ time-series.
 \todo[inline]{perform alignment with TRs of localizer for
 cross-subject-prediction = model variation, ceiling ...}
 %
-\todo[inline]{s. 'get\_wmatrix\_for\_left-out.py'; srm.transform\_subject calls
+\todo[inline]{s. get\_wmatrix\_for\_left-out.py: srm.transform\_subject calls
 np.linalg.svd()}
 
-
-%
-\citep{busch2021hybrid}: ``the searchlight response hyperalignment algorithm,
-which utilizes Procrustes transformations to calculate a transformation matrix
-for each participant that maps their AA data into a shared high-dimensional
-information space shared across participants [Guntupalli et al., 2016]''
-\citep{busch2021hybrid}.
-
-%
-\citep{jiahui2020predicting}: ``New data can be projected into any individual
-brain space by first projecting data from other brains into the common model
-space, and then projecting those data from the common model space into that
-participant's cortical anatomy using the transpose of his or her transformation
-matrix'' \citep{jiahui2020predicting}
+``The weight matrices that we created from SRM data are not only useful for
+projecting new data into a shared space but also for the reverse —
+reconstructing data in subject space''.
 
 %
 We then aligned each left-out subject to the shared space $S$ that was computed
@@ -1134,150 +1179,116 @@ from the other subjects' data.
 The algorithm learns a mapping $W_{n}$ of the left-out subject's anatomical
 space into the shared space $S$ that is kept fixed.
 %
-Critically, we performed a \textit{partial alignment} to the shared space:
+Critically, in order evaluate the relationship between the length of the
+stimulus that is used to align an ``unknown'' subject to a preexisting shared
+space and prediction performance, we performed a \textit{partial alignment}:
 %
 We used an increasing number of segments (1 up to 8) of the naturalistic stimuli
 per subject to let the algorithm learn the orthogonal mapping to the TRs of the
 corresponding segment(s) in the shared space.
 %
-As a result, we obtained 8 transformation matrices per subject and naturalistic
-stimulus, each matrix of size $v$ voxel by $k$ features but based on a different
+As a result, we obtained 8 transformation matrices per subject and per
+naturalistic stimulus.
+%
+Each matrix has a size of $v$ voxels by $k$ features but is based on a different
 quantity of data used to calculate the mapping [i.e. subject-specific functional
 topographies].
 
 
-\subsection{Predicting $Z$-maps}
+\subsection{Estimation of scene-selective topography}
 
-\todo[inline]{predict\_ppa.py}
-%
-To predict the results of functional localizer (statistical $Z$-maps
-representing functional topographies) of the left-out subject, we then projected
-all other participants $Z$-maps from their subject-specific anatomy into the
-shared feature space, and from the shared feature space into the left-out
-subject's anatomy.
+\todo[inline]{in both following cases the mean was computed in subject-specific
+anatomical space; I also tested creating a template by computing the mean in
+shared feature space; leads to pretty similar; but I did not create a template
+by taking the mean in MNI space; estimation using anatomy has always been mean
+of z-maps in subject-space in both cases}
 
-
-\subsubsection{Prediction using \ac{cms}}
-%
-``To estimate one participant's face-selectivity map using this algorithm, all
-the other participants' localizer data were projected into the common model
-space, and then mapped to participant A's space using the transpose of his or
-her hyperalignment transformation matrix'' \citep{jiahui2020predicting}.
-
-
-% prediction from CMS
-We then predicted the $Z$-maps of the PPA from the visual localizer experiment
-[and the auditory naturalistic stimulus.]
-%
-The transformation matrices that were created using an increasing number of runs
-of each naturalistic stimulus were used to transform a $Z$-map template created
-in the \ac{cms} into the left-out subject's space
-% aligned zmaps to shared space: (k features x t time-points); 1 time-point
-% because it's a zmap no time-series) using
-%
-First, individual results from the visual localizer and auditory naturalistic
-stimulus were masked with the group PPA mask in each individuals subject space
-and then transformed from each individual's space into the \ac{cms} [by calling
-'zmaps\_in\_cms = srm.transform(masked\_zmaps)'].
-% zmap from CMS into subject space: compute dot product of left-out subject
-% weight-matrix with zmap in cms
-Using the inverse of the left-out subject's transformation matrix, the zmaps
-from the other subjects that were projected into \ac{cms} were then projected
-into the anatomy of the left-out subject.
-%
-Here again, the mean of these z-maps served as the prediction for the left-out
-subject.
-
-\todo[inline]{i.e.: in both cases the mean was computed in subject-specific
-anatomical space; this is more 'similar' than computing the mean in anatomy for
-prediction from anatomy, and computing the mean in CMS for prediction from CMS;
-but: creating the template in CMS does not lead to different results anyway}
 
 %
-``Thus, the map estimated from other participants' localizer data was a map of
-average t-values across 56 or 80 maps (four runs per participant) for the
-contrast faces vs all'' \citep{jiahui2020predicting}.
+To predict the results of the functional localizer (statistical $Z$-maps
+representing functional topographies) of a left-out subject, we projected all
+other participants $Z$-maps from their subject-specific anatomy into the shared
+feature space, and from the shared feature space into the left-out subject's
+anatomy.
+%
+As a benchmark to evaluate the performance of the estimation using functional
+alignment, we similarly estimated each left-out subject's $Z$-map using
+volume-based anatomical alignment.
 
-``The weight matrices that we created from SRM data are not only useful for
-projecting new data into a shared space but also for the reverse —
-reconstructing data in subject space. The logic of ISC that we covered in a
-previous notebook was that activity that is shared across participants when they
-are experiencing the same task is activity that reflects reliable task-evoked
-responses; comparison across individuals removes idiosyncratic responses. SRM
-can also exploit this logic: the participant-specific weights can be used to
-transform responses in shared space into brain activity in voxel space,
-isolating variance shared across participants and denoising the data''.
+
+\subsubsection{Prediction/estimation using \ac{cms}}
+
+\todo[inline]{terminology: it is NOT the "inverse" but "transpose" matrix}
+
+%
+First, individual results from the visual localizer [and auditory naturalistic
+stimulus] were masked (in each individuals' subject-space) with the union of PPA
+masks group PPA.
+%
+Then, data were transformed from subject-specific, anatomical spaces into the
+shared response space [by calling srm.transform(masked\_zmaps)'].
+%
+Using the transpose of the left-out subject's transformation matrix, the
+$Z$-maps were projected from shared response space into the anatomical space of
+the left-out subject.
+%
+The mean of the 13 projected $Z$-maps served as an estimation of the left-out
+subject empirical $Z$-map (s. \citep{sengupta2016extension})
 
 
 \subsubsection{Prediction using anatomical alignment}
 
-\todo[inline]{mention that anatomical transformation matrices were precomputed
-and part of the studyforrest dataset}
+\todo[inline]{tell more about how transformation matrices were created;
+potential reviewer's question: your anatomical alignment might have been shitty,
+linear etc. ?}
 
-\todo[inline]{probably tell a little more how the transformation matrices were
-created; reviewer's question: your anatomical alignment might have been shitty}
 \todo[inline]{check TNT github/gin repo; what is the corresponding paper?}
 
 %
-``We also estimated each participant's face-selectivity map based on other
-participants' anatomically aligned localizer data by simply averaging across the
-maps based on anatomically-normalized data for each N-1 set of 14 (StudyForrest)
-or 20 (Grand Budapest) participants'' \citep{jiahui2020predicting}.
-
-% prediction from anatomy
-We first created the template/prediction from the anatomy of other subjects.
-%
-We warped/mapped [what kind of transformation?] the results of the visual
-localizer (and results of the auditory naturalistic stimulus) from each
-individual's subject-space (bold3Tp2) into MNI space (grpbold3Tp2).
-% output 1: 'test/masks/in_mni/sub-*_VIS-PPA.nii.gz' output 2:
-% 'test/masks/in_mni/sub-*_AO-PPA.nii.gz'
-The results of all subjects were warped from MNI space in to the left-out
+We also estimated each left-out subject's $Z$-map using volume-based anatomical
+alignment.
+% into MNI
+First, we warped the results of the visual localizer from each subjects'
+space(bold3Tp2) into MNI space (grpbold3Tp2) using precomputed transformation
+matrices that are part of the studyforrest dataset [LINK; cf. method section in
+PPA-Paper].
+% into left-out subject
+Then, results of all subjects were warped from MNI space in to the left-out
 subject's space
-% output 1: 'test/sub-*/masks/in_bold3Tp2/sub-*_VIS-PPA.nii.gz' output 2:
-% 'test/sub-*/masks/in_bold3Tp2/sub-*_AO-PPA.nii.gz'
+%
 The transformed $Z$-maps were masked with mask of unions of PPAs and the
 individual's \ac{fov}.
 %
-The mean of these $Z$-maps served as the prediction for the left-out subject.
-% output1: 'test/sub-*/predicted-VIS-PPA_from_anatomy.nii.gz' output2:
-% 'test/sub-*/predicted-AO-PPA_from_anatomy.nii.gz'
-
-
-
+Finally, the mean of these $Z$-maps served as a prediction of the corresponding
+left-out subject's empirical $Z$-map.
 
 
 \subsection{Quantifying the performance}
 
 
 \subsubsection{Correlation stuff}
-%
-From \citep{jiahui2020predicting}: ``We then calculated correlations between the
-map based on a participant’s own data and the maps estimated from other
-participants' data and compared these correlations to the reliability of the
-participant's map, indexed with Cronbach's Alpha'' \citep{jiahui2020predicting}.
-%
-We tested the quality of the maps estimated from other participants' data by
-calculating the correlation of each with the map estimated from a participant's
-own data. We also gauged the reliability of the estimates based on participants'
-own data by calculating Cronbach's alpha based on variability across runs''
-\citep{jiahui2020predicting}.
 
-% correlation between empirical z-map & predicted z-maps
-Finally, we calculated the Pearson correlation coefficients between the
-empirical z-maps of each subject (visual localizer and auditory PPA) and the
-values that were predicted from other subjects' anatomy.
 %
-Further, we calculated the Pearson correlation coefficients between the
-empirical z-maps of each subject (visual localizer and auditory PPA) and the
-values that were predicted from using an increasing number of runs of the
-naturalistic stimuli to obtain the transformation matrices.
+To quantify the performance of our estimations based on different number of runs
+of the movie and audio-description, we calculated the Pearson's correlation
+coefficients between the empirical $Z$-maps from the localizer experiment [and
+audio-description] and estimated $Z$-map based on other subject's data.
 
-\subsubsection{To Do: calculate Cronbach's Alpha of localizer}
+%
+Further we compared these correlations to the reliability [internal
+consistency?] of visual localizer using Cronbach's Alpha based on the
+variability across runs [as did
+\citep{jiahui2020predicting}].
+
+\subsubsection{Cronbach's Alpha of localizer}
 
 \todo[inline]{s. 'studyforrest-srm-movies/test/statistics\_cronbachs.py'}
 
-\subsection{Alternative template creation}
+\todo[inline]{script is apparently written; tbh, did not take a close look at
+the result or just cannot remember; it will be mention 'pro forma' anyway}
+
+
+\subsection{backup: alternative template creation}
 %
 lastly, we currently apply another method to get the „z-map template“ on which
 the prediction is based ('test/data\_denoise-vis.py';
@@ -1297,33 +1308,37 @@ multiple participants can be combined prior to MVPA or other analyses''
 \citep{cohen2017computational}.
 
 
-
 \section{Results}
 
 \todo[inline]{create (at least an empty) project at Neurovault,
 \citep{gorgolewski2015neurovault}}
 
-\todo[inline]{plot of the union of PPA masks?}
+\todo[inline]{lots of phrasing is taken from \citep{jiahui2020predicting}; check
+Fig. 2 in \citep{jiahui2020predicting}; any good?}
+
+\todo[inline]{also check \citep{haxby2011common, weiner2018defining} and the
+other, new studies that try to predict stuff}
+
 
 \subsection{Model-related}
 
 \subsubsection{plot\_srm.py}
 
-\todo[inline]{imo, plots generated by that script are not very informative}
-%
-plots SRM (features*time points) created for a left-out subject; plots
-time-course of top 3 responses (currently, TRs 0-800 = quarter of AO); plots
-distance matrix of time points in shared space
+\todo[inline]{imo, plots are not very informative}
+
+e.g. time-series plot of features [first 800 TRs of SRM]; distance matrix of
+time-points in shared space (all features combined)
+
 
 \subsubsection{plot\_corr-of-glm-and-srm.py}
 
-plots correlation matrix between: regressors of the naturalistic stimuli (and
-some combinations, e.g. geo\&groom, geo\&groom\&furn) with and shared responses
+\todo[inline]{imo, plots are not very informative, too}
 
-\todo[inline]{current version of script correlates AO regressors with shared
-responses during the AO TRs (AND wrongly uses 0:3599 TRs)}
+plots correlation matrix of shared features; correlation matrix of
+AO-regressors (s. PPA-Paper) and shared responses (sliced to TRs of AO
+stimulus); correlation matrix of AV-regressors (s. PPA-Paper) and shared
+responses (sliced to TRs of AV stimulus)
 
-\todo[inline]{further, change from model using 'ao-av' to 'ao-av-vis'}
 
 \todo[inline]{possible plots:
 correlate AO regressors (PPA-paper) with AO TRs;
@@ -1331,11 +1346,24 @@ correlate AV regressors (PPA-paper) with AV TRs;
 do the same with the model based on shuffled runs}
 
 
+\begin{figure*}[tbp]
+\centering
+    \includegraphics[width=\linewidth]{figures/corr_ao-regressors-vs-shared-resp}
+    \caption{Pearson correlation coefficients of regressors used in the analysis
+    of audio-description to model responses correlating with nouns spoken by the
+    narrator and features of the \ac{srm} (i.e. shared responses).
+    \texttt{geo\&groom} \texttt{geo\&groom\&furn} are combination of regressors
+    (as used on the positive side of contrasts). The
+    time-series of the \ac{srm} were sliced to match the TRs of the
+    audio-description.
+      }
+\label{fig:reg-corr}
+\end{figure*}
+
+
 \subsection{Prediction-related}
 
 \todo[inline]{predict\_ppa.py: outputs also the Pearson correlations}
-
-\todo[inline]{use Jiahu as fucking template}
 
 ``We estimated each participant's face-selectivity map based on that
 participant’s localizer data [anatomical alignment], based on other
@@ -1343,9 +1371,37 @@ participants' localizer data projected into that participant's cortical anatomy
 using hyperalignment and anatomical surface alignment (see Fig. 1)
 \citep{jiahui2020predicting}''.
 
+``We correlated the whole-cortex contrast map (faces-vs-all) based on a
+participant’s own data with the maps estimated from other participants’ data
+separately for the StudyForrest and Grand Budapest datasets. After 1-step
+hyperalignment, the mean Pearson correlation values across participants were
+0.58 (StudyForrest, N = 15, S.D. = 0.08)'' \citep{jiahui2020predicting}.
+
+``Hyperalignment greatly improved the prediction performance compared with
+anatomical surface alignment. With surface alignment, the average Pearson
+correlation values across participants were 0.40 (N = 15, S.D. = 0.08) and 0.50
+(N = 21, S.D. = 0.06) in the StudyForrest and Grand Budapest datasets,
+respectively (Fig. 3). The difference between the hyperaligned and the
+surface-aligned mean correlation values was highly significant (StudyForrest:
+t(14) = 17.39, p < 0.001)'' \citep{jiahui2020predicting}.
+
+
+\subsubsection{plot\_stripplot.py}
+
 %
-Draft from talk in INM-7 seminar:
+Pearson correlation coefficients between empirical $Z$-maps (results of
+localizer; y-axis) and estimated $Z$-maps.
 %
+Green dots: A left-out subject's $Z$-map was estimated by projecting all other
+subjects ($N = 13$) $Z$-maps through the MNI152 space into the left-out subject space and averaging values across subject.
+%
+Blue dots: transformation matrices computed based on an increasing number of
+segments of the audio-description.
+%
+Orange dots: transformation matrices computed based on an increasing number of
+segments of the audio-description.
+
+
 For every subject, we see the correlation of z-maps that tell us the, quote
 ``real'' unquote, PPA and predicted PPA
 %
@@ -1357,36 +1413,37 @@ values using parts of the movie
 %
 In blue, we see the correlations between empirical values \& the predicted
 values using parts of the audio-description
-%
-I marked subject 4, because I want to show you how results look like in a
-horizontal slice of the brain of subject 4
-%
-We have these nice blurry EPI-images and all z-maps are threshold at a value of
-bigger than 2.3.
-%
-always in red, we can see the z-map from the localizer experiment across the
-whole brain,
-%
-the region of interest that we used is white and the predicted values, are blue
-%
-The prediction using anatomical alignment and the prediction using 15 minutes of
-movie data show a correlation of about .7
-%
-the prediction using 15 minutes of the audio-description correlates about 0 with
-the empirical z-map
-%
-The last one is the extreme case, but it can give you an idea of how the z-maps
-look in a slice of the brain
 
-
-\subsubsection{plot\_stripplot.py}
-
-the lovely stripplots of correlations
 
 \subsubsection{statistics\_t-test-correlations.py}
 
 Tests whether differences between prediction using anatomy and prediction using
 \ac{srm} is significant.
+
+
+\subsubsection{show plots of brain slices?}
+
+\todo[inline]{talk during seminar showed (quick screenshot in FSL) from sub-04
+as an example}.
+
+%% We have these nice blurry EPI-images and all z-maps are threshold at a value of bigger than 2.3.
+
+% always in red, we can see the z-map from the localizer experiment across the whole brain,
+
+% the region of interest that we used is white and the predicted values, are blue
+
+% The prediction using anatomical alignment and the prediction using 15 minutes of movie data show a correlation of about .7
+
+% the prediction using 15 minutes of the audio-description correlates about 0 with the empirical z-map
+
+% The last one is the extreme case, but it can give you an idea of how the z-maps look in a slice of the brain
+
+\todo[inline]{I guess, I could adjust script that plots the brain slices for the
+PPA-paper (without losing my mind?); but script expects standard brain in MNI
+space; transformation of prediction into MNI (again?); and it is just about the
+ROI not about the whole brain; standard space could be substituted with (nice
+blurry) subject-specific functional template}
+
 
 \subsubsection{plot\_bland-altman.py}
 
@@ -1394,6 +1451,43 @@ Tests whether differences between prediction using anatomy and prediction using
 
 % corrstats.py; not necessary anymore; calculates the statistical significant
 % differences between two dependent or independent correlation coefficients
+
+
+\subsubsection{Estimation of localizer from localizer TRs}
+
+just "cross-subject" but not "cross-experiment-cross-subject" prediction"
+
+
+\subsubsection{Cronbach's Alpha of localizer}
+
+
+all from \citep{jiahui2020predicting}: ``We compared the correlations between
+maps estimated from a participant's own data and maps estimated from other
+participants' data to the reliability of the localizer. We computed the
+reliability of the contrast maps with Cronbach's Alpha based on variability
+across the four localizer runs for each set. The mean Cronbach's Alpha between
+the four localizer runs was 0.60 (N = 15, S.D. = 0.14) in the StudyForrest
+dataset [...](Fig. 2)''.
+%
+``These results mean that if we scan each participant for another 4 localizer
+runs, and compute the correlation between the two maps (4 runs vs. 4 runs), the
+correlation would be 0.60 on average in the StudyForrest''.
+%
+``Cronbach's alpha indicates that the predicted contrast map based on
+hyperalignment is close to or as good as the real contrast map based on four
+localizer runs (StudyForrest: t(14) = 0.61, p = 0.55; Grand Budapest: t(20) =
+3.02, p = 0.007)''.
+%
+``In the StudyForrest dataset, the predicted contrast map based on
+hyperalignment was better than the contrast map based on data from three out of
+four localizer runs in other participants (t(14) = 2.36, p = 0.03) and in Grand
+Budapest, the predicted contrast map was comparable to the contrast map based on
+three localizer runs in other participants (t(20) = 0.48, p = 0.63)''.
+%
+``A scatterplot of the individual correlation values with hyperalignment and
+with surface alignment (Fig 3), shows that predicted maps based on
+hyperalignment were more accurate than those based on surface alignment in every
+participant''.
 
 
 \section{Discussion}
@@ -1423,17 +1517,24 @@ performance.
 
 \subsubsection{localizer is ``ground truth''}
 
-From \citep{weiner2018defining}: ``the identification of the PPA is complicated by (at least) four
-methodological considerations. First, the PPA definition may depend on the type
-of experiment, task, and stimuli used. Second, the boundaries of the PPA may
-depend on the statistical threshold used. Third, the spatial extent and
-localization of the PPA may vary if defined within the native brain space of an
-individual or based on a group analysis. Fourth, the size of the PPA may depend
-on data acquisition choices (e.g. large vs. small voxels) and data analysis
-choices (e.g. liberal smoothing vs. no spatial smoothing). The present study
-aims to identify and to predict the most probable location of place-selective
-voxels within medial VTC of an individual brain that is impervious to these
-methodological decisions'' \citep{weiner2018defining}.
+
+``The dynamic localizer (in Grand Budapest data set) was significantly more
+reliable than the static localizer (in StudyForrest data set) (t(34) = 3.76, p <
+0.001) despite its shorter length (four 234s runs versus four 312s runs,
+respectively)'' \citep{jiahui2020predicting}.
+
+
+From \citep{weiner2018defining}: ``the identification of the PPA is complicated
+by (at least) four methodological considerations. First, the PPA definition may
+depend on the type of experiment, task, and stimuli used. Second, the boundaries
+of the PPA may depend on the statistical threshold used. Third, the spatial
+extent and localization of the PPA may vary if defined within the native brain
+space of an individual or based on a group analysis. Fourth, the size of the PPA
+may depend on data acquisition choices (e.g. large vs. small voxels) and data
+analysis choices (e.g. liberal smoothing vs. no spatial smoothing). The present
+study aims to identify and to predict the most probable location of
+place-selective voxels within medial VTC of an individual brain that is
+impervious to these methodological decisions'' \citep{weiner2018defining}.
 
 \citet{lilienfeld2015fifty} on ``gold standard'': ``In the domains of
 psychological and psychiatric assessment, there are precious few, if any,

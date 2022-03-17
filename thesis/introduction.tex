@@ -5,20 +5,24 @@ thing should not be mentioned in the intro anymore; better come up with it in
 the general discussion}
 
 %
-Brain imaging using with \ac{fmri} of \ac{bold} activity has been used
-extensively for almost three decades to investigate perceptual and cognitive
-brain functions.
+Brain imaging using with \ac{fmri} of \ac{bold} activity has been used for
+almost three decades to investigate perceptual and cognitive brain functions.
 %
-Human brain mapping (or \textit{topographic brain mapping}) maps brain functions,
-perceptual or cognitive processes, onto the anatomy of the brain.
+Human brain mapping (or \textit{topographic brain mapping}) maps brain
+functions, perceptual or cognitive processes, onto the anatomy of the brain.
 %
-Typical analysis procedures average (voxel-wise) data of at least 10-15
-subjects to improve the \ac{snr}.
+Nevertheless, typical analysis procedures average (voxel-wise) data of at least
+10-15 subjects to improve the \ac{snr}.
 %
 Consequently, studies employing an averaging approach do not characterize brain
 function at the level of an individual because these models that do not capture
 individual brain properties but just a ``common denominator''
 \citep{dubois2016building}. \todo{check paper}
+
+and the ``interpretation of fMRI data at the level of individual brains is
+essential for characterizing brain function in health and disease''
+\citep{dubois2016building}
+
 %
 However, characterization of individual brain function is by far the most
 important application of BOLD fMRI in a clinical context.
@@ -66,7 +70,8 @@ characterize location, size, and shape of function areas with BOLD fMRI are
 Functional localizers are dedicated measurement that aim at isolating and
 localizing brain activity correlated with specific perceptual processes (e.g.
 different object categories; \citet{kanwisher1997ffa}) or cognitive processes
-(e.g. theory of mind; \citet{spunt2014validating}).
+(like speech perception \citet{fernandez2001language} or theory of mind
+\citet{spunt2014validating}).
 % purpose: ROI
 Functional localizers can be used to define an subject-specific \acp{roi} to
 improve the statistical power of the main experiment's analysis, or to locate
@@ -81,9 +86,7 @@ resources (time, availability and applicability of diagnostic measures for an
 individual patient).
 % one localizer = one domain of functions
 Importantly, one dedicated localizer paradigm can only map one domain of brain
-functions (e.g. retinotopic mapping, higher-visual perception
-\citet{kanwisher1997ffa}, or speech perception
-\citet{fernandez2001language}).\todo{other localizer papers?}
+functions.
 % fucking inefficient
 Hence, functional localizers, despite [or because] being tuned for detection
 power by employing carefully chosen and tightly-controlled, simplified stimuli,
@@ -91,12 +94,13 @@ quickly become inefficient if one wants to map many different processes in a
 limited amount of time.
 % localizer batteries: intro
 Researchers have tried to tackle this issue by creating time-efficient
-multi-functional \textit{localizer batteries} \citep{pinel2007fast,
-pinho2018individual, pinho2020individual}. \todo{others? H.B.Project?}
+multi-functional \textit{localizer batteries} \citep{barch2013function,
+drobyshevsky2006rapid, pinel2007fast}.
 % localizer batteries: example
 For example, \citet{pinel2007fast} employs a range of dedicated stimuli and
-specific tasks participants have to perform in a 5-minute routine.\todo{which
-domains?}
+specific tasks in a 5-minute routine to map processes of ``auditory and visual
+perception, motor actions, reading, language comprehension, and mental
+calculation at an individual level'' \citet{pinel2007fast}.
 % task based = shit
 Nevertheless, the diagnostic quality of localizer batteries relies heavily on
 participants' comprehension of the task instruction and their compliance, a
@@ -233,6 +237,22 @@ characterize a variety of perceptual and cognitive processes in a time-efficient
 manner, you could just predict the location in a ``new or  unknown'' subjects
 from data of a reference group.
 
+``How can we tell whether individual differences in metrics such as BOLD
+activations or functional connectivity are actually related to differences in
+the underlying neural activity or communication, respectively? One ubiquitous
+problem arises in matching different brains such that functionally meaningful
+comparisons across subjects are possible in the ﬁrst place. In a typical fMRI
+analysis pipeline, both structural and functional data from individual brains
+are spatially warped to a common anatomical space. The most widely used common
+space [18] is the MNI152 atlas, to which subjects’ brains are anatomically
+warped via a volumetric transform ([19] for review). Such registration is
+appropriate for subcortical structures which are inherently volumetric; by
+contrast, the cortex is a 2D structure and volumetric alignment does not
+properly align folding patterns across subjects. Although switching to cortical
+folding-based inter-subject alignment [20,21] has been shown to somewhat reduce
+functional mismatch [22,23] (but see [24]), this has not yet become common
+practice'' \citep{dubois2016building}.
+
 
 \subsection{Anatomical alignment}
 
@@ -243,50 +263,14 @@ from data of a reference group.
 
 \todo[inline]{write text in SRM chapter first; put a shorter version in here}
 
-\todo[inline]{following is (still an old) draft}
-%
-``Even within a sensory modality, such as vision, different types of information
-are layered and simultaneously present in natural movies. The rich, layered
-information in movies has allowed concurrent modeling of multiple stages of
-perceptual processing (Nishimoto et al., 2011; Huth et al., 2012; Güclü and van
-Gerven, 2017). Broader sampling and efficient engagement of multiple systems
-motivated the use of movie-viewing data as the basis for developing algorithms
-for aligning functional anatomy (Conroy et al., 2009, 2013; Sabuncu et al.,
-2010; Haxby et al., 2011; Chen et al., 2015; Guntupalli et al., 2016, 2018)''
-\citep{haxby2020naturalistic}.
-
-%
-While the functional alignment can also be applied to fMRI data from stimulation
-paradigms with simplified stimuli, the transformations for functional alignment
-have greatly diminished general validity \citep{haxby2011common}, presumably
-because such experiments sample a sparser range of brain states
-\citep{guntupalli2016model}.
-%
-Increased validity of derived transformation for functional alignment by
-sampling a more diverse set of mental states that reflect (confound) statistics
-of the natural environment, and enable investigation of the acquired data for a
-variety of research questions (e.g. visual or auditory perception, spatial
-cognition; emotion; music, speech or social perception)
-
-%
-An alternative approach, to individual localization has been proposed by
-\citet{haxby2011common}.
-%
-They (and e.g. \citet{jiahui2020predicting}) also predicted the location, form,
-and size of target brain areas in medial ventral temporal cortex from dedicated
-localizer scans of other individuals.
-%
-The key difference of this approach is to rely on similarity of representational
-geometry of brain activity patterns and aligning individual brains into a
-multi-dimensional functional group space, termed \ac{cms}.
-
 
 \subsubsection{Hyperalignment}
 
 \todo[inline]{write text in SRM chapter; put a shorter version in here}
 
-\todo[inline]{explain what a ``left-out subject'' is or ``aims of thesis'' below
+\todo[inline]{explain ``left-out subject'' is or ``aims of thesis'' below
 does not make sense}
+
 
 \subsubsection{Shared response model}
 
@@ -305,75 +289,76 @@ either pure rest or pure event-related task designs'' \citep{finn2017can}.
 %% At the end of the introduction, add a subchapter on the Aims of Thesis in
 %% which you describe the research question and the objectives of your work on
 %% a maximum of two pages
-
-\todo[inline]{imo, section should include roadmap/overview of work packages}
+\todo[inline]{following structure is split: general aims, meta-aim
+(reproducibility), specific aims per study; tbh, I do not like it but don't know
+how to handle it better (better transitional sentences between subsections?)}
 
 %
-Previous work has shown on a group average level that it is possible to combine
+Previous work on a group average level has shown that it is possible to combine
 \ac{bold} \ac{fmri} with naturalistic stimulation in order to localize areas
 correlating with particular brain functions \citep{bartels2004mapping}.
 %
-This dissertation explores whether a movie and the movie's audio-description
-that was produced for an visually impaired audience can substitute an
-established localizer paradigm.
+This dissertation explores --- while following the principles of open,
+transparent, and reproducible science --- whether a movie and the movie's
+audio-description that was produced for an visually impaired audience could, in
+principle, substitute an established localizer paradigm.
 %
 Naturalistic stimuli would have substantial advantages (e.g. task demands
 compliance, and data quality) over simplified stimuli presently used in
 localizer paradigms.
 %
-The time-courses of rich, full-length naturalistic stimuli are correlating with
-a variety of different brain functions ranging from low-level perception (e.g.
-luminance) to high-level cognition (social cognition).
+Moreover, the time-courses of rich, full-length naturalistic stimuli are
+correlating with a variety of different brain functions ranging from low-level
+perception (e.g.  luminance) to high-level cognition (social cognition).
 %
-Thus a naturalistic stimulus could, in principle, replace multiple dedicated
-localizers to provide a more comprehensive diagnostic routine.
-
-\todo[inline]{rephrase in line with the (to be written) part regarding \ac{cms}}
+Thus, a naturalistic stimulus could replace multiple dedicated localizers in the
+future to provide a more comprehensive diagnostic routine.
 %
-Nevertheless, a 2-hour paradigm would be unsuitable for a clinical population
-and uneconomically.
+However, a two-hour paradigm would be generally inefficient plus unsuitable for
+a clinical population.
 %
-For that reason, this dissertation will also explore whether just a part of a
-naturalistic stimulus can be used to align an ``unknown'', left-out subject to a
-\ac{cms} in order to a) map results from a functional localizer in a reference
-group onto the unknown subject's anatomy and thus b) predict the results from
-the functional localizer in the left-out subject.
-%
-In summary, we have two issues: a) validity and compliance, and b) efficiency.
-% foreshadowing to next sections & transition to naturalistic stimuli
-This dissertation will explore how we can both increase validity by using
-\textit{naturalistic stimulus} paradigms as well as increase efficiency by
-predicting individual functional topography from data collected in a reference
-group.
+For that reason, this dissertation also explores whether just a part of a movie
+or auditory narrative can be used to estimate the location, size and shape of a
+``unknown'' subject (i.e. a 'left-out' subject to test the prediction
+performance of our model) from a reference group (i.e. the study subjects
+providing the data to train our model).
 
 
 \subsection{Open, transparent, and reproducible science}
+
+% reproducibility crisis
+Over the last decade there has been a growing awareness that results of
+scientific publications are not reproducible or general scientific findings are
+not replicable leading to a ``reproducibility crisis'' or ``replication crisis''
+in the sciences \citep{baker2016reproducibility, plesser2018reproducibility,
+stupple2019reproducibility, nosek2022replicability}.
+% reproducibility: definition
+``A study is reproducible if all of the code and data used to generate the
+numbers and figures in the paper are available and exactly produce the published
+results'' \citep{leek2017most}.
+% replicability: definition
+A study is replicable if the same analysis of an identical experiment's data
+lead to consistent results \citep{dubois2016building, leek2017most}.
 %
-\todo[inline]{write introductory sentences regarding ``reproducibility crisis''}
+Hence, on a metalevel, this dissertation aims to meet both the requirements of
+open, accessible, shared and transparent science \citep{watson2015will,
+fecher2014open} as well as the requirements of a reproducible and replicable
+research project:
 %
-\todo[inline]{quote a ``famous'' open science paper}
-%
-\todo[inline]{put more stuff from \citep{halchenko2021datalad} here?}
-%
-On a metalevel, this dissertation thrives to follow the principle of open
-science [quote?], and provide transparent, reproducible procedures and results
-\citep{poldrack2017scanning} that can easily rerun and validated by third-party
-researchers.
-% aim
-Thus [wherever possible and as good as possible], I will follow and implement
-best practices for a) coding and scientific computing \citep{wilson2014best}, b)
-data analyses \citep{nichols2017best}, and c) sharing code, created data and
-results \citep{eglen2017toward, nichols2017best}.
+the dissertation follows guidelines and best practices for a) coding and
+scientific computing \citep{wilson2014best}, b) procedures and data analyses
+\citep{nichols2017best, poldrack2017scanning, poldrack2019establishment}, and c)
+sharing code, created data and results \citep{eglen2017toward, nichols2017best,
+pernet2015improving}.
 
 
-\subsubsection{input = open science \& studyforrest}
 
-\todo[inline]{future (``will be created'') vs. perfect (``has been created'')?}
+\paragraph{input data}
 
 % open data \citep{eglen2017toward}
-As input data, my work will be/is build on top of publicly and freely available,
-\ac{fmri} data that is part of the \textit{studyforrest} project
-(\href{www.studyforrest.org}{studyforrest.org}).
+First, my work will build on top of publicly and freely available \ac{fmri} data that
+is part of the \textit{studyforrest} project
+(\href{www.studyforrest.org}{studyforrest.org})
 %
 The studyforrest project is an open science project that aims at providing a
 versatile resource for investigating human brain function under quasi-natural
@@ -383,92 +368,59 @@ The core of this dataset are two hour long \ac{bold} \ac{fmri} scans of
 participants watching the movie Forrest Gump and listening to the movie's
 audio-description of equal length.
 %
-Since its first publication in 2014 \citep{hanke2014audiomovie}, this resource
-has led to independent studies of international research groups that were
-published in peer-reviewed journals (s.
-\href{www.studyforrest.org}{studyforrest.org}).
+Since its first publication in 2014 \citep{hanke2014audiomovie}, the
+studyforrest project has served as a resource of raw (and preprocessed) data for
+international working groups to conduct and publish independent research (s.
+\href{www.studyforrest.org/publications.html}{studyforrest.org/publications.html}).
+%
+The stimulus annotations that have been created over the course of the
+dissertation are version-controlled and published in a standardized file format
+\citep{haeusler2021speechanno}, and therefore contribute to the studyforrest
+project as an resource for the scientific community.
 
-\begin{comment} \citep{dupre2020nature}:
-%
-Study Forrest is a data collection and curation effort designed to serve as a
-    community resource for new discoveries.
-%
-As of October 2019, 29 unique studies had been published using the
-    studyforrest.org dataset, 17 of which were published without any of the
-    original authors of the data release.
-%
-This is possible in large part thanks to the richness of naturalistic stimuli,
-    where the same movie can be used for both task-free as well as
-    stimulus-driven analyses, with the original stimulus re-annotated for
-    particular features of interest.
-%
-For example, studyforrest.org has been used to test cerebrovascular biomarkers
-    (Voss et al., 2017) but, among other features, was also annotated for
-    expressed emotion (Labs et al., 2015) which later informed a study on
-    emotion encoding gradients in the brain (Lettieri et al., 2019)''
-    \citep{dupre2020nature}.
-%
-\end{comment}
-%
-Data, like stimulus annotations, that will/has been created of the course of the
-dissertation project will provided in standardized file format,
-version-controlled and published, and therefore extended the studyforrest
-project.
 
-%
-\subsubsection{analyses, code, output}
+\paragraph{code, analyses, output}
 
+Further, all code is shared to improve reproducibility of results based on
+current results and to facilitate their replicability on other datasets.
+% automatization
+Therefore, data analyses pipelines are implemented in a way that enable
+automated processing.
 %
-All data analyses pipelines will be implemented in a way that enables automated
-processing.
-%
-First, analyses pipelines will not be implemented using commercial, proprietary
-software but freely available and, if possible, open-source software to
-guarantee reproducibility (s. \citep{eglen2017toward}).
+Analyses pipelines are not be implemented in commercial, proprietary software
+but in freely available and, if possible, open-source software.
 % which tools to choose why?
-Among potential software packages, we/I will choose the tools that offer the
-most solid documentation and basis of developers and maintainers to ensure
-long-term support.
+Among potential software packages, we chose the tools that offer the most solid
+documentation, and basis of developers and maintainers to ensure long-term
+support.
 % my code
-Second, any custom code written by myself will implemented in open-source
-programming language, will be version-controlled, documented and released
-publicly and freely accessible.\todo[inline]{are we actually allowed regarding
-FZJ rules?}
+Custom code written by myself is written in open-source programming languages
+(Python and Bash), is version-controlled, documented, and released publicly and
+freely accessible.\todo{but: FZJ rules?}
 %
-Third, all input data, custom code and output data will be provided as
-standardized and easy-to-access \textit{DataLad} (datalad.org) datasets, a free
-and open-source software solution that manages provenience, distribution,
-version-control of code and data, and provides a structured record of all
-executed steps from downloading the input data to visualizing the results. The
-information of past command-line invocations can be used to re-execute commands
-to rerun every step and validate the results
-\citep{halchenko2021datalad}.\todo{is direct quote?}
-
-%
-Consequently, all steps from acquiring the raw data, performing the analyses,
-and visualizing the results can be check, rerun and validated by independent
-badass motherfuckers.
-%
-Unthresholded statistical maps will additionally be accessible at Neurovault.
+All input data, custom code, analysis steps and output data are accessible in
+standardized \textit{DataLad} (\href{www.datalad.org}{datalad.org}) datasets.
+Since DataLad provides a free and open-source software solution that manages
+provenience, distribution, version-control of code and data
+\citep{halchenko2021datalad}, all executed steps from downloading input data to
+visualizing the results can be rerun to check and validate the dissertation's
+results.
 
 
-\href{https://neurovault.org/}{neurovault.org}
-%
-Since ``nature abhors a paywall'' \citep{dupre2020nature}, publications
-describing generated data or reporting research results will be published in
-open-access journals.
-%
-``Unthresholded statistical maps and the raw data would be shared
-via appropriate community repositories, and the shared raw data would be format­
-ted according to a community standard, such as the Brain Imaging Data Structure
-(BIDS)73, and annotated using an appropriate ontology to enable automated
-meta-analysis'' \citep{poldrack2017scanning}.
+\paragraph{publications}
+% open-access publishing
+Last, because ``nature abhors a paywall'' \citep{dupre2020nature}, publications
+describing generated data or reporting results are published in open-access
+journals.
+% neurovault
+Unthresholded statistical maps of all computed statistical $t$-contrasts are
+additionally published at Neurovault
+(\href{https://neurovault.org/}{neurovault.org}).
 
 
 \subsection{Specific objectives and hypotheses}
 
-\todo[inline]{print anno paper and write text here}
-
+\todo[inline]{imo, this section is supposed to give a roadmap and overview, too}
 
 \subsubsection{A studyforrest extension, an annotation of spoken language in the
 German dubbed movie ``Forrest Gump'' and its audio-description}
@@ -520,6 +472,9 @@ information in the ``parahippocampal place area''}
 %
 \todo[inline]{text is draft adapted from TeaP talk}
 \todo[inline]{print PPA paper and write text here}
+\todo[inline]{this is why we do standard analysis, esp. in study2;
+\citep{carp2012plurality}; AIM: we want to replicate results with naturalistic
+stimuli}
 
 %
 A previous analysis \citep{hanke2016simultaneous} revealed significant
