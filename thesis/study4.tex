@@ -139,10 +139,39 @@ leading to questionable external and ecologically validity.\todo{add references}
 
 \subsection{The solution: predict from reference data}
 
+%
+% general idea
+Given that one localizer = one domain of brain function is unsuitable to
+characterize a variety of perceptual and cognitive processes in a time-efficient
+manner, you could just predict the location in a ``new or  unknown'' subjects
+from data of a reference group.
+%
 An alternative approach to submit a person or patient to a \ac{fmri} scanning
 procedure is to predict a person's functional topography based on data collected
 in a reference group. Predictions can be performed based on \textit{anatomical
 alignment} or \textit{functional alignment}
+
+From \citep{dubois2016building}: ``How can we tell whether individual
+differences in metrics such as BOLD activations or functional connectivity are
+actually related to differences in the underlying neural activity or
+communication, respectively? One ubiquitous problem arises in matching different
+brains such that functionally meaningful comparisons across subjects are
+possible in the first place. In a typical fMRI analysis pipeline, both
+structural and functional data from individual brains are spatially warped to a
+common anatomical space.  The most widely used common space (Laird et al., 2010,
+Comparison of disparity...) is the MNI152 atlas, to which subjects’ brains are
+anatomically warped via a volumetric transform (Klein et al., 2009, Evaluation
+of 14 nonlinear..., for review). Such registration is appropriate for
+subcortical structures which are inherently volumetric; by contrast, the cortex
+is a 2D structure and volumetric alignment does not properly align folding
+patterns across subjects. Although switching to cortical folding-based
+inter-subject alignment (Fischl et al., 1999, Inflation, flattening; Yeo et al.,
+2010, Spherical demons) has been shown to somewhat reduce functional mismatch
+(Klein et al., Evaluation of volume-based and surface-based...; Frost et and
+Goebel, 2012, Measuring structural-functional correspondence] (but see Langers,
+2014, Assessment of tonotopically organised...), this has not yet become common
+practice'' \citep{dubois2016building}.
+
 
 
 \subsubsection{Anatomical alignment}
