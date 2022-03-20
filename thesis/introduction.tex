@@ -14,10 +14,9 @@ functions, perceptual or cognitive processes, onto the anatomy of the brain.
 Nevertheless, typical analysis procedures average (voxel-wise) data of at least
 10-15 subjects to improve the \ac{snr}.
 %
-Consequently, studies employing an averaging approach do not characterize brain
-function at the level of an individual because these models that do not capture
-individual brain properties but just a ``common denominator''. \todo{phrasing,
-quote from ???}
+Consequently, studies employing an averaging approach probably just ``capture
+the common denominator of each individual cognitive circuit and lose a large
+amount of information'' \citep{pinel2007fast}.
 %
 However, ``interpretation of fMRI data at the level of individual brains is
 essential for characterizing brain function in health and disease''
@@ -42,10 +41,12 @@ not in section about naturalistic stimuli later}
 
 \todo[inline]{get a better definition of functional areas \& localization}
 
+\todo[inline]{see Intro in PPA Paper}
+
 % definition
-Studies subdivided the cerebral cortex into distinctive functional areas whose
-statistically increased \ac{bold} activity is correlated with one particular
-stimulus type.
+Neuroimaging studies subdivided the cerebral cortex into
+distinctive functional areas whose statistically increased \ac{bold} activity is
+correlated with one particular stimulus type.
 % group level
 On a group average level, previous studies presented isolated higher-level
 visual categories such as pictures of scenes, faces, human bodies or tools.
@@ -203,7 +204,6 @@ stimulation.
 
 
 \paragraph{Better compliance}
-
 %
 From a practical perspective, naturalistic stimuli promise improved subject
 compliance regarding wakefulness and head motion due to minimal instruction
@@ -221,9 +221,18 @@ ease in the otherwise claustrophobic, uncomfortable and noisy fMRI scanner.
 Lastly, spoken narratives are also appropriate for visually impaired persons
 suffering from diminished or lacking eye-sight.
 
+
 \paragraph{contra: challenging data analysis; annotations needed}
 
 \todo[inline]{shift some text from "aims of anno-paper" here}
+
+``Standards methods such as the general linear model [1] require the
+experimenter to construct a design matrix that models features of the presented
+stimuli across time. Such design matrices are notoriously difficult to construct
+for naturalistic stimuli as one has to rely on manual annotations (see [2]) or
+deep learning techniques (see e.g. [3], [4], [5] or [6]) that are hard to use,
+and provide high-dimensional, cumbersome models of the stimulus''
+\citep{richard2019fast}.
 
 
 \section{Prediction individual topography from a reference group}
@@ -563,8 +572,68 @@ and their relationship}
 functional alignment to predict results from a task-based functional localizer
 paradigm}
 
-\todo[inline]{following is merely text adopted/adjusted from project proposal}
+\paragraph{from (previous) abstract in chapter 5}
+% intro
+\textit{Intro:} In order to map perceptual or cognitive functions onto the brain
+anatomy of study participants, researchers usually conduct dedicated experiments
+\textit{functional localizers} often accompanied with a task.
 
+% problem
+\textit{Current approach \& problem:} Nevertheless, the approach ``one paradigm
+to map one domain of brain functions'' becomes impractical if a variety of
+domains is supposed to be mapped in a time-efficient manner.
+
+% therefore
+\textit{Therefore:} In the current study, we explore a way and quantity of data
+needed to (reliably) predict individual and idiosyncratic functional
+topographies by projecting results of a localizer experiment (statistical
+$Z$-maps) from a reference group into the brain anatomy of individual
+participants.
+
+\textit{Method:}
+% data
+During functional magnetic resonance imaging (fMRI), participants ($N=14$) took
+part in a task-based, block-design visual localizer and two naturalistic stimuli
+paradigms: an audio-visual movie and the movie's audio-description, both
+paradigms free of any task.
+% cms creation
+Based on these response time-series, we first created a common model space
+employing a shared response model \citep{chen2015reduced} following a $N-1$ fold
+procedure [correct term??], a process that also computed transformation matrices
+for the subjects that provided the data for the creation of the model space.
+% alignment
+Then, we aligned left-out subjects with the common [via Procusted
+transformation?] to derive transformation matrices for the left-out-subjects by
+also varying the quantity of functional response time-series to perform the
+alignment.
+% prediction
+Lastly, the acquired transformation matrices were used to project the functional
+topographies from the anatomy of the reference group into the common model
+space, and from the common model space into the anatomy of the left-out
+subjects.
+% stimulus length?
+[We assessed the relationship between length of naturalistic stimulation used
+for a \textit{partial functional alignment} and the performance of predicting
+empirical $Z$-maps.]
+%
+\textit{Results} suggest that ``a subject's idiosyncratic functional topography
+can be estimated with high fidelity from that subject's fMRI data obtained while
+watching a naturalistic movie using hyperalignment to project other subjects’
+localizer data into that subject's idiosyncratic cortical anatomy''
+\citep{jiahui2020predicting}.
+
+%
+\textit{Discussion}: stimulus length: 15-30 min vs. 2h;  results of auditory stimulus to predict visual localizer are ``modest''.
+
+%
+\textit{Conclusion}: ``These findings lay the foundation for developing an
+efficient tool for mapping functional topographies for a wide range of
+perceptual and cognitive functions in new subjects based only on fMRI data
+collected while watching an engaging, naturalistic stimulus and other subjects'
+localizer data from a normative sample'' \citep{jiahui2020predicting}.
+
+
+\paragraph{from original project proposal}
 %
 All analyses up so far have been performed on 2h-long scans, but any
 clinical application must aim to minimize the scan time/cost.
