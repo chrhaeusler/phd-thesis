@@ -8,6 +8,8 @@ PPA" kind of localized in PPA-Paper}
 
 \todo[inline]{Definition of functional topography, functional anatomy}
 
+\todo[inline]{Definition of PPA isn't explicitly given (cf. PPA-Paper)}
+
 % brain mapping
 Neuroimaging studies have parcellated the cerebral cortex into distinctive
 \textit{functional areas} by topographically mapping brain functions, perceptual
@@ -240,7 +242,7 @@ on common functional responses while still maintaining individual differences
 
 \todo[inline]{that's the only use case now that gets mentioned}
 
-\todo[inline]{also done in \citep{guntupalli2016model, haxby2011common}?}
+\todo[inline]{also done in \citep{guntupalli2016model, haxby2011common}?!!!}
 
 % intro
 An alternative approach, to individual localization has been proposed by
@@ -389,6 +391,7 @@ feature time-series in a $k$-dimensional shared space''
 
 \todo[inline]{cf. text in method section and put it here, too}
 
+
 %
 ``Between-subject models with SRM can, in some cases, exceed the performance of
 within-subject models because (a) the reduced-dimension shared space can
@@ -452,118 +455,84 @@ localizer task'' \citep{jiahui2020predicting}.
 \subsection{"Here, we..."}
 
 \todo[inline]{why did we use SRM? performance \citep{chen2015reduced,
-bazeille2021empirical}, ``nicely'' implemented in BrainIAK
+bazeille2021empirical}, ``nicely'' implemented in BrainIAK}
 
 \todo[inline]{probably faster, computationally less demanding than
 hyperalignment; ``computational efficiency, as the latter is an important
 consideration for scientists who may not have access to specialized hardware''
-\citep{bazeille2021}}
+\citep{bazeille2021empirical}}
 
-%
-Here, we predict location, size, and shape of a functional area in an individual
-person based on location, size, and shape of the same functional area in persons
-of a reference group.
+\todo[inline]{ROI = PPA; PPA should probably already be defined above}
 
-%
-``Here, we show that precise mapping of functional topographies in a new subject
-can be achieved using hyperalignment and a database of movie and localizer data
-from other subjects'' \citep{jiahui2020predicting}.
-%
-``We present a proof-of-concept analysis of two different data sets with
-different movies and different face-selectivity localizers''
-\citep{jiahui2020predicting}.
+% summary in one sentence
+Here, we compare the estimation performance of localizing a scene-selective area
+in one individual subject from other subjects' data based on anatomical
+alignment to an estimation based functional alignment using the \ac{SRM}.
+% creating the shared feature space
+Following a leave-one-subject-out cross-validation, we created a shared feature
+space based on publicly available fMRI data
+\href{www.studyforrest.org}{studyforrest.org} of participants watching a
+Hollywood \citep{hanke2016simultaneous} movie, listening to the movie's
+audio-description \citep{hanke2014audiomovie}, and participating in a
+traditional functional localizer paradigm \citep{sengupta2016extension}.
 
-\todo[inline]{ROI = PPA}
+% project into common functional space
+All other subjects' data of functional localizer are projected into the shared
+feature space
 
-\todo[inline]{mention ``partial alignment''}
+% align left-out subject
+Assuming that the naturalistic stimuli would trigger, among others, brain
+responses that are similar to those triggered by the functional localizer, we
+used time-series data of the naturalistic stimuli to align the left-out subject
+to the fixed common functional space.
+%
+Finally, we projected from the common functional space into a left-out subject's
+cortical anatomy
 
-
-\paragraph{summary of methods}
+% partial alignment
+Critically, we also assess the relationship between the prediction performance
+based on the functional alignment and the quantity of data used to calculate
+subject-specific transformation matrices that project functional data into a
+subject's anatomy.
 %
-``We used SRM to projects all other subjects' data into a group common
-information space and then projecting data from the common space into a new
-subject's cortical anatomy'' \citep{jiahui2020predicting}.
-
-% data
-Study participants watched the movie and audio-description of Forrest Gump,
-assuming that the naturalistic stimuli trigger, among others, brain responses
-that a similar to those triggered by the functional localizer
-
-% model fitting
-We splice data of movie, audio-description, and functional localizer and throw
-data from $N-1$ subjects at the awesome algorithm to obtain $N=14$ \ac{cms} and
-$N-1$ transformation matrices for the subjects whose data were used to compute
-the \ac{cms}
-%
-We then project data from $N-1$ into \ac{cms}
-%
-Then, we aligned left-out subject with \ac{cms} using 1 up to 8 (all) stimulus
-segments of the naturalistic.
-%
-
-\todo[inline]{awesome definition of \textit{partial alignment} here}
-%
-``Partial alignment'': we do not use entire time-series that was used to create
-the \ac{cms} but only a part of it.
-%
-project localizer data from CMS into left-out subject using the transpose matrix
-%
-Test which amount of data is needed to do an alignment to the common model space
-that provides transformation matrices that outperform a prediction using just an
-anatomical alignment.
+We test which amount of data is needed to do an alignment to the common model
+space that provides transformation matrices that outperform a prediction using
+just an anatomical alignment.
 %
 Question: how much data do we need to align an individual subject to a/the
 \ac{cms} and outperform a prediction based on anatomical alignment?
-%
-Is a short diagnostic run ``sufficient''?
-
-\paragraph{benchmark: anatomical alignment}
-
-We will predict the location of the functional area by performing an
-anatomical alignment as a benchmark, and explore possibly improved prediction
-performance using a functional alignment
-
-\paragraph{Cronbach's Alpha as reliability of localizer?}
 
 
 \paragraph{model validation}
 
 \todo[inline]{maybe does not need to mentioned here}
 
-predict localizer results using localizer TRs for alignment (i.e. not
-cross-subject-cross-experiment-prediction but just cross-subject.
+Predict localizer results using times-series of localizer to calculate the
+transformation matrices:
+%
+not cross-subject-cross-experiment-prediction but just cross-subject.
 
 
-\paragraph{``Quantifying the accuracy of functional alignment''}
+\paragraph{Cronbach's Alpha as reliability of localizer?}
 
-``A key question is how to objectively measure the performance of functional
-alignment. One approach is to consider alignment as a re- construction problem,
-where we aim to learn a functional alignment transformation that allows us to
-impute missing images in a target subject using data from source subjects. These
-functionally aligned maps can then be compared with held-out ground-truth maps
-from the target subject. We can quantify this comparison using image-based
-statistics such as the correlation of voxel activity profiles across tasks
-[Guntupalli et al., 2016; Jiahui et al., 2020], spatial correlation or Dice
-coefficient between estimated and held-out brain maps [Langs et al., 2014) or
-other metrics such as reconstruction ratio [Bazeille et al., 2019). However,
-these image-based statistics are sensitive to low-level image characteristics
-(e.g., smoothness, scaling), and their values can therefore reﬂect trivial image
-processing effects (such as the smoothness introduced by resampling routines)
-rather than meaningful activity patterns'' \citep{bazeille2021empirical}.
+\todo[inline]{cf. \citep{jiahui2020predicting}}
 
 
 \subsection{Hypotheses}
 %
-functional alignment outperforms anatomical alignment.
+We hypothesized that increased quantity of data used to calculate the
+transformation matrices of left-out subjects for a functional alignment would to
+increased prediction performance.
 %
-The more data for alignment the better.
-%
-for discussion: asymptotic curve might be different for another brain region
-(we look at perception; what about ``higher'' cognition or even executive
-functions?)
+Further, we hypothesized that functional alignment based on ``sufficient''
+quantity of data would eventually perform ``better'' than an estimation based on
+anatomical alignment.\todo{Jesus! Phrasing!}
 
 
 \subsection{Summary of results}
+
+\todo[inline]{cf. \citep{haxby2011common, guntupalli2016model}}
+
 %
 ``Results expands previous analysis from ventral temporal cortex to the whole
 cortex, showing strong correlations of face-selectivity topographic maps derived
@@ -576,9 +545,9 @@ maps were superior'' \citep{jiahui2020predicting}.
 
 \subsection{What it will be good for}
 
-\todo[inline]{cf. (to be written discussion); one or two sentences here should
-be enough}
-%
+\todo[inline]{smallish text should be enough here; cf. (to be written)
+discussion}
+
 
 
 
@@ -1449,6 +1418,9 @@ participant''.
 
 \section{Discussion}
 
+\todo[inline]{following is total chaos}
+
+\todo[inline]{titles of subsections might give an hint what it gonna be about}
 
 \subsection{Short Summary}
 
@@ -1473,6 +1445,12 @@ Reduced costs
 Benefit of shared parts of naturalistic stimuli across datasets; easier than
 shared subjects (e.g. \citep{zhang2018transfer}).
 
+\paragraph{audio PPA}
+
+Response in PPA during AO might be different; or: the subjects which do not have
+a AO PPA just do not give a shit about spatial information in AO?
+
+
 \subsection{self-critique; short comings}
 
 \todo[inline]{cf. \citep{bazeille2021empirical}}
@@ -1480,6 +1458,10 @@ shared subjects (e.g. \citep{zhang2018transfer}).
 \subsubsection{ROI}
 
 \todo[inline]{paper regarding probabilistic functional 'atlases'}
+
+for discussion: asymptotic curve might be different for another brain region
+(we look at perception; what about ``higher'' cognition or even executive
+functions?)
 
 
 \subsubsection{localizer is ``ground truth''}
