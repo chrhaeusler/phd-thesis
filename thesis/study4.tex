@@ -3,8 +3,7 @@
 \todo[inline]{mih: Dieses Kapitel sollte konzeptuell und inhaltlich deutlich als
 "und jetzt alles zusammen" erscheinen}
 
-\todo[inline]{so far, chapter does not tell a lot about prediction of "auditory
-PPA" kind of localized in PPA-Paper}
+\todo[inline]{what about prediction of "auditory PPA" localized in PPA-Paper?}
 
 \todo[inline]{Definition of functional topography, functional anatomy}
 
@@ -16,6 +15,7 @@ Neuroimaging studies have parcellated the cerebral cortex into distinctive
 (e.g. perception of different object categories; \citet{kanwisher1997ffa}) or
 cognitive processes (e.g. theory of mind; \citet{spunt2014validating}) on to the
 brain's anatomy.
+\todo[inline]{give other examples; these are individual-level studies!}
 % higher visual areas
 For example, previous studies presented isolated \textit{higher-level visual
 categories} such as pictures of scenes, faces, human bodies or tools to
@@ -213,7 +213,7 @@ idiosyncrasies/topographies.
 
 % definition
 In principle, functional alignment procedures align brain activation patterns
-(time-series or connectivity-patterns) based on their similarity to a
+(time series or connectivity-patterns) based on their similarity to a
 high-dimensional \textit{common functional space}.
 %
 Functional alignment algorithms align cortical anatomy of different subjects
@@ -242,7 +242,11 @@ on common functional responses while still maintaining individual differences
 
 \todo[inline]{that's the only use case now that gets mentioned}
 
-\todo[inline]{also done in \citep{guntupalli2016model, haxby2011common}?!!!}
+\todo[inline]{\citep{haxby} used localizer for category decoding from VT (in
+voxel space)}
+
+\todo[inline]{\citep{guntupalli2016model} in surface space; predict
+individual-specific topography; s. Supplementary Fig. 8}
 
 % intro
 An alternative approach, to individual localization has been proposed by
@@ -335,7 +339,7 @@ Another functional alignment algorithm is the Shared Response Model (SRM)
 \citep{chen2015reduced, richard2019fast}.
 %
 The unsupervised probabilistic latent-factor model decomposes fMRI responses
-time-series of participants experiencing the same stimulus into a
+time series of participants experiencing the same stimulus into a
 lower-dimensional space of shared feature time series and subject-specific
 orthogonal topographic transformation matrices \citep{kumar2020brainiak,
 cohen2017computational}.
@@ -454,6 +458,8 @@ localizer task'' \citep{jiahui2020predicting}.
 
 \subsection{"Here, we..."}
 
+\todo[inline]{we use pre-computed results $Z$-maps in voxel-space}
+
 \todo[inline]{why did we use SRM? performance \citep{chen2015reduced,
 bazeille2021empirical}, ``nicely'' implemented in BrainIAK}
 
@@ -483,7 +489,7 @@ feature space
 % align left-out subject
 Assuming that the naturalistic stimuli would trigger, among others, brain
 responses that are similar to those triggered by the functional localizer, we
-used time-series data of the naturalistic stimuli to align the left-out subject
+used time series data of the naturalistic stimuli to align the left-out subject
 to the fixed common functional space.
 %
 Finally, we projected from the common functional space into a left-out subject's
@@ -932,7 +938,7 @@ probably, because of the warping procedures}
 % subject-specific gray matter mask
 
 % union of PPA masks
-For each paradigm and subject, the corresponding 4d time-series of each run /
+For each paradigm and subject, the corresponding 4d time series of each run /
 segment were masked with the union of individual PPA masks
 \citep[s.][]{haeusler2022processing} that was warped from MNI space into each
 subjects' space.
@@ -985,7 +991,7 @@ The \ac{srm} allows the number of voxels to be different across subjects but the
 number of samples must be the same.
 %
 Hence, we removed the last 75 TRs of the audio-description from the other
-subjects' time-series.
+subjects' time series.
 % it's only credits anyway; AO + AV has 7123 TRs; not 7198 volumes anymore;
 % visual localizer has 156 TRs per run
 As a result, the data to fit the \ac{srm} in the following step comprised 3599
@@ -1026,7 +1032,7 @@ for every subject $n$, we used the other subjects' ($N-1$) concatenated fMRI
 responses to the movie, audio-description, and functional localizer as training
 set to compute the shared feature space.
 %
-Concatenated time-series data were z-scored across experimental
+Concatenated time series data were z-scored across experimental
 paradigms.\todo{a second z-scoring}
 % features
 Considering the size of the ROIs the spatial resolution of the fMRI data, we
@@ -1036,13 +1042,17 @@ to be computed.
 The number of iterations for the algorithm to minimize the error was set to 30
 ($n_{iter=10}$).
 
-``In this paper, $k=10$ since low-rank SVD [Singular Value Decomposition?] with
-20 dimensions captures 90\% of the variance of the original fMRI matrices
-\citep{chen2015reduced}. We also experimented with using $k=5,20,30,40,50$, but
-the results barely varied from using $k=10$ dimensions.  Note that, for testing,
-the learned $W_{i}$ allow us to project unseen fMRI data into the shared space
-via $W_{i}^{T}X_{i}^{test}$ since $W_{i}$ has orthogonal columns''
-\citep{vodrahalli2018mapping}.
+\todo[inline]{cf. \citep{haxby2011common} who ran PCA over ventral temporal
+cortex and chose 35 dimensions; Figure 3; ``We show that the cortical
+topographies associated with well-known category selectivities are preserved in
+the 35-dimensional common model space}
+
+``In this paper, $k=10$ since low-rank SVD with 20 dimensions captures 90\% of
+the variance of the original fMRI matrices \citep{chen2015reduced}. We also
+experimented with using $k=5,20,30,40,50$, but the results barely varied from
+using $k=10$ dimensions.  Note that, for testing, the learned $W_{i}$ allow us
+to project unseen fMRI data into the shared space via $W_{i}^{T}X_{i}^{test}$
+since $W_{i}$ has orthogonal columns'' \citep{vodrahalli2018mapping}.
 
 %
 During model fitting, the algorithm computes the shared feature space $S$ ($k$
@@ -1061,7 +1071,7 @@ still pretty early in the processing pipeline}
 % shuffled data
 As negative control, we shuffled the order of runs of audio-description and
 movie (but not visual localizer) before fitting a shared response model to the
-time-series.
+time series.
 
 
 \subsection{Alignment of left-out subjects}
@@ -1236,8 +1246,8 @@ between-subject model performance to the level of within-subject performance''
 
 \section{Results}
 
-\todo[inline]{create (at least an empty) project at Neurovault,
-\citep{gorgolewski2015neurovault}}
+Unthresholded $Z$-maps [in each subject's voxel space] can be found at
+\href{https://identifiers.org/neurovault.collection:12340}{\url{neurovault.org/collections/12340}}.
 
 \todo[inline]{lots of phrasing is taken from \citep{jiahui2020predicting}; check
 Fig. 2 in \citep{jiahui2020predicting}; any good?}
@@ -1252,7 +1262,7 @@ other, new studies that try to predict stuff}
 
 \todo[inline]{imo, plots are not very informative}
 
-e.g. time-series plot of features [first 800 TRs of SRM]; distance matrix of
+e.g. time series plot of features [first 800 TRs of SRM]; distance matrix of
 time-points in shared space (all features combined)
 
 
@@ -1280,7 +1290,7 @@ do the same with the model based on shuffled runs}
     narrator and features of the \ac{srm} (i.e. shared responses).
     \texttt{geo\&groom} \texttt{geo\&groom\&furn} are combination of regressors
     (as used on the positive side of contrasts). The
-    time-series of the \ac{srm} were sliced to match the TRs of the
+    time series of the \ac{srm} were sliced to match the TRs of the
     audio-description.
       }
 \label{fig:reg-corr}
@@ -1516,6 +1526,12 @@ predictive modeling, we point the interested reader to: [Dubois et al., 2018a,
 
 \subsubsection{volume-based registration vs. surface-based normalization}
 %
+\todo[inline]{actually, this is not a problem! surface-based alignment should
+be compared to surface-based SRM ;-)}
+
+\todo[inline]{well, we did the right thing and can blaim it on contrast being
+computed in voxel-space}
+
 Volume vs. surface: e.g. \citep{desai2005volumetric}
 
 \citep{weiner2018defining} compares cortex-based alignment
@@ -1588,7 +1604,7 @@ but we do not have a (real) cross-scanner prediction
 create a CMS from another experiment’s data,
 using another scanner and hopefully more subjects
 %
-In case of an alignment of time-series,
+In case of an alignment of time series,
 that experiment needs, at least, a part of Forrest Gump as an intersection
 
 
@@ -1680,7 +1696,7 @@ diffeomorphicity enforced during the local neighborhood fit''
 \todo[inline]{wtf did \citep{nastase2019leveraging} do?}
 
 \todo[inline]{kind of a killer cause you do not need intersection of
-time-series; but s. Guntupalli's paper: time-series hyperalignment outperforms
+time series; but s. Guntupalli's paper: time series hyperalignment outperforms
 connectivity-based hyperalignment (?)}
 
 % from project proposal
@@ -1767,3 +1783,54 @@ with data from a single fMRI using a naturalistic stimulus''
 
 
 \subsection{Conclusion}
+
+
+\section{Data Availability}
+
+\todo[inline]{all from PPA-Paper but with new GIN link leading to an empty repo}
+
+% \href{https://gin.g-node.org/chaeusler/studyforrest-ppa-analysis}{\url{gin.g-node.org/chaeusler/studyforrest-ppa-analysis}}
+
+% new; PPA analysis
+All fMRI data, annotations, and results are available as Datalad \citep{datalad}
+datasets, published to or linked from the \emph{G-Node GIN} repository
+(\href{https://gin.g-node.org/chaeusler/studyforrest-ppa-srm}{\url{gin.g-node.org/chaeusler/studyforrest-ppa-srm}}\citep{haeusler2021ppadata}).
+% original
+Raw data of the audio-description, movie and visual localizer were originally
+published on the \emph{OpenfMRI} portal
+(\url{https://legacy.openfmri.org/dataset/ds000113}\citep{Hanke2014ds000113},
+\space \url{https://legacy.openfmri.org/dataset/ds000113d}\citep{hanke2016ds000113d}).
+% visual localizer
+Results from the localization of higher visual areas are available as Datalad
+datasets at \emph{GitHub} (
+\href{https://github.com/psychoinformatics-de/studyforrest-data-visualrois}{\url{github.com/psychoinformatics-de/studyforrest-data-visualrois}}).
+% raw data
+The realigned participant-specific timeseries that were used in the current
+analyses were derived from the raw data releases and are available as Datalad
+datasets at \emph{GitHub} (\href{https://github.com/psychoinformatics-de/studyforrest-data-aligned}{\url{github.com/psychoinformatics-de/studyforrest-data-aligned}}).
+% cut annotation
+The annotation of cuts is available at \emph{F1000Research}
+(\href{https://doi.org/10.5256/f1000research.9536.d134823}{\url{doi.org/10.5256/f1000research.9536.d134823}}
+\citep{haeusler2016cutdata}),
+% speech annotation
+the annotation of speech is available at \emph{OSF}
+(\href{https://doi.org/10.17605/OSF.IO/F5J3E}{\url{doi.org/10.17605/OSF.IO/F5J3E}}
+\citep{haeusler2020speechdata}).
+% surface data
+Participant-specific reconstructed cortical surface are available as Datalad
+dataset at \emph{GitHub}
+(\href{https://github.com/psychoinformatics-de/studyforrest-data-freesurfer}{\url{github.com/psychoinformatics-de/studyforrest-data-freesurfer}}),
+and are also part of the original data release on \emph{OpenfMRI}
+(\url{https://legacy.openfmri.org/dataset/ds000113}\citep{Hanke2014ds000113}).
+
+The same data are available in a modified and merged form on OpenNeuro at
+\url{https://openneuro.org/datasets/ds000113}.  Unthresholded $Z$-maps of all
+contrasts can be found at
+\href{https://identifiers.org/neurovault.collection:12340}{\url{neurovault.org/collections/12340}}.
+
+\section*{Code Availability}
+
+Scripts to generate the results as Datalad \citep{datalad} datasets are
+available in a \emph{G-Node GIN} repository
+(\href{https://doi.org/10.12751/g-node.qmevq0}{\url{doi.org/10.12751/g-node.qmevq0}}\citep{haeusler2021ppa}).
+
