@@ -549,382 +549,212 @@ adapted to our specific needs in study 2.
 \subsubsection{Processing of visual and non-visual naturalistic spatial
 information in the ``parahippocampal place area''}
 
-\todo[inline]{purpose of the AV (secondary) vs. AO (primary)}
-
-\todo[inline{do I have discussion / conclusions from the PPA paper here?}
+\paragraph[inline]{following is (deliberately) still to long}
 
 
 \paragraph{Intro}
-%
-If the stimulus classes that are correlated with hemodynamic responses during
-traditional paradigms that aim to localize the \ac{ppa} are also represented by
-stimulus features embedded in the movie ``Forrest Gump'' and its
-audio-description, it should be possible to average feature-related events in
-the naturalistic stimuli to localize the \ac{ppa}.
 
+% study in one sentence
+In this study, we investigated whether it is possible to localize a visual area,
+namely the \ac{ppa}, usually identified via contrasting blocks of pictures in a
+task-based functional localizer, via two naturalistic stimuli.
 %
-We investigated if/whether it is possible to localize a visual area, usually
-identified via a task-based functional localizer, via naturalistic stimuli.
-%
-The aim of this study was to compare how the medial temporal cortex of
-individuals respond to “geographically relevant events” in the  three different
-experimental paradigms.
+``We took advantage of three fMRI acquisitions and two stimulus annotations that
+are part of the open-data resource studyforrest.org to operationalize the
+perception of spatial information embedded in an audio-visual movie and an
+auditory narrative, and compare current results to a previous report of a
+conventional, block-design localizer'' \citep{haeusler2022processing}.
 
-
-\paragraph{State of research}
+% comparison to previous GLM
+\todo[inline]{der gleiche Satz steht unten noch einmal}
 %
-Previous work on a group average level has shown that it is possible to combine
-\ac{bold} \ac{fmri} with naturalistic stimulation in order to localize brain
-areas whose increased hemodynamic activity is correlated with particular brain
-functions \citep{bartels2004mapping} [same sentence as above].
-
-%
-\citep{bartels2004mapping} annotated the occurrence and perceived intensity of
-colors, faces, language, and human bodies but, surprisingly, not scenes, in the
-James Bond movie ``Tomorrow never dies''.
-%
-Hence, it is still ``kind of unclear'' is results from traditional paradigms
-that aim to localize the \ac{ppa} [needs (still?) to be defined above]
-generalize from pictures presented in blocks to results from a more ecologically
-valid stimuli like a movie.
+We compare current results to results of a previously performed model-based,
+mass-univariate analysis that was applied to data from a conventional functional
+localizer performed with the same set of participants
+\citep{sengupta2016extension}.
 
 % #1 previous studies
 ``Several studies have reported increased hemodynamic activity in the PPA
 attributed to the processing of scene-related, spatial information, for example,
 when participants were watching static pictures of landscapes compared to
-pictures of faces or objects \citep{epstein1998ppa, epstein1999parahippocampal}.
-
-
-
-\paragraph{auditory PPA}
-
-
+pictures of faces or objects \citep{epstein1998ppa,
+epstein1999parahippocampal}'' \citep{haeusler2022processing}.
 % auditory semantics unclear
 However, reports regarding the correlates of processing spatial information in
 verbal stimulation are less clear \citep{aziz2008modulation}.
-%
-It is still unclear is if these results generalize to the auditory domain
-\citep{aziz2008modulation}.
 
-% Aziz (2008): place related sentences
-``To our knowledge only one study \citep{aziz2008modulation} compared
-hemodynamic activity levels in the PPA that were correlated with different
-semantic categories occurring in \textit{speech}.
-% Aziz' stimuli; ``The Taj Mahal faces a long thin reflecting pool'', ``Marilyn
-% Monroe has a large square jaw'', ``The television has a long antenna''
-\citet{aziz2008modulation} used sentences that described famous or generic
-places, faces, or objects.
-% Aziz' results:
-Activation in the left, but not right, PPA was significantly reduced when
-participants listened to place-related sentences compared to listening to
-face-related sentences. Moreover, this effect was only observed in sentences
-involving famous places.
+% rationale
+In case the stimulus classes that are correlated with hemodynamic responses
+during traditional paradigms are represented by [sampled by?] stimulus features
+embedded in the movie ``Forrest Gump'' and its audio-description, it should also
+be possible to average feature-related events in these naturalistic stimuli to
+localize the \ac{ppa}.
 
-
-\paragraph{hence: open question}
-
-% open question
-``In this study, we investigate whether increased hemodynamic activity in the
-PPA that is usually detected by contrasting blocks of pictures is also present
-under more natural conditions''.
-% summary if literature review
-Taken together, the literature suggests that the PPA does not exclusively
-respond to visually presented scene-related, spatial information''.
-
-
-\paragraph{here we... (what we want to do)}
-
-% current study: similar
-In line with previous studies, we investigated the hemodynamic response to
-spatial information using a model-based, mass-univariate approach.
-% current study: dissimilar
-However, instead of using a conventional set of stimuli, assembled to
-specifically and predominantly evoke the processing of spatial information, we
-employed naturalistic stimuli, a movie and its audio-description, that were
-designed for entertainment'' \citep{haeusler2022processing}.
-
-% we use 2 naturalistic stimuli
-``To answer this question, we operationalized the perception of both
-\textit{visual and auditory} spatial information using two naturalistic stimuli
-(\citep[see reviews][]{hamilton2018revolution, hasson2008neurocinematics,
-sonkusare2019naturalistic}).
-% AV stimulus
-The current operationalization of visual spatial perception is based on an
-annotation of cuts and depicted locations in the audio-visual movie ``Forrest
-Gump'' \citep{haeusler2016cutanno}, while
-% AD stimulus
-the operationalization of non-visual spatial perception is based on an
-annotation of speech occurring in the movie's audio-description
-\citep{haeusler2021speechanno}.
 % pictures -> movie -> audio-description
-The movie stimulus shares the stimulation in the visual domain with classical
+``The movie stimulus shares the stimulation in the visual domain with classical
 localizer stimuli, while featuring real-life-like visual complexity and
 naturalistic auditory stimulation. The audio-description maintains the
-naturalistic nature of the movie stimulus, but limited to the auditory domain''.
-
-\paragraph{hypotheses}
-
-%#3 hypo
-``We hypothesized that due to the complex nature of the stimuli, unrelated
-factors would be balanced across a large number of events, and make the bias of
-spatial information accessible to a conventional model-based statistical
-analysis of BOLD fMRI data.
-% we need a detailed description -> annotation
-This model-driven approach required a detailed annotation of the occurrence of
-relevant stimulus features.
-% event counts ftw
-The annotation of both stimuli revealed the respective number of incidentally
-occurring events to be similar to those of a conventional experimental paradigm
-used to localize functional regions of interest''
+naturalistic nature of the movie stimulus, but limited to the auditory domain''
 \citep{haeusler2022processing}.
 
-% hypo a
-Thus, we hypothesized that our whole-brain analyses would reveal increased
-hemodynamic activity in medial temporal regions that were functionally
-identified as the PPA by the analysis of the localizer data.
-%hypo b: individuals
-We hypothesized further that a purely auditory stimulus could, in principle,
-localize the PPA as an example of a ``visual area'' in individual persons,
-% application in individuals
-and may offer an alternative paradigm to assess brain functions in visually
-impaired individuals.
-
-
-%
-Similar to the results of the dedicated localizer using static pictures
-[sengupta2016extension], we expect, using the audio drama and movie, spatially
-constrained, spatially congruent [deckungsgleich = steile These] increased BOLD
-activation in the medial temporal cortex on an individual level using. We expect
-this increased activation - modeled by a standard voxel-wise general linear
-model - to happen at time points / events of the movie and audio drama that
-[might] trigger processes of “spatial scene perception” compared to time points
-/ events that [probably] do not trigger spatial perception [or trigger to a less
-amount].
-
-To operationalize the perception of spatial information, we looked at time
-points in the stimuli that should correlate with the perception of spatial
-information
-
-%
-For the movie, we used the movie cuts that basically re-orient the observer in
-space.
+% intro to hypo a
+Similarly to the functional localizer that design [sets of stimuli] to
+specifically and predominantly evoke the processing of spatial information
+[actually, processes to be contrasted], we capitalized on events in the given
+naturalistic stimuli ought to evoke the cognitive processing of spatial
+information.
 
 % AV anno
 ``For the analysis of the movie stimulus, we took advantage of a previously
 published annotation of 869 movie cuts and the depicted location after each cut
-\citep{haeusler2016cutanno}.
-% we focus on cuts
-Contrary to manually annotating stimulus features of movie frames (for example,
-as performed by \citet{bartels2004mapping} for color, faces, language, and human
-bodies), we categorized movie cuts that - in general - realign the viewer within
-the movie environment by switching to another perspective within the same
-setting, or to a position in an entirely different setting.
-% this this should work
-More specifically, we sought to exploit a cinematographic bias as
-% establishing shots & shots within setting early in the movie
-at a setting's first occurrence in a movie, shots tend to broadly establish the
-setting and the spatial layout within the setting.
-% cut to recurrent scene
-On revisiting an already established setting, the shot sizes tend to decrease
-and more often depict people talking to each other or objects that are relevant
-to the evolved plot
-\citep{brown2012cinematography, katz1991film, mascelli1998five}''.
-
-% AV regressors/events
-Based on this cinematographic bias, we assigned each cut to one of five
-categories (see Table [X] in \citep{haeusler2022processing}):
-%
-
-
-\todo[inline]{we extended the annotation of speech with the annotation of nouns}
-%
-For the audio-descriptions, we semantically categorized nouns spoken by the
-narrator in case he used them to describe faces or bodies, locations, buildings,
-rooms, and so on.
-%
-In both stimuli, we looked for time points correlating with other perceptual
-processes that we needed to build general linear model contrasts.
-%
-create events from stimulus annotations;
-
+\citep{haeusler2016cutanno}'' \citep{haeusler2022processing}.
 % AD annotation
-For the analysis of the audio-description stimulus, we extended a publicly
-available annotation of its speech content \citep{haeusler2021speechanno} by
-classifying concrete and countable nouns that the narrator uses to describe the
-movie's absent visual content.
-% annotation procedure
-An initial annotation was performed by one individual,
-% corrections
-and minor corrections were applied after comparing with a second categorization
-done by the author.
-% reference to table with rules and examples
-A complete overview of all 18 noun categories, their inclusion criteria, and
-examples can be seen in Table [X] in \citep{haeusler2022processing}.
-% why and how of categories 1
-Some categories reflect the verbal counterpart of the stimulus categories that
-were used in the visual localizer experiment (e.g. \texttt{body}, \texttt{face},
-\texttt{head}, \texttt{object}, \texttt{setting\_new}, and
-\texttt{setting\_rec}).
-% why and how of categories 2
-Other categories were created to semantically cluster remaining nouns into
-categories that had no counterpart in the visual localizer experiment (e.g.
-\texttt{bodypart}, \texttt{female}, \texttt{fname}, \texttt{furniture},
-\texttt{geo}, \texttt{groom}, \texttt{male}, and \texttt{persons}).
-
-
-
-\paragraph{how we did it}
-
+For the analysis of the audio-description stimulus, we extended the published
+annotation of speech \citep{haeusler2021speechanno} that was created in study 1:
 %
-``Based on an annotation of cuts in the movie and an annotation of speech spoken
-by the audio-description's narrator, we selected events in both stimuli that
-should correlate with the perception of spatial information and contrasted them
-with events that should correlate with non-spatial perception to a lesser
-degree, or not at all''.
+nouns that the narrator uses to describe the movie's absent visual content were
+semantically categorized in case the narrator used them to describe locations,
+buildings, rooms, faces or bodies, and so on.
 
-%#4
-``We modeled hemodynamic responses correlating with spatial information embedded
-in the naturalistic stimuli, capitalizing on conceptually similar, but
-perceptually different stimulation events''.
+% events & contrasts
+Based on these annotations, ``we selected events in both stimuli that should
+correlate with the perception of spatial information and contrasted them with
+events that should correlate with non-spatial perception to a lesser degree, or
+not at all'' \citep{haeusler2022processing}.
 
-``% current GLM contrasts
-We applied model-based, mass-univariate analyses to BOLD fMRI data from both
-naturalistic stimuli \citep{hanke2016simultaneous, hanke2014audiomovie},
-available from the open-data resource
-\href{http://www.studyforrest.org}{studyforrest.org}.
+% current study: similar
+``In line with previous studies, we investigated the hemodynamic response to
+spatial information using a model-based, mass-univariate approach''
+\citep{haeusler2022processing}.
+
 % comparison to previous GLM
 We compare current results to results of a previously performed model-based,
 mass-univariate analysis that was applied to data from a conventional functional
 localizer performed with the same set of participants
 \citep{sengupta2016extension}.
-% intro to hypo a
-Similarly to the functional localizer, we currently also capitalize on events
-that ought to evoke the cognitive processing of spatial information.
 
-``We model hemodynamic activity based on annotations of selected stimulus
-features,
-% VIS
-and compare results to a block-design visual localizer''.
 
-Similar to static pictures of dedicated localizers, we annotated “geographically
-relevant events” in the movie Forrest Gump and its corresponding audio drama
-that might trigger increased hemodynamic activity in the medial temporal cortex.
+
+\paragraph{Hypotheses}
+
+%#3 hypo
+``We hypothesized that due to the complex nature of the stimuli, unrelated
+factors would be balanced across a large number of events, and make the bias of
+spatial information accessible to a conventional model-based statistical
+analysis of BOLD fMRI data '' \citep{haeusler2022processing}.
+
+% hypo a: group
+``We hypothesized that our whole-brain analyses would reveal increased
+hemodynamic activity in medial temporal regions that were functionally
+identified as the PPA by the analysis of the localizer data''
+\citep{haeusler2022processing}.
+
+% hypo b: individuals
+``We hypothesized further that a purely auditory stimulus could, in principle,
+localize the PPA as an example of a ``visual area'' in individual persons,
 %
-For the movie, we used a published annotation of cuts (that virtually relocate
-an observer in the movie’s environment) and the location depicted immediately
-after the cut [haeusler2016annotation].
-%
-For the audio drama, we annotated a transcript of every word spoken by the
-narrator. Whenever the narrator cued the observer about a scene change, about a
-scene’s or room’s spatial layout, about an object or a person, her/his face, we
-annotated that auditory cue as such.
+and may offer an alternative paradigm to assess brain functions in visually
+impaired individuals'' \citep{haeusler2022processing}.
 
 
+\paragraph{Methods: statistical analysis}
 
-%
-Hence, we we operationalize the perception of spatial information that is
-embedded two naturalistic stimuli?
-%
-Compare our results to a classic visual localizer experiment that used blocks of
-pictures to results from naturalistic stimulus paradigms.
-%
-We operationalized the assumed perceptual process not just in a
-audio-visual movie but also in an exclusively auditory stimulus.
-% group
-Does increased hemodynamic activity in the PPA correlate with auditory spatial
-information (group-level)?
-% individuals
-Can we localize the PPA in individual persons using a more engaging \&
-entertaining, but also exclusively auditory stimulus
+``We performed standard two-level GLM analyses to aggregate results across all
+BOLD acquisition runs for every participant and each stimulus separately.
+Subsequently, we conducted third-level analyses to average contrast estimates
+over participants for each stimulus, respectively''
+\citep{haeusler2022processing}.
 
+\paragraph{Results}
 
-\paragraph{Results: where}
-
-%
-Results suggest that you can ``localize a auditory PPA'' but not the ``visual
-PPA'' using an auditory narrative; It's similar but different; SRM study will
-quantify the prediction performance
-%
-The audio-description must somehow at some time points trigger responses in the
-ventromedial cortex.
-
-%
-There are responses in the parahippocampal cortex correlating with
-spatial information.
-
+% group AV
 ``On a group level, increased activation correlating with visual spatial
 information occurring in the movie is overlapping with a traditionally localized
-PPA.
-% results: group AD
-Activation correlating with semantic spatial information occurring in the
-audio-description is more restricted to the anterior PPA.
-% results: individual AD
-On an individual level, we find significant bilateral activity in the PPA of
-nine individuals and unilateral activity in one individual''.
-
+PPA'' \citep{haeusler2022processing}.
 % group AV
 ``On a group-average level, results for the movie show significantly increased
 hemodynamic activity spatially overlapping with a conventionally localized PPA
-but also extending into earlier visual cortices.
+but also extending into earlier visual cortices''
+\citep{haeusler2022processing}.
+
 % group AD
-Likewise, results for the audio-description identify significant activation in
-the PPA but restricted to its anterior part.
+``Activation correlating with semantic spatial information occurring in the
+audio-description is more restricted to the anterior PPA''
+\citep{haeusler2022processing}.
+% group AD
+``Likewise, results for the audio-description identify significant activation in
+the PPA but restricted to its anterior part'' \citep{haeusler2022processing}.
+
+% individual AD
+``On an individual level, we find significant bilateral activity in the PPA of
+nine individuals and unilateral activity in one individual''
+\citep{haeusler2022processing}.
+
 % individual level
-Bilateral clusters in 9 of 14 participants (of which \texttt{sub-04} shows only
-a right-lateralized PPA in the block-design localizer results), and a unilateral
-significant cluster in one participant, indicate that the group average results
-are representative for the majority of individual participants.
-% meaning: generalization to naturalistic stimuli
-These findings suggest that increased activation in the PPA during the
-perception of static pictures generalizes to the perception of spatial
-information embedded in a movie or a purely auditory narrative.
-%
-Current results may partially deviate from \citet{sengupta2016extension}, due to
-the uniform cluster forming threshold employed in this study versus their
-adaptive procedure (bilateral clusters in 12 of 14 participants and a unilateral
-right cluster in two participants (\texttt{sub-04}, \texttt{sub-20})''.
-
-
-\paragraph{Results: interpretation}
-
-% conclusion: generalizability
-``Results suggest that activation in the PPA generalizes to spatial information
-embedded in a movie and an auditory narrative''.
-
-\todo[inline]{natase 2016 is just a poster}
-
-
-
-%
-Localized functional regions of interest can be recovered from neural responses
-to dynamic naturalistic stimuli [nastase2016localizing].
-%
-However, highly unbalanced class frequencies result in relatively low true
-positive rates and many false positives—overall classification accuracy is not a
-very useful evaluation metric in this context [nastase2016localizing].
-%
-False positives (i.e., voxels with similar response profiles to the target ROI)
-are localized to potentially meaningful structures
-[nastase2016localizing].
+``Bilateral clusters in 9 of 14 participants (of which \texttt{sub-04} shows
+only a right-lateralized PPA in the block-design localizer results), and a
+unilateral significant cluster in one participant, indicate that the
+group-average results are representative for the majority of individual
+participants'' \citep{haeusler2022processing}.
 
 
 \paragraph{Discussion}
 
+%
+``The current study offers evidence that a model-driven GLM analysis based on
+annotations can be applied to a naturalistic paradigm to localize concise
+functional areas and networks correlating with specific perceptual processes''
+\citep{haeusler2022processing}.
 
+% meaning: generalization to naturalistic stimuli
+``These findings suggest that increased activation in the PPA during the
+perception of static pictures generalizes to the perception of spatial
+information embedded in a movie or a purely auditory narrative''
+\citep{haeusler2022processing}.
 
-\paragraph{Conclusion}
+%
+``More specifically, our results demonstrate that increased activation in the
+PPA during the perception of static pictures generalizes to the perception of
+spatial information embedded in a movie and an exclusively auditory stimulus''
+\citep{haeusler2022processing}.
+
+%
+``Our results provide further evidence that the PPA can be divided into
+functional subregions that coactivate during the perception of visual scenes''
+\citep{haeusler2022processing}.
+%
+``Finally, the presented evidence on the in-principle suitability of a naturally
+engaging, purely auditory paradigm for localizing the PPA may offer a path to
+the development of diagnostic procedures more suitable for individuals with
+visual impairments or conditions like nystagmus''
+\citep{haeusler2022processing}.
 
 
 \paragraph{Transition to study 3}
 
 %
-But probably our event structure and model is not just an approximation of the
-``real'' events structure that is actually correlated with the response series
-in the parahippocampal cortex.
+Results suggest that you can ``localize an auditory PPA'' but not the ``visual
+PPA'' using an auditory narrative.
 %
-But still incentive to build shared response model and use it for prediction
+Generally, there are responses in the parahippocampal cortex correlating with
+spatial information.
 %
-2h movie/audio-description is too long anyway
+However, the processing seems similar but still different.
+
+%
+Maybe, our event structure and model is just an approximation of the ``real''
+events structure that is correlated with the response series in the
+parahippocampal cortex (in AO but especially in the AV!).
+%
+Exact modeling of that process is not necessary, for data-driven alignment in
+study 3.
+
+%
+Still, the AO reponse might be too different for ``sufficient alignment'' and
+estimate the localizer results.
+%
+Well, and a couple of subjects seem to simply not give a fuck about spatial
+information in AO
 
 
 \subsubsection{DataLad: distributed system for joint management of code, data,
@@ -937,7 +767,10 @@ and their relationship}
 functional alignment to predict results from a task-based functional localizer
 paradigm}
 
-\paragraph{from (previous) abstract in chapter 5}
+\todo[inline]{following part is a draft}
+
+\todo[inline]{will probably change a lot after text in study 3 is written}
+
 % intro
 \textit{Intro:} In order to map perceptual or cognitive functions onto the brain
 anatomy of study participants, researchers usually conduct dedicated experiments
@@ -946,28 +779,33 @@ anatomy of study participants, researchers usually conduct dedicated experiments
 % problem
 \textit{Current approach \& problem:} Nevertheless, the approach ``one paradigm
 to map one domain of brain functions'' becomes impractical if a variety of
-domains is supposed to be mapped in a time-efficient manner.
+domains is supposed to be mapped in a time-efficient manner:
 %
-A clinical application must aim to minimize the scan time/cost but still provide
+a clinical application must aim to minimize the scan time/cost but still provide
 valid results
 
 % therefore
-\textit{Therefore:} In the current study, we explore a method and quantity of
-data needed to (reliably) predict individual and idiosyncratic functional
-topographies by projecting results of a localizer experiment (statistical
-$Z$-maps) from a reference group into the brain anatomy of individual
-participants.
+\textit{Therefore:} In the current study, we explore a method and the quantity
+of data needed to predict individual functional topographies by projecting
+results of a localizer experiment (statistical $Z$-maps) from a reference group
+into the brain anatomy of individual participants.
 
+%
+fMRI data acquired from naturalistic stimulation are used to align a subject's
+voxel space with a common representational/functional reference space.
 %
 We test whether functional alignment can be achieved with a task-free, natural
 stimulation ``calibration'' scan that requires no more acquisition time than a
 conventional localizer paradigm.
 %
-fMRI data acquired from naturalistic stimulation are to align a subject's voxel
-space with a common representational/functional reference space.
-%
 Once aligned, the brain activity of the reference group can be used to predict
 the activity of another subject.
+
+%
+We will estimate the trade-off between diagnostic quality and required effective
+scan time by progressively reducing the duration of input BOLD fMRI data and
+comparing the results of the reduced model to the reference computed from the
+full length scan.
 
 
 \textit{Method:}
@@ -976,26 +814,19 @@ During functional magnetic resonance imaging (fMRI), participants ($N=14$) took
 part in a task-based, block-design visual localizer and two naturalistic stimuli
 paradigms: an audio-visual movie and the movie's audio-description, both
 paradigms free of any task.
+
 % cms creation
 Based on these response time series, we first created a common model space
-employing a shared response model \citep{chen2015reduced} following a $N-1$ fold
-procedure [correct term??], a process that also computed transformation matrices
-for the subjects that provided the data for the creation of the model space.
-
-%
-Using a leave-one-subject-out cross-validation, individual results of the
-conventional localizer are projected into the common space.
+employing a shared response model \citep{chen2015reduced} following
+leave-one-subject out cross-validation, a process that also computed
+transformation matrices for the subjects that provided the data for the creation
+of the model space.
 
 % alignment
 Then, we aligned left-out subjects with the common [via Procusted
 transformation?] to derive transformation matrices for the left-out-subjects by
 also varying the quantity of functional response time series to perform the
 alignment.
-
-%
-Once a valid alignment is established, the inverse transformation [i.e. the
-transpose of the matrix] is then used to project functional properties of the
-common reference into that individual's voxel space.
 
 % prediction
 Lastly, the acquired transformation matrices were used to project the functional
@@ -1004,24 +835,20 @@ space, and from the common model space into the anatomy of the left-out
 subjects.
 
 %
+Results of the conventional localizer are projected into the common space.
+%
+The transpose of subject-specific transformation matrices is used to project
+functional properties of the common reference into that individual's voxel
+space.
+%
 Then, data are projected into the voxel space of the left-out individual for
 comparison with the localizer results for that individual.
 
-%
-We will estimate the trade-off between diagnostic quality and required effective
-scan time by progressively reducing the duration of input BOLD fMRI data and
-comparing the results of the reduced model to the reference computed from the
-full length scan.
 
 % stimulus length?
 [We assessed the relationship between length of naturalistic stimulation used
 for a \textit{partial functional alignment} and the performance of predicting
-empirical $Z$-maps.]
-
-%
-estimate the minimum scan time requirement for deriving a valid functional
-alignment by further reducing the amount of input data of the left-out
-individual.
+empirical $Z$-maps.] by...
 
 %
 \textit{Results} suggest that ``a subject's idiosyncratic functional topography
