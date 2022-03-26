@@ -119,6 +119,16 @@
 % \acp{} -> make it plural (adds an "s")
 \usepackage[printonlyused]{acronym}
 
+% make sure that acronyms get hyphenated
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd\@acf{\AC@acl}{\AC@foo}{}{}
+\patchcmd\@acf{\AC@acl}{\AC@foo}{}{}
+\patchcmd\@acf{\AC@foo}{\hskip\z@\AC@acl}{}{}
+\patchcmd\@acf{\AC@foo}{\hskip\z@\AC@acl}{}{}
+\makeatother
+
 
 \begin{document}
 % set pagestyle to 'no header' and 'page number at bottom in the middle'

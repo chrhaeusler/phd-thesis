@@ -60,9 +60,11 @@ essential for characterizing brain function in health and disease''
 
 \todo[inline]{purposes of localizers: check localizer reviews}
 
-\todo[inline]{add: \textit{stimulus classes} are contrasted in GLM analyses}
+\todo[inline]{add \ac{GLM} as analysis method; \textit{stimulus classes} are
+contrasted}
 
 \todo[inline]{add IBC: https://project.inria.fr/IBC/publications}
+
 \todo[inline]{ggf. auch: https://github.com/Parietal-INRIA/DiFuMo}
 
 % individual level: localizers
@@ -118,11 +120,12 @@ presented in blocks, and do not resemble how we perceive the real world outside
 of the laboratory during everyday life.
 
 
-\paragraph{short excourse to current project}
+\paragraph{excursion to current project}
 
 \todo[inline]{placement of following paragraph is not optimal}
-\todo[inline]{yet, a short excourse to the current project makes sense before
-the naturalistic stimulus inferno breaks loose}
+
+\todo[inline]{yet, a short excursion to current project makes sense before the
+naturalistic stimulus inferno breaks loose}
 
 %
 For this reason, this dissertation will explore whether a Hollywood movie and
@@ -236,26 +239,32 @@ suffering from diminished or lack of eyesight.
 
 \paragraph{contra: challenging data analysis; annotations needed}
 
-\todo[inline]{shift some text from "aims of anno-paper" here}
-\todo[inline]{check reviews on naturalistic stimuli}
+%
+However, the majority of naturalistic stimuli that have been used in
+neuroscience have originally been designed for commercial purposes and not to
+conduct research.
+%
+The temporal structure of \textit{stimulus features} (i.e. the stimulus classes
+or variables) embedded in a naturalistic stimulus are fixed and thus
+reproducible but initially not explicitly known.
+%
+Modeling brain activity correlating with the stimulus features embedded in the
+time course is challenging \citep{saarimaki2021naturalistic, simony2020analysis}
+because such models, like a traditional \ac{glm}, rely on the stimulus features
+being annotated.
+%
+The lack of extensive annotations has led to a ``usage bottleneck''
+\citep{aliko2020naturalistic} and might be the main reason why explicit models
+of task or stimulus are ``notoriously'' \citep{richard2019fast}, if not
+``prohibitively'' \citep{nastase2019measuring} difficult to construct.
 
 %
-The analysis of data from naturalistic stimuli, however, is challenging.
-%
-``Standards methods such as the general linear model [1] require the
-experimenter to construct a design matrix that models features of the presented
-stimuli across time. Such design matrices are notoriously difficult to construct
-for naturalistic stimuli as one has to rely on manual annotations (see [2]) or
-deep learning techniques (see e.g. [3], [4], [5] or [6]) that are hard to use,
-and provide high-dimensional, cumbersome models of the stimulus''
-\citep{richard2019fast}.
-%
-\todo[inline]{ask Michael: we might not model the response ``correctly'' based
-on the subjectively judged/classified stimulus features}
-
 Additionally if one wants to map only one domain of brain functions, a
 full-length movie is an inadequate replacement for a traditional localizer
 lasting about 15 minutes.
+
+\todo[inline]{ask Michael: the modeled time course might not ``perfectly''
+represent time-course of the correlating brain process}
 
 
 \section{Prediction individual topography from a reference group}
@@ -268,16 +277,16 @@ lasting about 15 minutes.
 
 \todo[inline]{check \citep{poldrack2019establishment, yarkoni2017choosing}}
 
-
 %
-For that reason this dissertation will also explore whether a part of the
-naturalistic stimuli can serve as a ``diagnostic'' run in order predict the
-results of the functional localizer in a study participant from the result of
-other participants.
+For that reason, this dissertation --- following a ``leave-one-out
+cross-validation`` procedure --- also explores whether just a part of a movie or
+auditory narrative can serve as a ``diagnostic'' run in order to estimate the
+location of the \ac{ppa} in an ``unknown'' subject's brain (i.e. a
+\textit{left-out subject} to test the prediction performance of our model) from
+a reference group (i.e. the study subjects providing the data to train our
+model).
 
-%
-Following a ``leave-one-out cross-validation`` procedure, the dissertation
-evaluates the performance of predicting the shit in a ``left-out subject''.
+\todo[inline]{add transition to alignment inferno}
 
 
 \subsection{Anatomical alignment}
@@ -299,22 +308,22 @@ subjects while still allowing for individual variation in brain activity and
 behavioral responses, and lend themselves to a broader set of analyses than
 either pure rest or pure event-related task designs'' \citep{finn2017can}.
 
-\todo[inline]{add short sentence about challenging \& annotations data analysis}
+\todo[inline]{add short sentence repeating challenging annotations / analyses}
 
 
 \section{Aims of thesis}
+
+\todo[inline]{shift some parts into excursions (``this dissertation'') above}
+
 %% At the end of the introduction, add a subchapter on the Aims of Thesis in
 %% which you describe the research question and the objectives of your work on
 %% a maximum of two pages
-\todo[inline]{following structure is split: general aims, meta-aim
-(reproducibility), specific aims per study; tbh, I do not like it but don't know
-how to handle it better (better transitional sentences between subsections?)}
 
 %
-Previous work on a group average level has shown that it is possible to combine
+Previous work on a group-average level has shown that it is possible to combine
 \ac{bold} \ac{fmri} with naturalistic stimulation in order to localize brain
-areas whose increased hemodynamic activity is correlated with particular brain
-functions \citep{bartels2004mapping}.
+areas whose increased hemodynamic activity is correlated with psychological
+processes \citep{bartels2004mapping}.
 %
 This dissertation explores --- while following the principles of open,
 transparent, and reproducible science --- whether a movie and the movie's
@@ -323,31 +332,32 @@ principle, substitute an established localizer paradigm.
 %
 Naturalistic stimuli would have substantial advantages (e.g. task demands
 compliance, and data quality) over simplified stimuli presently used in
-localizer paradigms.
+block-design localizer paradigms.
+
+\todo[inline]{add focus on PPA here}
+
 %
 Moreover, the time-courses of rich, full-length naturalistic stimuli are
 correlating with a variety of different brain functions ranging from low-level
-perception (e.g.  luminance) to high-level cognition (social cognition).
+perception (e.g., luminance) to high-level cognition (e.g., social cognition).
 %
-Thus, a naturalistic stimulus could replace multiple dedicated localizers in the
-future to provide a more comprehensive diagnostic routine.
+Thus, a naturalistic stimulus could eventually replace multiple dedicated
+localizers in the future to provide a more comprehensive diagnostic routine.
 %
 However, a two-hour paradigm would be inefficient plus unsuitable for a clinical
 population.
 %
 For that reason, this dissertation also explores whether just a part of a movie
-or auditory narrative can be used to estimate the location, size and shape of a
-``unknown'' subject (i.e. a 'left-out' subject to test the prediction
-performance of our model) from a reference group (i.e. the study subjects
-providing the data to train our model).
+or auditory narrative can be used to estimate individual topography of a
+left-out subject from a data of reference group.
 
 
 \subsection{Open, transparent, and reproducible science}
 
 % reproducibility crisis
-Over the last decade there has been a growing awareness that results of
+Over the last decade, there has been a growing awareness that results of
 scientific publications are not reproducible or general scientific findings are
-not replicable letting some authors speak of an ``reproducibility crisis'' or
+not replicable letting some authors speak of a ``reproducibility crisis'' or
 ``replication crisis'' in the sciences \citep{baker2016reproducibility,
 plesser2018reproducibility, stupple2019reproducibility, nosek2022replicability}.
 % reproducibility: definition
@@ -355,40 +365,41 @@ plesser2018reproducibility, stupple2019reproducibility, nosek2022replicability}.
 numbers and figures in the paper are available and exactly produce the published
 results'' \citep{leek2017most}.
 % replicability: definition
-A study is replicable if the same analysis of an identical experiment's data
+A study is replicable if the same analysis of an equivalent experiment's data
 leads to consistent results \citep{dubois2016building, leek2017most}.
 %
 Hence, on a metalevel, this dissertation aims to meet both the requirements of
-open, accessible, shared and transparent science \citep{watson2015will,
+open, accessible, shared, and transparent science \citep{watson2015will,
 fecher2014open} as well as the requirements of a reproducible and replicable
 research project:
 %
 the dissertation follows guidelines and best practices for a) coding and
 scientific computing \citep{wilson2014best}, b) procedures and data analyses
 \citep{nichols2017best, poldrack2017scanning, poldrack2019establishment}, and c)
-sharing code, created data and results \citep{eglen2017toward, nichols2017best,
+sharing code, created data, and results \citep{eglen2017toward, nichols2017best,
 pernet2015improving}.
 
 
 \paragraph{input data}
 
 % open data \citep{eglen2017toward}
-First, my work will build on top of publicly and freely available \ac{fmri} data
-that is part of the \textit{studyforrest} project
+First, my work is build on top of publicly and freely available \ac{fmri} data
+that are part of the \textit{studyforrest} project
 (\href{www.studyforrest.org}{studyforrest.org}).
 %
 The studyforrest project is an open science project that aims to provide a
 versatile resource for investigating human brain function under quasi-natural
 conditions.
 %
-The core of this dataset are two hour long \ac{bold} \ac{fmri} scans of
-participants watching the movie Forrest Gump and listening to the movie's
-audio-description that was created for a visually impaired audience by adding a
-narrator to the movie's audio track.
+The core of this dataset are two-hour long \ac{bold} \ac{fmri} scans of
+participants watching the movie Forrest Gump \citep{ForrestGumpMovie} and
+listening to the movie's audio-description that was created for a visually
+impaired audience by adding a narrator to the movie's audio track.
 %
 Since its first publication in 2014 \citep{hanke2014audiomovie}, the
 studyforrest project has served as a resource of raw (and preprocessed) data for
-international working groups to conduct and publish independent research (s.
+international working groups to conduct and publish independent, peer-reviewed
+research (s.
 \href{www.studyforrest.org/publications.html}{studyforrest.org/publications.html}).
 %
 The stimulus annotations that have been created over the course of the
@@ -399,11 +410,11 @@ project as a resource for the scientific community.
 
 \paragraph{code, analyses, output}
 
-Further, all code is shared to improve reproducibility of results based on
-current results and to facilitate their replicability on other datasets.
+Further, all code is shared to improve reproducibility current results and to
+facilitate replicability of findings on other datasets.
 % automatization
-Therefore, data analyses pipelines are implemented in a way that enable
-automated processing.
+Therefore, data analyses pipelines designed in a way that enables automated
+processing.
 %
 Analyses pipelines are not be implemented in commercial, proprietary software
 but in freely available and, if possible, open-source software.
@@ -414,7 +425,7 @@ support.
 % my code
 Custom code written by myself is written in open-source programming languages
 (Python and Bash), is version-controlled, documented, and released publicly and
-freely accessible.\todo{but: FZJ rules?}
+freely accessible.
 %
 All input data, custom code, analysis steps and output data are accessible in
 standardized \textit{DataLad} (\href{www.datalad.org}{datalad.org}) datasets.
@@ -438,73 +449,47 @@ additionally published at Neurovault
 
 \subsection{Specific objectives and hypotheses}
 
-[Here should be some random text between section titles]
+\todo[inline]{Here should be some random text between section titles}
+
 
 \subsubsection{A studyforrest extension, an annotation of spoken language in the
 German dubbed movie ``Forrest Gump'' and its audio-description}
 
-\todo[inline]{maybe shift some text from here into literature review
-(annotations as ``challenge'' / ``bottleneck'') and just shortly be mentioned
-here again}
-
 
 \paragraph{Intro}
 
-\todo[inline]{example of a ``real'' naturalistic stimulus that was designed by
-researchers?}
-
-%
-The majority of naturalistic stimuli that have been used in neuroscience have
-originally been designed for commercial purposes and not to conduct research.
-%
-The time-courses and the \textit{stimulus features} (i.e., the variables)
-embedded in a naturalistic stimulus are fixed and thus reproducible but not
-explicitly known.
-
-\paragraph{why we need stimulus annotations}
+\todo[inline]{revise; cf. cons of naturalistic stimuli above}
 
 % traditionally
 ``In contrast to stimuli designed to trigger a perceptual process of interest,
 while controlling for confounding variables (e.g., color and luminance),
 % our approach: annotation and regressors
 naturalistic stimuli have a fixed but initially unknown temporal structure of
-stimulus features of interest, as well as an equally unknown confound structure.
-% annotation ftw
-In order to evaluate the suitability of the stimulus for the targeted analyses,
-and to inform the required hemodynamic models, we annotated the temporal
-structure of a range of stimulus features''.
+stimulus features of interest, as well as an equally unknown confound
+structure'' \citep{haeusler2021speechanno}.
 
 %
-Thus, modeling brain activity correlating with the stimulus features embedded in
-the time course is challenging \citep{saarimaki2021naturalistic,
-simony2020analysis} because such models rely on stimulus features being
-annotated.
+In order to build a model of hemodynamic activity, a researcher needs to a)
+inform the model about the time courses of events that are assumed to correlate
+with psychological and cognitive processes of interest, and b) model hemodynamic
+responses (e.g., as nuisance regressors in a \ac{glm}) that are correlated with
+the event structure of potentially confounding variables.
 
-``Model-driven methods, like the general linear model (GLM), which are based on
-stimulus annotations can be useful to test hypotheses on specific brain
-functions under more ecologically valid conditions, to statistically control
-confounding stimulus features, and to explain not just ``how'' the brain is
-responding to a stimulus but also ``why'' \citep{hamilton2018revolution}''
-\citep{haeusler2022processing}.\todo{Wegrzyn did not like that sentence}
 %
-However, the lack of extensive annotations has led to a ``usage bottleneck''
-\citep{aliko2020naturalistic} and might be the main reason why explicit models
-of task or stimulus are often ``prohibitively difficult'' to construct
-\citep{nastase2019measuring}.
+Hence, I created an extensive annotation of speech occurring in the movie and
+the audio-description.
 %
-The stimulus annotations need to be extensive for primarily two reasons:
+In general, the current annotation of speech extends the study forrest dataset
+as a public ressource for independent reasearch, and complements formerly
+published annotations of portrayed emotions \citep{labs2015portrayed}, perceived
+emotions \citep{lettieri2019emotionotopy}, as well as cuts and locations
+depicted in the movie \citep{haeusler2016cutanno}.
 %
-A researcher needs to a) inform a model about the time courses of events that
-are assumed to correlate with a psychological and cognitive processes of
-interest, and b) model hemodynamic responses (e.g., as nuisance regressors in a
-\ac{glm}) that are correlated with the event structure of potentially
-confounding variables.
+Specifically for this dissertation, the annotation of speech serves as the basis
+for the targeted analyses in study 2.
 
 
 \paragraph{what I did}
-% yeah, fuck it; I'll do it myself
-Hence, I created an annotation of speech occurring in the movie and the
-audio-description.
 % cloud-based annotations
 State of the art cloud-based speech-to-text services (Google Cloud, IBM Watson)
 fell short to deliver satisfactory scaffolds of an annotation.
@@ -521,12 +506,13 @@ extensively cleaned and extended both algorithmically as well as manually.
 %
 Consequently as planned, the annotation's content substantially exceeds the
 groundwork that was needed to conduct the study reported in Chapter 3 (s.
-\citep{haeusler2022processing}), and serves as an extension of the studyforrest
-project for public use:
+\citep{haeusler2022processing}), and contributes to the studyforrest project for
+public use:
 % content
-the annotation provides ``information about the exact timing of each of the more than 2500
-spoken sentences, 16000 words (including 202 non-speech vocalizations), 66000
-phonemes, and their corresponding speaker'' \citep{haeusler2021speechanno}.
+the annotation provides ``information about the exact timing of each of the more
+than 2500 spoken sentences, 16000 words (including 202 non-speech
+vocalizations), 66000 phonemes, and their corresponding speaker''
+\citep{haeusler2021speechanno}.
 %
 For every word, the annotation additionally provides ``lemmatization, a simple
 part-of-speech-tagging (15 grammatical categories), a detailed part-of-speech
@@ -537,24 +523,21 @@ semantic space'' \citep{haeusler2021speechanno}.
 
 \paragraph{Validation}
 
-\todo[inline]{sentences are still pretty similar to paper even if not marked as
-direct quote}
-
 % what we did
 We created a canonical \ac{glm} based on information drawn from the annotation
 to model hemodynamic brain activity to validate the dataset's quality.
 % results in line with previous studies
-Results revealed statistically significant increased hemodynamic activity in a
-bilateral cortical network including temporal, parietal and frontal regions
-related to processing spoken language.
+As hyphothesized, results revealed statistically significant increased
+hemodynamic activity in a bilateral cortical network including temporal,
+parietal and frontal regions related to processing spoken language.
 % results replicate
 Our exploratory analysis replicates results of studies that employed
 tightly-controlled stimuli (s. \citep{friederici2011brain,
 hickok2007cortical,price2012twentyyears} for reviews), and studies that employed
-data-driven methods to analyze \ac{fmri} data from naturalistic stimulus
-paradigms \citep{honey2012not, lerner2011topographic, silbert2014coupled}
+data-driven methods to analyze \ac{fmri} data from auditory naturalistic stimuli
+\citep{honey2012not, lerner2011topographic, silbert2014coupled}
 % "logic" inference
-Consequently, results suggest that the annotation's content and quality enables
+Consequently, results suggets that the annotation's content and quality enables
 independent ``researchers to model hemodynamic brain responses that correlate
 with a variety of aspects of spoken language'' \citep{haeusler2021speechanno}
 under more ecologically valid conditions.
@@ -566,50 +549,35 @@ adapted to our specific needs in study 2.
 \subsubsection{Processing of visual and non-visual naturalistic spatial
 information in the ``parahippocampal place area''}
 
+\todo[inline]{purpose of the AV (secondary) vs. AO (primary)}
+
+\todo[inline{do I have discussion / conclusions from the PPA paper here?}
+
+
+\paragraph{Intro}
 %
-If stimulus features driving localization in dedicated localizer experiments are
-also embedded in naturalistic stimuli, localization of the same / similar
-functional areas should also be possible by averaging those (heavily
-confounded?) events in a naturalistic stimulus that assumingly trigger the same
-/ similar brain process.
+If the stimulus classes that are correlated with hemodynamic responses during
+traditional paradigms that aim to localize the \ac{ppa} are also represented by
+stimulus features embedded in the movie ``Forrest Gump'' and its
+audio-description, it should be possible to average feature-related events in
+the naturalistic stimuli to localize the \ac{ppa}.
 
 %
-\paragraph{Aim}
-
+We investigated if/whether it is possible to localize a visual area, usually
+identified via a task-based functional localizer, via naturalistic stimuli.
 %
 The aim of this study was to compare how the medial temporal cortex of
 individuals respond to “geographically relevant events” in the  three different
 experimental paradigms.
-%
-Previous research suggest the existence of a ``parahippocampal place area'' [PPA;
-epstein1998ppa] in the human cortex.
-%
-The PPA exhibits increased BOLD activation
-when subjects passively view pictures of environmental stimuli like landscapes
-or rooms compared to other stimuli like tools or faces [Epstein et al., 1999].
-PPA and FFA in auditory speech \citep{aziz2008modulation}
-
-%
-A previous analysis \citep{hanke2016simultaneous} of the movie ``Forrest Gump''
-and its audio-description revealed significant correlations between \ac{bold}
-response time series of the two stimuli in spatially corresponding voxels of the
-ventral medial cortices (s. Figure 3 in \citep{hanke2016simultaneous}).
-%
-\todo[inline]{looking at Fig. 3 in \citep{hanke2016simultaneous} this statement
-is not true! So, what was the incentive to do it? Well, it's Florian Schulz'
-fault... ;-)}
-
-
-We investigated if/whether it is possible to localize a visual area, usually
-identified via a task-based functional localizer, via naturalistic stimuli.
 
 
 \paragraph{State of research}
-
+%
 Previous work on a group average level has shown that it is possible to combine
 \ac{bold} \ac{fmri} with naturalistic stimulation in order to localize brain
 areas whose increased hemodynamic activity is correlated with particular brain
 functions \citep{bartels2004mapping} [same sentence as above].
+
 %
 \citep{bartels2004mapping} annotated the occurrence and perceived intensity of
 colors, faces, language, and human bodies but, surprisingly, not scenes, in the
@@ -619,67 +587,53 @@ Hence, it is still ``kind of unclear'' is results from traditional paradigms
 that aim to localize the \ac{ppa} [needs (still?) to be defined above]
 generalize from pictures presented in blocks to results from a more ecologically
 valid stimuli like a movie.
-%
-It is still unclear is if these results generalize to the auditory domain
-\citep{aziz2008modulation}.
-
-``Increased hemodynamic activity in the PPA generalizes from pictures to mental
-imagery of landscapes \citep{ocraven2000mental}, haptic exploration of
-scenes constructed from LEGO blocks \citep{wolbers2011modality}, and
-scene-related sounds \citep{van2017development}.
-% % O'Craven: watching pictures
-In a study conducted by \citet{ocraven2000mental} participants viewed
-alternating blocks of pictures showing familiar places and famous faces during
-an initial experimental paradigm.
-% O'Craven: mental imagery
-In a subsequent paradigm, participants were instructed to ``form a vivid mental
-image'' of the previously viewed pictures.
-% O'Craven results
-The PPA showed increased activation during imagination of places compared to
-faces but the imagination task showed a smaller activation level compared to the
-perceptual task.
-% Wolbers: haptic exploration
-In a block design study conducted by \citet{wolbers2011modality} the PPA of
-sighted as well as blind participants showed increased activation during a
-delayed match-to-sample task of haptically explored scenes constructed from LEGO
-bricks compared to abstract geometric objects''.
-% Wolbers: connectivity analysis
-
-% Aziz (2008): place related sentences
-``To our knowledge only one study \citep{aziz2008modulation} compared hemodynamic
-activity levels in the PPA that were correlated with different semantic
-categories occurring in \textit{speech}.
-% Aziz' stimuli; ``The Taj Mahal faces a long thin reflecting pool'', ``Marilyn
-% Monroe has a large square jaw'', ``The television has a long antenna''
-\citet{aziz2008modulation} used sentences that described famous or generic
-places, faces, or objects.
-% Aziz' tasks:
-Participants were instructed to press a button whenever the sentence described
-an inaccurate or improbable fact (e.g. ``Marilyn Monroe has a large square
-jaw'').
-% Aziz' results:
-Activation in the left, but not right, PPA was significantly reduced when
-participants listened to place-related sentences compared to listening to
-face-related sentences. Moreover, this effect was only observed in sentences
-involving famous places.
-
-% summary if literature review
-Taken together, the literature suggests that the PPA does not exclusively
-respond to visually presented scene-related, spatial information''.
-
-% open question
-``In this study, we investigate whether increased hemodynamic activity in the PPA
-that is usually detected by contrasting blocks of pictures is also present under
-more natural conditions''.
 
 % #1 previous studies
 ``Several studies have reported increased hemodynamic activity in the PPA
 attributed to the processing of scene-related, spatial information, for example,
 when participants were watching static pictures of landscapes compared to
 pictures of faces or objects \citep{epstein1998ppa, epstein1999parahippocampal}.
+
+
+
+\paragraph{auditory PPA}
+
+
 % auditory semantics unclear
 However, reports regarding the correlates of processing spatial information in
 verbal stimulation are less clear \citep{aziz2008modulation}.
+%
+It is still unclear is if these results generalize to the auditory domain
+\citep{aziz2008modulation}.
+
+% Aziz (2008): place related sentences
+``To our knowledge only one study \citep{aziz2008modulation} compared
+hemodynamic activity levels in the PPA that were correlated with different
+semantic categories occurring in \textit{speech}.
+% Aziz' stimuli; ``The Taj Mahal faces a long thin reflecting pool'', ``Marilyn
+% Monroe has a large square jaw'', ``The television has a long antenna''
+\citet{aziz2008modulation} used sentences that described famous or generic
+places, faces, or objects.
+% Aziz' results:
+Activation in the left, but not right, PPA was significantly reduced when
+participants listened to place-related sentences compared to listening to
+face-related sentences. Moreover, this effect was only observed in sentences
+involving famous places.
+
+
+\paragraph{hence: open question}
+
+% open question
+``In this study, we investigate whether increased hemodynamic activity in the
+PPA that is usually detected by contrasting blocks of pictures is also present
+under more natural conditions''.
+% summary if literature review
+Taken together, the literature suggests that the PPA does not exclusively
+respond to visually presented scene-related, spatial information''.
+
+
+\paragraph{here we... (what we want to do)}
+
 % current study: similar
 In line with previous studies, we investigated the hemodynamic response to
 spatial information using a model-based, mass-univariate approach.
@@ -687,26 +641,7 @@ spatial information using a model-based, mass-univariate approach.
 However, instead of using a conventional set of stimuli, assembled to
 specifically and predominantly evoke the processing of spatial information, we
 employed naturalistic stimuli, a movie and its audio-description, that were
-designed for entertainment''.
-
-%#3 hypo
-``We hypothesized that due to the complex nature of the stimuli, unrelated factors
-would be balanced across a large number of events, and make the bias of spatial
-information accessible to a conventional model-based statistical analysis of BOLD
-fMRI data.
-% we need a detailed description -> annotation
-This model-driven approach required a detailed annotation of the occurrence of
-relevant stimulus features.
-% event counts ftw
-The annotation of both stimuli revealed the respective number of incidentally
-occurring events to be similar to those of a conventional experimental paradigm
-used to localize functional regions of interest''.
-
-%#4
-We modeled hemodynamic responses correlating with spatial information embedded
-in the naturalistic stimuli, capitalizing on conceptually similar, but
-perceptually different stimulation events.
-
+designed for entertainment'' \citep{haeusler2022processing}.
 
 % we use 2 naturalistic stimuli
 ``To answer this question, we operationalized the perception of both
@@ -720,46 +655,28 @@ Gump'' \citep{haeusler2016cutanno}, while
 % AD stimulus
 the operationalization of non-visual spatial perception is based on an
 annotation of speech occurring in the movie's audio-description
-\citep{haeusler2021studyforrest}.
+\citep{haeusler2021speechanno}.
 % pictures -> movie -> audio-description
 The movie stimulus shares the stimulation in the visual domain with classical
 localizer stimuli, while featuring real-life-like visual complexity and
 naturalistic auditory stimulation. The audio-description maintains the
 naturalistic nature of the movie stimulus, but limited to the auditory domain''.
 
-``% current GLM contrasts
-We applied model-based, mass-univariate analyses to BOLD fMRI data from both
-naturalistic stimuli \citep{hanke2016simultaneous, hanke2014audiomovie},
-available from the open-data resource
-\href{http://www.studyforrest.org}{studyforrest.org}.
-% comparison to previous GLM
-We compare current results to results of a previously performed model-based,
-mass-univariate analysis that was applied to data from a conventional functional
-localizer performed with the same set of participants
-\citep{sengupta2016extension}.
-% intro to hypo a
-Similarly to the functional localizer, we currently also capitalize on events
-that ought to evoke the cognitive processing of spatial information.
-% hypo a
-Thus, we hypothesized that our whole-brain analyses would reveal increased
-hemodynamic activity in medial temporal regions that were functionally
-identified as the PPA by the analysis of the localizer data.
-%hypo b: individuals
-We hypothesized further that a purely auditory stimulus could, in principle,
-localize the PPA as an example of a ``visual area'' in individual persons,
-% application in individuals
-and may offer an alternative paradigm to assess brain functions in visually
-impaired individuals.
+\paragraph{hypotheses}
 
-%
-``Based on an annotation of cuts in the movie and an annotation of speech spoken
-by the audio-description's narrator, we selected events in both stimuli that
-should correlate with the perception of spatial information and contrasted them
-with events that should correlate with non-spatial perception to a lesser
-degree, or not at all''.
-
-
-\paragraph{Hypotheses}
+%#3 hypo
+``We hypothesized that due to the complex nature of the stimuli, unrelated
+factors would be balanced across a large number of events, and make the bias of
+spatial information accessible to a conventional model-based statistical
+analysis of BOLD fMRI data.
+% we need a detailed description -> annotation
+This model-driven approach required a detailed annotation of the occurrence of
+relevant stimulus features.
+% event counts ftw
+The annotation of both stimuli revealed the respective number of incidentally
+occurring events to be similar to those of a conventional experimental paradigm
+used to localize functional regions of interest''
+\citep{haeusler2022processing}.
 
 % hypo a
 Thus, we hypothesized that our whole-brain analyses would reveal increased
@@ -773,10 +690,6 @@ and may offer an alternative paradigm to assess brain functions in visually
 impaired individuals.
 
 
-%
-If stimulus features of dedicated localizers that drive responses in the PPA are
-embedded in movie / audio drama, too -> PPA can be localized with dynamic
-stimulus via standard GLM
 %
 Similar to the results of the dedicated localizer using static pictures
 [sengupta2016extension], we expect, using the audio drama and movie, spatially
@@ -787,51 +700,6 @@ model - to happen at time points / events of the movie and audio drama that
 [might] trigger processes of “spatial scene perception” compared to time points
 / events that [probably] do not trigger spatial perception [or trigger to a less
 amount].
-
-\paragraph{What we did}
-
-``We model hemodynamic activity based on annotations of selected stimulus
-features,
-% VIS
-and compare results to a block-design visual localizer''.
-
-Similar to static pictures of dedicated localizers, we annotated “geographically
-relevant events” in the movie Forrest Gump and its corresponding audio drama
-that might trigger increased hemodynamic activity in the medial temporal cortex.
-%
-For the movie, we used a published annotation of cuts (that virtually relocate
-an observer in the movie’s environment) and the location depicted immediately
-after the cut [haeusler2016annotation].
-%
-For the audio drama, we annotated a transcript of every word spoken by the
-narrator. Whenever the narrator cued the observer about a scene change, about a
-scene’s or room’s spatial layout, about an object or a person, her/his face, we
-annotated that auditory cue as such.
-
-\todo[inline]{purpose of the AV (secondary) vs. AO (primary)}
-
-%
-Hence, we we operationalize the perception of spatial information that is
-embedded two naturalistic stimuli?
-%
-Compare our results to a classic visual localizer experiment that used blocks of
-pictures to results from naturalistic stimulus paradigms.
-%
-We operationalized the assumed perceptual process not just in a
-audio-visual movie but also in an exclusively auditory stimulus.
-% group
-Does increased hemodynamic activity in the PPA correlate with auditory spatial
-information (group-level)?
-% individuals
-Can we localize the PPA in individual persons using a more engaging \&
-entertaining, but also exclusively auditory stimulus
-
-\paragraph{How we did it}
-
-\todo[inline]{mention existing annotation}
-
-\todo[inline]{we did standard analysis and as similar as possible to Sengupta,
-esp. in study 2; we want to replicate results with naturalistic stimuli}
 
 To operationalize the perception of spatial information, we looked at time
 points in the stimuli that should correlate with the perception of spatial
@@ -868,8 +736,6 @@ categories (see Table [X] in \citep{haeusler2022processing}):
 %
 
 
-
-
 \todo[inline]{we extended the annotation of speech with the annotation of nouns}
 %
 For the audio-descriptions, we semantically categorized nouns spoken by the
@@ -883,7 +749,7 @@ create events from stimulus annotations;
 
 % AD annotation
 For the analysis of the audio-description stimulus, we extended a publicly
-available annotation of its speech content \citep{haeusler2021studyforrest} by
+available annotation of its speech content \citep{haeusler2021speechanno} by
 classifying concrete and countable nouns that the narrator uses to describe the
 movie's absent visual content.
 % annotation procedure
@@ -906,12 +772,70 @@ categories that had no counterpart in the visual localizer experiment (e.g.
 \texttt{geo}, \texttt{groom}, \texttt{male}, and \texttt{persons}).
 
 
+
+\paragraph{how we did it}
+
 %
-model hemodynamic responses;
+``Based on an annotation of cuts in the movie and an annotation of speech spoken
+by the audio-description's narrator, we selected events in both stimuli that
+should correlate with the perception of spatial information and contrasted them
+with events that should correlate with non-spatial perception to a lesser
+degree, or not at all''.
+
+%#4
+``We modeled hemodynamic responses correlating with spatial information embedded
+in the naturalistic stimuli, capitalizing on conceptually similar, but
+perceptually different stimulation events''.
+
+``% current GLM contrasts
+We applied model-based, mass-univariate analyses to BOLD fMRI data from both
+naturalistic stimuli \citep{hanke2016simultaneous, hanke2014audiomovie},
+available from the open-data resource
+\href{http://www.studyforrest.org}{studyforrest.org}.
+% comparison to previous GLM
+We compare current results to results of a previously performed model-based,
+mass-univariate analysis that was applied to data from a conventional functional
+localizer performed with the same set of participants
+\citep{sengupta2016extension}.
+% intro to hypo a
+Similarly to the functional localizer, we currently also capitalize on events
+that ought to evoke the cognitive processing of spatial information.
+
+``We model hemodynamic activity based on annotations of selected stimulus
+features,
+% VIS
+and compare results to a block-design visual localizer''.
+
+Similar to static pictures of dedicated localizers, we annotated “geographically
+relevant events” in the movie Forrest Gump and its corresponding audio drama
+that might trigger increased hemodynamic activity in the medial temporal cortex.
 %
-create contrast(s).
+For the movie, we used a published annotation of cuts (that virtually relocate
+an observer in the movie’s environment) and the location depicted immediately
+after the cut [haeusler2016annotation].
+%
+For the audio drama, we annotated a transcript of every word spoken by the
+narrator. Whenever the narrator cued the observer about a scene change, about a
+scene’s or room’s spatial layout, about an object or a person, her/his face, we
+annotated that auditory cue as such.
 
 
+
+%
+Hence, we we operationalize the perception of spatial information that is
+embedded two naturalistic stimuli?
+%
+Compare our results to a classic visual localizer experiment that used blocks of
+pictures to results from naturalistic stimulus paradigms.
+%
+We operationalized the assumed perceptual process not just in a
+audio-visual movie but also in an exclusively auditory stimulus.
+% group
+Does increased hemodynamic activity in the PPA correlate with auditory spatial
+information (group-level)?
+% individuals
+Can we localize the PPA in individual persons using a more engaging \&
+entertaining, but also exclusively auditory stimulus
 
 
 \paragraph{Results: where}
@@ -928,26 +852,26 @@ ventromedial cortex.
 There are responses in the parahippocampal cortex correlating with
 spatial information.
 
-``On a group level, increased activation correlating with visual spatial information
-occurring in the movie is overlapping with a traditionally localized PPA.
+``On a group level, increased activation correlating with visual spatial
+information occurring in the movie is overlapping with a traditionally localized
+PPA.
 % results: group AD
 Activation correlating with semantic spatial information occurring in the
 audio-description is more restricted to the anterior PPA.
 % results: individual AD
-On an individual level, we find significant bilateral activity in the PPA
-of nine individuals and unilateral activity in one individual''.
+On an individual level, we find significant bilateral activity in the PPA of
+nine individuals and unilateral activity in one individual''.
 
 % group AV
-``On a group-average level, results for the movie show significantly
-increased hemodynamic activity spatially overlapping with a conventionally
-localized PPA but also extending into earlier visual cortices.
+``On a group-average level, results for the movie show significantly increased
+hemodynamic activity spatially overlapping with a conventionally localized PPA
+but also extending into earlier visual cortices.
 % group AD
 Likewise, results for the audio-description identify significant activation in
 the PPA but restricted to its anterior part.
 % individual level
-Bilateral clusters in 9 of 14
-participants (of which \texttt{sub-04} shows only a right-lateralized PPA
-in the block-design localizer results), and a unilateral
+Bilateral clusters in 9 of 14 participants (of which \texttt{sub-04} shows only
+a right-lateralized PPA in the block-design localizer results), and a unilateral
 significant cluster in one participant, indicate that the group average results
 are representative for the majority of individual participants.
 % meaning: generalization to naturalistic stimuli
@@ -967,8 +891,9 @@ right cluster in two participants (\texttt{sub-04}, \texttt{sub-20})''.
 ``Results suggest that activation in the PPA generalizes to spatial information
 embedded in a movie and an auditory narrative''.
 
-
 \todo[inline]{natase 2016 is just a poster}
+
+
 
 %
 Localized functional regions of interest can be recovered from neural responses
@@ -981,6 +906,11 @@ very useful evaluation metric in this context [nastase2016localizing].
 False positives (i.e., voxels with similar response profiles to the target ROI)
 are localized to potentially meaningful structures
 [nastase2016localizing].
+
+
+\paragraph{Discussion}
+
+
 
 \paragraph{Conclusion}
 
