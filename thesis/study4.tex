@@ -1360,7 +1360,7 @@ Tests whether differences between prediction using anatomy and prediction using
 \subsubsection{show plots of brain slices?}
 
 \todo[inline]{talk during seminar showed (quick screenshot in FSL) from sub-04
-as an example}.
+as an example}
 
 %% We have these nice blurry EPI-images and all z-maps are threshold at a value of bigger than 2.3.
 
@@ -1782,6 +1782,104 @@ with data from a single fMRI using a naturalistic stimulus''
 \citep{jiahui2020predicting}.
 
 
+\section{Future research}
+
+\paragraph{Other functional areas}
+
+Again, data from the studyforrest project will be used to perform assessments
+analog to WP1e for a range of additional individually determined regions based
+on established localizer paradigms (Sengupta, et al., 2016).
+%
+These regions include: the \ac{ffa}, \ac{ppa}, and \ac{eba}  which are
+associated with face perception \citep{kanwisher1997ffa,
+pitcher2011occipitalfacearea}, scene perception \citep{epstein1998ppa}, and the
+perception of human bodies \citep{downing2001bodyarea}, respectively.
+
+``First, our brains directly process exogenous information about the external
+environment by transducing physical phenomena (e.g., changes in energy,
+molecular concentrations, etc.) into sensory perceptions that allow us to
+generate and maintain a sense of what is happening around us (1, 2). Mental
+representations that are directly driven by the external world are likely to be
+highly similar across individuals who share the same sensory experience. Second,
+our brains also process endogenous information that reflects our current
+internal homeostatic states, past experiences, and future goals (3). The
+integration of exogenous and endogenous informa- tion allows us to meaningfully
+interpret our surroundings, prioritize information that is relevant to our
+goals, and develop action plans (4). Given the same input information,
+individuals may have unique interpretations, feelings, and plans, often leading
+endogenous rep- resentations to be idiosyncratic across individuals''
+\citep{chang2021endogenous}.
+
+``Human brains have much in common with one another. Similarities exist not only
+at the anatomical level, but also in terms of functional organization. Given the
+same stimulus—an expanding ring, for example—regions of the brain that process
+sensory (visual) stimuli will respond in a highly predictable and similar manner
+across differ- ent individuals. This predictability is not limited to sensory
+systems: shared activity across people has also been observed in higher-order
+brain regions (for example, the default mode network6, or DMN) dur- ing the
+processing of semantically complex real-life stimuli such as movies and
+stories7–13. Notably, shared responses in these high-order areas seem to be
+associated with narrative content and not with the physical form used to convey
+it11,14,15. It is unknown, at any level of the cortical hierarchy, to what
+extent the similarity of human brains during shared perception is recapitulated
+during shared recollection. This prospect is made especially challenging when
+recall is spontane- ous and spoken, and the selection of details is left up to
+the remem- berer (rather than the experimenter), as is often the case in real
+life'' \citep{chen2017shared}.
+
+
+\subsubsection{other functional alignment algorithms?}
+
+``Nonetheless, it remains unclear how researchers should choose among the
+available functional alignment methods for a given research application''
+\citep{bazeille2021empirical}.
+
+\paragraph{connectivity based hyperalignment?}
+%
+It should be noted that the number of voxels that can be considered
+simultaneously for functional BOLD response time series alignment is limited by
+the number of timepoints in the calibration scan (about 300-400 voxels for a
+15min scan with a 2s TR, corresponding to a local cortical neighborhood of about
+1cm in diameter for a standard resolution).
+%
+This limitation does not exist in this form for a functional alignment that is
+based on connectivity vectors.
+%
+The length of these connectivity vectors is determined by the number of
+reference (or seed) regions in the brain.
+
+
+\section{Vision}
+
+\todo[inline]{IBC nennen}
+
+%
+Moreover, beyond the scope of this project the targeted homogenization of
+acquisition procedures will further the goal of large scale data collection for
+the purpose of producing a normative reference of brain function as measured by
+fMRI.
+%
+The availability of such a reference would enable quantitative and qualitative
+description of an individual's brain function with respect to such a norm, and
+consequently progress the field towards neuroimaging studies of individual
+differences that more closely resemble their psychological counterparts
+\citep{dubois2016building}.
+
+\subsection{Functional Atlas}
+
+``Characterizing this functional variability, particularly when considering the
+genetic level, ideally requires acquiring functional imaging data from hundreds
+of sub- jects and organizing these data into a large-scale database, together
+with genetic, behavioral and biomorphological data. Databasing and analysis of
+structural magnetic reso- nance images has already resulted in probabilistic
+ana- tomical atlases [Toga, 2001, Probabilistic approaches; Van Essen, 2002,
+Windows on the brain]. However, a similar large scale description of
+functional networks is still lacking'' \citep{pinel2007fast}.
+
+\citep{bazeille2019local}; who is quoting him?
+
+
+
 \subsection{Conclusion}
 
 
@@ -1792,45 +1890,34 @@ with data from a single fMRI using a naturalistic stimulus''
 % \href{https://gin.g-node.org/chaeusler/studyforrest-ppa-analysis}{\url{gin.g-node.org/chaeusler/studyforrest-ppa-analysis}}
 
 % new; PPA analysis
-All fMRI data, annotations, and results are available as Datalad \citep{datalad}
+All fMRI data and results are available as Datalad \citep{halchenko2021datalad}
 datasets, published to or linked from the \emph{G-Node GIN} repository
-(\href{https://gin.g-node.org/chaeusler/studyforrest-ppa-srm}{\url{gin.g-node.org/chaeusler/studyforrest-ppa-srm}}\citep{haeusler2021ppadata}).
+(\href{https://gin.g-node.org/chaeusler/studyforrest-ppa-srm}{\url{gin.g-node.org/chaeusler/studyforrest-ppa-srm}}).
 % original
 Raw data of the audio-description, movie and visual localizer were originally
 published on the \emph{OpenfMRI} portal
-(\url{https://legacy.openfmri.org/dataset/ds000113}\citep{Hanke2014ds000113},
-\space \url{https://legacy.openfmri.org/dataset/ds000113d}\citep{hanke2016ds000113d}).
+(\url{https://legacy.openfmri.org/dataset/ds000113}; \citep{Hanke2014ds000113},
+\space \url{https://legacy.openfmri.org/dataset/ds000113d};
+\citep{hanke2016ds000113d}).
 % visual localizer
 Results from the localization of higher visual areas are available as Datalad
-datasets at \emph{GitHub} (
-\href{https://github.com/psychoinformatics-de/studyforrest-data-visualrois}{\url{github.com/psychoinformatics-de/studyforrest-data-visualrois}}).
+datasets at \emph{GitHub}
+(\href{https://github.com/psychoinformatics-de/studyforrest-data-visualrois}{\url{github.com/psychoinformatics-de/studyforrest-data-visualrois}}).
 % raw data
-The realigned participant-specific timeseries that were used in the current
+The realigned participant-specific time series that were used in the current
 analyses were derived from the raw data releases and are available as Datalad
-datasets at \emph{GitHub} (\href{https://github.com/psychoinformatics-de/studyforrest-data-aligned}{\url{github.com/psychoinformatics-de/studyforrest-data-aligned}}).
-% cut annotation
-The annotation of cuts is available at \emph{F1000Research}
-(\href{https://doi.org/10.5256/f1000research.9536.d134823}{\url{doi.org/10.5256/f1000research.9536.d134823}}
-\citep{haeusler2016cutdata}),
-% speech annotation
-the annotation of speech is available at \emph{OSF}
-(\href{https://doi.org/10.17605/OSF.IO/F5J3E}{\url{doi.org/10.17605/OSF.IO/F5J3E}}
-\citep{haeusler2020speechdata}).
-% surface data
-Participant-specific reconstructed cortical surface are available as Datalad
-dataset at \emph{GitHub}
-(\href{https://github.com/psychoinformatics-de/studyforrest-data-freesurfer}{\url{github.com/psychoinformatics-de/studyforrest-data-freesurfer}}),
-and are also part of the original data release on \emph{OpenfMRI}
-(\url{https://legacy.openfmri.org/dataset/ds000113}\citep{Hanke2014ds000113}).
-
+datasets at \emph{GitHub}
+(\href{https://github.com/psychoinformatics-de/studyforrest-data-aligned}{\url{github.com/psychoinformatics-de/studyforrest-data-aligned}}).
+% OpenNeuro
 The same data are available in a modified and merged form on OpenNeuro at
-\url{https://openneuro.org/datasets/ds000113}.  Unthresholded $Z$-maps of all
-contrasts can be found at
+\url{https://openneuro.org/datasets/ds000113}.
+% NeuroVault for z-maps of SRM
+Unthresholded $Z$-maps of all contrasts can be found at
 \href{https://identifiers.org/neurovault.collection:12340}{\url{neurovault.org/collections/12340}}.
+
 
 \section*{Code Availability}
 
-Scripts to generate the results as Datalad \citep{datalad} datasets are
-available in a \emph{G-Node GIN} repository
-(\href{https://doi.org/10.12751/g-node.qmevq0}{\url{doi.org/10.12751/g-node.qmevq0}}\citep{haeusler2021ppa}).
-
+Scripts to generate the results as Datalad \citep{halchenko2021datalad} datasets
+are available in a \emph{G-Node GIN} repository
+(\href{https://gin.g-node.org/chaeusler/studyforrest-ppa-srm}{\url{gin.g-node.org/chaeusler/studyforrest-ppa-srm}}).
