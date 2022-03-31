@@ -82,27 +82,9 @@ a criterion that can be difficult to meet in clinical or pediatric populations.
 Another approach to reduce time and costs of individual diagnostics is to
 estimate the location of a functional area based on data collected in a
 reference group.
-%
-In order
-
-
 
 
 \subsubsection{Anatomical alignment}
-
-\todo[inline]{cite estimation papers that do not estimate PPA but others}
-
-\todo[inline]{most studies did binary estimation (voxel belongs to PPA or not),
-we estimate $Z$-maps!!! check that in other studies and make that point more
-clear in intro, method section, and discussion}
-
-\todo[inline]{estimation papers: \citep{
-    zhen2017quantifying,
-    frost2012measuring,
-    weiner2018defining,
-    rosenke2021probabilistic,
-    wang2015probabilistic}
-}
 
 A traditional procedure to estimate a person's functional topography from a
 reference group starts by anatomically aligning a person's structural and
@@ -121,6 +103,23 @@ In a second step, the most probable location of a functional area in a person's
 anatomy is then estimated by projecting functional data from persons in the
 reference group through the common anatomical space (i.e. the brain template)
 into the individual person's brain anatomy.
+
+
+\paragraph{Estimation of functional areas}
+
+\todo[inline]{cite estimation papers that do not estimate PPA but others}
+
+\todo[inline]{most studies did binary estimation (voxel belongs to PPA or not),
+we estimate $Z$-maps!!! check that in other studies and make that point more
+clear in intro, method section, and discussion}
+
+\todo[inline]{estimation papers: \citep{
+    rosenke2021probabilistic,
+    weiner2018defining,
+    zhen2017quantifying,
+    wang2015probabilistic,
+    frost2012measuring}
+}
 
 
 \paragraph{Functional-anatomical correspondence}
@@ -160,34 +159,39 @@ brett2002problem}]'' \citep{turek2017semi}.
 
 \subsubsection{Functional alignment (FA)}
 
-\todo[inline]{is additional step after ``rough'' anatomical alignment}
+\todo[inline]{other functional alignment procedures? ``Optimal Transport
+[Bazeille et al., 2019] with many variations thereof [see e.g. Xu et al. 2018;
+Yousefnezhad and Zhang 2017, among others] \citep{bazeille2021empirical}''}
 
-A more recent procedure to estimate a person's functional topography from a
-reference group first aligns structural and functional data to a common
-anatomical space. Then, the procedure additionally performs a \textit{functional
-alignment} to a \citep{common functional space} in order to resolve variability
-in functional-anatomical correspondence across persons.
+% intro
+Since anatomical alignment addresses the issue of anatomical variability but
+does not consider variability in functional-anatomical correspondence across
+subjects, methods of \textit{functional alignment} have been developed that aim
+to preserve functional idiosyncrasies across persons.
 
-
-\paragraph{intro}
-
-``We introduced a novel conceptual framework that models both the shared
-information encoded in fine-grained functional topographies and
-individual-specific topographic idiosyncrasies. This framework, ‘hyperalignment’
-[Chen et al., 2014; Chen et al., 2015; Guntupalli et al., 2018; Guntupalli et
-al., 2016; Haxby et al., 2011; Xu et al., 2012], encompasses a family of
+%
+Functional alignment approaches like \textit{hyperalignment}
+\citep{haxby2011common, guntupalli2016model} or the \textit{shared response
+model} \citep{chen2015reduced, zhang2016searchlight} are ``a family of
 computational algorithms that align shared information in a common,
 high-dimensional information space, rather than attempting to align functional
 topographies in the physical space of cortical anatomy to a canonical
 topography'' \citep{haxby2020hyperalignment}.
 
-``Hyperalignment derives from the term hyperspace, to convey the paradigm shift
-from modeling cortical functional architecture in a three-dimensional anatomical
-space to modeling the information encoded in functional architecture in a
-high-dimensional information space. This common information space captures the
-‘deep structure’ of shared information that is encoded in the variable ‘surface
-structure’ of idiosyncratic topographies in individual brains''
-\citep{haxby2020hyperalignment}.
+%
+``Functional alignment algorithms that are based on common temporal response
+profiles such as Hyperalignment [Haxby, 2011; Guntupalli, 2016] and the Shared
+Response Model (SRM) [Chen, 2016] ``attempt to remap regions across participants
+and can be highly effective at improving spatial alignment across people based
+on common functional responses while still maintaining individual differences
+[\citep{feilong2018reliable}]'' \citep{chang2021endogenous}.
+
+%
+Functional alignment algorithms align cortical anatomy of different subjects
+based on the maximization of the inter-subject similarity of \ac{bold} responses
+\citep{haxby2011common, chen2015reduced, sabuncu2010function} correlating with a
+time-locked external stimulation (e.g. movie or auditory narrative), or
+connectivity profiles \citep{feilong2018reliable, guntupalli2018computational}.
 
 ``Hyperalignment algorithms construct the common information space and calculate
 transformations that project individually-variable patterns of neural activity
@@ -200,64 +204,63 @@ and connectivity profiles – are remixed to support the same information
 structure with shared basis functions. Thus, in the conceptual frame- work of
 our computational model, the fundamental property of brain function that is
 preserved is information content, and the functional properties of local
-features that support that content are mutable and secondary
+features that support that content are mutable and secondary''
 \citep{haxby2020hyperalignment}.
 
 
-% intro
-Since anatomical alignment addresses the issue of anatomical variability but not
-functional variability across subjects, different methods of \textit{functional
-alignment} have been developed in order to preserve functional
-idiosyncrasies/topographies.
-
-% definition
-In principle, functional alignment procedures align brain activation patterns
-(time series or connectivity-patterns) based on their similarity to a
-high-dimensional \textit{common functional space}.
+\paragraph{the model space}
 %
-Functional alignment algorithms align cortical anatomy of different subjects
-based on the maximization of the inter-subject similarity of \ac{bold} responses
-\citep{haxby2011common, chen2015reduced, sabuncu2010function} correlating with a
-time-locked external stimulation (e.g. movie or auditory narrative), or
-connectivity profiles \citep{feilong2018reliable, guntupalli2018computational}.
-
-% examples of algorithms
-EXAMPLES of algorithms: ``From the initial introduction of hyperalignment in
-Haxby et al.  2011, the range of associated methods has grown to include Shared
-Response Modelling [SRM; Chen et al., 2015] and Optimal Transport [Bazeille et
-al., 2019] with many variations thereof [see e.g. Xu et al. 2018; Yousefnezhad
-and Zhang 2017, among others] \citep{bazeille2021empirical}''.
+``A major objective of the hyperalignment algorithm is to map the shared
+information originally found in idiosyncratic cortical topographies into a
+common space in which this information is better aligned across participants''
+\citep{busch2021hybrid}.
 
 %
-``Functional alignment algorithms that are based on common temporal response
-profiles such as Hyperalignment [Haxby, 2011; Guntupalli, 2016] and the Shared
-Response Model (SRM) [Chen, 2016] ``attempt to remap regions across participants
-and can be highly effective at improving spatial alignment across people based
-on common functional responses while still maintaining individual differences
-[\citep{feilong2018reliable}]'' \citep{chang2021endogenous}.
+``The dimensions of this common model capture functional profiles that are
+shared across individuals such as cortical response profiles collected during a
+common time-locked stimulus presentation (e.g. movie viewing) or functional
+connectivity profiles'' \citep{busch2021hybrid}.
+
+%
+Functional alignment can ``disentangle functional variability from anatomical
+variability'' \citep{feilong2018reliable} because the in the common model space
+``the same features (voxels or surface vertices) from different individuals will
+share similar functional properties instead of the same anatomical locations or
+topographic conformations'' \citep{feilong2018reliable}.
 
 
-\paragraph{Application: estimation of functional areas}
+\paragraph{the transformation matrices}
+%
+``Hyperalignment derives individual transformation matrices to project
+information encoded in idiosyncratic topographies into a common model
+information space. These matrices are derived based either on responses to a
+naturalistic stimulus, such as a movie, or on functional connectivity
+\citep{guntupalli2018computational}'' \citep{jiahui2020predicting}.
 
-\todo[inline]{that's the only use case now that gets mentioned}
 
-\todo[inline]{\citep{haxby2011common} used localizer for category decoding from
-VT (in voxel space)}
+\paragraph{Estimation of functional areas}
+
+%
+Hence, a more recent procedure to estimate a person's functional topography from
+a reference group first aligns structural and functional data to a common
+anatomical space. Then, in order to preserve functional idiosyncrasies across
+persons, the procedure additionally performs a \textit{functional alignment} to
+a higher-dimensional \textit{common functional space}.
+% estimation
+In the last step, the most probable location of a functional area in a person's
+anatomy is not estimated by projecting functional data from persons in the
+reference group through the common anatomical space but by projecting data
+thorough a common functional space into the individual person's brain anatomy.
+
+
+\paragraph{Estimation of functional areas: improved results}
+
+\todo[inline]{\citet{jiahui2020predicting}) estimates topography}.
 
 \todo[inline]{\citep{guntupalli2016model} in surface space; predict
 individual-specific topography; s. Supplementary Fig. 8}
 
-% intro
-An alternative approach, to individual localization has been proposed by
-\citet{haxby2011common}.
-%
-They (and e.g. \citet{jiahui2020predicting}) also predicted the location, form,
-and size of target brain areas in medial ventral temporal cortex from dedicated
-localizer scans of other individuals.
-%
-The key difference of this approach is to rely on similarity of representational
-geometry of brain activity patterns and aligning individual brains into a
-multi-dimensional functional group space, termed \ac{cms}.
+\todo[inline]{\citep{haxby2011common} used localizer for category decoding}
 
 %
 For example, \citet{haxby2011common, guntupalli2016model} have shown that
@@ -272,91 +275,34 @@ estimated from that subject's own localizer data than does a group average map
 based on anatomical normalization'' \citep{jiahui2020predicting}.
 
 
-\subsubsection{Hyperalignment}
-
-\todo[inline]{imo, hyperalignment can be dropped almost completely}
-
-%
-Hyperalignment, an algorithm that was pioneered by \citet{haxby2011common}, uses
-\ac{bold} response patterns to derive a \ac{cms} using a variant of Procrustes
-analysis and computes invertible (orthonormal) transformations from each
-individual brain's voxel-space into the \ac{cms}.
-
-%
-``Hyperalignment [Guntupalli et al., 2016, 2018; Haxby et al., 2011] is a family
-of methods that can disentangle functional variability from anatomical
-variability. Hyperalignment projects features (voxels or surface vertices) from
-a brain into a common high-dimensional space through linear transformations. In
-this common space, the same features from different individuals will share
-similar functional properties instead of the same anatomical locations or
-topographic conformations'' \citep{feilong2018reliable}.
-
-%
-``A major objective of the hyperalignment algorithm is to map the shared
-information originally found in idiosyncratic cortical topographies into a
-common space in which this information is better aligned across participants''
-\citep{busch2021hybrid}.
-
-%
-``The dimensions of this common model capture functional profiles that are
-shared across individuals such as cortical response profiles collected during a
-common time-locked stimulus presentation (e.g. movie viewing) or functional
-connectivity profiles'' \citep{busch2021hybrid}.
-
-%
-``Hyperalignment models shared information that is embedded in idiosyncratic
-cortical patterns across brains. Modeling shared information makes it possible
-to compare functional anatomy across brains at a fine spatial scale.
-Hyperalignment projects cortical pattern vectors into a common, high-dimensional
-information space [Haxby et al., 2020]. Derivation of this common space can be
-based on either neural response profiles (e.g. data collected during tasks, such
-as movie viewing (Haxby et al., 2011)) or functional connectivity profiles files
-[Guntupalli et al., 2018]'' \citep{busch2021hybrid}.
-
-%
-''Hyperalignment decomposes the original fMRI data of
-each individual into two parts: a transformation matrix, which reflects
-topographic properties of the individual's functional activations; and a new
-data matrix in the common space, which reflects shared, stimulus-driven
-responses. This hyperaligned data matrix provides an opportunity to study brain
-functions without confounds from topographic variability''
-\citep{feilong2018reliable}.
-
-%
-``Hyperalignment derives individual transformation matrices to project
-information encoded in idiosyncratic topographies into a common model
-information space. These matrices are derived based either on responses to a
-naturalistic stimulus, such as a movie, or on functional connectivity
-\citep{guntupalli2018computational}'' \citep{jiahui2020predicting}.
-
-
 \subsubsection{Shared response model}
 
 \paragraph{Intro}
 
-Another functional alignment algorithm is the Shared Response Model (SRM)
-\citep{chen2015reduced, richard2019fast}.
+Rough intro to SRM like that: In this dissertation we relied on the \ac{srm}
+\citep{chen2015reduced, richard2019fast} in order to estimate subject-specific
+$Z$-maps gained from visual localizer experiment that aimed to localize the
+\ac{ppa} from a reference group.
 
 %
-``In other implementations, the model space is reduced to capture shared
-information in a smaller number of dimensions and reduce noise or overfitting
-(Chen et al., 2015; Guntupalli et al., 2016; Haxby et al., 2011)''
-\citep{haxby2020hyperalignment}.
-
-``Chen et al., 2015 probabilistic approach, the Shared Response Model (SRM),
-pre-specifies a lower dimensionality for the common model, resulting, as noted
-above, in a warping of individual representational geometry that appears to
-filter out noise and reduce overfitting'' \citep{haxby2020hyperalignment}.
-
-%
-The unsupervised probabilistic latent-factor model decomposes fMRI responses
-time series of participants experiencing the same stimulus into a
-lower-dimensional space of shared feature time series and subject-specific
-orthogonal topographic transformation matrices \citep{kumar2020brainiak,
-cohen2017computational}.
+The \ac{srm} is am unsupervised probabilistic latent-factor model that
+decomposes fMRI responses time series of participants experiencing the same
+stimulus into a lower-dimensional space of shared feature time series and
+subject-specific orthogonal topographic transformation matrices
+\citep{kumar2020brainiak, cohen2017computational}.
 
 
 \paragraph{reduced-dimensional shared space}
+
+%
+The SRM approach ``pre-specifies a lower dimensionality for the common model,
+resulting, as noted above, in a warping of individual representational geometry
+that appears to filter out noise and reduce overfitting''
+\citep{haxby2020hyperalignment}.
+%
+``model space is reduced to capture shared information in a smaller number of
+dimensions and reduce noise or overfitting (Chen et al., 2015; Guntupalli et
+al., 2016; Haxby et al., 2011)'' \citep{haxby2020hyperalignment}.
 %
 ``These shared features do not correspond to individual voxels; rather, they are
 distributed across the full voxel space of each subject; each shared feature can
@@ -1802,6 +1748,16 @@ diffeomorphicity enforced during the local neighborhood fit''
 \todo[inline]{kind of a killer cause you do not need intersection of
 time series; but s. Guntupalli's paper: time series hyperalignment outperforms
 connectivity-based hyperalignment (?)}
+
+%
+``Hyperalignment models shared information that is embedded in idiosyncratic
+cortical patterns across brains. Modeling shared information makes it possible
+to compare functional anatomy across brains at a fine spatial scale.
+Hyperalignment projects cortical pattern vectors into a common, high-dimensional
+information space [Haxby et al., 2020]. Derivation of this common space can be
+based on either neural response profiles (e.g. data collected during tasks, such
+as movie viewing (Haxby et al., 2011)) or functional connectivity profiles files
+[Guntupalli et al., 2018]'' \citep{busch2021hybrid}.
 
 %
 ``Results showed that both CHA and RHA increased ISCs and bsMVPC classification
