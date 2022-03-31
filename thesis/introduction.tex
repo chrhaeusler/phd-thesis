@@ -6,6 +6,8 @@ of cortical regions for the processing of different types of information. Since
 the late 19th century, it has been recognized that restricted lesions of the
 human brain result in location-specific sensory, motor or cognitive deficits''
 \citep{cohen1994localization}.
+
+
 %
 Thanks to technological advanced, brain imaging studies have extensively used
 \ac{fmri} since the early 1990s to measure \ac{bold} activity in-vitro.
@@ -14,17 +16,20 @@ Thanks to technological advanced, brain imaging studies have extensively used
 brain's topographic organization (e.g., \citep{eickhoff2018topographic}) and
 attempts ``to specify in as much detail as possible the localisation of function
 in the human brain'' \citep{savoy2001history}.
-%
+% higher visual areas
 For example in the domain of higher-visual perception, replicated findings
-suggest that category-specific brain regions like the \ac{ppa}
+suggest that category-selective brain regions like the \ac{ppa}
 \citep{epstein1998ppa}, \ac{ffa} \citep{kanwisher1997ffa}), or the \ac{eba}
 \citep{downing2001bodyarea}) exhibit significantly increased \ac{bold} activity
 correlated with a ``preferred'' stimulus class.
 
+\todo[inline]{practical and statistical reason are kind of the same; population
+inference?}
 %
 Typical analyses of human brain mapping studies average data across subjects for
-practical (e.g., limited scan time per subject) or statistical (e.g., improved
-of \ac{snr}) reasons.
+practical (e.g., limited scan time per subject), statistical (e.g., improved
+of \ac{snr}) reasons, or to generalize from study subjects to a broader
+population.
 %
 Nevertheless, the precise anatomical location of functionally defined regions of
 the brain vary anatomically (measured in Talairach or MNI coordinates) across
@@ -45,9 +50,7 @@ essential for characterizing brain function in health and disease''
 %% extensive literature reviews.
 % a.k.a. "state of research"
 
-\todo[inline]{add IBC: https://project.inria.fr/IBC/publications}
-
-\todo[inline]{ggf. auch: https://github.com/Parietal-INRIA/DiFuMo}
+\todo[inline]{check: https://github.com/Parietal-INRIA/DiFuMo}
 
 % individual level: localizers
 On the level of individual subjects, \textit{functional localizer} experiments
@@ -62,12 +65,12 @@ subject-specific functional \acp{roi} to ``guide, constrain or interpret results
 from a main experiment \citep{saxe2006divide}.
 % clinical application
 They also promise to advance neuroimaging towards a clinical application (e.g.,
-diagnosis prior to neurosurgery) since it depends on making diagnoses for single
-cases \citep{wegrzyn2018thought}.\todo{check}
+diagnosis prior to neurosurgery) because ``in the clinical setting making
+diagnoses for single cases is imperative'' \citep{wegrzyn2018thought}.
 % purpose: neurosurgery
 For example, surgical procedures might impact the post-operative quality of life
-so much (e.g. concerning cognitive control or speech production) that a
-surgical intervention outweighs the therapeutic benefits.
+so much (e.g. concerning cognitive control or speech production) that a surgical
+intervention outweighs the therapeutic benefits.
 
 % one localizer = one domain of functions
 However, one localizer paradigm can usually map just one domain of brain
@@ -81,7 +84,8 @@ Since this approach becomes inefficient if one wants to map many different
 processes with limited resources (time, availability and applicability of
 diagnostic measures for an individual patient), researchers have developed more
 time-efficient, multi-functional \textit{localizer batteries}
-\citep{barch2013function, drobyshevsky2006rapid, pinel2007fast}.
+\citep{barch2013function, drobyshevsky2006rapid, pinho2018individual,
+pinho2020individual, pinel2007fast}.
 % localizer batteries: example
 For example, \citet{pinel2007fast} employs a range of dedicated stimuli and
 specific tasks in a 5-minute routine to map processes of ``auditory and visual
@@ -260,19 +264,53 @@ represent time-course of the correlating brain process}
 \todo[inline]{check \citep{poldrack2019establishment, yarkoni2017choosing}}
 
 %
-For that reason, this dissertation --- following a ``leave-one-out
-cross-validation`` procedure --- also explores whether just a part of a movie or
-auditory narrative can serve as a ``diagnostic'' run in order to estimate the
-location of the \ac{ppa} in an ``unknown'' subject's brain (i.e. a
-\textit{left-out subject} to test the prediction performance of our model) from
-a reference group (i.e. the study subjects providing the data to train our
-model).
+For that reason, this dissertation --- following a \ac{loocv} procedure --- also
+explores whether just a part of a movie or auditory narrative can serve as a
+``diagnostic'' run in order to estimate the location of the \ac{ppa} in an
+``unknown'' subject's brain (i.e. a \textit{left-out subject} to test the
+prediction performance of our model) from a reference group (i.e. the study
+subjects providing the data to train our model).
 
 \todo[inline]{add transition to alignment inferno}
 
 
 \subsection{Anatomical alignment}
 
+
+However, ``Anatomical variability and limited structure-function correspondence
+across cortex [Paquola et al., 2019, Microstructural and functional gradients;
+Vázquez-Rodríguez et al., 2019, Gradients of structure–function tethering...]
+make this goal challenging [Rademacher et al., 1993, Topographical Variation of
+the Human Primary Cortices; Thirion et al., 2006, Dealing with the shortcomings
+of spatial normalization]'' \citep{bazeille2021empirical}.
+
+%
+``Even after state-of-the-art anatomical normalization to a standard space, we
+still observe differences in individual-level functional activation patterns
+that hinder cross-subject comparisons [Langs et al., 2010, Functional geometry
+alignment and localization; Sabuncu et al., 2010, Function-based intersubject
+alignment]'' \citep{bazeille2021empirical}.
+
+%
+Works better with basic perception, less (if at all) with cognition: ``more
+sophisticated strategies for registering individual brains to an average
+cortical surface provide better alignment across subjects for retinotopic visual
+areas [Fischl et al., 1999], but they do not do much better than Talairach
+co-ordinates for category-selective regions in the temporal lobe [Spiridon et
+al., 2005]'' \citep{saxe2006divide}.
+
+%
+``cortical folding-based inter-subject alignment [Fischl et al., 1999,
+Inflation, flattening; Yeo et al., 2010, Spherical demons] has been shown to
+somewhat reduce functional mismatch [\citep{klein2010evaluation,
+frost2012measuring}] [but see \citep{langers2014assessment}]''
+\citep{dubois2016building}.
+
+%
+``Variability in functional-anatomical correspondence across individuals means
+that even high-performing anatomical alignment does not ensure fine-grained
+functional alignment [e.g., \citet{frost2012measuring}]''
+\citep{kumar2020brainiak}.
 
 \subsection{Functional alignment}
 
