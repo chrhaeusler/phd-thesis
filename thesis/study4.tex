@@ -185,7 +185,7 @@ co-ordinates for category-selective regions in the temporal lobe
 \subsubsection{Functional alignment (FA)}
 
 \todo[inline]{I introduce the term ``common functional space'' as an umbrella
-term for common model space (hyperalingment) and shared feature space / shared
+term for common model space (hyperalignment) and shared feature space / shared
 response model (SRM)}
 
 \paragraph{Explanation of functional alignment}
@@ -225,22 +225,31 @@ anatomical space.
 
 \paragraph{works better with naturalistic stimuli}
 
-\todo[inline]{does not fit in here; but needs to be mentioned somewhere}
-
-\todo[inline]{check \citet{guntupalli2016model, haxby2011common}, again...}
+\todo[inline]{does not really fit in here; but needs to be mentioned somewhere}
 
 %
 Functional alignment based on response time series can be applied to fMRI data
 from paradigms with simplified stimuli, but it has been shown that data from
 naturalistic stimuli provide increased validity of common functional space and
-increased generalizability of transformation matrices [to what?], presumably
-because such experiments sample a broader range of brain states
-\citep{haxby2011common, guntupalli2016model}.
+increased generalizability of transformation matrices to novel stimuli or tasks,
+presumably because naturalistic stimulus paradigms sample a broader range of
+brain states \citep{haxby2011common, guntupalli2016model}.
+
+\todo[inline]{check \citet{guntupalli2016model, haxby2011common} for phrasing}
+
+e.g. \citet{guntupalli2016model}: ``The algorithm also can be applied to
+simpler, controlled experimental data, but our previous results showed that the
+sampling of response vectors from these experiments is impoverished and produces
+a model representational space that does not generalize well to new stimuli in
+other experiments (Haxby et al.  2011). Results show that the computational
+principles underlying this common model have broad general validity for
+representational spaces in occipital, temporal, parietal, and frontal cortices''
+\citep{guntupalli2016model}.
 
 
 \paragraph{Estimation via functional alignment (=current use case)}
 
-\todo[inline]{streamline procedures of estimation via anatomical und functional
+\todo[inline]{streamline procedures of estimation via anatomical \& functional
 alignment; use same phrasing in both parts}
 
 %
@@ -258,88 +267,87 @@ through a common functional space into the individual person's brain anatomy.
 
 \paragraph{studies that estimated functional areas using functional alignment}
 
-\todo[inline]{report length / no. of samples used for alignment of left-out
-subjects}
+\todo[inline]{imo, explaining just one example \citet{jiahui2020predicting} is
+enough}
 
-%
-For example, \citet{haxby2011common, guntupalli2016model} have shown that
-``idiosyncratic topographies for category-selectivity and retinotopy can be
-estimated in individual brains with high fidelity using hyperalignment to
-project other subjects' functional localizer data into a target subject's
-ventral temporal and occipital cortical anatomy'' \citep{jiahui2020predicting}
-using (half) of the audio-visual movie Grand Budapest Hotel ($\sim$50 min; 1s
-repetition time) and Forrest Gump ($\sim$120m; 2s repetition time)
-\citep{hanke2016simultaneous}.
-%
-``In this study we demonstrate that a subject’s idiosyncratic functional
-topography can be estimated with high fidelity from that subject’s fMRI data
-obtained while watching a naturalistic movie using hyperalignment to project
-other subjects’ localizer data into that subject’s idiosyncratic cortical
+\todo[inline]{shorten}
+
+Previous studies \citep{jiahui2020predicting, guntupalli2016model,
+haxby2011common} have shown that ``idiosyncratic topographies for
+category-selectivity and retinotopy can be estimated in individual brains with
+high fidelity using hyperalignment to project other subjects' functional
+localizer data into a target subject's ventral temporal and occipital cortical
 anatomy'' \citep{jiahui2020predicting}.
+%
+For example, \citep{jiahui2020predicting} used hyperalignment to create a common
+functional space and transformation matrices based on data from a) the movie
+``Grand Budapest Hotel'' ($\sim$50 min; 1s repetition time), and b) Forrest Gump
+($\sim$120m; 2s repetition time) \citep{hanke2016simultaneous}.
 %
 Their ``findings show that individually-tailored maps estimated from other
 subjects’ data after hyperalignment correlate much more highly with maps
 estimated from that subject's own localizer data than does a group average map
 based on anatomical normalization'' \citep{jiahui2020predicting}.
-
 %
-``Here, we show that precise mapping of functional topographies in a new subject
+They showed ``that precise mapping of functional topographies in a new subject
 can be achieved using hyperalignment and a database of movie and localizer data
 from other subjects'' \citep{jiahui2020predicting}.
+%
+Their results demonstrate ``that a subject's idiosyncratic functional topography
+can be estimated with high fidelity from that subject's fMRI data obtained while
+watching a naturalistic movie using hyperalignment to project other subjects'
+localizer data into that subject's idiosyncratic cortical anatomy''
+\citep{jiahui2020predicting}.
 
 
 \subsection{Here, we...}
 
 
-\subsubsection{Intro}
+\subsubsection{Overview of 2-3 sentences}
 
 % summary in one sentence
 Here, we estimate the results (statistical $Z$-maps) of a visual localizer
 paradigm in one subject (i.e. the ``test subject'') based on data from other
 subjects (i.e. the ``training subjects'').
 %
-Focussing on the \ac{ppa}, we compare the prediction performance of a
-volume-based, anatomical alignment procedure to a volume-based, functional
+Focussing on the \ac{ppa} as a \ac{roi}, we compare the prediction performance
+of a volume-based, anatomical alignment procedure to a volume-based, functional
 alignment procedure.
 
 \todo[inline]{...and evaluate the necessary length needed}
+
+
+\subsubsection{Shared response model}
 
 %
 We employ the \ac{srm} \citep{chen2015reduced, richard2019fast} in order to
 estimate subject-specific $Z$-maps gained from visual localizer experiment that
 aimed to localize the \ac{ppa} from a reference group.
 
-
-\subsubsection{Shared response model}
-
 %
 The \ac{srm} is an unsupervised probabilistic latent-factor model that
-decomposes \ac{fmri} responses time series of participants experiencing the same
-stimulus into a lower-dimensional space of shared feature (i.e. the common
-functional space) and subject-specific orthogonal topographic transformation
-matrices \citep{kumar2020brainiak, cohen2017computational}.
-
+decomposes \ac{bold} \ac{fmri} responses time series of participants
+experiencing the same stimulus into a lower-dimensional space of shared feature
+(i.e. the common functional space) and subject-specific orthogonal topographic
+transformation matrices \citep{kumar2020brainiak, cohen2017computational}.
 %
-The \ac{srm} approach warps individual representational geometry into a common
-functional space of pre-specified lower dimensionality and appears to filter out
-noise and reduces overfitting [kind phrasing from
-\citep{haxby2020hyperalignment}].
-%
-The dimensions do not correspond to individual voxels but \textit{shared
-features} that can be understood as a weighted sum of many voxels distributed
-across the full voxel space of each subject
+The dimensions of the common model space do not correspond to individual voxels
+but \textit{shared features} that can be understood as a weighted sum of many
+voxels distributed across the full voxel space of each subject
 \citep{kumar2020brainiak}.
 %
-The subject-specific transformation matrices perform a mapping from each
-specific's idiosyncratic voxel space into the shared feature space
-\citep{kumar2020brainiak, cohen2017computational}.
+In contrast to hyperalignment, the number of dimensions of the shared feature
+space is not set by the number of voxels (or surface vertices) but pre-specified
+by the researcher, a procedure that filters out noise and reduces overfitting
+\citep{chen2015reduced}.
 %
-``The learned subject-specific topographic bases can be used to project test
-data into the shared space. This projection functionally aligns the test data''
-\citep{kumar2020brainiak}.
+As in hyperalignment, subject-specific transformation matrices perform the
+mapping (i.e. the functional alignment) from each subject's idiosyncratic voxel
+space into the common functional space \citep{kumar2020brainiak,
+cohen2017computational}.
 % transpose
-The transpose of the matrix can be used to map data from shared space into
-a subjects' anatomy.
+The transpose of the matrix can be used to map data from shared space into a
+subjects' anatomy.
 
 
 \paragraph{the math shit}
@@ -370,30 +378,36 @@ feature time-series in a $k$-dimensional shared space''
 
 \todo[inline]{I am confused, we have leave-one-out but k-folds?}
 
-% creating the shared feature space
-Following a k-fold leave-one-subject-out cross-validation, we compute a shared
-response model for every test subject based on publicly available fMRI data
-\href{www.studyforrest.org}{studyforrest.org} of training subjects participating
-in the visual localizer paradigm \citep{sengupta2016extension} but also watching
-a Hollywood \citep{hanke2016simultaneous} movie and listening to the movie's
-audio-description \citep{hanke2014audiomovie}.
+\todo[inline]{still bumpy}
 
-\todo[inline]{does following make sense at all? if, I'll write it better}
+% creating the shared feature space
+In the current study, we use publicly available fMRI data
+\href{www.studyforrest.org}{studyforrest.org} of subjects (N=14) participating
+in a visual localizer paradigm \citep{sengupta2016extension} but also watching a
+Hollywood \citep{hanke2016simultaneous} movie and listening to the movie's
+audio-description \citep{hanke2014audiomovie} in order to derive the common
+functional space.
 %
-Results of our previous study suggest that the movie and the audio-description
-of Forrest Gump also sample the response vector space of ``spatial responses''
-time-locked across subjects similarly to the visual localizer.
+Results of our previous study suggest \citep{haeusler2022processing} that the
+movie and the audio-description of Forrest Gump also sample the response vector
+space of ``spatial responses'' time-locked across subjects similarly to the
+visual localizer.
+%
+Following a k-fold leave-one-subject-out cross-validation, we compute a common
+functional space from N-1 test subjects and use the subject-specific
+transformation matrices to project the results of the visual localizer contrast
+aimed at localizing the \ac{ppa} (s. \citet{sengupta2016extension} into the
+common functional space.
 % align left-out subject
 Assuming that the naturalistic stimuli would trigger, among others, brain
 responses that are similar to those triggered by the functional localizer, we
-used time series data of the naturalistic stimuli to align the left-out subject
-to the fixed common functional space.
+then used time series data of the naturalistic stimuli to align the left-out
+test subject to the fixed common functional space.
 % project into common functional space
-All other subjects' data of functional localizer are projected into the shared
-feature space.
-%
-Finally, we projected from the common functional space into a left-out subject's
-cortical anatomy
+This alignment procedure of the test subject to the common functional space
+provides a transformation matrix whose transpose we use to project
+the functional localizer results from the common functional space into the test
+subject's voxel space.
 
 
 \paragraph{partial alignment}
@@ -419,6 +433,7 @@ outperform a prediction based on an anatomical alignment.
 
 \paragraph{model validation; within experiment estimation}
 
+\todo[inline]{well, it is interesting but not super necessary to test}
 \todo[inline]{imo, it's too much to mention it here}
 \todo[inline]{but mention in method, results (plots?!), discussion ?}
 \todo[inline]{adjust scripts and plot it, too}
@@ -453,140 +468,68 @@ anatomical alignment.
 \subsection{Summary of results}
 
 %
-``Results expands previous analysis from ventral temporal cortex to the whole
-cortex, showing strong correlations of face-selectivity topographic maps derived
-from a subject's own localizer data with maps derived from other subjects'
-localizer data projected into that subject's cortical anatomy. Both the two-step
-algorithm and the new one-step algorithm, which we introduce here, produce
-high-fidelity, individualized topographic maps, but the new one-step algorithm
-maps were superior'' \citep{jiahui2020predicting}.
+cf. \citep{jiahui2020predicting}: ``Results show strong correlations of
+face-selectivity topographic maps derived from a subject's own localizer data
+with maps derived from other subjects' localizer data projected into that
+subject's cortical anatomy. Both the two-step algorithm and the new one-step
+algorithm, which we introduce here, produce high-fidelity, individualized
+topographic maps, but the new one-step algorithm maps were superior''
+\citep{jiahui2020predicting}.
 
 
 \subsection{Vision}
 
-\todo[inline]{smallish text should be enough here}
-
-
-\subsubsection{Naturalistic stimulus as multiple localizer}
-
 \todo[inline]{cf. general introduction}
 
-\paragraph{Validity \& generalizability}
+\todo[inline]{smallish text should be enough here}
 
-\todo[inline]{generalizability: scan once, estimate many}
-% from project proposal
-Naturalistic stimuli promise an ``increased validity of derived transformation
-for functional alignment by sampling a more diverse set of mental states that
-reflect (confound) statistics of the natural environment, and enable
-investigation of the acquired data for a variety of research questions (e.g.
-visual or auditory perception, spatial cognition; emotion; music, speech or
-social perception)'' [project proposal].
-
-% from Haxby 2020
-``Estimating the parameters to transform high-dimensional spaces from individual
-brains into a common high-dimensional space requires a rich set of data that
-samples a wide variety of cortical patterns in order to generalize to novel
-stimuli or tasks. For response hyperalignment, a rich variety of stimuli or
-conditions are necessary to sample the response vector space. For connectivity
-hyperalignment, the sampling of connectivity vector space is defined by the
-selection of connectivity targets, but the richness and reliability of
-connectivity estimates depends on the variety of brain states over which
-connectivity is estimated'' \citep{haxby2020hyperalignment}.
-
-
-\paragraph{additional benefit: compliance}
-%
-``As a rule of thumb, SRM will improve sensitivity for detecting a cognitive
-process of interest in the test data if the training stimuli or trials strongly
-and variably engage that process in a way that is reliable across participants''
-\citep{cohen2017computational}.
+Our results suggest that ``scan once, estimate many''.
 
 %
-``Movies are more engaging and result in better compliance
-\citep{vanderwal2015inscapes}. Movie viewing can also be used in subject
-populations, such as children \citep{richardson2018development} or patients,
-that may have trouble maintaining attention during repetitions of a tedious
-localizer task'' \citep{jiahui2020predicting}.
-
-%
-``Movies engage multiple brain systems in parallel. From a single movie dataset
-multiple functional topographies can be estimated (Guntupalli et al., 2016),
-whereas different localizers are typically required to map different functional
-topographies, making a thorough mapping of selective topographies
-time-consuming and inefficient. Movies also simulate better the statistics of
-natural viewing and listening and may provide more ecologically valid maps.
-Analogously, the introduction of dynamic videos of faces and control categories
-to localize face-selective topographies provides more reliable maps and better
-estimate the extent of face-selective regions than do localizers with still
-image stimuli (Fox et al., 2009; Pitcher et al., 2011). Similarly, naturalistic
+From \citet{jiahui2020predicting}'s introduction: ``Movies engage multiple brain
+systems in parallel. From a single movie dataset multiple functional
+topographies can be estimated (Guntupalli et al., 2016), whereas different
+localizers are typically required to map different functional topographies,
+making a thorough mapping of selective topographies time-consuming and
+inefficient. Movies also simulate better the statistics of natural viewing and
+listening and may provide more ecologically valid maps. [...] Naturalistic
 stimuli may better sample the full range of responses to faces and other stimuli
 that contribute to face-selective topographies'' \citep{jiahui2020predicting}.
-
-\paragraph{in general}
-
-Last paragraph of \citet{jiahui2020predicting}'s introduction: ``These results
-lay a foundation for building a computational tool with a database that could
-allow others to map multiple functional topographies in new subjects using only
-data collected during movie viewing. Functional localizers are inefficient
-because they only estimate one or a few topographies for each localizer. Movies,
-by contrast, engage in parallel multiple neural systems for vision, audition,
-language, person perception, social cognition, and other functions.
-Consequently, movies have the potential to estimate selective topographies in
-all of these do- mains. Such a tool would require a database of data for movies
-and a range of functional localizers in a normative group of subjects. A new
-subject’s functional topographies could be estimated based only on that
-subject’s movie data and other subjects’ localizer data from the normative
-database that could be projected into that subject’s cortical anatomy using
-hyperalignment transformation matrices derived from movie data. Such a resource
-would be more efficient and replace tedious functional localizers with an
-engaging movie and could enable mapping of multiple functional topographies with
-data from a single fMRI using a naturalistic stimulus''
+%
+``These results lay a foundation for building a computational tool with a
+database that could allow others to map multiple functional topographies in new
+subjects using only data collected during movie viewing. Functional localizers
+are inefficient because they only estimate one or a few topographies for each
+localizer. Movies, by contrast, engage in parallel multiple neural systems for
+vision, audition, language, person perception, social cognition, and other
+functions.  Consequently, movies have the potential to estimate selective
+topographies in all of these domains. Such a tool would require a database of
+data for movies and a range of functional localizers in a normative group of
+subjects. A new subject's functional topographies could be estimated based only
+on that subject's movie data and other subjects' localizer data from the
+normative database that could be projected into that subject's cortical anatomy
+using hyperalignment transformation matrices derived from movie data. Such a
+resource would be more efficient and replace tedious functional localizers with
+an engaging movie and could enable mapping of multiple functional topographies
+with data from a single fMRI using a naturalistic stimulus''
 \citet{jiahui2020predicting}.
-
-``The algorithm also can be applied to simpler, con- trolled experimental data,
-but our previous results showed that the sampling of response vectors from these
-experiments is impoverished and produces a model representational space that
-does not generalize well to new stimuli in other experiments (Haxby et al.
-2011). Results show that the computational principles underlying this common
-model have broad general validity for representational spaces in occipital,
-temporal, parietal, and frontal cortices'' \citep{guntupalli2016model}.
 
 
 \section{Methods}
 
-\todo[inline]{mih: braucht nicht wie Standalone-Paper geschrieben werden; statt
-Kopien der "Participants" etc, einfach sagen, dass es die gleichen Daten sind
-bzw. was abweicht; insbesondere keinen Overlap mit den anderen papers
-herstellen}
-
-\todo[inline]{mih: Eindruck vermeiden, dass das Kapitel aufgeblasen ist; wir
-wollen, ist zu zeigen, wie es weiter geht und ging, nachdem Paper draussen
-waren; optimaler Eindruck ist der eines Forschungsprogramms in voller Fahrt}
+\todo[inline]{okay, it's pretty rigorously shortened now; I hope it's okay and
+nothing that should urgently be mentioned is missing}
 
 % we get the data from the naturalistic PPA paper (its subdataset)
 % datalad get -n inputs/studyforrest-ppa-analysis/inputs/studyforrest-data-aligned
 % datalad get inputs/studyforrest-ppa-analysis/inputs/studyforrest-data-aligned/sub-??/in\_bold3Tp2/sub-??\_task-a?movie\_run-?\_bold*.*
 
-\todo[inline]{following phrasing is almost identical to PPA-Paper}
-
-
-% input data
-We spliced the data together: ``Naturalistic stimuli such as movies and stories
-are often used to generate such training data, though any study design in which
-participants perform the same sequence of trials—or for which a common sequence
-can be spliced together from the same set of trials—could be used (for example,
-a battery of cognitive tasks)'' \citep{cohen2017computational}
-
 % reference to PPA-Paper
-As in study 2, we
+For the current study, we used the same subset of the
+\href{http://www.studyforrest.org}{studyforrest.org} dataset that was used in
+study 2 \citep{haeusler2022processing}:
 %
-used components of the publicly available
-\href{http://www.studyforrest.org}{studyforrest.org} dataset that has been
-repeatedly used by other research groups in independent studies
-(\citep[e.g.,][]{ben2018hippocampal, jiahui2020predicting, hu2017decoding,
-lettieri2019emotionotopy, nguyen2016integration}).
-% used studies
-The same participants were
+the same fourteen subjects were
 % VIS
 a) participating in a dedicated six-category block-design visual localizer
 \citep{sengupta2016extension}.
@@ -594,298 +537,60 @@ a) participating in a dedicated six-category block-design visual localizer
 b) watching the audio-visual movie \citep{hanke2016simultaneous}, and
 % AD
 c) listening to the audio-description \citep{hanke2014audiomovie} of the movie
-``Forrest Gump'',
+``Forrest Gump''.
 % see corresponding papers for details
 An exhaustive description of the participants, stimulus creation, procedure,
 stimulation setup, and fMRI acquisition can be found in the corresponding
-publications. Following is a summary of the most important aspects.
+publications, whereas a summary is provided in \citep{haeusler2022processing}.
 
-
-\subsection{Participants}
-
-\todo[inline]{following phrasing is almost identical to study2}
-% VIS study
-In the block-design localizer study \citep{sengupta2016extension}, 15
-participants took part in a six-category block-design visual localizer.
-% AV study
-In the movie study \citep{hanke2016simultaneous}, the same 15 participants
-(21–39 years, mean age 29.4, six female), watched the audio-visual movie
-``Forrest Gump'' \citep{ForrestGumpMovie} with dubbed German audio track
-\citep{ForrestGumpDVD}.
-% AD study
-In the audio-description study \citep{hanke2014audiomovie}, 20 German native
-speakers (all right-handed, age 21–38 years, mean age 26.6 years, 12 male), of
-whom 15 participants also took part in the localizer and movie study, listened
-to the German audio-description \citep{ForrestGumpGermanAD} of the movie.
-% participants' health
-All participants reported to have normal hearing, normal or corrected-to-normal
-vision, and no known history of neurological disorders.
-% compensation, consent and shit
-In all studies, participants received monetary compensation and gave written
-informed consent for their participation and for public sharing of obtained data
-in anonymized form. The studies had prior approval by the Ethics Committee of
-Otto-von-Guericke University of Magdeburg, Germany.
-
-
-\subsection{Stimuli and procedure}
-
-\todo[inline]{following phrasing is almost identical to PPA-Paper}
-
-\subsubsection{Functional localizer}
-
-% VIS study picture categories
-Stimuli for the block-design localizer study were 24 unique grayscale images of
-faces, bodies, objects, houses, outdoor scenes and scrambled images, matched in
-luminance and size, that were previously used in other studies
-\citep[e.g.,][]{haxby2011common}.
-% procedure: presentation & instructions
-Participants performed a one-back image matching task for four block-design
-runs, with two \unit[16]{s} blocks per stimulus category in each run.
-%
-For details on stimulus creation and presentation see
-\citet{sengupta2016extension}.
-
-
-\subsubsection{Naturalistic stimuli}
-% AD & AV stimulus name & references
-The German DVD release \citep{ForrestGumpDVD} of the movie ``Forrest Gump''
-\citep{ForrestGumpMovie} and its temporally aligned audio-description
-\citep{ForrestGumpGermanAD} served as naturalistic stimuli, with an approximate
-duration of two hours, split into eight consecutive segments of
-\unit[$\approx$15]{minutes}.
-% AD: additional narrator
-The audio-description adds another male narrator to the voice-over narration of
-the main character Forrest Gump. This additional narration describes essential
-aspects of the visual scenery when there is no off-screen voice, dialog, or
-other relevant auditory content.
-% task
-For all sessions with naturalistic stimuli, participants were instructed to
-inhibit physical movements except for eye-movements, and otherwise to simply
-``enjoy the presentation''.
-%
-For details on stimulus creation and presentation see
-\citet{hanke2014audiomovie, hanke2016simultaneous}.
-
-
-\subsection{Stimulation setup}
-
-\todo[inline]{following phrasing is almost identical to PPA-Paper}
-
-% instructions and distance; screen size \unit[23.75 $\times$ 10.25]{cm}
-In the block-design localizer, movie study, and audio-description study, visual
-instructions were presented on a rear-projection screen inside the scanner bore
-at a viewing distance of \unit[63]{cm}.
-%
-Stimulus images of the localizer paradigm were displayed at a size of
-approximately \unit[10]$^{\circ}$ $\times$ \unit[10]$^{\circ}$ of visual angle.
-%
-Movie frames of the movie paradigm were displayed at a size of approximately
-\unit[21.3]$^{\circ}$ $\times$ \unit[9.3]$^{\circ}$.
-% AD
-During the functional scans of the audio-description study, the projector
-presented a medium gray screen with the primary purpose to illuminate a
-participant's visual field in order to prevent premature fatigue.
-% AD & AV: auditory stimulation
-Auditory stimulation was implemented using custom in-ear (audio-description), or
-over-the-ear headphones (movie), which reduced the scanner noise by at least
-\unit[20–30]{dB}.
-
-
-\subsection{fMRI data acquisition}
-%
-\todo[inline]{following phrasing is almost identical to PPA-Paper}
-% AV & VIS
-In the block-design localizer and the movie study, a \unit[3]{Tesla} Philips
-Achieva dStream MRI scanner with a 32 channel head coil acquired gradient-echo
-fMRI data at \unit[2]{s} repetition time with
-% slices
-35 axial slices (thickness \unit[3.0]{mm}, \unit[10]{\%} inter-slice gap) with
-\unit[80 $\times$ 80]{voxels} (\unit[3.0 $\times$ 3.0]{mm} of in-plane
-resolution, \unit[240]{mm} field-of-view) and an anterior-to-posterior phase
-encoding direction, recorded in ascending order.
-% visual localizer: 4 x 156 TR
-A total of 624 volumes were recorded for each participant across the four runs
-of the visual localizer experiment.
-%
-A total 3599 volumes were recorded for each participant across the eight runs of
-the movie study.
-
-% AD
-In the audio-description study gradient-echo fMRI data were acquired using a
-\unit[7]{Tesla} Siemens MAGNETOM magnetic resonance scanner equipped with a 32
-channel brain receive coil at \unit[2]{s} repetition time (TR) with 36 axial
-slices (thickness \unit[1.4]{mm}, \unit[1.4 $\times$ 1.4]{mm} in-plane
-resolution, \unit[224]{mm} field-of-view, anterior-to-posterior phase encoding
-direction) and a \unit[10]{\%} inter-slice gap, recorded in ascending order.
-% slice orientation
-Slices were oriented to include the ventral portions of frontal and occipital
-cortex while minimizing intersection with the eyeballs.
-% FOV
-The field of view was centered on the approximate location of Heschl's gyrus.
-% motion correction
-EPI images were online-corrected for motion and geometric distortions.
-%
-An number of 3599 volumes, identical to the movies study, was recorded for each
-participant in the audio-description study.
-
-%
-High-resolution T1-weighted structural images with 274 sagittal slices (FoV
-191.8 $\times$ 256 $\times$ \unit[256]{mm}) and an acquisition voxel size of
-\unit[0.7]{mm} with a 384 $\times$ 384 in-plane reconstruction matrix
-(\unit[0.67]{mm} isotropic resolution) were recorded using a 3D turbo field echo
-(TFE) sequence (TR = \unit[2500]{ms}, TE = \unit[5.7]{ms}, TI = \unit[900]{ms},
-flip angle = 8 $^{\circ}$, bandwidth 144.4 Hz/px, Sense reduction AP 1.2, RL
-2.0.
 
 \subsection{Preprocessing}
 
-\todo[inline]{following phrasing is almost identical to PPA-Paper}
-
 % data sources
-The current analyses were carried out on the same preprocessed fMRI data
-\citep{hanke2016aligned} that were used for the technical validation analysis
-presented in \citet{hanke2016simultaneous}, the localization of higher-visual
-areas \citep{sengupta2016extension}, and investigation of responses of the PPA
-correlating with naturalistic spatial information \citep{sengupta2016extension}.
-% exclusion of VP 10
-Of those 15 participants in the studyforrest dataset that took part in all three
-experiments, data of one participant were dropped due to invalid distortion
-correction during scanning of the audio-description stimulus.
-% preprocessing of pre-aligned data
-Data were corrected for motion, aligned with and re-sliced onto a
-participant-specific BOLD template image \citep{sengupta2016extension} (uniform
-spatial resolution of \unit[2.5$\times$2.5$\times$2.5]{mm} for both
-audio-description and movie data).
-% preprocessing intro
-On these data, the further preprocessing steps were performed by FEAT v6.00
-(FMRI Expert Analysis Tool \citep{woolrich2001autocorr}) as shipped with FSL
-v5.0.9 (\href{https://www.fmrib.ox.ac.uk/fsl}{FMRIB's Software Library}
-\citep{smith2004fsl}) to create the input data for the subsequent shared
-response modelling to create the \ac{cms}.
+The current analyses were carried out on the same preprocessed fMRI data (s.
+\href{https://github.com/psychoinformatics-de/studyforrest-data-aligned
+}{github.com/psychoinformatics-de/studyforrest-data-aligned}) that were used for
 %
-The preprocessing steps closely resemble the processing that was previously
-performed in \citet{sengupta2016extension} and in \citet{haeusler2022processing}
-responsively.
+a) the technical validation of the dataset \citep{hanke2016simultaneous},
+%
+b) the localization of higher-visual areas \citep{sengupta2016extension}, and
+%
+c) the investigation of responses of the \ac{ppa} correlating with naturalistic
+spatial information in study 2 \citep{haeusler2022processing}.
 
 %
+We reran the preprocessing and analyses step performed in
+\citet{sengupta2016extension} and \citet{haeusler2022processing} using FEAT
+v6.00 (FMRI Expert Analysis Tool \citep{woolrich2001autocorr}) as shipped with
+FSL v5.0.9 (\href{https://www.fmrib.ox.ac.uk/fsl}{FMRIB's Software Library}
+\citep{smith2004fsl}) in order to reproduce both the time series data that
+served as final input for the statistical analyses in the two original studies
+publications as well as their results (i.e. statistical $Z$-maps).
+% temporal filtering
+In summary, high-pass temporal filtering was applied using a Gaussian-weighted
+least-squares straight line to every run of the visual localizer (cutoff period
+of \unit[100]{s}; sigma= \unit[100]{s}/2)[???], and every segment of the movie
+and audio-description (\unit[150]{s}; sigma=\unit[75.0]{s}).
+% brain extraction
+Brains were extracted from surrounding tissues using BET \citep{smith2002bet}.
+% spatial smoothing
+As in the original studies, data from all three experiments were spatially
+smoothed (Gaussian kernel, \unit[4.0]{mm}, FWHM), and a grand-mean intensity
+normalization of each time series was performed by a single multiplicative
+factor.
+
+\todo[inline]{can't remember: is grand mean per run or across runs?}
+
 \todo[inline]{make sure that all mentioned steps have actually been applied to
-\\ 'filtered\_func\_data.nii.gz' serving as input for custom SRM-scripts}
-
-\subsubsection{Functional localizer data}
-
-\todo[inline]{cf. with VIS paper; see design-files}
-
-% despiking
-Every run of the functional localizer paradigm was despiked using AFNI's
-\citep{cox1996afni, cox1997software} '3dDespike' command, and
-slice-time-corrected.
-% temporal filtering
-High-pass temporal filtering was applied to every run using a Gaussian-weighted
-least-squares straight line with a cutoff period of \unit[100]{s} to remove
-low-frequency confounds.
-% brain extraction
-The brain was extracted from surrounding tissues using BET \citep{smith2002bet}.
-% spatial smoothing
-Data were spatially smoothed applying a Gaussian kernel with full width at half
-maximum (FWHM) of \unit[4.0]{mm}
-% normalization
-A grand-mean intensity normalization of the entire 4D dataset was performed by a
-single multiplicative factor.
-% rerun the analysis: ./code/generate\_1st\_level\_design.sh condor\_submit
-% .code/compute\_1stlvl\_glm.submit
-
-\subsubsection{Naturalistic stimuli data}
-%% install naturalistic ppa analysis as subdataset comprises  "aligned-data",
-% templates etc. as subdatasets datalad install -d . -s
-% https://gin.g-node.org/chaeusler/studyforrest-ppa-analysis
-
-% datalad get inputs/studyforrest-ppa-analysis/inputs/studyforrest-data-aligned/sub-??/in_bold3Tp2/sub-??_task-a?movie_run-?_bold*.*
-
-% get motion correction parameters for AO data
-% datalad get -n inputs/studyforrest-ppa-analysis/inputs/phase1
-% datalad get inputs/studyforrest-ppa-analysis/inputs/phase1/sub???/BOLD/task001\_run00?/bold\_dico\_moco.txt
-
-\todo[inline]{following phrasing is almost identical to PPA-Paper}
-
-% temporal filtering
-To every segment of the movie and audio-description, high-pass temporal
-filtering was applied using a Gaussian-weighted least-squares straight line with
-a cutoff period of \unit[150]{s} (sigma=\unit[75.0]{s}).
-% brain extraction
-The brain was extracted from surrounding tissues using BET \citep{smith2002bet},
-% spatial smoothing
-and data were spatially smoothed (Gaussian kernel, \unit[4.0]{mm}, FWHM).
-% normalization
-A grand-mean intensity normalization of the entire 4D dataset was performed by a
-single multiplicative factor.
-% pre-whithening
-Correction for local autocorrelation in the time series (prewhitening) was
-applied using FILM (FMRIB's Improved Linear Model \citep{woolrich2001autocorr})
-to improve estimation efficiency.
-
-%% templates and transforms
-% datalad get
-% inputs/studyforrest-ppa-analysis/inputs/studyforrest-data-templatetransforms/sub-*/bold3Tp2/;
-% datalad get
-% inputs/studyforrest-ppa-analysis/inputs/studyforrest-data-templatetransforms/templates/*
-
-% rerun second-level analysis to obtain the (un)thresholded $z$-maps?
-% was it even necessary?
+'filtered\_func\_data.nii.gz' serving as input for following SRM-scripts}
 
 
-%
-Results from \citet{sengupta2016extension} and in
-\citet{haeusler2022processing} were simply downloaded.
-%
-``We estimated the face-selectivity map for a participant from his or her own
-localizer data by calculating the GLM univariate contrast map of faces vs. all
-the other categories (e.g., body, place) for each run and averaging t-values
-across the four maps'' \citep{jiahui2020predicting}.
-
-``We estimated each participant’s face-selectivity map based on that
-participant’s localizer data and based on other participants’ localizer data
-projected into that participant’s cortical anatomy using hyperalignment and
-anatomical surface alignment (see Fig. 1). We then calculated correlations
-between the map based on a participant’s own data and the maps estimated from
-other participants' data and compared these correlations to the reliability of
-the participant's map, indexed with Cronbach's Alpha. We estimated the
-face-selectivity map for a participant from his or her own localizer data by
-calculating the GLM univariate contrast map of faces vs. all the other
-categories (e.g., body, place) for each run and averaging t-values across the
-four maps. We estimated a participant’s map from other participants’ data by
-first projecting all other participants’ localizer data into that participant’s
-cortical anatomy and calculating the GLM univariate contrast map of faces versus
-all other categories for each run in each other participant then averaging
-t-values across the maps (56 maps for studyforrest, 14 subjects x 4 runs for
-each; 80 maps for Grand Budapest, 20 subjects x 4 runs each). We projected other
-participants’ localizer data into each individual participant’s cortical anatomy
-using hyperalignment with either direct projection or via the common model
-space, as described above. We also estimated each participant's face-selectivity
-map based on other participants’ anatomically aligned localizer data by simply
-averaging across the maps based on anatomically-normalized data for each N-1 set
-of 14 (studyforrest) or 20 (Grand Budapest) participants. Thus, the map
-estimated from other participants' localizer data was a map of average t-values
-across 56 or 80 maps (four runs per participant) for the contrast faces vs all.
-The analysis pipeline was the same across conditions, and the only difference
-was whether the N-1 participants' data were aligned to the left-out
-participant's space using anatomical alignment, hyperalignment with direct
-projection (1-step), or hyperalignment via the common model space (2-step). We
-tested the quality of the maps estimated from other participants’ data by
-calculating the correlation of each with the map estimated from a participant’s
-own data. We also gauged the reliability of the estimates based on participants’
-own data by calculating Cronbach's alpha based on variability across runs. To
-examine local performance and reliability, we did the same analyses with
-correlations between maps and Cronbach's Alpha in a searchlight analysis with a
-radius of 15 mm. To test the applicability of our procedure to other
-category-selective topographies, we extended our analyses to other contrasts
-(scenes, bodies, and objects)'' \citep{jiahui2020predicting}.
-
-
-\subsection{Modeling of a shared response space}
+\subsection{Modeling of a shared feature space}
 
 \todo[inline]{how to reliably (!) hyphenate links??}
 
-Further analyses steps were performed via Python scripts that relied on
+On these reproduced data, we then performed further analyses steps via
+Python scripts that relied on
 %
 NiBabel v3.2.1 (https://nipy.org),
 %
@@ -929,7 +634,7 @@ necessary anymore 'cause FSL seems to have applied grand mean scaling to
 
 %
 Given that FSL adds back the mean value for each voxel's time course at the end
-of the preprocessing, mean values were subtracted again, and each voxels's time
+of the preprocessing, mean values were subtracted again, and each voxels' time
 course was multiplied by 10000 [using a Python script].
 % saved to 'sub-??\_task-*\_run-?\_bold\_filtered.nii.gz'
 
@@ -1123,8 +828,6 @@ suggesting that this estimate of dimensionality is robust across differences in
 scanning hardware and scanning parameters (see Figure S3D)''
 \citep{haxby2011common}.
 
-
-
 ``A lower-dimensional subspace is adequate to capture the distinctions among
 response vectors. SVD of the movie data indicated that the information contained
 in those data could be captured in a common model space with ~450 orthogonal
@@ -1140,8 +843,6 @@ representation, therefore, will almost certainly be much higher as data with
 higher spatial and temporal resolution for larger and more varied samples of
 response vectors are used to build new common models''
 \citep{guntupalli2016model}.
-
-
 
 ``In this paper, $k=10$ since low-rank SVD with 20 dimensions captures 90\% of
 the variance of the original fMRI matrices \citep{chen2015reduced}. We also
@@ -1214,12 +915,67 @@ topographies].
 
 \subsection{Estimation of scene-selective topography}
 
+
+\subsubsection{Methods [a little adjusted] from \citet{jiahui2020predicting}}
+
+%
+``We estimated each participant's scene-selectivity map [actually values in the
+\ac{roi}] based on that participant's localizer data and based on other
+participants' localizer data projected into that participant's cortical anatomy
+using hyperalignment and anatomical volume-based alignment (see Fig. 1).
+%
+We then calculated correlations between the map based on a participant's own
+data and the maps estimated from other participants' data and compared these
+correlations to the reliability of the participant's map, indexed with
+Cronbach's Alpha.
+%
+We estimated the scene-selectivity map for a participant from his or her own
+localizer data by calculating the GLM univariate contrast map of faces vs. all
+the other categories (e.g., body, place) for each run and averaging t-values
+across the four maps.
+%
+We estimated a participant's map from other participants' data by first
+projecting all other participants' localizer data into that participant's
+cortical anatomy and calculating the GLM univariate contrast map of faces versus
+all other categories for each run in each other participant then averaging
+t-values across the maps (56 maps for studyforrest, 14 subjects x 4 runs for
+each).
+%
+We projected other participants' localizer data into each individual
+participant's cortical anatomy using hyperalignment via the common model space.
+%
+We also estimated each participant's face-selectivity map based on other
+participants' anatomically aligned localizer data by simply averaging across the
+maps based on anatomically-normalized data for each N-1 set of 14 participants.
+%
+Thus, the map estimated from other participants' localizer data was a map of
+average t-values across 56 or 80 maps (four runs per participant) for the
+contrast faces vs all.
+%
+The analysis pipeline was the same across conditions, and the only difference
+was whether the N-1 participants' data were aligned to the left-out
+participant's space using anatomical alignment, hyperalignment with direct
+projection (1-step), or hyperalignment via the common model space (2-step).
+%
+We tested the quality of the maps estimated from other participants' data by
+calculating the correlation of each with the map estimated from a participant's
+own data.
+%
+We also gauged the reliability of the estimates based on participants' own data
+by calculating Cronbach's alpha based on variability across runs.
+%
+To examine local performance and reliability, we did the same analyses with
+correlations between maps and Cronbach's Alpha in a searchlight analysis with a
+radius of 15 mm'' \citep{jiahui2020predicting}.
+
+
+\subsubsection{My methods}
+
 \todo[inline]{in both following cases the mean was computed in subject-specific
 anatomical space; I also tested creating a template by computing the mean in
 shared feature space; leads to pretty similar; but I did not create a template
 by taking the mean in MNI space; estimation using anatomy has always been mean
 of z-maps in subject-space in both cases}
-
 
 %
 To predict the results of the functional localizer (statistical $Z$-maps
@@ -1233,9 +989,7 @@ alignment, we similarly estimated each left-out subject's $Z$-map using
 volume-based anatomical alignment.
 
 
-\subsubsection{Prediction/estimation using \ac{cms}}
-
-\todo[inline]{terminology: it is NOT the "inverse" but "transpose" matrix}
+\subsubsection{Prediction/estimation using functional alignment}
 
 %
 First, individual results from the visual localizer [and auditory naturalistic
@@ -1255,11 +1009,11 @@ subject empirical $Z$-map (s. \citep{sengupta2016extension})
 
 \subsubsection{Prediction using anatomical alignment}
 
+\todo[inline]{check scripts again!}
+
 \todo[inline]{tell more about how transformation matrices were created;
 potential reviewer's question: your anatomical alignment might have been shitty,
 linear etc. ?}
-
-\todo[inline]{as baseline against which we compare the functional alignment}
 
 \todo[inline]{check TNT github/gin repo; what is the corresponding paper?}
 
@@ -1267,12 +1021,12 @@ linear etc. ?}
 We also estimated each left-out subject's $Z$-map using volume-based anatomical
 alignment.
 % into MNI
-First, we warped the results of the visual localizer from each subjects'
-space(bold3Tp2) into MNI space (grpbold3Tp2) using precomputed transformation
-matrices that are part of the studyforrest dataset [LINK; cf. method section in
-PPA-Paper].
+First, we aligned the results of the visual localizer from each subjects' space
+(bold3Tp2) to grpbold3Tp2 (that is co-registered to MNI152) using precomputed
+transformation matrices that are part of the studyforrest dataset [LINK; cf.
+method section in PPA-Paper].
 % into left-out subject
-Then, results of all subjects were warped from MNI space in to the left-out
+Then, results of all subjects were warped from grpbold3Tp2 in to the left-out
 subject's space
 %
 The transformed $Z$-maps were masked with mask of unions of PPAs and the
@@ -1380,24 +1134,26 @@ between-subject model performance to the level of within-subject performance''
 
 \section{Results}
 
-\subsection{Phrasing of results in other papers}
 
-We correlated the whole-cortex contrast map (faces-vs-all) based on a
+\subsubsection{Results [a little adjusted] from \citet{jiahui2020predicting}}
+
+``We correlated the whole-cortex contrast map (faces-vs-all) based on a
 participant’s own data with the maps estimated from other participants’ data
 separately for the StudyForrest and Grand Budapest datasets. After 1-step
 hyperalignment, the mean Pearson correlation values across participants were
 0.58 (StudyForrest, N = 15, S.D. = 0.08) and 0.69 (Grand Budapest, N = 21, S.D.
-= 0.08) (Fig. 2).
+= 0.08) (Fig. 2)'' \citep{jiahui2020predicting}.
 
-Hyperalignment greatly improved the prediction performance compared with
+``Hyperalignment greatly improved the prediction performance compared with
 anatomical surface alignment. With surface alignment, the average Pearson
 correlation values across participants were 0.40 (N ¼ 15, S.D. ¼ 0.08) and 0.50
 (N ¼ 21, S.D. ¼ 0.06) in the StudyForrest and Grand Budapest datasets,
 respectively (Fig. 3). The difference between the hyperaligned and the
 surface-aligned mean correlation values was highly significant (StudyForrest:
-t(14) = 17.39, p < 0.001; Grand Budapest: t(20) = 25.49, p < 0.001).
+t(14) = 17.39, p < 0.001; Grand Budapest: t(20) = 25.49, p < 0.001)''
+\citep{jiahui2020predicting}.
 
-We also estimated each participant’s topography with the 2-step hyperalignment
+``We also estimated each participant’s topography with the 2-step hyperalignment
 algorithm that projects other participants’ localizer data into a common model
 information space then uses the transpose of the target participant’s
 transformation matrix to project other participants’ data from the common model
@@ -1410,10 +1166,11 @@ hyperalignment were significantly better than the correlations after surface
 alignment (StudyForrest: t(14) = 15.78, p < 0.001; Grand Budapest: t(20) =
 16.61, p < 0.001), but the estimates with the 1-step procedure were
 significantly better than estimates with the 2-step procedure (StudyForrest:
-t(14) = 11.30, p < 0.001; Grand Budapest: t(20) = 6.98, p < 0.001).
+t(14) = 11.30, p < 0.001; Grand Budapest: t(20) = 6.98, p < 0.001)''
+\citep{jiahui2020predicting}.
 
 
-\subsection{my results}
+\subsection{My results}
 
 Unthresholded $Z$-maps [in each subject's voxel space] can be found at
 \href{https://identifiers.org/neurovault.collection:12340}{\url{neurovault.org/collections/12340}}.
@@ -1943,6 +1700,16 @@ information space [Haxby et al., 2020]. Derivation of this common space can be
 based on either neural response profiles (e.g. data collected during tasks, such
 as movie viewing (Haxby et al., 2011)) or functional connectivity profiles files
 [Guntupalli et al., 2018]'' \citep{busch2021hybrid}.
+
+``Estimating the parameters to transform high-dimensional spaces from individual
+brains into a common high-dimensional space requires a rich set of data that
+samples a wide variety of cortical patterns in order to generalize to novel
+stimuli or tasks. For response hyperalignment, a rich variety of stimuli or
+conditions are necessary to sample the response vector space. For connectivity
+hyperalignment, the sampling of connectivity vector space is defined by the
+selection of connectivity targets, but the richness and reliability of
+connectivity estimates depends on the variety of brain states over which
+connectivity is estimated'' \citep{haxby2020hyperalignment}.
 
 %
 ``Results showed that both CHA and RHA increased ISCs and bsMVPC classification
