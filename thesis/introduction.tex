@@ -12,16 +12,20 @@ human brain result in location-specific sensory, motor or cognitive deficits''
 Thanks to technological advanced, brain imaging studies have extensively used
 \ac{fmri} since the early 1990s to measure \ac{bold} activity in-vitro.
 %
-\textit{Human brain mapping} (e.g., \citep{raichle2009brief}) explores the
-brain's topographic organization (e.g., \citep{eickhoff2018topographic}) and
+\textit{Human brain mapping} \citep[e.g.,][]{raichle2009brief} explores the
+brain's topographic organization \citep[e.g.,][]{eickhoff2018topographic} and
 attempts ``to specify in as much detail as possible the localisation of function
 in the human brain'' \citep{savoy2001history}.
 % higher visual areas
 For example in the domain of higher-visual perception, replicated findings
 suggest that category-selective brain regions like the \ac{ppa}
-\citep{epstein1998ppa}, \ac{ffa} \citep{kanwisher1997ffa}), or the \ac{eba}
-\citep{downing2001bodyarea}) exhibit significantly increased \ac{bold} activity
-correlated with a ``preferred'' stimulus class.
+\citep{epstein1998ppa, epstein1999parahippocampal} and \ac{ffa}
+\citep{kanwisher1997ffa, kanwisher2006fusiform} exhibit significantly increased
+\ac{bold} activity correlated with a ``preferred'' stimulus class: the \ac{ppa}
+responds more strongly when participants are watching pictures of scences and
+landscapes compared to pictures of, .e.g, faces, and the \ac{ffa} responds more
+strongly when participants are watching pictures of faces compared to pictures
+of scenes.
 
 \todo[inline]{practical and statistical reason are kind of the same; population
 inference?}
@@ -54,7 +58,7 @@ essential for characterizing brain function in health and disease''
 
 % individual level: localizers
 On the level of individual subjects, \textit{functional localizer} experiments
-(s. \citep{saxe2006divide, friston2006critique} for reviews) are conducted
+\citep[e.g.,][for reviews]{saxe2006divide, friston2006critique} are conducted
 during \ac{fmri} to characterize the location size, and shape of functional
 areas correlating with perceptual or cognitive processes (e.g. perception of
 object categories \citep{kanwisher1997ffa}, speech perception
@@ -125,7 +129,7 @@ pathway [check PPA paper for reference].
 % what PPA is doing
 Increased hemodynamic activity is observed in the \ac{ppa} when participants
 view photos of landscapes, buildings or landmarks, compared to, e.g., photos of
-faces or tools \citep[see reviews][]{epstein2014neural, aminoff2013role}.
+faces or tools \citep[e.g.,][for reviews]{epstein2014neural, aminoff2013role}.
 %
 These stimulus classes that are correlated with hemodynamic responses during
 traditional paradigms might also be embedded as \textit{stimulus features} in
@@ -153,9 +157,9 @@ states and engage multiple perceptual and cognitive systems in parallel''
 \citep{haxby2020naturalistic}.
 % movies & narratives
 The most popular naturalistic stimuli in neuroscience are movies and auditory
-narratives (s. \citep{jaaskelainen2021movies, jaaskelainen2020neural} for
-reviews) that provide a time-locked event structure during a continuous, rich
-and dynamic stimulation.
+narratives \citep[s.][for reviews]{jaaskelainen2021movies,
+jaaskelainen2020neural} that provide a time-locked event structure during a
+continuous, rich and dynamic stimulation.
 %
 Consequently, naturalistic stimuli promise a higher ecological validity
 \citep{zaki2009need, hasson2012future, hamilton2018revolution} because they more
@@ -181,10 +185,9 @@ have been used'' \citep{westfall2016fixing}.
 \paragraph{Early findings}
 % reviews
 Audio-visual movies and spoken narratives have been used during \ac{fmri}
-(s.\citep{hamilton2018revolution, hasson2008neurocinematics,
-sonkusare2019naturalistic, saarimaki2021naturalistic} for reviews), and \ac{eeg}
-or \ac{meg} data acquisition (s. \citep{alday2019meg, kandylaki2019story} for
-reviews).
+\citep[s.][for reviews]{hamilton2018revolution, hasson2008neurocinematics,
+sonkusare2019naturalistic, saarimaki2021naturalistic}, and \ac{eeg} or \ac{meg}
+data acquisition \citep[s.][for reviews]{alday2019meg, kandylaki2019story}.
 %
 Early studies have shown that watching a movie \citep{hasson2004intersubject,
 hasson2008neurocinematics, hasson2010reliability} or listening to a narrative
@@ -291,13 +294,13 @@ reference group.
 \paragraph{Intro}
 %
 A traditional procedure [GIVE REFS] to estimate a person's functional topography
-from a reference group starts by anatomically aligning a person's structural and
-functional data to a \textit{common anatomical space} (i.e. a template) in order
-to resolve anatomical variability across persons.
+from a reference group starts by anatomically aligning a person's structural
+and functional data to a \textit{common anatomical space} (i.e. a template)
+in order to resolve anatomical variability across persons.
 % volume-based
-Volume-based anatomical alignment (s. \citep{klein2009evaluation} for a review)
-aligns voxel-wise data of individual subjects to a three-dimensional brain
-template (e.g. MNI152 template; \citep{fonov2011unbiased}).
+Volume-based anatomical alignment \citep[s.][for a
+review]{klein2009evaluation} aligns voxel-wise data of individual subjects
+to a three-dimensional brain template \citep[e.g. MNI152 template]{fonov2011unbiased}.
 % surface-based
 Surface-based anatomical alignment \citep{fischl1999cortical} aligns vertex-wise
 data of individual subjects to a two-dimensional template (e.g. FreeSurfer
@@ -305,8 +308,8 @@ fsaverage template; \citep{fischl1999high}).
 % estimation
 In a second step, the most probable location of a functional area in a person's
 anatomy is then estimated by projecting functional data from persons in the
-reference group through the common anatomical space into the individual person's
-brain anatomy.
+reference group through the common anatomical space into the individual
+person's brain anatomy.
 
 
 \paragraph{Estimation of functional areas}
@@ -730,6 +733,8 @@ perception (e.g., luminance) to high-level cognition (e.g., social cognition).
 %
 Thus, a naturalistic stimulus could eventually replace multiple dedicated
 localizers in the future to provide a more comprehensive diagnostic routine.
+
+\paragraph{partial alignment}
 %
 However, a two-hour paradigm would be inefficient plus unsuitable for a clinical
 population.
@@ -737,6 +742,10 @@ population.
 For that reason, this dissertation also explores whether just a part of a movie
 or auditory narrative can be used to estimate individual topography of a
 left-out subject from a data of reference group.
+%
+We test which amount of data is needed to perform an alignment
+to the common functional space that provides transformation matrices that
+outperform a prediction based on an anatomical alignment.
 
 
 \subsection{Open, transparent, and reproducible science}
@@ -886,8 +895,8 @@ fell short to deliver satisfactory scaffolds of an annotation.
 % procedure
 Consequently, I revised a preliminary transcription of language spoken by
 actors, actresses, and the narrator, and submitted it to a forced aligner
-(\href{https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner}{Montreal
-Forced Aligner} v1.0.1 \citep{mcauliffe2017montreal}) that identified the exact
+\citep[\href{https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner}{Montreal
+Forced Aligner} v1.0.1;][]{mcauliffe2017montreal} that identified the exact
 onset and offset of each word and phoneme. The forced aligner's output was
 extensively cleaned and extended both algorithmically as well as manually.
 
@@ -895,9 +904,9 @@ extensively cleaned and extended both algorithmically as well as manually.
 \paragraph{Annotation content}
 %
 Consequently as planned, the annotation's content substantially exceeds the
-groundwork that was needed to conduct the study reported in Chapter 3 (s.
-\citep{haeusler2022processing}), and contributes to the studyforrest project for
-public use:
+groundwork that was needed to conduct the study reported in Chapter 3
+\citep[s.][]{haeusler2022processing}, and contributes to the studyforrest
+project for public use:
 % content
 the annotation provides ``information about the exact timing of each of the more
 than 2500 spoken sentences, 16000 words (including 202 non-speech
@@ -922,8 +931,8 @@ hemodynamic activity in a bilateral cortical network including temporal,
 parietal and frontal regions related to processing spoken language.
 % results replicate
 Our exploratory analysis replicates results of studies that employed
-tightly-controlled stimuli (s. \citep{friederici2011brain,
-hickok2007cortical,price2012twentyyears} for reviews), and studies that employed
+tightly-controlled stimuli \citep[s.][for reviews]{friederici2011brain,
+hickok2007cortical,price2012twentyyears}, and studies that employed
 data-driven methods to analyze \ac{fmri} data from auditory naturalistic stimuli
 \citep{honey2012not, lerner2011topographic, silbert2014coupled}
 % "logic" inference
