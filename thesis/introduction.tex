@@ -8,6 +8,14 @@ human brain result in location-specific sensory, motor or cognitive deficits''
 \citep{cohen1994localization}.
 
 
+\todo[inline]{across whole dissertation: correct numbering of studies; better
+speak of "study in chapter x" than study x}
+
+\todo[inline]{Here \& elsewhere: be careful about writing 'neuroscience' when
+you might want to say 'neuroimaging' -- they are not the same, and
+neuroscientists from other fields might not like this implicit statement; ->
+scan the .tex files for the term neuroscience!}
+
 %
 Thanks to technological advanced, brain imaging studies have extensively used
 \ac{fmri} since the early 1990s to measure \ac{bold} activity in-vitro.
@@ -23,12 +31,10 @@ suggest that category-selective brain regions like the \ac{ppa}
 \citep{kanwisher1997ffa, kanwisher2006fusiform} exhibit significantly increased
 \ac{bold} activity correlated with a ``preferred'' stimulus class: the \ac{ppa}
 responds more strongly when participants are watching pictures of scences and
-landscapes compared to pictures of, .e.g, faces, and the \ac{ffa} responds more
+landscapes compared to pictures of, e.g., faces, and the \ac{ffa} responds more
 strongly when participants are watching pictures of faces compared to pictures
 of scenes.
 
-\todo[inline]{practical and statistical reason are kind of the same; population
-inference?}
 %
 Typical analyses of human brain mapping studies average data across subjects for
 practical (e.g., limited scan time per subject), statistical (e.g., improved
@@ -100,8 +106,8 @@ calculation at an individual level'' \citep{pinel2007fast}.
 But still, current localizer paradigms struggle to overcome especially two
 challenges.
 %
-First, the localizers depend heavily on a participant's comprehension of the
-task instruction and his/her compliance, a criterion that can be difficult to
+First, the localizers depend heavily on the participants' comprehension of the
+task instruction and their compliance, a criterion that can be difficult to
 meet in clinical or pediatric populations \citep{eickhoff2020towards,
 vanderwal2015inscapes, vanderwal2019movies}.
 % validity?
@@ -116,6 +122,17 @@ of the laboratory during everyday life.
 though, a short excursion to current project makes sense before the naturalistic
 stimulus inferno breaks loose}
 
+\todo[inline]{mih: :I like the immediate connection! but maybe limit the
+statement to just be about 'task-free'?}
+
+\todo[inline]{eher nur den ersten Teil bringen; nicht zweiten Teil?}
+
+\todo[inline]{klar machen, weshalb Lit. Review dort steht; abern icht zu viele
+Vorgriffe auf die Diss}
+
+\todo[inline]{dennoch zusammenfassen, weshalb es geschrieben wurde; nicht
+andersherum: das ist Ziel \& deshalb erzähle das jetzt}
+
 %
 For this reason, this dissertation will explore whether a Hollywood movie and
 its audio-only variant created for a visually impaired audience could, in
@@ -125,7 +142,7 @@ areas.
 As a proof of concept, the dissertation focuses on the ``parahippocampal place
 area'', a classic example of a higher-visual, functional area
 \citep{epstein1998ppa, epstein1999parahippocampal} located in the ventral visual
-pathway [check PPA paper for reference].
+pathway [check PPA paper for reference].\todo{add 'cf. ...'; s. PPA-Paper}
 % what PPA is doing
 Increased hemodynamic activity is observed in the \ac{ppa} when participants
 view photos of landscapes, buildings or landmarks, compared to, e.g., photos of
@@ -202,9 +219,9 @@ hasson2010reliability, lerner2011topographic, wilson2008beyond}.
 % intentionally manipulate the viewers' attentional focus and mental states
 % \citep{brown2012cinematography, dancyger2011film-technique}.
 %
-Further, a pioneering study \citep{bartels2004mapping} suggests that functional
-specialization of cortical areas is preserved during complex, life-like
-stimulation.
+Furthermore, a pioneering study \citep{bartels2004mapping} suggests that
+functional specialization of cortical areas is preserved during complex,
+life-like stimulation.
 
 
 \paragraph{Better compliance}
@@ -221,7 +238,7 @@ resulting in increased data quality.
 Since movies and spoke narratives are interesting and easy-to-follow stimuli
 that are produced to be engaging and immersive, they also promise to put
 participants at ease in the otherwise claustrophobic, uncomfortable, and noisy
-fMRI scanner.
+MRI scanner.
 %
 Lastly, spoken narratives are also appropriate for visually impaired persons
 suffering from diminished or lack of eyesight.
@@ -255,13 +272,25 @@ lasting about 15 minutes.
 \todo[inline]{ask Michael: the modeled time course might not ``perfectly''
 represent time-course of the correlating brain process}
 
+\todo[inline]{True, only if one assume that the brain truly does nothing else
+than face recognition during an FFA locatizer....}
+
 
 \section{Predicting subject-specific topography from a reference group}
 
 \todo[inline]{needs to be a preparation for ``Aims of thesis''}
 
-\todo[inline]{necessary terms should be introduced here already; e.g., training
-(data) test(ing data)}
+
+\todo[inline]{LOOCV is a bit much here, as a methodological definition, inserted
+into the very first sentence. This put a lot of weight on the particular choice
+of method. But really we just wanted to do any kind of out-of-sample-testing,
+rather than just rely on statistical assumptions}
+
+\todo[inline]{do a high-level summary; do not introduce (too many too) technical
+terms; imo training (data) test(ing data) is okay; must be clear, that we have
+``independent''; it is nopt just parameter estimation / statistical inference
+but ``prediction''}
+
 
 %
 For that reason, this dissertation --- following a \ac{loocv} procedure --- also
@@ -703,11 +732,21 @@ either pure rest or pure event-related task designs'' \citep{finn2017can}.
 
 \section{Aims of thesis}
 
+\todo[inline]{Bisherige Abschnitte waren eher ``ja, kann man so machen''}
+
+\todo[inline]{hier eher: und deshalb machen wir das jetzt so}
+
+\todo[inline]{Transitions zwischen Papern besser ausarbeiten}
+
 \todo[inline]{shift some parts into excursions (``this dissertation'') above?}
 
 %% At the end of the introduction, add a subchapter on the Aims of Thesis in
 %% which you describe the research question and the objectives of your work on
 %% a maximum of two pages
+
+\todo[inline]{``group-average'' is too cryptic; bißchen mehr erklären; guck, ob
+es vorher kommt; wenn es erst später erklärt wird, bißchen Text nach oben
+ziehen; vgl. ggf. mit SRM-Intro}
 
 %
 Previous work on a group-average level has shown that it is possible to combine
@@ -718,7 +757,10 @@ processes \citep{bartels2004mapping}.
 This dissertation explores --- while following the principles of open,
 transparent, and reproducible science --- whether a movie and the movie's
 audio-description that was produced for an visually impaired audience could, in
-principle, substitute an established localizer paradigm.
+principle, substitute a traditional localizer paradigm.
+
+\todo[inline]{mih: To unlock the substantial advantages...?}
+
 %
 Naturalistic stimuli would have substantial advantages (e.g. task demands
 compliance, and data quality) over simplified stimuli presently used in
@@ -779,7 +821,7 @@ pernet2015improving}.
 \paragraph{input data}
 
 % open data \citep{eglen2017toward}
-First, my work is build on top of publicly and freely available \ac{fmri} data
+First, my work is built on top of publicly and freely available \ac{fmri} data
 that are part of the \textit{studyforrest} project
 (\href{www.studyforrest.org}{\url{studyforrest.org}}).
 %
@@ -798,10 +840,10 @@ international working groups to conduct and publish independent, peer-reviewed
 research (s.
 \href{www.studyforrest.org/publications.html}{\url{studyforrest.org/publications.html}}).
 %
-The stimulus annotations that have been created over the course of the
-dissertation are version-controlled and published in a standardized file format
-\citep{haeusler2021speechanno}, and therefore contribute to the studyforrest
-project as a resource for the scientific community.
+The additional stimulus annotations that have been created over the course of
+the dissertation are version-controlled and published in a standardized file
+format \citep{haeusler2021speechanno}, and therefore contribute to the
+studyforrest project as a resource for the scientific community.
 
 
 \paragraph{code, analyses, output}
@@ -812,8 +854,8 @@ facilitate replicability of findings on other datasets.
 Therefore, data analyses pipelines designed in a way that enables automated
 processing.
 %
-Analyses pipelines are not be implemented in commercial, proprietary software
-but in freely available and, if possible, open-source software.
+Analyses pipelines are not implemented in proprietary software but in freely
+available and, if possible, open-source software.
 % which tools to choose why?
 Among potential software packages, we chose the tools that offer the most solid
 documentation, and basis of developers and maintainers to ensure long-term
@@ -847,6 +889,17 @@ additionally published at Neurovault
 
 \todo[inline]{This section is waaaaay longer than in other dissertations; here,
 it is not just aims and hypotheses but also (still) an overview}
+
+\todo[inline]{mih: yes, this is much more than what is desirable here. Kill
+everything that is not an actual aim or approach and then make sure what is left
+derived from everything that preceeds this section (and only that)}
+
+\todo[inline]{hier ist momentan im Grunde "extended abstract"; was bleiben muss
+ist Plan, weshalb das eine zum anderen führt.}
+
+\todo[inline]{mach erst backup der Texte hier, bevor hier zu high-level summary
+gekürzt wird; pack ggf. extended abstracts in die jeweiligen Chapters}
+
 
 \todo[inline]{Here should be some random text between section titles}
 
@@ -952,6 +1005,8 @@ information in the ``parahippocampal place area''}
 
 \todo[inline]{will be cleaned iteratively during next 1000 iterations}
 
+\todo[inline]{wichtig: wir tauschen nicht die Methode, sondern ``nur'' die
+Stimuli}
 
 \paragraph{Intro}
 
@@ -1109,12 +1164,6 @@ Problem: we have a couple of subjects seem to simply not give a fuck about
 spatial information in audio-description
 
 
-\subsubsection{DataLad: distributed system for joint management of code, data,
-and their relationship}
-
-\todo[inline]{probably, just delete this subsection}
-
-
 \subsubsection{Using varying amount of data from naturalistic stimulation for
 functional alignment to predict results from a task-based functional localizer
 paradigm}
@@ -1122,6 +1171,8 @@ paradigm}
 \todo[inline]{following part is a draft}
 
 \todo[inline]{will probably change a lot after text in study 3 is written}
+
+\todo[inline]{wir tauschen zusätzlich die Methode!}
 
 % intro
 \textit{Intro:} In order to map perceptual or cognitive functions onto the brain
