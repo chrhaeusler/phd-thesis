@@ -1078,13 +1078,12 @@ We test correlations that are Fisher-transformed (which Jiahu did not)
 
 \todo[inline]{is Fig 2 in \citet{jiahui2020predicting} any good?}
 
-all from \citep{jiahui2020predicting}: ``We compared the correlations between
-maps estimated from a participant's own data and maps estimated from other
-participants' data to the reliability of the localizer. We computed the
+Template from \citet{jiahui2020predicting}: ``We compared the correlations
+between maps estimated from a participant's own data and maps estimated from
+other participants' data to the reliability of the localizer. We computed the
 reliability of the contrast maps with Cronbach's Alpha based on variability
 across the four localizer runs for each set. The mean Cronbach's Alpha between
-the four localizer runs was 0.60 (N = 15, S.D. = 0.14) in the StudyForrest
-dataset [...](Fig. 2)''.
+the four localizer runs was 0.60 (N = 15, S.D. = 0.14)''.
 %
 ``These results mean that if we scan each participant for another 4 localizer
 runs, and compute the correlation between the two maps (4 runs vs. 4 runs), the
@@ -1095,11 +1094,11 @@ hyperalignment is close to or as good as the real contrast map based on four
 localizer runs (StudyForrest: t(14) = 0.61, p = 0.55; Grand Budapest: t(20) =
 3.02, p = 0.007)''.
 %
-``In the StudyForrest dataset, the predicted contrast map based on
-hyperalignment was better than the contrast map based on data from three out of
-four localizer runs in other participants (t(14) = 2.36, p = 0.03) and in Grand
-Budapest, the predicted contrast map was comparable to the contrast map based on
-three localizer runs in other participants (t(20) = 0.48, p = 0.63)''.
+``The predicted contrast map based on hyperalignment was better than the
+contrast map based on data from three out of four localizer runs in other
+participants (t(14) = 2.36, p = 0.03) and in Grand Budapest, the predicted
+contrast map was comparable to the contrast map based on three localizer runs in
+other participants (t(20) = 0.48, p = 0.63)''.\todo{what?}
 %
 ``A scatterplot of the individual correlation values with hyperalignment and
 with surface alignment (Fig 3), shows that predicted maps based on
@@ -1109,7 +1108,7 @@ participant''.
 
 \subsubsection{Auditory PPA stuff}
 
-Is not considered in any text at all yet
+\todo[inline]{Is not considered in any text at all yet}
 
 
 \subsubsection{Estimation of localizer from localizer TRs}
@@ -1185,9 +1184,7 @@ blurry) subject-specific functional template}
 \subsection{Discussion of current results}
 
 
-We have cross-subject, cross-experiment, and cross-scanner prediction
-
-
+We have cross-subject, cross-experiment, and cross-scanner prediction; but:
 AV \& VIS are from the same scanner, if not same session?
 
 \subsubsection{Model Space}
@@ -1198,21 +1195,16 @@ experiments.
 
 %
 Asymptotic ``performance curve'' might be different for another brain region
-(temporal receptive fields?).
-%
-What about rentinotopic mapping?
-%
-What about ``higher'' cognition?
-%
-What about executive functions?
+(temporal receptive fields?); rentinotopic mapping vs. ``higher'' cognition  vs.
+executive functions (prefrontal cortex)?
 
 
 \subsubsection{Partial Alignment}
 %
 15 min of movie watching used for functional alignment outperform prediction
-using anatomical alignment
+using anatomical alignment;
 %
-30 minutes of movie watching outperform 15 minutes of movie watching
+30 minutes of movie watching outperform 15 minutes of movie watching;
 %
 more than 30 minutes do not lead to a significantly improved prediction
 performance.
@@ -1230,139 +1222,211 @@ shared stimulus part is easier than shared subjects (e.g.
 \subsubsection{Audio PPA}
 
 %
-Response in PPA during AO might be different.
+Response in PPA during AO might be different (cf. study in chapter 4).
 %
-There are some subjects which do not have a AO PPA 'cause they just do not give
-a shit about spatial information in AO? Might be an issue of missing task?
+Why do some people do not have a AO PPA? Do simply do not give a shit
+about spatial information in AO due to missing task?
+%
+check: is it different in these persons in AV?
 
 
-``Notwithstanding their non-conformation to a theoretically universal map of the
-brain, such topological outliers, if they do not result from artefacts, can also
-be considered to be interesting cases of inter-individual variability to
-understand brain–phenotype relationships [98].Indeed, recent studies have
-suggested that the topography (location and size) of individual-specific brain
-parcellations is predictive of individual differences in demographics,
-cognition, emotion and personality [3,5,99]. In this context, we would argue
-that the quest to under- stand robust patterns of brain topography across
-different markers and the investigation of inter-individual differences are
-closely intertwined challenges. Only by understanding the generic characteristic
-of topographic organization can we start to appreciate idiosyncrasies and their
-relationships to socio-demographic, cognitive or affective profiles''
-\citep{eickhoff2018imaging}.
+\subsubsection{Inter-individual differences}
+
+\citet{eickhoff2018imaging} on inter-individual variability: ``An important
+consideration for building a general representation of brain organization
+pertains to inter-subject variability, which is encountered at all spatial
+levels and in all neurobiological properties, from histology [6,17,94] to
+large-scale networks [95,96]. Group-based parcellation schemes generally capture
+the main aspects of organization evident across individuals, whereas the size,
+shape and position of areas and networks can vary substantially between
+individuals [5,18,19,76,97] (Fig. 3). Furthermore, divergent patterns of brain
+organization from the most common pattern (that is, changes in the spatial
+arrangement of cortical regions) can be observed in approximately 5–10\% of the
+healthy population [16,19], and care should therefore be taken to avoid the
+undue influence of such outliers. Notwithstanding their non-conformation to a
+theoretically universal map of the brain, such topological outliers, if they do
+not result from artefacts, can also be considered to be interesting cases of
+inter-individual variability to understand brain–phenotype relationships [98].
+Indeed, recent studies have suggested that the topography (location and size) of
+individual-specific brain parcellations is predictive of individual differences
+in demographics, cognition, emotion and personality [3,5,99]. In this context,
+we would argue that the quest to understand robust patterns of brain topography
+across different markers and the investigation of inter-individual differences
+are closely intertwined challenges. Only by understanding the generic
+characteristic of topographic organization can we start to appreciate
+idiosyncrasies and their relationships to socio-demographic, cognitive or
+affective profiles'' \citep{eickhoff2018imaging}.
+
+
+
 
 \subsection{Self-critique \& short comings}
 
 
-\subsubsection{sample size}
+\subsubsection{ROI creation procedure}
+
+We have a little leakage of test data
+%
+Especially at the borders of the ROI, we miss some voxels (of some participants)
+cause the binary masks is based on a ``titrated threshold''
+\citep{sengupta2016extension}
+
+\todo[inline]{check paper regarding ``probabilistic functional atlases''; these
+data are independent but they used masks based on visual inspection and manual
+thresholding (mostly), too}
+
+%
+From \citep{weiner2018defining}: ``the identification of the PPA is complicated
+by (at least) four methodological considerations.
+%
+First, the PPA definition may depend on the type of experiment, task, and
+stimuli used [s. also ``localizer as ground truth below''].
+%
+Second, the boundaries of the PPA may depend on the statistical threshold used.
+%
+Third, the spatial extent and localization of the PPA may vary if defined within
+the native brain space of an individual or based on a group analysis.
+%
+Fourth, the size of the PPA may depend on data acquisition choices (e.g. large
+vs. small voxels) and data analysis choices (e.g. liberal smoothing vs. no
+spatial smoothing).
+%
+The present study aims to identify and to predict the most probable location of
+place-selective voxels within medial VTC of an individual brain that is
+impervious to these methodological decisions'' \citep{weiner2018defining}.
+
+
+
+
+
+\subsubsection{Localizer is ``ground truth''}
+
+\todo[inline]{essentially issues of reliability and validity}
+
+%
+``The dynamic localizer (in Grand Budapest data set) was significantly more
+reliable than the static localizer (in studyforrest data set) (t(34) = 3.76, p <
+0.001) despite its shorter length (four 234s runs versus four 312s runs,
+respectively)'' \citep{jiahui2020predicting}.
+
+%
+\citet{lilienfeld2015fifty} on ``gold standard'' (in psychiatry):
+%
+``In the domains of psychological and psychiatric assessment, there are precious
+few, if any, genuine "gold standards".
+%
+Essentially all measures, even those with high levels of validity for their
+intended purposes, are necessarily fallible indicators of their respective
+constructs [Cronbach and Meehl, 1955; Faraone and Tsuang, 1994].''
+\citep{lilienfeld2015fifty}
+
+%
+\citet{scheinost2019ten} in context of phenotypic measures:
+%
+``Predictive models based on neuroimaging data will only ever account for a
+fraction of the variance.
+%
+Neuroimaging studies are limited by how much information the signal can capture
+about the measure of interest.
+%
+At the same time, these studies are also limited by the chosen phenotypic
+measure used.
+%
+While the success of a model is evaluated by how well it predicts a phenotypic
+measure (and these phenotypic measures have to be treated as gold standards), it
+is well known that such measures are not always the ground truth but themselves
+suffer from confounds and noise.
+%
+When studying brain-behavior associations, one must keep in mind how
+extraordinary it is that neuroimaging data can be distilled to approximate
+phenotypic measures that reflect a simplification of multiple complex features.
+%
+Thus, even modest results are reasonable and remarkable.
+%
+For a discussion on the reliability of phenotypic measures in the context of
+predictive modeling, we point the interested reader to: [Dubois et al., 2018a,
+2018b; Gignac and Bates, 2017]'' \citep{scheinost2019ten}.
+
+
+
+
+\subsubsection{Volume-based registration vs. surface-based normalization}
+
+\todo[inline]{Is not a real problem because we compare volume-based anatomical
+alignment to volume-based functional alignment}
+
+\todo[inline]{paper that prepare volume to surface-based procedures; e.g.
+\citep{desai2005volumetric}; check the directory with the last papers that need
+to be checked; e.g. \citet{weiner2018defining} who compare PPA-prediction using
+cortex-based alignment \citep{fischl1999high} with volume-based (Talairach)
+alignment.}
+
+%
+Sengupta published results of analyses that were compared in voxel space.
+%
+``Opportunity costs'': I could have run the analyses/contrasts on the surface
+but that needs time.
+%
+Is also a ``problem'' of data sharing: you save time and money (especially if
+you do not collect the data yourself) but you have to trust that the data are
+``good'' and start at some point to reach goals that you would not accomplished
+if you would have done all from scratch (i.e. preprocessing).
+
+
+
+\subsubsection{Sample size}
 
 ``Most studies that use small samples are likely to exhibit highly variable
 estimates. This finding suggests that many of the claims of predictive accuracy
 in the neuroimaging literature may be exaggerated and/or not valid''
 \citep{poldrack2019establishment}.
 
-
-\subsubsection{localizer is ``ground truth''}
-
-%
-``The dynamic localizer (in Grand Budapest data set) was significantly more
-reliable than the static localizer (in StudyForrest data set) (t(34) = 3.76, p <
-0.001) despite its shorter length (four 234s runs versus four 312s runs,
-respectively)'' \citep{jiahui2020predicting}.
-
-%
-From \citep{weiner2018defining}: ``the identification of the PPA is complicated
-by (at least) four methodological considerations. First, the PPA definition may
-depend on the type of experiment, task, and stimuli used. Second, the boundaries
-of the PPA may depend on the statistical threshold used. Third, the spatial
-extent and localization of the PPA may vary if defined within the native brain
-space of an individual or based on a group analysis. Fourth, the size of the PPA
-may depend on data acquisition choices (e.g. large vs. small voxels) and data
-analysis choices (e.g. liberal smoothing vs. no spatial smoothing). The present
-study aims to identify and to predict the most probable location of
-place-selective voxels within medial VTC of an individual brain that is
-impervious to these methodological decisions'' \citep{weiner2018defining}.
-
-%
-\citet{lilienfeld2015fifty} on ``gold standard'': ``In the domains of
-psychological and psychiatric assessment, there are precious few, if any,
-genuine ``gold standards''. Essentially all measures, even those with high
-levels of validity for their intended purposes, are necessarily fallible
-indicators of their respective constructs [Cronbach and Meehl, 1955; Faraone and
-Tsuang, 1994]. As a consequence, the widespread practice referring to even
-well-validated measures of personality or psychopathology, such as Hare’s
-(1991/2003) Psychopathy Checklist-Revised, as ``gold standards'' for their
-respective constructs [Ermer et al., 2012] is misleading [see Skeem and Cooke,
-2010]. If authors intend to refer to measures as ``extensively validated'', they
-should simply do so'' \citep{lilienfeld2015fifty}
-
-%
-\citet{scheinost2019ten} in context of phenotypic measures: ``Predictive models
-based on neuroimaging data will only ever account for a fraction of the
-variance. Neuroimaging studies are limited by how much information the signal
-can capture about the measure of interest. At the same time, these studies are
-also limited by the chosen phenotypic measure used.  While the success of a
-model is evaluated by how well it predicts a phenotypic measure (and these
-phenotypic measures have to be treated as gold standards), it is well known that
-such measures are not always the ground truth but themselves suffer from
-confounds and noise.  When studying brain-behavior associations, one must keep
-in mind how extraordinary it is that neuroimaging data can be distilled to
-approximate phenotypic measures that reflect a simplification of multiple
-complex features. Thus, even modest results are reasonable and remarkable. For a
-discussion on the reliability of phenotypic measures in the context of
-predictive modeling, we point the interested reader to: [Dubois et al., 2018a,
-2018b; Gignac and Bates, 2017]'' \citep{scheinost2019ten}.
-
-
-\subsubsection{ROI creation procedure}
-
-we have a little leakage of test data; especially at the borders of the ROI we
-might "miss" some voxels cause the ROIS is based on thresholded mask (performing
-com cutting on the edges).
-
-\todo[inline]{check paper regarding ``probabilistic functional atlases''}
-
-
-\subsubsection{Volume-based registration vs. surface-based normalization}
-
-%
-Sengupta did the published analyses $Z$-maps in volume space
-%
-I could have run the analyses/contrasts on the surface but opportunity costs.
-%
-\todo[inline]{Volumen-based anatomical alignment was compared to volume-based
-functional alignment}
-
-Volume vs. surface: e.g. \citep{desai2005volumetric}
-
-\citep{weiner2018defining} compares cortex-based alignment
-\citep{fischl1999high} with volume-based (Talairach) alignment: ``we repeated
-our leave-one-out cross-validation procedure across all 24 participants with an
-affine volume-based registration to the Talairach brain and compared this
-performance to the same procedure implemented with CBA in FreeSurfer
-\citep{weiner2018defining}''
+\todo[inline]{of course, replication, bigger sample, and stuff! Which is
+transition to ``Future questions''}
 
 
 
 
 \subsection{Future questions}
 
-\subsubsection{Predict other t-contrasts of higher-visual area localizer}
 
+\subsubsection{Predict other t-contrasts of our localizer}
 
-\paragraph{Predict other functional areas / other localizers}
-
-
-e.g. retinotopy, language areas
+\todo[inline]{especially, condition ``faces'' was hard to model in the
+audio-description''; master student's project (with an additional twist?)}
 
 %
-Again, data from the studyforrest project will be used to perform assessments
-analog to WP1e for a range of additional individually determined regions based
-on established localizer paradigms (Sengupta, et al., 2016).
+The \ac{ffa}, and \ac{eba}  which are associated with face perception
+\citep{kanwisher1997ffa, pitcher2011occipitalfacearea}, and the perception of
+human bodies \citep{downing2001bodyarea}, respectively.
+
+
+
+
+\subsubsection{Common model space based on other study's data}
+
+\todo[inline]{a.k.a. ``more subjects''}
 %
-These regions include: the \ac{ffa}, \ac{ppa}, and \ac{eba}  which are
-associated with face perception \citep{kanwisher1997ffa,
-pitcher2011occipitalfacearea}, scene perception \citep{epstein1998ppa}, and the
-perception of human bodies \citep{downing2001bodyarea}, respectively.
+Create a common functional space from another experiment's data, using another
+scanner and, of fucking course, more subjects (obviously, "movie's study"
+[a.k.a. ``my precious'' ;-)].
+%
+In case of an alignment of time series, that experiment needs, at least, a part
+of Forrest Gump as an intersection.
+%
+But: shared stimulus across datasets is easier to accomplish than shared
+subjects across datasets \citep[s.][]{zhang2018transfer}.
+
+
+
+\subsubsection{Other localizers, i.e. brain functions}
+
+%
+What is the limit of what we can estimate reliably?
+%
+Retinotopy, language, executive functions (from low-level perception to higher
+cognition which might not even be sampled by a movie).
+
 
 ``First, our brains directly process exogenous information about the external
 environment by transducing physical phenomena (e.g., changes in energy,
@@ -1372,178 +1436,210 @@ representations that are directly driven by the external world are likely to be
 highly similar across individuals who share the same sensory experience. Second,
 our brains also process endogenous information that reflects our current
 internal homeostatic states, past experiences, and future goals (3). The
-integration of exogenous and endogenous informa- tion allows us to meaningfully
+integration of exogenous and endogenous information allows us to meaningfully
 interpret our surroundings, prioritize information that is relevant to our
 goals, and develop action plans (4). Given the same input information,
 individuals may have unique interpretations, feelings, and plans, often leading
-endogenous rep- resentations to be idiosyncratic across individuals''
+endogenous representations to be idiosyncratic across individuals''
 \citep{chang2021endogenous}.
 
 ``Human brains have much in common with one another. Similarities exist not only
 at the anatomical level, but also in terms of functional organization. Given the
 same stimulus—an expanding ring, for example—regions of the brain that process
 sensory (visual) stimuli will respond in a highly predictable and similar manner
-across differ- ent individuals. This predictability is not limited to sensory
+across different individuals. This predictability is not limited to sensory
 systems: shared activity across people has also been observed in higher-order
-brain regions (for example, the default mode network6, or DMN) dur- ing the
+brain regions (for example, the default mode network [6], or DMN) during the
 processing of semantically complex real-life stimuli such as movies and
-stories7–13. Notably, shared responses in these high-order areas seem to be
+stories [7–13]. Notably, shared responses in these high-order areas seem to be
 associated with narrative content and not with the physical form used to convey
-it11,14,15. It is unknown, at any level of the cortical hierarchy, to what
+it [11,14,15]. It is unknown, at any level of the cortical hierarchy, to what
 extent the similarity of human brains during shared perception is recapitulated
 during shared recollection. This prospect is made especially challenging when
-recall is spontane- ous and spoken, and the selection of details is left up to
-the remem- berer (rather than the experimenter), as is often the case in real
+recall is spontaneous and spoken, and the selection of details is left up to
+the rememberer (rather than the experimenter), as is often the case in real
 life'' \citep{chen2017shared}.
 
 
 
-\subsubsection{Create CMS from other study}
-
-\todo[inline]{a.k.a. ``more subjects''}
-%
-Create a CMS from another experiment's data,
-using another scanner and hopefully more subjects
-%
-In case of an alignment of time series,
-that experiment needs, at least, a part of Forrest Gump as an intersection
-
 
 \subsubsection{Other functional alignment algorithms}
 
-\todo[inline]{cf. \citep{bazeille2021empirical}}
+\todo[inline]{kind of obvious and a little ``for the sake of it''}
 
-\todo[inline]{Multimodal Surface Matching (Robinson et al. 2014)?}
+\todo[inline]{cf. \citet{bazeille2021empirical} and his dissertation}
 
-``As we use inter-subject decoding to compare functional alignment methods, we
-only consider methods that meet the following two criteria. First, the alignment
-transformations should be learned on activations evoked during temporally
-synchronized (i.e., co-occuring) task data, or on contrasts matched across
-individuals. Second, the learned transformations must be invertible or almost
-invertible linear mappings and applicable as-is on unseen data with a different
-task structure. These two criteria exclude several methods currently used in the
-literature such as regularized canonical correlation analysis (rCCA; Bilenko and
-Gallant, 2016), gradient hyperalignment (Xu et al., 2018), connectivity
-hyperalignment (Guntupalli et al., 2018), and methods based on Laplacian
-embeddings (Langs et al., 2014)'' \citep{bazeille2021empirical}.
+\todo[inline]{what is "Multimodal Surface Matching"; Robinson et al. 2014?}
 
+From \citet{bazeille2021empirical}: ``As we use inter-subject decoding to
+compare functional alignment methods, we only consider methods that meet the
+following two criteria.
+%
+First, the alignment transformations should be learned on activations evoked
+during temporally synchronized (i.e., co-occuring) task data, or on contrasts
+matched across individuals.
+%
+Second, the learned transformations must be invertible or almost invertible
+linear mappings and applicable as-is on unseen data with a different task
+structure.
+%
+These two criteria exclude several methods currently used in the literature such
+as regularized canonical correlation analysis (rCCA; Bilenko and Gallant, 2016),
+gradient hyperalignment (Xu et al., 2018), connectivity hyperalignment
+(Guntupalli et al., 2018), and methods based on Laplacian embeddings (Langs et
+al., 2014)'' \citep{bazeille2021empirical}.
+
+%
 ``Nonetheless, it remains unclear how researchers should choose among the
 available functional alignment methods for a given research application''
 \citep{bazeille2021empirical}.
 
 
-\subsubsection{ROI vs. searchlight}
+
+
+\paragraph{ROI vs. whole-brain (i.e. searchlight)}
 
 \todo[inline]{searchlight SRM \citep{zhang2016searchlight}}
 
-\todo[inline]{Hyperalignment searchlight paper?}
+%
+Similarly: influence of voxel count vs. performance (a.k.a. the more training
+data, the better; it not just number of participants;
+%
+In case of search light: how big should it be? PPA seems to vary by centimeters.
+
+% Guntupalli's searchlight
+From project proposal: ``\citet{guntupalli2016model} showed that hyperalignment
+can be extended to predict functional organization across large proportions of
+the cortical surface, for example to predict the represented visual field
+coordinate in visual cortex based on retinotopic mapping scans of other
+individuals.
 
 %
-Our union of PPA is XX voxels big.
-%
-Influence of voxel count on performance; take searchlight (but how big should it
-be?
-
-% Guntupalli's searchlight paper
-Later, \citet{guntupalli2016model} showed that hyperalignment can be extended to
-predict functional organization across large proportions of the cortical
-surface, for example to predict the represented visual field coordinate in
-visual cortex based on retinotopic mapping scans of other individuals.
-
 ``Applying SRM to a large swath of the brain means that all voxels within the
 region contribute to the final derived metric. This can conflict with the goal
 of associating spatially local activity with specific cognitive functions. To
 address such issues, SRM can be applied in small overlapping searchlights to
-obtain localized metrics of shared information [71,99]
-\citep{cohen2017computational}''.
+obtain localized metrics of shared information [\citep{guntupalli2016model,
+zhang2016searchlight}'' \citep{cohen2017computational}.
 
-``As piecewise alignment is learned within a parcellation, an important question
-is: which brain atlas should be used for piecewise alignment? In Supplementary
-Figure S2 we compare results from the Schaefer et al. (2018) atlases to those
-from parcellations derived directly on the alignment data. By default, the
-results presented piecewise alignment is learned within a parcellation, an
-important question is: which brain atlas should be used for piecewise alignment?
-In Supplementary Figure S2 we compare results from the Schaefer et al. (2018)
-atlases to those from parcellations derived directly on the alignment data. By
-default, the results presented below are derived with the 300 ROI parcellation
-of the Schaefer atlas unless noted otherwise. In the case of searchlight
-Procrustes, we selected searchlight parameters to match those used in Guntupalli
-et al. (2016); that is, each searchlight had 5 voxel radius, with a 3 voxel
-distance between search- light centers. All searchlight analyses were
-implemented using PyMVPA [Hanke et al., 2009].ted below are derived with the 300
-ROI parcellation of the Schaefer atlas unless noted otherwise. In the case of
-searchlight Procrustes, we selected searchlight parameters to match those used
-in Guntupalli et al. (2016); that is, each searchlight had 5 voxel radius, with
-a 3 voxel distance between search- light centers. All searchlight analyses were
-implemented using PyMVPA (Hanke et al., 2009)'' \citep{bazeille2021empirical}.
+%
+From \citet{bazeille2021empirical}: ``As piecewise alignment is learned within a
+parcellation, an important question is: which brain atlas should be used for
+piecewise alignment? In Supplementary Figure S2 we compare results from the
+Schaefer et al. (2018) atlases to those from parcellations derived directly on
+the alignment data. By default, the results presented piecewise alignment is
+learned within a parcellation, an important question is: which brain atlas
+should be used for piecewise alignment?  In Supplementary Figure S2 we compare
+results from the Schaefer et al. (2018) atlases to those from parcellations
+derived directly on the alignment data. By default, the results presented below
+are derived with the 300 ROI parcellation of the Schaefer atlas unless noted
+otherwise. In the case of searchlight Procrustes, we selected searchlight
+parameters to match those used in Guntupalli et al. (2016); that is, each
+searchlight had 5 voxel radius, with a 3 voxel distance between searchlight
+centers. All searchlight analyses were implemented using PyMVPA [Hanke et al.,
+2009].ted below are derived with the 300 ROI parcellation of the Schaefer atlas
+unless noted otherwise. In the case of searchlight Procrustes, we selected
+searchlight parameters to match those used in Guntupalli et al. (2016); that is,
+each searchlight had 5 voxel radius, with a 3 voxel distance between search-
+light centers. All searchlight analyses were implemented using PyMVPA [Hanke et
+al., 2009]'' \citep{bazeille2021empirical}.
 
-``An alternative scheme, piecewise alignment (Bazeille et al., 2019), uses
-non-overlapping neighborhoods either learnt from the data using a parcellation
-method—such as k-means—or derived from an a priori functional or anatomical
-atlas. Local transforms are derived in each neighborhood and concatenated to
-yield a single large-scale transformation. Unlike searchlight, this returns a
-transformation matrix with the desired regularities. This framework might induce
-staircase effects or other functionally-irrelevant discontinuities in the final
-transformation due to the underlying boundaries'' \citep{bazeille2021empirical}.
+\citet{bazeille2021empirical}: ``An alternative scheme, piecewise alignment
+[Bazeille et al., 2019], uses non-overlapping neighborhoods either learnt from
+the data using a parcellation method—such as k-means—or derived from an a priori
+functional or anatomical atlas. Local transforms are derived in each
+neighborhood and concatenated to yield a single large-scale transformation.
+Unlike searchlight, this returns a transformation matrix with the desired
+regularities. This framework might induce staircase effects or other
+functionally-irrelevant discontinuities in the final transformation due to the
+underlying boundaries'' \citep{bazeille2021empirical}.
 
-``To align the entire cortex across subjects, two main frameworks have been
-proposed: searchlight and piecewise aggregation schemes. Each of these
-frameworks use functional alignment methods to learn local transformations and
-aggregate them into a single large-scale alignment; however, search- light and
-piecewise differ in how they aggregate transforms, as illustrated in Figure 2.
-The searchlight scheme [Kriegeskorte et al., 2006], popular in brain imaging
-[Guntupalli et al., 2018; 2016], has been used as a way to divide the cortex
-into small overlapping spheres of a fied radius. This method allows researchers
-to remain agnostic as to the lo- cation of functional or anatomical boundaries,
-such as those suggested by parcellation-based approaches. A local transform can
-then be learnt in each sphere and the full alignment is obtained by aggregating
-[e.g. summing as in Guntupalli et al., 2016 or averaging] across overlapping
-transforms. Importantly, the aggregated transformation produced is no longer
-guaranteed to bear the type of regularity (e.g orthogonality, isometry, or
-diffeomorphicity enforced during the local neighborhood fit''
-\citep{bazeille2021empirical}.
+\citet{bazeille2021empirical}: ``To align the entire cortex across subjects, two
+main frameworks have been proposed: searchlight and piecewise aggregation
+schemes. Each of these frameworks use functional alignment methods to learn
+local transformations and aggregate them into a single large-scale alignment;
+however, search- light and piecewise differ in how they aggregate transforms, as
+illustrated in Figure 2.  The searchlight scheme [Kriegeskorte et al., 2006],
+popular in brain imaging [Guntupalli et al., 2018; 2016], has been used as a way
+to divide the cortex into small overlapping spheres of a fied radius. This
+method allows researchers to remain agnostic as to the lo- cation of functional
+or anatomical boundaries, such as those suggested by parcellation-based
+approaches. A local transform can then be learnt in each sphere and the full
+alignment is obtained by aggregating [e.g. summing as in Guntupalli et al., 2016
+or averaging] across overlapping transforms. Importantly, the aggregated
+transformation produced is no longer guaranteed to bear the type of regularity
+(e.g orthogonality, isometry, or diffeomorphicity enforced during the local
+neighborhood fit'' \citep{bazeille2021empirical}.
 
 
-\subsubsection{Time series vs connectivity-based}
+
+
+\paragraph{Time series vs connectivity-based}
 
 \todo[inline]{kind of a killer cause you do not need intersection of
 time series; but s. Guntupalli's paper: time series hyperalignment outperforms
 connectivity-based hyperalignment (?)}
 
+\todo[inline]{cf. uncutted part on functional alignment}
+
+
+\todo[inline]{wtf did \citep{nastase2019leveraging} do?}
+
+
 %
-``Hyperalignment models shared information that is embedded in idiosyncratic
-cortical patterns across brains. Modeling shared information makes it possible
-to compare functional anatomy across brains at a fine spatial scale.
+From \citet{busch2021hybrid}:``Hyperalignment models shared information that is
+embedded in idiosyncratic cortical patterns across brains. Modeling shared
+information makes it possible to compare functional anatomy across brains at a
+fine spatial scale.
+%
 Hyperalignment projects cortical pattern vectors into a common, high-dimensional
-information space [Haxby et al., 2020]. Derivation of this common space can be
-based on either neural response profiles (e.g. data collected during tasks, such
-as movie viewing (Haxby et al., 2011)) or functional connectivity profiles files
-[Guntupalli et al., 2018]'' \citep{busch2021hybrid}.
+information space [Haxby et al., 2020].
+%
+Derivation of this common space can be based on either neural response profiles
+(e.g. data collected during tasks, such as movie viewing (Haxby et al., 2011))
+or functional connectivity profiles files [Guntupalli et al., 2018]''
+\citep{busch2021hybrid}.
 
-``Estimating the parameters to transform high-dimensional spaces from individual
-brains into a common high-dimensional space requires a rich set of data that
-samples a wide variety of cortical patterns in order to generalize to novel
-stimuli or tasks. For response hyperalignment, a rich variety of stimuli or
-conditions are necessary to sample the response vector space. For connectivity
-hyperalignment, the sampling of connectivity vector space is defined by the
-selection of connectivity targets, but the richness and reliability of
-connectivity estimates depends on the variety of brain states over which
-connectivity is estimated'' \citep{haxby2020hyperalignment}.
+
+% Nastase's ugly mofo paper
+``Finally, estimating the SRM from functional connectivity data rather than
+response time series circumvents the need for a single shared stimulus across
+subjects; connectivity SRM allows us to derive a single shared response space
+across different stimuli with a shared connectivity profile
+\citep{nastase2019leveraging}'' \citep{kumar2020brainiak}.
+
+
+From \citet{haxby2020hyperalignment}: ``Estimating the parameters to transform
+high-dimensional spaces from individual brains into a common high-dimensional
+space requires a rich set of data that samples a wide variety of cortical
+patterns in order to generalize to novel stimuli or tasks.
+%
+For response hyperalignment, a rich variety of stimuli or conditions are
+necessary to sample the response vector space.
+%
+For connectivity hyperalignment, the sampling of connectivity vector space is
+defined by the selection of connectivity targets, but the richness and
+reliability of connectivity estimates depends on the variety of brain states
+over which connectivity is estimated'' \citep{haxby2020hyperalignment}.
 
 %
-``Results showed that both CHA and RHA increased ISCs and bsMVPC classification
-accuracies significantly over anatomy-based alignment, but each algorithm
-achieves better alignment for the information that it uses to derive a common
-model, namely connectivity profiles and patterns of response, respectively. ISCs
-of connectivity profiles are significantly higher in a common model based on CHA
-than in a common model based on RHA (ROI mean ISCs = 0.67 and 0.575,
-respectively; CHA-RHA difference = 0.095 [0.081, 0.112])(S1 Fig). By contrast,
-RHA marginally but significantly outperforms CHA on some validations based on
-response tuning functions, namely ISCs of representational geometry (ROI means =
-0.322 and 0.308, respectively; RHA-CHA difference = 0.014 [0.007, 0.019])(S2
-Fig), and bsMVPC of movie segments (ROI mean accuracies = 13.65% and 10.37%,
-respectively; RHA-CHA differ- ence = 3.28\% [2.76%, 3.78%])(S3 Fig)
-\citep{guntupalli2018computational}.
+From \citet{guntupalli2018computational}: ``Results showed that both CHA and RHA
+increased ISCs and bsMVPC classification accuracies significantly over
+anatomy-based alignment, but each algorithm achieves better alignment for the
+information that it uses to derive a common model, namely connectivity profiles
+and patterns of response, respectively.
+%
+ISCs of connectivity profiles are
+significantly higher in a common model based on CHA than in a common model based
+on RHA (ROI mean ISCs = 0.67 and 0.575, respectively; CHA-RHA difference = 0.095
+[0.081, 0.112])(S1 Fig).
+%
+By contrast, RHA marginally but significantly
+outperforms CHA on some validations based on response tuning functions, namely
+ISCs of representational geometry (ROI means = 0.322 and 0.308, respectively;
+RHA-CHA difference = 0.014 [0.007, 0.019])(S2 Fig), and bsMVPC of movie segments
+(ROI mean accuracies = 13.65\% and 10.37\%, respectively; RHA-CHA difference =
+3.28\% [2.76\%, 3.78\%])(S3 Fig) \citep{guntupalli2018computational}.
 
 % from project proposal
 From project proposal: ``In his doctoral thesis, recently submitted to the
@@ -1553,9 +1649,9 @@ same full-length movie) as used by Haxby and colleagues are not required to
 derive a valid alignment of individuals with a common representational space
 \citep{kaule2017examination}.
 %
-Comparable prediction performance can be achieved by using \textbf{functional
-connectivity patterns} (correlation of a voxel's time series with reference
-regions in the same brain)'' (s. dissertation project proposal).
+Comparable prediction performance can be achieved by using functional
+connectivity patterns (correlation of a voxel's time series with reference
+regions in the same brain).
 %
 It should be noted that the number of voxels that can be considered
 simultaneously for functional BOLD response time series alignment is limited by
@@ -1567,16 +1663,8 @@ This limitation does not exist in this form for a functional alignment that is
 based on connectivity vectors.
 %
 The length of these connectivity vectors is determined by the number of
-reference (or seed) regions in the brain.
+reference (or seed) regions in the brain'' [from project proposal].
 
-\todo[inline]{wtf did \citep{nastase2019leveraging} do?}
-
-% Nastase's ugly mofo paper
-``Finally, estimating the SRM from functional connectivity
-data rather than response time series circumvents the need for a single shared
-stimulus across subjects; connectivity SRM allows us to derive a single shared
-response space across different stimuli with a shared connectivity profile
-\citep{nastase2019leveraging}'' \citep{kumar2020brainiak}.
 
 
 \subsubsection{Individual residuals?}
@@ -1584,29 +1672,42 @@ response space across different stimuli with a shared connectivity profile
 \todo[inline]{We have transformation matrices for individual mapping; but just
 onto shared responses}
 
-%
-``Furthermore, in cases where each subject's unique response is of more interest
-than the shared signal, SRM can be used to factor out the shared component
-thereby isolating the idiosyncratic response for each subject [13]''
-\citep{kumar2020brainiak}.
+\todo[inline]{but extension of SRM: ``Capturing Shared and Individual
+Information in fMRI Data'' \citep{turek2018capturing} [read it!]; is there
+any "real" paper that has been using that model already?}
 
+
+%
 From \citep{cohen2017computational}: ``The flip side of focusing on shared
 responses is to focus on responses that are idiosyncratic to individuals.
 Although these responses are excluded in SRM, they are not necessarily noise and
-may in fact be highly reliable within participants.  SRM can be used to isolate
-participant-unique responses by examining the residuals after removing shared
-group responses, or it can be applied hierarchically to the residuals to
-identify subgroups \citep{chen2017shared} \citep{cohen2017computational} [this
-other ``Chen'' is fucking up the aethestics of references].  More generally,
-there is a growing trend toward investigating individual differences as another
-source of meaningful variance in fMRI [73].  Recognizing that signal exists
-beyond the average or shared response of a group, such studies exploit
-idiosyncratic but stable responses to account for previously unexplained
-variance in brain function, behavioral performance and clinical measures
-[70,74]'' \citep{cohen2017computational}.
+may in fact be highly reliable within participants.
+%
+SRM can be used to isolate participant-unique responses by examining the
+residuals after removing shared group responses, or it can be applied
+hierarchically to the residuals to identify subgroups [\citet{chen2017shared};
+this is another "Chen"?!].
+%
+More generally, there is a growing trend toward investigating individual
+differences as another source of meaningful variance in fMRI
+[\citep{dubois2016building}].
+%
+Recognizing that signal exists beyond the average or shared response of a group,
+such studies exploit idiosyncratic but stable responses to account for
+previously unexplained variance in brain function, behavioral performance and
+clinical measures [Finn (2015). Functional fingerprinting (based on
+connectivity); Rosenberg (2016). A neuromarker of sustained attention]''
+\citep{cohen2017computational}.
 
-\todo[inline]{but extension of SRM: ``Capturing Shared and Individual
-Information in fMRI Data'' \citep{turek2018capturing}}
+
+%
+``Furthermore, in cases where each subject's unique response is of more interest
+than the shared signal, SRM can be used to factor out the shared component
+thereby isolating the idiosyncratic response for each subject
+[\citep{chen2015reduced}]'' \citep{kumar2020brainiak}.
+
+
+
 
 
 \subsection{Vision}
@@ -1614,8 +1715,6 @@ Information in fMRI Data'' \citep{turek2018capturing}}
 \todo[inline]{mih: das Kapitel braucht aus meiner Sicht keinen eigenen
 "Outlook"; kommt eh direkt danach für die ganze Arbeit \&  ist da viel
 interessanter}
-
-\todo[inline]{IBC nennen?}
 
 
 \subsubsection{Multiple localizer}
@@ -1831,7 +1930,11 @@ Windows on the brain]. However, a similar large scale description of
 functional networks is still lacking'' \citep{pinel2007fast}.
 
 
+
+
 \subsection{Conclusion}
+
+Ceterum censeo Carthaginem esse delendam.
 
 
 \section{Data Availability}
