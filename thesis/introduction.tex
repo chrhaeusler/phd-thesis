@@ -8,13 +8,7 @@ human brain result in location-specific sensory, motor or cognitive deficits''
 \citep{cohen1994localization}.
 
 
-\todo[inline]{across whole dissertation: correct numbering of studies; better
-speak of "study in chapter x" than study x}
 
-\todo[inline]{Here \& elsewhere: be careful about writing 'neuroscience' when
-you might want to say 'neuroimaging' -- they are not the same, and
-neuroscientists from other fields might not like this implicit statement; ->
-scan the .tex files for the term neuroscience!}
 
 %
 Thanks to technological advanced, brain imaging studies have extensively used
@@ -27,10 +21,10 @@ in the human brain'' \citep{savoy2001history}.
 % higher visual areas
 For example in the domain of higher-visual perception, replicated findings
 suggest that category-selective brain regions like the \ac{ppa}
-\citep{epstein1998ppa, epstein1999parahippocampal} and \ac{ffa}
+\citep{epstein1998ppa, epstein1999parahippocampal} or the \ac{ffa}
 \citep{kanwisher1997ffa, kanwisher2006fusiform} exhibit significantly increased
 \ac{bold} activity correlated with a ``preferred'' stimulus class: the \ac{ppa}
-responds more strongly when participants are watching pictures of scences and
+responds more strongly when participants are watching pictures of scenes and
 landscapes compared to pictures of, e.g., faces, and the \ac{ffa} responds more
 strongly when participants are watching pictures of faces compared to pictures
 of scenes.
@@ -40,6 +34,8 @@ Typical analyses of human brain mapping studies average data across subjects for
 practical (e.g., limited scan time per subject), statistical (e.g., improved
 of \ac{snr}) reasons, or to generalize from study subjects to a broader
 population.
+\todo[inline]{Practical contains "not enough data practically obtainable from
+one subject"}
 %
 Nevertheless, the precise anatomical location of functionally defined regions of
 the brain vary anatomically (measured in Talairach or MNI coordinates) across
@@ -66,9 +62,9 @@ essential for characterizing brain function in health and disease''
 On the level of individual subjects, \textit{functional localizer} experiments
 \citep[e.g.,][for reviews]{saxe2006divide, friston2006critique} are conducted
 during \ac{fmri} to characterize the location size, and shape of functional
-areas correlating with perceptual or cognitive processes (e.g. perception of
-object categories \citep{kanwisher1997ffa}, speech perception
-\citep{fernandez2001language}, or theory of mind \citep{spunt2014validating}).
+areas correlating with perceptual or cognitive processes like the perception of
+object categories \citep{kanwisher1997ffa} or speech
+\citep{fernandez2001language}, or theory of mind \citep{spunt2014validating}.
 % purpose: ROI improve the statistical power of the main experiment's analysis
 Functional localizers are often used as separate experiment to identify a
 subject-specific functional \acp{roi} to ``guide, constrain or interpret results
@@ -116,49 +112,12 @@ presented in blocks, and do not resemble how we perceive the real world outside
 of the laboratory during everyday life.
 
 
-\paragraph{excursion to current project}
-
-\todo[inline]{better merge following excursion with ``Aims of thesis'' below??
-though, a short excursion to current project makes sense before the naturalistic
-stimulus inferno breaks loose}
-
-\todo[inline]{mih: :I like the immediate connection! but maybe limit the
-statement to just be about 'task-free'?}
-
-\todo[inline]{eher nur den ersten Teil bringen; nicht zweiten Teil?}
-
-\todo[inline]{klar machen, weshalb Lit. Review dort steht; abern icht zu viele
-Vorgriffe auf die Diss}
-
-\todo[inline]{dennoch zusammenfassen, weshalb es geschrieben wurde; nicht
-andersherum: das ist Ziel \& deshalb erzähle das jetzt}
-
-%
-For this reason, this dissertation will explore whether a Hollywood movie and
-its audio-only variant created for a visually impaired audience could, in
-principle, substitute a traditional, task-based paradigm to localize functional
-areas.
-%
-As a proof of concept, the dissertation focuses on the ``parahippocampal place
-area'', a classic example of a higher-visual, functional area
-\citep{epstein1998ppa, epstein1999parahippocampal} located in the ventral visual
-pathway [check PPA paper for reference].\todo{add 'cf. ...'; s. PPA-Paper}
-% what PPA is doing
-Increased hemodynamic activity is observed in the \ac{ppa} when participants
-view photos of landscapes, buildings or landmarks, compared to, e.g., photos of
-faces or tools \citep[e.g.,][for reviews]{epstein2014neural, aminoff2013role}.
-%
-These stimulus classes that are correlated with hemodynamic responses during
-traditional paradigms might also be embedded as \textit{stimulus features} in
-more naturalistic stimuli like a movie or spoken narrative.
-
-
 \section{Naturalistic stimuli}
 %
-Since a major goal of cognitive neuroscience is not to reveal how the brain
+Since a major goal of neuroscience is not to reveal how the brain
 responds to blocks of [tightly-controlled] stimuli presented in a laboratory
 setting but how the brain processes information during everyday perception,
-\textit{naturalistic stimuli} gained popularity in neuroscience.
+\textit{naturalistic stimuli} gained popularity in neuroimaging.
 
 
 \paragraph{Definition}
@@ -184,10 +143,10 @@ closely mimic our rich visual and auditory experiences outside the scanner bore
 in real-life \citep{hasson2008neurocinematics, haxby2020naturalistic}.
 %
 Naturalistic stimuli also promise a higher external validity because the
-\textit{stimulus features} (i.e. the stimulus classes or variables in the
-naturalistic stimulus) that are embedded in the naturalistic stimulus represent
-a more random sample from the ``theoretical population of stimuli that might
-have been used'' \citep{westfall2016fixing}.
+\textit{stimulus features} (i.e. the stimulus classes or variables) that are
+embedded in the naturalistic stimulus represent a more random sample from the
+``theoretical population of stimuli that might have been used''
+\citep{westfall2016fixing}.
 %
 % Carefully chosen stimulus sets ``selectively sample from the stimulus
 % population leading to a stimulus-as-fixed-effect fallacy [Clarc, The
@@ -248,11 +207,11 @@ suffering from diminished or lack of eyesight.
 
 %
 However, the majority of naturalistic stimuli that have been used in
-neuroscience have originally been designed for commercial purposes and not to
+neuroimaging have originally been designed for commercial purposes and not to
 conduct research.
 %
 The temporal structure of stimulus features embedded in a naturalistic stimulus
-are fixed and thus reproducible but initially not explicitly known.
+is fixed and thus reproducible but initially not explicitly known.
 %
 Modeling brain activity correlating with the stimulus features embedded in the
 time course is challenging \citep{saarimaki2021naturalistic, simony2020analysis}
@@ -264,33 +223,147 @@ The lack of extensive annotations has led to a ``usage bottleneck''
 of task or stimulus are ``notoriously'' \citep{richard2019fast}, if not
 ``prohibitively'' \citep{nastase2019measuring} difficult to construct.
 
+
+
+\paragraph{interim summary}
+
+% Quote from Finn
+In summary, naturalistic stimuli ``impose a meaningful timecourse across
+subjects while still allowing for individual variation in brain activity and
+behavioral responses, and lend themselves to a broader set of analyses than
+either pure rest or pure event-related task designs'' \citep{finn2017can}.
+
+
+\section{Aims of thesis}
+%% At the end of the introduction, add a subchapter on the Aims of Thesis in
+%% which you describe the research question and the objectives of your work on
+%% a maximum of two pages
+
+
+\subsection{short summary of introduction so far}
+
+\todo[inline]{still too long and (of course) bumpy}
+
+% clinical application
+An application of neuroimaging in a clinical setting requires the
+``interpretation of fMRI data at the level of individual brains is essential for
+characterizing brain function in health and disease''
+\citep{dubois2016building}.
+% functional localizers
+Functional localizers paradigms that aim to characterize the location size, and
+shape of functional areas and promise to advance neuroimaging towards a clinical
+application.  (e.g., diagnosis prior to neurosurgery) because ``in the clinical
+setting making diagnoses for single cases is imperative''
+\citep{wegrzyn2018thought}.
+% contra localizers
+However, localizers a) rely on selectively sampled, tightly-controlled stimuli
+presented in blocks to maximize detection power, b) can usually map just one
+domain of brain functions, and c) heavily on the participants' general
+compliance and their comprehension of the task instruction.
+% naturalistic stimuli
+Alternatively, naturalistic stimuli might be used as an interesting,
+easy-to-follow, engaging, immersive paradigm that puts participants at ease in
+the otherwise claustrophobic, uncomfortable, and noisy MRI scanner leading to
+improved data quality \citep{eickhoff2020towards}.
 %
-Additionally if one wants to map only one domain of brain functions, a
-full-length movie is an inadequate replacement for a traditional localizer
-lasting about 15 minutes.
+Moreover, spoken narratives are also appropriate for visually impaired persons
+suffering from diminished or lack of eyesight.
+%
+The richness, multi-dimensionality of naturalistic stimuli might impose a
+challenging data analysis put promises a higher ecological and external
+validity.
+%
+The time-courses of rich, full-length naturalistic stimuli are correlating with
+a variety of different brain functions ranging from low-level perception (e.g.,
+luminance) to high-level cognition (e.g., social cognition).
+%
+A naturalistic stimulus could eventually replace multiple dedicated localizers
+in the future to provide a more comprehensive diagnostic routine.
 
-\todo[inline]{ask Michael: the modeled time course might not ``perfectly''
-represent time-course of the correlating brain process}
-
-\todo[inline]{True, only if one assume that the brain truly does nothing else
-than face recognition during an FFA locatizer....}
 
 
-\section{Predicting subject-specific topography from a reference group}
+\subsection{Therefore: this dissertation}
 
-\todo[inline]{needs to be a preparation for ``Aims of thesis''}
+%
+Therefore, this dissertation explores --- while following the principles of
+open, transparent, and reproducible science --- whether a movie and the movie's
+audio-description that was produced for an visually impaired audience could, in
+principle, substitute a traditional localizer paradigm.
 
+\paragraph{focus on PPA}
+% focus: ppa
+As a proof of concept, this dissertation focuses on the \ac{ppa} that exhibits
+increased hemodynamic activity when participants view photos of landscapes,
+buildings or landmarks, compared to, e.g., photos of faces or tools
+\citep[e.g.,][for reviews]{epstein2014neural, aminoff2013role}.
+
+``Several studies have reported increased hemodynamic activity in the PPA
+attributed to the processing of scene-related, spatial information, for example,
+when participants were watching static pictures of landscapes compared to
+pictures of faces or objects \citep{epstein1998ppa,
+epstein1999parahippocampal}'' \citep{haeusler2022processing}.
+% auditory semantics unclear
+However, reports regarding the correlates of processing spatial information in
+verbal stimulation are less clear \citep{aziz2008modulation}.
+
+%
+We will evaluate the potential of an audio-visual movie and an auditory
+narrative to substitute a traditional localizer paradigm in two ways.
+
+
+\paragraph{modeling hemodynamic responses}
+%
+Similarly to traditional localizer paradigms, we first model hemodynamic
+activity based on annotated stimulus features embedded in two-hour-lasting
+naturalistic stimuli, and create build GLM $t$-contrasts in order to locate the
+\ac{ppa}.
+
+
+\paragraph{estimating from reference group}
+
+\todo[inline]{REVISE THIS PART WHILE REVISING THE SRM INTRO}
+
+\todo[inline]{do not introduce (too many too) technical terms; imo training
+(data) test(ing data) is okay; must be clear, that we have ``independent''; it
+is not just parameter estimation / statistical inference but ``prediction''}
 
 \todo[inline]{LOOCV is a bit much here, as a methodological definition, inserted
 into the very first sentence. This put a lot of weight on the particular choice
 of method. But really we just wanted to do any kind of out-of-sample-testing,
 rather than just rely on statistical assumptions}
 
-\todo[inline]{do a high-level summary; do not introduce (too many too) technical
-terms; imo training (data) test(ing data) is okay; must be clear, that we have
-``independent''; it is nopt just parameter estimation / statistical inference
-but ``prediction''}
+%
+However, 2h is too fucking much.
 
+%
+Second, we employ a new approach to estimate the results of the functional
+localizer from data of the movie and audio-description.
+%
+Previous studies have shown that localizer can be estimated using anatomical
+alignment [e.g. CITATION] by projecting ...
+%
+A more recent approach, uses functional alignment \citep{haxby2020hyperalignment,
+bazeille2021empirical} ...
+%
+Previous results has shown that prediction using functional alignment
+outperforms functional alignment.
+
+
+\paragraph{"partial alignment}
+
+%
+However, even if one wants to map a variety of brain functions, a two-hour
+paradigm would be inefficient plus unsuitable for a clinical population.
+
+%
+Therefore, we explore a method and the quantity of data needed
+to predict individual functional topographies by projecting results of a
+localizer experiment (statistical $Z$-maps) from a reference group into the
+brain anatomy of individual participants.
+%
+We test which amount of data is needed to perform an alignment
+to the common functional space that provides transformation matrices that
+outperform a prediction based on an anatomical alignment.
 
 %
 For that reason, this dissertation --- following a \ac{loocv} procedure --- also
@@ -299,495 +372,6 @@ explores whether just a part of a movie or auditory narrative can serve as a
 ``unknown'' subject's brain (i.e. a \textit{left-out subject} to test the
 prediction performance of our model) from a reference group (i.e. the study
 subjects providing the data to train our model).
-
-
-\todo[inline]{little note: here is a (hidden) copy / backup of the text in the
-SRM section (as of April 25th); I gonna revise revise/shorten the version in the
-SRM section, and will probably use some different parts that are located here}
-
-
-
-\begin{comment}
-
-\subsection{The solution: estimation from reference data}
-
-% prediction: general idea
-Another approach to reduce time and costs of individual diagnostics is to
-estimate the location of a functional area based on data collected in a
-reference group.
-
-
-\subsubsection{Anatomical alignment}
-
-
-\paragraph{Intro}
-%
-A traditional procedure [GIVE REFS] to estimate a person's functional topography
-from a reference group starts by anatomically aligning a person's structural
-and functional data to a \textit{common anatomical space} (i.e. a template)
-in order to resolve anatomical variability across persons.
-% volume-based
-Volume-based anatomical alignment \citep[s.][for a
-review]{klein2009evaluation} aligns voxel-wise data of individual subjects
-to a three-dimensional brain template \citep[e.g. MNI152 template]{fonov2011unbiased}.
-% surface-based
-Surface-based anatomical alignment \citep{fischl1999cortical} aligns vertex-wise
-data of individual subjects to a two-dimensional template (e.g. FreeSurfer
-fsaverage template; \citep{fischl1999high}).
-% estimation
-In a second step, the most probable location of a functional area in a person's
-anatomy is then estimated by projecting functional data from persons in the
-reference group through the common anatomical space into the individual
-person's brain anatomy.
-
-
-\paragraph{Estimation of functional areas}
-
-\todo[inline]{estimation papers:
-    \citet{
-    rosenke2021probabilistic,
-    weiner2018defining,
-    zhen2017quantifying,
-    wang2015probabilistic,
-    frost2012measuring}
-}
-
-\todo[inline]{most studies did binary estimation (voxel belongs to PPA or not)
-based on subjectively chosen thresholds; we estimate unthresholded $Z$-maps!}
-
-\todo[inline]{check that in other studies and make that point more clear in
-intro, method section, and discussion}
-
-%
-Previous studies have shown that ....
-
-
-\paragraph{Functional-anatomical correspondence}
-
-% definition: functional-anatomical correspondence
-However, functional organization of the cortex varies across individuals leading
-to differences in \textit{functional--anatomical correspondence}
-\citep{feilong2018reliable}.
-%
-``Variability in functional-anatomical correspondence across individuals means
-that even high-performing anatomical alignment does not ensure fine-grained
-functional alignment [e.g., \citet{frost2012measuring}]''
-\citep{kumar2020brainiak}.
-% example category-selective areas
-The location, size and shape of category-selective regions can differ across
-individuals by millimeters or centimeters [\citep{zhen2017quantifying,
-zhen2015quantifying}] \citep{feilong2018reliable}.
-%
-State-of-the-art cortical surface-based alignment [\citep{fischl2012freesurfer}]
-that respects sulcal locations can reduced but not eliminate the mismatch
-between brain function and anatomy of category-selective regions
-[\citep{duncan2009consistency, frost2012measuring, weiner2018defining,
-weiner2014mid}] \citep{feilong2018reliable}.
-
-%
-``Anatomical alignment methods aim at solving the anatomical structure problem
-using specific anatomical features for alignment
-[\citep{mazziotta2001probabilistic, fischl1999high}]. Yet, they fail to align
-functional topographies satisfactorily [\citep{mazziotta2001probabilistic,
-brett2002problem}]'' \citep{turek2017semi}.
-
-
-%
-From \citep{saxe2006divide}:``More sophisticated strategies for registering
-individual brains together use reconstructed cortical surfaces that respect
-sulcal locations. These systems provide better alignment across subjects for
-retinotopic visual areas [\citep{fischl1999high}], but they do not do much
-better than Talairach co-ordinates for category-selective regions in the
-temporal lobe [\citep{spiridon2006location}]. Moreover, post-mortem histology
-shows that sulcal borders do not reliably coincide with other, well-established
-anatomical divisions based on cytoarchitecture [Amunts and Zilles, 2001,
-Advances in...; Amunts et al., 1999, Broca's Region revisited]''
-\citep{saxe2006divide}.
-%
-``Thus, neither standard stereotaxic registration methods, nor more
-sophisticated coordinate systems that respect sulcal landmarks, are likely to
-bring distinct functional regions perfectly into register across subjects''
-\citep{saxe2006divide}.
-%
-``As a result, nearby brain regions with different functional profiles will be
-averaged together across individuals, reducing both the resolution and
-sensitivity of subsequent functional analyses [\citep{swallow2003reliability}]''
-\citep{saxe2006divide}.
-
-
-%
-From \citep{bazeille2021empirical}: ``A core challenge for cognitive
-neuroscience is to find similarity across neural diversity [Churchland, 1998];
-that is, to find shared or similar neural processes supporting the diversity of
-individual cognitive experience.  Anatomical variability and limited
-structure-function correspondence across cortex [Paquola et al., 2019,
-Microstructural and functional gradients; Vázquez-Rodríguez et al., 2019,
-Gradients of structure–function tethering...] make this goal challenging
-[Rademacher et al., 1993, Topographical Variation of the Human Primary Cortices;
-Thirion et al., 2006, Dealing with the shortcomings of spatial normalization]''
-\citep{bazeille2021empirical}.
-%
-``Even after state-of-the-art anatomical normalization to a standard space, we
-still observe differences in individual-level functional activation patterns
-that hinder cross-subject comparisons [Langs et al., 2010, Functional geometry
-alignment and localization; Sabuncu et al., 2010, Function-based intersubject
-alignment].  With standard processing pipelines, it is therefore difficult to
-disentangle whether individuals are engaging in idiosyncratic cognitive
-experience or if they are engaging in shared functional states that are
-differently encoded in the supporting cortical anatomy''
-\citep{bazeille2021empirical}.
-
-
-\todo[inline]{check papers cited by Dubois (I read them already probably)}
-%
-``Cortical folding-based inter-subject alignment [\citep{fischl1999cortical,
-yeo2009spherical}] has been shown to somewhat reduce functional
-mismatch [\citep{klein2010evaluation, frost2012measuring}] [but see
-\citep{langers2014assessment}]'' \citep{dubois2016building}.
-
-
-\subsubsection{Functional alignment (FA)}
-
-\todo[inline]{some stuff is similarly described by different quotes}
-
-\todo[inline]{other functional alignment procedures? e.g., ``Optimal Transport
-[\citep{bazeille2019local}] with many variations thereof [see e.g. Xu et al.
-2018; \citep{yousefnezhad2017deep}] \citep{bazeille2021empirical}''; s. also his
-dissertation \citep{bazeille2021template}}
-
-
-\paragraph{intro}
-
-% intro
-Since anatomical alignment addresses the issue of anatomical variability but
-does not consider variability in functional-anatomical correspondence across
-subjects, methods of \textit{functional alignment} have been developed that aim
-to preserve functional idiosyncrasies across persons.
-% definition
-In principle, functional alignment procedures align brain activation patterns
-(time series or connectivity-patterns) based on their similarity to a
-high-dimensional \textit{common functional space}.
-
-
-\paragraph{very short explanation}
-
-\todo[inline]{make this short explanation a little longer and shift the "kinda
-longer explanation" into SRM part}
-
-%
-Functional alignment approaches like \textit{hyperalignment}
-\citep{haxby2011common, guntupalli2016model} or the \textit{shared response
-model} \citep{chen2015reduced, zhang2016searchlight} are ``a family of
-computational algorithms that align shared information in a common,
-high-dimensional information space, rather than attempting to align functional
-topographies in the physical space of cortical anatomy to a canonical
-topography'' \citep{haxby2020hyperalignment}.
-
-
-\paragraph{current use case}
-%
-Hence, a more recent procedure to estimate a person's functional topography from
-a reference group first aligns structural and functional data to a common
-anatomical space. Then, in order to preserve functional idiosyncrasies across
-persons, the procedure additionally performs a \textit{functional alignment} to
-a higher-dimensional \textit{common functional space}.
-% estimation
-In the last step, the most probable location of a functional area in a person's
-anatomy is not estimated by projecting functional data from persons in the
-reference group through the common anatomical space but by projecting data
-thorough a common functional space into the individual person's brain anatomy.
-
-
-\paragraph{kinda longer explanation}
-
-\todo[inline]{probably shift/merge most of following in section on SRM}
-%
-Functional alignment algorithms align cortical anatomy of different subjects
-based on the maximization of the inter-subject similarity of \ac{bold} responses
-\citep{haxby2011common, chen2015reduced, sabuncu2010function} correlating with a
-time-locked external stimulation (e.g. movie or auditory narrative), or
-connectivity profiles \citep{feilong2018reliable, guntupalli2018computational}.
-%
-``Functional alignment algorithms that are based on common temporal response
-profiles such as Hyperalignment [Haxby, 2011; Guntupalli, 2016] and the Shared
-Response Model (SRM) [Chen, 2016] ``attempt to remap regions across participants
-and can be highly effective at improving spatial alignment across people based
-on common functional responses while still maintaining individual differences
-[\citep{feilong2018reliable}]'' \citep{chang2021endogenous}.
-
-
-\paragraph{the model space}
-%
-``A major objective of the hyperalignment algorithm is to map the shared
-information originally found in idiosyncratic cortical topographies into a
-common space in which this information is better aligned across participants''
-\citep{busch2021hybrid}.
-
-%
-Functional alignment can ``disentangle functional variability from anatomical
-variability'' \citep{feilong2018reliable} because the in the common model space
-``the same features (voxels or surface vertices) from different individuals will
-share similar functional properties instead of the same anatomical locations or
-topographic conformations'' \citep{feilong2018reliable}.
-
-%
-``The dimensions of this common model capture functional profiles that are
-shared across individuals such as cortical response profiles collected during a
-common time-locked stimulus presentation (e.g. movie viewing) or functional
-connectivity profiles'' \citep{busch2021hybrid}.
-
-%
-``Hyperalignment algorithms construct the common information space and calculate
-transformations that project individually-variable patterns of neural activity
-and connectivity into this common model space. Information is contained in the
-relationships among pattern vectors – distinctions and similarities – and these
-relationships are preserved when the space is transformed from an individual
-cortical space to the common information space''
-\citep{haxby2020hyperalignment}.
-
-
-\paragraph{the transformation matrices}
-%
-``Hyperalignment derives individual transformation matrices to project
-information encoded in idiosyncratic topographies into a common model
-information space. These matrices are derived based either on responses to a
-naturalistic stimulus, such as a movie, or on functional connectivity
-\citep{guntupalli2018computational}'' \citep{jiahui2020predicting}.
-
-
-\subsubsection{studies that estimated functional areas}
-
-\todo[inline]{\citep{haxby2011common} used localizer for category decoding}
-
-\todo[inline]{\citep{guntupalli2016model} in surface space; predict
-individual-specific topography; s. Supplementary Fig. 8}
-
-\todo[inline]{\citet{jiahui2020predicting}) estimates topography}
-
-%
-For example, \citet{haxby2011common, guntupalli2016model} have shown that
-``idiosyncratic topographies for category-selectivity and retinotopy can be
-estimated in individual brains with high fidelity using hyperalignment to
-project other subjects' functional localizer data into a target subject's
-ventral temporal and occipital cortical anatomy'' \citep{jiahui2020predicting}.
-%
-``Our findings show that individually-tailored maps estimated from other
-subjects’ data after hyperalignment correlate much more highly with maps
-estimated from that subject's own localizer data than does a group average map
-based on anatomical normalization'' \citep{jiahui2020predicting}.
-
-
-\subsubsection{Shared response model}
-
-\paragraph{Intro}
-
-In this dissertation, we relied on the \ac{srm} \citep{chen2015reduced,
-richard2019fast} in order to estimate subject-specific $Z$-maps gained from
-visual localizer experiment that aimed to localize the \ac{ppa} from a reference
-group.
-
-%
-The \ac{srm} is an unsupervised probabilistic latent-factor model that
-decomposes fMRI responses time series of participants experiencing the same
-stimulus into a lower-dimensional space of shared feature time series and
-subject-specific orthogonal topographic transformation matrices
-\citep{kumar2020brainiak, cohen2017computational}.
-
-
-\paragraph{reduced-dimensional shared space}
-
-%
-The SRM approach ``pre-specifies a lower dimensionality for the common model,
-resulting [...] in a warping of individual representational geometry that
-appears to filter out noise and reduce overfitting''
-\citep{haxby2020hyperalignment}.
-%
-``model space is reduced to capture shared information in a smaller number of
-dimensions and reduce noise or overfitting [\citep{chen2015reduced,
-guntupalli2016model, haxby2011common}]'' \citep{haxby2020hyperalignment}.
-%
-``Estimating a lower-dimensional common model space can potentially aid in
-filtering out measurement noise that is assumed to be independent across
-individuals'' \citep{chang2021endogenous}.
-%
-``These shared features do not correspond to individual voxels; rather, they are
-distributed across the full voxel space of each subject; each shared feature can
-be understood as a weighted sum of many voxels'' \citep{kumar2020brainiak}.
-%
-``SRM isolates the shared response while accommodating misalignment across
-subjects'' \citep{kumar2020brainiak} [yeah, but \citep{nastase2019leveraging}?].
-
-
-\paragraph{transformation matrices}
-%
-The subject-specific transformation matrices perform a mapping from each
-specific's idiosyncratic voxel space into the shared feature space
-\citep{kumar2020brainiak, cohen2017computational}.
-%
-``Each of these topographic transformations effectively rotates and reduces each
-subject's voxel space to find a subspace of shared features where the
-multivariate trajectory of responses to the stimulus is best aligned''
-\citep{kumar2020brainiak}.
-%
-``The learned subject-specific topographic bases can be used to project test
-data into the shared space. This projection functionally aligns the test data''
-\citep{kumar2020brainiak}.
-
-% transpose
-The transpose of the matrix can be used to map data from shared space into
-a subjects' anatomy.
-
-
-\paragraph{the math shit}
-
-\todo[inline]{merge into paragraphs above (?)}
-%
-More specifically, ``the brain data for each participant $i$ are represented as
-an \textbf{$n$} voxel by $t$ time matrix  $X_{i}$. A pre-specified number of
-features are used to learn a $k$ feature by  $t$ time shared space $S$ and a
-participant-specific $n$ voxel by $k$  feature matrix $W_{i}$. This weight
-matrix, reflecting the loading of voxels onto features, is randomly initialized
-then fit over iterations to minimize the error in explaining participant data.
-At the same time, the time course of the features in the shared space is
-learned'' (from https://brainiak.org/tutorials/11-SRM/).
-
-%
-``SRM learns $N$ maps $W_{i}$ with orthogonal columns such that
-$||X_{i}-W_{i}S||_{F}$ is minimized over $\left\{ W_{i}\right\} _{i=1}^{N},S$,
-where $X_{i}\in\mathbb{R}^{v\times{T}}$ is the $i^{th}$ subject's fMRI response
-($v$ voxels by $T$ repetition times) and $S\in\mathbb{R}^{k\times{T}}$ is a
-feature time-series in a $k$-dimensional shared space''
-\citep{vodrahalli2018mapping}.
-
-
-\subsection{Naturalistic stimuli for functional alignment}
-
-
-\todo[inline]{merge following into part on functional alignment or "Here
-we..."?}
-
-\paragraph{increased accuracy of functional alignment}
-%
-``While the functional alignment can also be applied to fMRI data from
-stimulation paradigms with simplified stimuli, the transformations for
-functional alignment have greatly diminished general validity
-\citep{haxby2011common}, presumably because such experiments sample a sparser
-range of brain states \citep{guntupalli2016model}'' [project proposal].
-
-%
-Naturalistic stimuli promise an ``increased validity of derived transformation
-for functional alignment by sampling a more diverse set of mental states that
-reflect (confound) statistics of the natural environment, and enable
-investigation of the acquired data for a variety of research questions (e.g.
-visual or auditory perception, spatial cognition; emotion; music, speech or
-social perception)'' [project proposal].
-
-%
-``Naturalistic stimuli such as movies and stories are often used to generate
-such training data, though any study design in which participants perform the
-same sequence of trials --- or for which a common sequence can be spliced
-together from the same set of trials --- could be used (for example, a battery
-of cognitive tasks)'' \citep{cohen2017computational}
-
-``Estimating the parameters to transform high-dimensional spaces from individual
-brains into a common high-dimensional space requires a rich set of data that
-samples a wide variety of cortical patterns in order to generalize to novel
-stimuli or tasks. For response hyperalignment, a rich variety of stimuli or
-conditions are necessary to sample the response vector space. For connectivity
-hyperalignment, the sampling of connectivity vector space is defined by the
-selection of connectivity targets, but the richness and reliability of
-connectivity estimates depends on the variety of brain states over which
-connectivity is estimated'' \citep{haxby2020hyperalignment}.
-
-
-\paragraph{compliance}
-%
-``As a rule of thumb, SRM will improve sensitivity for detecting a cognitive
-process of interest in the test data if the training stimuli or trials strongly
-and variably engage that process in a way that is reliable across participants''
-\citep{cohen2017computational}.
-
-%
-``Movies are more engaging and result in better compliance
-\citep{vanderwal2015inscapes}. Movie viewing can also be used in subject
-populations, such as children \citep{richardson2018development} or patients,
-that may have trouble maintaining attention during repetitions of a tedious
-localizer task'' \citep{jiahui2020predicting}.
-
-
-\end{comment}
-
-
-
-
-\subsubsection{interim summary}
-% interim summary
-In summary, naturalistic stimuli ``impose a meaningful timecourse across
-subjects while still allowing for individual variation in brain activity and
-behavioral responses, and lend themselves to a broader set of analyses than
-either pure rest or pure event-related task designs'' \citep{finn2017can}.
-
-\todo[inline]{add short sentence repeating challenging annotations / analyses}
-
-
-\section{Aims of thesis}
-
-\todo[inline]{Bisherige Abschnitte waren eher ``ja, kann man so machen''}
-
-\todo[inline]{hier eher: und deshalb machen wir das jetzt so}
-
-\todo[inline]{Transitions zwischen Papern besser ausarbeiten}
-
-\todo[inline]{shift some parts into excursions (``this dissertation'') above?}
-
-%% At the end of the introduction, add a subchapter on the Aims of Thesis in
-%% which you describe the research question and the objectives of your work on
-%% a maximum of two pages
-
-\todo[inline]{``group-average'' is too cryptic; bißchen mehr erklären; guck, ob
-es vorher kommt; wenn es erst später erklärt wird, bißchen Text nach oben
-ziehen; vgl. ggf. mit SRM-Intro}
-
-%
-Previous work on a group-average level has shown that it is possible to combine
-\ac{bold} \ac{fmri} with naturalistic stimulation in order to localize brain
-areas whose increased hemodynamic activity is correlated with psychological
-processes \citep{bartels2004mapping}.
-%
-This dissertation explores --- while following the principles of open,
-transparent, and reproducible science --- whether a movie and the movie's
-audio-description that was produced for an visually impaired audience could, in
-principle, substitute a traditional localizer paradigm.
-
-\todo[inline]{mih: To unlock the substantial advantages...?}
-
-%
-Naturalistic stimuli would have substantial advantages (e.g. task demands
-compliance, and data quality) over simplified stimuli presently used in
-block-design localizer paradigms.
-
-\todo[inline]{add focus on PPA here}
-
-%
-Moreover, the time-courses of rich, full-length naturalistic stimuli are
-correlating with a variety of different brain functions ranging from low-level
-perception (e.g., luminance) to high-level cognition (e.g., social cognition).
-%
-Thus, a naturalistic stimulus could eventually replace multiple dedicated
-localizers in the future to provide a more comprehensive diagnostic routine.
-
-\paragraph{partial alignment}
-%
-However, a two-hour paradigm would be inefficient plus unsuitable for a clinical
-population.
-%
-For that reason, this dissertation also explores whether just a part of a movie
-or auditory narrative can be used to estimate individual topography of a
-left-out subject from a data of reference group.
-%
-We test which amount of data is needed to perform an alignment
-to the common functional space that provides transformation matrices that
-outperform a prediction based on an anatomical alignment.
 
 
 \subsection{Open, transparent, and reproducible science}
@@ -887,323 +471,174 @@ additionally published at Neurovault
 
 \subsection{Specific objectives and hypotheses}
 
-\todo[inline]{This section is waaaaay longer than in other dissertations; here,
-it is not just aims and hypotheses but also (still) an overview}
+\todo[inline]{in case studies shall have their own titles, short text here}
 
-\todo[inline]{mih: yes, this is much more than what is desirable here. Kill
-everything that is not an actual aim or approach and then make sure what is left
-derived from everything that preceeds this section (and only that)}
+\subsubsection{A studyforrest extension, an annotation of spoken
+language in the German dubbed movie ``Forrest Gump'' and its audio-description
+(study 1)}
 
-\todo[inline]{hier ist momentan im Grunde "extended abstract"; was bleiben muss
-ist Plan, weshalb das eine zum anderen führt.}
+\todo[inline]{this part is still bumpy but general layout should be clear}
 
-\todo[inline]{mach erst backup der Texte hier, bevor hier zu high-level summary
-gekürzt wird; pack ggf. extended abstracts in die jeweiligen Chapters}
+\todo[inline]{rephrase the first aim (to better match study 2)}
 
-
-\todo[inline]{Here should be some random text between section titles}
-
-
-\subsubsection{A studyforrest extension, an annotation of spoken language in the
-German dubbed movie ``Forrest Gump'' and its audio-description}
-
-
-\paragraph{Intro}
-
-\todo[inline]{revise; cf. cons of naturalistic stimuli above}
-
-% traditionally
-``In contrast to stimuli designed to trigger a perceptual process of interest,
-while controlling for confounding variables (e.g., color and luminance),
-% our approach: annotation and regressors
-naturalistic stimuli have a fixed but initially unknown temporal structure of
+%
+``Naturalistic stimuli have a fixed but initially unknown temporal structure of
 stimulus features of interest, as well as an equally unknown confound
 structure'' \citep{haeusler2021speechanno}.
+%
+Therefore in study 1 \citep{haeusler2021speechanno}, we created an annotation of
+speech occurring in both the movie as well as the audio-description.
+%
+Furthermore, we validated the annotation's quality by performing a canonical
+\ac{glm} analysis of modeled hemodynamic activity based on information drawn
+from the annotation.
+
+We pursued to goals:
+% aim #1
+the first aim was to create the groundwork necessary for study 2 [Chapter X] in
+which we created \ac{glm} contrasts aimed to localize the \ac{ppa} based on
+annotated stimulus features occurring in a movie as well as the movie's
+audio-description.
+% aim #2
+The second aim was to create an exhaustive annotation of speech that
+substantially exceeds the groundwork that was needed to conduct study 2 in order
+to [complement formerly published annotations of portrayed emotions
+\citep{labs2015portrayed}, perceived emotions \citep{lettieri2019emotionotopy},
+as well as cuts and locations depicted in the movie \citep{haeusler2016cutanno}
+and] extend the studyforrest dataset as a public resource for independent
+research.
 
 %
-In order to build a model of hemodynamic activity, a researcher needs to a)
-inform the model about the time courses of events that are assumed to correlate
-with psychological and cognitive processes of interest, and b) model hemodynamic
-responses (e.g., as nuisance regressors in a \ac{glm}) that are correlated with
-the event structure of potentially confounding variables.
-
+In order to validate the annotation's quality, we contrasted regressors based on
+speech-related events to a regressor based on events without speech, and
+hypothesized results would reveal significant clusters in brain regions that
+have been shown to be involved in speech processing.
 %
-Hence, I created an extensive annotation of speech occurring in the movie and
-the audio-description.
-%
-In general, the current annotation of speech extends the studyforrest dataset
-as a public resource for independent research, and complements formerly
-published annotations of portrayed emotions \citep{labs2015portrayed}, perceived
-emotions \citep{lettieri2019emotionotopy}, as well as cuts and locations
-depicted in the movie \citep{haeusler2016cutanno}.
-%
-Specifically for this dissertation, the annotation of speech serves as the basis
-for the targeted analyses in study 2.
-
-
-\paragraph{What I did}
-% cloud-based annotations
-State of the art cloud-based speech-to-text services (Google Cloud, IBM Watson)
-fell short to deliver satisfactory scaffolds of an annotation.
-% procedure
-Consequently, I revised a preliminary transcription of language spoken by
-actors, actresses, and the narrator, and submitted it to a forced aligner
-\citep[\href{https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner}{Montreal
-Forced Aligner} v1.0.1;][]{mcauliffe2017montreal} that identified the exact
-onset and offset of each word and phoneme. The forced aligner's output was
-extensively cleaned and extended both algorithmically as well as manually.
-
-
-\paragraph{Annotation content}
-%
-Consequently as planned, the annotation's content substantially exceeds the
-groundwork that was needed to conduct the study reported in Chapter 3
-\citep[s.][]{haeusler2022processing}, and contributes to the studyforrest
-project for public use:
-% content
-the annotation provides ``information about the exact timing of each of the more
-than 2500 spoken sentences, 16000 words (including 202 non-speech
-vocalizations), 66000 phonemes, and their corresponding speaker''
-\citep{haeusler2021speechanno}.
-%
-For every word, the annotation additionally provides ``lemmatization, a simple
-part-of-speech-tagging (15 grammatical categories), a detailed part-of-speech
-tagging (43 grammatical categories), syntactic dependencies, and a semantic
-analysis based on word embedding which represents each word in a 300-dimensional
-semantic space'' \citep{haeusler2021speechanno}.
-
-
-\paragraph{Validation}
-
-% what we did
-We created a canonical \ac{glm} based on information drawn from the annotation
-to model hemodynamic brain activity to validate the dataset's quality.
-% results in line with previous studies
-As hypothesized, results revealed statistically significant increased
-hemodynamic activity in a bilateral cortical network including temporal,
-parietal and frontal regions related to processing spoken language.
-% results replicate
-Our exploratory analysis replicates results of studies that employed
+Indeed, results revealed statistically significant increased hemodynamic
+activity in a bilateral cortical network including temporal, parietal and
+frontal regions replicating ``results of studies that employed
 tightly-controlled stimuli \citep[s.][for reviews]{friederici2011brain,
-hickok2007cortical,price2012twentyyears}, and studies that employed
-data-driven methods to analyze \ac{fmri} data from auditory naturalistic stimuli
-\citep{honey2012not, lerner2011topographic, silbert2014coupled}
-% "logic" inference
-Consequently, results suggest that the annotation's content and quality enables
-independent ``researchers to model hemodynamic brain responses that correlate
-with a variety of aspects of spoken language'' \citep{haeusler2021speechanno}
-under more ecologically valid conditions.
-% transition to study 2
-Last, the results encouraged us to use the annotation as a groundwork to be
-adapted to our specific needs in study 2.
+hickok2007cortical,price2012twentyyears}, and studies that employed data-driven
+methods to analyze \ac{fmri} data from auditory naturalistic stimuli
+\citep{honey2012not, lerner2011topographic, silbert2014coupled}.
+%
+Results encouraged us to use the annotation as a groundwork to be adapted to our
+specific needs in study 2.
 
 
 \subsubsection{Processing of visual and non-visual naturalistic spatial
-information in the ``parahippocampal place area''}
-
-\todo[inline]{following is (deliberately) still too long and ``bumpy''}
-
-\todo[inline]{will be cleaned iteratively during next 1000 iterations}
-
-\todo[inline]{wichtig: wir tauschen nicht die Methode, sondern ``nur'' die
-Stimuli}
-
-\paragraph{Intro}
+information in the ``parahippocampal place area'' (study 2)}
 
 % study in one sentence
-In this study, we investigated whether it is possible to localize a visual area,
-namely the \ac{ppa}, usually identified via contrasting blocks of pictures in a
-task-based functional localizer, via two naturalistic stimuli.
-% hypo a: group
-We hypothesized that a conventional model-based statistical analysis would
-reveal increased hemodynamic activity in medial temporal regions that were
-functionally identified as the PPA by a previously published study
-\citep{sengupta2016extension} that performed a functional localizer in the same
-set of participants.
-% hypo b: individuals
-``We hypothesized further that a purely auditory stimulus could, in principle,
-localize the PPA as an example of a ``visual area'' in individual persons,
-%
-and may offer an alternative paradigm to assess brain functions in visually
-impaired individuals'' \citep{haeusler2022processing}.
-
-
-\paragraph{Literature review}
-
-% #1 previous studies
-``Several studies have reported increased hemodynamic activity in the PPA
-attributed to the processing of scene-related, spatial information, for example,
-when participants were watching static pictures of landscapes compared to
-pictures of faces or objects \citep{epstein1998ppa,
-epstein1999parahippocampal}'' \citep{haeusler2022processing}.
-% auditory semantics unclear
-However, reports regarding the correlates of processing spatial information in
-verbal stimulation are less clear \citep{aziz2008modulation}.
-
-% rationale
-In case the stimulus classes that are correlated with hemodynamic responses
-during traditional paradigms are represented by [sampled by?] stimulus features
-embedded in the movie ``Forrest Gump'' and its audio-description, it should also
-be possible to annotate these features and model feature-related hemodynamic
-responses during naturalistic stimulation in order to localize the \ac{ppa}.
-
-
-\paragraph{Annotation}
-
-% AV stimulus
-``The movie stimulus shares the stimulation in the visual domain with classical
-localizer stimuli, while featuring real-life-like visual complexity and
-naturalistic auditory stimulation'' \citep{haeusler2022processing}.
+In study 2 \citep{haeusler2022processing}, we investigated whether it is
+possible to localize the \ac{ppa}, usually identified via contrasting blocks of
+pictures in a task-based functional localizer, by creating \ac{glm} contrasts
+based on annotations of both an two-our lasting audio-visual as well as an
+exclusively-auditory naturalistic stimulus.
 % AV anno
 ``For the analysis of the movie stimulus, we took advantage of a previously
 published annotation movie cuts and the depicted location after each cut
 \citep{haeusler2016cutanno}'' \citep{haeusler2022processing}.
-
-% AD stimulus
-``The audio-description maintains the naturalistic nature of the movie stimulus,
-but limited to the auditory domain'' \citep{haeusler2022processing}.
 % AD annotation
-For the analysis of the audio-description stimulus, we extended the published
-annotation of speech that was created in study 1 \citep{haeusler2021speechanno}.
+For the analysis of the audio-description, we extended the published annotation
+of speech that was created in study 1 \citep{haeusler2021speechanno}.
 %
 Nouns that the narrator uses to describe the movie's absent visual content were
 semantically categorized in case the narrator used them to describe locations,
-buildings, rooms, faces or bodies, and so on.
+buildings, rooms, faces, bodies, and so on.
 
-% statistical analysis
-We then performed a canonical model-based, mass-univariate analysis supposed to
-closely resemble the previously published data analysis of a traditional
-block-design localizer performed with the same set of participants
-\citep{sengupta2016extension}.
-% events & contrasts
-Hemodynamic responses for each stimulus were modeled based on events that should
-correlate with the perception of spatial information and contrasted with events
-that should correlate with non-spatial perception to a lesser degree, not at all
-\citep{haeusler2022processing}.
-
-
-\paragraph{Results}
-
-% group AV
-On a group-average level, significantly increased activation correlating with
-visual spatial information occurring in the movie is overlapping with a
-traditionally localized \ac{ppa} but also extending into earlier visual
-cortices.
-% group AD
-``Activation correlating with semantic spatial information occurring in the
-audio-description is more restricted to the anterior \ac{ppa}''
+% hypo a: group
+On a group-average level, we hypothesized that a conventional model-based
+mass-univariate statistical analysis would reveal increased hemodynamic activity
+in medial temporal regions that were functionally identified as the \ac{ppa} in
+the same set of participants by means of traditional block-design functional
+localizer \citep{sengupta2016extension}.
+% hypo b: individuals
+Moreover, we hypothesized that a exclusively auditory stimulus could, in
+principle, localize the \ac{ppa} as an example of a ``visual area'' in
+individual persons \citep{haeusler2022processing}.
+% group results
+On a group-average level, findings demonstrate that increased activation in the
+\ac{ppa} during the perception of static pictures generalizes to the perception
+of spatial information embedded in an audio-visual movie and audio-only stimulus
 \citep{haeusler2022processing}.
 % individual AD
-``On an individual level, we find significant bilateral activity in the PPA of
-nine individuals and unilateral activity in one individual''
-\citep{haeusler2022processing}.
-% individual level
-``Bilateral clusters in 9 of 14 participants (of which \texttt{sub-04} shows
-only a right-lateralized PPA in the block-design localizer results), and a
-unilateral significant cluster in one participant, indicate that the
-group-average results are representative for the majority of individual
-participants'' \citep{haeusler2022processing}.
-
-
-\paragraph{Discussion}
-
-% generalization
-Findings demonstrate that increased activation in the PPA during the perception
-of static pictures generalizes to the perception of spatial information embedded
-in a movie or a purely auditory stimulus \citep{haeusler2022processing}.
-% model-based
-Our results add further evidence that a model-driven GLM analysis based on
-annotations can be applied to a naturalistic paradigm to localize functional
-areas correlating with pre-defined perceptual processes.
+``On an individual level, we find significant bilateral activity correlating
+with semantic spatial information occurring in the audio-description in the
+anterior \ac{ppa} of nine individuals and unilateral activity in one
+individual'' \citep{haeusler2022processing}.
 %
-Same but different: The present results are evidence that a functionally defined
-region, such as the PPA, can be localized using a model-driven \ac{glm} analysis
-that is based on a naturalistic stimulus' annotated temporal structure with
-respect to a particular hypothesized cognitive or perceptual function.
-
-% auditory localizer
-``Finally, the presented evidence on the in-principle suitability of a naturally
-engaging, purely auditory paradigm for localizing the PPA may offer a path to
-the development of diagnostic procedures more suitable for individuals with
-visual impairments or conditions like nystagmus''
-\citep{haeusler2022processing}.
-
+Results add evidence that a functionally defined region, such as the \ac{ppa},
+can be localized using a model-driven \ac{glm} analysis that is based on a
+naturalistic stimulus' annotated temporal structure with respect to a particular
+hypothesized cognitive or perceptual function.
+%
+Results also suggest that a naturally engaging, purely auditory paradigm like an
+audio-description could, in principle, substitute a visual localizer as a
+diagnostic procedure to assess brain functions in visually
+impaired individuals \citep{haeusler2022processing}.
 
 \paragraph{Transition to study 3}
 
-\todo[inline]{I am still lost here; depends text in SRM study}
+\todo[inline]{the are responses correlating with auditory spatial information;
+hence we might be able to use the response patterns measured during the
+presentation of the audio-description in order to align subjects to a common
+functional space in study 3}
+
+\todo[inline]{the exact modeling of that process is not necessary for data-driven
+alignment in study 3}
 
 
+\subsubsection{Study 3: Using varying amount of data from naturalistic
+stimulation for functional alignment to predict results from a task-based
+functional localizer paradigm (study 3)}
+
+\todo[inline]{title is still preliminary}
+
+
+\paragraph{Intro}
+
+
+\todo[inline]{we agreed on study 3 not having an abstract; hence, I might write a
+little more here (or add an abstract to study 3, of course}
+
+\todo[inline]{too long, bumpy, phrasing/terminology far from optimal}
+
+% summary of study 2
+As suggested by the results of study 2, a naturalistic stimulus might provide an
+engaging, task-free paradigm to localize brain functions in individual subjects.
 %
-``Our results provide further evidence that the PPA can be divided into
-functional subregions that coactivate during the perception of visual scenes''
-\citep{haeusler2022processing}.
-
-%
-Results suggest that you can ``localize an auditory PPA'' but not the ``visual
-PPA'' using an auditory narrative.
-
-%
-Still, there are responses in the parahippocampal cortex correlating with
-spatial information.
-
-%
-Still, the AO response might be too different for ``sufficient alignment'' and
-estimate the localizer results.
-
-%
-Our event structure and model is just an approximation of the ``real'' events
-structure that is correlated with the response series in the parahippocampal
-cortex (in AO but especially in the AV!).
-%
-However, exact modeling of that process is not necessary for data-driven
-alignment in study 3.
-
-%
-Problem: we have a couple of subjects seem to simply not give a fuck about
-spatial information in audio-description
-
-
-\subsubsection{Using varying amount of data from naturalistic stimulation for
-functional alignment to predict results from a task-based functional localizer
-paradigm}
-
-\todo[inline]{following part is a draft}
-
-\todo[inline]{will probably change a lot after text in study 3 is written}
-
-\todo[inline]{wir tauschen zusätzlich die Methode!}
-
-% intro
-\textit{Intro:} In order to map perceptual or cognitive functions onto the brain
-anatomy of study participants, researchers usually conduct dedicated experiments
-\textit{functional localizers} often accompanied with a task.
-
+Employing a rich, multi-dimensional stimulus correlating with a variety of brain
+functions might be used overcome the limitations of traditional, dedicated
+localizer that become time-inefficient when one wants to map a variety of brain
+functions (a.k.a. ``one paradigm to map one domain of brain functions'').
 % problem
-\textit{Current approach \& problem:} Nevertheless, the approach ``one paradigm
-to map one domain of brain functions'' becomes impractical if a variety of
-domains is supposed to be mapped in a time-efficient manner:
-%
-a clinical application must aim to minimize the scan time/cost but still provide
-valid results
+However, a clinical application of a naturalistic stimulus paradigm must both
+provide valid results as well as minimize the scan time/costs.
 
-% therefore
-\textit{Therefore:} In the current study, we explore a method and the quantity
-of data needed to predict individual functional topographies by projecting
-results of a localizer experiment (statistical $Z$-maps) from a reference group
-into the brain anatomy of individual participants.
 
+\todo[inline]{following is a draft; revise while revising the SRM intro}
+
+\textit{Therefore} in study 3 (s. Chapter X), we use data of the movie and
+audio-description to predict localizer results \citep{sengupta2016extension}.
+%intro
+We test whether we can estimate statistical results (values $Z$-maps of
+localizer contrast with in a \ac{roi}) from a test subject from data in a
+reference group that was used.
 %
-fMRI data acquired from naturalistic stimulation are used to align a subject's
-voxel space with a common representational/functional reference space.
+We compare \textit{empirical $Z$-maps} acquired from the visual localizer to
+\textit{predicted $Z$-maps} acquired via an anatomical or functional alignment
+procedure.
+
+\paragraph{partial alignment}
+
+We assessed the relationship between length of naturalistic stimulation used
+for a \textit{partial functional alignment} and the performance of predicting
+empirical $Z$-maps by...
 %
 We test whether functional alignment can be achieved with a task-free, natural
 stimulation ``calibration'' scan that requires no more acquisition time than a
 conventional localizer paradigm.
-%
-Once aligned, the brain activity of the reference group can be used to predict
-the activity of another subject.
-
 %
 We will estimate the trade-off between diagnostic quality and required effective
 scan time by progressively reducing the duration of input BOLD fMRI data and
@@ -1211,12 +646,31 @@ comparing the results of the reduced model to the reference computed from the
 full length scan.
 
 
-\textit{Method:}
-% data
-During functional magnetic resonance imaging (fMRI), participants ($N=14$) took
-part in a task-based, block-design visual localizer and two naturalistic stimuli
-paradigms: an audio-visual movie and the movie's audio-description, both
-paradigms free of any task.
+\paragraph{Hypotheses}
+
+%
+We hypothesized that increased quantity of data used to calculate the
+transformation matrices of left-out subjects for a functional alignment would to
+increase prediction performance.
+%
+Further, we hypothesized that functional alignment would eventually perform
+``better'' than an estimation based on anatomical alignment.
+
+
+\paragraph{Results}
+
+\todo[inline]{Probably, unnecessary here?}
+
+
+\paragraph{Discussion}
+
+\todo[inline]{Probably, unnecessary here?}
+
+
+\paragraph{backup of procedure}
+
+\todo[inline]{can probably be deleted; will be explained shortly in the overview
+at the beginning of "Aims \& hypotheses"}
 
 % cms creation
 Based on these response time series, we first created a common model space
@@ -1226,53 +680,14 @@ transformation matrices for the subjects that provided the data for the creation
 of the model space.
 
 % alignment
-Then, we aligned left-out subjects with the common [via Procusted
-transformation?] to derive transformation matrices for the left-out-subjects by
-also varying the quantity of functional response time series to perform the
-alignment.
+We aligned left-out subjects with the common functional space to derive
+transformation matrices for the left-out-subjects to perform the alignment.
 
+%
+Once aligned, the brain activity of the reference group can be used to predict
+the activity of another subject.
 % prediction
 Lastly, the acquired transformation matrices were used to project the functional
 topographies from the anatomy of the reference group into the common model
 space, and from the common model space into the anatomy of the left-out
 subjects.
-
-%
-Results of the conventional localizer are projected into the common space.
-%
-The transpose of subject-specific transformation matrices is used to project
-functional properties of the common reference into that individual's voxel
-space.
-%
-Then, data are projected into the voxel space of the left-out individual for
-comparison with the localizer results for that individual.
-
-
-% stimulus length?
-[We assessed the relationship between length of naturalistic stimulation used
-for a \textit{partial functional alignment} and the performance of predicting
-empirical $Z$-maps.] by...
-
-%
-\textit{Results} suggest that ``a subject's idiosyncratic functional topography
-can be estimated with high fidelity from that subject's fMRI data obtained while
-watching a naturalistic movie using hyperalignment to project other subjects’
-localizer data into that subject's idiosyncratic cortical anatomy''
-\citep{jiahui2020predicting}.
-
-%
-\textit{Discussion}: stimulus length: 15-30 min vs. 2h;  results of auditory
-stimulus to predict visual localizer are ``modest''.
-
-%
-\textit{Conclusion}: ``These findings lay the foundation for developing an
-efficient tool for mapping functional topographies for a wide range of
-perceptual and cognitive functions in new subjects based only on fMRI data
-collected while watching an engaging, naturalistic stimulus and other subjects'
-localizer data from a normative sample'' \citep{jiahui2020predicting}.
-
-
-\paragraph{just some notes}
-
-\todo[inline]{other contrasts that were tested over the course of the
-dissertation: phonemes, grammatical tags, prosody, sex}
