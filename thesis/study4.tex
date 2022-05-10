@@ -1,90 +1,70 @@
 \todo[inline]{add stuff about "auditory PPA" (yes, I am in trouble)}
 
-\todo[inline]{speaking of ``topography'' when it is just about one functional
-area is a little overstatement?}
+\todo[inline]{which parts are supposed to be dropped (esp. "deadlocks", i.e.
+stuff that I just tried)? imo, "alternative template creation" (cf. end of
+methods)}
 
-\todo[inline]{why did we use SRM? cf. evaluation of algos in
-\citet{chen2015reduced, bazeille2021empirical}; well, it's ``nicely''
-implemented in BrainIAK (cf. general intro on reproducibility) and, despite not
-using the fastSRM algo, it's probably still faster than hyperalignment?}
+\todo[inline]{align subject to common model space via first run of localizer;
+imo, not necessary}
 
-\todo[inline]{probably faster, computationally less demanding than
-hyperalignment; ``computational efficiency, as the latter is an important
-consideration for scientists who may not have access to specialized hardware''
-\citep{bazeille2021empirical}}
+\todo[inline]{do not speak of ``topography'' but of "values in a ROI"??? don't
+know how to phrase it; maybe papers on anatomical alignment might be helpful}
 
-\todo[inline]{mih: Dieses Kapitel sollte konzeptuell und inhaltlich deutlich als
-"und jetzt alles zusammen" erscheinen}
+\todo[inline]{Have a figure, define such labels (e.g., "training subjects") in
+that figure an refer to it. Without a clear central definition, this quickly
+gets confusing}
+
+\todo[inline]{imo, not necessary to explain; but why did we use SRM?; nicely
+implemented in BrainIAK; cf. general intro on reproducibility); we do not use
+the fastSRM algo, but it's probably still computationally less demanding than
+hyperalignment; cf. also evaluation of algos in \citet{chen2015reduced,
+bazeille2021empirical}; i.e. ``computational efficiency, as the latter is an
+important consideration for scientists who may not have access to specialized
+hardware''}
 
 
 \section{Introduction}
 
-\todo[inline]{intro is pretty similar to general introduction}
-
-% brain mapping
-``Mapping the functional neuroanatomy of the human brain is one of the
-fundamental goals of neuroscience research. Lesion studies following stroke
-provided critical early information that specific functions such as motor
-function or language were consistently localized to certain parts of the
-cerebral cortex'' \citep{satterthwaite2015towards}.
-%
-Neuroimaging studies have parcellated the cerebral cortex into distinctive
-\textit{functional areas} by topographically mapping brain functions, perceptual
-or cognitive processes, onto the brain's anatomy.
 % higher visual areas higher visual areas
-In the domain of higher-visual perception, replicated findings suggest that
-functionally defined, category-selective brain regions like the parahippocampal
-place area \ac{ppa}\citep{epstein1998ppa}, the fusiform face area \ac{ffa}
+In the domain of higher-visual perception, functionally defined,
+category-selective brain regions like the parahippocampal place area
+\ac{ppa} \citep{epstein1998ppa}, the fusiform face area \ac{ffa}
 \citep{kanwisher1997ffa}, or the extrastriate body are \ac{eba}
 \citep{downing2001bodyarea} exhibit significantly increased \ac{bold} activity
-correlated with a ``preferred'' stimulus class.
-% ppa
-The \ac{ppa}, for example, exhibits increased \ac{bold} activation when subjects
-passively view photos of landscapes and compared to other stimuli like tools or
-faces \citep{aguirre1998area, epstein1998ppa}.
+correlated with a ``preferred'' \citep{debeck2008interpreting} stimulus class.
 
 
-\todo[inline]{cf. general intro \& our papers; add info about involved gyri}
-
-\subsection{Functional localizer}
-
-\todo[inline]{cf. general intro; longer text here or in general intro?}
+\todo[inline]{cite paper here that do not (just) investigate PPA
+\citep{frost2012measuring, rosenke2021probabilistic, wang2015probabilistic,
+zhen2015quantifying}}
 
 % example: higher functional areas
 The ``topographies of category-selective areas are mostly distributed similarly
 across individuals, but great individual variability exists in the locus, the
-size, and the shape of the category-selective areas \citep{zhen2015quantifying,
-zhen2017quantifying} '' \citep{jiahui2020predicting}.
-
-\todo[inline]{give example of study regarding variability of PPA here}
-\todo[inline]{cite paper(s) that does not estimate individual location from
-reference 'cause these papers will be cited in ``The solution: estimation from
-reference data''}
-
-For example, \citep{frost2012measuring, weiner2018defining,
-rosenke2021probabilistic, wang2015probabilistic} have shown that...
-
+size, and the shape of the category-selective areas [\citep{zhen2015quantifying,
+zhen2017quantifying}]'' \citep{jiahui2020predicting}.
 
 % localizer
-Traditionally, location, size, and shape of functional areas are determined by
-letting study participants perform a task during a \textit{functional localizer}
-paradigm.
-%
-``To deal with the idiosyncratic topography of functional areas,
-category-selective areas are identified separately in each individual using a
-``functional localizer'' fMRI scan'' \citep{jiahui2020predicting}.
-%
-``Functional localizers use a simple contrast between responses to different
-categories of stimuli, such as responses to faces versus responses to objects,
-to identify category-selective areas or to map a category-selectivity topography
-[\citep{saxe2006divide}]'' \citep{jiahui2020predicting}.
+Traditionally, functional areas are identified in individual persons by letting
+a person take part in a block-design \textit{functional localizer} paradigm, and
+contrasting regressors that represent modeled hemodynamic responses to presented
+stimulus classes (i.e. landscapes, faces or bodies).
+
+\todo[inline]{cite papers here that only investigate PPA}
+
+For example, \citep{rosenke2021probabilistic, weiner2018defining,
+zhen2017quantifying} have shown that the awesome \ac{ppa}...
 
 
-\subsubsection{The problem (with functional localizers)}
+\paragraph{Problem: domain-specific and fucking boring}
+
+\todo[inline]{maybe cut part on localizer batteries}
 
 % problem: one localizer for one domain
-Functional localizers are designed to maximize detection power and thus
-dedicated to map just one domain of brain functions.
+However, functional localizers are designed to maximize detection power and thus
+dedicated to map just one domain of brain functions, like scene-selective
+regions, theory of mind \citep{spunt2014validating}, or processing of semantics
+\citep{fernandez2001language}.
 % which gets messy
 Consequently, if one wants to map a variety of domains, the approach ``one
 paradigm for one domain of functions'' gets time-consuming and inefficient.
@@ -92,32 +72,52 @@ paradigm for one domain of functions'' gets time-consuming and inefficient.
 Researchers have tried to tackle that issue by creating time-efficient
 multi-functional \textit{localizer batteries} \citep[e.g.,][]{barch2013function,
 drobyshevsky2006rapid, pinel2007fast}.
+
 % task based = shit
 Nevertheless, the diagnostic quality of localizer batteries relies heavily on
 the participant's comprehension of the task instruction and general compliance,
 a criterion that can be difficult to meet in clinical or pediatric populations.
 
 
-\subsection{The solution: estimation from reference data}
+\paragraph{what we have done in study 1 \& 2}
 
-% prediction: general idea
-Another approach to reduce time and costs of individual diagnostics is to
-estimate the location of a functional area based on data collected in a
-reference group.
+\todo[inline]{phrasing (too) similar to general intro \& smooth it}
+%
+In study 2 \citep{haeusler2022processing}, we have shown that that a
+functionally defined region, such as the \ac{ppa}, can be localized using a
+model-driven \ac{glm} analysis that is based on a naturalistic stimulus'
+annotated temporal structure.
+%
+Results also suggest that a naturally engaging, purely auditory paradigm like an
+audio-description could, in principle, substitute a visual localizer as a
+diagnostic procedure to assess brain functions in visually impaired individuals
+\citep{haeusler2022processing}.
+%
+Our previous results are based on data of two-hour-long \ac{fmri} scans, but
+any clinical application must aim to minimize the scan time for practical and
+monetary reasons.
+
+
+\subsection{Therefore: Estimate that shit}
+
+% solution: predict from reference
+Another approach to reduce time and costs is to identify a functional area in an
+individual persons based on data collected from an independent sample of
+different persons (i.e. a \textit{reference group}).
+
+\todo[inline]{check (anatomical) estimation papers for terminology}
 
 
 \subsubsection{Anatomical alignment}
 
-
-\paragraph{Estimation via anatomical alignment}
+\todo[inline]{rephrase similarly to "Estimation via functional alignment"}
 %
 A traditional procedure \citep{frost2012measuring, weiner2018defining,
 zhen2017quantifying, zhen2015quantifying, rosenke2021probabilistic,
 wang2015probabilistic} [check; cite just the best(s)] to estimate a person's
-functional topography from a reference group starts by anatomically aligning a
-person's structural and functional data to a \textit{common anatomical space}
-(i.e. a brain template) in order to resolve anatomical variability across
-persons.
+functional topography from a reference group first resolves anatomical
+variability across persons by performing a \textit{anatomically alignment} of a
+person's structural and functional data to a \textit{common anatomical space}.
 % volume-based
 Volume-based anatomical alignment \citep[s.][for a review]{klein2009evaluation}
 aligns voxel-wise data of individual subjects to a three-dimensional brain
@@ -135,20 +135,19 @@ brain anatomy.
 
 \paragraph{studies that estimated functional areas using anatomical alignment}
 
-\todo[inline]{2 examples should be enough}
+\todo[inline]{give 1-2 examples}
+
+\todo[inline]{key point: check if studies did binary estimation using an
+abitrary threshold per subject to yield "nice results"}
 
 For example,  \citep{frost2012measuring, weiner2018defining,
 zhen2017quantifying, zhen2015quantifying, rosenke2021probabilistic,
-wang2015probabilistic} [same refs as above] have shown that ...
-
-\todo[inline]{most studies did binary estimation (voxel belongs to PPA or not)
-based on subjectively chosen thresholds; we estimate unthresholded $Z$-maps!}
-
-\todo[inline]{check that in other studies and make that point more clear in
-(intro, method section, and) discussion}
+wang2015probabilistic} have shown that ...
 
 
 \paragraph{Functional-anatomical correspondence}
+
+\todo[inline]{shorten (or better shift the parts from here to general intro)}
 
 % definition: functional-anatomical correspondence
 However, location, size and shape of category-selective regions can differ
@@ -157,11 +156,10 @@ zhen2015quantifying}] \citep{feilong2018reliable}.
 %
 Surface-based inter-subject alignments / strategies for registering individual
 brains together that respect cortical foldings \citep{fischl1999cortical,
-yeo2009spherical} has been shown to reduce the variability in
+yeo2009spherical} have been shown to reduce the variability in
 \textit{functional--anatomical correspondence} \citep{feilong2018reliable,
 kumar2020brainiak} across persons \citep{klein2010evaluation,
-frost2012measuring} [but see \citep{langers2014assessment}]
-
+frost2012measuring} [but see \citep{langers2014assessment}].
 %
 Cortical surface-based alignment \citep{fischl2012freesurfer} that respects
 sulcal locations can reduce the mismatch between brain function and anatomy of
@@ -174,7 +172,7 @@ eliminate the mismatch between brain function and anatomy of category-selective
 regions \citep{duncan2009consistency, frost2012measuring, weiner2018defining,
 weiner2014mid}[still similar phrasing to \citep{feilong2018reliable}].
 
-\todo[inline]{seems to work better with low-level areas}
+\todo[inline]{maybe cut sentence on better performance with low-level areas}
 %
 ``These systems provide better alignment across subjects for retinotopic visual
 areas [\citep{fischl1999high}], but they do not do much better than Talairach
@@ -182,92 +180,65 @@ co-ordinates for category-selective regions in the temporal lobe
 [\citep{spiridon2006location}]'' \citep{saxe2006divide}.
 
 
-\subsubsection{Functional alignment (FA)}
+\subsubsection{Functional alignment}
 
-\todo[inline]{I introduce the term ``common functional space'' as an umbrella
-term for common model space (hyperalignment) and shared feature space / shared
-response model (SRM)}
-
-\paragraph{Explanation of functional alignment}
+\todo[inline]{stream line phrasing}
 
 % intro
 Since anatomical alignment addresses the issue of anatomical variability but
 does not consider variability in functional-anatomical correspondence across
 subjects, algorithms --- like \textit{hyperalignment} \citep{haxby2011common,
 guntupalli2016model} or the \textit{shared response model}
-\citep{chen2015reduced, zhang2016searchlight} --- have been developed that aim
-to functionally align voxels (or surface vertices).
+\citep{chen2015reduced, zhang2016searchlight} that perform a \textit{functional
+alignment} to a \textit{\ac{cfs}}.
 %
-In order to preserve functional idiosyncrasies across persons,
-\textit{functional alignment} algorithms do not align voxels (or surface
-vertices) that share the same anatomical location, voxels are aligned that share
-similar functional properties.
+Functional alignment does not align voxels (or surface vertices) that share the
+same anatomical location but voxels that share similar functional properties in
+order to preserve functional idiosyncrasies across persons.
 %
-Therefore, functional topographies are not aligned to a three-dimensional,
-common anatomical space but to a high-dimensional, \textit{common functional
-space}.
+Functional alignment algorithms construct both the \ac{cfs} (serving as ``a
+high-dimensional functional brain template'') as well as subject-specific
+transformation matrices.
 %
-The construction of the common functional space can be based on the maximization
-of the inter-subject similarity of \ac{bold} response time series correlating
-with a time-locked external stimulation \citep{haxby2011common, chen2015reduced,
-sabuncu2010function}, or based on the inter-subject similarity of connectivity
-profiles \citep{feilong2018reliable, guntupalli2018computational,
-nastase2019leveraging}.
+These transformation matrix can then be used to project functional data from a
+subject's anatomial voxel space into the \ac{cfs} or from the \ac{cfs} into a
+subject's anatomical space \citep{haxby2020hyperalignment}.
 %
-Additionally, functional alignment algorithms also compute subject-specific
-transformation matrices that can be used to project functional data into the
-common functional space \citep{haxby2020hyperalignment}.
+The construction of the \ac{cfs} and transformation matrix can be created (i.e.
+``trained'') based on the maximization of the inter-subject similarity of
+\ac{bold} response time series correlating with a time-locked external
+stimulation \citep{haxby2011common, chen2015reduced, sabuncu2010function}, or
+based on the inter-subject similarity of connectivity profiles
+\citep{feilong2018reliable, guntupalli2018computational, nastase2019leveraging}.
 %
-Vice versa, the transpose of a subject-specific transformation matrix can be
-used to project data from the common functional space into a subject's
-anatomical space.
-
-
-\paragraph{works better with naturalistic stimuli}
-
-\todo[inline]{does not really fit in here; but needs to be mentioned somewhere}
-
+Response-based functional aligment algorithms can be applied to \ac{fmri} data
+from paradigms employing simplified stimuli.
 %
-Functional alignment based on response time series can be applied to fMRI data
-from paradigms with simplified stimuli, but it has been shown that data from
-naturalistic stimuli provide increased validity of common functional space and
-increased generalizability of transformation matrices to novel stimuli or tasks,
-presumably because naturalistic stimulus paradigms sample a broader range of
-brain states \citep{haxby2011common, guntupalli2016model}.
-
-\todo[inline]{check \citet{guntupalli2016model, haxby2011common} for phrasing}
-
-e.g. \citet{guntupalli2016model}: ``The algorithm also can be applied to
-simpler, controlled experimental data, but our previous results showed that the
-sampling of response vectors from these experiments is impoverished and produces
-a model representational space that does not generalize well to new stimuli in
-other experiments (Haxby et al.  2011). Results show that the computational
-principles underlying this common model have broad general validity for
-representational spaces in occipital, temporal, parietal, and frontal cortices''
-\citep{guntupalli2016model}.
+However, it has been shown that data from naturalistic stimuli provide increased
+validity of the \ac{cfs} and increased generalizability of transformation
+matrices to novel stimuli or tasks, presumably because naturalistic stimulus
+paradigms sample a broader range of brain states \citep{haxby2011common,
+guntupalli2016model}.
 
 
-\paragraph{Estimation via functional alignment (=current use case)}
+\subsubsection{Estimation via functional alignment}
 
-\todo[inline]{streamline procedures of estimation via anatomical \& functional
-alignment; use same phrasing in both parts}
+\todo[inline]{rephrase similarly to "Estimation via anatomical alignment"}
 
 %
 Hence, a more recent procedure to estimate a person's functional topography from
 a reference group first aligns structural and functional data to a common
 anatomical space. Then, in order to preserve functional idiosyncrasies across
 persons, the procedure additionally performs a functional alignment to
-the higher-dimensional, common functional space.
+the higher-dimensional, \ac{cfs}.
 % estimation
 In the last step, the most probable location of a functional area in a person's
 anatomy is not estimated by projecting functional data from persons in the
 reference group through the common anatomical space but by projecting data
-through a common functional space into the individual person's brain anatomy.
+through a \ac{cfs} into the individual person's brain anatomy.
 
 
 \paragraph{studies that estimated functional areas using functional alignment}
-
-\todo[inline]{imo, explaining 1 example, \citet{jiahui2020predicting}, is okay}
 
 % intro
 Previous studies \citep{jiahui2020predicting, guntupalli2016model,
@@ -276,7 +247,7 @@ idiosyncratic retinotopy of occipital areas and functional topography of
 category-selective areas in the ventral temporal cortex can be estimated by
 projecting other subjects' data into that subject's cortical anatomy.
 % used stimuli and length
-For example, \citep{jiahui2020predicting} constructed a common functional space
+For example, \citep{jiahui2020predicting} constructed a \ac{cfs}
 and transformation matrices based on data from a) the movie ``Grand Budapest
 Hotel'' ($\sim$\unit[50]{m}; \ac{tr}=\unit[1]{s}), and b) Forrest Gump
 ($\sim$\unit[120]{m}; \ac{tr}=\unit[2]{s}; s. \citep{hanke2016simultaneous}).
@@ -287,37 +258,39 @@ other subjects' data based on hyperalignment than with maps that were estimated
 based on surface-based, anatomical alignment \citep{jiahui2020predicting}.
 
 
-\subsection{Here, we...}
-
-
-\subsubsection{Just a short overview here (still draft)}
+\subsection{Here, we... (includes SRM now)}
 
 % summary in one sentence
-Here, we estimate the results (statistical $Z$-maps) of a visual localizer
-paradigm in one subject (i.e. the ``test subject'') based on data from other
-subjects (i.e. the ``training subjects'').
+Here, we focus on the \ac{ppa} as an example of a functional area, and estimate
+the results (statistical $Z$-maps) of a visual localizer paradigm in one subject
+(i.e. the \textit{test subject}) based on data from other subjects (i.e. the
+\textit{training subjects}).
 %
-Focussing on the \ac{ppa} as a \ac{roi}, we compare the prediction performance
-of a volume-based, anatomical alignment procedure to a volume-based, functional
-alignment procedure.
-
-\todo[inline]{...and evaluate the necessary length needed}
-
-
-\subsubsection{Shared response model}
-
-\todo[inline]{we do not really estimate maps but just ``values in a ROI''}
-
+Following a k-fold leave-one-subject-out cross-validation [correct? give
+citation?], we apply both a procedure using a mere volume-based anatomical
+alignment in order to predict $z$-values in a \ac{roi} as well as a procedure
+using an additional volume-based, functional alignment step.
 %
-We employ the \ac{srm} \citep{chen2015reduced, richard2019fast} in order to
-estimate subject-specific $Z$-maps gained from visual localizer experiment that
-aimed to localize the \ac{ppa} from a reference group.
+Results of our previous study suggest \citep{haeusler2022processing} that not
+just a dedicated visual localizer \citep{sengupta2016extension} but also the
+audio-visual movie Forrest Gump \citep{hanke2016simultaneous} and the movie's
+audio-description \citep{hanke2014audiomovie} sample the response vector space
+of hemodynamic responses to ``spatial information'' in a time-locked manner
+across subjects.
+%
+In order to perform the additional functional alignment, we first applied the
+\ac{srm} algorithm \citep{chen2015reduced, richard2019fast} to the training
+subjects' \ac{bold} \ac{fmri} time series of the visual localizer and
+naturalistic stimulus paradigms in order to derive a \ac{cfs} and
+subject-specific transformation matrices.
 
+
+\paragraph{SRM}
 %
 The \ac{srm} is an unsupervised probabilistic latent-factor model that
 decomposes \ac{bold} \ac{fmri} responses time series of participants
 experiencing the same stimulus into a lower-dimensional space of shared features
-(i.e. the common functional space) and subject-specific orthogonal topographic
+(i.e. the CFS)) and subject-specific orthogonal topographic
 transformation matrices \citep{kumar2020brainiak, cohen2017computational}.
 %
 The dimensions of the shared feature space do not correspond to individual
@@ -325,92 +298,68 @@ voxels but \textit{shared features} that can be understood as a weighted sum of
 many voxels distributed across the full voxel space of each subject
 \citep{kumar2020brainiak}.
 %
-Hence, in contrast to hyperalignment, the number of dimensions of the shared
+In contrast to hyperalignment, the number of dimensions of the shared
 feature space is not set by the number of voxels (or surface vertices) but is
 pre-specified by the researcher, a procedure that also filters out noise and
 reduces overfitting \citep{chen2015reduced}.
-%
-As in hyperalignment, the subject-specific transformation matrices perform the
-mapping (i.e. the functional alignment) from each subject's idiosyncratic voxel
-space into the common functional space \citep{kumar2020brainiak,
-cohen2017computational}.
-% transpose
-The transpose of a subject's transformation matrix can be used to map data from
-the shared feature space into a subjects' anatomy.
 
-
-\paragraph{the math shit}
-
-\todo[inline]{merge into text above? or move into method section?}
-\todo[inline]{at the moment, I think it's better placed in the methods}
-
-%
-More specifically, ``the brain data for each participant $i$ are represented as
-an \textbf{$n$} voxel by $t$ time matrix  $X_{i}$. A pre-specified number of
-features are used to learn a $k$ feature by  $t$ time shared space $S$ and a
-participant-specific $n$ voxel by $k$  feature matrix $W_{i}$. This weight
-matrix, reflecting the loading of voxels onto features, is randomly initialized
-then fit over iterations to minimize the error in explaining participant data.
-At the same time, the time course of the features in the shared space is
-learned'' (from https://brainiak.org/tutorials/11-SRM/).
-
-%
-``SRM learns $N$ maps $W_{i}$ with orthogonal columns such that
-$||X_{i}-W_{i}S||_{F}$ is minimized over $\left\{ W_{i}\right\} _{i=1}^{N},S$,
-where $X_{i}\in\mathbb{R}^{v\times{T}}$ is the $i^{th}$ subject's fMRI response
-($v$ voxels by $T$ repetition times) and $S\in\mathbb{R}^{k\times{T}}$ is a
-feature time-series in a $k$-dimensional shared space''
-\citep{vodrahalli2018mapping}.
-
-
-\subsubsection{Our procedure}
-
-\todo[inline]{I am confused, we have leave-one-out but k-folds?}
-
-% creating the shared feature space
-In the current study, we use publicly available fMRI data
-\href{www.studyforrest.org}{studyforrest.org} of subjects ($N=14$) participating
-in a visual localizer paradigm \citep{sengupta2016extension} but also watching a
-Hollywood \citep{hanke2016simultaneous} movie and listening to the movie's
-audio-description \citep{hanke2014audiomovie} in order to derive a common
-functional space.
-%
-Results of our previous study suggest \citep{haeusler2022processing} that not
-just a dedicated visual localizer but also the audio-visual movie Forrest Gump
-and the movie's audio-description sample the response vector space of
-hemodynamic responses to ``spatial information'' in a time-locked manner across
-subjects.
-%
-Following a k-fold leave-one-subject-out cross-validation, we derive a common
-functional space and subject-specific transformation matrices from N-1 test
-subjects in order to project results [$Z$-maps vs. ``values in a ROI?] of the
-visual localizer contrast aimed at localizing the \ac{ppa} (s.
-\citet{sengupta2016extension} into the common functional space.
-% align left-out subject
-Based on our previous findings \citep{haeusler2022processing}, we assumed that
-the naturalistic stimuli would trigger, among others, brain responses that are
-similar to those triggered by the functional localizer.
-%
-Hence, we use time series data from the naturalistic stimuli to align the
-left-out test subject to the (fixed) common functional space.
-% project into common functional space
-The transpose of the subject-specific transformation matrix acquired during the
-alignment procedure is then used to project the other subjects' functional
-localizer results from the common functional space into the test subject's voxel
-space.
+\todo[inline]{rephrase to better match our case}
+% project into CFS
+Second, we used the subject-specific transformation matrices in order to perform
+a mapping of the visual localizer's results from each training subject's
+idiosyncratic voxel space into the \ac{cfs}.
+% align test subject
+Third, we use time series data from the naturalistic stimuli to align the
+test subject to the \ac{cfs} (that was derived from the training
+subjects' data) in order to require the test subject's transformation matrix.
+% project from CFS into test subject
+Last, the transpose of the test subject's transformation matrix is used to
+project the other subjects' functional localizer results from the \ac{cfs} into
+the test subject's voxel space serving as an estimation of the test subject's
+localizer results.
 
 
 \paragraph{partial alignment}
 
+Given that a two-hour-long stimulation is infeasible in a clinical setting, we
+critically also assess the relationship between the length of the naturalistic
+stimulus used for alignment of the test subject to the fixed \ac{cfs} and the
+subsequent estimation performance.
 %
-Critically, we also asses the relationship between the length of the
-naturalistic stimulus (i.e. the quantity of data samples) used to align the test
-subject to the common functional space and the subsequent functional alignment's
-prediction/estimation performance.
+Therefore, we use an increasing number of segments of the naturalistic stimuli
+(each lasting $\sim$\unit[15]{m}) to align the test subject to the corresponding
+segments' time points within the \ac{cfs}.
+
+
+\subsection{Hypotheses}
+
+\todo[inline]{draft; s. also general introduction}
 %
-Therefore, we test the validity [correct?] of the transformation matrices
-calculated using an increasing number of segments of each naturalistic stimulus
-(one up to eight segments; each lasting $\sim$\unit[15]{m}).
+We hypothesized that increased quantity of data used to calculate the
+transformation matrices of left-out subjects for a functional alignment would to
+increase prediction performance.
+%
+Further, we hypothesized that functional alignment would eventually outperform
+than an estimation based on anatomical alignment.
+
+
+\subsection{Summary of results}
+
+\todo[inline]{mih: Seems like a strange position for such a section. If
+anywhere, prior Hypotheses. No?}
+
+\todo[inline]{coh: usually, papers provide a very, very high-level overview of
+methods, results, and often also a conclusion in the intro (as Jiahu et al. did,
+too; s. below)}
+
+%
+Template from \citet{jiahui2020predicting}: ``Results show strong correlations
+of face-selectivity topographic maps derived from a subject's own localizer data
+with maps derived from other subjects' localizer data projected into that
+subject's cortical anatomy. Both the two-step algorithm and the new one-step
+algorithm, which we introduce here, produce high-fidelity, individualized
+topographic maps, but the new one-step algorithm maps were superior''
+\citep{jiahui2020predicting}.
 
 
 \paragraph{model validation; within experiment estimation}
@@ -432,31 +381,6 @@ Hence, we also test alignment based on the first run (\unit[312]{s};
 \unit[5.2]{m}) of data from
 the visual localizer to acquire the transformation matrices and perform a
 cross-subject-prediction (vs. cross-subject-cross-experiment-prediction)
-
-
-\subsection{Hypotheses}
-
-\todo[inline]{draft of phrasing; cf. general introduction}
-
-%
-We hypothesized that increased quantity of data used to calculate the
-transformation matrices of left-out subjects for a functional alignment would to
-increase prediction performance.
-%
-Further, we hypothesized that functional alignment would eventually perform
-``better'' than an estimation based on anatomical alignment.
-
-
-\subsection{Summary of results}
-
-%
-Template from \citet{jiahui2020predicting}: ``Results show strong correlations
-of face-selectivity topographic maps derived from a subject's own localizer data
-with maps derived from other subjects' localizer data projected into that
-subject's cortical anatomy. Both the two-step algorithm and the new one-step
-algorithm, which we introduce here, produce high-fidelity, individualized
-topographic maps, but the new one-step algorithm maps were superior''
-\citep{jiahui2020predicting}.
 
 
 \subsection{Vision}
@@ -730,7 +654,7 @@ sub-20 & 1437 \tabularnewline
 
 We used the probabilistic \ac{srm} algorithm implemented in BrainIAK v.11
 \citep[Brain Imaging Analysis Kit;][]{kumar2020brainiak,
-kumar2020brainiaktutorial} in order to compute the common functional space and
+kumar2020brainiaktutorial} in order to compute the \ac{cfs} and
 acquire the transformation matrices for the ($N-1$) subjects.
 %
 This implementation approximates the \ac{srm} using the Expectation Maximization
@@ -767,8 +691,7 @@ responses) to be computed considering the temporal and spatial resolution of our
 data (\ac{tr} = \unit[2]{s}; \unit[2.5 $\times$ 2.5 $\times$ 2.5]{mm}), the
 average number of voxels per \ac{roi}, and findings from \citet{haxby2011common}
 %
-\citet{haxby2011common} first used hyperalignment to create a common functional
-space on 1,000 dimensions based of functional data (\ac{tr} = \unit[3]{s}) of
+\citet{haxby2011common} first used hyperalignment to create a \ac{cfs} on 1,000 dimensions based of functional data (\ac{tr} = \unit[3]{s}) of
 voxels (\unit[3 $\times$ 3 $\times$ 3]{mm}) located in the ventral temporal
 cortex.
 %
@@ -778,13 +701,13 @@ capture the full range of response-pattern distinctions.
 %
 Results revealed that approximately 35 principal components (i.e. dimensions)
 were sufficient to represent the information content of the one-hour movie from
-which the common functional space was derived.
+which the \ac{cfs} was derived.
 %
 Results also showed that the cortical topographies of category-selective brain
 regions was preserved in the 35-dimensional common space
 \citep{haxby2011common}.
 %
-In the current study, we also explored common functional spaces of $k=5, 20, 30,
+In the current study, we also explored \acp{cfs} of $k=5, 20, 30,
 40, 50$, but the results barely varied from a 10-dimensional common space.
 
 % ``The effect of number of PCs on BSC was similar for models that were based
@@ -806,7 +729,7 @@ In the current study, we also explored common functional spaces of $k=5, 20, 30,
 
 \paragraph{the math shit}
 
-\todo[inline]{maybe, shift the math shit from intro to here}
+\todo[inline]{maybe, shift similar parts the math shit from intro to here}
 
 %
 During model fitting, the algorithm computes the shared feature space $S$ ($k$
@@ -818,6 +741,27 @@ voxels onto features (i.e. subject-specific functional topographies), and allow
 to project responses of voxels within each subjects' \ac{roi}(s) from anatomical
 space into the $k$-dimensional shared feature space, and thus functionally align
 subjects.
+
+\todo[inline]{part previously located in intro}
+
+%
+More specifically, ``the brain data for each participant $i$ are represented as
+an \textbf{$n$} voxel by $t$ time matrix  $X_{i}$. A pre-specified number of
+features are used to learn a $k$ feature by  $t$ time shared space $S$ and a
+participant-specific $n$ voxel by $k$  feature matrix $W_{i}$. This weight
+matrix, reflecting the loading of voxels onto features, is randomly initialized
+then fit over iterations to minimize the error in explaining participant data.
+At the same time, the time course of the features in the shared space is
+learned'' (s.
+\href{https://brainiak.org/tutorials/11-SRM/}{brainiak.org/tutorials/11-SRM}).
+
+%
+``SRM learns $N$ maps $W_{i}$ with orthogonal columns such that
+$||X_{i}-W_{i}S||_{F}$ is minimized over $\left\{ W_{i}\right\} _{i=1}^{N},S$,
+where $X_{i}\in\mathbb{R}^{v\times{T}}$ is the $i^{th}$ subject's fMRI response
+($v$ voxels by $T$ repetition times) and $S\in\mathbb{R}^{k\times{T}}$ is a
+feature time-series in a $k$-dimensional shared space''
+\citep{vodrahalli2018mapping}.
 
 
 \paragraph{negative control}
@@ -851,14 +795,14 @@ cross-subject-prediction? -> kind of model validation, ceiling ...}
 
 %
 To obtain the transformation matrix for the test subject, we then aligned
-test subect's data to the common functional space that was trained on the
+test subect's data to the \ac{cfs} that was trained on the
 other subjects' data:
 %
 the algorithm learns a mapping $W_{n}$ of the left-out subject's anatomical
 voxel space into the shared space $S$ that is kept fixed.
 %
 In order evaluate the relationship between the length of the naturalistic
-stimulus used to align the test subject to the common functional space and the
+stimulus used to align the test subject to the \ac{cfs} and the
 subsequent functional alignment's prediction/estimation performance, we based
 the computation of the transformation matrix on different quantity of data:
 %
@@ -1183,6 +1127,8 @@ blurry) subject-specific functional template}
 
 \subsection{Discussion of current results}
 
+\todo[inline]{key point: check if (anatomical alignment) studies did binary
+estimation using an abitrary threshold per subject to yield "nice results"}
 
 We have cross-subject, cross-experiment, and cross-scanner prediction; but:
 AV \& VIS are from the same scanner, if not same session?
@@ -1411,7 +1357,7 @@ human bodies \citep{downing2001bodyarea}, respectively.
 
 \todo[inline]{a.k.a. ``more subjects''}
 %
-Create a common functional space from another experiment's data, using another
+Create a \ac{cfs} from another experiment's data, using another
 scanner and, of fucking course, more subjects (obviously, "movie's study"
 [a.k.a. ``my precious'' ;-)].
 %
