@@ -83,18 +83,18 @@ a criterion that can be difficult to meet in clinical or pediatric populations.
 
 \todo[inline]{phrasing (too) similar to general intro \& smooth it}
 %
-In study 2 \citep{haeusler2022processing}, we have shown that that a
-functionally defined region, such as the \ac{ppa}, can be localized using a
-model-driven \ac{glm} analysis that is based on a naturalistic stimulus'
-annotated temporal structure.
+In study 2 \citep{haeusler2022processing}, we have shown that a functionally
+defined region, such as the \ac{ppa}, can be localized using a model-driven
+\ac{glm} analysis that is based on a naturalistic stimulus' annotated temporal
+structure.
 %
 Results also suggest that a naturally engaging, purely auditory paradigm like an
 audio-description could, in principle, substitute a visual localizer as a
 diagnostic procedure to assess brain functions in visually impaired individuals
 \citep{haeusler2022processing}.
 %
-Our previous results are based on data of two-hour-long \ac{fmri} scans, but
-any clinical application must aim to minimize the scan time for practical and
+Our previous results are based on data of two-hour-long \ac{fmri} scans, but any
+clinical application must aim to minimize the scan time for practical and
 monetary reasons.
 
 
@@ -102,7 +102,7 @@ monetary reasons.
 
 % solution: predict from reference
 Another approach to reduce time and costs is to identify a functional area in an
-individual persons based on data collected from an independent sample of
+individual person based on data collected from an independent sample of
 different persons (i.e. a \textit{reference group}).
 
 \todo[inline]{check (anatomical) estimation papers for terminology}
@@ -110,14 +110,18 @@ different persons (i.e. a \textit{reference group}).
 
 \subsubsection{Anatomical alignment}
 
-\todo[inline]{rephrase similarly to "Estimation via functional alignment"}
+\todo[inline]{cite just the best paper that did it}
 %
 A traditional procedure \citep{frost2012measuring, weiner2018defining,
 zhen2017quantifying, zhen2015quantifying, rosenke2021probabilistic,
-wang2015probabilistic} [check; cite just the best(s)] to estimate a person's
-functional topography from a reference group first resolves anatomical
-variability across persons by performing a \textit{anatomically alignment} of a
-person's structural and functional data to a \textit{common anatomical space}.
+wang2015probabilistic} to estimate the most probable location of a functional
+area in a person's anatomy from a reference group performs --- in order to
+resolve anatomical variability across persons --- an \textit{anatomical
+alignment}.
+%
+Functional data from persons in the reference group are aligned to (i.e.
+projected into) a \textit{common anatomical space}, and then projected from the
+common anatomical space into the individual person's brain anatomy.
 % volume-based
 Volume-based anatomical alignment \citep[s.][for a review]{klein2009evaluation}
 aligns voxel-wise data of individual subjects to a three-dimensional brain
@@ -126,11 +130,6 @@ template \citep[e.g., MNI152 template;][]{fonov2011unbiased}.
 Surface-based anatomical alignment \citep{fischl1999cortical} aligns vertex-wise
 data of individual subjects to a two-dimensional template \citep[e.g.,
 FreeSurfer fsaverage template;][]{fischl1999high}.
-% estimation
-In a second step, the most probable location of a functional area in a person's
-anatomy is then estimated by projecting functional data from persons in the
-reference group through the common anatomical space into the individual person's
-brain anatomy.
 
 
 \paragraph{studies that estimated functional areas using anatomical alignment}
@@ -138,9 +137,9 @@ brain anatomy.
 \todo[inline]{give 1-2 examples}
 
 \todo[inline]{key point: check if studies did binary estimation using an
-abitrary threshold per subject to yield "nice results"}
+arbitrary threshold per subject to yield "nice results"}
 
-For example,  \citep{frost2012measuring, weiner2018defining,
+For example, \citep{frost2012measuring, weiner2018defining,
 zhen2017quantifying, zhen2015quantifying, rosenke2021probabilistic,
 wang2015probabilistic} have shown that ...
 
@@ -201,41 +200,37 @@ high-dimensional functional brain template'') as well as subject-specific
 transformation matrices.
 %
 These transformation matrix can then be used to project functional data from a
-subject's anatomial voxel space into the \ac{cfs} or from the \ac{cfs} into a
+subject's anatomical voxel space into the \ac{cfs} or from the \ac{cfs} into a
 subject's anatomical space \citep{haxby2020hyperalignment}.
 %
 The construction of the \ac{cfs} and transformation matrix can be created (i.e.
-``trained'') based on the maximization of the inter-subject similarity of
+\textit{trained}) based on the maximization of the inter-subject similarity of
 \ac{bold} response time series correlating with a time-locked external
 stimulation \citep{haxby2011common, chen2015reduced, sabuncu2010function}, or
 based on the inter-subject similarity of connectivity profiles
 \citep{feilong2018reliable, guntupalli2018computational, nastase2019leveraging}.
 %
-Response-based functional aligment algorithms can be applied to \ac{fmri} data
-from paradigms employing simplified stimuli.
+Functional alignment algorithms can be applied to \ac{fmri} data from paradigms
+employing simplified stimuli.
 %
 However, it has been shown that data from naturalistic stimuli provide increased
 validity of the \ac{cfs} and increased generalizability of transformation
-matrices to novel stimuli or tasks, presumably because naturalistic stimulus
-paradigms sample a broader range of brain states \citep{haxby2011common,
+matrices to novel stimuli or tasks, presumably because naturalistic stimuli
+sample a broader range of brain states \citep{haxby2011common,
 guntupalli2016model}.
 
 
 \subsubsection{Estimation via functional alignment}
 
-\todo[inline]{rephrase similarly to "Estimation via anatomical alignment"}
-
 %
-Hence, a more recent procedure to estimate a person's functional topography from
-a reference group first aligns structural and functional data to a common
-anatomical space. Then, in order to preserve functional idiosyncrasies across
-persons, the procedure additionally performs a functional alignment to
-the higher-dimensional, \ac{cfs}.
-% estimation
-In the last step, the most probable location of a functional area in a person's
-anatomy is not estimated by projecting functional data from persons in the
-reference group through the common anatomical space but by projecting data
-through a \ac{cfs} into the individual person's brain anatomy.
+Hence, a more recent procedure to estimate the most probable location of a
+functional area in a person's anatomy from a reference group performs --- in
+order to resolve variability in functional-anatomical correspondence --- an
+functional alignment.
+%
+Functional data from persons in the reference group are aligned to (i.e.
+projected into) a \ac{cfs}, and then projected from the \ac{cfs} into the
+individual person's brain anatomy.
 
 
 \paragraph{studies that estimated functional areas using functional alignment}
@@ -249,8 +244,8 @@ projecting other subjects' data into that subject's cortical anatomy.
 % used stimuli and length
 For example, \citep{jiahui2020predicting} constructed a \ac{cfs}
 and transformation matrices based on data from a) the movie ``Grand Budapest
-Hotel'' ($\sim$\unit[50]{m}; \ac{tr}=\unit[1]{s}), and b) Forrest Gump
-($\sim$\unit[120]{m}; \ac{tr}=\unit[2]{s}; s. \citep{hanke2016simultaneous}).
+Hotel'' ($\sim$\unit[50]{m}; \ac{tr}=\unit[1]{s}), and b) ``Forrest Gump''
+($\sim$\unit[120]{m}; \ac{tr}=\unit[2]{s}).
 % summary of results
 Results revealed that the empirical results of a statistical contrasts aimed to
 localize the \ac{ffa} correlate more highly with maps that were estimated from
@@ -259,6 +254,9 @@ based on surface-based, anatomical alignment \citep{jiahui2020predicting}.
 
 
 \subsection{Here, we... (includes SRM now)}
+
+
+\paragraph{Intro}
 
 % summary in one sentence
 Here, we focus on the \ac{ppa} as an example of a functional area, and estimate
@@ -272,34 +270,35 @@ alignment in order to predict $z$-values in a \ac{roi} as well as a procedure
 using an additional volume-based, functional alignment step.
 %
 Results of our previous study suggest \citep{haeusler2022processing} that not
-just a dedicated visual localizer \citep{sengupta2016extension} but also the
+just the dedicated visual localizer \citep{sengupta2016extension} but also the
 audio-visual movie Forrest Gump \citep{hanke2016simultaneous} and the movie's
 audio-description \citep{hanke2014audiomovie} sample the response vector space
 of hemodynamic responses to ``spatial information'' in a time-locked manner
 across subjects.
-%
-In order to perform the additional functional alignment, we first applied the
-\ac{srm} algorithm \citep{chen2015reduced, richard2019fast} to the training
-subjects' \ac{bold} \ac{fmri} time series of the visual localizer and
-naturalistic stimulus paradigms in order to derive a \ac{cfs} and
-subject-specific transformation matrices.
 
 
 \paragraph{SRM}
+
+%
+In order to perform a functional alignment of voxels within the
+\ac{roi}, we first applied the \ac{srm} algorithm \citep{chen2015reduced,
+richard2019fast} to the training subjects' \ac{bold} \ac{fmri} time series of
+the visual localizer and naturalistic stimulus paradigms in order to derive a
+\ac{cfs} and subject-specific transformation matrices.
 %
 The \ac{srm} is an unsupervised probabilistic latent-factor model that
 decomposes \ac{bold} \ac{fmri} responses time series of participants
 experiencing the same stimulus into a lower-dimensional space of shared features
-(i.e. the CFS)) and subject-specific orthogonal topographic
-transformation matrices \citep{kumar2020brainiak, cohen2017computational}.
+(i.e. the \ac{cfs}) and subject-specific orthogonal topographic transformation
+matrices \citep{kumar2020brainiak, cohen2017computational}.
 %
 The dimensions of the shared feature space do not correspond to individual
 voxels but \textit{shared features} that can be understood as a weighted sum of
 many voxels distributed across the full voxel space of each subject
 \citep{kumar2020brainiak}.
 %
-In contrast to hyperalignment, the number of dimensions of the shared
-feature space is not set by the number of voxels (or surface vertices) but is
+In contrast to hyperalignment, the number of dimensions of the shared feature
+space is not set by the number of voxels (or surface vertices) but is
 pre-specified by the researcher, a procedure that also filters out noise and
 reduces overfitting \citep{chen2015reduced}.
 
@@ -321,7 +320,7 @@ localizer results.
 
 \paragraph{partial alignment}
 
-Given that a two-hour-long stimulation is infeasible in a clinical setting, we
+Given that a two-hour-long stimulation is unsuitable for a clinical setting, we
 critically also assess the relationship between the length of the naturalistic
 stimulus used for alignment of the test subject to the fixed \ac{cfs} and the
 subsequent estimation performance.
@@ -348,7 +347,7 @@ than an estimation based on anatomical alignment.
 \todo[inline]{mih: Seems like a strange position for such a section. If
 anywhere, prior Hypotheses. No?}
 
-\todo[inline]{coh: usually, papers provide a very, very high-level overview of
+\todo[inline]{coh: usually, papers provide a overview of
 methods, results, and often also a conclusion in the intro (as Jiahu et al. did,
 too; s. below)}
 
@@ -423,7 +422,7 @@ with data from a single fMRI using a naturalistic stimulus''
 
 \section{Methods}
 
-\todo[inline]{okay, it's pretty rigorously shortened now; I hope it's okay and
+\todo[inline]{it's pretty rigorously shortened now; I hope it's okay and
 nothing that should urgently be mentioned is missing}
 
 % we get the data from the naturalistic PPA paper (its subdataset)
@@ -447,7 +446,7 @@ c) listening to the audio-description \citep{hanke2014audiomovie} of the movie
 % see corresponding papers for details
 An exhaustive description of the participants, stimulus creation, procedure,
 stimulation setup, and fMRI acquisition can be found in the corresponding
-publications, whereas a summary is provided in \citep{haeusler2022processing}.
+publications, whereas a summary is provided in \citet{haeusler2022processing}.
 
 
 \subsection{Preprocessing}
@@ -612,7 +611,7 @@ number of samples must be the same.
 %
 Hence, we removed the last 75 \acp{tr} of the audio-description from the other
 subjects' time series.
-% summary; AO + AV = 7123 TRs (not 7198 TRs anymore); localizer has 4x156 TRs
+% summary; AO + AV = 7123 TRs (not 7198 TRs anymore); localizer has 4 x 156 TRs
 As a result, the data to fit the \ac{srm} in the following step comprised 3599
 \acp{tr} of the movie, 3524 \acp{tr} of audio-description, and 624 \acp{tr} of
 the visual localizer experiment.
@@ -729,8 +728,6 @@ In the current study, we also explored \acp{cfs} of $k=5, 20, 30,
 
 \paragraph{the math shit}
 
-\todo[inline]{maybe, shift similar parts the math shit from intro to here}
-
 %
 During model fitting, the algorithm computes the shared feature space $S$ ($k$
 features by $t$ time points) and calculates subject-specific, orthogonal
@@ -742,8 +739,8 @@ to project responses of voxels within each subjects' \ac{roi}(s) from anatomical
 space into the $k$-dimensional shared feature space, and thus functionally align
 subjects.
 
-\todo[inline]{part previously located in intro}
 
+\paragraph{the other math shit (previously in intro)}
 %
 More specifically, ``the brain data for each participant $i$ are represented as
 an \textbf{$n$} voxel by $t$ time matrix  $X_{i}$. A pre-specified number of
@@ -795,7 +792,7 @@ cross-subject-prediction? -> kind of model validation, ceiling ...}
 
 %
 To obtain the transformation matrix for the test subject, we then aligned
-test subect's data to the \ac{cfs} that was trained on the
+test subject's data to the \ac{cfs} that was trained on the
 other subjects' data:
 %
 the algorithm learns a mapping $W_{n}$ of the left-out subject's anatomical
@@ -832,17 +829,17 @@ in MNI152 space}
 \subsubsection{short overview}
 %
 We then estimated each test subject's (masked) statistical $Z$-map / values in
-\acp{roi} [???] by projecting all other participiants' $Z$-maps from their voxel
+\acp{roi} [???] by projecting all other participants' $Z$-maps from their voxel
 space trough the template (i.e. the shared space in case of functional
 alignment; the MNI space in case of anatomical alignment) into the test
 subject's voxel space.
 
 %
 First, we masked the \ac{glm} univariate contrast maps that we acquired by
-rerunnning the analysis performed by \citet{sengupta2016extensiondata}:
+rerunning the analysis performed by \citet{hanke2016simultaneous}:
 %
 as applied to the time series data, $Z$-maps were masked with the union of the
-individual PPAs \citep[s.][]{haeusler2022processing} that was warped from
+individual \acp{ppa} \citep[s.][]{haeusler2022processing} that was warped from
 group space into each subjects' space, and the subject-specific \ac{fov} of the
 audio-description.
 
@@ -853,7 +850,7 @@ In the case of estimation via functional alignment, we used the transformation
 matrices that were derived during training of the \ac{srm} in order to project
 the data from each training subject into the shared space.
 % into shared space
-We then used the transpose of the transformation matrix that we aquired during
+We then used the transpose of the transformation matrix that we acquired during
 the alignment of the test subject in order to project the data from the shared
 space into the test subject's voxel space.
 % into subject
@@ -864,7 +861,7 @@ $Z$-map} estimating the test subject's \textit{empirical $Z$-map}
 \subsubsection{Prediction using anatomical alignment}
 
 \todo[inline]{tell more about how transformation matrices were created?
-potential reviewer's question: your anatomical alignment might have been shitty,
+Potential reviewer's question: your anatomical alignment might have been shitty,
 linear etc. ? -> check TNT github/gin repo; what is the corresponding paper?}
 
 \todo[inline]{``warp'' = non-linear registration with [?] degrees of freedom}
@@ -897,7 +894,7 @@ between the empirical $Z$-maps gained from the localizer experiment and the
 estimated $Z$-maps.
 %
 Further, we compare the prediction performance to the internal consistency (i.e.
-reliability) of the visual localizer by calulating Cronbach's Alpha across the
+reliability) of the visual localizer by calculating Cronbach's Alpha across the
 four runs of the localizer.
 
 \todo[inline]{s. 'studyforrest-srm-movies/test/statistics\_cronbachs.py'}
@@ -988,8 +985,8 @@ correlation values across participants were 0.58 (N = 15, S.D. = 0.08)''
 ``Hyperalignment greatly improved the prediction performance compared with
 anatomical surface alignment. With surface alignment, the average Pearson
 correlation values across participants were 0.40 (N = 15, S.D. = 0.08) in the
-StudyForrest dataset (Fig. 3). The difference between the hyperaligned and the
-surface-aligned mean correlation values was highly significant (StudyForrest:
+studyforrest dataset (Fig. 3). The difference between the hyperaligned and the
+surface-aligned mean correlation values was highly significant (studyforrest:
 t(14) = 17.39, p < 0.001)'' \citep{jiahui2020predicting}.
 
 %
@@ -1031,11 +1028,11 @@ the four localizer runs was 0.60 (N = 15, S.D. = 0.14)''.
 %
 ``These results mean that if we scan each participant for another 4 localizer
 runs, and compute the correlation between the two maps (4 runs vs. 4 runs), the
-correlation would be 0.60 on average in the StudyForrest''.
+correlation would be 0.60 on average in the studyforrest''.
 %
 ``Cronbach's alpha indicates that the predicted contrast map based on
 hyperalignment is close to or as good as the real contrast map based on four
-localizer runs (StudyForrest: t(14) = 0.61, p = 0.55; Grand Budapest: t(20) =
+localizer runs (studyforrest: t(14) = 0.61, p = 0.55; Grand Budapest: t(20) =
 3.02, p = 0.007)''.
 %
 ``The predicted contrast map based on hyperalignment was better than the
@@ -1128,7 +1125,7 @@ blurry) subject-specific functional template}
 \subsection{Discussion of current results}
 
 \todo[inline]{key point: check if (anatomical alignment) studies did binary
-estimation using an abitrary threshold per subject to yield "nice results"}
+estimation using an arbitrary threshold per subject to yield "nice results"}
 
 We have cross-subject, cross-experiment, and cross-scanner prediction; but:
 AV \& VIS are from the same scanner, if not same session?
@@ -1141,7 +1138,7 @@ experiments.
 
 %
 Asymptotic ``performance curve'' might be different for another brain region
-(temporal receptive fields?); rentinotopic mapping vs. ``higher'' cognition  vs.
+(temporal receptive fields?); retinotopic mapping vs. ``higher'' cognition  vs.
 executive functions (prefrontal cortex)?
 
 
