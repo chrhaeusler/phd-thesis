@@ -98,7 +98,7 @@ However, a two-hour long paradigm is unsuitable for a clinical application due
 to practical and monetary reasons.
 
 
-\subsection{Therefore: Estimate that shit}
+\subsection{Therefore: estimate that shit}
 
 % solution: predict from reference
 An approach to reduce time and costs of individual diagnostics is to identify a
@@ -425,20 +425,20 @@ nothing that should urgently be mentioned is missing}
 
 % reference to PPA-Paper
 For the current study, we used the same subset of the studyforrest dataset
-\href{http://www.studyforrest.org}{studyforrest.org} that was used in study 2
-\citep{haeusler2022processing}:
+(\href{http://www.studyforrest.org}{\url{studyforrest.org}}) that was used in
+study 2 \citep{haeusler2022processing}:
 %
 the same fourteen subjects were
 % VIS
 a) participating in a dedicated six-category block-design visual localizer
-\citep{sengupta2016extension}.
+\citep{sengupta2016extension},
 % AV
-b) watching the audio-visual movie \citep{hanke2016simultaneous}, and
+b) watching the audio-visual movie ``Forrest Gump''
+\citep{hanke2016simultaneous}, and
 % AD
-c) listening to the audio-description \citep{hanke2014audiomovie} of the movie
-``Forrest Gump''.
+c) listening to the movie's audio-description \citep{hanke2014audiomovie}.
 % see corresponding papers for details
-An exhaustive description of the participants, stimulus creation, procedure,
+An exhaustive description of participants, stimulus creation, procedure,
 stimulation setup, and fMRI acquisition can be found in the corresponding
 publications, whereas a summary is provided in \citet{haeusler2022processing}.
 
@@ -464,8 +464,8 @@ We reran the preprocessing and analyses steps performed in
 v6.00 \citep[FMRI Expert Analysis Tool;][]{woolrich2001autocorr} as shipped with
 FSL v5.0.9 \citep[\href{https://www.fmrib.ox.ac.uk/fsl}{FMRIB's Software
 Library;}][]{smith2004fsl} in order to reproduce both the time series data that
-served as final input for the statistical analyses in the two original studies
-publications as well as their results (i.e. statistical $Z$-maps).
+served as final input for the statistical analyses in the two previous studies
+as well as their results (i.e. statistical $Z$-maps).
 % temporal filtering
 In summary, high-pass temporal filtering was applied using a Gaussian-weighted
 least-squares straight line to every run of the visual localizer (cutoff period
@@ -474,18 +474,18 @@ and audio-description (\unit[150]{s}; sigma=\unit[75.0]{s}).
 % brain extraction
 Brains were extracted from surrounding tissues using BET \citep{smith2002bet}.
 % spatial smoothing
-As in the original studies, data from all three experiments were spatially
-smoothed (Gaussian kernel with full width at half maximum of \unit[4.0]{mm}),
-and a grand-mean intensity normalization of each run's (or segment's) time
-series was performed by a single multiplicative factor.
+As in the previous studies, data from all three paradigms were spatially
+smoothed (Gaussian kernel with full width at half maximum of \unit[4.0]{mm}).
+A grand-mean intensity normalization was applied to each run of the functional
+localizer and each segment of the naturalistic stimuli.
 
 \todo[inline]{can't remember: is grand mean per run/across runs?; imo per run}
 
 
 \subsection{Modeling of a shared feature space}
 
-On these reproduced data, we then performed further analyses steps via
-Python scripts that relied on
+On these reproduced time series data, we then performed further analyses steps
+via Python scripts that relied on
 %
 NiBabel v3.2.1 (\href{https://nipy.org}{\url{nipy.org}}),
 %
@@ -570,17 +570,16 @@ of the warping procedures}
 \todo[inline]{how to explain in one sentence that we need reduction of voxels?}
 
 % reason why we do it
-SRM algorithm needs (``way'') more samples (TRs) than features/voxels to train
-the model.
-
+The \ac{srm} requires that the number of samples (the number of \acp{tr}) exceed
+the number of features (the number of voxels) in order to train a reliable
+model.
 % union of PPA masks
-For each paradigm and subject, the corresponding time series of each run (or
-segment) were masked with the union of individual PPA masks
-\citep[s.][]{haeusler2022processing} that was warped [via non-linear
-transformation x degrees of freedom] from MNI space into each subjects' voxel
-space.
+Hence, we warped the union of individual \acp{ppa}
+\citep[s.][]{haeusler2022processing} [via non-linear transformation x degrees of
+freedom] from MNI space into each subjects' voxel space, and applied it as a
+mask to each subjects' time series data.
 % AO FoV
-These data were further masked with the subject-specific \ac{fov} of the
+Then, data were further masked with the subject-specific \ac{fov} of the
 audio-description.
 %
 The number of remaining voxels for each subject can be seen in Table
@@ -591,14 +590,9 @@ The number of remaining voxels for each subject can be seen in Table
 % normalization
 Data of every run were independently normalized ($z$-scored) to a mean of zero
 and a standard deviation of one ($\mu=0$, $\sigma=1$).
-
-
-\todo[inline]{yeah, well, probably I should have cut the last 75TRs of AO first,
-and then z-scored the last segment but anyway...; does not make much difference}
-
 %
-The last 75 TRs of the audio-description were missing in subject-04 due to an
-image reconstruction problem \citep[s.][]{hanke2014audiomovie}.
+The last 75 \acp{tr} of the audio-description were missing in subject-04 due to
+an image reconstruction problem \citep[s.][]{hanke2014audiomovie}.
 %
 The \ac{srm} allows the number of voxels to be different across subjects but the
 number of samples must be the same.
@@ -607,9 +601,11 @@ Hence, we removed the last 75 \acp{tr} of the audio-description from the other
 subjects' time series.
 % summary; AO + AV = 7123 TRs (not 7198 TRs anymore); localizer has 4 x 156 TRs
 As a result, the data to fit the \ac{srm} in the following step comprised 3599
-\acp{tr} of the movie, 3524 \acp{tr} of audio-description, and 624 \acp{tr} of
-the visual localizer experiment.
+\acp{tr} of the movie, 3524 \acp{tr} of the audio-description, and 624 \acp{tr}
+of the visual localizer experiment.
 
+\todo[inline]{yeah, well, probably I should have cut the last 75TRs of AO first,
+and then z-scored the last segment but anyway...; does not make much difference}
 
 \begin{table*}[btp]
     \caption{Number of remaining voxels after time series data of each paradigm
@@ -645,14 +641,12 @@ sub-20 & 1437 \tabularnewline
 
 \todo[inline]{mention that just 'ao \& av' as input were also tested?}
 
-We used the probabilistic \ac{srm} algorithm implemented in BrainIAK v.11
-\citep[Brain Imaging Analysis Kit;][]{kumar2020brainiak,
-kumar2020brainiaktutorial} in order to compute the \ac{cfs} and
-acquire the transformation matrices for the ($N-1$) subjects.
-%
-This implementation approximates the \ac{srm} using the Expectation Maximization
-(EM) algorithm proposed by \citep{chen2015reduced} optimized by
-\citet{anderson2016enabling}.
+We used the probabilistic \ac{srm} algorithm that approximates the \ac{srm}
+based the Expectation Maximization (EM) algorithm proposed by
+\citep{chen2015reduced}, optimized by \citet{anderson2016enabling}, and
+implemented in BrainIAK v.11 \citep[Brain Imaging Analysis
+Kit;][]{kumar2020brainiak, kumar2020brainiaktutorial} in order to compute the
+\ac{cfs} and the transformation matrices for the training subjects.
 
 
 \paragraph{Cross-validation stuff}
