@@ -264,10 +264,12 @@ audio-description \citep{hanke2014audiomovie} sample the response vector space
 of hemodynamic responses to ``spatial information'' in a time-locked manner
 across subjects.
 %
-Hence, following a k-fold leave-one-subject-out cross-validation [correct? give
-citation?] we employed both a procedure using a volume-based, anatomical
+Hence, following a k-fold leave-one-subject-out cross-validation [give
+citation], we employed both a procedure using a volume-based, anatomical
 alignment as well as a procedure using a volume-based, functional alignment in
 order to predict $z$-values within a \ac{roi}.
+
+\todo[inline]{is k-fold leave-one-subject-out cross-validation correct?}
 
 \paragraph{SRM}
 
@@ -424,11 +426,10 @@ nothing that should urgently be mentioned is missing}
 % datalad get inputs/studyforrest-ppa-analysis/inputs/studyforrest-data-aligned/sub-??/in\_bold3Tp2/sub-??\_task-a?movie\_run-?\_bold*.*
 
 % reference to PPA-Paper
-For the current study, we used the same subset of the studyforrest dataset
-(\href{http://www.studyforrest.org}{\url{studyforrest.org}}) that was used in
-study 2 \citep{haeusler2022processing}:
+For the current study, we used the same subset of the studyforrest dataset that
+was used in study 2 \citep{haeusler2022processing}:
 %
-the same fourteen subjects were
+the same subjects ($N=14$) were
 % VIS
 a) participating in a dedicated six-category block-design visual localizer
 \citep{sengupta2016extension},
@@ -463,7 +464,7 @@ We reran the preprocessing and analyses steps performed in
 \citet{sengupta2016extension} and \citet{haeusler2022processing} using FEAT
 v6.00 \citep[FMRI Expert Analysis Tool;][]{woolrich2001autocorr} as shipped with
 FSL v5.0.9 \citep[\href{https://www.fmrib.ox.ac.uk/fsl}{FMRIB's Software
-Library;}][]{smith2004fsl} in order to reproduce both the time series data that
+Library;}][]{smith2004fsl} in order to reproduce both the time series that
 served as final input for the statistical analyses in the two previous studies
 as well as their results (i.e. statistical $Z$-maps).
 % temporal filtering
@@ -475,14 +476,14 @@ and audio-description (\unit[150]{s}; sigma=\unit[75.0]{s}).
 Brains were extracted from surrounding tissues using BET \citep{smith2002bet}.
 % spatial smoothing
 As in the previous studies, data from all three paradigms were spatially
-smoothed (Gaussian kernel with full width at half maximum of \unit[4.0]{mm}).
-A grand-mean intensity normalization was applied to each run of the functional
+smoothed (Gaussian kernel with full width at half maximum of \unit[4.0]{mm}).  A
+grand-mean intensity normalization was applied to each run of the functional
 localizer and each segment of the naturalistic stimuli.
 
 \todo[inline]{can't remember: is grand mean per run/across runs?; imo per run}
 
 
-\subsection{Modeling of a shared feature space}
+\subsection{Modeling of the \ac{cfs}}
 
 On these reproduced time series data, we then performed further analyses steps
 via Python scripts that relied on
@@ -574,10 +575,10 @@ The \ac{srm} requires that the number of samples (the number of \acp{tr}) exceed
 the number of features (the number of voxels) in order to train a reliable
 model.
 % union of PPA masks
-Hence, we warped the union of individual \acp{ppa}
-\citep[s.][]{haeusler2022processing} [via non-linear transformation x degrees of
-freedom] from MNI space into each subjects' voxel space, and applied it as a
-mask to each subjects' time series data.
+Hence, in order to create bilateral \acp{roi}, we warped the union of individual
+\acp{ppa} \citep[s.][]{haeusler2022processing} [via non-linear transformation x
+degrees of freedom] from MNI space into each subjects' voxel space, and applied
+it as a mask to each subjects' time series data.
 % AO FoV
 Then, data were further masked with the subject-specific \ac{fov} of the
 audio-description.
@@ -602,10 +603,14 @@ subjects' time series.
 % summary; AO + AV = 7123 TRs (not 7198 TRs anymore); localizer has 4 x 156 TRs
 As a result, the data to fit the \ac{srm} in the following step comprised 3599
 \acp{tr} of the movie, 3524 \acp{tr} of the audio-description, and 624 \acp{tr}
-of the visual localizer experiment.
+of the visual localizer experiment, 7747 \acp{tr} in total.
+%% concatenate and z-score
+The time series of all three paradigms were concatenated and $z$-scored.
 
-\todo[inline]{yeah, well, probably I should have cut the last 75TRs of AO first,
-and then z-scored the last segment but anyway...; does not make much difference}
+\todo[inline]{well, probably I should have cut the last 75TRs of AO first, and
+then z-scored the last segment but anyway...; does not make much difference}
+
+\todo[inline]{yes, I performed a second z-scoring but across all runs/paradigms}
 
 \begin{table*}[btp]
     \caption{Number of remaining voxels after time series data of each paradigm
@@ -649,22 +654,16 @@ Kit;][]{kumar2020brainiak, kumar2020brainiaktutorial} in order to compute the
 \ac{cfs} and the transformation matrices for the training subjects.
 
 
-\paragraph{Cross-validation stuff}
-
-\todo[inline]{streamline with overview in introduction}
-
+\paragraph{cross-validation stuff}
 %
 In order to avoid data leakage, we followed a leave-one-subject-out folding
 scheme:
 %
-for every subject $n$, we used the other subjects' ($N-1$) \ac{bold} \ac{fmri}
-responses to the functional localizer, movie, and audio-description as training
-set to compute the shared feature space and transformation matrices for $N-1$
-subjects.
-% concatenate and z-score
-The time series of all three paradigms were concatenated and z-scored.
+for every subject $n$, we used the $N-1$ training subjects' \ac{bold} \ac{fmri}
+responses to the functional localizer, movie, and audio-description to let the
+algorithm calculate the \ac{cfs} and $N-1$ transformation matrices.
 
-\todo[inline]{yes, I performed a second z-scoring but across all runs/paradigms}
+\todo[inline]{is k-fold leave-one-subject-out cross-validation correct?}
 
 
 \paragraph{number of dimensions}
@@ -673,29 +672,29 @@ The time series of all three paradigms were concatenated and z-scored.
 % The number of iterations for the algorithm to minimize the error was set to 30
 
 % features
-We chose a value of $k=10$ for the number of features (i.e. the shared
-responses) to be computed considering the temporal and spatial resolution of our
-data (\ac{tr} = \unit[2]{s}; \unit[2.5 $\times$ 2.5 $\times$ 2.5]{mm}), the
-average number of voxels per \ac{roi}, and findings from \citet{haxby2011common}
+We chose a value of $k=10$ for the number of shared responses (i.e. the number
+of the CFS's dimensions) to be computed considering the temporal and spatial
+resolution of our data (\ac{tr} = \unit[2]{s}; \unit[2.5 $\times$ 2.5 $\times$
+2.5]{mm}), the average number of voxels per bilateral \acp{roi}, and findings
+from \citet{haxby2011common}.
 %
-\citet{haxby2011common} first used hyperalignment to create a \ac{cfs} on 1,000 dimensions based of functional data (\ac{tr} = \unit[3]{s}) of
-voxels (\unit[3 $\times$ 3 $\times$ 3]{mm}) located in the ventral temporal
-cortex.
+\citet{haxby2011common} first used hyperalignment to create a \ac{cfs} of 1,000
+dimensions based of functional data (\ac{tr} = \unit[3]{s}) of voxels (of size
+\unit[3 $\times$ 3 $\times$ 3]{mm}) located in the ventral temporal cortex.
 %
-Then, \citet{haxby2011common} reduced the dimensionality of the common space by
+Then, \citet{haxby2011common} reduced the dimensionality of the \ac{cfs} by
 applying a \ac{pca} in order to determine the subspace that is sufficient to
 capture the full range of response-pattern distinctions.
 %
 Results revealed that approximately 35 principal components (i.e. dimensions)
-were sufficient to represent the information content of the one-hour movie from
+were sufficient to represent the information content of a one-hour movie from
 which the \ac{cfs} was derived.
 %
 Results also showed that the cortical topographies of category-selective brain
-regions was preserved in the 35-dimensional common space
-\citep{haxby2011common}.
+regions was preserved in the 35-dimensional \ac{cfs} \citep{haxby2011common}.
 %
-In the current study, we also explored \acp{cfs} of $k=5, 20, 30,
-40, 50$, but the results barely varied from a 10-dimensional common space.
+In the current study, we also explored \acp{cfs} of $k=5, 20, 30, 40, 50$ but
+results barely varied from a 10-dimensional \ac{cfs}.
 
 % ``The effect of number of PCs on BSC was similar for models that were based
 % only on Princeton (n = 10) or Dartmouth (n = 11) data, suggesting that this
@@ -715,38 +714,40 @@ In the current study, we also explored \acp{cfs} of $k=5, 20, 30,
 
 
 \paragraph{the math shit}
+% math shit from citep{vodrahalli2018mapping}
 
-%
-During model fitting, the algorithm computes the shared feature space $S$ ($k$
-features by $t$ time points) and calculates subject-specific, orthogonal
-transformation matrices $W_{n}$ ($v$ voxel by $k$ features).
-%
-These transformation matrices (or weight matrices) reflect the loadings of
-voxels onto features (i.e. subject-specific functional topographies), and allow
-to project responses of voxels within each subjects' \ac{roi}(s) from anatomical
-space into the $k$-dimensional shared feature space, and thus functionally align
-subjects.
+% ``SRM learns $N$ maps $W_{i}$ with orthogonal columns such that
+% $||X_{i}-W_{i}S||_{F}$ is minimized over $\left\{ W_{i}\right\} _{i=1}^{N},S$,
+% where $X_{i}\in\mathbb{R}^{v\times{T}}$ is the $i^{th}$ subject's fMRI
+% response ($v$ voxels by $T$ repetition times) and
+% $S\in\mathbb{R}^{k\times{T}}$ is a feature time-series in a $k$-dimensional
+% shared space'' \citep{vodrahalli2018mapping}.
 
-
-\paragraph{the other math shit (previously in intro)}
+% explain shit
+During model fitting, the algorithm used each $n^{th}$ training subject's
+response time series represented as matrix $X_{n}$ ({$v$} voxel by $t$ time
+points) to calculate the \ac{cfs} $C$ ($k$ features by $t$ time points) and
+subject-specific, orthogonal transformation matrices $T_{n}$ ($v$ voxel by $k$
+features).
+% what do the matrices represent?
+Each transformation matrix (or \textit{weight matrix}) reflects the loadings of
+voxels (i.e. a subject-specific functional topography) onto the shared
+responses. Each transformation matrix allows to project the responses of voxels
+within a subjects' bilateral \acp{roi} from anatomical voxel space into the
+$k$-dimensional \ac{cfs}, and thus functionally aligns a subject data.
+% iteratively fitted
+The transformation matrices are randomly initialized and fit over iterations to
+minimize the error in explaining participant data.
 %
-More specifically, ``the brain data for each participant $i$ are represented as
-an \textbf{$n$} voxel by $t$ time matrix  $X_{i}$. A pre-specified number of
-features are used to learn a $k$ feature by  $t$ time shared space $S$ and a
-participant-specific $n$ voxel by $k$  feature matrix $W_{i}$. This weight
-matrix, reflecting the loading of voxels onto features, is randomly initialized
-then fit over iterations to minimize the error in explaining participant data.
-At the same time, the time course of the features in the shared space is
-learned'' (s.
-\href{https://brainiak.org/tutorials/11-SRM/}{brainiak.org/tutorials/11-SRM}).
+At the same time, the time course of the shared responses in the \ac{cfs} is
+learned (s.
+\href{https://brainiak.org/tutorials/11-SRM/}{\url{brainiak.org/tutorials/11-SRM}}).
 
-%
-``SRM learns $N$ maps $W_{i}$ with orthogonal columns such that
-$||X_{i}-W_{i}S||_{F}$ is minimized over $\left\{ W_{i}\right\} _{i=1}^{N},S$,
-where $X_{i}\in\mathbb{R}^{v\times{T}}$ is the $i^{th}$ subject's fMRI response
-($v$ voxels by $T$ repetition times) and $S\in\mathbb{R}^{k\times{T}}$ is a
-feature time-series in a $k$-dimensional shared space''
-\citep{vodrahalli2018mapping}.
+\todo[inline]{phrasing is pretty similar to phrasing in the tutorial}
+
+\todo[inline]{imo, the correlation matrices of regressors and shared responses
+should be brought up here already and not in the results; as it is done in the
+PPA paper}
 
 
 \paragraph{negative control}
@@ -756,10 +757,12 @@ feature time-series in a $k$-dimensional shared space''
 \todo[inline]{I need to check the code; probably, wrong indices are still used}
 
 % shuffled data
-As negative control, we shuffled the order of runs of audio-description and
-movie [but not yet of visual localizer!] before fitting a shared response model
-to the time series [in order to assess the correlation between regressors of the
-experiments and the computed shared responses in the corresponding \acp{tr}]
+As negative control, we shuffled the order of runs of the movie and
+audio-description [but not yet of visual localizer!] before fitting a shared
+response model to the time series in order to assess the correlations (Pearson's
+r) between the regressors modeled in the previous studies and the shared
+responses in the corresponding \acp{tr}. Results revealed no [to minor; check to
+give numbers] correlations between the regressors and shared responses.
 
 
 \subsection{Alignment of left-out subjects}
