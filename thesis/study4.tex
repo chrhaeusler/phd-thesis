@@ -2,10 +2,7 @@
 stuff that I just tried)? imo, "alternative template creation" (cf. end of
 methods)}
 
-\todo[inline]{align subject to common model space via first run of localizer;
-imo, not necessary}
-
-\todo[inline]{do not speak of ``topography'' but of "values in a ROI"??? don't
+\todo[inline]{don't speak of ``topography'' but of "values in a ROI"??? don't
 know how to phrase it; maybe papers on anatomical alignment might be helpful}
 
 \todo[inline]{Have a figure, define such labels (e.g., "training subjects") in
@@ -249,8 +246,7 @@ based on surface-based, anatomical alignment \citep{jiahui2020predicting}.
 
 \paragraph{Intro}
 
-\todo[inline]{We also estimate the "auditory PPA" localized in x of subjects
-from PPA study}
+\todo[inline]{add sentences about "auditory PPA"}
 
 % summary in one sentence
 Here, we focus on the \ac{ppa} as an example of a functional area, and estimate
@@ -328,6 +324,25 @@ Therefore, we use an increasing number of segments of the naturalistic stimuli
 segments' time points within the \ac{cfs}.
 
 
+\paragraph{model validation; within experiment estimation}
+
+\todo[inline]{imo, it's too much to mention it here}
+\todo[inline]{mention in methods; in results \& discussion, too?}
+
+%
+Hence, we also test alignment based on the first run (\unit[312]{s};
+\unit[5.2]{m}) of data from the visual localizer to acquire the transformation
+matrices and perform a cross-subject-prediction (vs.
+cross-subject-cross-experiment-prediction).
+%
+Because: ``Between-subject models with SRM can, in some cases, exceed the
+performance of within-subject models because (a) the reduced-dimension shared
+space can highlight stimulus-related variance by filtering out noisy or
+non-stimulus-related features, and (b) the between-subject model can effectively
+leverage a larger volume of data after functional alignment than is available
+for any single subject'' \citep{kumar2020brainiak}.
+
+
 \subsection{Hypotheses}
 
 \todo[inline]{draft; s. also general introduction}
@@ -342,8 +357,7 @@ outperform an estimation based on anatomical alignment.
 
 \subsection{Summary of results}
 
-\todo[inline]{mih: Seems like a strange position for such a section. If
-anywhere, prior Hypotheses. No?}
+\todo[inline]{mih: seems like strange position for such a section. If, prior Hypotheses. No?}
 
 \todo[inline]{coh: usually, papers provide a overview of
 methods, results, and often also a conclusion in the intro (as Jiahu et al. did,
@@ -359,32 +373,11 @@ topographic maps, but the new one-step algorithm maps were superior''
 \citep{jiahui2020predicting}.
 
 
-\paragraph{model validation; within experiment estimation}
-
-\todo[inline]{imo, it's too much to mention to here}
-\todo[inline]{in general: it's interesting but not super necessary to test}
-\todo[inline]{is it supposed to be mentioned in method, results, discussion?}
-\todo[inline]{if, then adjust scripts for computation and plotting!}
-
-%
-``Between-subject models with SRM can, in some cases, exceed the performance of
-within-subject models because (a) the reduced-dimension shared space can
-highlight stimulus-related variance by filtering out noisy or
-non-stimulus-related features, and (b) the between-subject model can effectively
-leverage a larger volume of data after functional alignment than is available
-for any single subject'' \citep{kumar2020brainiak}.
-%
-Hence, we also test alignment based on the first run (\unit[312]{s};
-\unit[5.2]{m}) of data from
-the visual localizer to acquire the transformation matrices and perform a
-cross-subject-prediction (vs. cross-subject-cross-experiment-prediction)
-
-
 \subsection{Vision}
 
 \todo[inline]{cf. general introduction}
 
-\todo[inline]{smallish text should be enough here}
+\todo[inline]{2-3 sentences are enough here; better write more in discussion}
 
 Our results suggest that it is possible to ``scan once, estimate many''...
 
@@ -445,8 +438,6 @@ An exhaustive description of participants, stimulus creation, procedure,
 stimulation setup, and fMRI acquisition can be found in the corresponding
 publications, whereas a summary is provided in \citet{haeusler2022processing}.
 
-\todo[inline]{maybe, add that we also use the $Z$-maps of the "auditory PPA"
-from \citet{haeusler2022processing}}
 
 
 \subsection{Preprocessing}
@@ -571,8 +562,8 @@ and calling command line functions of FSL.
 
 \todo[inline]{problem 1: grpPPA contains N=14 subject, not N-1 subjects}
 
-\todo[inline]{problem 2: there are voxels outside of PPA-mask; probably, because
-of the warping procedures}
+\todo[inline]{problem 2: voxels outside of PPA-mask; probably, because of
+warping procedures}
 
 \todo[inline]{how to explain in one sentence that we need reduction of voxels?}
 
@@ -625,32 +616,37 @@ then z-scored the last segment but anyway...; does not make much difference}
 \todo[inline]{yes, I performed a second z-scoring but across all runs/paradigms}
 
 \begin{table*}[btp]
-    \caption{Number of remaining voxels after time series data of each paradigm
+    \caption{
+    %
+    \textbf{Table heading.}
+    %
+    Number of remaining voxels after time series data of each paradigm
     and subject were masked with the union of individual \acp{ppa} that was
     warped from MNI space into each individual's subjects-space and the
     subject-specific field of view of audio-description.}
 
 \label{tab:ppamaskvoxels}
 \begin{tabular}{ll}
-\toprule
-\textbf{Subject} & \textbf{no. of voxels} \\
-\midrule
-sub-01 & 1665 \tabularnewline
-sub-02 & 1732 \tabularnewline
-sub-03 & 1400 \tabularnewline
-sub-04 & 1575 \tabularnewline
-sub-05 & 1664 \tabularnewline
-sub-06 & 1951 \tabularnewline
-sub-14 & 1376 \tabularnewline
-sub-09 & 1383 \tabularnewline
-sub-15 & 1683 \tabularnewline
-sub-16 & 1887 \tabularnewline
-sub-17 & 1441 \tabularnewline
-sub-18 & 1729 \tabularnewline
-sub-19 & 1369 \tabularnewline
-sub-20 & 1437 \tabularnewline
-\bottomrule
+    \toprule
+    \textbf{Subject} & \textbf{no. of voxels} \\
+    \midrule
+    sub-01 & 1665 \tabularnewline
+    sub-02 & 1732 \tabularnewline
+    sub-03 & 1400 \tabularnewline
+    sub-04 & 1575 \tabularnewline
+    sub-05 & 1664 \tabularnewline
+    sub-06 & 1951 \tabularnewline
+    sub-14 & 1376 \tabularnewline
+    sub-09 & 1383 \tabularnewline
+    sub-15 & 1683 \tabularnewline
+    sub-16 & 1887 \tabularnewline
+    sub-17 & 1441 \tabularnewline
+    sub-18 & 1729 \tabularnewline
+    sub-19 & 1369 \tabularnewline
+    sub-20 & 1437 \tabularnewline
+    \bottomrule
 \end{tabular}
+\caption*{The legend text goes here.}
 \end{table*}
 
 
@@ -762,8 +758,8 @@ learned (s.
 
 \paragraph{correlation of regressors in the studies with shared responses}
 
-\todo[inline]{imo, add the correlation matrices of regressors and shared
-responses should here already (as we did it in the PPA paper, too).}
+\todo[inline]{imo, plots of correlation matrices should be presented here
+already; not in results (as we did it in the PPA paper).}
 
 \todo[inline]{what to adjust in the plots? regressors of low-level confounds
 might be dropped? imo, should be kept 'cause the are correlations.}
@@ -771,11 +767,11 @@ might be dropped? imo, should be kept 'cause the are correlations.}
 \todo[inline]{present plots in different order?}
 
 %
-VIS regressors vs. shared responses see Figure~\ref{fig:corr-vis-reg-srm}.
+VIS regressors vs. shared responses: see Fig.~\ref{fig:corr-vis-reg-srm}.
 %
-AV regressors vs shared responses see Figure~\ref{fig:corr-av-reg-srm}.
+AV regressors vs shared responses see: Fig.~\ref{fig:corr-av-reg-srm}.
 %
-AO regressors vs shared responses see Figure~\ref{fig:corr-ao-reg-srm}.
+AO regressors vs shared responses see: Fig.~\ref{fig:corr-ao-reg-srm}.
 
 
 
@@ -784,8 +780,11 @@ AO regressors vs shared responses see Figure~\ref{fig:corr-ao-reg-srm}.
 \includegraphics[width=\linewidth]{figures/corr_vis-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_7123-7747.pdf}
     \caption{
     %
-    Correlations of regressors of visual localizer vs. shared responses.
+    \textbf{Correlations of regressors of visual localizer and shared responses.
     }
+    %
+    Lore ipsum.
+}
     \label{fig:corr-vis-reg-srm}
 \end{figure*}
 
@@ -796,7 +795,9 @@ AO regressors vs shared responses see Figure~\ref{fig:corr-ao-reg-srm}.
     \includegraphics[width=\linewidth]{figures/corr_av-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_3524-7123.pdf}
     \caption{
     %
-    Correlations of regressors of movie vs. shared responses.
+    \textbf{Correlations of regressors of movie and shared responses.}
+    %
+    Lore ipsum.
     }
     \label{fig:corr-av-reg-srm}
 \end{figure*}
@@ -808,10 +809,12 @@ AO regressors vs shared responses see Figure~\ref{fig:corr-ao-reg-srm}.
     \includegraphics[width=\linewidth]{figures/corr_ao-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_0-3524.pdf}
     \caption{
     %
-    FIGURE NAME;
+    \textbf{Correlations of regressors of audio-description and shared
+    responses.}
     %
     Pearson correlation coefficients of regressors used in the analysis of
-    audio-description to model responses correlating with nouns spoken by the
+    audio-description to model shared responses (sh. res.) correlating with
+    nouns spoken by the
     narrator and features of the \ac{srm} (i.e. shared responses).
     %
     \texttt{geo\&groom} \texttt{geo\&groom\&furn} are combination of regressors
@@ -835,7 +838,7 @@ subject independently before fitting a \ac{srm} to the time series.
 We then calculated the correlations (Pearson's r) between the regressors modeled
 in the previous studies and the shared responses in the corresponding \acp{tr}.
 % results
-Results revealed minor to no correlations between the regressors and shared
+Results revealed [minor to] no correlations between the regressors and shared
 responses.
 
 
@@ -879,7 +882,7 @@ cross-subject-prediction? -> kind of model validation, ceiling ...}
 
 \paragraph{alignment using functional localizer runs}
 
-\todo[inline]{report it?}
+\todo[inline]{mere cross-subject-prediction; should probably be reported}
 
 
 \subsection{Estimation of scene-selective topography}
@@ -887,9 +890,10 @@ cross-subject-prediction? -> kind of model validation, ceiling ...}
 
 \subsubsection{short overview}
 
-\todo[inline]{add estimation of "auditory PPA" here, if supposed to be reported}
+\todo[inline]{add text about auditory PPA; we also estimate $Z$-maps from
+\citet{haeusler2022processing}}
 
-\todo[inline]{I also tested averaging data in common space: similar results}
+\todo[inline]{I also tested averaging data in \ac{cfs}: similar results}
 
 \todo[inline]{what I did not do in case of anatomical alignment: averaging data
 in MNI152 space}
@@ -936,12 +940,13 @@ subject's voxel space.
 As in the case of functional alignment, the arithmetic mean of the projected
 $Z$-maps served as a test subject's predicted $Z$-map.
 
-\todo[inline]{was it transpose of the matrix to warp from MNI into subject?}
+\todo[inline]{was it transpose of the matrix to warp from MNI into subject, or
+a separate one?}
 
 
 \subsection{Quantifying the performance (Pearson + Cronbach's)}
 
-\todo[inline]{add "auditory PPA"}
+\todo[inline]{add text about "auditory PPA"}
 
 %
 In order to quantify the performance of our two different estimation procedures,
@@ -960,7 +965,7 @@ four runs of the localizer.
 
 \subsection{backup: alternative template creation}
 
-\todo[inline]{is this supposed to be reported? imo, it should be dropped!}
+\todo[inline]{is this supposed to be reported? imo, it should be dropped.}
 
 \todo[inline]{I need to take a look in the scripts (in the draft directory); I
 do not understand the scripts anymore (on a Sunday evening)}
@@ -1015,17 +1020,13 @@ significantly better than the correlations after surface alignment (t(14) =
 
 \todo[inline]{Similar text to \citep{jiahui2020predicting} here}
 
-\todo[inline]{predict\_ppa.py also outputs the Pearson correlations!}
-
 
 \subsubsection{statistics\_t-test-correlations.py}
 
 Tests whether differences between prediction using anatomy and prediction using
 \ac{srm} is significant;
 %
-We test correlations that are Fisher-transformed (which Jiahu did not)
-
-
+We test correlations that are Fisher-transformed (which Jiahu did not).
 
 
 \subsubsection{Cronbach's Alpha of localizer}
@@ -1064,20 +1065,17 @@ participant''.
 
 \subsection{Plot of prediction performance}
 
-\todo[inline]{put text here into caption}
-
 %
 Pearson correlation coefficients between empirical $Z$-maps (results of
-localizer; y-axis) and estimated $Z$-maps (see Figure~\ref{fig:stripplot}).
+localizer; y-axis) and estimated $Z$-maps (see Fig.~\ref{fig:stripplot}).
 
 
 
 \begin{figure*}[tbp] \centering
     \includegraphics[width=\linewidth]{figures/stripplot.pdf} \caption{
     %
-    Correlations between empirical and predicted $Z$-maps.
-    %
-    PUT INTRO HERE.
+    \textbf{Correlations between empirical and predicted
+    \textit{\textbf{Z}}-maps.}
     %
     Grey dots: A left-out subject's $Z$-map was estimated by projecting all
     other subjects ($N = 13$) $Z$-maps through the MNI152 space into the
@@ -1095,7 +1093,8 @@ localizer; y-axis) and estimated $Z$-maps (see Figure~\ref{fig:stripplot}).
     segments of the movie; correlations between empirical values \& the
     predicted values using parts of the movie.
 }
-\label{fig:stripplot} \end{figure*}
+\label{fig:stripplot}
+\end{figure*}
 
 
 

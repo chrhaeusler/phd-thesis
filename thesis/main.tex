@@ -92,6 +92,13 @@
 % package for nice tables
 \usepackage{booktabs}
 
+% Abbreviate "Figure x" to "Fig. x"
+\usepackage{caption}
+% \captionsetup[figure]{labelfont={bf},name={Fig.},labelsep=colon}
+\captionsetup[figure]{name={Fig.},labelsep=colon}
+
+\captionsetup[table]{name={Table.},labelsep=colon}
+
 % units: provided as a bundle with the nicefrac package for typing fractions.
 % Units uses nicefrac in typesetting physical units in a standard-looking way.
 \usepackage{units}
@@ -225,18 +232,6 @@ co-examiner: Name B
 %% The publications mentioned on page 4 must therefore also be listed in the
 %% bibliography.
 %% Direct quotations must be marked with quotation marks.
-
-\todo[inline]{Legenden von Tabellen und Abbildungen sind kleinere Schriftgröße
-(10pt-11pt)}
-
-\todo[inline]{Abbildungen: im Text, nicht im Anhang; im Text erwähnt (Abb.1) und
-erläutert; mit Titel ("Fig. x: \textbf{Titel.} weitere Informationen") und
-Bildunterschrift; Bildunterschrift bzw. Legende: alle verwendeten Maßeinheiten
-und Abkürzungen aufgeführt und erläutert}
-
-\todo[inline]{Tabellen: Überschrift ("Table 1: \textbf{Überschrift.} Information,
-die zu deren Verständnis erforderlich ist."); Legende ist wie bei Abbildungen
-unterhalb der Tabelle}
 
 \vspace*{\fill}
 
