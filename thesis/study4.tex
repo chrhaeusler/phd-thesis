@@ -756,7 +756,8 @@ learned (s.
 \todo[inline]{phrasing is pretty similar to phrasing in the tutorial}
 
 
-\paragraph{correlation of regressors in the studies with shared responses}
+\paragraph{correlation of regressors in used in our previous studies with shared
+responses}
 
 \todo[inline]{imo, plots of correlation matrices should be presented here
 already; not in results (as we did it in the PPA paper).}
@@ -876,13 +877,13 @@ functional topographies).
 As a result, we obtained eight different transformation matrices per subject and
 per naturalistic stimulus.
 
-\todo[inline]{also perform alignment with TRs of first run of localizer for mere
-cross-subject-prediction? -> kind of model validation, ceiling ...}
-
 
 \paragraph{alignment using functional localizer runs}
 
-\todo[inline]{mere cross-subject-prediction; should probably be reported}
+\todo[inline]{add (pro forma) text about mere cross-subject-prediction here}
+
+\todo[inline]{results are actually pretty interesting; add text in results and
+discssion, too}
 
 
 \subsection{Estimation of scene-selective topography}
@@ -947,7 +948,6 @@ a separate one?}
 \subsection{Quantifying the performance (Pearson + Cronbach's)}
 
 \todo[inline]{add text about "auditory PPA"}
-
 %
 In order to quantify the performance of our two different estimation procedures,
 we calculated the Pearson's correlation coefficients as a measure of similarity
@@ -957,10 +957,6 @@ predicted $Z$-maps.
 Further, we compare the prediction performance to the internal consistency (i.e.
 reliability) of the visual localizer by calculating Cronbach's Alpha across the
 four runs of the localizer.
-
-\todo[inline]{s. 'studyforrest-srm-movies/test/statistics\_cronbachs.py'}
-
-\todo[inline]{was the last script that I have written; need to take a look}
 
 
 \subsection{backup: alternative template creation}
@@ -990,9 +986,7 @@ Unthresholded $Z$-maps [in each subject's voxel space] can be found at
 \href{https://identifiers.org/neurovault.collection:12340}{\url{neurovault.org/collections/12340}}.
 
 
-\subsection{Prediction-related}
-
-\subsubsection{Template(s) from from \citet{jiahui2020predicting}}
+\subsection{Template(s) from from \citet{jiahui2020predicting}}
 
 1-step hyperalignment: ``We correlated the whole-cortex contrast map
 (faces-vs-all) based on a participant's own data with the maps estimated from
@@ -1016,54 +1010,17 @@ significantly better than the correlations after surface alignment (t(14) =
 15.78, p < 0.001)'' \citep{jiahui2020predicting}.
 
 
-\subsubsection{My prediction results}
+\subsection{My text}
 
 \todo[inline]{Similar text to \citep{jiahui2020predicting} here}
 
+\todo[inline]{Cronbach's alpha could be plotted as dot per subject in the
+stripplot or the average (Fisher's transformed?) could be plotted as a
+horizontal line (s. Fig 2 in }
 
-\subsubsection{statistics\_t-test-correlations.py}
-
-Tests whether differences between prediction using anatomy and prediction using
-\ac{srm} is significant;
-%
-We test correlations that are Fisher-transformed (which Jiahu did not).
-
-
-\subsubsection{Cronbach's Alpha of localizer}
-
-\todo[inline]{s. 'studyforrest-srm-movies/test/statistics\_cronbachs.py'}
-
-\todo[inline]{is Fig 2 in \citet{jiahui2020predicting} any good?}
-
-Template from \citet{jiahui2020predicting}: ``We compared the correlations
-between maps estimated from a participant's own data and maps estimated from
-other participants' data to the reliability of the localizer. We computed the
-reliability of the contrast maps with Cronbach's Alpha based on variability
-across the four localizer runs for each set. The mean Cronbach's Alpha between
-the four localizer runs was 0.60 (N = 15, S.D. = 0.14)''.
-%
-``These results mean that if we scan each participant for another 4 localizer
-runs, and compute the correlation between the two maps (4 runs vs. 4 runs), the
-correlation would be 0.60 on average in the studyforrest''.
-%
-``Cronbach's alpha indicates that the predicted contrast map based on
-hyperalignment is close to or as good as the real contrast map based on four
-localizer runs (studyforrest: t(14) = 0.61, p = 0.55; Grand Budapest: t(20) =
-3.02, p = 0.007)''.
-%
-``The predicted contrast map based on hyperalignment was better than the
-contrast map based on data from three out of four localizer runs in other
-participants (t(14) = 2.36, p = 0.03) and in Grand Budapest, the predicted
-contrast map was comparable to the contrast map based on three localizer runs in
-other participants (t(20) = 0.48, p = 0.63)''.\todo{what?}
-%
-``A scatterplot of the individual correlation values with hyperalignment and
-with surface alignment (Fig 3), shows that predicted maps based on
-hyperalignment were more accurate than those based on surface alignment in every
-participant''.
-
-
-\subsection{Plot of prediction performance}
+\todo[inline]{finalize 'statistics\_t-test-correlations.py' (!), and write the
+text/numbers here; do not forget to mention that correlations were
+Fisher-transformed (which Jiahu did not)}
 
 %
 Pearson correlation coefficients between empirical $Z$-maps (results of
@@ -1097,22 +1054,51 @@ localizer; y-axis) and estimated $Z$-maps (see Fig.~\ref{fig:stripplot}).
 \end{figure*}
 
 
+\subsubsection{Template \citet{jiahui2020predicting}: Cronbach's Alpha of localizer}
 
-\subsubsection{Plots of brain slices?}
+%
+``We compared the correlations between maps estimated from a participant's own
+data and maps estimated from other participants' data to the reliability of the
+localizer. We computed the reliability of the contrast maps with Cronbach's
+Alpha based on variability across the four localizer runs for each set. The mean
+Cronbach's Alpha between the four localizer runs was 0.60 (N = 15, S.D. =
+0.14)''.
+%
+``These results mean that if we scan each participant for another 4 localizer
+runs, and compute the correlation between the two maps (4 runs vs. 4 runs), the
+correlation would be 0.60 on average in the studyforrest''.
+%
+``Cronbach's alpha indicates that the predicted contrast map based on
+hyperalignment is close to or as good as the real contrast map based on four
+localizer runs (studyforrest: t(14) = 0.61, p = 0.55; Grand Budapest: t(20) =
+3.02, p = 0.007)''.
+%
+``The predicted contrast map based on hyperalignment was better than the
+contrast map based on data from three out of four localizer runs in other
+participants (t(14) = 2.36, p = 0.03) and in Grand Budapest, the predicted
+contrast map was comparable to the contrast map based on three localizer runs in
+other participants (t(20) = 0.48, p = 0.63)''.\todo{what?}
+%
+``A scatterplot of the individual correlation values with hyperalignment and
+with surface alignment (Fig 3), shows that predicted maps based on
+hyperalignment were more accurate than those based on surface alignment in every
+participant''.
+
+
+
+
+
+\subsection{plot\_bland-altman.py}
+
+\todo[inline]{I hate that script! Hence, it should not be included ;-).}
+
+
+\subsection{Plots of brain slices?}
 
 \todo[inline]{talk during seminar showed (quick screenshot in FSL) from sub-04
 as an example}
 
-\todo[inline]{I guess, I could adjust script that plots the brain slices for the
-PPA-paper (without losing my mind?); but script expects standard brain in MNI
-space; transformation of prediction into MNI (again?); and it is just about the
-ROI not about the whole brain; standard space could be substituted with (nice
-blurry) subject-specific functional template}
-
-
-\subsubsection{plot\_bland-altman.py}
-
-\todo[inline]{I hate that script! Hence, it should not be included ;-).}
+\todo[inline]{I guess (or hope?) we agreed on that it's not necessary}
 
 
 \section{Discussion}
