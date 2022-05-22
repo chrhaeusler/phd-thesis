@@ -170,6 +170,17 @@ co-ordinates for category-selective regions in the temporal lobe
 
 \todo[inline]{stream line phrasing}
 
+\todo[inline]{mih: This is too dense.}
+
+\todo[inline]{mih: Mixes "what is functional alignment" with what is a CFS with
+how to align (but only linearly, i.e. with a matrix).}
+
+\todo[inline]{It needs to mention at least "rotation" and must provide some
+conceptual idea on what is being aligned, if it is not the 3D space of the
+anatomy.}
+
+\todo[inline]{Maybe reintroduce "CFS" (comes out of the blue)}
+
 % intro
 Since anatomical alignment addresses the issue of anatomical variability but
 does not resolve the issue of functional-anatomical variability across subjects,
@@ -185,6 +196,8 @@ order to preserve functional idiosyncrasies across persons.
 In general, functional alignment algorithms are usually used to construct both a
 \ac{cfs} (serving as ``a high-dimensional, functional brain template'') as well
 as subject-specific transformation matrices.
+
+\todo[inline]{Here it is conceptual, maybe just "transformation"?}
 %
 A subject's transformation matrix can be used to project functional data from a
 subject's anatomical space into the \ac{cfs}, or to project data from the
@@ -210,7 +223,7 @@ guntupalli2016model}.
 \subsubsection{Estimation via functional alignment}
 
 %
-Hence, a more recent procedure to estimate the most probable location of a
+Hence, a more promising procedure to estimate the most probable location of a
 functional area in a person's anatomy from a reference group performs --- in
 order to resolve functional-anatomical variability across persons --- an
 functional alignment:
@@ -248,6 +261,8 @@ based on surface-based, anatomical alignment \citep{jiahui2020predicting}.
 
 \todo[inline]{add sentences about "auditory PPA"}
 
+\todo[inline]{Emphasize more that this is not just a binary prediction.}
+
 % summary in one sentence
 Here, we focus on the \ac{ppa} as an example of a functional area, and estimate
 results (statistical $Z$-maps) of a visual localizer's $t$-contrast in one
@@ -261,6 +276,7 @@ audio-description \citep{hanke2014audiomovie} sample the response vector space
 of hemodynamic responses to ``spatial information'' in a time-locked manner
 across subjects.
 
+\todo[inline]{Very dense. This could be a full paragraph}
 %
 Hence, following a k-fold leave-one-subject-out cross-validation [give
 citation], we employed both a procedure using a volume-based, anatomical
@@ -269,7 +285,12 @@ order to predict $z$-values within a \ac{roi}.
 
 \todo[inline]{is k-fold leave-one-subject-out cross-validation correct?}
 
+\todo[inline]{k-fold with k=1subject is leave-one-subject-out}
+
 \paragraph{SRM}
+
+\todo[inline]{This really needs some kind of schema, or math with proper
+variable names etc.}
 
 %
 In case of the functional alignment procedure, we first applied the \ac{srm}
@@ -477,8 +498,6 @@ smoothed (Gaussian kernel with full width at half maximum of \unit[4.0]{mm}).
 A grand-mean intensity normalization was applied to each run of the functional
 localizer and each segment of the naturalistic stimuli.
 
-\todo[inline]{can't remember: is grand mean per run/across runs?; imo per run}
-
 
 \subsection{Modeling of the \ac{cfs}}
 
@@ -590,6 +609,12 @@ The number of remaining voxels for each subject can be seen in Table
 
 
 \todo[inline]{show table or just report range, mean \& SD?}
+
+\todo[inline]{If there is nothing else for this table, this could be in-text avg
+plus range}
+
+\todo[inline]{I z-scored the runs runwise, concatenated them, and z-scored
+again}
 
 % normalization
 Data of every run were independently normalized ($z$-scored) to a mean of zero
@@ -831,6 +856,8 @@ AO regressors vs shared responses see: Fig.~\ref{fig:corr-ao-reg-srm}.
 
 \paragraph{negative control}
 
+
+
 % shuffled data
 As negative control, we randomly shuffled the order of runs of the visual
 localizer, and the segments of the movie and audio-description for each training
@@ -883,7 +910,7 @@ per naturalistic stimulus.
 \todo[inline]{add (pro forma) text about mere cross-subject-prediction here}
 
 \todo[inline]{results are actually pretty interesting; add text in results and
-discssion, too}
+discussion, too}
 
 
 \subsection{Estimation of scene-selective topography}
@@ -1104,22 +1131,23 @@ as an example}
 \section{Discussion}
 
 
-\subsection{Short Summary}
+\subsection{Short Summary of...}
 
-\subsubsection{Aim}
+\subsubsection{Aim...}
 
-\subsubsection{Methods}
+\subsubsection{Methods...}
 
-\subsubsection{Results}
+\subsubsection{Results...}
 
 
-\subsection{Discussion of current results}
+\subsection{"Real" discussion}
 
 \todo[inline]{key point: check if (anatomical alignment) studies did binary
 estimation using an arbitrary threshold per subject to yield "nice results"}
 
-We have cross-subject, cross-experiment, and cross-scanner prediction; but:
-AV \& VIS are from the same scanner, if not same session?
+We have cross-subject, cross-experiment, and cross-scanner prediction; AV \& VIS
+are from the same scanner but not from same session.
+
 
 \subsubsection{Model Space}
 %
@@ -1127,13 +1155,9 @@ Results indicate that we are able to use multiple subjects to learn a
 10-dimensional shared space for the fMRI data that increases performance on our
 experiments.
 
-%
-Asymptotic ``performance curve'' might be different for another brain region
-(temporal receptive fields?); retinotopic mapping vs. ``higher'' cognition  vs.
-executive functions (prefrontal cortex)?
-
 
 \subsubsection{Partial Alignment}
+
 %
 15 min of movie watching used for functional alignment outperform prediction
 using anatomical alignment;
@@ -1143,6 +1167,11 @@ using anatomical alignment;
 more than 30 minutes do not lead to a significantly improved prediction
 performance.
 
+%
+Asymptotic ``performance curve'' might be different for another brain region
+(temporal receptive fields?); retinotopic mapping vs. ``higher'' cognition  vs.
+executive functions (prefrontal cortex)?
+
 
 \paragraph{what partial alignment might be good for}
 %
@@ -1151,6 +1180,11 @@ Reduced costs.
 There is a benefit of shared parts of naturalistic stimuli across datasets;
 shared stimulus part is easier than shared subjects (e.g.
 \citep{zhang2018transfer}).
+
+
+\subsubsection{localizer runs perform worse}
+
+\todo[inline]{perform statistical test; which comparisons to test?}
 
 
 \subsubsection{Audio PPA}
@@ -1164,38 +1198,55 @@ about spatial information in AO due to missing task?
 check: is it different in these persons in AV?
 
 
-\subsubsection{Inter-individual differences}
+\paragraph{here: data-driven approach; PPA study: model-driven}
+%
+we might just have modeled the time course of "spatial responses"
+insufficiently.
+%
+Nevertheless, current study is model free, and kind of supports findings that
+responses in the PPA are different in the audio-description compared to the
+movie.
+
+\subsubsection{Inter-individual differences / variability}
 
 %
 Problem: we have a couple of subjects seem to simply do not give a fuck about
 spatial information in audio-description.
 
-\citet{eickhoff2018imaging} on inter-individual variability: ``An important
-consideration for building a general representation of brain organization
-pertains to inter-subject variability, which is encountered at all spatial
-levels and in all neurobiological properties, from histology [6,17,94] to
-large-scale networks [95,96]. Group-based parcellation schemes generally capture
-the main aspects of organization evident across individuals, whereas the size,
-shape and position of areas and networks can vary substantially between
-individuals [5,18,19,76,97] (Fig. 3). Furthermore, divergent patterns of brain
-organization from the most common pattern (that is, changes in the spatial
-arrangement of cortical regions) can be observed in approximately 5–10\% of the
-healthy population [16,19], and care should therefore be taken to avoid the
-undue influence of such outliers. Notwithstanding their non-conformation to a
-theoretically universal map of the brain, such topological outliers, if they do
-not result from artefacts, can also be considered to be interesting cases of
-inter-individual variability to understand brain–phenotype relationships [98].
+\paragraph{Template from \citet{eickhoff2018imaging}}
+%
+``An important consideration for building a general representation of brain
+organization pertains to inter-subject variability, which is encountered at all
+spatial levels and in all neurobiological properties, from histology [6,17,94]
+to large-scale networks [95,96].
+%
+Group-based parcellation schemes generally capture the main aspects of
+organization evident across individuals, whereas the size, shape and position of
+areas and networks can vary substantially between individuals [5,18,19,76,97]
+(Fig. 3).
+%
+Furthermore, divergent patterns of brain organization from the most common
+pattern (that is, changes in the spatial arrangement of cortical regions) can be
+observed in approximately 5–10\% of the healthy population [16,19], and care
+should therefore be taken to avoid the undue influence of such outliers.
+%
+Notwithstanding their non-conformation to a theoretically universal map of the
+brain, such topological outliers, if they do not result from artefacts, can also
+be considered to be interesting cases of inter-individual variability to
+understand brain–phenotype relationships [98].
+%
 Indeed, recent studies have suggested that the topography (location and size) of
 individual-specific brain parcellations is predictive of individual differences
-in demographics, cognition, emotion and personality [3,5,99]. In this context,
-we would argue that the quest to understand robust patterns of brain topography
-across different markers and the investigation of inter-individual differences
-are closely intertwined challenges. Only by understanding the generic
-characteristic of topographic organization can we start to appreciate
-idiosyncrasies and their relationships to socio-demographic, cognitive or
-affective profiles'' \citep{eickhoff2018imaging}.
-
-
+in demographics, cognition, emotion and personality [3,5,99].
+%
+In this context, we would argue that the quest to understand robust patterns of
+brain topography across different markers and the investigation of
+inter-individual differences are closely intertwined challenges.
+%
+Only by understanding the generic characteristic of topographic organization can
+we start to appreciate idiosyncrasies and their relationships to
+socio-demographic, cognitive or affective profiles''
+\citep{eickhoff2018imaging}.
 
 
 \subsection{Self-critique \& short comings}
@@ -1203,19 +1254,23 @@ affective profiles'' \citep{eickhoff2018imaging}.
 
 \subsubsection{ROI creation procedure}
 
-We have a little leakage of test data
-%
-Especially at the borders of the ROI, we miss some voxels (of some participants)
-cause the binary masks is based on a ``titrated threshold''
-\citep{sengupta2016extension}
-
 \todo[inline]{check paper regarding ``probabilistic functional atlases''; these
 data are independent but they used masks based on visual inspection and manual
 thresholding (mostly), too}
 
 %
-From \citep{weiner2018defining}: ``the identification of the PPA is complicated
-by (at least) four methodological considerations.
+We have a little leakage of test data.
+%
+Especially at the borders of the ROI, we miss some voxels (of some participants)
+cause the binary masks is based on a ``titrated threshold''
+\citep{sengupta2016extension}
+
+%
+\paragraph{Template from \citet{weiner2018defining}}
+
+%
+``Of course, the identification of the PPA is complicated by (at least) four
+methodological considerations.
 %
 First, the PPA definition may depend on the type of experiment, task, and
 stimuli used [s. also ``localizer as ground truth below''].
@@ -1234,38 +1289,17 @@ place-selective voxels within medial VTC of an individual brain that is
 impervious to these methodological decisions'' \citep{weiner2018defining}.
 
 
-
-
-
 \subsubsection{Localizer is ``ground truth''}
 
 \todo[inline]{essentially issues of reliability and validity}
 
-%
-``The dynamic localizer (in Grand Budapest data set) was significantly more
-reliable than the static localizer (in studyforrest data set) (t(34) = 3.76, p <
-0.001) despite its shorter length (four 234s runs versus four 312s runs,
-respectively)'' \citep{jiahui2020predicting}.
 
-%
-\citet{lilienfeld2015fifty} on ``gold standard'' (in psychiatry):
-%
-``In the domains of psychological and psychiatric assessment, there are precious
-few, if any, genuine "gold standards".
-%
-Essentially all measures, even those with high levels of validity for their
-intended purposes, are necessarily fallible indicators of their respective
-constructs [Cronbach and Meehl, 1955; Faraone and Tsuang, 1994].''
-\citep{lilienfeld2015fifty}
+\paragraph{Some templates}
 
-%
 \citet{scheinost2019ten} in context of phenotypic measures:
 %
-``Predictive models based on neuroimaging data will only ever account for a
-fraction of the variance.
-%
-Neuroimaging studies are limited by how much information the signal can capture
-about the measure of interest.
+``Neuroimaging studies are limited by how much information the signal can
+capture about the measure of interest.
 %
 At the same time, these studies are also limited by the chosen phenotypic
 measure used.
@@ -1275,23 +1309,24 @@ measure (and these phenotypic measures have to be treated as gold standards), it
 is well known that such measures are not always the ground truth but themselves
 suffer from confounds and noise.
 %
-When studying brain-behavior associations, one must keep in mind how
-extraordinary it is that neuroimaging data can be distilled to approximate
-phenotypic measures that reflect a simplification of multiple complex features.
-%
-Thus, even modest results are reasonable and remarkable.
-%
 For a discussion on the reliability of phenotypic measures in the context of
 predictive modeling, we point the interested reader to: [Dubois et al., 2018a,
-2018b; Gignac and Bates, 2017]'' \citep{scheinost2019ten}.
+2018b; Gignac and Bates, 2017; (all downloaded)]'' \citep{scheinost2019ten}.
 
-
+%
+``The dynamic localizer (in Grand Budapest data set) was significantly more
+reliable than the static localizer (in studyforrest data set) (t(34) = 3.76, p <
+0.001) despite its shorter length (four 234s runs versus four 312s runs,
+respectively)'' \citep{jiahui2020predicting}.
 
 
 \subsubsection{Volume-based registration vs. surface-based normalization}
 
-\todo[inline]{Is not a real problem because we compare volume-based anatomical
-alignment to volume-based functional alignment}
+\todo[inline]{could be a nice transition to future questions, because it is just
+a minor issue.}
+
+\todo[inline]{we compare volume-based anatomical alignment to volume-based
+functional alignment}
 
 \todo[inline]{paper that prepare volume to surface-based procedures; e.g.
 \citep{desai2005volumetric}; check the directory with the last papers that need
@@ -1311,24 +1346,50 @@ you do not collect the data yourself) but you have to trust that the data are
 if you would have done all from scratch (i.e. preprocessing).
 
 
+\subsection{Future questions}
+
 
 \subsubsection{Sample size}
 
 ``Most studies that use small samples are likely to exhibit highly variable
-estimates. This finding suggests that many of the claims of predictive accuracy
-in the neuroimaging literature may be exaggerated and/or not valid''
+estimates.
+%
+This finding suggests that many of the claims of predictive accuracy in the
+neuroimaging literature may be exaggerated and/or not valid''
 \citep{poldrack2019establishment}.
 
 \todo[inline]{of course, replication, bigger sample, and stuff! Which is
 transition to ``Future questions''}
 
+%
+We change 1/13 of the data for every of the 13 \acp{cfs}.
+%
+Our model space varies across test subject (s. correlations of shared responses
+within the \ac{cfs}.
+
+\todo[inline]{can/should that variability somehow be quantified?}
+
+\todo[inline]{and, at the moment, I show only plot of regressors for one subject
+(sub-01)}
 
 
+\subsubsection{Common model space based on other study's data}
 
-\subsection{Future questions}
+\todo[inline]{also, kind of "we need more subjects"}
+%
+Create a \ac{cfs} from another experiment's data, using another
+scanner and, of fucking course, more subjects (obviously, "movie's study).
+%
+In case of an alignment of time series, that experiment needs, at least, a part
+of Forrest Gump as an intersection.
+%
+But: shared stimulus across datasets is easier to accomplish than shared
+subjects across datasets \citep[s.][]{zhang2018transfer}.
 
 
-\subsubsection{Predict other t-contrasts of our localizer}
+\subsubsection{Predict other t-contrasts}
+
+\paragraph{other t-contrasts from our localizer}
 
 \todo[inline]{especially, condition ``faces'' was hard to model in the
 audio-description''; master student's project (with an additional twist?)}
@@ -1339,25 +1400,7 @@ The \ac{ffa}, and \ac{eba}  which are associated with face perception
 human bodies \citep{downing2001bodyarea}, respectively.
 
 
-
-
-\subsubsection{Common model space based on other study's data}
-
-\todo[inline]{a.k.a. ``more subjects''}
-%
-Create a \ac{cfs} from another experiment's data, using another
-scanner and, of fucking course, more subjects (obviously, "movie's study"
-[a.k.a. ``my precious'' ;-)].
-%
-In case of an alignment of time series, that experiment needs, at least, a part
-of Forrest Gump as an intersection.
-%
-But: shared stimulus across datasets is easier to accomplish than shared
-subjects across datasets \citep[s.][]{zhang2018transfer}.
-
-
-
-\subsubsection{Other localizers, i.e. brain functions}
+\subsubsection{other t-contrasts from other localizers (i.e. brain functions)}
 
 %
 What is the limit of what we can estimate reliably?
@@ -1366,52 +1409,68 @@ Retinotopy, language, executive functions (from low-level perception to higher
 cognition which might not even be sampled by a movie).
 
 
+\paragraph{Template from \citet{chang2021endogenous}}
+%
 ``First, our brains directly process exogenous information about the external
 environment by transducing physical phenomena (e.g., changes in energy,
 molecular concentrations, etc.) into sensory perceptions that allow us to
-generate and maintain a sense of what is happening around us (1, 2). Mental
-representations that are directly driven by the external world are likely to be
-highly similar across individuals who share the same sensory experience. Second,
-our brains also process endogenous information that reflects our current
-internal homeostatic states, past experiences, and future goals (3). The
-integration of exogenous and endogenous information allows us to meaningfully
-interpret our surroundings, prioritize information that is relevant to our
-goals, and develop action plans (4). Given the same input information,
-individuals may have unique interpretations, feelings, and plans, often leading
-endogenous representations to be idiosyncratic across individuals''
-\citep{chang2021endogenous}.
-
-``Human brains have much in common with one another. Similarities exist not only
-at the anatomical level, but also in terms of functional organization. Given the
-same stimulus—an expanding ring, for example—regions of the brain that process
-sensory (visual) stimuli will respond in a highly predictable and similar manner
-across different individuals. This predictability is not limited to sensory
-systems: shared activity across people has also been observed in higher-order
-brain regions (for example, the default mode network [6], or DMN) during the
-processing of semantically complex real-life stimuli such as movies and
-stories [7–13]. Notably, shared responses in these high-order areas seem to be
-associated with narrative content and not with the physical form used to convey
-it [11,14,15]. It is unknown, at any level of the cortical hierarchy, to what
-extent the similarity of human brains during shared perception is recapitulated
-during shared recollection. This prospect is made especially challenging when
-recall is spontaneous and spoken, and the selection of details is left up to
-the rememberer (rather than the experimenter), as is often the case in real
-life'' \citep{chen2017shared}.
+generate and maintain a sense of what is happening around us (1, 2).
+%
+Mental representations that are directly driven by the external world are likely
+to be highly similar across individuals who share the same sensory experience.
+Second, our brains also process endogenous information that reflects our current
+internal homeostatic states, past experiences, and future goals (3).
+%
+The integration of exogenous and endogenous information allows us to
+meaningfully interpret our surroundings, prioritize information that is relevant
+to our goals, and develop action plans (4).
+%
+Given the same input information, individuals may have unique interpretations,
+feelings, and plans, often leading endogenous representations to be
+idiosyncratic across individuals'' \citep{chang2021endogenous}.
 
 
+\paragraph{Template from \citep{chen2017shared}}
+%
+``Human brains have much in common with one another.
+%
+Similarities exist not only at the anatomical level, but also in terms of
+functional organization. Given the same stimulus—an expanding ring, for
+example—regions of the brain that process sensory (visual) stimuli will respond
+in a highly predictable and similar manner across different individuals.
+%
+This predictability is not limited to sensory systems:
+%
+shared activity across people has also been observed in higher-order brain
+regions (for example, the default mode network [6], or DMN) during the
+processing of semantically complex real-life stimuli such as movies and stories
+[7–13].
+%
+Notably, shared responses in these high-order areas seem to be associated with
+narrative content and not with the physical form used to convey it [11,14,15].
+%
+It is unknown, at any level of the cortical hierarchy, to what extent the
+similarity of human brains during shared perception is recapitulated during
+shared recollection.
+%
+This prospect is made especially challenging when recall is spontaneous and
+spoken, and the selection of details is left up to the rememberer (rather than
+the experimenter), as is often the case in real life'' \citep{chen2017shared}.
 
 
 \subsubsection{Other functional alignment algorithms}
 
-\todo[inline]{kind of obvious and a little ``for the sake of it''}
+\todo[inline]{kind of obvious and a little "for the sake of it"}
 
 \todo[inline]{cf. \citet{bazeille2021empirical} and his dissertation}
 
 \todo[inline]{what is "Multimodal Surface Matching"; Robinson et al. 2014?}
 
-From \citet{bazeille2021empirical}: ``As we use inter-subject decoding to
-compare functional alignment methods, we only consider methods that meet the
-following two criteria.
+
+\paragraph{Template from \citet{bazeille2021empirical}}
+%
+``As we use inter-subject decoding to compare functional alignment methods, we
+only consider methods that meet the following two criteria.
 %
 First, the alignment transformations should be learned on activations evoked
 during temporally synchronized (i.e., co-occuring) task data, or on contrasts
@@ -1433,9 +1492,7 @@ available functional alignment methods for a given research application''
 \citep{bazeille2021empirical}.
 
 
-
-
-\paragraph{ROI vs. whole-brain (i.e. searchlight)}
+\subsubsection{ROI vs. whole-brain (i.e. searchlight)}
 
 \todo[inline]{searchlight SRM \citep{zhang2016searchlight}}
 
@@ -1454,138 +1511,98 @@ individuals.
 
 %
 ``Applying SRM to a large swath of the brain means that all voxels within the
-region contribute to the final derived metric. This can conflict with the goal
-of associating spatially local activity with specific cognitive functions. To
-address such issues, SRM can be applied in small overlapping searchlights to
+region contribute to the final derived metric.
+%
+This can conflict with the goal of associating spatially local activity with
+specific cognitive functions.
+%
+To address such issues, SRM can be applied in small overlapping searchlights to
 obtain localized metrics of shared information [\citep{guntupalli2016model,
 zhang2016searchlight}'' \citep{cohen2017computational}.
 
+
+\paragraph{Template from \citet{bazeille2021empirical}}
 %
-From \citet{bazeille2021empirical}: ``As piecewise alignment is learned within a
-parcellation, an important question is: which brain atlas should be used for
-piecewise alignment? In Supplementary Figure S2 we compare results from the
-Schaefer et al. (2018) atlases to those from parcellations derived directly on
-the alignment data. By default, the results presented piecewise alignment is
-learned within a parcellation, an important question is: which brain atlas
-should be used for piecewise alignment?  In Supplementary Figure S2 we compare
-results from the Schaefer et al. (2018) atlases to those from parcellations
-derived directly on the alignment data. By default, the results presented below
-are derived with the 300 ROI parcellation of the Schaefer atlas unless noted
-otherwise. In the case of searchlight Procrustes, we selected searchlight
-parameters to match those used in Guntupalli et al. (2016); that is, each
-searchlight had 5 voxel radius, with a 3 voxel distance between searchlight
-centers. All searchlight analyses were implemented using PyMVPA [Hanke et al.,
-2009].ted below are derived with the 300 ROI parcellation of the Schaefer atlas
-unless noted otherwise. In the case of searchlight Procrustes, we selected
-searchlight parameters to match those used in Guntupalli et al. (2016); that is,
-each searchlight had 5 voxel radius, with a 3 voxel distance between search-
-light centers. All searchlight analyses were implemented using PyMVPA [Hanke et
-al., 2009]'' \citep{bazeille2021empirical}.
+``As piecewise alignment is learnt within a parcellation, an im- portant
+question is:
+%
+which brain atlas should be used for piecewise alignment? In Supplementary
+Figure S2 we compare results from the Schaefer et al. (2018) atlases to those
+from parcellations derived directly on the alignment data.
+%
+By default, the results presented below are derived with the 300 ROI
+parcellation of the Schaefer atlas unless noted otherwise.
+%
+In the case of searchlight Procrustes, we selected searchlight parameters to
+match those used in Guntupalli et al. (2016);
+%
+that is, each searchlight had 5 voxel radius, with a 3 voxel distance between
+search- light centers.
+%
+All searchlight analyses were implemented using PyMVPA [Hanke et al., 2009].''
+\citep{bazeille2021empirical}.
 
-\citet{bazeille2021empirical}: ``An alternative scheme, piecewise alignment
-[Bazeille et al., 2019], uses non-overlapping neighborhoods either learnt from
-the data using a parcellation method—such as k-means—or derived from an a priori
-functional or anatomical atlas. Local transforms are derived in each
-neighborhood and concatenated to yield a single large-scale transformation.
+``An alternative scheme, piecewise alignment [Bazeille et al., 2019], uses
+non-overlapping neighborhoods either learnt from the data using a parcellation
+method—such as k-means—or derived from an a priori functional or anatomical
+atlas.
+%
+Local transforms are derived in each neighborhood and concatenated to yield a
+single large-scale transformation.
+%
 Unlike searchlight, this returns a transformation matrix with the desired
-regularities. This framework might induce staircase effects or other
-functionally-irrelevant discontinuities in the final transformation due to the
-underlying boundaries'' \citep{bazeille2021empirical}.
+regularities.
+%
+This framework might induce staircase eﬀects or other
+functionally-irrelevant discontinuities in the ﬁnal transformation due to the
+underlying boundaries.'' \citep{bazeille2021empirical}.
 
-\citet{bazeille2021empirical}: ``To align the entire cortex across subjects, two
-main frameworks have been proposed: searchlight and piecewise aggregation
-schemes. Each of these frameworks use functional alignment methods to learn
-local transformations and aggregate them into a single large-scale alignment;
-however, search- light and piecewise differ in how they aggregate transforms, as
-illustrated in Figure 2.  The searchlight scheme [Kriegeskorte et al., 2006],
-popular in brain imaging [Guntupalli et al., 2018; 2016], has been used as a way
-to divide the cortex into small overlapping spheres of a fied radius. This
-method allows researchers to remain agnostic as to the lo- cation of functional
-or anatomical boundaries, such as those suggested by parcellation-based
-approaches. A local transform can then be learnt in each sphere and the full
-alignment is obtained by aggregating [e.g. summing as in Guntupalli et al., 2016
-or averaging] across overlapping transforms. Importantly, the aggregated
-transformation produced is no longer guaranteed to bear the type of regularity
-(e.g orthogonality, isometry, or diffeomorphicity enforced during the local
-neighborhood fit'' \citep{bazeille2021empirical}.
+``To align the entire cortex across subjects, two main frameworks have been
+proposed: searchlight and piecewise aggregation schemes.
+%
+Each of these frameworks use functional alignment methods to learn local
+transformations and aggregate them into a single large-scale alignment;
+%
+however, searchlight and piecewise differ in how they aggregate transforms, as
+illustrated in Figure 2.
+%
+The searchlight scheme [Kriegeskorte et al., 2006], popular in brain imaging
+[Guntupalli et al., 2018; 2016], has been used as a way to divide the cortex
+into small overlapping spheres of a fied radius.
+%
+This method allows researchers to remain agnostic as to the location of
+functional or anatomical boundaries, such as those suggested by
+parcellation-based approaches.
+%
+A local transform can then be learnt in each sphere and the full alignment is
+obtained by aggregating [e.g. summing as in Guntupalli et al., 2016 or
+averaging] across overlapping transforms.
+%
+Importantly, the aggregated transformation produced is no longer guaranteed to
+bear the type of regularity (e.g orthogonality, isometry, or diffeomorphicity
+enforced during the local neighborhood fit'' \citep{bazeille2021empirical}.
 
 
-
-
-\paragraph{Time series vs connectivity-based}
+\subsubsection{Time series vs connectivity-based}
 
 \todo[inline]{kind of a killer cause you do not need intersection of
-time series; but s. Guntupalli's paper: time series hyperalignment outperforms
-connectivity-based hyperalignment (?)}
+time series}
+
+\todo[inline]{but \citet{guntupalli2018computational}: time series
+hyperalignment outperforms connectivity-based hyperalignment }
 
 \todo[inline]{cf. uncutted part on functional alignment}
-
 
 \todo[inline]{wtf did \citep{nastase2019leveraging} do?}
 
 
+\paragraph{Template from project proposal}
 %
-From \citet{busch2021hybrid}:``Hyperalignment models shared information that is
-embedded in idiosyncratic cortical patterns across brains. Modeling shared
-information makes it possible to compare functional anatomy across brains at a
-fine spatial scale.
-%
-Hyperalignment projects cortical pattern vectors into a common, high-dimensional
-information space [Haxby et al., 2020].
-%
-Derivation of this common space can be based on either neural response profiles
-(e.g. data collected during tasks, such as movie viewing (Haxby et al., 2011))
-or functional connectivity profiles files [Guntupalli et al., 2018]''
-\citep{busch2021hybrid}.
-
-
-% Nastase's ugly mofo paper
-``Finally, estimating the SRM from functional connectivity data rather than
-response time series circumvents the need for a single shared stimulus across
-subjects; connectivity SRM allows us to derive a single shared response space
-across different stimuli with a shared connectivity profile
-\citep{nastase2019leveraging}'' \citep{kumar2020brainiak}.
-
-
-From \citet{haxby2020hyperalignment}: ``Estimating the parameters to transform
-high-dimensional spaces from individual brains into a common high-dimensional
-space requires a rich set of data that samples a wide variety of cortical
-patterns in order to generalize to novel stimuli or tasks.
-%
-For response hyperalignment, a rich variety of stimuli or conditions are
-necessary to sample the response vector space.
-%
-For connectivity hyperalignment, the sampling of connectivity vector space is
-defined by the selection of connectivity targets, but the richness and
-reliability of connectivity estimates depends on the variety of brain states
-over which connectivity is estimated'' \citep{haxby2020hyperalignment}.
-
-%
-From \citet{guntupalli2018computational}: ``Results showed that both CHA and RHA
-increased ISCs and bsMVPC classification accuracies significantly over
-anatomy-based alignment, but each algorithm achieves better alignment for the
-information that it uses to derive a common model, namely connectivity profiles
-and patterns of response, respectively.
-%
-ISCs of connectivity profiles are
-significantly higher in a common model based on CHA than in a common model based
-on RHA (ROI mean ISCs = 0.67 and 0.575, respectively; CHA-RHA difference = 0.095
-[0.081, 0.112])(S1 Fig).
-%
-By contrast, RHA marginally but significantly
-outperforms CHA on some validations based on response tuning functions, namely
-ISCs of representational geometry (ROI means = 0.322 and 0.308, respectively;
-RHA-CHA difference = 0.014 [0.007, 0.019])(S2 Fig), and bsMVPC of movie segments
-(ROI mean accuracies = 13.65\% and 10.37\%, respectively; RHA-CHA difference =
-3.28\% [2.76\%, 3.78\%])(S3 Fig) \citep{guntupalli2018computational}.
-
-% from project proposal
-From project proposal: ``In his doctoral thesis, recently submitted to the
-Faculty of Natural Sciences in Magdeburg, Falko Kaule showed that congruent
-time-locked BOLD responses across subjects (i.e. all subjects watching the exact
-same full-length movie) as used by Haxby and colleagues are not required to
-derive a valid alignment of individuals with a common representational space
-\citep{kaule2017examination}.
+``In his doctoral thesis, recently submitted to the Faculty of Natural Sciences
+in Magdeburg, Falko Kaule showed that congruent time-locked BOLD responses
+across subjects (i.e. all subjects watching the exact same full-length movie) as
+used by Haxby and colleagues are not required to derive a valid alignment of
+individuals with a common representational space \citep{kaule2017examination}.
 %
 Comparable prediction performance can be achieved by using functional
 connectivity patterns (correlation of a voxel's time series with reference
@@ -1604,20 +1621,88 @@ The length of these connectivity vectors is determined by the number of
 reference (or seed) regions in the brain'' [from project proposal].
 
 
+\paragraph{Template from \citep{haxby2020hyperalignment}}
+%
+``Estimating the parameters to transform high-dimensional spaces from individual
+brains into a common high-dimensional space requires a rich set of data that
+samples a wide variety of cortical patterns in order to generalize to novel
+stimuli or tasks.
+%
+For response hyperalignment, a rich variety of stimuli or conditions are
+necessary to sample the response vector space.
+%
+For connectivity hyperalignment, the sampling of connectivity vector space is
+defined by the selection of connectivity targets, but the richness and
+reliability of connectivity estimates depends on the variety of brain states
+over which connectivity is estimated'' \citep{haxby2020hyperalignment}.
+
+
+\paragraph{Template from \citep{guntupalli2018computational}}
+`Results showed that both CHA and RHA increased ISCs and bsMVPC classification
+accuracies significantly over anatomy-based alignment, but each algorithm
+achieves better alignment for the information that it uses to derive a common
+model, namely connectivity profiles and patterns of response, respectively.
+%
+ISCs of connectivity profiles are significantly higher in a common model based
+on CHA than in a common model based on RHA (ROI mean ISCs = 0.67 and 0.575,
+respectively; CHA-RHA difference = 0.095 [0.081, 0.112])(S1 Fig).
+%
+By contrast, RHA marginally but significantly outperforms CHA on some
+validations based on response tuning functions, namely ISCs of representational
+geometry (ROI means = 0.322 and 0.308, respectively; RHA-CHA difference = 0.014
+[0.007, 0.019])(S2 Fig), and bsMVPC of movie segments (ROI mean accuracies =
+13.65\% and 10.37\%, respectively; RHA-CHA difference = 3.28\% [2.76\%,
+3.78\%])(S3 Fig) \citep{guntupalli2018computational}.
+
+
+\paragraph{Template from \citet{busch2021hybrid}}
+%
+``Hyperalignment models shared information that is embedded in idiosyncratic
+cortical patterns across brains.
+%
+Modeling shared information makes it possible to compare functional anatomy
+across brains at a fine spatial scale.
+%
+Hyperalignment projects cortical pattern vectors into a common, high-dimensional
+information space [Haxby et al., 2020].
+%
+Derivation of this common space can be based on either neural response profiles
+(e.g. data collected during tasks, such as movie viewing (Haxby et al., 2011))
+or functional connectivity profiles files [Guntupalli et al., 2018]''
+\citep{busch2021hybrid}.
+
+
+\paragraph{Templates from some other studies}
+
+% Kumar on Nastase's ugly mofo paper
+``Finally, estimating the SRM from functional connectivity data rather than
+response time series circumvents the need for a single shared stimulus across
+subjects; connectivity SRM allows us to derive a single shared response space
+across different stimuli with a shared connectivity profile
+\citep{nastase2019leveraging}'' \citep{kumar2020brainiak}.
+
 
 \subsubsection{Individual residuals?}
 
 \todo[inline]{We have transformation matrices for individual mapping; but just
 onto shared responses}
 
-\todo[inline]{but extension of SRM: ``Capturing Shared and Individual
+\todo[inline]{cf. extension of SRM: ``Capturing Shared and Individual
 Information in fMRI Data'' \citep{turek2018capturing} [read it!]; is there
 any "real" paper that has been using that model already?}
 
-
 %
-From \citep{cohen2017computational}: ``The flip side of focusing on shared
-responses is to focus on responses that are idiosyncratic to individuals.
+``Furthermore, in cases where each subject's unique response is of more interest
+than the shared signal, SRM can be used to factor out the shared component
+thereby isolating the idiosyncratic response for each subject
+[\citep{chen2015reduced}]'' \citep{kumar2020brainiak}.
+
+
+\paragraph{Template from \citet{cohen2017computational}}
+%
+``The flip side of focusing on shared responses is to focus on responses that
+are idiosyncratic to individuals.
+%
 Although these responses are excluded in SRM, they are not necessarily noise and
 may in fact be highly reliable within participants.
 %
@@ -1638,37 +1723,136 @@ connectivity); Rosenberg (2016). A neuromarker of sustained attention]''
 \citep{cohen2017computational}.
 
 
-%
-``Furthermore, in cases where each subject's unique response is of more interest
-than the shared signal, SRM can be used to factor out the shared component
-thereby isolating the idiosyncratic response for each subject
-[\citep{chen2015reduced}]'' \citep{kumar2020brainiak}.
-
-
-
-
-
 \subsection{Vision}
 
-\todo[inline]{mih: das Kapitel braucht aus meiner Sicht keinen eigenen
-"Outlook"; kommt eh direkt danach für die ganze Arbeit \&  ist da viel
-interessanter}
+\todo[inline]{stream line with general introduction}
 
-``These findings lay the foundation for developing an
-efficient tool for mapping functional topographies for a wide range of
-perceptual and cognitive functions in new subjects based only on fMRI data
-collected while watching an engaging, naturalistic stimulus and other subjects'
-localizer data from a normative sample'' \citep{jiahui2020predicting}.
+\todo[inline]{Copy into general discussion before deleting stuff here}
+
+\todo[inline]{mih: imo, this chapter does not need its own outlook; outlook will
+be in the general discussion anyway (and is more interesting there)}
+
+\todo[inline]{possibly, a smallish text should be sufficient here}
+
+\todo[inline]{check intro and discussion of \citet{jiahui2020predicting}}
+
+\todo[inline]{see also \citep{bazeille2019local}; who is quoting him?}
 
 
-\subsubsection{Multiple localizer}
+\paragraph{Template from project proposal}
 
 ``Calibration scan'' to align to \ac{cms} and atlas of reference group.
 %
-From project proposal: ``Once a valid alignment is established, known functional
-properties of a (normative) reference, derived from extensive scans and analysis
-of other subjects, can then be projected into the respective individual voxel
-space (s.  Fig. 1 in \citep{nishimoto2016lining})''.
+``Once a valid alignment is established, known functional properties of a
+(normative) reference, derived from extensive scans and analysis of other
+subjects, can then be projected into the respective individual voxel space (s.
+Fig. 1 in \citep{nishimoto2016lining})''.
+
+%
+``Moreover, beyond the scope of this project the targeted
+homogenization of acquisition procedures will further the goal of large scale
+data collection for the purpose of producing a normative reference of brain
+function as measured by fMRI'' [project proposal].
+
+%
+``The availability of such a reference would enable
+quantitative and qualitative description of an individual's brain function with
+respect to such a norm, and consequently progress the field towards neuroimaging
+studies of individual differences that more closely resemble their psychological
+counterparts'' [project proposal].
+
+%
+``While the functional alignment can also be applied to fMRI data from
+stimulation paradigms with simplified stimuli, the transformations for
+functional alignment have greatly diminished general validity
+\citep{haxby2011common}, presumably because such experiments sample a sparser
+range of brain states \citep{guntupalli2016model}'' [project proposal].
+%
+Naturalistic stimuli promise an ``increased validity of derived transformation
+for functional alignment by sampling a more diverse set of mental states that
+reflect (confound) statistics of the natural environment, and enable
+investigation of the acquired data for a variety of research questions (e.g.
+visual or auditory perception, spatial cognition; emotion; music, speech or
+social perception)'' [project proposal].
+
+% from project proposal
+``Naturalistic stimuli promise an ``increased validity of derived transformation
+for functional alignment by sampling a more diverse set of mental states that
+reflect (confound) statistics of the natural environment, and enable
+investigation of the acquired data for a variety of research questions (e.g.
+visual or auditory perception, spatial cognition; emotion; music, speech or
+social perception)'' [project proposal].
+
+%
+Moreover, naturalistic stimuli sample a broader range of brain states paradigms
+with simplified stimuli \citep{guntupalli2016model, haxby2011common} promising
+an increased validity of transformations of functional alignment and increased
+generalizability to [research questions/domains/paradigms].
+
+
+\paragraph{Template from talk at INM-7 seminar}
+%
+``Imagine you scan a new, unknown subject for just 15 minutes more, and you
+additionally get results from a whole variety of other paradigms mapped onto
+that brain: results from localizers of low-level perceptual processes, but also
+higher-level cognitive processes like language, memory, emotions and so on.
+%
+And kinda ``adventurous'': If you have different common model spaces for
+different subgroups, you can investigate which alignment onto which ``subgroup
+common model space'' results in less error, that lets you classify to which
+subgroup your new subject might belong''.
+
+
+\paragraph{Template from \citet{haxby2020hyperalignment}}
+
+``Estimating the parameters to transform high-dimensional spaces from individual
+brains into a common high-dimensional space requires a rich set of data that
+samples a wide variety of cortical patterns in order to generalize to novel
+stimuli or tasks.
+%
+For response hyperalignment, a rich variety of stimuli or conditions are
+necessary to sample the response vector space.
+%
+For connectivity hyperalignment, the sampling of connectivity vector space is
+defined by the selection of connectivity targets, but the richness and
+reliability of connectivity estimates depends on the variety of brain states
+over which connectivity is estimated'' \citep{haxby2020hyperalignment}.
+
+
+\paragraph{Template from \citep{jiahui2020predicting}}
+%
+``These results lay a foundation for building a computational tool with a
+database that could allow others to map multiple functional topographies in new
+subjects using only data collected during movie viewing.
+%
+Functional localizers are inefficient because they only estimate one or a few
+topographies for each localizer.
+%
+Movies, by contrast, engage in parallel multiple neural systems for vision,
+audition, language, person perception, social cognition, and other functions.
+%
+Consequently, movies have the potential to estimate selective topographies in
+all of these domains.
+%
+Such a tool would require a database of data for movies and a range of
+functional localizers in a normative group of subjects.
+%
+A new subject’s functional topographies could be estimated based only on that
+subject’s movie data and other subjects’ localizer data from the normative
+database that could be projected into that subject’s cortical anatomy using
+hyperalignment transformation matrices derived from movie data.
+%
+Such a resource would be more efficient and replace tedious functional
+localizers with an engaging movie and could enable mapping of multiple
+functional topographies with data from a single fMRI using a naturalistic
+stimulus'' \citep{jiahui2020predicting}.
+
+%
+``These findings lay the foundation for developing an efficient tool for mapping
+functional topographies for a wide range of perceptual and cognitive functions
+in new subjects based only on fMRI data collected while watching an engaging,
+naturalistic stimulus and other subjects' localizer data from a normative
+sample'' \citep{jiahui2020predicting}.
 
 %
 ``Movies engage multiple brain systems in parallel. From a single movie dataset
@@ -1677,38 +1861,6 @@ whereas different localizers are typically required to map different functional
 topographies, making a thorough mapping of selective topographies time-consuming
 and inefficient'' \citep{jiahui2020predicting}.
 
-\todo[inline]{cf. general introduction}
-
-\paragraph{Validity \& generalizability}
-
-\todo[inline]{generalizability: scan once, estimate many}
-% from project proposal
-Naturalistic stimuli promise an ``increased validity of derived transformation
-for functional alignment by sampling a more diverse set of mental states that
-reflect (confound) statistics of the natural environment, and enable
-investigation of the acquired data for a variety of research questions (e.g.
-visual or auditory perception, spatial cognition; emotion; music, speech or
-social perception)'' [project proposal].
-
-% from Haxby 2020
-``Estimating the parameters to transform high-dimensional spaces from individual
-brains into a common high-dimensional space requires a rich set of data that
-samples a wide variety of cortical patterns in order to generalize to novel
-stimuli or tasks. For response hyperalignment, a rich variety of stimuli or
-conditions are necessary to sample the response vector space. For connectivity
-hyperalignment, the sampling of connectivity vector space is defined by the
-selection of connectivity targets, but the richness and reliability of
-connectivity estimates depends on the variety of brain states over which
-connectivity is estimated'' \citep{haxby2020hyperalignment}.
-
-
-\paragraph{additional benefit: compliance}
-%
-``As a rule of thumb, SRM will improve sensitivity for detecting a cognitive
-process of interest in the test data if the training stimuli or trials strongly
-and variably engage that process in a way that is reliable across participants''
-\citep{cohen2017computational}.
-
 %
 ``Movies are more engaging and result in better compliance
 \citep{vanderwal2015inscapes}. Movie viewing can also be used in subject
@@ -1716,76 +1868,33 @@ populations, such as children \citep{richardson2018development} or patients,
 that may have trouble maintaining attention during repetitions of a tedious
 localizer task'' \citep{jiahui2020predicting}.
 
+``Movies also simulate better the statistics of natural viewing and listening
+and may provide more ecologically valid maps.
 %
-``Movies engage multiple brain systems in parallel. From a single movie dataset
-multiple functional topographies can be estimated (Guntupalli et al., 2016),
-whereas different localizers are typically required to map different functional
-topographies, making a thorough mapping of selective topographies
-time-consuming and inefficient. Movies also simulate better the statistics of
-natural viewing and listening and may provide more ecologically valid maps.
 Analogously, the introduction of dynamic videos of faces and control categories
 to localize face-selective topographies provides more reliable maps and better
 estimate the extent of face-selective regions than do localizers with still
-image stimuli (Fox et al., 2009; Pitcher et al., 2011). Similarly, naturalistic
-stimuli may better sample the full range of responses to faces and other stimuli
-that contribute to face-selective topographies'' \citep{jiahui2020predicting}.
+image stimuli [Fox et al., 2009; Pitcher et al., 2011].
+%
+Similarly, naturalistic stimuli may better sample the full range of responses to
+faces and other stimuli that contribute to face-selective topographies''
+\citep{jiahui2020predicting}.
 
-\paragraph{in general}
 
-Last paragraph of \citet{jiahui2020predicting}'s introduction: ``These results
-lay a foundation for building a computational tool with a database that could
-allow others to map multiple functional topographies in new subjects using only
-data collected during movie viewing. Functional localizers are inefficient
-because they only estimate one or a few topographies for each localizer. Movies,
-by contrast, engage in parallel multiple neural systems for vision, audition,
-language, person perception, social cognition, and other functions.
-Consequently, movies have the potential to estimate selective topographies in
-all of these do- mains. Such a tool would require a database of data for movies
-and a range of functional localizers in a normative group of subjects. A new
-subject’s functional topographies could be estimated based only on that
-subject’s movie data and other subjects’ localizer data from the normative
-database that could be projected into that subject’s cortical anatomy using
-hyperalignment transformation matrices derived from movie data. Such a resource
-would be more efficient and replace tedious functional localizers with an
-engaging movie and could enable mapping of multiple functional topographies with
-data from a single fMRI using a naturalistic stimulus''
-\citet{jiahui2020predicting}.
-
-``The algorithm also can be applied to simpler, con- trolled experimental data,
+\paragraph{Template from \citep{guntupalli2016model}}
+%
+``The algorithm also can be applied to simpler, controlled experimental data,
 but our previous results showed that the sampling of response vectors from these
 experiments is impoverished and produces a model representational space that
 does not generalize well to new stimuli in other experiments (Haxby et al.
-2011). Results show that the computational principles underlying this common
+2011).
+%
+Results show that the computational principles underlying this common
 model have broad general validity for representational spaces in occipital,
 temporal, parietal, and frontal cortices'' \citep{guntupalli2016model}.
 
 
-
-\subsubsection{Functional atlas}
-
-\todo[inline]{see also \citep{bazeille2019local}; who is quoting him?}
-
-
-%
-``While the functional alignment can also be applied to fMRI data from
-stimulation paradigms with simplified stimuli, the transformations for
-functional alignment have greatly diminished general validity
-\citep{haxby2011common}, presumably because such experiments sample a sparser
-range of brain states \citep{guntupalli2016model}'' [project proposal].
-
-%
-Moreover, naturalistic stimuli sample a broader range of brain states paradigms
-with simplified stimuli \citep{guntupalli2016model, haxby2011common} promising
-an increased validity of transformations of functional alignment and increased
-generalizability to [research questions/domains/paradigms].
-
-%
-Naturalistic stimuli promise an ``increased validity of derived transformation
-for functional alignment by sampling a more diverse set of mental states that
-reflect (confound) statistics of the natural environment, and enable
-investigation of the acquired data for a variety of research questions (e.g.
-visual or auditory perception, spatial cognition; emotion; music, speech or
-social perception)'' [project proposal].
+\paragraph{Template from \citet{haxby2011common}}
 
 ``This result suggests that the validity for a model of a specific subspace may
 be enhanced by designing a stimulus paradigm that samples the brain states in
@@ -1797,83 +1906,46 @@ to a small subspace of the representational space in VT cortex''
 \citep{haxby2011common}.
 
 ``Initially, the common space produced with hyperalignment has the same number
-of dimensions as the number of voxels in each individual’s native space. We
-asked how many distinct common response-tuning functions are needed to contain
-the information that affords the full range of fine-grained distinctions among
-complex, visual stimuli. We tested the sufficiency of lower-dimensional
-subspaces and found that BSC accuracies continued to increase with more than 20
-common response- tuning functions. We present a 35-dimensional common model
-space that afforded BSC for all three experiments at levels of accuracy that
-were equivalent to BSC with all 1,000 hyperaligned dimensions or WSC with 1,000
-voxels. Ten dimensions were sufficient within the limited stimulus domains of
-each category perception experiment, but these sets of ten dimensions did not
-afford high levels of BSC for the other experiment or for the movie. Thus, these
-lower-dimensional models are subspaces of the full model and are valid only for
-more limited stimulus domains'' \citep{haxby2011common}.
-
-
-``Estimating the parameters to transform high-dimensional spaces from individual
-brains into a common high-dimensional space requires a rich set of data that
-samples a wide variety of cortical patterns in order to generalize to novel
-stimuli or tasks. For response hyperalignment, a rich variety of stimuli or
-conditions are necessary to sample the response vector space. For connectivity
-hyperalignment, the sampling of connectivity vector space is defined by the
-selection of connectivity targets, but the richness and reliability of
-connectivity estimates depends on the variety of brain states over which
-connectivity is estimated'' \citep{haxby2020hyperalignment}.
-
+of dimensions as the number of voxels in each individual’s native space.
 %
-From project proposal: ``Moreover, beyond the scope of this project the targeted
-homogenization of acquisition procedures will further the goal of large scale
-data collection for the purpose of producing a normative reference of brain
-function as measured by fMRI''.
-
+We asked how many distinct common response-tuning functions are needed to
+contain the information that affords the full range of fine-grained distinctions
+among complex, visual stimuli.
 %
-From project proposal: ``The availability of such a reference would enable
-quantitative and qualitative description of an individual's brain function with
-respect to such a norm, and consequently progress the field towards neuroimaging
-studies of individual differences that more closely resemble their psychological
-counterparts''.
-
+We tested the sufficiency of lower-dimensional subspaces and found that BSC
+accuracies continued to increase with more than 20 common response-tuning
+functions.
 %
-From talk at INM-7 seminar: ``Imagine you scan a new, unknown subject for just
-15 minutes more, and you additionally get results from a whole variety of other
-paradigms mapped onto that brain: results from localizers of low-level
-perceptual processes, but also higher-level cognitive processes like language,
-memory, emotions and so on. And kinda ``adventurous'': If you have different
-common model spaces for different subgroups, you can investigate which alignment
-onto which ``subgroup common model space'' results in less error, that lets you
-classify to which subgroup your new subject might belong''.
-
+We present a 35-dimensional common model space that afforded BSC for all three
+experiments at levels of accuracy that were equivalent to BSC with all 1,000
+hyperaligned dimensions or WSC with 1,000 voxels.
 %
-From \citep{jiahui2020predicting}: ``results lay a foundation for building a
-computational tool with a database that could allow others to map multiple
-functional topographies in new subjects using only data collected during movie
-viewing. Functional localizers are inefficient because they only estimate one or
-a few topographies for each localizer. Movies, by contrast, engage in parallel
-multiple neural systems for vision, audition, language, person perception,
-social cognition, and other functions. Consequently, movies have the potential
-to estimate selective topographies in all of these domains. Such a tool would
-require a database of data for movies and a range of functional localizers in a
-normative group of subjects. A new subject's functional topographies could be
-estimated based only on that subject's movie data and other subjects’ localizer
-data from the normative database that could be projected into that subject’s
-cortical anatomy using hyperalignment transformation matrices derived from movie
-data. Such a resource would be more efficient and replace tedious functional
-localizers with an engaging movie and could enable mapping of multiple
-functional topographies with data from a single fMRI using a naturalistic
-stimulus'' \citep{jiahui2020predicting}.
+Ten dimensions were sufficient within the limited stimulus domains of each
+category perception experiment, but these sets of ten dimensions did not afford
+high levels of BSC for the other experiment or for the movie.
+%
+Thus, these lower-dimensional models are subspaces of the full model and are
+valid only for more limited stimulus domains'' \citep{haxby2011common}.
 
+
+\paragraph{Remaining templates}
+%
 ``Characterizing this functional variability, particularly when considering the
 genetic level, ideally requires acquiring functional imaging data from hundreds
-of sub- jects and organizing these data into a large-scale database, together
-with genetic, behavioral and biomorphological data. Databasing and analysis of
-structural magnetic reso- nance images has already resulted in probabilistic
-ana- tomical atlases [Toga, 2001, Probabilistic approaches; Van Essen, 2002,
-Windows on the brain]. However, a similar large scale description of
-functional networks is still lacking'' \citep{pinel2007fast}.
+of subjects and organizing these data into a large-scale database, together with
+genetic, behavioral and biomorphological data.
+%
+Databasing and analysis of structural magnetic resonance images has already
+resulted in probabilistic anatomical atlases [Toga, 2001, Probabilistic
+approaches; Van Essen, 2002, Windows on the brain]. However, a similar large
+scale description of functional networks is still lacking''
+\citep{pinel2007fast}.
 
-
+% Cohen 2017
+``As a rule of thumb, SRM will improve sensitivity for detecting a cognitive
+process of interest in the test data if the training stimuli or trials strongly
+and variably engage that process in a way that is reliable across participants''
+\citep{cohen2017computational}.
 
 
 \subsection{Conclusion}
