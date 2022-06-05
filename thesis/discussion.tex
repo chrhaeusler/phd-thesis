@@ -1,18 +1,21 @@
 \section{General recapitulation of the whole project \& its aims}
 
-\todo[inline]{stream line with general introduction}
-
 \todo[inline]{supposed to be a short intro}
 
+\todo[inline]{cf. general introduction: overview of (non-specific) aims}
 
-\subsection{Open, transparent, and reproducible science}
+
+\section{Open, transparent, and reproducible science}
+
+\todo[inline]{I guess the best place in the general discussion is here}
 
 \todo[inline]{cf. general introduction}
 
-\todo[inline]{at the moment, I guess the best place is here}
+\todo[inline]{you might give a high-level summary of all studies here already,
+and thus do not need to do it before summarizing results of individual studies}
 
 
-\subsubsection{Data re-use for new investigation \& new results}
+\subsection{Data re-use for new investigation \& new results}
 
 \todo[inline]{mih: du hast mit dem PPA paper eine Publikation in SciData, weil
 du separate und unabhängig veröffentlichte Daten, durch zusätzliche, von der
@@ -21,14 +24,14 @@ erstellte Werte, ganz neu betrachten und interpretieren konntest}
 \todo[inline]{Du zeigst damit, dass Idee studyforrest erfolgreich sein kann}
 
 
-\subsubsection{Reproducibility \& sharing}
+\subsection{Reproducibility \& sharing}
 
 \todo[inline]{mih: Datenveröffentlichungen nochmal hervorheben; Code repos mit
 ausführbaren Analysen hervorheben; du hast die von dir gesetzten Ziele auch
 erreicht}
 
 
-\paragraph{Pro}
+\subsection{Pro \& Contra open, reproducible research}
 
 \todo[inline]{Du bist daher in der Lage in persönliches Fazit zu ziehen: was hat
 es der Wissenschaft gebracht, dass diese Daten "schon da waren"; Was hat es dir
@@ -66,6 +69,12 @@ Standards may vary depending on the use case. Assume that everything that is not
 explicitly stated in a paper along the dataset was not done?
 
 
+\paragraph{Pro}
+
+\todo[inline]{think big}
+
+
+
 \section{Recapitulation of work packages}
 
 \todo[inline]{cf. general introduction; objectives/aims per study}
@@ -79,6 +88,10 @@ explicitly stated in a paper along the dataset was not done?
 \subsection{PPA paper}
 
 \todo[inline]{cf. study \& general introduction}
+
+\todo[inline]{annotations are hard but you can do it}
+
+\todo[inline]{traditional GLM ``works''}
 
 %
 ``Future studies that aim to use a movie to localize visual areas in individual
@@ -102,24 +115,186 @@ quantity of runs to assess naturalistic stimulus as potential replacement;
 
 \subsection{SRM study}
 
-\todo[inline]{cf. study \& general introduction}
+\todo[inline]{cf. general introduction \& and study4}
 
 
-\section{Naturalistic stimuli}
+\section{Putting it all together: Naturalistic stimuli as multiple localizer}
 
-\subsection{Pro naturalistic stimuli}
+\todo[inline]{cf. discussion of \citet{jiahui2020predicting}}
 
-\todo[inline]{annotations are hard but you can do it}
+%
+``Functional localizers are inefficient because they only estimate one or a few
+topographies for each localizer.
+%
+Movies, by contrast, engage in parallel multiple neural systems for vision,
+audition, language, person perception, social cognition, and other functions.
+%
+Consequently, movies have the potential to estimate selective topographies in
+all of these domains'' \citep{jiahui2020predicting}.
 
-\todo[inline]{traditional GLM ``works''}
+
+\paragraph{Template from \citet{jiahui2020predicting}}
+
+%
+Abstract: ``findings lay the foundation for developing an efficient tool
+for mapping functional topographies for a wide range of perceptual and cognitive
+functions in new subjects based only on fMRI data collected while watching an
+engaging, naturalistic stimulus and other subjects' localizer data from a
+normative sample'' \citep{jiahui2020predicting}.
+
+%
+End of intro: ``results lay a foundation for building a computational tool
+with a database that could allow others to map multiple functional topographies
+in new subjects using only data collected during movie viewing.
+%
+Such a tool would require a database of data for movies and a range of
+functional localizers in a normative group of subjects.
+%
+A new subject's functional topographies could be estimated based only on that
+subject's movie data and other subjects' localizer data from the normative
+database that could be projected into that subject's cortical anatomy using
+hyperalignment transformation matrices derived from movie data.
+%
+Such a resource would be more efficient and replace tedious functional
+localizers with an engaging movie and could enable mapping of multiple
+functional topographies with data from a single fMRI using a naturalistic
+stimulus'' \citep{jiahui2020predicting}.
+
+
+\paragraph{naturalistic stimuli are awesome}
+
+%
+Moreover, naturalistic stimuli sample a broader range of brain states paradigms
+with simplified stimuli \citep{guntupalli2016model, haxby2011common} promising
+an increased validity of transformations of functional alignment and increased
+generalizability to [research questions/domains/paradigms].
 
 %
 ``Compared with functional localizers, naturalistic stimuli provide several
 advantages such as stronger and widespread brain activation, greater engagement,
 and increased subject compliance'' \citep{jiahui2020predicting}.
+%
+``Movies engage multiple brain systems in parallel. From a single movie dataset
+multiple functional topographies can be estimated [Guntupalli et al., 2016],
+whereas different localizers are typically required to map different functional
+topographies, making a thorough mapping of selective topographies time-consuming
+and inefficient'' \citep{jiahui2020predicting}.
+%
+``Results suggests that the validity for a model of a specific subspace may be
+enhanced by designing a stimulus paradigm that samples the brain states in that
+subspace more extensively'' \citep{haxby2011common}.
+
+``Movies also simulate better the statistics of natural viewing and listening
+and may provide more ecologically valid maps'' \citep{jiahui2020predicting}.
+
+%
+``naturalistic stimuli may better sample the full range of responses to faces
+and other stimuli that contribute to face-selective topographies''
+\citep{jiahui2020predicting}.
+
+%
+Naturalistic stimuli promise an ``increased validity of derived transformation
+for functional alignment by sampling a more diverse set of mental states that
+reflect (confound) statistics of the natural environment, and enable
+investigation of the acquired data for a variety of research questions (e.g.
+visual or auditory perception, spatial cognition; emotion; music, speech or
+social perception)'' [project proposal].
 
 
-\subsection{Contra naturalistic stimuli}
+\paragraph{partial alignment}
+%
+A \textit{calibration scan} could be used to align a subject to a fixed \ac{cfs}
+based on extensive scans and analyses of other subjects' data serving as a
+reference / functional atlas.
+
+``While the functional alignment can also be applied to fMRI data from
+stimulation paradigms with simplified stimuli, the transformations for
+functional alignment have greatly diminished general validity
+\citep{haxby2011common}, presumably because such experiments sample a sparser
+range of brain states \citep{guntupalli2016model}'' [project proposal].
+
+%
+Once a valid alignment is established, known functional properties of the
+(normative) reference can then be projected into the respective individual voxel
+space (s. Fig. 1 in \citep{nishimoto2016lining}).
+%
+The reference would enable an qualitative and quantitative description of an
+individual's brain function with respect to such a norm, and consequently
+progress the field towards neuroimaging studies of individual differences that
+more closely resemble their psychological counterparts.
+
+%
+``Single participant studies can also provide valuable impulses for the use of
+fMRI as a clinical tool.
+%
+This includes the possibility to assess how stable results are within a single
+participant, and how much data should be collected to provide a reliable
+description of the individual’s functional brain organization
+[\citet{laumann2015functional, gordon2017precision}] \citep{wegrzyn2018thought}.
+
+
+\paragraph{naturalistic stimuli: clinical population}
+%
+``Movies are more engaging and result in better compliance
+\citep{vanderwal2015inscapes}. Movie viewing can also be used in subject
+populations, such as children \citep{richardson2018development} or patients,
+that may have trouble maintaining attention during repetitions of a tedious
+localizer task'' \citep{jiahui2020predicting}.
+
+
+\subsection{Clinical Application}
+
+\todo[inline]{cf. general introduction}
+
+
+\paragraph{template from \citet{wegrzyn2018thought}}
+
+``Although there is no one-to-one mapping between brain region and cognitive
+process [Cacioppo (2007). Pscyhophyisological Science. In: Handbook of
+psychophysiology, p. 3–23.], functional localization has proven to be of direct
+practical use [Bunzl (2010). An Exchange about Localism. In: Foundational Issues
+in Human Brain Mapping, p. 49–54; Szaflarski (2017). Practice guideline summary:
+Use of fMRI in the presurgical evaluation of patients with epilepsy. Neurology].
+%
+In the clinical context, fMRI plays an important role for planning surgery in
+patients with tumors or epilepsies, as it aids the understanding of which parts
+of the brain need to be spared in order to preserve sensory, motor or cognitive
+abilities [Stippich (2017). Introduction to Presurgical Functional MRI. In:
+Clinical Functional MRI, p. 1–7.]'' \citep{wegrzyn2018thought}.
+
+``To be useful for clinical diagnostics and prognostics, fMRI data must be
+interpretable on the level of the individual case \citep{dubois2016building}.
+%
+Because in group studies idiosyncratic activity patterns can be obscured by
+averaging, the precise mapping of brain function in a single person has become a
+vanguard of fMRI research [\citet{laumann2015functional, huth2016natural,
+gordon2017precision}].
+%
+These studies are important to deepen our understanding of how the brain works,
+because the functional organization of brains becomes more heterogeneous on a
+finer anatomical scale [\citet{laumann2015functional, poldrack2017precision}].
+
+%
+Also, when looking at increasingly smaller ‘regions of the mind’, such as the
+neural correlates of specific words instead of language in general, averaging on
+the group level can obscure the fine spatial information which allows to
+differentiate these contents in the individual brain [\citet{huth2016natural}]''
+\citep{wegrzyn2018thought}.
+
+
+\paragraph{subgroup matching/classification}
+%
+Imagine you scan a new, unknown subject for just 15 minutes more, and you
+additionally get results from a whole variety of other paradigms mapped onto
+that brain: results from localizers of low-level perceptual processes, but also
+higher-level cognitive processes like language, memory, emotions and so on.
+%
+If you have different \acp{cfs} for different subgroups, you could investigate
+which alignment onto which subgroup's \ac{cfs} results in less
+error letting you classify to which subgroup your new subject might belong to.
+
+
+\subsection{Caveats of naturalistic stimuli}
 
 %
 Challenging data data analysis, but create \& share annotation.
@@ -135,7 +310,7 @@ Setting is still the scanner.
 Passive watching \& listening. Hence, executive functions?
 
 
-\subsection{Conclusion on naturalistic stimuli}
+\section{Conclusion (on naturalistic stimuli)}
 %
 In summary, naturalistic stimuli ``impose a meaningful timecourse across
 subjects while still allowing for individual variation in brain activity and
@@ -151,73 +326,3 @@ are still needed for hypothesis testing and developing models, while
 naturalistic stimuli are best employed to test models in ecologically valid
 settings and to expand them to situations where context matters
 more'' \citep{saarimaki2021naturalistic}.
-
-
-\section{Clinical Application}
-
-``Although there is no one-to-one mapping between brain region and cognitive
-process [3], functional localization has proven to be of direct practical use
-[4–5]. Functional magnetic resonance imaging (fMRI) is one non-invasive method
-allowing to localize brain functions with limited but nevertheless remarkable
-detail [6].
-%
-In the clinical context, fMRI plays an important role for planning surgery in
-patients with tumors or epilepsies, as it aids the understanding of which parts
-of the brain need to be spared in order to preserve sensory, motor or cognitive
-abilities [Stippich C. Introduction to Presurgical Functional MRI. In: Clinical
-Functional MRI. Springer Berlin Hei- delberg; 2015. p. 1–7.]''
-\citep{wegrzyn2018thought}.
-
-``To be useful for clinical diagnostics and prognostics, fMRI data must be
-interpretable on the level of the individual case [8].
-%
-Because in group studies idiosyncratic activity patterns can be obscured by
-averaging, the precise mapping of brain function in a single person has become a
-vanguard of fMRI research [9–11].
-%
-These studies are important to deepen our understanding of how the brain works,
-because the functional organization of brains becomes more heterogeneous on a
-finer anatomical scale [9,12].
-%
-Also, when looking at increasingly smaller ‘regions of the mind’, such as the
-neural correlates of specific words instead of language in general, averaging on
-the group level can obscure the fine spatial information which allows to
-differentiate these contents in the individual brain [10].
-%
-Single participant studies can also provide valuable impulses for the use of
-fMRI as a clinical tool.
-%
-This includes the possibility to assess how stable results are within a single
-participant, and how much data should be collected to provide a reliable
-description of the individual’s functional brain organization [9,11].
-%
-While the group average is a composite of many individuals, the activity map of
-the individual is likewise a composite of an underlying time course, consisting
-of many separate observations of brain activity while performing a task.
-%
-Variability over the course of an fMRI session can be expected due to factors
-such as head movement, fatigue, increasing familiarity with the task and changes
-in cognitive strategies [13–14].
-%
-The neuroradiologist’s interpretation of a single patient’s fMRI might therefore
-be substantially improved, if she knows how the patient’s cognitive states
-changed over time and how this relates to changes in brain activity patterns.
-%
-This is particularly important if no overt behavior is collected during the fMRI
-task.
-%
-For example, in a language production task, patients might be asked to produce
-words from categories such as “fruits” or “animals” in a predefined period of
-time [15].
-%
-Because overt articulation of words produces movement artifacts, the patients
-might be asked to use only internal speech.
-%
-Without behavioral output from the patient, interpretation of fMRI results is
-limited by the uncertainty about whether the task was performed in the expected
-manner'' \citep{wegrzyn2018thought}.
-
-
-\section{...and of course: further research is needed}
-
-\todo[inline]{fund some enthusiastic students to do a PhD}
