@@ -34,7 +34,7 @@ Typical analyses of human brain mapping studies average data across subjects for
 practical (e.g., limited scan time per subject), statistical (e.g., improved
 of \ac{snr}) reasons, or to generalize from study subjects to a broader
 population.
-\todo[inline]{Practical contains "not enough data practically obtainable from
+\todo[inline]{Practical constains: "not enough data practically obtainable from
 one subject"}
 %
 Nevertheless, the precise anatomical location of functionally defined regions of
@@ -334,29 +334,26 @@ naturalistic stimuli, and create build GLM $t$-contrasts in order to locate the
 
 \paragraph{estimating from reference group}
 
-\todo[inline]{REVISE THIS PART WHILE REVISING THE SRM INTRO}
+\todo[inline]{streamline with SRM intro}
 
-\todo[inline]{do not introduce (too many too) technical terms; imo training
-(data) test(ing data) is okay; must be clear, that we have ``independent''; it
-is not just parameter estimation / statistical inference but ``prediction''}
+\todo[inline]{do not introduce too many technical terms (e.g. LOOCV)}
 
-\todo[inline]{LOOCV is a bit much here, as a methodological definition, inserted
-into the very first sentence. This put a lot of weight on the particular choice
-of method. But really we just wanted to do any kind of out-of-sample-testing,
-rather than just rely on statistical assumptions}
+\todo[inline]{training and \& testing data is okay, imo}
+
+\todo[inline]{make clear that we do not just estimate parameters, i.e.
+statistical inference but ``prediction''}
 
 %
 However, 2h is too fucking much.
-
 %
-Second, we employ a new approach to estimate the results of the functional
+Hence, we employ a new approach to estimate the results of the functional
 localizer from data of the movie and audio-description.
 %
 Previous studies have shown that localizer can be estimated using anatomical
 alignment [e.g. CITATION] by projecting ...
 %
 
-\paragraph{just a backup of anatomical alignment procedures}
+\paragraph{Problem: surface-based antomical alignment is not enough}
 %
 Surface-based inter-subject alignments / strategies for registering individual
 brains together that respect cortical foldings \citep{fischl1999cortical,
@@ -376,10 +373,10 @@ eliminate the mismatch between brain function and anatomy of category-selective
 regions \citep{duncan2009consistency, frost2012measuring, weiner2018defining,
 weiner2014mid}[still similar phrasing to \citep{feilong2018reliable}].
 
-\paragraph{solution: functional alignment}
+\paragraph{Solution: functional alignment}
 %
 A more recent approach, uses functional alignment \citep{haxby2020hyperalignment,
-bazeille2021empirical} ...
+bazeille2021empirical}.
 %
 Previous results has shown that prediction using functional alignment
 outperforms functional alignment.
@@ -390,20 +387,13 @@ the naturalistic stimuli would trigger, among others, brain responses that are
 similar to those triggered by the functional localizer.
 
 
-``We next asked how well the retinotopic template generated using our procedure
-could predict the measured polar angle for an individual. For each subject, a
-template to which they were compared was constructed using data from all other
-subjects in a leave-one-out fashion'' \citep{benson2012retinotopic}.
-
-
-\paragraph{"partial alignment}
-
+\paragraph{Partial alignment}
 %
 However, even if one wants to map a variety of brain functions, a two-hour
 paradigm would be inefficient plus unsuitable for a clinical population.
 
 %
-Therefore, we explore a method and the quantity of data needed
+Therefore, we assess the quantity of data needed
 to predict individual functional topographies by projecting results of a
 localizer experiment (statistical $Z$-maps) from a reference group into the
 brain anatomy of individual participants.
@@ -413,12 +403,9 @@ to the \ac{cfs} that provides transformation matrices that
 outperform a prediction based on an anatomical alignment.
 
 %
-For that reason, this dissertation --- following a \ac{loocv} procedure --- also
-explores whether just a part of a movie or auditory narrative can serve as a
+We explore whether just a part of a movie or auditory narrative can serve as a
 ``diagnostic'' run in order to estimate the location of the \ac{ppa} in an
-``unknown'' subject's brain (i.e. a \textit{left-out subject} to test the
-prediction performance of our model) from a reference group (i.e. the study
-subjects providing the data to train our model).
+``unknown'' subject's brain.
 
 
 \subsection{Open, transparent, and reproducible science}

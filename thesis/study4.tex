@@ -1,20 +1,9 @@
-\todo[inline]{which parts are supposed to be dropped (esp. "deadlocks", i.e.
-stuff that I just tried)? imo, "alternative template creation" (cf. end of
-methods)}
+\todo[inline]{any parts to drop? stuff that I just tried like "alternative
+template creation" (cf. end of methods)}
 
-\todo[inline]{don't speak of ``topography'' but of "values in a ROI"??? don't
-know how to phrase it; maybe papers on anatomical alignment might be helpful}
+\todo[inline]{speaking of ``topography'' is little overstatement}
 
-\todo[inline]{Have a figure, define such labels (e.g., "training subjects") in
-that figure an refer to it. Without a clear central definition, this quickly
-gets confusing}
-
-\todo[inline]{why did we use SRM?; nicely implemented in BrainIAK; cf. general
-intro on reproducibility); we do not use the fastSRM algo, but it's probably
-still computationally less demanding than hyperalignment; cf. also evaluation of
-algos in \citet{chen2015reduced, bazeille2021empirical}; i.e. ``computational
-efficiency, as the latter is an important consideration for scientists who may
-not have access to specialized hardware''}
+\todo[inline]{mih: create figure defining labels (e.g., "training subjects")}
 
 
 \section{Introduction}
@@ -32,16 +21,19 @@ locus, the size, and the shape of the category-selective areas
 [\citep{rosenke2021probabilistic, zhen2017quantifying, zhen2015quantifying,
 frost2012measuring}]'' [still similar phrasing to\citep{jiahui2020predicting}].
 
-\todo[inline]{just a very short reference here; take studies that investigated
-"lots of" functional areas}
 
+\paragraph{example studies: non-PPA}
 % PPA as example
 For example, \citep{rosenke2021probabilistic, frost2012measuring,
-zhen2017quantifying, zhen2015quantifying} have shown that functionally defined,
+zhen2017quantifying, zhen2015quantifyingi} have shown that functionally defined,
 category selective areas...
 
+``Face-selective activation showed dramatic variation in the location, extent,
+and strength across individual brains (Fig 2A)'' \citet{zhen2015quantifying}.
 
 
+\paragraph{example studies: PPA}
+%
 ``Across individual brains, scene-selective activation varied dramatically in
 location, extent, and magnitude'' \citep{zhen2017quantifying}.
 %
@@ -61,27 +53,11 @@ Why the distribution of this variability is regionally non-uniform remains
 unclear, but one possibility is that natural scenes are themselves more variable
 than well-structured faces '' \citep{zhen2017quantifying}.
 
-``Face-selective activation showed dramatic variation in the location, extent,
-and strength across individual brains (Fig 2A)'' \citet{zhen2015quantifying}.
-%
-``The probabilistic atlas revealed that the FSRs had high uncertainty in
-location and extent:
-%
-not one voxel in an FSR was found to show face selectivity in all participants
-tested.
-%
-2) distance among the locations of peak activation across participants in an FSR
-was more than 10 mm'' \citep{zhen2015quantifying}.
-
-
-
-
 % localizer
 In order to identify functional areas in individual persons, block-design
 \textit{functional localizer} paradigms are traditionally used that contrast
 regressors representing modeled hemodynamic responses to presented stimulus
 classes (i.e. landscapes, faces or bodies).
-
 
 
 
@@ -111,9 +87,10 @@ a participant's comprehension of the task instructions and general compliance,
 a criterion that can be difficult to meet in clinical or pediatric populations.
 
 
+
 \paragraph{what we have done in study 1 \& 2}
 
-\todo[inline]{phrasing (too) similar to general intro \& smooth it}
+\todo[inline]{streamline with general intro}
 %
 In study 2 \citep{haeusler2022processing}, we have shown that a functionally
 defined region, such as the \ac{ppa}, can be localized using a model-driven
@@ -129,14 +106,12 @@ However, a two-hour long paradigm is unsuitable for a clinical application due
 to practical and monetary reasons.
 
 
-\subsection{Therefore: estimate that shit}
+\subsection{Solution: estimate it from reference group}
 
 % solution: predict from reference
 An approach to reduce time and costs of individual diagnostics is to identify a
 functional area in an individual person based on data collected from an
 independent sample of different persons (i.e. a \textit{reference group}).
-
-\todo[inline]{check (anatomical) estimation papers for terminology}
 
 
 \subsubsection{Anatomical alignment}
@@ -162,135 +137,126 @@ aligns voxel-wise data of individuals to a three-dimensional brain template
 \citep[e.g., MNI152 template;][]{fonov2011unbiased}.
 
 
-\paragraph{problem with volume-based}
+\paragraph{Problem of volume-based alignent}
 
-``The major problem Talairach and MNI normalization procedures: the same
-coordinate can refer to different anatomical areas across subjects.
+However, ``the human neocortex is essentially a two dimensional sheet, which is
+only a few millimeters thick'' \citep{frost2012measuring}.
+
 %
-Even on visual inspection one can see that, despite being normalized to
+''The cortical surface is highly folded and, although there are many
+consistencies across subjects, each individual has a unique sulcal and gyral
+folding pattern'' \citep{frost2012measuring}.
+
+%
+``There is significant interindividual variability in cortical shape and folding
+[Fischl et al., 2008; Hill et al., 2010; Van Essen and Dierker, 2007]''
+\citep{zhen2017quantifying}.
+
+%
+``Even on visual inspection one can see that, despite being normalized to
 Talairach space, the brains still have very different cortical folding
 patterns'' \citep{frost2012measuring}.
 
-``The problem of macro-anatomical alignment lies in the fact that the human
-neocortex is essentially a two dimensional sheet, which is only a few
-millimeters thick.
 %
-The cortical surface is highly folded to allow it to squeeze into the restricted
-cranial cavity and, although there are many consistencies across subjects, each
-individual has a unique sulcal and gyral folding patterni''
-\citep{frost2012measuring}.
+As a results, ``the same coordinate in Talairach and MNI space can refer to
+different anatomical areas across subjects'' \citep{frost2012measuring}.
+
+%
+``Volume-based registration techniques are unable to account for individual
+differences in cortical folding'' \citep{frost2012measuring}.
 
 
-\paragraph{hence, surface-based}
-% surface-based
-Surface-based anatomical alignment \citep{fischl1999cortical} aligns vertex-wise
-data of individuals to a two-dimensional template \citep[e.g., FreeSurfer
-fsaverage template;][]{fischl1999high}.
+\paragraph{Surface-based alignment: the method}
 
+% transition to surface-based
 ``Approaches that explicitly align the folding pattern of the cortical surface
 [Fischl et al., 1999b; Goebel et al., 2006] appear more promising to obtain
 optimal macro-anatomical alignment'' \citep{frost2012measuring}.
 
-``[Fischl et al., 1999b] showed that manual landmarks were not necessary for
-macro-anatomical alignment but a local curvature-based optimization criterion
-was used on spherical cortex representations.
-%
-The curvature-based alignment method demonstrated much improved macro-anatomical
-correspondence across brains and provided first evidence of improved concomitant
-alignment of histiologically defined Brodman areas [Fischl et al., 2008]''
-\citep{frost2012measuring}.
+% method in one sentence
+Surface-based anatomical alignment \citep{fischl1999cortical} aligns vertex-wise
+data of individuals to a two-dimensional template \citep[e.g., FreeSurfer
+fsaverage template;][]{fischl1999high}.
+
+% alignment of Brodman areas (histologically defined)
+``The curvature-based alignment method demonstrated much improved
+macro-anatomical correspondence across brains and provided first evidence of
+improved concomitant alignment of histiologically defined Brodman areas [Fischl
+et al., 2008]'' \citep{frost2012measuring}.
 
 
-``Cortical surface reconstructions from structural MRI have also revealed
-significant interindividual variability in cortical shape and folding [Fischl et
-al., 2008; Hill et al., 2010; Van Essen and Dierker, 2007]''
-\citep{zhen2017quantifying}.
+\paragraph{Surface-based works better}
 
+% high-visual cortex
+A previous study showed ``that for the majority of functionally defined ROIs,
+cortex-based alignment results in lower between-subject variability compared to
+nonlinear volumetric alignment [NVA]'' \citet{rosenke2021probabilistic}.
 
-\paragraph{surface-based improves results}
-
+% intro sentence
 ``Prior work shows that functional regions in high-level visual cortex are
 better aligned to one another after CBA compared to stereotaxic alignment [Frost
 and Goebel, 2012]'' \citep{weiner2018defining}.
 
 
-``Results show that for the majority of functionally defined ROIs, cortex-based
-alignment results in lower between-subject variability compared to nonlinear
-volumetric alignment'' \citet{rosenke2021probabilistic}.
-
-``For retinotopically defined regions, DSCs varied between 0.35 and 0.59 for
-peak probability after CBA, and between 0.30 and 0.42 after NVA.
-%
-Regions with a lower predictability overall tended to show higher predictability
-after NVA for more conservative group thresholds (Fig. 2B, mFus-faces,
-TOS-bodies).
-%
-For CBA, peak predictability (DSC) for each region ranged from 0.1 to 0.60,
-while it ranged from 0.1 to 0.42 for NVA, with character-selective regions
-showing the lowest consistency for both alignments, closely followed by mFus-
-and IOG-faces'' \citet{rosenke2021probabilistic}.
-
-
-``We compare the location of functionally localized regions across subjects
-using different whole-brain alignment schemes'' \citep{frost2012measuring}.
-%
-``We evaluate the degree of spatial correspondence of functionally homologue
-specialized brain areas across subjects with respect to different anatomical
-alignment schemes'' \citep{frost2012measuring}.
-%
-``Volume-based registration techniques are unable to account for individual
-differences in cortical folding'' \citep{frost2012measuring}.
-%
-``Curvature driven cortex based alignment (CBA) scheme largely removes
-macro-anatomical variability across subjects'' \citep{frost2012measuring}.
-%
-``Functional probabilistic maps were calculated in volume (Talairach) space and
-aligned cortex (surface) space based on 10 subjects using 8 localization
-experiments to label 13 functional areas'' \citep{frost2012measuring}.
+A previous study compared ``the location of functionally localized regions
+across subjects using different whole-brain alignment schemes''
+\citep{frost2012measuring}.
 %
 ``We localized 13 widely studied functional areas and found a large variability
 in the degree to which functional areas respect macro-anatomical boundaries
 across the cortex'' \citep{frost2012measuring}.
 %
+``Functional probabilistic maps were calculated in volume (Talairach) space and
+aligned cortex (surface) space based on 10 subjects using 8 localization
+experiments to label 13 functional areas'' \citep{frost2012measuring}.
+%
 ``We substantially reducing macro-anatomical variability of the cortex through
 curvature driven surface alignment'' \citep{frost2012measuring}.
-
-``data show that there is a surprising amount of variability in that not all
-functional areas are tightly bound to anatomical landmarks, i.e. there is no
-general rule describing how macroanatomical and functional areas correlate''
-\citep{frost2012measuring}.
 %
-There is a strong structural-functional correspondence in some areas whilst in
-others the spatial location of the functional area varies greatly across
-subjects within a cortical area'' \citep{frost2012measuring}.
-
-``Whilst it seems that CBA has brought the functional area FEF into alignment,
-there is a substantial amount of variability in FFA''
-\citep{frost2012measuring}.
-
-
-
-
-``The prediction accuracy of our pROI is significantly higher than
-that achieved by volume-based Talairach alignment'' \citep{weiner2018defining}.
+``Curvature driven cortex based alignment (CBA) scheme largely removes
+macro-anatomical variability across subjects'' \citep{frost2012measuring}.
 %
-``CBA generates a group-based probabilistic ROI that maintains the
-structural-functional relationship between place selectivity and cortical
-folding'' \citep{weiner2018defining}.
+``Our results indicate that functional correspondence is substantially improved
+in most investigated specialized areas.
+%
+The application of an advanced surface-based macro-anatomical alignment scheme
+substantially increases statistical power beyond what is achievable with
+standard affine/piece- wise linear volume normalization techniques.''
+\citep{frost2012measuring}
 
-%
-``Results show that cortical folding patterns and probabilistic predictions
-reliably identify place-selective voxels in medial VTC across individuals and
-experiments'' \citep{weiner2018defining}.
-%
-``The tight coupling between cortical folding and place selectivity identified
-in the present study suggests that our pROI can predict place selectivity in the
-human brain with high likelihood using cortex-based alignment methods''
-\citep{weiner2018defining}.
-%
-``This finding is consistent with other recent studies that showed that CBA
-improves the registration of functional data across participants [Benson et al.,
-2012, 2014; Frost and Goebel, 2012]'' \citep{weiner2018defining}.
+
+
+\subsubsection{Remaining variability = functional-anatomical correspondence?}
+
+\todo[inline]{cite just the newest or most relevant}
+
+% definition: functional-anatomical correspondence
+However, location, size and shape of category-selective regions can differ
+across individuals by millimeters or centimeters [\citep{zhen2017quantifying,
+zhen2015quantifying}] \citep{feilong2018reliable}.
+% backup: \citep{spiridon2006location,
+Current surface-based alignment strategies that respect cortical foldings
+\citep{fischl2012freesurfer, yeo2009spherical} can reduce but not eliminate
+\citep[e.g.,][]{coalson2018impact, benson2014correction, natu2021sulcal,
+wang2015probabilistic, frost2012measuring, langers2014assessment, weiner2014mid,
+rosenke2021probabilistic} the variability in \textit{functional--anatomical
+correspondence}, ``the mismatch between brain function and anatomy''
+\citep{feilong2018reliable}, across persons.
+
+
+\subsubsection{For example, \citet{rosenke2021probabilistic}}
+
+\todo[inline]{has \citet{rosenke2021probabilistic} more on PPA?}
+
+% rephrase better: works better with retinotopic areas than category-specific
+% areas
+CBA aligment shows bette results than NVA but similar to NVA similarity across
+subjects is higher ``for retinotopically defined regions, with
+character-selective regions showing the lowest consistency for both alignments,
+closely followed by mFus- and IOG-faces'' \citep{rosenke2021probabilistic}.
+
+
+\subsubsection{For example, \citet{weiner2018defining}}
 
 ``Cortex-based alignment out-performs volume-based alignment of two:
 %
@@ -313,88 +279,35 @@ predictability of place selectivity within medial VTC across participants
 compared to Talairach alignment'' \citep{weiner2018defining}.
 
 
-\paragraph{but still variation: Functional-anatomical correspondence}
-
-\todo[inline]{cite just the newest or most relevant}
-
-% definition: functional-anatomical correspondence
-However, location, size and shape of category-selective regions can differ
-across individuals by millimeters or centimeters [\citep{zhen2017quantifying,
-zhen2015quantifying}] \citep{feilong2018reliable}.
-% backup: \citep{spiridon2006location,
-Current surface-based alignment strategies that respect cortical foldings
-\citep{fischl2012freesurfer, yeo2009spherical} can reduce but not eliminate
-\citep[e.g.,][]{coalson2018impact, benson2014correction, natu2021sulcal,
-wang2015probabilistic, frost2012measuring, langers2014assessment, weiner2014mid,
-rosenke2021probabilistic} the variability in \textit{functional--anatomical
-correspondence}, ``the mismatch between brain function and anatomy''
-\citep{feilong2018reliable}, across persons.
-
-
-\paragraph{examples of studies that compared volume- to surface-based}
-
-\todo[inline]{but still, there is variability after CBA}
-
-\todo[inline]{phrasing from Rosenke regarding remaining variability?}
-
-``[Frost and Goebel 2012] revealed that the PPA demonstrated significant spatial
-variability through constructing the probabilistic atlases of the PPA based on a
-small sample size (N=10)'' \citep{zhen2017quantifying}.
-
-``[Frost and Goebel, 2012] have characterized interindividual variability within
-the SSRs (N=10) that revealed significant spatial variability in the PPA.''
-\citep{zhen2017quantifying}.
+\subsubsection{For example, \citet{frost2012measuring}}
 
 ``Even with an arguably more accurate curvature-based alignment, the variability
 of functional regions remains prominent [Frost and Goebel,
 2012]'' \citep{zhen2015quantifying}.
 
-
-
+%
+``Data show that there is a surprising amount of variability in that not all
+functional areas are tightly bound to anatomical landmarks, i.e. there is no
+general rule describing how macroanatomical and functional areas correlate''
+\citep{frost2012measuring}.
+%
+''There is a strong structural-functional correspondence in some areas whilst in
+others the spatial location of the functional area varies greatly across
+subjects within a cortical area'' \citep{frost2012measuring}.
+%
+``Whilst it seems that CBA has brought the functional area FEF into alignment,
+there is a substantial amount of variability in FFA''
+\citep{frost2012measuring}.
+%
 ``Remaining variability in the observed spatial location of functional regions,
 thus, reflects the "true" functional variability, i.e. the quantified
 variability is a good estimator of the underlying structural–functional
 correspondence'' \citep{frost2012measuring}.
-
-
-
-``Our results indicate that functional correspondence is substantially improved
-in most investigated specialized areas.
 %
-The application of an advanced surface-based macro-anatomical alignment scheme
-substantially increases statistical power beyond what is achievable with
-standard affine/piece- wise linear volume normalization techniques.
-%
-Differences still remain in the location of functional regions after
+``Differences still remain in the location of functional regions after
 curvature-based alignment indicating that not all functional areas are tightly
 bound to anatomical landmarks (Figs. 5, 8 and 9)'' \citep{frost2012measuring}.
 
-
-``Results illustrate that macroanatomical features create a reliable set of
-landmarks that confine place selectivity in medial ventral temporal cortex
-(VTC).
-%
-Data show that place-selective voxels are consistently located within the banks
-of the collateral sulcus (CoS) in individual participants.
-%
-Posteriorly, place-selective voxels seldom extend past the posterior tip of the
-anterior lingual sulcus (ALS) and posterior lingual sulcus (PLS).
-%
-Anteriorly, place-selective voxels often macroanatomically align with the
-anterior tip of the mid-fusiform sulcus (MFS).
-%
-This structural-functional coupling is not always perfect and there is
-inter-subject variability as to how much the place-selective voxels extend
-within the PHG, as well as the LG and medial aspects of the fusiform gyrus (FG).
-%
-Despite this inter-subject variability, place-selective voxels are always
-located within the CoS across participants.
-%
-The consistency between the identification of place-selective voxels and
-cortical folding suggests that it may be possible to use cortex-based alignment
-to generate a group probabilistic ROI that would predict the most probable
-location of place selectivity within VTC in independent participants''
-\citep{weiner2018defining}.
 
 
 \subsubsection{Functional alignment}
@@ -450,7 +363,6 @@ guntupalli2016model}.
 
 
 \subsubsection{Estimation via functional alignment}
-
 %
 Hence, a more promising procedure to estimate the most probable location of a
 functional area in a person's anatomy from a reference group performs --- in
@@ -483,10 +395,7 @@ other subjects' data based on hyperalignment than with maps that were estimated
 based on surface-based, anatomical alignment \citep{jiahui2020predicting}.
 
 
-\subsection{Here, we... (includes SRM now)}
-
-
-\todo[inline]{Emphasize more that this is not just a binary prediction.}
+\subsection{Here, we: Intro}
 
 \todo[inline]{we do way too much, imo emphasis should be on (partial) alignment
 via movie segments to predict PPA from functional localizer; alignment via
@@ -500,9 +409,67 @@ subject (i.e. the \textit{test subject}) based on data from other subjects (i.e.
 the \textit{training subjects}).
 
 
-\subsubsection{Cross-Validation Procedure}
+\subsubsection{similarly to previous studies}
 
-\todo[inline]{Very dense. This could be a full paragraph}
+\todo[inline]{here are similarities, shift dissimilarities down}
+
+%
+``[Frost and Goebel 2012] revealed that the PPA demonstrated significant spatial
+variability through constructing the probabilistic atlases of the PPA based on a
+small sample size (N=10)'' \citep{zhen2017quantifying}.
+%
+``[Frost and Goebel, 2012] have characterized interindividual variability within
+the SSRs (N=10) that revealed significant spatial variability in the PPA.''
+\citep{zhen2017quantifying}.
+
+``The prediction accuracy of our pROI is significantly higher than
+that achieved by volume-based Talairach alignment'' \citep{weiner2018defining}.
+%
+``CBA generates a group-based probabilistic ROI that maintains the
+structural-functional relationship between place selectivity and cortical
+folding'' \citep{weiner2018defining}.
+
+%
+``Results show that cortical folding patterns and probabilistic predictions
+reliably identify place-selective voxels in medial VTC across individuals and
+experiments'' \citep{weiner2018defining}.
+%
+``The tight coupling between cortical folding and place selectivity identified
+in the present study suggests that our pROI can predict place selectivity in the
+human brain with high likelihood using cortex-based alignment methods''
+\citep{weiner2018defining}.
+%
+``Results illustrate that macroanatomical features create a reliable set of
+landmarks that confine place selectivity in medial ventral temporal cortex
+(VTC).
+%
+Data show that place-selective voxels are consistently located within the banks
+of the collateral sulcus (CoS) in individual participants.
+%
+Posteriorly, place-selective voxels seldom extend past the posterior tip of the
+anterior lingual sulcus (ALS) and posterior lingual sulcus (PLS).
+%
+Anteriorly, place-selective voxels often macroanatomically align with the
+anterior tip of the mid-fusiform sulcus (MFS).
+%
+This structural-functional coupling is not always perfect and there is
+inter-subject variability as to how much the place-selective voxels extend
+within the PHG, as well as the LG and medial aspects of the fusiform gyrus (FG).
+%
+Despite this inter-subject variability, place-selective voxels are always
+located within the CoS across participants.
+%
+The consistency between the identification of place-selective voxels and
+cortical folding suggests that it may be possible to use cortex-based alignment
+to generate a group probabilistic ROI that would predict the most probable
+location of place selectivity within VTC in independent participants''
+\citep{weiner2018defining}.
+
+
+\paragraph{cross-validation}
+
+
+\todo[inline]{mih: very dense. This could be a full paragraph}
 
 \todo[inline]{Maybe, shift it down, after SRM explanation}
 
@@ -512,17 +479,24 @@ both a procedure using a volume-based, anatomical alignment as well as a
 procedure using a volume-based, functional alignment in order to predict
 $z$-values within a \ac{roi}.
 
+% my text
+For each subject (the test subject), we create create the common spaces based on
+data from other subjects (the training subjects.
+%
+We then project localizer data through common spaces in the leave-one-out
+
+
 % from Wang
 ``To assess significance, we compared the mean central tendency across subjects
 for the corresponding ROIs in the subject-specific space and the leave-one-out
 FPM with the central tendency for all other FPM ROIs''
 \citep{wang2015probabilistic}.
 
-
+% from Rosenke
 ``We used the Dice coefficient (DSC) and an LOOCV procedure to determine the
 predictability of finding the same region in a new subject''
 \citet{rosenke2021probabilistic}.
-
+%
 ``To allow for a probabilistic estimate to find this region in a new subject, we
 performed an exhaustive LOOCV analysis after the volumetric (NVA) as well as
 surface (CBA) alignment to establish how well our atlas can predict fROIs in new
@@ -531,6 +505,7 @@ subjects.
 For each fold of the LOOCV, we generated a group probabilistic fROI (G) and a
 left-out subject's individual fROI (I)'' \citep{rosenke2021probabilistic}.
 
+% from Weiner
 ``We performed an exhaustive leave-one out cross validation (LOOCV) procedure
 using data from all 24 participants across both studies.
 %
@@ -539,14 +514,27 @@ tested how well it predicted the left out, 24th participant''
 \citep{weiner2018defining}.
 
 
-% my text
-For each subject (the test subject), we create create the common spaces based on
-data from other subjects (the training subjects.
-%
-We then project localizer data through common spaces in the leave-one-out
+
+
+
+
+\subsubsection{differently to previous studies}
+
+\todo[inline]{we do not just predict binary outcome of an probabilistic atlas}
+
+
+
 
 
 \subsubsection{SRM}
+
+\todo[inline]{why did we use SRM?; nicely implemented in BrainIAK; cf. general
+intro on reproducibility); we do not use the fastSRM algo, but it's probably
+still computationally less demanding than hyperalignment; cf. also evaluation of
+algos in \citet{chen2015reduced, bazeille2021empirical}; i.e. ``computational
+efficiency, as the latter is an important consideration for scientists who may
+not have access to specialized hardware''}
+
 
 \todo[inline]{This really needs some kind of schema, or math with proper
 variable names etc.}
@@ -594,7 +582,12 @@ into the test subject's voxel space serving as an estimation (hence, a
 test subject's empirical $Z$-map).
 
 
+
+
+
 \subsubsection{partial alignment}
+
+\todo[inline]{previous studies on PPA used anatomical scans}
 
 Given that a two-hour long stimulation is unsuitable for a clinical setting, we
 critically also assess the relationship between the length of the naturalistic
@@ -604,6 +597,9 @@ subsequent estimation performance.
 Therefore, we use an increasing number of segments of the naturalistic stimuli
 (each lasting $\sim$\unit[15]{m}) to align the test subject to the corresponding
 segments' time points within the \ac{cfs}.
+
+
+
 
 
 \subsubsection{alignment via localizer runs}
