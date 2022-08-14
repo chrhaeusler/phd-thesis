@@ -1351,9 +1351,75 @@ participant'' \citet{jiahui2020predicting}.
 
 \subsubsection{Aim...}
 
+
+``The identification of the PPA is complicated by (at least) four methodological
+considerations:
+%
+1) the PPA definition may depend on the type of experiment, task, and stimuli
+used.
+%
+2) The boundaries of the PPA may depend on the statistical threshold used [which
+we did not not do].
+%
+3) The spatial extent and localization of the PPA may vary if defined within the
+native brain space of an individual or based on a group analysis.
+%
+4) The size of the PPA may depend on data acquisition choices (e.g. large vs.
+small voxels) and data analysis choices (e.g. liberal smoothing vs. no spatial
+smoothing)'' \citep{weiner2018defining}.
+
+
+
 \subsubsection{Methods...}
 
+``Validation of the Atlas with an Independent Dataset.
+%
+To address whether our sample size is sufficient to achieve generalizability to
+new data, we tested how well the visfAtlas predicts fROIs of 12 new subjects.
+%
+These data were acquired using a similar localizer in a different scanning
+facility, identified by independent experiments, and have been published
+previously [Stigliani et al.  2015; Weiner et al. 2017].
+%
+We compared their fROI definitions of mFus-faces, pFus-faces, OTS-bodies,
+pOTS-characters, and CoS-places to our atlas definitions in the following
+ways:
+%
+1) We visualized our MPMs in relation to their probability maps of
+each of the fROIs (Fig. 6), and
+%
+2) we calculated how well our atlas predicted each of their individual
+subjects' fROIs using the Dice coefficient.
+%
+Lastly, to address how the number of subjects affects the accuracy of our
+atlas, we calculated the Dice coefficient for different iterations of the
+atlas in which we incrementally increased the number of subjects from 2 to
+19'' \citep{rosenke2021probabilistic}.
+
+
 \subsubsection{Results...}
+
+
+``Results demonstrate that
+%
+a) the anatomical location of place-selective voxels relative to cortical
+folding is consistent across participants,
+%
+b) the probabilistic ROI identifies the location of the PPA in individual brains
+from multiple independent datasets,
+%
+c) the probabilistic ROI encapsulates voxels in medial VTC exhibiting the
+highest place selectivity in our data as well as shared data from other labs''
+\citep{weiner2018defining}.
+
+``Altogether, results suggest that
+%
+a) our pROI of place selectivity is a robust predictor of the location of high
+place selectivity within medial VTC and
+%
+b) these predictions are generalizable across data collected with different
+scanners, participants, images used for localization, data acquisition, and
+analysis methods'' \citep{weiner2018defining}.
 
 
 \subsection{Model space to reduce variability}
@@ -1453,6 +1519,13 @@ hemisphere in the functional localizer or naturalistic stimulus paradigms.
 amount of spatial smoothing influence the spatial extent of the (p)ROI on the
 cortical surface'' \citep{weiner2018defining}.
 
+%
+``We identify and predict the most probable location of place-selective voxels
+within medial VTC of an individual brain that is impervious to these
+methodological decisions'' \citep{weiner2018defining}.
+
+
+
 \citet{rosenke2021probabilistic} ``selected a statistical threshold of t=3 for a
 whole-brain map.
 %
@@ -1474,7 +1547,7 @@ with the highest place selectivity within medial VTC''
 \citep{weiner2018defining}.
 
 
-\todo[inline]{summarize the essential identical approches in Zhen's studies}
+\todo[inline]{summarize the essential identical approaches in Zhen's studies}
 
 ``Subject-specific SSRs were delineated manually in the parcel unit based on the
 individual activation map from the contrast of scenes versus objects.
@@ -1670,18 +1743,29 @@ Our approach is faster.
 
 \todo[inline]{kind of corresponds to our common functional space}
 
-\todo[inline]{cherry picking: different thresholds; omitting some subjects}
+
+``We provide a quantitative characterization of the inter-subject variability
+within and across visual regions, including the likelihood that a given point
+would be classified as a part of any region (full probability map) and the most
+probable region for any given point (maximum probability map)''
+\citep{wang2015probabilistic}.
+
+``A full probability map (FPM) was generated for each ROI by dividing, at each
+particular node, the number of times that location belonged to that ROI by the
+number of subjects included for that ROI.
+%
+The probability values represent the likelihood that any node in the SBA would
+be classified as part of a given visual area'' \citep{wang2015probabilistic}.
 
 
-\todo[inline]{shift results down (not just prediction via dice?}
 
 ``The atlas accurately predicts the location [but just the location] of an
 independent dataset of ventral temporal cortex ROIs and other atlases of place
 selectivity, motion selectivity, and retinotopy.
 %
 The majority of voxel within our atlas is responding mostly to the labeled
-category in a left-out subject cross-validation, demonstrating the utility of
-this atlas'' \citep{rosenke2021probabilistic}.
+category in a left-out subject cross-validation''
+\citep{rosenke2021probabilistic}.
 
 ``The probability maps determine the probability that each vertex belongs to a
 given fROI.
@@ -1690,11 +1774,11 @@ However, it is possible that a point on the brain may belong to more than one
 probabilistic fROI.
 %
 This overlap is more likely to occur along boundaries of neighboring functional
-regions.
-%
-We generated a maximum probability map (MPM) of each area, once in volume space
-(NVA) and once in surface space (CBA) in order to assign a unique functional
-label to each vertex in the atlas.
+regions'' \citep{rosenke2021probabilistic}.
+
+``We generated a maximum probability map (MPM) of each area, once in volume
+space (NVA) and once in surface space (CBA) in order to assign a unique
+functional label to each vertex in the atlas.
 %
 A maximum probability map (MPM) was calculated for each node by comparing the
 probabilities of all areas at that node and assigning the node to the area with
@@ -1702,14 +1786,8 @@ the highest probability.
 %
 Using the probabilistic fROIs, we determined which vertices were shared by more
 than one probabilistic fROI and assigned these vertices to a single fROI based
-on the area that showed the highest probability at that vertex.
-%
-In cases where two areas held the same probability value for one vertex, we
-averaged the probabilistic values of neighbors of that vertex for each of the
-fROIs.
-%
-The degree of neighbors averaged was increased until the vertex had a higher
-probability value in one of the areas'' \citep{rosenke2021probabilistic}.
+on the area that showed the highest probability at that vertex''
+\citep{rosenke2021probabilistic}.
 
 ``We established that a [probabilistic] group map threshold of 0.2 allows for
 greatest predictability across regions by systematically varying the group map
@@ -1720,12 +1798,9 @@ cortex by generating an MPM'' \citep{rosenke2021probabilistic}.
 
 
 
-
-
-
-``Probabilistic maps were then generated by summing the 12 fROIs at each point
-along the cortical surface of the FS average brain and dividing by the number of
-participants.
+``Probabilistic maps were then generated by summing the 12 fROIs [from 12
+participants] at each point along the cortical surface of the FS average brain
+and dividing by the number of participants.
 %
 Each vertex within the map reflects the proportion of participants exhibiting
 place selectivity at that location on the cortical surface''
@@ -1741,7 +1816,10 @@ selectivity in a new group of participants.
 %
 (3) thresholded by 66\% overlapping participants.
 %
-A threshold of 0.33 is sufficient for predicting functional ROIs in VTC''
+We used these three different thresholds to test if and how different threshold
+values influence the predictability of place selectivity in a new group of
+participants. Based on related work [Weiner et al., 2017], a threshold of 0.33
+is sufficient for predicting functional ROIs in VTC''
 \citep{weiner2018defining}.
 
 ``Probabilistic ROI identifies voxels exhibiting highest BOLD responses to
@@ -1763,35 +1841,16 @@ scenes compared to cars, abstract objects, faces, and textures''
 \citep{weiner2018defining}.
 
 
-``There is a fundamental difference between the probability map of
-place-selective ROIs (Fig. 2) and the selectivity maps (Figs.  4 and 5).
-%
-The map of pROIs across subjects is generated after assigning either a 1 (if the
-ROI is present) or a 0 (if the ROI is not present) at vertices of the FS average
-surface.
-%
-In the pROI case, there is a threshold and the group map does not reflect
-selectivity and instead represents the percentage of overlap across subjects at
-each vertex.
-%
-The selectivity map reflects a continuous metric in which a vertex is assigned a
-selectivity value (a t-statistic) first for each subject and then averaged
-across subjects.
-%
-The selectivity map is not thresholded and the group map directly indicates
-selectivity (each vertex reflects the average t-value across subjects)''
-\citep{weiner2018defining}.
-
 
 ``Probabilistic ROI identifies the location of 'peak' place selectivity in over
 500 participants:
 %
-A related experimental question is whether this pROI captures the 'peak' voxels
-exhibiting the highest place selectivity in medial VTC.
+The question is whether this pROI captures the 'peak' voxels exhibiting the
+highest place selectivity in medial VTC.
 %
 We first generated a group map of place selectivity across our 24 participants
-to visualize the locus of peak place selectivity across subjects and experiments
-used to generate the pROI.
+to visualize the locus of peak place selectivity across subjects and
+experiments.
 %
 We used CBA to generate an average map of selectivity in which vertices are
 assigned continuous values of place selectivity rather than a binary distinction
@@ -1800,10 +1859,8 @@ as in the probability maps from the prior analyses.
 We then visualized the group place selectivity map relative to the group pROI
 from all 24 participants (Fig. 4).
 %
-Consistent with prior research [Baldassano et al., 2013; Epstein, 2008; Nasr et
-al., 2011; Silson et al., 2016] the group map illustrates place selectivity
-within the CoS, LG, PHG, the parietal occipital sulcus (POS), and retrosplenial
-cortex (RSC).
+The group map illustrates place selectivity within the CoS, LG, PHG, the
+parietal occipital sulcus (POS), and retrosplenial cortex (RSC).
 %
 Weakly place-selective voxels (t-values greater than 0 and less than 2) extend
 into the medial fusiform gyrus and more posteriorly along the CoS.
@@ -1813,9 +1870,9 @@ CoS in the right hemisphere and close to the center of our pROI near the fundus
 of the CoS in the left hemisphere (Fig. 4A).
 %
 The locus of peak place selectivity is within the group pROI (Fig. 4A-black
-contour).
-%
-Examining the location of our pROI relative to the peak cluster of place
+contour)'' \citep{weiner2018defining}.
+
+``Examining the location of our pROI relative to the peak cluster of place
 selectivity in individual participants shows that there are individual
 differences in the location of voxels with highest place selectivity (Fig.
 4B-C):
@@ -1832,21 +1889,44 @@ selectivity in our own data, but also identifies voxels exhibiting the highest
 place selectivity in independent datasets from over 500 participants''
 \citep{weiner2018defining}.
 
+``There is a fundamental difference between the probability map of
+place-selective ROIs and the selectivity maps (Figs. 4 and 5).
+%
+The map of pROIs across subjects is generated after assigning either a 1 (if the
+ROI is present) or a 0 (if the ROI is not present) at vertices of the FS average
+surface.
+%
+In the pROI case, there is a threshold and the group map does not reflect
+selectivity and instead represents the percentage of overlap across subjects at
+each vertex.
+%
+The selectivity map reflects a continuous metric in which a vertex is assigned a
+selectivity value (a t-statistic) first for each subject and then averaged
+across subjects.
+%
+[!] The selectivity map is not thresholded and the group map directly indicates
+selectivity (each vertex reflects the average t-value across subjects)''
+\citep{weiner2018defining}.
+
+
+
 
 ``To characterize the spatial interindividual variability (of spatial
 topography) of SSRs, a probabilistic atlas (or map) was first created for each
 SSR, by calculating the frequency of a respective SSR being present at a given
 position across all subjects.
 %
-The map coded the occurrence probability of each voxel being located in the SSR.
-%
-Thus, it provides a voxel-wise description for inter-individual variability in
-the location and extent'' \citep{zhen2017quantifying}.
+The map coded the occurrence probability of each voxel being located in the SSR,
+and provides a voxel-wise description for inter-individual variability in the
+location and extent'' \citep{zhen2017quantifying}.
 
-``We constructed the first probabilistic atlases for the SSRs, which provide the
-detailed anatomical reference
-%
-Maximum-probability maps define the most likely SSR to which each voxel
+``Because the probabilistic maps of adjacent SSRs (e.g., PPA and RSC) overlapped
+to some degree in the periphery, a maximum-probability map (MPM) was then
+created to obtain an integrated, non-overlapping map for all SSRs''
+\citep{zhen2017quantifying}.
+
+
+``Maximum-probability maps define the most likely SSR to which each voxel
 belonged.
 %
 Each MPM integrates the multiple probabilistic SSR maps into one map, and to
@@ -1863,11 +1943,7 @@ The voxels with a maximal probability below 10\% were set to 0, indicating that
 they most likely did not belong to any SSR'' \citep{zhen2017quantifying}.
 
 
-``Because the probabilistic maps of adjacent SSRs (e.g., PPA and RSC) overlapped
-to some degree in the periphery, a maximum-probability map (MPM) was then
-created to obtain an integrated, non-overlapping map for all SSRs.
-%
-The MPM revealed a clear topographical relationship between these SSRs (Fig.
+``The MPM revealed a clear topographical relationship between these SSRs (Fig.
 3B).
 %
 PPA was located on the lips of the collateral sulcus and the parahippocampal
@@ -1881,16 +1957,17 @@ TOS occupied the lateral occipital gyrus and the transverse occipital sulcus''
 
 
 
+
 ``A probabilistic atlas of the FSRs was created by calculating the probability
 of a respective FSR being present at a given position to characterize the
 interindividual variability of the locations and extents (or borders) of the
 FSRs.
 %
-The probabilistic atlas consists of a set of 12 probability maps that reflect
-the interindividual variability of the respective FSRs.
+The probabilistic atlas consists of a set of 12 probability maps [12 FSR] that
+reflect the interindividual variability of the respective FSRs.
 %
 High interindividual variability was observed for all FSRs: no one voxel showed
-a 100-percent chance of being in one of the FSRs across subjects (Fig. 4A, a).
+a 100-percent chance of being in one of the FSRs across subjects.
 %
 Maximum probability that a voxel belonged to an FSR ranged from 0.24 (left aFFA)
 to 0.74 (right pSTS) (Table 1).
@@ -1901,29 +1978,6 @@ Voxels in the center of the right FSRs usually had a larger probability than
 those of their left counterparts, especially for pFFA, pcSTS, and pSTS (Fig.
 4A), suggesting that the FSRs in the left hemisphere have a larger variability
 in terms of anatomical location'' \citet{zhen2015quantifying}.
-
-
-``The probabilistic maps of adjacent FSRs showed overlaps to some extent in the
-periphery.
-%
-To classify each voxel to the most likely region, an MPM was created to obtain a
-non-overlapping representation of the FSRs.
-%
-MPM represents multiple FSRs in one volume, which reveals a basic topographical
-pattern of these FSRs (Fig. 4B)'' \citet{zhen2015quantifying}.
-
-``The interindividual variability of peak location of FSRs reportedly ranged
-from several millimeters to centimeters [Fox et al., 2009; Kanwisher et al.,
-1997; Pinsk et al., 2009].
-%
-Interindividual variability in the volume of FSRs was also examined either in
-subjects' native space [Kanwisher et al., 1997; Pinsk et al., 2009] or by fixing
-the size of the FFA at 200 mm3 [Rossion et al., 2012], resulting in a finding
-that the interindividual variability of the volume (i.e., the SD of the volume
-measurements) is approximately equal to or greater than the mean volume of each
-FSR'' \citet{zhen2015quantifying}.
-
-
 
 ``A probabilistic atlas was constructed to characterize interindividual
 variability of FSRs revealing that the FSRs were highly variable in location and
@@ -1945,6 +1999,8 @@ being located in the FSR, thus giving a measure of the variability in location
 and extent of the FSR over subjects at voxel-level resolution''
 \citep{zhen2015quantifying}.
 
+
+
 ``A maximum-probability map (MPM) was constructed to summarize the probabilistic
 maps of all FSRs into one volume because of the interindividual variability,
 probabilistic maps from adjacent FSRs often showed some overlap.
@@ -1965,21 +2021,14 @@ represented all FSRs in a continuous, but non-overlapping manner in one
 volume'' \citep{zhen2015quantifying}.
 
 
-
-``We provide a quantitative characterization of the inter-subject variability
-within and across visual regions, including the likelihood that a given point
-would be classified as a part of any region (full probability map) and the most
-probable region for any given point (maximum probability map)''
-\citep{wang2015probabilistic}.
-
-
-``A full probability map (FPM) was generated for each ROI by dividing, at each
-particular node, the number of times that location belonged to that ROI by the
-number of subjects included for that ROI.
+``The probabilistic maps of adjacent FSRs showed overlaps to some extent in the
+periphery.
 %
-The probability values represent the likelihood that any node in the SBA would
-be classified as part of a given visual area'' \citep{wang2015probabilistic}.
-
+An MPM was created to obtain a non-overlapping representation of the FSRs in
+order to classify each voxel to the most likely region:
+%
+MPM represents multiple FSRs in one volume, which reveals a basic topographical
+pattern of these FSRs (Fig. 4B)'' \citet{zhen2015quantifying}.
 
 
 
@@ -2002,14 +2051,10 @@ regions as "overlap" where only one subject has a functional area''
 
 
 
-\subsubsection{Prediction: $z$-maps vs. Dice}
+\subsubsection{Prediction: Dice (others) vs. $z$-maps (us)}
 
 
-\paragraph{We: $z$-maps}
 
-\todo[inline]{probabilistic atlas only allow binary classification of voxels}
-
-\todo[inline]{probabilistic atlases are problematic when regions overlap}
 
 
 \paragraph{Others: Dice (explanation)}
@@ -2019,7 +2064,6 @@ the Dice coefficient (DSC), a measure of similarity of two samples:
 %
 a Dice coefficient of zero indicates no predictability and a Dice coefficient of
 1 indicates perfect predictability'' \citep{rosenke2021probabilistic}.
-
 
 ``The Dice coefficient is calculated with the following formula:
 %
@@ -2032,10 +2076,11 @@ individual subjects would result in a Dice coefficient of 1 and complete
 misclassification would result in a Dice coefficient of 0''
 \citep{weiner2018defining}.
 
-``To assess the correspondence between the probabilistic ROI and
-individually-defined ROIs in independent participants, we calculated the Dice
-coefficient to determine how well our probabilistic ROIs from Study 1 predicted
-each individually-defined ROI from Study 2 on the FS average brain''
+
+``We calculated the Dice coefficient to assess the correspondence between the
+probabilistic ROI and individually-defined ROIs in independent participants, and
+determine how well our probabilistic ROIs from Study 1 predicted each
+individually-defined ROI from Study 2 on the FS average brain''
 \citep{weiner2018defining}.
 
 ``We calculated a ceiling (the empirically best dice coefficient given the noise
@@ -2060,16 +2105,6 @@ given voxel/vertex is enough to assign it to the group map) map to a
 conservative threshold where all N-1 subjects had to share a voxel/vertex to be
 assigned to the group map'' \citet{rosenke2021probabilistic}.
 
-``We applied different threshold levels to the group probabilistic fROI (G) to
-predict the location of the left-out subject.
-%
-We created a liberal group probabilistic fROI including each vertex
-that was present in at least 1 subject.
-%
-We sequentially increased the threshold up to the most conservative
-threshold where all subjects had to share a voxel/vertex for it to be included
-in the group map'' \citet{rosenke2021probabilistic}.
-
 ``We compared Dice coefficients across the two alignment methods using a
 repeated measures analysis of variance with individual regions as different
 entries, alignment method (CBA vs. NVA) as within-subject factor, and hemisphere
@@ -2093,37 +2128,25 @@ showed a significant Dice coefficient for either alignment (NVA or CBA)''
 \citep{rosenke2021probabilistic}.
 
 
-
-``Since the 33\% thresholded pROI performed the best in the prior analyses
-[which one?], we used this threshold for the present (and subsequent) analyses.
+``We used the Dice coefficient metric to quantify how well pROIs predict
+functionally-defined ROIs in an independent group of participants [by
+calculating] the amount of spatial correspondence between the two regions in
+individual brains.
 %
-Results again revealed high predictability in the right and left hemisphere
-(about 0.70), which was not different than the ceiling performance (all ts < .7,
-all ps > .5; Fig. 2D).
+We measured cross-validation performance at three threshold levels (no
+threshold, 33\%, and 66\%) using group pROIs from Study 1 and individual ROIs
+from Study 2 and vice versa.
 %
-Thus, cross-validated performance from 23 participants is not significantly
-different than the ceiling performance, which provides statistical evidence
-supporting that the structural-functional predictability from our participants
-likely reflects a predictability that is reflective of the general population.
-%
-Together, analyses reveal that the group pROI maintains the
-structural-functional coupling observed in individual participants and it is
-possible to predict the location of place-selective voxels in medial VTC from
-cortical folding alone'' \citep{weiner2018defining}.
-
-``To quantify how well pROIs predict functionally-defined ROIs in an independent
-group of participants, we used the Dice coefficient metric to calculate the
-amount of spatial correspondence between the two regions in individual brains.
-%
-We did this analysis using group pROIs from Study 1 and individual ROIs from
-Study 2 and vice versa, measuring cross-validation performance at three
-threshold levels (no threshold, 33\%, and 66\%).
-%
-The ceiling Dice coefficient in our data is 0.73 in the left hemisphere
-and 0.72 the right hemisphere'' \citep{weiner2018defining}.
+The ceiling Dice coefficient in our data is 0.73 in the left hemisphere and 0.72
+the right hemisphere'' \citep{weiner2018defining}.
 
 ``Results of the cross-validation analysis reveal that our pROI predicts
 individual ROIs with high accuracy across hemispheres.
+%
+The unthresholded ROI had the lowest predictability (about 0.56 left and right)
+and the 66\% thresholded ROI had an intermediate predictability (about 0.60 left
+and right); all were significantly lower than the ceiling performance (all ts >
+4.5, all ps < 10-4)
 %
 At a threshold of 33\%, the Dice coefficient is 0.70 +/- 0.03 in the right
 hemisphere and 0.65 +/- 0.03 in the left.
@@ -2133,56 +2156,112 @@ ceiling performance in both hemispheres (all ts > 3.3, all ps < 0.003).
 %
 A more lenient pROI (an unthresholded ROI) as well as a more stringent ROI (a
 thresholded ROI at 66\%) also revealed Dice coefficients larger than 0.5, with
-numerical values varying with threshold.
-%
-The unthresholded ROI had the lowest predictability (about 0.56 left and right)
-and the 66\% thresholded ROI had an intermediate predictability (about 0.60 left
-and right); all were significantly lower than the ceiling performance (all ts >
-4.5, all ps < 10-4)'' \citep{weiner2018defining}.
+numerical values varying with threshold'' \citep{weiner2018defining}.
 
+
+``Since the 33\% thresholded pROI performed the best in the prior analyses
+[Weiner, 2016?], we used this threshold for the present (and subsequent)
+analyses.
+%
+Results revealed high predictability in the right and left hemisphere (about
+0.70), which was not different than the ceiling performance (all ts < .7, all ps
+> .5; Fig. 2D).
+%
+Cross-validated performance from 23 participants is not significantly different
+than the ceiling performance.
+%
+This provides statistical evidence supporting that the structural-functional
+predictability from our participants likely reflects a predictability that is
+reflective of the general population'' \citep{weiner2018defining}.
+
+``In summary, analyses revealed that the group pROI maintains the
+structural-functional coupling observed in individual participants and it is
+possible to predict the location of place-selective voxels in medial VTC from
+cortical folding alone'' \citep{weiner2018defining}.
+
+
+\paragraph{We: $z$-maps}
+
+\todo[inline]{probabilistic atlas only allow binary classification of voxels}
+
+\todo[inline]{probabilistic atlases are problematic when regions overlap}
+
+``Future studies may generate more sophisticated atlases, which contain not only
+a unique tiling of cortical regions but also allow for multiple functional
+clusters to occupy overlapping areas and indicate probabilities for multiple
+categories at each voxel'' \citep{rosenke2021probabilistic}.
+
+
+
+
+
+
+
+
+\subsection{Prediction of auditory PPA (via movie or audio-description}
+
+\subsubsection{We found the visual PPA in x subjects}
+
+% usually, visual PPA works pretty well
+The visual \ac{ppa} can be reliably localized using a localizer.
+%
+For example, \citet{zhen2017quantifying} successfully delineated the left- and
+right hemispheric \acp{ppa} in 97.5\% of 202 subjects.
+
+% localizer data
+\citet{sengupta2016extension} successfully delineated the left-hemispheric
+\ac{ppa} in X of X subjects and right-hemispheric \ac{ppa} in X of X subjects
+based on localizer data
+
+% movie
+\citet{haeusler2022processing} successfully delineated the left-hemispheric
+\ac{ppa} in X of X subjects and right-hemispheric \ac{ppa} in X of X subjects
+based on movie data.
+%
+But the modeling was adventurously in the first place and a proof of concept.
+
+
+\subsubsection{We found the auditory PPA in y subjects}
+
+% audio-description
+Using the audio-description's data, \citet{haeusler2022processing} successfully
+delineated the left-hemispheric \ac{ppa} in X of X subjects and
+right-hemispheric \ac{ppa} in X of X subjects.
+
+\todo[inline]{check: in those subjects who do not have an "auditory PPA" in the
+(specific) modeled contrast: is prediction performance of not just the auditory
+but also visual PPA worse? Is the response pattern simply not there or just
+poorly modeled poorly in \citet{haeusler2022processing}}
+
+
+\subsubsection{Estimation Results}
+
+
+\subsubsection{Two open questions}
+
+%
+There are two questions:
+%
+1) Is it a modeling problem in \citet{haeusler2022processing}, or
+%
+2) do the subjects simply do not give a shit about auditory spatial
+information? Are they simply not attending to it? Or are they simply incapable
+to process it?
+
+%
+Response in PPA during AO might be different (cf. study in chapter 3).
+
+%
+If the response pattern is simply not occurring in these subjects then
+individual differences in brain patterns might reflect differences in behavior
+
+\todo[inline]{at the moment, the text regarding individual differences in brain
+activation possibly correlating with behavior is in the general discussion where
+PPA is recapitulated}
 
 
 
 \subsection{Alignment via Localizer Runs}
-
-
-\paragraph{from project proposal}
-%
-``While the functional alignment can also be applied to fMRI data from
-stimulation paradigms with simplified stimuli, the transformations for
-functional alignment have greatly diminished general validity
-\citep{haxby2011common}, presumably because such experiments sample a sparser
-range of brain states \citep{guntupalli2016model}'' [project proposal].
-%
-Naturalistic stimuli promise an ``increased validity of derived transformation
-for functional alignment by sampling a more diverse set of mental states that
-reflect (confound) statistics of the natural environment, and enable
-investigation of the acquired data for a variety of research questions (e.g.
-visual or auditory perception, spatial cognition; emotion; music, speech or
-social perception)'' [project proposal].
-
-
-\paragraph{from Haxby's group}
-
-%
-Naturalistic stimuli sample a broader range of brain states paradigms
-with simplified stimuli \citep{guntupalli2016model, haxby2011common} promising
-an increased validity of transformations of functional alignment and increased
-generalizability to [research questions/domains/paradigms].
-
-%
-``Estimating the parameters to transform high-dimensional spaces from individual
-brains into a common high-dimensional space requires a rich set of data that
-samples a wide variety of cortical patterns in order to generalize to novel
-stimuli or tasks.
-%
-For response hyperalignment, a rich variety of stimuli or conditions are
-necessary to sample the response vector space.
-%
-For connectivity hyperalignment, the sampling of connectivity vector space is
-defined by the selection of connectivity targets, but the richness and
-reliability of connectivity estimates depends on the variety of brain states
-over which connectivity is estimated'' \citep{haxby2020hyperalignment}.
 
 %
 ``The algorithm also can be applied to simpler, controlled experimental data,
@@ -2192,148 +2271,51 @@ does not generalize well to new stimuli in other experiments (Haxby et al.
 2011)'' \citep{guntupalli2016model}.
 
 %
+``Estimating the parameters to transform high-dimensional spaces from individual
+brains into a common high-dimensional space requires a rich set of data that
+samples a wide variety of cortical patterns in order to generalize to novel
+stimuli or tasks.
+%
+For response hyperalignment, a rich variety of stimuli or conditions are
+necessary to sample the response vector space'' \citep{haxby2020hyperalignment}.
+
+%
+Hence, we also performed functional alignment based on a stimulation paradigm
+using simplified stimuli [the localizer].
+
+%
+Our results show that is works not as good as using the transformation matrices
+based on data from the naturalistic paradigms.
+
+%
+Results are in line with previous studies \citep{haxby2011common,
+guntupalli2016model} that have shown that transformation matrices calculated
+using data from simple paradigms have greatly diminished general validity [we
+predict both localizer PPAs and naturalistic stimuli PPAs], presumably because
+such experiments sample a sparser range of brain states
+\citep{guntupalli2016model}''.
+
+%
 ``Hyperalignment of data using a set of stimuli that is less diverse than the
 movie is effective, but the resultant common space has validity that is limited
 to a small subspace of the representational space in VT cortex''
 \citep{haxby2011common}.
 
-
-\subsection{Prediction of auditory PPA (via movie or audio-description}
-
-\paragraph{intro: visual PPA in localizers, our localizer, and movie}
-
-% usually, visual PPA works pretty well
-``SSRs were successfully delineated in a large proportion of subjects: PPA (RH:
-97.5\%, and LH: 97.5\%), RSC (RH: 96.5\%, and LH: 98.0\%), and TOS (RH: 89.1\%,
-and LH: 89.6\%)'' \citep{zhen2017quantifying}.
-
-\todo[inline]{\% of left and right hemisphere in the visual localizer}
-
-\todo[inline]{\% of left and right hemisphere of visual PPA in PPA study}
-
-\paragraph{auditory PPA}
-
-\todo[inline]{\% of left and right hemisphere of auditory PPA in PPA study}
-
-\todo[inline]{in general: is it a modeling problem in the PPA study? or, do the
-subjects simply not give a shit about auditory spatial information? in those
-subjects who do not have an "auditory PPA" in the (specific) modeled contrast,
-the prediction performance of not just the auditory but also visual PPA should
-be worse; meaning: the response pattern is not there (and not just poorly
-modeled}
-
-Response in PPA during AO might be different (cf. study in chapter 3).
 %
-Why do some people do not have a AO PPA? Do simply do not give a shit
-about spatial information in AO due to missing task?
+Hence, results provide further evidence that naturalistic stimuli promise an
+increased validity of derived transformation for functional alignment
 %
-check: is it different in these persons in AV?
+because they sample a more diverse set of mental states that reflect (confound)
+statistics of the natural environment.
 %
-We probably need studies that take a closer look at auditory PPA using
-complementary dedicated experiments.
+Hence, they enable investigation of the acquired data for a variety of research
+questions (e.g.  visual or auditory perception, spatial cognition; emotion;
+music, speech or social perception).
 
 
-\subsection{Inter-individual differences / variability}
-
-\todo[inline]{problem: we have a couple of subjects that seem to simply do not
-give a fuck about spatial information in audio-description? not paying attention
-to it? not prone to it?}.
-
-
-\paragraph{In general}
-
-``Divergent patterns of brain organization from the most common pattern (that
-is, changes in the spatial arrangement of cortical regions) can be observed in
-approximately 5–10\% of the healthy population [16,19], and care should
-therefore be taken to avoid the undue influence of such outliers''
-\citep{eickhoff2018imaging}.
-
-%
-``Topological outliers, if they do not result from artefacts, can also be
-considered to be interesting cases of inter-individual variability to understand
-brain–phenotype relationships [98]'' \citep{eickhoff2018imaging}.
-%
-``Recent studies have suggested that the topography (location and size)
-of individual-specific brain parcellations is predictive of individual
-differences in demographics, cognition, emotion and personality [3,5,99]''
-\citep{eickhoff2018imaging}.
-%
-``Only by understanding the generic characteristic of topographic organization
-can we start to appreciate idiosyncrasies and their relationships to
-socio-demographic, cognitive or affective profiles''
-\citep{eickhoff2018imaging}.
-
-``Interindividual variability of functional regions in both functional and
-spatial features should reflect brain function to some extent, and thus is a
-rich and important source of information for revealing the neural basis of human
-cognition and behavior [Kanai and Rees, 2011; Zilles and Amunts, 2013]''
-\citep{zhen2015quantifying}.
-
-
-\paragraph{category-specific areas}
-
-\todo[inline]{audio PPA; processing oral way description and using it for
-planing, remembering, executing navigation}
-
-% PPA
-``The spatial and selectivity variability of the SSRs may likely underlie
-individual differences in navigation, especially when scene perception is being
-utilized.
-%
-Future studies will be needed to elaborate on the mechanism and functional
-significance of the interindividual variability of the SSRs and to utilize the
-variability in understanding the neural mechanisms of scene perception [Kanai
-and Rees, 2011; Van Horn et al., 2008]'' \citep{zhen2017quantifying}.
-
-% FFA
-``Interindividual functional variability likely provides a neural basis for
-interindividual differences in face recognition.
-%
-a) individual differences in face selectivity of the OFA and FFA predict
-differences in behavioral performance in face recognition [Furl et al., 2011;
-Huang et al., 2014].
-%
-b) differences in the volume of the FFA were found to account for the
-developmental differences in face recognition memory [Golarai et al., 2007]''
-\citep{zhen2015quantifying}.
-
-
-\paragraph{future studies are necessary}
-
-Future studies need to elaborate on the significance of the variability of
-functional regions and utilize this variability to explore the neural mechanisms
-of specific behavioral or cognitive processes [Van Horn et al., 2008]''
-\citep{zhen2015quantifying}.
-
-Our study ``invites future work on the origin of the variability and its
-relation to individual differences in behavioral performance''
-\citep{zhen2015quantifying}.
-
-
-\subsection{sample size: variability of the \ac{cfs}}
-
-\todo[inline]{so far, just a plot of one subject shows the correlation of shared
-responses within the \ac{cfs}.}
-
-\todo[inline]{can/should that variability somehow be quantified?}
-
-\todo[inline]{of course, replication, bigger sample, and stuff! Which is
-transition to ``Future questions''}
-
-We change 1/13 of the data for every of the 13 \acp{cfs}.
-%
-Our model space varies across test subject (s. correlations of shared responses
-within the \ac{cfs} suggesting the small sample is causing variable estimates.
-%
-Hence, of course, future studies, should create a \ac{cfs} based on data from
-more subjects.
-
-
-
-\subsubsection{Localizer is ``ground truth''}
+\subsubsection{In all cases: tacit assumption that localizer = ground truth}
 
 \todo[inline]{essentially issues of reliability \& validity}
-
 
 ``The tacit assumption is that the same task in the same subject will identify
 essentially the same set of voxels despite various sources of physiological and
@@ -2346,164 +2328,23 @@ set of voxels may not correspond well to those being tested in the main
 experimental run, decreasing sensitivity and increasing both false positives and
 false negatives'' \citep{duncan2009consistency}.
 
-``The low power of the localizer data may cause some variability.
-%
-Our functional localizer consists of three runs that take a relatively short
-scanning period (~ 10 min).
-%
-Results from previous studies have revealed that this amount of data can well
-localize the FSRs in individuals (70–80\% overlap with the gold standard from a
-random-effects analysis of ten runs), the low signal-to-noise ratio of fMRI may
-still lead to some unreliable FSR identifications [Kawabata Duncan and Devlin,
-2011; Swallow et al., 2003]'' \citep{zhen2015quantifying}.
+\todo[inline]{check \citet{jiahui2020predicting}'s supplemental materials
+regarding PPA}
 
-
-``The introduction of dynamic videos of faces and control categories to localize
-face-selective topographies provides more reliable maps and better estimate the
-extent of face-selective regions than do localizers with still image stimuli
-[Fox et al., 2009; Pitcher et al., 2011]'' \citep{jiahui2020predicting}.
-
+% take a more robust dynamic localizer using short videos
 ``The dynamic localizer (in Grand Budapest data set) was significantly more
 reliable than the static localizer (in studyforrest data set) (t(34) = 3.76, p <
 0.001) despite its shorter length (four 234s runs versus four 312s runs,
 respectively)'' \citep{jiahui2020predicting}.
-
-
-\subsubsection{Volume-based registration vs. surface-based normalization}
-
-\todo[inline]{could be the transition to future questions}
-
-
-\paragraph{open science-specific}
-
-Sengupta published results of analyses that were compared in voxel space.
 %
-``Opportunity costs'': I could have run the analyses/contrasts on the surface
-but that needs time.
-%
-Is also a ``problem'' of data sharing: you save time and money (especially if
-you do not collect the data yourself) but you have to trust that the data are
-``good'' and start at some point to reach goals that you would not accomplished
-if you would have done all from scratch (i.e. preprocessing).
-
-
-\paragraph{in general}
-
-\todo[inline]{we compare volume-based anatomical alignment to volume-based
-functional alignment}
-
-\todo[inline]{might even be "better" because we are nearer on the raw data
-'cause we stay in voxel-space; others project their pROIs back from surface to
-voxel which might not be "perfect"?}
-
-
-``Our previous work quantifying the relationship between cortical folding and
-face-selective regions showed that surface-based predictions out-performed
-predictions based on stereotaxic coordinates [Weiner et al., 2014][used just
-affine?]'' \citep{weiner2018defining}.
-
-``We generated separate (group) probabilistic ROIs (pROIs) from the 12
-participants in Study 1 and the 12 participants in Study 2.
-%
-Probabilistic ROIs were generated using cortex-based alignment (CBA) in
-FreeSurfer (Fischl et al., 1999].
-%
-The cortical surface of each of our 12 participants was aligned to the
-FreeSurfer average surface (from 39 healthy adults not used in our study) using
-a high-dimensional nonlinear registration algorithm.
-%
-We then transformed functional ROIs (fROIs) from each subject to the FreeSurfer
-(FS) average brain'' \citep{weiner2018defining}.
-
-
-``We repeated our leave-one-out cross-validation procedure across all 24
-participants with an affine volume-based registration to the Talairach brain and
-compared this performance to the same procedure implemented with CBA in
-FreeSurfer (Fig. 2D)'' \citep{weiner2018defining}.
-
-
-``The volume-based registration that was used to define the individual SSR and
-generate the probabilistic atlases does not model the cortical surface,
-and may fail to match the fine anatomy between subjects.
-%
-Residual macro-anatomical variability from volume-based registration may
-confound the measured spatial variability of the SSRs''
-\citep{zhen2017quantifying}.
-
-
-``A high-dimensional non-linear registration method was used to remove
-macro-anatomical variability.
-%
-A more advanced alignment scheme needs to be developed to better remove
-macro-anatomical variability [Avants et al., 2011; Frost and Goebel, 2012,
-2013], although perfect alignment of any two brains may not possible [Juch et
-al., 2005; Van Essen and Dierker, 2007]'' \citep{zhen2015quantifying}.
-
-
-\subsubsection{Remaining variability}
-
-
-``Other sources of spatial variability may remain in the present probabilistic
-maps, one of which may be intra-subject variability.
-%
-Intra-subject variability is the slight variance in location of activation
-observed in one subject, under the same experimental conditions, across separate
-scanning sessions.
-%
-It has been reported that intra-subject variability, as examined by a set of
-localizing paradigms of high level visual areas, was on a subvoxel level [Peelen
-and Downing, 2005].
-%
-[Duncan et al. (2009] indicated that the spatial location of functional areas
-can vary slightly within the same subject across sessions but notes that
-intra-subject variability can be minimized by using relaxed thresholds.
-%
-We utilized robust localizers of well studied areas and not applying strict
-thresholds which should have kept intra-subject variability at a minimum
-according to these previous studies'' \citep{frost2012measuring}.
-
-
-``The remaining variability in the spatial location of FFA is likely to be
-caused by two factors.
-%
-1) CBA aligns macro-anatomical curvature.
-%
-There is much less alignment force along the length of a sulcus or gyrus (rather
-constant curvature values) than perpendicular to its extension (varying
-curvature values) leading to less good alignment of FFA along the fusiform
-gyrus.
-%
-The anterior to posterior variability remains after CBA whilst the medial to
-lateral variability has been reduced substantially by macro-anatomical alignment
-(Fig. 11).
-%
-2) another explanation for the remaining variability in the case of FFA may be
-that there is not one single area active in the fusiform gyrus when running a
-standard FFA localizer and that a different subregion, activated by the FFA
-localizing paradigm may be selected as "FFA" in different subjects [cf. Weiner
-and Grill-Spector, 2010].
-%
-This would indicate that the observed variability along the fusiform gyrus
-reflects micro-anatomical (i.e.  cytoarchitectonic) differences [Eickhoff et
-al., 2005] which are unobservable in vivo.
-%
-Indeed published probabilistic cytoarchitectonic maps show similar variability
-in spatial extent and location of micro-anatomically defined areas''
-\citep{frost2012measuring}.
-
-``In particular the spatial location of "Broca's area" has been shown to be
-highly variable [Amunts et al., 2004], even when individual curvature has been
-taken into account [Fischl et al., 2008]'' \citep{frost2012measuring}.
-
-``A similar investigation into the variability of hOc5, thought to be the
-micro-anatomically defined area which is functionally known as hMT+, also shows
-a similar variability profile as the map of hMT+ in the present study [Malikovic
-et al., 2007]'' \citep{frost2012measuring}.
-
+Hence, ``The introduction of dynamic videos of faces and control categories to
+localize face-selective topographies provides more reliable maps and better
+estimate the extent of face-selective regions than do localizers with still
+image stimuli [Fox et al., 2009; Pitcher et al., 2011]''
+\citep{jiahui2020predicting}.
 
 
 \subsection{Future questions}
-
 
 \subsubsection{studyforrest: predict other localizer t-contrasts}
 
@@ -2518,120 +2359,44 @@ human bodies \citep{downing2001bodyarea}, respectively.
 
 \subsubsection{New dataset: shared stimulus; generalizability}
 
-\todo[inline]{plus a more stable \ac{cfs}}
+\paragraph{sample size}
+
+\todo[inline]{cf. variability of the \ac{cfs}}
+
+\todo[inline]{can/should that variability somehow be quantified?}
+
+% what is the case
+The correlations of shared responses within the \acp{cfs} created from N-1
+training subjects varied about the folds of the cross-validation.
+% interpretation
+That means, a change of 1/13 of the data for every subject's analysis.
+is causing variable estimates.
+% conclusion
+Hence, of course, future studies, should create a \ac{cfs} based on data from
+more subjects.
+
 
 %
-A shared stimulus across datasets is easier to employ than letting subjects
-participate in different experiments (of different working groups across the
-world) \citep[(s.][ for an \ac{srm} based on "shared subjects acrpss
+We demonstrated that 15 to 30 minutes of naturalistic stimulation is sufficient
+to estimate $z$-maps of a different paradigm [the localizer]
+%
+Hence, a future study of a larger sample size could just sufficiently take a
+just a part/intersection of the movie/audio-description.
+%
+The procedure of a shared stimulus across dataset has the additional benefit of
+being more conveniently collected than collecting dataset providing an
+intersection of study participants across datasets, i.e. letting the same
+subjects participate in different experiments (of different working groups
+across the world) \citep[(s.][ for an \ac{srm} based on "shared subjects acrpss
 datasets]{zhang2018transfer}.
-
-``We have cross-validated our pROI across participants and studies including the
-identification of peak place selectivity in the CoS from data representing over
-500 participants [Barch et al., 2013; Nasr et al., 2014] collected with
-different voxel resolutions, stimuli, tasks, scanners, and analysis methods.
-%
-Thus, our probabilistic ROI is generalizable across many different
-methodological decisions spanning experimental design, as well as fMRI data
-acquisition and analyses [we do it even 'more extreme']''
-\citep{weiner2018defining}.
-
-
-``Validation of the Atlas with an Independent Dataset.
-%
-To address whether our sample size is sufficient to achieve generalizability to
-new data, we tested how well the visfAtlas predicts fROIs of 12 new subjects.
-%
-These data were acquired using a similar localizer in a different scanning
-facility, identified by independent experiments, and have been published
-previously [Stigliani et al.  2015; Weiner et al. 2017].
-%
-We compared their fROI definitions of mFus-faces, pFus-faces, OTS-bodies,
-pOTS-characters, and CoS-places to our atlas definitions in the following
-ways:
-%
-1) We visualized our MPMs in relation to their probability maps of
-each of the fROIs (Fig. 6), and
-%
-2) we calculated how well our atlas predicted each of their individual
-subjects' fROIs using the Dice coefficient.
-%
-Lastly, to address how the number of subjects affects the accuracy of our
-atlas, we calculated the Dice coefficient for different iterations of the
-atlas in which we incrementally increased the number of subjects from 2 to
-19'' \citep{rosenke2021probabilistic}.
-
-
-
-``Results demonstrate that
-%
-a) the anatomical location of place-selective voxels relative to cortical
-folding is consistent across participants,
-%
-b) the probabilistic ROI identifies the location of the PPA in individual brains
-from multiple independent datasets,
-%
-c) the probabilistic ROI encapsulates voxels in medial VTC exhibiting the
-highest place selectivity in our data as well as shared data from other labs''
-\citep{weiner2018defining}.
-
-``Altogether, results suggest that
-%
-a) our pROI of place selectivity is a robust predictor of the location of high
-place selectivity within medial VTC and
-%
-b) these predictions are generalizable across data collected with different
-scanners, participants, images used for localization, data acquisition, and
-analysis methods'' \citep{weiner2018defining}.
-
-
-
-``The identification of the PPA is complicated by (at least) four methodological
-considerations:
-%
-1) the PPA definition may depend on the type of experiment, task, and stimuli
-used.
-%
-2) The boundaries of the PPA may depend on the statistical threshold used.
-%
-3) The spatial extent and localization of the PPA may vary if defined within the
-native brain space of an individual or based on a group analysis.
-%
-4) The size of the PPA may depend on data acquisition choices (e.g. large vs.
-small voxels) and data analysis choices (e.g. liberal smoothing vs. no spatial
-smoothing).
-%
-We identify and predict the most probable location of place-selective voxels
-within medial VTC of an individual brain that is impervious to these
-methodological decisions'' \citep{weiner2018defining}.
 
 
 
 \subsubsection{New dataset: other localizers = t-contrasts \& brain functions}
 
-What is the limit of what we can estimate reliably?
-%
-Retinotopy, language, executive functions (from low-level perception to higher
-cognition which might not even be sampled by a movie).
+\paragraph{functional-anatomical correspondence is different across ROIs}
 
 %
-exogenous vs. endogenous representations; bottom-up vs. top-down processes.
-
-
-``Results show that the computational principles underlying this common
-model have broad general validity for representational spaces in occipital,
-temporal, parietal, and frontal cortices'' \citep{guntupalli2016model}.
-
-``Future studies may generate more sophisticated atlases, which contain not only
-a unique tiling of cortical regions but also allow for multiple functional
-clusters to occupy overlapping areas and indicate probabilities for multiple
-categories at each voxel'' \citep{rosenke2021probabilistic}.
-
-
-\subsubsection {functional-anatomical correspondence might be different across
-ROIs}
-
-
 ``We localized 13 widely studied functional areas and found a large variability
 in the degree to which functional areas respect macro-anatomical boundaries
 across the cortex.
@@ -2692,8 +2457,81 @@ There is much more inter-subject variability than in FEF.''
 \citep{frost2012measuring}.
 
 
+\paragraph{Hence, test ROIs of other perceptual/cognitive processes}
+
+What is the limit of what we can estimate reliably?
+%
+Retinotopy, language, executive functions (from low-level perception to higher
+cognition which might not even be sampled by a movie).
+
+%
+exogenous vs. endogenous representations; bottom-up vs. top-down processes.
+
+
+``Results show that the computational principles underlying this common
+model have broad general validity for representational spaces in occipital,
+temporal, parietal, and frontal cortices'' \citep{guntupalli2016model}.
+
+``Future studies may generate more sophisticated atlases, which contain not only
+a unique tiling of cortical regions but also allow for multiple functional
+clusters to occupy overlapping areas and indicate probabilities for multiple
+categories at each voxel'' \citep{rosenke2021probabilistic}.
+
 
 \subsubsection{Other functional alignment algorithms}
+
+\paragraph{Volume- vs surface-based: actually, not a real problem here}
+
+\todo[inline]{we compare volume-based anatomical alignment to volume-based
+functional alignment}
+
+\todo[inline]{might even be "better" because we are nearer on the raw data
+'cause we stay in voxel-space; others project their pROIs back from surface to
+voxel which might not be "perfect"?}
+
+
+``Our previous work quantifying the relationship between cortical folding and
+face-selective regions showed that surface-based predictions out-performed
+predictions based on stereotaxic coordinates [Weiner et al., 2014][used just
+affine?]'' \citep{weiner2018defining}.
+
+``We generated separate (group) probabilistic ROIs (pROIs) from the 12
+participants in Study 1 and the 12 participants in Study 2.
+%
+Probabilistic ROIs were generated using cortex-based alignment (CBA) in
+FreeSurfer (Fischl et al., 1999].
+%
+The cortical surface of each of our 12 participants was aligned to the
+FreeSurfer average surface (from 39 healthy adults not used in our study) using
+a high-dimensional nonlinear registration algorithm.
+%
+We then transformed functional ROIs (fROIs) from each subject to the FreeSurfer
+(FS) average brain'' \citep{weiner2018defining}.
+
+
+``We repeated our leave-one-out cross-validation procedure across all 24
+participants with an affine volume-based registration to the Talairach brain and
+compared this performance to the same procedure implemented with CBA in
+FreeSurfer (Fig. 2D)'' \citep{weiner2018defining}.
+
+
+``The volume-based registration that was used to define the individual SSR and
+generate the probabilistic atlases does not model the cortical surface,
+and may fail to match the fine anatomy between subjects.
+%
+Residual macro-anatomical variability from volume-based registration may
+confound the measured spatial variability of the SSRs''
+\citep{zhen2017quantifying}.
+
+
+``A high-dimensional non-linear registration method was used to remove
+macro-anatomical variability.
+%
+A more advanced alignment scheme needs to be developed to better remove
+macro-anatomical variability [Avants et al., 2011; Frost and Goebel, 2012,
+2013], although perfect alignment of any two brains may not possible [Juch et
+al., 2005; Van Essen and Dierker, 2007]'' \citep{zhen2015quantifying}.
+
 
 \todo[inline]{kind of obvious and a little "for the sake of it"}
 
@@ -2872,6 +2710,12 @@ response time series circumvents the need for a single shared stimulus across
 subjects; connectivity SRM allows us to derive a single shared response space
 across different stimuli with a shared connectivity profile
 \citep{nastase2019leveraging}'' \citep{kumar2020brainiak}.
+
+%
+``For connectivity hyperalignment, the sampling of connectivity vector space is
+defined by the selection of connectivity targets, but the richness and
+reliability of connectivity estimates depends on the variety of brain states
+over which connectivity is estimated'' \citep{haxby2020hyperalignment}.
 
 
 \subsubsection{Individual residuals?}
@@ -3165,7 +3009,13 @@ that point in our discussion (cf. Jiahu)]'' \citep{zhen2017quantifying}.
 
 \subsection{Conclusion}
 
-Ceterum censeo Carthaginem esse delendam.
+``We have cross-validated our pROI across participants and studies collected
+with different voxel resolutions, stimuli, tasks, scanners, and analysis
+methods.
+%
+Thus, our results is generalizable across many different methodological
+decisions spanning experimental design, as well as fMRI data acquisition and
+analyses [we do it even 'more extreme']'' \citep{weiner2018defining}.
 
 
 \section{Data Availability}
