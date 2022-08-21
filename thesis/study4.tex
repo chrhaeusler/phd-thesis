@@ -1,8 +1,5 @@
 \todo[inline]{speaking of ``topography'' is little overstatement}
 
-
-
-
 \section{Introduction}
 
 % higher visual areas higher visual areas
@@ -2346,18 +2343,199 @@ image stimuli [Fox et al., 2009; Pitcher et al., 2011]''
 
 \subsection{Future questions}
 
-\subsubsection{studyforrest: predict other localizer t-contrasts}
+
+\subsubsection{Other functional alignment algorithms}
+
+\paragraph{Volume- vs surface-based: actually, not a real problem here}
+
+\todo[inline]{we compare volume-based anatomical alignment to volume-based
+functional alignment}
+
+\todo[inline]{might even be "better" because we are nearer on the raw data
+'cause we stay in voxel-space; others project their pROIs back from surface to
+voxel which might not be "perfect"?}
+
+``The volume-based registration that was used to define the individual SSR and
+generate the probabilistic atlases does not model the cortical surface,
+and may fail to match the fine anatomy between subjects.
+%
+Residual macro-anatomical variability from volume-based registration may
+confound the measured spatial variability of the SSRs''
+\citep{zhen2017quantifying}.
+
+
+``Our previous work quantifying the relationship between cortical folding and
+face-selective regions showed that surface-based predictions out-performed
+predictions based on stereotaxic coordinates [Weiner et al., 2014][used just
+affine?]'' \citep{weiner2018defining}.
+
+``The cortical surface of each of our 12 participants was aligned to the
+FreeSurfer [Fischl et al., 1999] average surface (from 39 healthy adults not
+used in our study) using a high-dimensional nonlinear registration algorithm.
+%
+We then transformed functional ROIs (fROIs) from each subject to the FreeSurfer
+(FS) average brain'' \citep{weiner2018defining}.
+%
+``We repeated our leave-one-out cross-validation procedure across all 24
+participants with an affine volume-based registration to the Talairach brain and
+compared this performance to the same procedure implemented with CBA in
+FreeSurfer'' \citep{weiner2018defining}.
+
+\todo[inline]{kind of obvious and a little "for the sake of it"}
+
+\todo[inline]{why did we use SRM?; mention some sentences in the intro, too;
+nicely implemented in BrainIAK; cf. general intro on reproducibility); we do not
+use the fastSRM algo, but it's probably still computationally less demanding
+than hyperalignment; cf. also evaluation of algos in \citet{chen2015reduced,
+bazeille2021empirical}; i.e. ``computational efficiency, as the latter is an
+important consideration for scientists who may not have access to specialized
+hardware''}
+
+\todo[inline]{cf. \citet{bazeille2021template}'s dissertation}
+
+
+\subsubsection{ROI vs. whole-brain (i.e. searchlight)}
+
+\todo[inline]{searchlight SRM \citep{zhang2016searchlight}}
+
+\todo[inline]{negative: more parameters to vary/investigate}
+
+% Guntupalli's searchlight
+\citet{guntupalli2016model} showed that hyperalignment can be extended to
+predict functional organization across large proportions of the cortical
+surface[, for example to predict the represented visual field coordinate in
+visual cortex based on retinotopic mapping scans of other individuals].
+%
+How big should it be? PPA seems to vary by centimeters.
+
+
+``Two main frameworks have been proposed in order to align the entire cortex
+across subjects.
+%
+Searchlight functional alignment [give refs] and piecewise aggregation schemes
+[give refs] learn local transformations and aggregate them into a single
+large-scale alignment.
+%
+However, searchlight and piecewise differ in how they aggregate transforms.
+%
+The searchlight scheme [Kriegeskorte et al., 2006], popular in brain imaging
+[Guntupalli et al., 2018; 2016], has been used as a way to divide the cortex
+into small overlapping spheres of a field radius.
+%
+This method allows researchers to remain agnostic as to the location of
+functional or anatomical boundaries, such as those suggested by
+parcellation-based approaches.
+%
+A local transform can then be learned in each sphere and the full alignment is
+obtained by aggregating [e.g. summing as in Guntupalli et al., 2016 or
+averaging] across overlapping transforms.
+%
+The aggregated transformation produced is no longer guaranteed to bear the type
+of regularity (e.g orthogonality, isometry, or diffeomorphicity enforced during
+the local neighborhood fit)'' \citep{bazeille2021empirical}.
+%
+The piecewise alignment is learned within a parcellation.
+%
+However, the open to debate is which brain atlas should be used for piecewise
+alignment.
+%
+Piecewise alignment [Bazeille et al., 2019], uses non-overlapping
+neighborhoods either learned from the data using a parcellation method—such as
+k-means—or derived from an a priori functional or anatomical atlas.
+%
+Local transforms are derived in each neighborhood and concatenated to yield a
+single large-scale transformation.
+%
+This, unlike searchlight, returns a transformation matrix with the desired
+regularities.
+%
+However, piecewise alignment might induce staircase effects or other
+functionally-irrelevant discontinuities in the final transformation due to the
+underlying boundaries.
+%
+By default, the results presented below are derived with the 300 ROI
+parcellation of the Schaefer atlas unless noted otherwise.
+%
+In the case of searchlight Procrustes, we selected searchlight parameters to
+match those used in Guntupalli et al. (2016):
+%
+each searchlight had 5 voxel radius, with a 3 voxel distance between searchlight
+centers'' \citep{bazeille2021empirical}.
+
+
+\subsubsection{Time series vs connectivity-based}
+
+\todo[inline]{kind of a killer cause you do not need intersection of
+time series}
+
+\todo[inline]{wtf did \citep{nastase2019leveraging} do?}
+
+``Hyperalignment projects cortical pattern vectors into a common,
+high-dimensional information space [Haxby et al., 2020].
+%
+Derivation of this common space can be based on either neural response profiles
+(e.g. data collected during tasks, such as movie viewing (Haxby et al., 2011))
+or functional connectivity profiles files [Guntupalli et al., 2018]''
+\citep{busch2021hybrid}.
+
+
+``The number of voxels that can be considered simultaneously for functional BOLD
+response time series alignment is limited by the number of timepoints in the
+calibration scan (about 300-400 voxels for a 15min scan with a 2s TR,
+corresponding to a local cortical neighborhood of about 1cm in diameter for a
+standard resolution).
+%
+This limitation does not exist in this form for a functional alignment that is
+based on connectivity vectors.
+%
+\citet{kaule2017examination} showed that congruent time-locked BOLD responses
+across subjects are not required to derive a valid alignment of individuals with
+a common representational space.
+%
+Comparable prediction performance can be achieved by using functional
+connectivity patterns (correlation of a voxel's time series with reference
+regions in the same brain).
+%
+The length of these connectivity vectors is determined by the number of
+reference (or seed) regions in the brain'' [from project proposal].
+
+% Kumar on Nastase's ugly mofo paper
+``Estimating the SRM from functional connectivity data rather than
+response time series circumvents the need for a single shared stimulus across
+subjects; connectivity SRM allows us to derive a single shared response space
+across different stimuli with a shared connectivity profile
+\citep{nastase2019leveraging}'' \citep{kumar2020brainiak}.
+
+
+``Both CHA and RHA increased ISCs and bsMVPC classification
+accuracies significantly over anatomy-based alignment, but each algorithm
+achieves better alignment for the information that it uses to derive a common
+model, namely connectivity profiles and patterns of response, respectively''
+\citep{guntupalli2018computational}.
+
+
+``For connectivity hyperalignment, the sampling of connectivity vector space is
+defined by the selection of connectivity targets, but the richness and
+reliability of connectivity estimates depends on the variety of brain states
+over which connectivity is estimated'' \citep{haxby2020hyperalignment}.
+
+
+\subsection{studyforrest: predict other localizer t-contrasts}
 
 \todo[inline]{especially, condition ``faces'' was hard to model in the
 audio-description''; master student's project (with an additional twist?)}
 
+%
+The other algorithms could be thrown at the current (state of the) studyforrest
+dataset to investigate the PPA contrasts and contrast of other object categories
+available from the dataset:
 %
 The \ac{ffa}, and \ac{eba}  which are associated with face perception
 \citep{kanwisher1997ffa, pitcher2011occipitalfacearea}, and the perception of
 human bodies \citep{downing2001bodyarea}, respectively.
 
 
-\subsubsection{New dataset: shared stimulus; generalizability}
+\subsection{New dataset: shared stimulus; generalizability}
 
 \paragraph{sample size}
 
@@ -2391,12 +2569,116 @@ across the world) \citep[(s.][ for an \ac{srm} based on "shared subjects acrpss
 datasets]{zhang2018transfer}.
 
 
+\subsection{Vision: function atlas}
 
-\subsubsection{New dataset: other localizers = t-contrasts \& brain functions}
+\todo[inline]{mih: this chapter does not need its own outlook; outlook will
+be in the general discussion anyway (and is more interesting there)}
+
+\todo[inline]{a smallish text should be sufficient here; shift most stuff into
+general discussion (and write intro in general intro}
+
+
+\subsection{Functional atlas: uses cases}
+
+\todo[inline]{cf. general introduction; SRM introduction; general discussion}
+
+``Most of the existing atlases focus on brain anatomy, not brain functions.
+%
+Because of great intersubject variability in anatomy and structural-functional
+correspondence, the anatomical atlases are not sufficient to allow researchers
+to infer the location and extent of functional regions and their variability
+across individual brains [Frost and Goebel, 2012]'' \citep{zhen2015quantifying}.
+
+``The lack of brain atlases for functional regions renders it difficult to
+accumulate accurate knowledge of specific functional regions and to understand
+the structural and functional architecture of the face processing system''
+\citep{zhen2015quantifying}.
+
+
+``Cortical atlases have been developed, which allow localization of visual areas
+in new subjects by leveraging ROI data from an independent set of typical
+participants [Frost and Goebel 2012; ventral temporal cortex (VTC) category
+selectivity: Julian et al. 2012; Zhen et al.  2017; Weiner et al. 2018; visual
+field maps: Benson et al. 2012; Benson and Winawer 2018; Wang et al. 2015]''
+\citep{rosenke2021probabilistic}.
+%
+``This atlas may prove especially useful for predicting an ROI when no localizer
+data is available, saving scanning time and expenses, or
+%
+patient populations, such as patients who have a brain lesion [Schiltz and
+Rossion 2006; Steeves et al. 2006; Sorger et al. 2007; Barton 2008; Gilaie-Dotan
+et al. 2009; de Heering and Rossion 2015] or are blind [Mahon et al. 2009; Bedny
+et al. 2011; Striem-Amit, Dakwar, et al.  2012b; van den Hurk et al. 2017]''
+\citep{rosenke2021probabilistic}.
+
+``We believe that this approach will be particularly useful in patient
+populations [e.g. blind individuals; Amedi et al., 2007; He et al., 2013; Mahon
+et al., 2009; Wolbers et al., 2011] and intracranial studies [e.g. Bastin et
+al., 2013; Davidesco et al., 2013; Engell and McCarthy, 2010; Jacques et al.,
+2015; Megevand et al., 2014; Murphey et al., 2009; Rangarajan et al., 2014] in
+which it may not be possible to obtain fMRI data, but high resolution anatomical
+MRI data are typically obtained'' \citep{weiner2018defining}.
+
+
+``A probabilistic functional atlas could serve as a useful repository of
+knowledge and facilitate the analysis of fMRI data [Evans et al., 2012;
+Mazziotta et al., 2001]:
+%
+1) as a complement to the anatomical atlases, the atlas supplies a quantitative
+spatial reference system in which information from multiple sources can be
+integrated and compared.
+%
+By integrating with other atlases, the probabilistic functional atlas would
+identify patterns of structural, connectional, and molecular variations in the
+functional regions and provide a deeper understanding of the relationship
+between brain structure and function.
+%
+2) subject-specific fROIs are always preferred over the probabilistic functional
+atlas based fROIs in individual studies;
+%
+however, when such information is not available, the probabilistic functional
+atlas can be used to provide face-selective fROIs in group analyses to explore
+properties common to all human brains.
+%
+On the other hand, even when a functional localizer is acquired, the
+probabilistic functional atlas can be used as a source of spatial constraints to
+localize subject-specific fROIs.
+%
+Availability of well-defined fROIs could provide better sensitivity and
+specificity in integrating features of the FSRs with clinical and genetic data,
+and in studying the large-scale brain network for face recognition.
+%
+3) individual FSRs and associated features could serve as a
+database of the FSRs in a healthy population.
+%
+All the accumulated data in the atlas could be used as a norm to quantify the
+degree of deviation of the FSRs in a new subject and thereby have the potential
+to detect FSR deficits in patients.
+%
+4) the atlas descriptions of intersubject variance in FSRs could serve as
+empirical priors in the development of algorithms for automated identification
+of the FSRs'' \citep{zhen2015quantifying}.
+
+``Our probabilistic functional atlas significantly extended these atlases.
+%
+1) previous atlases aim to describe the likelihood of activation of each voxel
+elicited by faces (characterizing the interindividual variability of activation
+for the cognitive process of interest at the voxel level) and thus provide
+little information on how the FSRs vary in location and extent across subjects
+[but see Frost and Goebel, 2012]'' \citep{zhen2015quantifying}.
+
+
+\subsection{New dataset: other localizers = t-contrasts \& brain functions}
 
 \paragraph{functional-anatomical correspondence is different across ROIs}
 
 %
+``Analogously, the introduction of dynamic videos of faces and control
+categories to localize face-selective topographies provides more reliable maps
+and better estimate the extent of face-selective regions than do localizers with
+still image stimuli [Fox et al., 2009; Pitcher et al., 2011]''
+\citep{jiahui2020predicting}.
+
 ``We localized 13 widely studied functional areas and found a large variability
 in the degree to which functional areas respect macro-anatomical boundaries
 across the cortex.
@@ -2477,481 +2759,6 @@ a unique tiling of cortical regions but also allow for multiple functional
 clusters to occupy overlapping areas and indicate probabilities for multiple
 categories at each voxel'' \citep{rosenke2021probabilistic}.
 
-
-\subsubsection{Other functional alignment algorithms}
-
-\paragraph{Volume- vs surface-based: actually, not a real problem here}
-
-\todo[inline]{we compare volume-based anatomical alignment to volume-based
-functional alignment}
-
-\todo[inline]{might even be "better" because we are nearer on the raw data
-'cause we stay in voxel-space; others project their pROIs back from surface to
-voxel which might not be "perfect"?}
-
-
-``Our previous work quantifying the relationship between cortical folding and
-face-selective regions showed that surface-based predictions out-performed
-predictions based on stereotaxic coordinates [Weiner et al., 2014][used just
-affine?]'' \citep{weiner2018defining}.
-
-``We generated separate (group) probabilistic ROIs (pROIs) from the 12
-participants in Study 1 and the 12 participants in Study 2.
-%
-Probabilistic ROIs were generated using cortex-based alignment (CBA) in
-FreeSurfer (Fischl et al., 1999].
-%
-The cortical surface of each of our 12 participants was aligned to the
-FreeSurfer average surface (from 39 healthy adults not used in our study) using
-a high-dimensional nonlinear registration algorithm.
-%
-We then transformed functional ROIs (fROIs) from each subject to the FreeSurfer
-(FS) average brain'' \citep{weiner2018defining}.
-
-
-``We repeated our leave-one-out cross-validation procedure across all 24
-participants with an affine volume-based registration to the Talairach brain and
-compared this performance to the same procedure implemented with CBA in
-FreeSurfer (Fig. 2D)'' \citep{weiner2018defining}.
-
-
-``The volume-based registration that was used to define the individual SSR and
-generate the probabilistic atlases does not model the cortical surface,
-and may fail to match the fine anatomy between subjects.
-%
-Residual macro-anatomical variability from volume-based registration may
-confound the measured spatial variability of the SSRs''
-\citep{zhen2017quantifying}.
-
-
-``A high-dimensional non-linear registration method was used to remove
-macro-anatomical variability.
-%
-A more advanced alignment scheme needs to be developed to better remove
-macro-anatomical variability [Avants et al., 2011; Frost and Goebel, 2012,
-2013], although perfect alignment of any two brains may not possible [Juch et
-al., 2005; Van Essen and Dierker, 2007]'' \citep{zhen2015quantifying}.
-
-
-\todo[inline]{kind of obvious and a little "for the sake of it"}
-
-\todo[inline]{why did we use SRM?; mention some sentences in the intro, too;
-nicely implemented in BrainIAK; cf. general intro on reproducibility); we do not
-use the fastSRM algo, but it's probably still computationally less demanding
-than hyperalignment; cf. also evaluation of algos in \citet{chen2015reduced,
-bazeille2021empirical}; i.e. ``computational efficiency, as the latter is an
-important consideration for scientists who may not have access to specialized
-hardware''}
-
-
-\todo[inline]{cf. \citet{bazeille2021empirical} and his dissertation}
-
-
-\paragraph{Template from \citet{bazeille2021empirical}}
-%
-``As we use inter-subject decoding to compare functional alignment methods, we
-only consider methods that meet the following two criteria.
-%
-First, the alignment transformations should be learned on activations evoked
-during temporally synchronized (i.e., co-occuring) task data, or on contrasts
-matched across individuals.
-%
-Second, the learned transformations must be invertible or almost invertible
-linear mappings and applicable as-is on unseen data with a different task
-structure.
-%
-These two criteria exclude several methods currently used in the literature such
-as regularized canonical correlation analysis (rCCA; Bilenko and Gallant, 2016),
-gradient hyperalignment (Xu et al., 2018), connectivity hyperalignment
-(Guntupalli et al., 2018), and methods based on Laplacian embeddings (Langs et
-al., 2014)'' \citep{bazeille2021empirical}.
-
-%
-``Nonetheless, it remains unclear how researchers should choose among the
-available functional alignment methods for a given research application''
-\citep{bazeille2021empirical}.
-
-
-\subsubsection{ROI vs. whole-brain (i.e. searchlight)}
-
-\todo[inline]{searchlight SRM \citep{zhang2016searchlight}}
-
-%
-Similarly: influence of voxel count vs. performance (a.k.a. the more training
-data, the better; it not just number of participants;
-%
-In case of search light: how big should it be? PPA seems to vary by centimeters.
-
-% Guntupalli's searchlight
-From project proposal: ``\citet{guntupalli2016model} showed that hyperalignment
-can be extended to predict functional organization across large proportions of
-the cortical surface, for example to predict the represented visual field
-coordinate in visual cortex based on retinotopic mapping scans of other
-individuals.
-
-
-\paragraph{Template from \citet{bazeille2021empirical}}
-%
-``To align the entire cortex across subjects, two main frameworks have been
-proposed: searchlight and piecewise aggregation schemes.
-%
-Each of these frameworks use functional alignment methods to learn local
-transformations and aggregate them into a single large-scale alignment;
-%
-however, searchlight and piecewise differ in how they aggregate transforms, as
-illustrated in Figure 2.
-%
-The searchlight scheme [Kriegeskorte et al., 2006], popular in brain imaging
-[Guntupalli et al., 2018; 2016], has been used as a way to divide the cortex
-into small overlapping spheres of a field radius.
-%
-This method allows researchers to remain agnostic as to the location of
-functional or anatomical boundaries, such as those suggested by
-parcellation-based approaches.
-%
-A local transform can then be learned in each sphere and the full alignment is
-obtained by aggregating [e.g. summing as in Guntupalli et al., 2016 or
-averaging] across overlapping transforms.
-%
-Importantly, the aggregated transformation produced is no longer guaranteed to
-bear the type of regularity (e.g orthogonality, isometry, or diffeomorphicity
-enforced during the local neighborhood fit'' \citep{bazeille2021empirical}.
-
-%
-``As piecewise alignment is learned within a parcellation, an important question
-is:
-%
-which brain atlas should be used for piecewise alignment? In Supplementary
-Figure S2 we compare results from the Schaefer et al. (2018) atlases to those
-from parcellations derived directly on the alignment data.
-%
-By default, the results presented below are derived with the 300 ROI
-parcellation of the Schaefer atlas unless noted otherwise.
-%
-In the case of searchlight Procrustes, we selected searchlight parameters to
-match those used in Guntupalli et al. (2016);
-%
-that is, each searchlight had 5 voxel radius, with a 3 voxel distance between
-searchlight centers'' \citep{bazeille2021empirical}.
-
-``An alternative scheme, piecewise alignment [Bazeille et al., 2019], uses
-non-overlapping neighborhoods either learned from the data using a parcellation
-method—such as k-means—or derived from an a priori functional or anatomical
-atlas.
-%
-Local transforms are derived in each neighborhood and concatenated to yield a
-single large-scale transformation.
-%
-Unlike searchlight, this returns a transformation matrix with the desired
-regularities.
-%
-This framework might induce staircase effects or other functionally-irrelevant
-discontinuities in the final transformation due to the underlying boundaries.''
-\citep{bazeille2021empirical}.
-
-
-\subsubsection{Time series vs connectivity-based}
-
-\todo[inline]{kind of a killer cause you do not need intersection of
-time series}
-
-\todo[inline]{but \citet{guntupalli2018computational}: time series
-hyperalignment outperforms connectivity-based hyperalignment }
-
-\todo[inline]{cf. uncutted part on functional alignment}
-
-\todo[inline]{wtf did \citep{nastase2019leveraging} do?}
-
-
-\paragraph{Template from project proposal}
-%
-``Falko Kaule showed that congruent time-locked BOLD responses across subjects
-(i.e. all subjects watching the exact same full-length movie) as used by Haxby
-and colleagues are not required to derive a valid alignment of individuals with
-a common representational space \citep{kaule2017examination}.
-%
-Comparable prediction performance can be achieved by using functional
-connectivity patterns (correlation of a voxel's time series with reference
-regions in the same brain).
-%
-The number of voxels that can be considered simultaneously for functional BOLD
-response time series alignment is limited by the number of timepoints in the
-calibration scan (about 300-400 voxels for a 15min scan with a 2s TR,
-corresponding to a local cortical neighborhood of about 1cm in diameter for a
-standard resolution).
-%
-This limitation does not exist in this form for a functional alignment that is
-based on connectivity vectors.
-%
-The length of these connectivity vectors is determined by the number of
-reference (or seed) regions in the brain'' [from project proposal].
-
-
-\paragraph{other templates}
-%
-``Results showed that both CHA and RHA increased ISCs and bsMVPC classification
-accuracies significantly over anatomy-based alignment, but each algorithm
-achieves better alignment for the information that it uses to derive a common
-model, namely connectivity profiles and patterns of response, respectively''
-\citep{guntupalli2018computational}.
-
-%
-``Hyperalignment projects cortical pattern vectors into a common,
-high-dimensional information space [Haxby et al., 2020].
-%
-Derivation of this common space can be based on either neural response profiles
-(e.g. data collected during tasks, such as movie viewing (Haxby et al., 2011))
-or functional connectivity profiles files [Guntupalli et al., 2018]''
-\citep{busch2021hybrid}.
-
-% Kumar on Nastase's ugly mofo paper
-``Finally, estimating the SRM from functional connectivity data rather than
-response time series circumvents the need for a single shared stimulus across
-subjects; connectivity SRM allows us to derive a single shared response space
-across different stimuli with a shared connectivity profile
-\citep{nastase2019leveraging}'' \citep{kumar2020brainiak}.
-
-%
-``For connectivity hyperalignment, the sampling of connectivity vector space is
-defined by the selection of connectivity targets, but the richness and
-reliability of connectivity estimates depends on the variety of brain states
-over which connectivity is estimated'' \citep{haxby2020hyperalignment}.
-
-
-\subsubsection{Individual residuals?}
-
-\todo[inline]{We have transformation matrices for individual mapping; but just
-onto shared responses}
-
-\todo[inline]{cf. extension of SRM: ``Capturing Shared and Individual
-Information in fMRI Data'' \citep{turek2018capturing} [read it!]; is there
-any "real" paper that has been using that model already?}
-
-%
-``The flip side of focusing on shared responses is to focus on responses that
-are idiosyncratic to individuals.
-%
-Although these responses are excluded in SRM, they are not necessarily noise and
-may in fact be highly reliable within participants.
-%
-SRM can be used to isolate participant-unique responses by examining the
-residuals after removing shared group responses, or it can be applied
-hierarchically to the residuals to identify subgroups [\citet{chen2017shared};
-this is another "Chen"?!].
-%
-Recognizing that signal exists beyond the average or shared response of a group,
-such studies exploit idiosyncratic but stable responses to account for
-previously unexplained variance in brain function, behavioral performance and
-clinical measures [Finn (2015). Functional fingerprinting (based on
-connectivity); Rosenberg (2016). A neuromarker of sustained attention]''
-\citep{cohen2017computational}.
-
-%
-``in cases where each subject's unique response is of more interest
-than the shared signal, SRM can be used to factor out the shared component
-thereby isolating the idiosyncratic response for each subject
-[\citep{chen2015reduced}]'' \citep{kumar2020brainiak}.
-
-
-\subsection{Vision: function atlas}
-
-\todo[inline]{mih: this chapter does not need its own outlook; outlook will
-be in the general discussion anyway (and is more interesting there)}
-
-\todo[inline]{a smallish text should be sufficient here; shift most stuff into
-general discussion (and write intro in general intro}
-
-
-
-
-\subsection{Functional atlas: uses cases}
-
-\todo[inline]{cf. general introduction; SRM introduction; general discussion}
-
-``fROIs could serve as a prior to estimate the localization of corresponding
-ROIs in a new subject's brain, eliminating the need for a dedicated localizer
-run in the new subject'' \citep{rosenke2021probabilistic}.
-
-``There are several limitations to the independent localizer approach.
-%
-1) it is not always possible to obtain an independent localizer scan.
-%
-This is especially the case in patient populations, for example in the
-congenitally blind [Mahon et al. 2009; Bedny et al. 2011; Striem-Amit, Cohen, et
-al. 2012a; van den Hurk et al. 2017] or individuals with visual
-agnosia/prosopagnosia [Schiltz and Rossion 2006; Steeves et al. 2006; Sorger et
-al.  2007; Barton 2008; Gilaie-Dotan et al. 2009; Susilo et al. 2015].
-%
-2) performing a localizer scan before each experiment is costly in terms of
-scanning time, as well as mental effort and attention resources of the
-participant.
-%
-The latter can result in fatigue during the main experiment of interest, leading
-to lower quality data.
-%
-3) as localizer scans are typically conducted in a subject-specific manner and
-researchers vary in the manner they define the ROIs (e.g., whether smoothing was
-employed, if they use anatomical constraints, what thresholding methods were
-employed), it is hard to assess variability between participants and across
-studies \citep{rosenke2021probabilistic}.
-
-``To overcome these limitations, cortical atlases have been developed, which
-allow localization of visual areas in new subjects by leveraging ROI data from
-an independent set of typical participants [Frost and Goebel 2012; ventral
-temporal cortex (VTC) category selectivity: Julian et al. 2012; Engell and
-McCarthy 2013; Zhen et al.  2017; Weiner et al. 2018; visual field maps: Benson
-et al. 2012; Wang et al. 2015]'' \citep{rosenke2021probabilistic}.
-
-``Presently, atlases for the human visual system include functional atlases of
-visual field maps [Benson et al. 2012, 2014; Wang et al. 2015; Benson and
-Winawer 2018]'' \citep{rosenke2021probabilistic}.
-
-``This atlas may prove especially useful for predicting an ROI when no localizer
-data is available, saving scanning time and expenses, or
-%
-patient populations, such as patients who have a brain lesion [Schiltz and
-Rossion 2006; Steeves et al. 2006; Sorger et al. 2007; Barton 2008; Gilaie-Dotan
-et al. 2009; de Heering and Rossion 2015] or are blind [Mahon et al. 2009; Bedny
-et al. 2011; Striem-Amit, Dakwar, et al.  2012b; van den Hurk et al. 2017]''
-\citep{rosenke2021probabilistic}.
-
-
-
-``We believe that this approach will be particularly useful in patient
-populations [e.g. blind individuals; Amedi et al., 2007; He et al., 2013; Mahon
-et al., 2009; Wolbers et al., 2011] and intracranial studies [e.g. Bastin et
-al., 2013; Davidesco et al., 2013; Engell and McCarthy, 2010; Jacques et al.,
-2015; Megevand et al., 2014; Murphey et al., 2009; Rangarajan et al., 2014] in
-which it may not be possible to obtain fMRI data, but high resolution anatomical
-MRI data are typically obtained'' \citep{weiner2018defining}.
-
-``Having a probabilistic ROI of place selectivity in typical adults can enable
-future studies to test differences across development [Cohen Kadosh and Johnson,
-2007; Golarai et al., 2007; Peelen et al., 2009; Scherf et al., 2007; Gomez et
-al., 2017], lifespan [Park et al., 2012], or atypical populations [Aguirre and
-D'Esposito, 1999; Epstein et al., 2001; Golarai et al., 2006; Golarai et al.,
-2010a; Lind et al., 2013; Mendez and Cherrier, 2003]''
-\citep{weiner2018defining}.
-
-
-``Our atlases provide a comprehensive anatomical reference for the SSRs.
-%
-Atlases serve as a useful repository of knowledge and facilitate the mapping of
-scene-related brain networks.
-%
-The maps could be used as norms to distinguish normal and pathological
-variations, or to serve as spatial priors in identifying SSRs in new subjects''
-\citep{zhen2017quantifying}.
-
-``We quantified the spatial variability in more detail, and identified more than
-20 mm divergence in the location of peak activation across subjects, almost
-twice that in the face-selective regions (FSR) [Zhen et al., 2015]''
-\citep{zhen2017quantifying}.
-
-
-
-
-
-
-``Most of the existing atlases focus on brain anatomy, not brain functions.
-%
-Because of great intersubject variability in anatomy and structural-functional
-correspondence, the anatomical atlases are not sufficient to allow researchers
-to infer the location and extent of functional regions and their variability
-across individual brains [Frost and Goebel, 2012]'' \citep{zhen2015quantifying}.
-
-``The lack of brain atlases for functional regions renders it difficult to
-accumulate accurate knowledge of specific functional regions and to understand
-the structural and functional architecture of the face processing system''
-\citep{zhen2015quantifying}.
-
-``A probabilistic functional atlas could serve as a useful repository of
-knowledge and facilitate the analysis of fMRI data [Evans et al., 2012;
-Mazziotta et al., 2001].
-%
-1) as a complement to the anatomical atlases, the atlas supplies a quantitative
-spatial reference system in which information from multiple sources can be
-integrated and compared.
-%
-By integrating with other atlases, the probabilistic functional atlas would
-identify patterns of structural, connectional, and molecular variations in the
-functional regions and provide a deeper understanding of the relationship
-between brain structure and function.
-%
-2) subject-specific fROIs are always preferred over the probabilistic functional
-atlas based fROIs in individual studies;
-%
-however, when such information is not available, the probabilistic functional
-atlas can be used to provide face-selective fROIs in group analyses to explore
-properties common to all human brains.
-%
-On the other hand, even when a functional localizer is acquired, the
-probabilistic functional atlas can be used as a source of spatial constraints to
-localize subject-specific fROIs.
-%
-Availability of well-defined fROIs could provide better sensitivity and
-specificity in integrating features of the FSRs with clinical and genetic data,
-and in studying the large-scale brain network for face recognition.
-%
-3) individual FSRs and associated features could serve as a
-database of the FSRs in a healthy population.
-%
-All the accumulated data in the atlas could be used as a norm to quantify the
-degree of deviation of the FSRs in a new subject and thereby have the potential
-to detect FSR deficits in patients.
-%
-4) the atlas descriptions of intersubject variance in FSRs could serve as
-empirical priors in the development of algorithms for automated identification
-of the FSRs.
-%
-The automated algorithms will in turn improve the objectivity and efficiency of
-identification of the FSRs in new subjects.
-%
-Several groups have recently begun developing probabilistic atlases (or maps) to
-characterize face-selective activation [Engell and McCarthy, 2013; Julian et
-al., 2012; Tahmasebi et al., 2012]'' \citep{zhen2015quantifying}.
-
-``Our probabilistic functional atlas significantly extended these atlases.
-%
-1) previous atlases aim to describe the likelihood of activation of each voxel
-elicited by faces (characterizing the interindividual variability of activation
-for the cognitive process of interest at the voxel level) and thus provide
-little information on how the FSRs vary in location and extent across subjects
-[but see Frost and Goebel, 2012].
-%
-Instead of characterizing the interindividual variability at the voxel level,
-our study summarized the subject-specific FSRs across subjects to classify
-face-selective voxels to a specific FSR (characterizing the interindividual
-variability of the functional regions that are involved in the cognitive process
-of interest).
-%
-The atlas at the regional level likely provides information more directly
-related to cognitive processes of interest.
-%
-2) delineation of multiple regions together provides information about the
-spatial and functional organizations of these regions, which makes comparison of
-their anatomical and functional relations possible.
-%
-The two types of atlases together could be the cornerstone of functional
-atlases, in which brain regions are annotated according to their cognitive and
-behavioral involvements'' \citep{zhen2015quantifying}.
-
-
-
-
-
-
-
-
-``Identifying topographically organized regions in individual subjects
-is a powerful approach to group-level statistical analysis, but this is not
-always feasible'' \citep{wang2015probabilistic}.
-
-``Probabilistic atlases quantify the variability of topographic
-representations in human cortex and provide a useful reference for comparing
-data across studies that can be transformed into these standard spaces''
-\citep{wang2015probabilistic}.
-
 ``Identifying all of the currently known topographic regions of the human visual
 system requires multiple scanning sessions.
 %
@@ -2975,14 +2782,42 @@ the data to define maps in individual subjects is impractical or not feasible.
 For example, time-limitations and subject-fatigue both potentially limit the
 time researchers may be able to spend with patients suffering from
 neurological or neuropsychological disorders, or with implanted subdural or deep
-electrodes (e.g., ECoG).
+electrodes (e.g., ECoG)'' \citep{wang2015probabilistic}.
+
+
+\todo[inline]{We: matrices for individual mapping; but onto shared responses}
+
+\todo[inline]{Capturing Shared \& Individual Info \citep{turek2018capturing}}
+
+\todo[inline]{is there a "real" paper that has been using that model already?}
+
+``Recognizing that signal exists beyond the average or shared response of a
+group, such studies exploit idiosyncratic but stable responses to account for
+previously unexplained variance in brain function, behavioral performance and
+clinical measures [Finn (2015). Functional fingerprinting (based on
+connectivity); Rosenberg (2016). A neuromarker of sustained attention]''
+\citep{cohen2017computational}.
+
+``The flip side of focusing on shared responses is to focus on responses that
+are idiosyncratic to individuals.
 %
-Although some of these electrodes are likely over visual topographic areas, it
-is impossible to assign these electrodes to a specific visual area without a
-functional benchmark'' \citep{wang2015probabilistic}.
+Although these responses are excluded in SRM, they are not necessarily noise and
+may in fact be highly reliable within participants''
+\citep{cohen2017computational}.
+
+``SRM can be used to isolate participant-unique responses by examining the
+residuals after removing shared group responses, or it can be applied
+hierarchically to the residuals to identify subgroups [\citet{chen2017shared}]
+'' \citep{cohen2017computational}.
 
 
-\subsection{Functional atlas: subgroups}
+``In cases where each subject's unique response is of more interest
+than the shared signal, SRM can be used to factor out the shared component
+thereby isolating the idiosyncratic response for each subject
+[\citep{chen2015reduced}]'' \citep{kumar2020brainiak}.
+
+
+\subsubsection{Functional atlas: subgroups}
 
 ``Variability was observed from a cohort of homogeneous young adults with a
 narrow age range, which limits the generalization of the variability observed
@@ -3005,6 +2840,10 @@ regions is another direction worthy of exploration in the future [maybe, make
 that point in our discussion (cf. Jiahu)]'' \citep{zhen2017quantifying}.
 
 
+\subsection{We do not just provide binary decision}
+%
+We provide patterns that allow far more than just localization but e.g.
+classification and...?
 
 
 \subsection{Conclusion}
