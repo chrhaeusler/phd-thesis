@@ -1,53 +1,50 @@
 %% The introduction begins with an overview of the topic
 
-%
+% introductory quote
 ``A remarkable feature of the vertebrate brain is the anatomical specialization
 of cortical regions for the processing of different types of information. Since
 the late 19th century, it has been recognized that restricted lesions of the
 human brain result in location-specific sensory, motor or cognitive deficits''
 \citep{cohen1994localization}.
-
-
-
-
-%
-Thanks to technological advanced, brain imaging studies have extensively used
-\ac{fmri} since the early 1990s to measure \ac{bold} activity in-vitro.
-%
+% human brain mapping
 \textit{Human brain mapping} \citep[e.g.,][]{raichle2009brief} explores the
-brain's topographic organization \citep[e.g.,][]{eickhoff2018topographic} and
-attempts ``to specify in as much detail as possible the localisation of function
-in the human brain'' \citep{savoy2001history}.
+brain's topographic organization \citep[e.g.,][]{eickhoff2018topographic} by
+specifying ``in as much detail as possible the localisation of function in the
+human brain'' \citep{savoy2001history}.
+% fMRI + BOLD
+Brain imaging studies have extensively used \ac{fmri} since the early 1990s to
+measure \ac{bold} activity in-vitro.
 % higher visual areas
-For example in the domain of higher-visual perception, replicated findings
-suggest that category-selective brain regions like the \ac{ppa}
-\citep{epstein1998ppa, epstein1999parahippocampal} or the \ac{ffa}
+For example, replicated findings in the domain of higher-visual perception
+suggest that category-selective brain regions like the parahippocampal place
+area
+\citep{epstein1998ppa, epstein1999parahippocampal} or the fusiform face area
 \citep{kanwisher1997ffa, kanwisher2006fusiform} exhibit significantly increased
-\ac{bold} activity correlated with a ``preferred'' stimulus class: the \ac{ppa}
-responds more strongly when participants are watching pictures of scenes and
-landscapes compared to pictures of, e.g., faces, and the \ac{ffa} responds more
-strongly when participants are watching pictures of faces compared to pictures
-of scenes.
+\ac{bold} activity correlated with a ``preferred'' stimulus class:
+%
+the \ac{ppa} responds more strongly when participants are watching pictures of
+scenes and landscapes compared to pictures of, e.g., faces;
+%
+vice versa, the \ac{ffa} responds more strongly when participants are watching
+pictures of faces compared to pictures of scenes.
 
+% \citep{talairach1967atlas}
+The precise anatomical location of functionally defined regions (measured in
+Talairach or MNI coordinates) varies anatomically \citep{friston2006critique,
+saxe2006divide}.
 %
-Typical analyses of human brain mapping studies average data across subjects for
-practical (e.g., limited scan time per subject), statistical (e.g., improved
-of \ac{snr}) reasons, or to generalize from study subjects to a broader
-population.
-\todo[inline]{Practical constains: "not enough data practically obtainable from
-one subject"}
+However, human brain mapping studies usually average data across study
+participants for
 %
-Nevertheless, the precise anatomical location of functionally defined regions of
-the brain vary anatomically (measured in Talairach or MNI coordinates) across
-individuals \citep{friston2006critique, saxe2006divide}.
+practical (e.g., limited scan time per subject),
 %
-Consequently, studies employing an averaging approach may just ``capture the
-common denominator of each individual cognitive circuit and lose a large amount
-of information'' \citep{pinel2007fast}.
+statistical (e.g., improved of \ac{snr}) reasons,
 %
-However, ``interpretation of fMRI data at the level of individual brains is
-essential for characterizing brain function in health and disease''
-\citep{dubois2016building}.
+or to generalize from study particpants to a broader population.
+%
+Consequently, studies that average data across study participants may just
+``capture the common denominator of each individual cognitive circuit and lose a
+large amount of information'' \citep{pinel2007fast}.
 
 
 \section{Functional localization}
@@ -56,142 +53,101 @@ essential for characterizing brain function in health and disease''
 %% extensive literature reviews.
 % a.k.a. "state of research"
 
-\todo[inline]{merge following stuff in text beneath}
-
-``Functional localizers are inefficient because they only estimate one or a few
-topographies for each localizer'' \citep{jiahui2020predicting}.
-
-``There are several limitations to the independent localizer approach.
 %
-1) it is not always possible to obtain an independent localizer scan.
+fMRI data need to be interpreted on the level of an individual person in order
+assess health and disease, and eventually advance human brain mapping towards a
+clinical application \citep{dubois2016building, wegrzyn2018thought}.
 %
-This is especially the case in patient populations, for example in the
-congenitally blind [Mahon et al. 2009; Bedny et al. 2011; Striem-Amit, Cohen, et
-al. 2012a; van den Hurk et al. 2017] or individuals with visual
-agnosia/prosopagnosia [Schiltz and Rossion 2006; Steeves et al. 2006; Sorger et
-al.  2007; Barton 2008; Gilaie-Dotan et al. 2009; Susilo et al. 2015].
-%
-2) performing a localizer scan before each experiment is costly in terms of
-scanning time, as well as mental effort and attention resources of the
-participant.
-%
-The latter can result in fatigue during the main experiment of interest, leading
-to lower quality data.
-%
-3) as localizer scans are typically conducted in a subject-specific manner and
-researchers vary in the manner they define the ROIs (e.g., whether smoothing was
-employed, if they use anatomical constraints, what thresholding methods were
-employed), it is hard to assess variability between participants and across
-studies \citep{rosenke2021probabilistic}.
-
-
-
-% individual level: localizers
-On the level of individual subjects, \textit{functional localizer} experiments
-\citep[e.g.,][for reviews]{saxe2006divide, friston2006critique} are conducted
-during \ac{fmri} to characterize the location size, and shape of functional
+\textit{Functional localizer} experiments \citep[e.g.,][for
+reviews]{saxe2006divide, friston2006critique} are \ac{fmri} experiments that
+specifically aim to characterize the location size, and shape of functional
 areas correlating with perceptual or cognitive processes like the perception of
 object categories \citep{kanwisher1997ffa} or speech
 \citep{fernandez2001language}, or theory of mind \citep{spunt2014validating}.
+
+
+\subsection{Functional localizer: pros}
+
 % purpose: ROI improve the statistical power of the main experiment's analysis
 Functional localizers are often used as separate experiment to identify a
 subject-specific functional \acp{roi} to ``guide, constrain or interpret results
-from a main experiment \citep{saxe2006divide}.
-
-% from \citep{rosenke2021probabilistic}
-``The ROI approach is advantageous for four reasons:
-%
-1) it allows hypothesis driven comparisons of signals within independently
-defined ROIs across many different conditions,
-%
-2) it increases statistical sensitivity in multisubject analyses [Nieto–
-Castañón and Fedorenko 2012],
-%
-3) it reduces the number of multiple comparisons present in whole-brain analyses
-[Saxe et al.  2006], and
-%
-4) it identifies ROIs in each participant's native brain space''
-\citep{rosenke2021probabilistic}.
-
+from a main experiment'' \citep{saxe2006divide}.
 % clinical application
-They also promise to advance neuroimaging towards a clinical application (e.g.,
-diagnosis prior to neurosurgery) because ``in the clinical setting making
-diagnoses for single cases is imperative'' \citep{wegrzyn2018thought}.
-% purpose: neurosurgery
-For example, surgical procedures might impact the post-operative quality of life
-so much (e.g. concerning cognitive control or speech production) that a surgical
-intervention outweighs the therapeutic benefits.
+Functional localizers might also be used as a diagnostic procedure, e.g.,
+diagnostic procedure \citep[cf.,][]{wegrzyn2018thought}.
 
-% one localizer = one domain of functions
-However, one localizer paradigm can usually map just one domain of brain
-functions.
-% detection power based on paradigms' design
-Designed to maximize detection power, localizers employ carefully chosen,
+% purpose: neurosurgery
+% For example, surgical procedures might impact the post-operative quality of
+% life so much (e.g. concerning cognitive control or speech production) that a
+% surgical intervention outweighs the therapeutic benefits.
+
+% ``The ROI approach is advantageous for four reasons:
+% 1) it allows hypothesis driven comparisons of signals within independently
+% defined ROIs across many different conditions,
+% 2) it increases statistical sensitivity in multisubject analyses [Nieto–
+% Castañón and Fedorenko 2012],
+% 3) it reduces the number of multiple comparisons present in whole-brain
+% analyses [Saxe et al.  2006], and
+% 4) it identifies ROIs in each participant's native brain space''
+% \citep{rosenke2021probabilistic}.
+
+
+\subsection{functional localizer: cons}
+% paradigms design for detection power
+However designed to maximize detection power, localizers employ carefully chosen,
 tightly-controlled, and simplified stimuli presented in a block-wise manner
 often accompanied with a task to keep study participants attentive.
-% inefficiency -> localizer batteries
-Since this approach becomes inefficient if one wants to map many different
-processes with limited resources (time, availability and applicability of
-diagnostic measures for an individual patient), researchers have developed more
-time-efficient, multi-functional \textit{localizer batteries}
-\citep{barch2013function, drobyshevsky2006rapid, pinho2018individual,
-pinho2020individual, pinel2007fast}.
-% localizer batteries: example
+% one localizer = one domain of functions
+Consequently, one localizer paradigm can usually map just one domain of brain
+functions.
+% batteries: intro
+In order to map many different processes despite limited resources (time,
+availability and applicability of diagnostic measures for an individual
+patient), researchers have developed more time-efficient, multi-functional
+\textit{localizer batteries} \citep{barch2013function, drobyshevsky2006rapid,
+pinho2018individual, pinho2020individual, pinel2007fast}.
+% batteries: example
 For example, \citet{pinel2007fast} employs a range of dedicated stimuli and
 specific tasks in a 5-minute routine to map processes of ``auditory and visual
 perception, motor actions, reading, language comprehension, and mental
-calculation at an individual level'' \citep{pinel2007fast}.
+calculation'' \citep{pinel2007fast}.
 
 % intro to contra localizer
-But still, current localizer paradigms struggle to overcome especially two
+Nevertheless, the currently employed paradigms still struggle to overcome two
 challenges.
-%
-First, the localizers depend heavily on the participants' comprehension of the
-task instructions and their compliance, a criterion that can be difficult to
-meet in clinical or pediatric populations \citep{eickhoff2020towards,
-vanderwal2015inscapes, vanderwal2019movies}.
-% validity?
-Second, the paradigms rely on selectively sampled, tightly-controlled stimuli
-presented in blocks, and do not resemble how we perceive the real world outside
-of the laboratory during everyday life.
+% theory
+From a theoretical point of view, localizers rely on selectively sampled,
+tightly-controlled stimuli presented in blocks, and do not resemble how we
+perceive the real world outside of the laboratory during everyday life.
+% practice
+From a practical point of view, localizers depend on the comprehension of the
+task instructions and the participants' compliance during the scan session,
+criteria that can be difficult to meet in clinical or pediatric populations
+\citep{eickhoff2020towards, vanderwal2015inscapes, vanderwal2019movies}.
 
 
 \section{Naturalistic stimuli}
-%
+% intro to "real-life" neuroscience
 Since a major goal of neuroscience is not to reveal how the brain
 responds to blocks of [tightly-controlled] stimuli presented in a laboratory
 setting but how the brain processes information during everyday perception,
 \textit{naturalistic stimuli} gained popularity in neuroimaging.
 
-
-\paragraph{Definition}
-
+\subsection{Definition}
 % definition quote
 Naturalistic stimuli are ``a class of stimuli that aim to evoke more
 naturalistic patterns of neural responses than traditional controlled artificial
 stimuli. Naturalistic paradigms are typically complex and dynamic, and longer in
 duration than many conventional stimuli.'' \citep{vanderwal2019movies}.
-%
-Therefore, naturalistic stimuli [promise to] ``sample a broad range of brain
-states and engage multiple perceptual and cognitive systems in parallel''
-\citep{haxby2020naturalistic}.
 % movies & narratives
-The most popular naturalistic stimuli in neuroscience are movies and auditory
-narratives \citep[s.][for reviews]{jaaskelainen2021movies,
-jaaskelainen2020neural} that provide a time-locked event structure during a
-continuous, rich and dynamic stimulation.
-%
-Consequently, naturalistic stimuli promise a higher ecological validity
-\citep{zaki2009need, hasson2012future, hamilton2018revolution} because they more
-closely mimic our rich visual and auditory experiences outside the scanner bore
-in real-life \citep{hasson2008neurocinematics, haxby2020naturalistic}.
-%
-Naturalistic stimuli also promise a higher external validity because the
-\textit{stimulus features} (i.e. the stimulus classes or variables) that are
-embedded in the naturalistic stimulus represent a more random sample from the
-``theoretical population of stimuli that might have been used''
-\citep{westfall2016fixing}.
-%
+The currently most popular naturalistic stimuli in neuroscience are movies and
+auditory narratives \citep[s.][for reviews]{jaaskelainen2021movies,
+jaaskelainen2020neural} that, despite providing a time-locked event structure,
+``sample a broad range of brain states and engage multiple perceptual and
+cognitive systems in parallel'' \citep{haxby2020naturalistic}.
+
+
+\subsection{Pros: validity \& early findings}
 % Carefully chosen stimulus sets ``selectively sample from the stimulus
 % population leading to a stimulus-as-fixed-effect fallacy [Clarc, The
 % language-as-fixed-effect fallacy: A critique of language statistics in
@@ -201,81 +157,91 @@ embedded in the naturalistic stimulus represent a more random sample from the
 % response constant in time? A model selection answer]''
 % \citep{westfall2016fixing}.
 
-
-\paragraph{Early findings}
+Naturalistic stimuli have several advantages over traditional paradigms.
+% external validity
+From a theoretical point of view, naturalistic stimuli promise a higher external
+validity because the \textit{stimulus features} (i.e. the stimulus classes or
+variables) that are embedded in a naturalistic stimulus represent a more random
+sample from the ``theoretical population of stimuli that might have been used''
+\citep{westfall2016fixing}.
+% ecologically validity
+Naturalistic stimuli also promise a higher ecological validity
+\citep{zaki2009need, hasson2012future, hamilton2018revolution} because they more
+closely mimic our rich visual and auditory experiences in real-life outside of
+the scanner bore \citep{hasson2008neurocinematics, haxby2020naturalistic}.
 % reviews
-Audio-visual movies and spoken narratives have been used during \ac{fmri}
-\citep[s.][for reviews]{hamilton2018revolution, hasson2008neurocinematics,
-sonkusare2019naturalistic, saarimaki2021naturalistic}, and \ac{eeg} or \ac{meg}
-data acquisition \citep[s.][for reviews]{alday2019meg, kandylaki2019story}.
-%
+Consequently, audio-visual movies and spoken narratives have been used during
+\ac{fmri} \citep[s.][for reviews]{hamilton2018revolution,
+hasson2008neurocinematics, sonkusare2019naturalistic,
+saarimaki2021naturalistic}, and \ac{eeg} or \ac{meg} data acquisition
+\citep[s.][for reviews]{alday2019meg, kandylaki2019story}.
+% early findings: spatiotemporal synchronization
 Early studies have shown that watching a movie \citep{hasson2004intersubject,
 hasson2008neurocinematics, hasson2010reliability} or listening to a narrative
-\citep{lerner2011topographic, wilson2008beyond} reliably synchronize
+\citep{lerner2011topographic, wilson2008beyond} reliably synchronize[s]
 spatiotemporal responses across multiple subjects in a large part of the brain
 compared to, for example, an unedited video of a concert taken from a fixed
 viewpoint \citep{hasson2004intersubject, hasson2008neurocinematics,
 hasson2010reliability, lerner2011topographic, wilson2008beyond}.
-% This finding could be attributed to a film director's goal to not only direct
-% a movie, but also to capture and direct the audience's attention; this can be
-% attributed to the way professional movies are shot and edited in order to
-% intentionally manipulate the viewers' attentional focus and mental states
-% \citep{brown2012cinematography, dancyger2011film-technique}.
-%
-Furthermore, a pioneering study \citep{bartels2004mapping} suggests that
-functional specialization of cortical areas is preserved during complex,
-life-like stimulation.
+% Bartels (2004)
+Importantly in context of the current thesis, a pioneering study
+\citep{bartels2004mapping} revealed that functional specialization of cortical
+areas is preserved during complex, life-like stimulation.
+% conclusion: naturalistic stimuli as localizer
+Results suggest that naturalistic stimuli could, in principle, be used as a more
+life-like paradigm in order to substitute traditional localizer paradigms.
 
 
-\paragraph{Better compliance}
+\subsection{Pros: compliance}
+% a film director's goal is not just to direct a movie, but also to capture and
+% direct the audience's attention; professional movies are shot and edited in
+% order to intentionally manipulate the viewers' attentional focus and mental
+% states \citep{brown2012cinematography, dancyger2011film-technique}.
+
+% engaging & essentially no task
+From a practical perspective, movies or narratives require both minimal task
+instructions given by the staff/researcher/examiner and minimal task demands on
+the study participant (i.e., no task except enjoying the movie or auditory
+story).
 %
-From a practical perspective, naturalistic stimuli promise improved subject
-compliance regarding wakefulness and head motion due to minimal instruction
-requirements (e.g. no fixation of eye gaze), task demands (no task except
-enjoying the movie or auditory story).
+Moreover, movies and narratives provide an interesting and engaging stimulation
+putting participants at ease in the claustrophobic, uncomfortable, and noisy MRI
+scanner.
 %
-This is especially the case for young children \citep{vanderwal2015inscapes},
-and possibly psychiatric \citep{eickhoff2020towards} or elderly persons
-resulting in increased data quality.
-%
-Since movies and spoke narratives are interesting and easy-to-follow stimuli
-that are produced to be engaging and immersive, they also promise to put
-participants at ease in the otherwise claustrophobic, uncomfortable, and noisy
-MRI scanner.
-%
-Lastly, spoken narratives are also appropriate for visually impaired persons
-suffering from diminished or lack of eyesight.
+Therefore, naturalistic stimuli promise an increased data quality due to
+decreased fatigue and head movement, especially in case of children
+\citep{vanderwal2015inscapes}, and possibly psychiatric
+\citep{eickhoff2020towards} or elderly persons.
+
+\todo[inline]{use of audiobook will be first mentioned in "aims of thesis"}
 
 
-\paragraph{contra: challenging data analysis; annotations needed}
-
-%
-However, the majority of naturalistic stimuli that have been used in
-neuroimaging have originally been designed for commercial purposes and not to
-conduct research.
-%
-The temporal structure of stimulus features embedded in a naturalistic stimulus
-is fixed and thus reproducible but initially not explicitly known.
-%
-Modeling brain activity correlating with the stimulus features embedded in the
-time course is challenging \citep{saarimaki2021naturalistic, simony2020analysis}
-because such models, like a traditional \ac{glm}, rely on the stimulus features
-being annotated.
-%
+\subsection{Contra}
+% intro
+Nevertheless, naturalistic stimuli have not just advantages but also
+disadvantages over traditional paradigms.
+% produced for commercial use
+First, the majority of naturalistic stimuli that have been used in neuroimaging
+have been created by professional production companies for commercial purposes
+and not in order to conduct research.
+% temporal structure not explicitly known
+Thus, the temporal structure of stimulus features embedded in a naturalistic
+stimulus is fixed, and therefore reproducible, but initially not explicitly
+known.
+% challenging analysis
+Consequently, modeling brain activity correlating with stimulus features
+embedded in a stimulus time course is challenging
+\citep{saarimaki2021naturalistic, simony2020analysis} because such models, like
+a traditional \ac{glm}, rely on the stimulus features being annotated.
+% lack of annotations = bottleneck
 The lack of extensive annotations has led to a ``usage bottleneck''
 \citep{aliko2020naturalistic} and might be the main reason why explicit models
 of task or stimulus are ``notoriously'' \citep{richard2019fast}, if not
 ``prohibitively'' \citep{nastase2019measuring} difficult to construct.
-
-
-
-\paragraph{interim summary}
-
-% Quote from Finn
-In summary, naturalistic stimuli ``impose a meaningful timecourse across
-subjects while still allowing for individual variation in brain activity and
-behavioral responses, and lend themselves to a broader set of analyses than
-either pure rest or pure event-related task designs'' \citep{finn2017can}.
+% 120 minutes are too long
+Second, presenting a full feature film of usually lasting 90 to 120 minutes is
+impractical as an individual diagnostic procedure is impractical considering
+practical and monetary constraints in a clinical context.
 
 
 \section{Aims of thesis}
@@ -284,56 +250,47 @@ either pure rest or pure event-related task designs'' \citep{finn2017can}.
 %% a maximum of two pages
 
 
-\subsection{short summary of introduction so far}
-
-\todo[inline]{still too long and (of course) bumpy}
+\subsection{Interim summary of introduction}
 
 % clinical application
-An application of neuroimaging in a clinical setting requires the
-``interpretation of fMRI data at the level of individual brains is essential for
-characterizing brain function in health and disease''
-\citep{dubois2016building}.
-% functional localizers
-Functional localizers paradigms that aim to characterize the location size, and
-shape of functional areas and promise to advance neuroimaging towards a clinical
-application.  (e.g., diagnosis prior to neurosurgery) because ``in the clinical
-setting making diagnoses for single cases is imperative''
-\citep{wegrzyn2018thought}.
+Functional localizer paradigms that aim to characterize the location size, and
+shape of functional areas on the level of individual subjects are a promising
+tool to advance brain mapping towards a clinical application
+\citep[cf.,][]{wegrzyn2018thought}.
 % contra localizers
-However, localizers a) rely on selectively sampled, tightly-controlled stimuli
-presented in blocks to maximize detection power, b) can usually map just one
-domain of brain functions, and c) heavily on the participants' general
-compliance and their comprehension of the task instruction.
-% naturalistic stimuli
-Alternatively, naturalistic stimuli might be used as an interesting,
-easy-to-follow, engaging, immersive paradigm that puts participants at ease in
-the otherwise claustrophobic, uncomfortable, and noisy MRI scanner leading to
-improved data quality \citep{eickhoff2020towards}.
+However, traditional localizer paradigms can usually map just one domain of
+brain functions, employ selectively sampled, tightly-controlled stimuli, and
+rely heavily on a participant's compliance.
 %
-Moreover, spoken narratives are also appropriate for visually impaired persons
-suffering from diminished or lack of eyesight.
+First, naturalistic stimuli offer a fixed time-course of correlating with a
+variety of different brain functions ranging from low-level perception (e.g.,
+luminance) to high-level cognition (e.g., social cognition).
+%
+Thus, a naturalistic stimulus could replace multiple dedicated localizers and
+provide a more comprehensive diagnostic routine.
 %
 The richness, multi-dimensionality of naturalistic stimuli might impose a
 challenging data analysis put promises a higher ecological and external
 validity.
 %
-The time-courses of rich, full-length naturalistic stimuli are correlating with
-a variety of different brain functions ranging from low-level perception (e.g.,
-luminance) to high-level cognition (e.g., social cognition).
+Second, naturalistic stimuli are an easy-to-follow and immersive paradigm
+leading to improved data quality \citep{eickhoff2020towards}.
+
+\todo[inline]{audiobook in visually impaired}
 %
-A naturalistic stimulus could eventually replace multiple dedicated localizers
-in the future to provide a more comprehensive diagnostic routine.
+Lastly, an exclusively auditory stimulus like an audiobook or audio drama would
+also be appropriate for visually impaired persons, e.g., suffering from
+nystagmus or lack of eyesight.
 
 
 \subsection{Therefore: this dissertation}
-
 %
 Therefore, this dissertation explores --- while following the principles of
 open, transparent, and reproducible science --- whether a movie and the movie's
 audio-description that was produced for an visually impaired audience could, in
 principle, substitute a traditional localizer paradigm.
 
-\paragraph{focus on PPA}
+\subsubsection{focus on PPA}
 % focus: ppa
 As a proof of concept, this dissertation focuses on the \ac{ppa} that exhibits
 increased hemodynamic activity when participants view photos of landscapes,
@@ -354,7 +311,7 @@ We will evaluate the potential of an audio-visual movie and an auditory
 narrative to substitute a traditional localizer paradigm in two ways.
 
 
-\paragraph{modeling hemodynamic responses}
+\subsubsection{modeling hemodynamic responses}
 %
 Similarly to traditional localizer paradigms, we first model hemodynamic
 activity based on annotated stimulus features embedded in two-hour-lasting
@@ -362,7 +319,7 @@ naturalistic stimuli, and create build GLM $t$-contrasts in order to locate the
 \ac{ppa}.
 
 
-\paragraph{estimating from reference group}
+\subsubsection{estimating from reference group}
 
 \todo[inline]{streamline with SRM intro}
 
@@ -383,7 +340,7 @@ Previous studies have shown that localizer can be estimated using anatomical
 alignment [e.g. CITATION] by projecting ...
 %
 
-\paragraph{Problem: surface-based antomical alignment is not enough}
+\subsubsection{Problem: surface-based anatomical alignment is not enough}
 %
 Surface-based inter-subject alignments / strategies for registering individual
 brains together that respect cortical foldings \citep{fischl1999cortical,
@@ -403,7 +360,7 @@ eliminate the mismatch between brain function and anatomy of category-selective
 regions \citep{duncan2009consistency, frost2012measuring, weiner2018defining,
 weiner2014mid}[still similar phrasing to \citep{feilong2018reliable}].
 
-\paragraph{Solution: functional alignment}
+\subsubsection{Solution: functional alignment}
 %
 A more recent approach, uses functional alignment \citep{haxby2020hyperalignment,
 bazeille2021empirical}.
