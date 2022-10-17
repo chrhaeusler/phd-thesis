@@ -249,18 +249,22 @@ monetary constraints in a clinical context.
 
 \todo[inline]{write the following in past, presence or future tense?}
 
+
 \subsection{Overview}
 
-\todo[inline]{first, a little interim summary of intro so far}
+\todo[inline]{little interim summary here at the beginning}
+
+\todo[inline]{estimation from reference group is not mentioned in theory part
+above but are mentioned here first}
 
 % clinical application
 Functional localizer paradigms that aim to characterize the location size, and
 shape of functional areas on the level of individual subjects are a promising
 tool to advance brain mapping towards a clinical application.
 % contra localizers
-However, traditional localizer paradigms can usually map just one domain of
-brain functions, employ selectively sampled, tightly-controlled stimuli, and
-rely heavily on a participant's compliance.
+However, traditional localizer paradigms employ selectively sampled,
+tightly-controlled stimuli, rely heavily on a participant's compliance, and can
+usually map just one domain of brain functions
 % naturalistic stimuli could replace
 A functional localizer based on a naturalistic stimulus would have a couple of
 advantages over a traditional localizer paradigm, and could, in principle,
@@ -280,9 +284,6 @@ improved data quality.
 Lastly, an exclusively auditory stimulus like an audiobook or audio drama would
 also be appropriate for visually impaired persons, e.g., suffering from
 nystagmus or lack of eyesight.
-
-\todo[inline]{use of audio-description mentioned here for the first time}
-
 % therefore
 Therefore, this dissertation explores --- while following the principles of
 open, transparent, and reproducible science --- whether a movie and the movie's
@@ -310,22 +311,25 @@ stimuli (each lasting $\approx$\unit[120]{m}), and create GLM $t$-contrasts in
 order to locate the \ac{ppa}.
 
 
-\subsubsection{estimating from reference group}
+\subsubsection{Estimating from reference group}
+
+\paragraph{Anatomical alignment}
 % intro
 In order to address the practical and monetary constrains of a clinical context,
 we also estimate a participant's localizer results from other participants'
 localizer results.
-
-\paragraph{Procedure: anatomical alignment}
 % previous studies: anatomical alignment
 Previous studies have shown that the location of a participant's \ac{ppa} can be
-estimated using anatomical alignment [e.g. CITATION]:
+estimated using \ac{aa} \citep{frost2012measuring, rosenke2021probabilistic,
+weiner2018defining, zhen2017quantifying}:
 %
-participants functional data are aligned (i.e. projected into) to a
-\ac{cas} (e.g. MNI or Talairach brain template).
+First, participants functional data are aligned to a \ac{cas}, i.e. individual
+functional \acp{roi} are projected from each participant's brain space into an
+average brain (e.g., MNI or Talairach brain template).
 %
-Then, results are projected from the \ac{cas} into the brain anatomy
-of an individual participant.
+Then, the average of each partitipants' \ac{roi} is projected from the \ac{cas}
+into the brain anatomy of an individual participant, serving as an prediction of
+that individual participant's \ac{roi}.
 %
 However, even cortical surface-based alignment \citep{fischl2012freesurfer}
 cannot eliminate the mismatch between brain function and anatomy of
@@ -334,48 +338,41 @@ weiner2018defining, weiner2014mid} [still similar phrasing to
 \citep{feilong2018reliable}].
 
 
-\paragraph{Procedure: functional alignment}
-
-\todo[inline]{this is supposed to be a short overview!}
-
-\todo[inline]{maybe, a little more in specific aims}
-
-Therefore following leave-one-subject out cross-validation, we compare an
-estimation based on an anatomical alignment to a new procedure that is based on
-a functional alignment.
-% cfs creation
-For every participant, we first create a \ac{cfs} that is based on the other
-participants' response time series of the movie and audio-description.
-% transformation matrices
-A process that also computed transformation matrices for the subjects that
-provided the data for the creation of the model space.
-% projection of data
-Data (statistical $Z$-maps) of the train subjects are projected into the
-\ac{cfs}.
-% alignment of left-out
-We aligned left-out subjects with the \ac{cfs} to derive transformation matrices
-for the left-out-subjects to perform the alignment.
-% prediction
-Lastly, the acquired transformation matrices were used to project the functional
-topographies from the anatomy of the reference group into the common model
-space, and from the common model space into the anatomy of the left-out
-subjects.
-
-
-\paragraph{(partial) functional alignment}
-% functional alignment
-Here, we employ functional alignment that has been shown to outperform
-anatomical alignment \citep{haxby2020hyperalignment, bazeille2021empirical}.
+\paragraph{Functional alignment}
+% intro to functional alignment
+In order to overcome limiations of anatomical alignment, we will employ a new
+procedure using \ac{fa} that has been shown to outperform anatomical alignment
+\citep{haxby2020hyperalignment, bazeille2021empirical}.
 %
-Given that, a two-hour paradigm would be inefficient plus unsuitable for a
-clinical population, we explore whether just a part of a movie or auditory
-narrative can serve as a ``diagnostic'' run in order to estimate the location of
-the \ac{ppa} in an ``unknown'' subject's brain.
+\todo{rephrase}
 %
-Therefore, we also assess the quantity of data needed to reliably predict
-individual localizer results by testing which amount of data is needed to
-perform an alignment to the \ac{cfs} that provides transformation matrices that
-outperform a prediction based on an anatomical alignment.
+Following a leave-one-subject out cross-validation, we first create a \ac{cfs}
+that is based on the other participants' response time series of the movie and
+audio-description.
+%
+Then, the localizer results (statistical $Z$-maps) of participants whose
+response time series served as training data to create the \ac{cfs} are
+projected from their native space into the \ac{cfs}.
+%
+Further, reponse time series of the left-out subject (i.e. the test subject) are
+aligned to the \ac{cfs} in order to acquire a transformation matrix.
+%
+Finally, the inverse of a test subject's transformation matrix is used to
+project the localizer results from the \ac{cfs} into the test subject's native
+brain space.
+
+
+\paragraph{Partial alignment}
+% problem
+However, using the complete time series data of a two-hour paradigm in order to
+acquire the test subject's transformation matrix is inefficient plus unsuitable
+for a clinical population.
+%
+Therefore, we explore a) whether just a part of a movie or auditory narrative
+could serve as a ``diagnostic'' run in order estimate a test
+subject's localizer results and b)  which amount of data used for functional
+alignment is necessary to outperform an estimation procedure based on anatomical
+alignment.
 
 
 \subsection{Open, transparent, and reproducible science}
@@ -472,6 +469,8 @@ additionally published at Neurovault
 \subsection{Specific objectives and hypotheses}
 
 \todo[inline]{in case studies shall have their own titles, short text here}
+
+\todo[inline]{parts per individual study might be too long?}
 
 \subsubsection{A studyforrest extension, an annotation of spoken
 language in the German dubbed movie ``Forrest Gump'' and its audio-description
@@ -596,101 +595,38 @@ paradigm (study 3)}
 
 \todo[inline]{I might write a little more here (or add an abstract to study 3)}
 
+\todo[inline]{part here is (still) similar to the part written in "overview"}
+
+
 \paragraph{Problem}
 % summary of study 2
-As suggested by the results of study 2, a naturalistic stimulus might provide an
+Results of study 2 suggest that a naturalistic stimulus might provide an
 engaging, task-free paradigm to localize brain functions in individual subjects.
 %
-A full feature film might substitute traditional localizer paradigms dedicated
-localizer by mapping a variety of brain functions beyond category-specific
-visual areas.
-%
-However considering practical and monetary constraints in a clinical context, 90
-to 120 minutes are inappropriate for even an extensive individual diagnostic
-procedure c
+However considering practical and monetary constraints in a clinical context, a
+paradigm lasting 90 to 120 minutes is inappropriate for even an extensive
+individual diagnostic procedure.
+
 
 \paragraph{Solution}
-
 %
-Therefore in study 3,  we use data of the movie and audio-description to
-predict localizer results \citep{sengupta2016extension}.
+Therefore in study 3, we assess a procedure to estimate results of a dedicated
+localizer \citep{sengupta2016extension} based on data acquired during
+naturalistic stimulation.
 %
-In study 3, we assess a procedure to estimate results of a dedicated localizer
-based on data acquired during naturalistic stimulation.
-
+We assess whether we can estimate (i.e. predict) the results of the visual
+localizer experiment ($Z$-values of voxels within a \ac{roi}) performed in a
+test subject based on data in a reference group.
 %
-We test whether we can estimate statistical results (values $Z$-maps of
-localizer contrast with in a \ac{roi}) from a test subject from data in a
-reference group that was used.
-%
-We compare \textit{empirical $Z$-maps} acquired from the visual localizer to
-\textit{predicted $Z$-maps} acquired via an anatomical or functional alignment
-procedure.
-
-\subsubsection{estimating from reference group}
-
-\todo[inline]{do not introduce too many technical terms (e.g. LOOCV)}
-
-\todo[inline]{training \& testing data is okay; make clear that we do not just
-estimate parameters, i.e.  statistical inference but ``prediction''}
-
-
-Therefore following leave-one-subject out cross-validation, we compare an
-estimation based on an anatomical alignment to a new procedure that is based on
-a functional alignment.
-% cfs creation
-For every participant, we first create a \ac{cfs} that is based on the other
-participants' response time series of the movie and audio-description.
-% transformation matrices
-A process that also computed transformation matrices for the subjects that
-provided the data for the creation of the model space.
-% projection of data
-Data (statistical $Z$-maps) of the train subjects are projected into the
-\ac{cfs}.
-% alignment of left-out
-We aligned left-out subjects with the \ac{cfs} to derive transformation matrices
-for the left-out-subjects to perform the alignment.
-% prediction
-Lastly, the acquired transformation matrices were used to project the functional
-topographies from the anatomy of the reference group into the common model
-space, and from the common model space into the anatomy of the left-out
-subjects.
-
-
-\paragraph{(partial) functional alignment}
-% functional alignment
-Here, we employ functional alignment that has been shown to outperform
-anatomical alignment \citep{haxby2020hyperalignment, bazeille2021empirical}.
-%
-Given that, a two-hour paradigm would be inefficient plus unsuitable for a
-clinical population, we explore whether just a part of a movie or auditory
-narrative can serve as a ``diagnostic'' run in order to estimate the location of
-the \ac{ppa} in an ``unknown'' subject's brain.
-%
-Therefore, we also assess the quantity of data needed to reliably predict
-individual localizer results by testing which amount of data is needed to
-perform an alignment to the \ac{cfs} that provides transformation matrices that
-outperform a prediction based on an anatomical alignment.
-
-
-\paragraph{Partial alignment}
-
+Following leave-one-subject out cross-validation, we compare the estimation
+performance of our new procedure that is based on functional alignment to an
+estimation performance based on anatomical alignment [e.g., CITATIONS].
+% partial alignment
 We assessed the relationship between length of naturalistic stimulation used
-for a \textit{partial functional alignment} and the performance of predicting
-empirical $Z$-maps by...
-%
-We test whether functional alignment can be achieved with a task-free, natural
-stimulation ``calibration'' scan that requires no more acquisition time than a
-conventional localizer paradigm.
-%
-We will estimate the trade-off between diagnostic quality and required effective
-scan time by progressively reducing the duration of input BOLD fMRI data and
-comparing the results of the reduced model to the reference computed from the
-full length scan.
+for a \ac{fa} and the estimation performance of empirical $Z$-maps.
 
 
 \paragraph{Hypotheses}
-
 %
 We hypothesized that increased quantity of data used to calculate the
 transformation matrices of left-out subjects for a functional alignment would to
