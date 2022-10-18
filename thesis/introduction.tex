@@ -1,4 +1,6 @@
 %% The introduction begins with an overview of the topic
+\todo[inline]{\textit{new terms} in italics}
+
 
 % introductory quote
 ``A remarkable feature of the vertebrate brain is the anatomical specialization
@@ -38,7 +40,7 @@ participants for
 %
 practical (e.g., limited scan time per subject),
 %
-statistical (e.g., improved of \ac{snr}) reasons,
+statistical reasons (e.g., improved of \ac{snr}),
 %
 or to generalize from study particpants to a broader population.
 %
@@ -54,9 +56,9 @@ large amount of information'' \citep{pinel2007fast}.
 % a.k.a. "state of research"
 
 %
-fMRI data need to be interpreted on the level of an individual person in order
-assess health and disease, and eventually advance human brain mapping towards a
-clinical application \citep{dubois2016building, wegrzyn2018thought}.
+In order to assess health and disease and therefore advance human brain mapping
+towards a clinical application fMRI data need to be interpreted on the level of
+an individual person \citep{dubois2016building, wegrzyn2018thought}.
 %
 \textit{Functional localizer} experiments \citep[e.g.,][for
 reviews]{saxe2006divide, friston2006critique} are \ac{fmri} experiments that
@@ -79,17 +81,17 @@ object categories \citep{kanwisher1997ffa} or speech
 
 
 % purpose: ROI improve the statistical power of the main experiment's analysis
-Functional localizers are often used as separate experiment to identify a
-subject-specific functional \acp{roi} to ``guide, constrain or interpret results
-from a main experiment'' \citep{saxe2006divide}.
+Currently, functional localizers are often used as separate experiment to
+identify a subject-specific functional \acp{roi} to ``guide, constrain or
+interpret results from a main experiment'' \citep{saxe2006divide}.
 % clinical application
-Functional localizers might also be used as a diagnostic procedure, e.g.,
-diagnostic procedure, e.g., prior to neurosurgery
-\citep[cf.][]{wegrzyn2018thought}.
+Functional localizers might also be used as a diagnostic procedure, e.g., prior
+to neurosurgery \citep[cf.][]{wegrzyn2018thought}.\todo{kind of a blind quote;
+check Wegrzyn's part \& his refs in general discussion}
 % cons: design for detection power
-However designed to maximize detection power, localizers employ carefully chosen,
-tightly-controlled, and simplified stimuli presented in a block-wise manner
-often accompanied with a task to keep study participants attentive.
+However designed to maximize detection power, localizers employ carefully
+chosen, tightly-controlled, and simplified stimuli presented in a block-wise
+manner often accompanied with a task to keep study participants attentive.
 % one localizer = one domain of functions
 Consequently, one localizer paradigm can usually map just one domain of brain
 functions.
@@ -97,8 +99,8 @@ functions.
 In order to map many different processes despite limited resources (time,
 availability and applicability of diagnostic measures for an individual
 patient), researchers have developed more time-efficient, multi-functional
-\textit{localizer batteries} \citep{barch2013function, drobyshevsky2006rapid,
-pinho2018individual, pinho2020individual, pinel2007fast}.
+\textit{localizer batteries} \citep[e.g.,][]{barch2013function,
+drobyshevsky2006rapid, pinho2018individual, pinho2020individual, pinel2007fast}.
 % batteries: example
 For example, \citet{pinel2007fast} employs a range of dedicated stimuli and
 specific tasks in a 5-minute routine to map processes of ``auditory and visual
@@ -157,11 +159,11 @@ Naturalistic stimuli have several advantages over traditional paradigms.
 % external validity
 From a theoretical point of view, naturalistic stimuli promise a higher external
 validity because the \textit{stimulus features} (i.e. the stimulus classes or
-variables) that are embedded in a naturalistic stimulus represent a more random
-sample from the ``theoretical population of stimuli that might have been used''
-\citep{westfall2016fixing}.
+the variables) that are embedded in a naturalistic stimulus represent a more
+random sample from the ``theoretical population of stimuli that might have been
+used'' \citep{westfall2016fixing}.
 % ecologically validity
-Naturalistic stimuli also promise a higher ecological validity
+Further, naturalistic stimuli also promise a higher ecological validity
 \citep{zaki2009need, hasson2012future, hamilton2018revolution} because they more
 closely mimic our rich visual and auditory experiences in real-life outside of
 the scanner bore \citep{hasson2008neurocinematics, haxby2020naturalistic}.
@@ -176,7 +178,7 @@ saarimaki2021naturalistic}, and \ac{eeg} or \ac{meg} data acquisition
 % early findings: spatiotemporal synchronization
 Early studies have shown that watching a movie \citep{hasson2004intersubject,
 hasson2008neurocinematics, hasson2010reliability} or listening to a narrative
-\citep{lerner2011topographic, wilson2008beyond} reliably synchronize[s]
+\citep{lerner2011topographic, wilson2008beyond} reliably synchronizes
 spatiotemporal responses across multiple subjects in a large part of the brain
 compared to, for example, an unedited video of a concert taken from a fixed
 viewpoint \citep{hasson2004intersubject, hasson2008neurocinematics,
@@ -197,10 +199,9 @@ life-like paradigm in order to substitute traditional localizer paradigms.
 % states \citep{brown2012cinematography, dancyger2011film-technique}.
 
 % engaging & essentially no task
-From a practical perspective, movies or narratives require both minimal task
-instructions given by the staff/researcher/examiner and minimal task demands on
-the study participant (i.e., no task except enjoying the movie or auditory
-story).
+From a practical perspective, naturalistic stimuli require both minimal task
+instructions given by the staff and minimal task demands on the study
+participant (no task except enjoying the movie or audio story).
 %
 Moreover, movies and narratives provide an interesting and engaging stimulation
 putting participants at ease in the claustrophobic, uncomfortable, and noisy MRI
@@ -216,8 +217,8 @@ decreased fatigue and head movement, especially in case of children
 
 \subsection{Contra}
 % intro
-Nevertheless, naturalistic stimuli have not just advantages but also
-disadvantages over traditional paradigms.
+Nevertheless, naturalistic stimuli also have disadvantages over traditional
+paradigms.
 % produced for commercial use
 First, the majority of naturalistic stimuli that have been used in neuroimaging
 have been created by professional production companies for commercial purposes
@@ -228,7 +229,7 @@ stimulus is fixed, and therefore reproducible, but initially not explicitly
 known.
 % challenging analysis
 Consequently, modeling brain activity correlating with stimulus features
-embedded in a stimulus time course is challenging
+embedded in a stimulus' time course is challenging
 \citep{saarimaki2021naturalistic, simony2020analysis} because such models, like
 a traditional \ac{glm}, rely on the stimulus features being annotated.
 % lack of annotations = bottleneck
@@ -237,7 +238,7 @@ The lack of extensive annotations has led to a ``usage bottleneck''
 of task or stimulus are ``notoriously'' \citep{richard2019fast}, if not
 ``prohibitively'' \citep{nastase2019measuring} difficult to construct.
 % 120 minutes are too long
-Second, presenting a full feature film of usually lasting 90 to 120 minutes is
+Second, presenting a full feature film usually lasting 90 to 120 minutes is
 inappropriate as an individual diagnostic procedure considering practical and
 monetary constraints in a clinical context.
 
@@ -255,7 +256,7 @@ monetary constraints in a clinical context.
 \todo[inline]{little interim summary here at the beginning}
 
 \todo[inline]{estimation from reference group is not mentioned in theory part
-above but are mentioned here first}
+above but is mentioned here for the first time}
 
 % clinical application
 Functional localizer paradigms that aim to characterize the location size, and
@@ -591,11 +592,12 @@ space [needs to be defined above in overview] in study 3, and align an
 functional alignment to predict results from a task-based functional localizer
 paradigm (study 3)}
 
-\todo[inline]{we agreed on study 3 not having at its chapter's beginning}
+\todo[inline]{we agreed on study 3 not having at its own abstract}
 
 \todo[inline]{I might write a little more here (or add an abstract to study 3)}
 
-\todo[inline]{part here is (still) similar to the part written in "overview"}
+\todo[inline]{part here is (still) similar to the part written in "overview"
+(1.3.1)}
 
 
 \paragraph{Problem}

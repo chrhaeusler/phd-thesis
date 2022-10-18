@@ -1,15 +1,84 @@
 \section{General recapitulation of the whole project \& its aims}
 
+\todo[inline]{following paragraph is from intro: shorten it!}
 
-The [general, non-specific] aim of the current thesis was to...
+%
+Traditional studies averaged data across participants.
+%
+However, fMRI need to be analyzed on the level of an individual person in order
+to advance brain mapping towards an clinical application.
+% functional localizer
+Functional localizer paradigms aim to characterize the location size, and shape
+of functional areas on the level of individual subject.
+%
+Therefore, they are a promising tool to advance brain mapping towards a clinical
+application.
+% contra localizers
+However, traditional localizer paradigms employ selectively sampled,
+tightly-controlled stimuli, rely heavily on a participant's compliance, and can
+usually map just one domain of brain functions
+% naturalistic stimuli could replace
+Naturalistic stimuli have a couple of advantages over a paradigms employing
+carefully chosen, tightly-controlled, simplified stimuli.
+% fixed time-course
+a) naturalistic stimuli offer a fixed time-course correlating with a variety of
+different brain functions ranging from low-level perception (e.g., luminance) to
+high-level cognition (e.g., social cognition);
+% richness
+b) the richness and multi-dimensionality of naturalistic stimuli might impose a
+challenging data analysis put promises a higher ecological and external
+validity;
+% compliance
+c) naturalistic stimuli are an easy-to-follow and immersive paradigm leading to
+improved data quality.
+% visually impaired
+Lastly, an exclusively auditory stimulus like an audiobook or audio drama would
+also be appropriate for visually impaired persons, e.g., suffering from
+nystagmus or lack of eyesight.
+% therefore
+Therefore, this dissertation's aim was --- while following the principles of
+open, transparent, and reproducible science --- to explore  a movie and the
+movie's audio-description could, in principle, substitute a traditional
+localizer paradigm.
+%
+The dissertation focussed on the \ac{ppa}, a fucking classic functional area of
+higher-visual perception.
 
-
-\todo[inline]{maybe, give high-level summary of all studies here already;
-then, you do not need to do it before summarizing results of individual studies}
+%
+First (study 1), we extended the studyforrest dataset.
+%
+Second (study 2)  and similarly to traditional localizer paradigms, we modeled
+hemodynamic activity based on annotated stimulus features embedded in the movie
+``Forrest Gump'' and its audio-description, and created GLM $t$-contrasts in
+order to locate the \ac{ppa}.
+%
+Third (study 3), we estimated results of the localizer by projecting the data
+through a \ac{cfs}.
 
 
 \section{Open, transparent, and reproducible science}
 
+The overarching goal of this dissertation was to perform all three studies under
+the principles of open, transparent, and reproducible research.
+%
+Hence, on a metalevel, this dissertation aims to meet both the requirements of
+open, accessible, shared, and transparent science \citep{watson2015will,
+fecher2014open} as well as the requirements of a reproducible and replicable
+research project:
+%
+the dissertation follows guidelines and best practices for a) coding and
+scientific computing \citep{wilson2014best}, b) procedures and data analyses
+\citep{nichols2017best, poldrack2017scanning, poldrack2019establishment}, and c)
+sharing code, created data, and results \citep{eglen2017toward, nichols2017best,
+pernet2015improving}.
+
+
+\subsection{Extend open science project}
+
+The additional stimulus annotations that have been created over the course of
+the dissertation are version-controlled and published in a standardized file
+format \citep{haeusler2021speechanno}, and therefore contribute to the
+studyforrest project as a resource for the scientific community.
 
 \subsection{Data re-use for new investigation \& new results}
 %
@@ -23,8 +92,48 @@ We have shown that the idea of studyforrest can be successful.
 My project is using existing data, performs a new investigation, generates new
 results.
 
+% \paragraph{input data}
+% open data \citep{eglen2017toward}
+First, my work is built on top of publicly and freely available \ac{fmri} data
+that are part of the \textit{studyforrest} project
+(\href{www.studyforrest.org}{\url{studyforrest.org}}).
+%
+The studyforrest project is an open science project that aims to provide a
+versatile resource for investigating human brain function under quasi-natural
+conditions.
+% core stimuli
+The core of this dataset are two-hour long \ac{bold} \ac{fmri} scans of
+participants watching the movie Forrest Gump \citep{ForrestGumpMovie} and
+listening to the movie's audio-description that was created for a visually
+impaired audience by adding a narrator to the movie's audio track.
+% used by 3rd parties
+Since its first publication in 2014 \citep{hanke2014audiomovie}, the
+studyforrest project has served as a resource of raw (and preprocessed) data for
+international working groups to conduct and publish independent, peer-reviewed
+research (s.
+\href{www.studyforrest.org/publications.html}{\url{studyforrest.org/publications.html}}).
+
 
 \subsection{Reproducibility}
+
+% \paragraph{code, analyses, output} intro
+Further, all code is shared to improve reproducibility of current results and to
+facilitate replicability of findings on other datasets.
+% automatization
+Therefore, data analyses pipelines are designed in a way that enables automated
+processing.
+% FOSS
+Analyses pipelines are not implemented in proprietary software but in freely
+available and, if possible, open-source software.
+% which tools to choose why?
+Among potential software packages, we chose the tools that offer the most solid
+documentation, and a broad basis of developers and maintainers to ensure
+long-term support.
+% my code
+Custom code written by myself is written in open-source programming languages
+(Python and Bash), is version-controlled, documented, and released publicly and
+freely accessible.
+
 
 \subsection{Data Sharing}
 
@@ -36,6 +145,30 @@ This extension is standardized and available as online repositories comprising
 raw data, code, and results.
 %
 All analyses can be rerun and validated.
+
+% DataLad
+All input data, custom code, analysis steps and output data are accessible in
+standardized \textit{DataLad} (\href{www.datalad.org}{datalad.org}) datasets.
+Since DataLad provides a free and open-source software solution that manages
+provenience, distribution, and version-control of code and data
+\citep{halchenko2021datalad}, all executed steps from downloading the input data
+to visualizing the results can be rerun to check and validate the dissertation's
+results.
+
+% \paragraph{publications}
+% open-access publishing
+Last, because ``nature abhors a paywall'' \citep{dupre2020nature}, publications
+describing generated data, reasoning of methodological choices, analysis steps,
+and results are published in open-access journals.
+% neurovault
+Unthresholded statistical maps of all computed statistical $t$-contrasts are
+additionally published at Neurovault
+(\href{https://neurovault.org/}{neurovault.org}).
+
+\subsection{Personal assessment of following open science}
+
+Following these principles of open science came with a couple of disadvatages
+and advantages.
 
 
 \subsubsection{Contra}
@@ -54,25 +187,30 @@ Tools of trade, best practices are in the process of being established.
 It is not taught in study programs (but needs to be standard).
 
 
-\paragraph{Trustful data?}
-
+\paragraph{Opportunity costs}
 %
-Can you trust published data? Balance of checking everything vs.
-taking things for granted.
+It is not just about the raw data but also about preprocessing, templates,
+results of the localizer.
+%
+Sengupta's data were analyzed (and published) in voxel space.
+%
+I could have run the analyses/contrasts on the surface but that needs time (not
+so importante anyway because \ac{fa} was performed in voxel-space, too.
+%
+In case of the PPA, we had no mask for RSC and transverse occipital sulcus (cf.
+reviewer response.
+
+
+\paragraph{Trustful data?}
+%
+Can you trust published data? Balance of checking everything vs.  taking things
+for granted.
 %
 The unknown unknowns of dataset creators? What did they fail to consider?
 Standards may vary depending on the use case. Assume that everything that is not
-explicitly stated in a paper along the dataset was not done?
+explicitly stated in a paper along the dataset was not done and needs to be
+checked?
 
-%
-Opportunity costs. It is not just about the raw data but also about
-preprocessing, templates, results of the localizer. For other persons, its also
-my speech annotation; we had no mask for RSC and transverse occipital sulcus.
-
-Sengupta published results of analyses that were compared in voxel space.
-%
-``Opportunity costs'': I could have run the analyses/contrasts on the surface
-but that needs time.
 %
 Is also a ``problem'' of data sharing: you save time and money (especially if
 you do not collect the data yourself) but you have to trust that the data are
@@ -84,13 +222,25 @@ Hence, do everything possible to make it really, really good 'cause other people
 will rely on your shit.
 
 %
-other working groups can be faster and can use your data for similar findings
+Still, re-users need to check the data according to their use case! It will
+never be perfect and there is no "one size fits all".
 
+%
+For other persons, it's also my speech annotation
+
+
+\paragraph{An additional burden}
+%
+You have to make your data and script extra pretty so other people can benefit
+from your work but you do not benefit yourself from doing more than is necessary
+for your own project.
 %
 Thus it is an added ``burden'' during PhD thesis.
 %
 People who do not give a shit about it and don't do it, do ``worse'' research
 but are faster/``better''.
+%
+Other working groups can be faster and can use your data for similar findings
 
 
 \subsubsection{Pro}
@@ -105,6 +255,21 @@ What was more diffcult compared to when data were acquired by myself?
 But what would not have been possible if the data would have needed to be
 acquired on my own?
 
+From introduction:
+% reproducibility crisis
+Over the last decade, there has been a growing awareness that results of
+scientific publications are not reproducible or general scientific findings are
+not replicable letting some authors speak of a ``reproducibility crisis'' or
+``replication crisis'' in the sciences \citep{baker2016reproducibility,
+plesser2018reproducibility, stupple2019reproducibility, nosek2022replicability}.
+% reproducibility: definition
+``A study is reproducible if all of the code and data used to generate the
+numbers and figures in the paper are available and exactly produce the published
+results'' \citep{leek2017most}.
+% replicability: definition
+A study is replicable if the same analysis of an equivalent experiment's data
+leads to consistent results \citep{dubois2016building, leek2017most}.
+
 \todo[inline]{think big regarding reproducibility}
 
 
@@ -113,21 +278,20 @@ acquired on my own?
 
 \subsection{Speech anno}
 
-Lore ipsum
+Annotations are hard but you can do it (cf. "bottleneck").
+
 
 \subsection{PPA paper}
 %
 Similarly to previous studies/classical localizer, we also model hemodynamic
 responses based on the event structure.
+
 %
 But ``movies also simulate better the statistics of natural viewing and
 listening and may provide more ecologically valid maps''
 \citep{jiahui2020predicting}.
 
-\subsubsection{Annotations are hard but you can do it}
-
 \subsubsection{Traditional GLM ``works''}
-
 %
 Despite ad hoc / exploratory approach (a.k.a. shitty modeling of subjectively
 assessed events), results suggest: the response to spatial information must be
@@ -135,14 +299,41 @@ somewhere in there and is detectable.
 %
 In the PPA study,  I did not test the quality/reliability of individual results
 depending on quantity of runs to assess naturalistic stimulus as potential
-replacement;
+replacement.
 
 
-\subsubsection{check response to reviewers of the PPA paper!}
+\subsubsection{Future studies on PPA}
+
+\todo[inline]{cf. reviewer response of PPA study}
+%
+We need dedicated studies; question for standard experiment is: is it due to
+auditory information or due to being an naturalistic stimulus and it's "more
+random sampling" and modeling of spatial information.
+
+%
+Naturalistic stimuli are not a panacea but traditional paradigms and
+naturalistic paradigms should be used in tandem / reciprocially to generate new
+hypotheses and progress our understanding of the brain.
+
+
+\subsubsection{Future studies: other functional areas}
+%
+A full feature film might substitute traditional localizer paradigms dedicated
+localizer by mapping a variety of brain functions beyond category-specific
+visual areas.
+%
+Next step: other functional areas in studyforrest dataset [cf. discussion of SRM
+part]; an independent dataset comprising naturalistic stimulation and (a variety
+of) localizers.
+%
+``Future studies that aim to use a movie to localize visual areas in individual
+participants should extensively annotate the content of frames (e.g., using the
+open-source solution ``Pliers''\citep{mcnamara2017developing} for feature
+extraction from a visual naturalistic stimulus)''
+\citep{haeusler2022processing}.
 
 
 \subsubsection{Future studies: inter-individual differences / variability}
-
 %
 Compared to the visual \ac{ppa}, we observe more variability of the auditory
 \ac{ppa} across subjects.
@@ -150,11 +341,11 @@ Compared to the visual \ac{ppa}, we observe more variability of the auditory
 Possible reasons are (shitty) modelling per se, individual alertness/fatigue,
 attentional focus, predisposition to select/process spatial relevant
 information.
-
 %
 ``Divergent patterns of brain organization from the most common pattern (that
 is, changes in the spatial arrangement of cortical regions) can be observed in
-approximately 5–10\% of the healthy population [16,19], and care should
+approximately 5–10\% of the healthy population [Glasser, 2016, A multi-modal
+parcellation; Gordon, 2017, Individual variability], and care should
 therefore be taken to avoid the undue influence of such outliers''
 \citep{eickhoff2018imaging}.
 %
@@ -172,7 +363,6 @@ can we start to appreciate idiosyncrasies and their relationships to
 socio-demographic, cognitive or affective profiles''
 \citep{eickhoff2018imaging}.
 
-
 %
 ``Interindividual variability of functional regions in both functional and
 spatial features should reflect brain function to some extent, and thus is a
@@ -189,8 +379,6 @@ Our study ``invites future work on the origin of the variability and its
 relation to individual differences in behavioral performance''
 \citep{zhen2015quantifying}.
 
-\todo[inline]{cf. response to reviewers: we need dedicated studies}
-
 % PPA
 ``The spatial and selectivity variability of the SSRs may likely underlie
 individual differences in navigation, especially when scene perception is being
@@ -205,27 +393,9 @@ variability in understanding the neural mechanisms of scene perception [Kanai
 and Rees, 2011; Van Horn et al., 2008]'' \citep{zhen2017quantifying}.
 %
 Hence, further studies using dedicated auditory localizer should shed light on
-the inter-individual differences of persons exhibiting a auditory \ac{ppa}.
+the inter-individual differences of persons exhibiting an auditory \ac{ppa}.
 
 
-\subsubsection{Future studies: other functional areas}
-
-%
-A full feature film might substitute traditional localizer paradigms dedicated
-localizer by mapping a variety of brain functions beyond category-specific
-visual areas.
-
-%
-Next step: other functional areas in studyforrest dataset [cf. discussion of SRM
-part]; an independent dataset comprising naturalistic stimulation and (a variety
-of) localizers.
-
-%
-``Future studies that aim to use a movie to localize visual areas in individual
-participants should extensively annotate the content of frames (e.g., using the
-open-source solution ``Pliers''\citep{mcnamara2017developing} for feature
-extraction from a visual naturalistic stimulus)''
-\citep{haeusler2022processing}.
 
 
 \subsection{SRM study}
@@ -237,166 +407,11 @@ with brain responses that are similar to those correlating with the event
 structure in a dedicated functional localizer.
 
 
-\section{Vision: Functional atlas}
 
-\todo[inline]{DO NOT REVISE TOO MUCH STUFF THAT WILL ONLY MAKE SENSE IF STUDY 4
-IS KEPT IN THE THESIS!}
-
-\todo[inline]{but probably, emphasis on general vision is better placed here}
-
-\todo[inline]{at the moment, most text of this topic is in SRM discussion}
-
-\todo[inline]{check discussion of \citet{jiahui2020predicting} as last resource}
-
-\subsection{Previously: anatomical alignment}
-%
-Previous studies used anatomical alignment in order to project data from
-probabilistic functional atlases (aligned to a \ac{cas}) onto individual
-subjects in order to predict the location of functional areas in new/unknown
-subjects.
-%
-Anatomical alignment relies on data of an anatomical MRI scan that performed as
-an standard routine before/after functional brain scans using fMRI.
+\subsection{Naturalistic stimuli as functional localizer?}
 
 
-\subsubsection{Now: naturalistic stimuli for functional alignment}
-%
-Our procedure relies on data of a functional scan session during naturalistic
-stimulation.
-
-%
-While the functional alignment can also be applied to fMRI data from stimulation
-paradigms with simplified stimuli, the transformations for functional alignment
-have greatly diminished general validity \citep{haxby2011common}, presumably
-because such experiments sample a sparser range of brain states
-\citep{guntupalli2016model}.
-%
-Therefore, we need an additional scan session of functional data but
-naturalistic stimuli ``engage in parallel multiple neural systems for vision,
-audition, language, person perception, social cognition, and other functions''
-\citep{jiahui2020predicting}.
-
-
-\subsubsection{Now: naturalistic stimuli can substitute multiple localizers}
-%
-The reference would enable an qualitative and quantitative description of an
-individual's brain function with respect to such a norm, and consequently
-progress the field towards neuroimaging studies of individual differences that
-more closely resemble their psychological counterparts.
-
-%
-Once a valid alignment is established, known functional properties of the
-(normative) reference can then be projected into the respective individual voxel
-space (s. Fig. 1 in \citep{nishimoto2016lining}).
-%
-A naturalistic stimulus like a move or audio-description could be used to map a
-variety $z$-maps created from a variety of $t$-contrast from a normative
-reference group onto an individual subjects and thus potentially substitute a
-variety of localizers.
-
-
-% from Jiahu
-``From a single movie dataset multiple functional topographies can be estimated
-\citep{guntupalli2016model}, whereas different localizers are typically required
-to map different functional topographies, making a thorough mapping of selective
-topographies time-consuming and inefficient'' \citep{jiahui2020predicting}.
-%
-``Consequently, movies have the potential to estimate selective topographies in
-all of these domains'' \citep{jiahui2020predicting}.
-%
-``Findings lay the foundation for developing an efficient tool for mapping
-functional topographies from a database containing a wide range of perceptual
-and cognitive functions to new subjects based only on fMRI data collected while
-watching an engaging, naturalistic stimulus and other subjects' localizer data
-from a normative sample'' \citep{jiahui2020predicting}.
-%
-``Such a tool would require a database of data for movies and a range of
-functional localizers in a normative group of subjects''
-\citep{jiahui2020predicting}.
-%
-``A new subject's functional topographies could be estimated based only on that
-subject's movie data and other subjects' localizer data from the normative
-database that could be projected into that subject's cortical anatomy using
-hyperalignment transformation matrices derived from movie data and could replace
-tedious functional localizers with an engaging movie''
-\citep{jiahui2020predicting}.
-
-
-\subsubsection{Additional (clinical) benefits of naturalistic stimuli}
-
-``Compared with functional localizers, naturalistic stimuli provide several
-advantages such as stronger and widespread brain activation, greater engagement,
-and increased subject compliance'' \citep{jiahui2020predicting}.
-%
-``Movies are more engaging and result in better compliance
-\citep{vanderwal2015inscapes}.
-%
-Movie viewing can also be used in subject populations, such as children
-\citep{richardson2018development} or patients, that may have trouble maintaining
-attention during repetitions of a tedious localizer task''
-\citep{jiahui2020predicting}.
-
-%
-On the one hand, an engaging naturalistic stimulus before the main experiment
-would have the benefit of putting a study participant at ease and letting the
-subject accommodate to the scanner environment).
-%
-On the other hand, an engaging naturalistic stimulus after the main experiment
-would not suffer less from fatigue than a one localizer or even a localizer
-battery demanding voluntary attention and handling a repetitive task.
-
-
-\subsubsection{Partial alignment would lower scanning time}
-%
-A \textit{calibration scan} could be used to align a subject to a fixed \ac{cfs}
-based on extensive scans and analyses of other subjects' data serving as a
-reference / functional atlas.
-
-%
-Similar to the standard procedure of a anatomical scan, additional 15 minutes
-functional scanning using an engaging naturalistic stimuli  could provide
-sufficient data to perform a functional alignment to a functional atlas.
-
-
-\subsection{Clinical Application}
-
-\todo[inline]{cf. general introduction}
-
-\paragraph{template from \citet{wegrzyn2018thought}}
-
-``Functional localization has proven to be of direct practical use [Bunzl
-(2010). An Exchange about Localism. In: Foundational Issues in Human Brain
-Mapping, p. 49–54; Szaflarski (2017). Practice guideline summary: Use of fMRI in
-the presurgical evaluation of patients with epilepsy. Neurology].
-%
-In the clinical context, fMRI plays an important role for planning surgery in
-patients with tumors or epilepsies, as it aids the understanding of which parts
-of the brain need to be spared in order to preserve sensory, motor or cognitive
-abilities [Stippich (2017). Introduction to Presurgical Functional MRI. In:
-Clinical Functional MRI, p. 1–7.]'' \citep{wegrzyn2018thought}.
-
-``To be useful for clinical diagnostics and prognostics, fMRI data must be
-interpretable on the level of the individual case \citep{dubois2016building}.
-%
-Because in group studies idiosyncratic activity patterns can be obscured by
-averaging, the precise mapping of brain function in a single person has become a
-vanguard of fMRI research [\citet{laumann2015functional, huth2016natural,
-gordon2017precision}]'' \citep{wegrzyn2018thought}.
-
-
-\paragraph{subgroup matching/classification}
-%
-Imagine you scan a new, unknown subject for just 15 minutes more, and you
-additionally get results from a whole variety of other paradigms mapped onto
-that brain: results from localizers of low-level perceptual processes, but also
-higher-level cognitive processes like language, memory, emotions and so on.
-%
-If you have different \acp{cfs} for different subgroups, you could investigate
-which alignment onto which subgroup's \ac{cfs} results in less
-error letting you classify to which subgroup your new subject might belong to.
-
-
-\subsection{Caveats of naturalistic stimuli}
+\subsubsection{Caveats of naturalistic stimuli}
 
 %
 Challenging data data analysis, but create \& share annotation.
@@ -410,6 +425,15 @@ Just an approximation of real life.
 Setting is still the scanner.
 %
 Passive watching \& listening. Hence, executive functions?
+
+
+
+\subsubsection{Pro = summary of the whole project/thesis}
+%
+Summary of the whole thesis.
+
+%
+Why naturalistic stimuli are so fucking awesome.
 
 
 \section{Conclusion (on naturalistic stimuli)}
