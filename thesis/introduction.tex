@@ -352,26 +352,34 @@ weiner2018defining, weiner2014mid} [still similar phrasing to
 
 \paragraph{Functional alignment}
 % intro to functional alignment
-In order to overcome limitations of \ac{aa}, we will employ a new
-procedure using \ac{fa} that has been shown to outperform anatomical alignment
+In order to overcome limitations of \ac{aa}, we will employ a new procedure
+using \ac{fa} that has been shown to outperform anatomical alignment
 \citep{haxby2020hyperalignment, bazeille2021empirical}.
 %
 \todo{rephrase}
 %
-Following a leave-one-subject out cross-validation, we first create a \ac{cfs}
-that is based on the other participants' response time series of the movie and
-audio-description.
+Following an exhaustive leave-one-out cross-validation, we split the dataset
+(N$=$14 subjects) repeatedly in a set N-1 subjects used to train the model and
+one subject used to test the model.
 %
-Then, the localizer results (statistical $Z$-maps) of participants whose
-response time series served as training data to create the \ac{cfs} are
-projected from their native space into the \ac{cfs}.
+First for every fold of the cross-validation procedure, we train a model of a
+\ac{cfs} based on the N-1 training subjects' response time series of the movie,
+audio-description and visual localizer.
 %
-Further, response time series of the left-out subject (i.e. the test subject) are
-aligned to the \ac{cfs} in order to acquire a transformation matrix.
+Second, the test subjects' localizer results (statistical $Z$-maps) are
+projected from their respective native space into the \ac{cfs}.
 %
-Finally, the inverse of a test subject's transformation matrix is used to
-project the localizer results from the \ac{cfs} into the test subject's native
-brain space.
+Third in order to acquire a transformation matrix for the test subject (i.e.
+left-out subject), the test subject's response time series are aligned to the
+\ac{cfs}.
+%
+The inverse of the test subject's transformation matrix is used to project the
+train subjects' localizer results from the \ac{cfs} into the test subject's
+native brain space serving as a prediction for the test subject's $Z$-map (i.e.
+the test subject's localizer result).
+%
+Finally, we assess the model's performance by comparing the predicted $Z$-map
+against the actual $Z$-map.
 
 
 \paragraph{Partial alignment}
