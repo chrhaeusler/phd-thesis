@@ -23,14 +23,24 @@ cognition)] simultaneously.
 Lastly, an exclusively auditory stimulus like an audiobook or audio drama would
 also be appropriate for visually impaired persons[, e.g., suffering from
 nystagmus or lack of eyesight].
+
 % PPA as proof of concept
-This thesis focused on the \ac{ppa}, a classic higher-visual area,
-\citep{epstein1998ppa}, in order to explore whether a movie and the movie's
-audio-description could, in principle, substitute a traditional localizer
-paradigm.
+Focussing on the \ac{ppa}, a ``classic'' higher-visual area,
+\citep{epstein1998ppa}, the goal of this thesis was to explore whether a movie
+and the movie's audio-description could, in principle, substitute a traditional
+localizer paradigm.
+% paragraph on open science
+An additional goal of this dissertation was to perform all studies under the
+principles of open, shared, and transparent science.
+%
+In order to enable independent researchers to validate current results and use
+written code to replicate current findings in prospective studies, all created
+data, code, analysis steps, and results are published as version-controlled
+DataLad \citep[\href{www.datalad.org}{datalad.org};][]{halchenko2021datalad}
+datasets.
 
 
-\paragraph{One-sentences-summaries of work packages}
+\section{Recapitulation of work packages}
 
 \todo[inline]{maybe, very short summary of parts here; momentarily it's a draft}
 
@@ -44,26 +54,6 @@ localize the \ac{ppa} (study 2).
 %
 Third, we estimated results of the localizer by projecting data through a
 \ac{cfs} (study 3).
-
-
-\paragraph{Open science}
-
-% intro
-The overarching, self-imposed goal of this dissertation was to perform all
-studies under the principles of open, shared, and transparent science.
-% mention Datalad
-Created data, code, analysis step, and results are published as
-version-controlled DataLad
-\citep[\href{www.datalad.org}{datalad.org};][]{halchenko2021datalad} dataset in
-order to meet the requirements of a reproducible research project.
-% datalad rerun
-Independent researchers can rerun all performed analyses in order to validate
-current results and use written code in order to replicate current findings
-in prospective studies.
-
-
-
-\section{Recapitulation of work packages}
 
 \todo[inline]{maybe, give an overview of how the remaining part of the thesis is
 structured; at the moment: each study as such \& study in light of open science,
@@ -106,61 +96,61 @@ These results encouraged us to a) use the annotation as the groundwork for study
 
 \todo[inline]{how "personal" am I supposed to get?}
 
+
+\paragraph{Intro}
+
 % additional effort 1
 Pursuing the goal of creating a publication-worthy dataset led to additional
-work that would not have been necessary to create the groundwork to perform
+work that goes far beyond the work that was necessary to build the \ac{glm} in
 study 2.
 % additional effort 2
-The published annotation's content goes far beyond what was necessary to build
-the \ac{glm} in study 2 in a standardized format:
-%
-the annotation provides information about, e.g., time-stamps of phonemes, words
+The published annotation provides, among others, time-stamps of phonemes, words
 and sentences of all speakers, a grammatical tagging, and an annotation of
 syntactic dependencies and semantics.
+
+
+\paragraph{The self-flagellation retrospectively}
 %
-Great care was taken during the creation and iterative correction of additional
-information in order to provide accurate information to the scientific
+Great care was taken during the initial creation and subsequent iterative
+corrections in order to provide accurate information to the scientific
 community.
 %
-However, it became apparent that there is not such thing as a ``perfect''
-annotation:
+However, over the course of generating the dataset it became apparent that there
+is no such thing as a ``perfect'' annotation:
 %
-an annotation of speech will always contain ambiguities and noise.
+As in human language in general, an annotation of speech will always contain
+ambiguities.
 %
-Additionally, further processing steps needed to be balanced between just
-providing the mere minimum and providing a sound groundwork for potential
-use-cases that also needed to be anticipated.
+Additionally, there is a trade-off that needed to be balanced between a) doing
+the ``mere minimum'' and putting time and effort in creating additional
+information that might not be fruitful, and b) providing a sound/substantial
+groundwork for potential use-cases that needed to be anticipated.
 %
-Every further processing step might be based on decisions that might not be
-align potential uses cases.
-%
-Therefore, there is a trade-off between doing the mere minimum and putting time
-and effort in creating additional information that might not be fruitful.
+Any further processing step might be based on a decision that might not match
+the requirement of a specific use case.
 %
 For example, an annotation of semantics might be based on a current state-of-the
 art language model that might be superseded by future language models.
+%
+Therefore, the published annotation does not only comprise the final outcome but
+also the raw data and documented code that can automatically be rerun step by
+step to reproduce the final outcome of both the annotation and its validation
+analysis, all freely accessible in a version-controlled dataset.
 
 
-\subsubsection{Conclusion on speech anno}
+\paragraph{Conclusion}
 %
-Therefore, the publicly available annotation does not just include the
-annotation as such but also provides raw data and documented code that led to
-the annotation.
-%
-Consequently, the outcome of study 1 widens the ``annotation bottleneck''
-\citep{aliko2020naturalistic} and potentially lays the foundation for
-independent research projects.
-%
-Nevertheless, it provides extensive information about the time course of
-stimulus features, and therefore a headstart to independent researchers that
+In summary, the annotation provides extensive information about the time course
+of stimulus features, and therefore a headstart to independent researchers that
 wish to ``model hemodynamic brain responses that correlate with a variety of
 aspects of spoken language ranging from a speaker's identity, to phonetics,
 grammar, syntax, and semantics'' \citep{haeusler2021speechanno} under more
 real-life like conditions.
 %
-A third-party annotation of speech, as is, will never be ``finished'', and match
-all use cases but needs adjusted for study-specific needs and updated, e.g., in
-case more advanced language models emerge.
+Consequently, the outcome of study 1 contributes to the studyforrest project as
+a resource for the scientific community by further widening the ``annotation
+bottleneck'' \citep{aliko2020naturalistic} of two naturalistic stimuli.
+
 
 
 \subsection{PPA paper}
@@ -169,33 +159,33 @@ case more advanced language models emerge.
 
 \paragraph{Goal of PPA paper}
 % study in one sentence
-The goal of study 2 investigate whether an audio-visual and an exclusively
-auditory naturalistic stimulus could be used in order to localize the \ac{ppa}
-as it was previously identified in the same set of participants by a traditional
-block-design functional localizer that employed static pictures
-\citep{sengupta2016extension}.
+The goal of study 2 \citep{haeusler2022processing} was to explore whether an
+audio-visual and an exclusively auditory naturalistic stimulus could be used in
+order to localize the \ac{ppa} as it was previously identified in the same set
+of participants by a traditional block-design functional localizer that employed
+static pictures \citep{sengupta2016extension}.
 
 
 \paragraph{Method \& results of PPA paper}
 % AV operationalization
-For the model-based mass-univariate statistical (i.e. \ac{glm}) analysis of the
+For the model-based mass-univariate statistical analysis (i.e.\ac{glm}) of the
 movie's data, we operationalized the perception of visual spatial information
 based on an annotation of movie cuts and depicted locations
 \citep{haeusler2016cutanno}.
 % AD operationalization
-For the \ac{glm} analysis of the audio-description's data, we extended the
-annotation of speech \citep{haeusler2021speechanno} by further annotating nouns
-that the narrator uses to describe the movie's absent visual content.
+For the \ac{glm} of the audio-description's data, we extended the annotation of
+speech \citep{haeusler2021speechanno} by further annotating nouns that the
+narrator uses to describe the movie's absent visual content.
 
 % group results: AV \& AD
 On a group-average level, findings demonstrate that increased activation in the
 \ac{ppa} generalizes to the perception of spatial information embedded in the
-audio-visual movie and its audio-description.
+audio-visual movie and the audio-description.
 % individual AD
-``On an individual level, we find significant bilateral activity correlating
-with semantic spatial information occurring in the audio-description in the
-anterior \ac{ppa} of nine individuals and unilateral activity in one
-individual'' \citep{haeusler2022processing}.
+On an individual level, semantic spatial information occurring in the
+audio-description is correlated with significant activity in the anterior part
+of the \ac{ppa} bilaterally in nine individuals and unilaterally in one
+individual.
 
 
 \paragraph{Discussion \& conclusion of PPA paper}
@@ -205,12 +195,11 @@ individual'' \citep{haeusler2022processing}.
 % conclusion 1
 Results add evidence \citep[cf.][]{bartels2004mapping} that a functionally
 defined region, such as the \ac{ppa}, can be localized using a model-driven
-\ac{glm} analysis that is based on a naturalistic stimulus' annotated temporal
-structure.
+analysis that is based on a naturalistic stimulus' annotated temporal structure.
 % conclusion 2
-Results also suggest that a purely auditory paradigm like an audio-description
-could, in principle, substitute a visual localizer as a diagnostic procedure to
-assess brain functions in visually impaired individuals
+Further, results suggest that a purely auditory naturalistic stimulus like an
+audio-description could potentially substitute a visual localizer as a
+diagnostic procedure to assess brain functions in visually impaired individuals
 [phrasing pretty similar to \citep{haeusler2022processing}].
 
 
@@ -218,120 +207,103 @@ assess brain functions in visually impaired individuals
 
 %
 Two aspect revealed by our analyses invite further investigations on the
-properties of the \ac{ppa}:
+properties of the \ac{ppa}.
 %
-a) the responses correlating with an auditory stimulation are spatially
+First, the responses correlating with an auditory stimulation are spatially
 restricted to the anterior \ac{ppa}, and
 %
-b) higher intersubject variability of responses of the \ac{ppa} to a
-naturalistic auditory stimulation compared to the visual stimulation during the
-localizer and movie paradigm.
+Second, we observed higher intersubject variability of responses of the \ac{ppa}
+to a naturalistic auditory stimulation compared to the visual stimulation during
+the localizer and movie paradigm.
 
 
 \paragraph{Just anterior PPA during auditory stimulation}
 
-\todo[inline]{check part in the paper again}
-
-% statement
-Clusters of significantly increased activation correlation with auditory spatial
-information are restricted to the anterior \ac{ppa}.
-% question
-
 % our interpretation
-Previous studies in the field of visual perception provide evidence that the PPA
-can be divided into functionally subregions that might process different
-stimulus features.
+Previous studies in the field of visual perception suggest that the \ac{ppa} can
+be divided into functionally subregions that might process different stimulus
+features.
+
+\todo[inline]{paraphrase stuff from paper here}
+
 %
 Hence, we attributed the revealed pattern to different features inherent in the
 visual stimuli compared to features inherent in the naturalistic auditory
 stimulus [phrasing pretty similar to \citep{haeusler2022processing}].
 %
 However, our interpretation of the observed pattern ``can only be preliminary,
-because the auditory stimulation dataset also differs in key acquisition
-properties (field-strength, resolution) from the comparison datasets,
-representing a confound of undetermined impact'' \citep{haeusler2022processing}.
+because the auditory stimulation dataset differs in key acquisition properties
+(field-strength, resolution) from the datasets of the movie and visual localizer
+representing a confound of undetermined impact'' [still pretty similar to
+phrasing in \citep{haeusler2022processing}.
 % conclusion
 Future studies could employ controlled stimuli, maybe accompanied by a task, to
-investigate if the observed differential activations during visual and auditory
-stimulation are replicable.
+investigate in detail whether the observed differential activations during
+visual and auditory stimulation are replicable.
 
 
 \paragraph{Interindividual variability in response to auditory stimulation}
 
 % statement
-On an individual-level, ``we find significant bilateral activity correlating
-with semantic spatial information occurring in the audio-description in the
-anterior \ac{ppa} of nine individuals and unilateral activity in one
-individual'' \citep{haeusler2022processing}.
-% comparison
-This means that we observe variability of responses across study participants
-during the naturalistic auditory stimulation compared to the stimulation during
-the localizer paradigm \citep[cf.][]{sengupta2016extension}
+On an individual-level, we observed higher intersubject variability of responses
+of the \ac{ppa} to a naturalistic auditory stimulation compared to the
+audio-visual movie and visual localizer paradigms \citep[cf. Table 3
+in][]{sengupta2016extension}.
 % not necessarily noise
 However, the divergent pattern from the group mean in four of fourteen
 individuals should not necessarily be interpreted as measurement errors,
-artefacts, or ``random noise'' but could also be attributed to individual
-differences in responses to the task free, auditory paradigm.
+artefacts, or ``random noise'' \todo{choose just one term} but could also be
+attributed to individual differences in responses to the task free, auditory
+paradigm.
 %
-Our naturalistic auditory paradigm differs [most prominently] from block-design
-localizer paradigms not just in the exclusively auditory stimulation but also in
-the accidental event-like presentation of spatial information, and the absence
-of a task which leaves study participant naive to the investigated cognitive
-process.
+Our naturalistic auditory paradigm differs from block-design localizer paradigms
+not just in the exclusively auditory stimulation but also in the accidental,
+event-like presentation of spatial information, and the absence of a task which
+leaves study participant naive to the investigated cognitive process.
 
 
 \paragraph{Possibly correlated factors}
 
-Consequently, the revealed pattern could be influenced by / correlated with
-situational factors that like
-%
-a) the experimental design (i.e. incidentally presented spatial information,
-absence of task),
-%
-b) [transient] state of the subject (alertness, fatigue, leading to differential
-engagement).
-c) stimulus type (not carefully chosen stimuli but a more random sample),
-%
-[d) our ``adventurous'' modeling approach ?].
+\todo[inline]{rephrase in a "readable" (but still preliminary) way}
 
 %
-Further, more stable factors might be differences in cognitive tendencies or
-cognitive abilities like ``susceptibility / predisposition [?] to attend,
-select, recognize, process, encode'' incidentally occurring auditory spatial
-information embedded in the audio-description.
+The revealed pattern could correlated with [influenced by] situational factors
+like the experimental design (stimulus type, no task), (transient) state of a
+participant (e.g., alertness or engagement),  our simply our ``adventurous''
+modeling approach[?].
+%
+\todo{well...}
+%
+More stable factors might be individual differences in cognitive tendencies or
+cognitive abilities like susceptibility / predisposition [?] to attend to, [or]
+recognize [or process] auditory spatial information.
 % Conclusion
 Future studies could employ both controlled and naturalistic stimuli to
-investigate whether our results that revealed higher variability in responses
-across subjects are a) replicable across experiments and paradigms, and b)
-reliable within subjects.
+investigate whether our results that revealed higher intersubject variability in
+response to auditory spatial information are a) replicable across different
+experiments and paradigms, and b) reliable within subjects.
 
 
 \paragraph{Brain \& behavior: intro to "fingerprints"}
 
 \todo[inline]{following is pretty speculative 'cause reliability of differences
-is premise for "fingerprints"; hence, following paragraphs are a draft}
+is premise for "fingerprints"; hence, just a draft; does it make sense to
+discuss it?}
 
-% Glasser
+%  kanai
 In case the pattern is stable within individual subjects / is ``highly
-consistent across different tests, then they are characteristics of the
-individuals and may ultimately reflect differences in their brain function''
-\citep{kanai2011structural} [on structural diffences].
+consistent across different sessions [or experiments], then they are
+characteristics of the individuals and may reflect differences in their brain
+function'' \citep{kanai2011structural} [on structural diffences].
 %
-``Individual differences and topology (i.e. location, size, shape of functional
-areas) and the activity within functional areas should facilitate the dissection
-of how each property is related to behavior [e.g., cognitive traits]''
-\citep{glasser2016multi}.
-% Eickhoff
-After all, ``topological outliers can also be considered to be interesting cases
-of inter-individual variability to understand brain-phenotype relationships'',
-and ``present useful phenotypes or biomarkers'' \citep{vanhorn2008individual}.
+``Individual differences in topology (i.e. location, size, shape of functional
+areas) and the activity within functional areas can also be considered to be
+interesting cases of inter-individual variability to understand the neural basis
+of human cognition and behavior, brain-phenotype relationships'', and ``present
+useful phenotypes or biomarkers \citep{glasser2016multi,
+vanhorn2008individual}''
 %
-% Zhen
-``Interindividual variability of functional regions in both functional and
-spatial features is a rich and important source of information, should reflect
-brain function to some extent, and could be used to reveal the neural basis of
-human cognition and behavior'' \citep{zhen2015quantifying}.
-
+\todo{paraphrase}
 
 \paragraph{Brain \& behavior: example studies}
 
@@ -350,10 +322,10 @@ reports predicting phenotypes based on connectivity strength].
 in the topography of functional regions across individuals is strongly
 associated with behaviour'' \citep{bijsterbosch2018relationship}.
 %
-\citet{bijsterbosch2018relationship} found ``that (the shape and exact location
-of brain regions interact strongly with the modeling of brain connectivity, and
-that) the spatial arrangement of functional regions is strongly predictive of
-non-imaging measures of behavior and lifestyle''.
+\citet{bijsterbosch2018relationship} found ``that the spatial arrangement of
+functional regions is strongly predictive of non-imaging measures of behavior
+and lifestyle'' [however shape \& exact location of brain regions interacted
+strongly with  modeling of brain connectivity].
 %
 \citet{bijsterbosch2018relationship} found ``that individual differences in the
 size, shape and exact position of the brain regions [as identified by
@@ -363,30 +335,30 @@ intelligence, life satisfaction, drug use and aggression problems''
 \citep{bijsterbosch2018relationship}.
 
 %
-Unexpectedly, ``these variations in spatial topographical features capture a
-more direct and unique representation of subject variability than temporal
-correlations between regions defined by group parcellation approaches
-(coupling)'' \citep{bijsterbosch2018relationship}.
+``The variations in spatial topographical features captured a more direct and
+unique representation of subject variability than temporal correlations between
+regions defined by group parcellation approaches (coupling).
 %
-``The cross-subject information represented in commonly adopted 'connectivity
-fingerprints' could largely reflect spatial variability in the location of
-functional regions across individuals, rather than variability in coupling
-strength (at least for methods that directly map group-level parcellations onto
-individual data)'' \citep{bijsterbosch2018relationship}.
+Hence, the cross-subject information represented in commonly adopted
+'connectivity fingerprints' could largely reflect spatial variability in the
+location of functional regions across individuals, rather than variability in
+coupling strength (at least for methods that directly map group-level
+parcellations onto individual data)'' \citep{bijsterbosch2018relationship}.
 
+\todo[inline]{drop following paragraph; just here to better understand paragraph
+above}
 %
-``It is possible that the degree to which spatial information may influence FC
-estimates varies considerably across studies, depending on the spatial alignment
-algorithm that was used, and the amount of subject spatial variability this has
-removed'' \citep{bijsterbosch2018relationship}.
+``Depending on the employed spatial alignment algorithm and the amount of
+removed saptial intersubject variability, the degree to which spatial
+information may influence FC estimates possibly varies considerably across
+studies.
 %
-``It is encouraging that significant efforts have recently gone into the methods
-for more accurately estimating the spatial location of functional parcels in
-individual subjects in recent years [Chong et al., 2017; Glasser et al., 2016;
-Gordon et al., 2016; Hacker et al., 2013; Harrison et al., 2015; Varoquaux et
-al., 2011; Wang et al., 2015], and into advanced hyperalignment approaches [Chen
-et al., 2015; Guntupalli et al., 2016; Guntupalli and Haxby, 2017]''
-\citep{bijsterbosch2018relationship}.
+In recent years, significant efforts have gone into the methods that more
+accurately estimate the spatial location of functional parcels in individual
+subjects [Chong et al., 2017; Glasser et al., 2016; Gordon et al., 2016; Hacker
+et al., 2013; Harrison et al., 2015; Varoquaux et al., 2011; Wang et al., 2015],
+and into advanced hyperalignment approaches [Chen et al., 2015; Guntupalli et
+al., 2016; Guntupalli and Haxby, 2017]'' \citep{bijsterbosch2018relationship}.
 
 
 \subsubsection{Conclusion on future PPA studies}
@@ -395,172 +367,110 @@ et al., 2015; Guntupalli et al., 2016; Guntupalli and Haxby, 2017]''
 
 %
 In summary, our results invite further studies that investigate the properties
-of the parahippocampal area in response to a) controlled paradigm (with /
-without any task) or b) naturalistic stimulation (with / without a simultaneous
-task to attend to spatial information or subsequent memory task).
+of the parahippocampal area in response to
 %
-The employed paradigm should also include behavioral measures and questionnaires
-in order to control alertness levels, attentional focus, how well the sound was
-perceived etc.
+a) in response to an auditory naturalistic stimulation (with or without a
+simultaneous task to attend to spatial information, or with subsequent memory
+task),
 %
-Then, ``future studies can to elaborate the interindividual variability of the
-SSRs and to utilize the variability in understanding the neural mechanisms of
-specific behavioral or cognitive processes like auditory scene ``perception''
-and how auditory spatial information is utilitized for, e.g., place recognition,
-spatial orientation, way finding or navigation, processing oral way description
-and using it for planing, remembering, executing navigation.
+b) in response to a controlled paradigm (with or without any task).
+%
+The respective paradigms could elaborate whether interindividual variability of
+responses in the parahippocampal area is related to cognitive processes like
+``auditory scene perception'' [is that a valid term?], and to degree auditory
+spatial information is utilitized for, e.g., spatial orientation, way finding or
+[planing, remembering, executing] navigation.
 
 
 \subsubsection{Future studies: other scene-selective areas}
 
-\todo[inline]{imo, RSC and OPA do not need to be discussed in general discussion}
-
-\todo[inline]{might make sense to be discussed in SRM study}
-
-\todo[inline]{following paragraph is simply copied from the PPA paper}
-
-
-%#12 RSC + LOC
-``Apart from the PPA, results show significantly increased activity in the
-ventral precuneus and posterior cingulate region (referred to as ``retrosplenial
-complex'', RSC) of the medial parietal cortex, and in the superior lateral
-occipital cortex (referred to as ``occipital place area'', OPA) for both
-naturalistic stimuli.
-% RSC intro
-Like the PPA, the RSC and OPA have repeatedly shown increased hemodynamic
-activity in studies investigating visual spatial perception and navigation
-\citep{chrastil2018heterogeneity, bettencourt2013role, dilks2013occipital,
-epstein2019scene}.
-% inference
-Thus, our model-driven approach to operationalize spatial perception based on
-stimulus annotations reveals increased hemodynamic responses in a network that
-is implicated in visual spatial perception and cognition.
-% medial parietal cortex: anterior-posterior gradient
-Similarly to the parahippocampal cortex \citep{aminoff2013role}, the medial
-parietal cortex exhibits a posterior-anterior gradient from being more involved
-in perceptual processes to being more involved in memory related processes
-\citep{chrastil2018heterogeneity, hassabis2009construction, silson2019posterior,
-steel2021network}''.
-
-``We (and Sengupta) chose the PPA among three possible candidates (cf. answer to
-point 2) because it was the first area to be discovered as a visual
-``scene-selective'' region, is the most reliably activated region across studies
-that investigate visual scene'' perception (response to reviewer \#2).
-% future studies
-``Future, complementary studies using specifically designed paradigms could
-investigate where in the posterior-anterior axis of the parahippocampal and
-medial parietal cortex auditory semantic information is correlated with
-increased hemodynamic activity:
-% we hypothesize
-we hypothesize that the auditory perception of spatial information (compared to
-non-spatial information) is correlating with clusters in the middle of possibly
-overlapping clusters correlating with visual perception (peak activity more
-posterior) and scene construction from memory (peak activity more anterior)''
-\citep{haeusler2022processing}.
+\todo[inline]{imo, RSC and OPA do not need to be discussed in general
+discussion; could be shortly discussed in "open science in general" (->
+opportunity costs)}
 
 
 \subsubsection{Future studies: other functional areas (studyforrest dataset)}
 
-\todo[inline]{imo, just a side note; not necessarily needed to be discussed}
+\todo[inline]{imo, a side note; not necessarily needed to be discussed; hence,
+draft}
 
+The visual localizer performed by \citet{sengupta2016extension} employed images
+from six categories (houses, landscapes, faces, bodies without heads, small
+objects, and scrambled images).
 %
-\citet{sengupta2016extension} images from six categories (houses, landscapes,
-faces, bodies without heads, small objects, and scrambled images) in
-block-design localizer paradigm in order to create contrasts that aimed at
-localizing different higher visual areas and provide ROI mask for that awesome
-areas:
+As a results, the corresponding dataset provides subject-specific \acp{roi}
+masks for higher visual areas besides the \ac{ppa}:
 %
-The \ac{ppa} \citep{epstein1998ppa}, the fusiform face area (FFA)
-\citep{kanwisher1997ffa} and the occipital face area (OFA)
-\citep{pitcher2011occipitalfacearea}, the extrastriate body area (EBA)
-\citep{downing2001bodyarea}, and the lateral occipital complex (LOC)
-\citep{malach1995loc}.
+the fusiform face area (FFA) \citep{kanwisher1997ffa} and the occipital face
+area (OFA) \citep{pitcher2011occipitalfacearea},
 %
-Future studies (e.g., MA thesis or part of a PhD project) could fucking easily
-adjust the annotation of speech in order to investigate reponses to auditory
-information about faces, body parts, tools.
+the extrastriate body area (EBA) \citep{downing2001bodyarea},
 %
-However, ``future studies that aim to use a movie to localize visual areas in
-individual participants should extensively annotate the content of frames (e.g.,
-using the open-source solution ``Pliers''\citep{mcnamara2017developing} for
-feature extraction from a visual naturalistic stimulus)''
-\citep{haeusler2022processing} and control individual attentional foci (by means
-of eye-fixations).
+and the lateral occipital complex (LOC) \citep{malach1995loc}.
+%
+Future studies (e.g., a master's thesis or part of a PhD project) could adjust
+our extension of the annotation of speech created in study 2 and the
+corresponding analysis pipeline in order to explore hemodynamic responses
+correlating with auditory information related to faces, body parts or small
+objects.
 
 
 \subsubsection{Open science in context of PPA paper}
 
 \paragraph{Goal}
 % goal PPA study
-Under the perspective of an open science project, one goal of study 2 was to use
-already existing \ac{fmri} data \citep{hanke2014audiomovie,
-hanke2016simultaneous, sengupta2016extension} of the studyforrest project and
-results based on data of the studyforrest \citep{sengupta2016extension} project
-for a new research question.
-%
-Further, we used the published annotation created in study 1, and extended it
-for our specific needs in study 2 \citep[cf.][]{haeusler2022processing}.
-%
+Under the perspective of an open science project, the goal of study 2 was to use
+freely available \ac{fmri} data \citep{hanke2014audiomovie,
+hanke2016simultaneous, sengupta2016extension} and stimulus annotations
+\citep{haeusler2021speechanno, haeusler2016cutanno}, as well as previously
+published results \citep{sengupta2016extension} for a new research question.
 
-\paragraph{Pro's \& Con's in the process of creating PPA paper}
+\paragraph{Open science over the course of the study}
 
-\todo[inline]{cf. general discussion of open science stuff below}
-%
-headstart, solid base;
-%
-you need to trust the dataset creators but still test/[re]check the data
-according to your needs (and knowledge).
+\todo[inline]{notes so far; phrase that shit}
+
+% method
+``We took advantage of three fMRI acquisitions and two stimulus annotations that
+are part of the open-data resource
+\href{http://www.studyforrest.org}{studyforrest.org} to operationalize the
+perception of spatial information embedded in an audio-visual movie and an
+auditory narrative, and compare current results to a previous report of a
+conventional, block-design localizer'' \citep{haeusler2022processing}.
 
 %
-Any further processing steps is based on variables/decisions/parameters.
+We got a headstart because \ac{fmri} data already existed.
 %
-Opportunity costs: take (for granted) what is already done or do it yourself?
+Hence, we could focus on other stuff (performing the study AND documenting,
+version-controlling, automatization and publishing the whole shit to facilitate
+reproducibility and replicability.
 %
-Raw measures vs. preprocessed data vs. results
-%
-For example, analyzes in \citet{sengupta2016extension} were performed (and
-published) in voxel-space (not surface-space).
-%
-Resulting masks were restricted to one scene-selective area (\ac{ppa}; no
-\ac{rsc}, \ac{opa} = transverse occipital sulcus).
-%
-Should be very hard to exactly copy the procedure applied to \ac{ppa} to
-\ac{rsc} and \ac{opa}.
+The "general purpose" annotation of cuts and location, and annotation of speech
+we extended to study-specific needs.
 
 
-\paragraph{Results}
 
-\todo[inline]{maybe, shift some sentences up}
+\paragraph{Conclusion on PPA paper in light of open science}
 
-% general
-Our results suggesting that the PPA is fucking awesome have been published in a
-peer-reviewed, open-access journal \citep{haeusler2022processing}.
-% in the context of open science
-Thus, we were able to interpret the data under a new perspective that was not
-foreseen during the original generation of the studyforrest project.
+\todo[inline]{main points of findings (contribution to "knowledge")}
 
+%
 ``In summary, natural stimuli like movies \citep{eickhoff2020towards,
 hasson2008neurocinematics, sonkusare2019naturalistic} or narratives
 \citep{hamilton2018revolution, honey2012not, lerner2011topographic,
 silbert2014coupled, wilson2008beyond} can be used as a continuous, complex,
 immersive, task-free paradigm that more closely resembles our natural dynamic
-environment than traditional experimental paradigms.
-% method
-We took advantage of three fMRI acquisitions and two stimulus annotations that
-are part of the open-data resource
-\href{http://www.studyforrest.org}{studyforrest.org} to operationalize the
-perception of spatial information embedded in an audio-visual movie and an
-auditory narrative, and compare current results to a previous report of a
-conventional, block-design localizer.
+environment than traditional experimental paradigms''
+\citep{haeusler2022processing}.
+
 % results
-The current study offers evidence that a model-driven GLM analysis based on
+``The current study offers evidence that a model-driven GLM analysis based on
 annotations can be applied to a naturalistic paradigm to localize concise
-functional areas and networks correlating with specific perceptual processes --
-an analysis approach that can be facilitated by the neuroscout.org platform
-\citep{delavega2021neuroscout}.
+functional areas and networks correlating with specific perceptual processes''
+\citep{haeusler2022processing}.
+
 % interpretation
-More specifically, our results demonstrate that increased activation in the PPA
-during the perception of static pictures generalizes to the perception of
+``More specifically, our results demonstrate that increased activation in the
+PPA during the perception of static pictures generalizes to the perception of
 spatial information embedded in a movie and an exclusively auditory stimulus.
 % interpretation: aPPA vs. pPPA
 Our results provide further evidence that the PPA can be divided into functional
@@ -569,24 +479,39 @@ subregions that coactivate during the perception of visual scenes.
 Finally, the presented evidence on the in-principle suitability of a naturally
 engaging, purely auditory paradigm for localizing the PPA may offer a path to
 the development of diagnostic procedures more suitable for individuals with
-visual impairments or conditions like nystagmus'' \citep{haeusler2022processing}.
+visual impairments or conditions like nystagmus''
+\citep{haeusler2022processing}.
 
-
-\paragraph{Conclusion}
-
-\todo[inline]{Published in peer-reviewed journal; analyzes are shared, open,
-reproducible etc.}
+% general
+Our results have been published in a peer-reviewed, open-access journal
+\citep{haeusler2022processing}.
 
 %
-Consequently, we successfully reused existing data as a foundation for a new
+In summary,
+%
+naturalistic stimuli are fucking rich
+%
+Successful example of data-reuse.
+%
+we were able to interpret the data under a new perspective that was not
+foreseen during the original generation of the studyforrest project.
+%
+we successfully reused existing data as a foundation for a new
 investigation in order to generate novel findings that illustrate the benefits
 of publicly and freely available dataset like the studyforrest project.
+
+Results encourage further studies
+
+%
+Our analyzes (also code for creation of speech annotation) are shared, open,
+reproducible etc.
+%
+serving as immediate foundation/headstart for further studies?
 
 
 \subsection{SRM study}
 
 \todo[inline]{following parts are an old draft}
-
 
 \subsubsection{Transition from study 2 to study 3}
 %
@@ -594,7 +519,7 @@ Despite exploratory approach in study 2 (a.k.a. shitty modeling of subjectively
 assessed events), results suggest:
 %
 the response to spatial information must be somewhere in within the response
-time seires and is detectable.
+time series and is detectable.
 %
 Hence, we might be able to use the response patterns measured during the
 presentation of the audio-description in order to generate a \ac{cfs} [needs to
@@ -612,9 +537,7 @@ Results of study 2 suggest that a naturalistic stimulus might provide an
 engaging, task-free paradigm to localize brain functions in individual subjects.
 
 
-
 \subsubsection{Goal of SRM study}
-
 % the problem
 Considering practical and monetary constraints in a clinical context, a paradigm
 lasting 90 to 120 minutes is inappropriate for even an extensive individual
@@ -649,11 +572,9 @@ Further, we hypothesized that \ac{fa} would eventually perform
 ``better'' than an estimation based on \ac{aa}.
 
 
-
 \subsubsection{Discussion of SRM study}
 
 \todo[inline]{...to be written}
-
 
 
 \subsubsection{Future studies on SRM / functional alignment}
@@ -661,13 +582,9 @@ Further, we hypothesized that \ac{fa} would eventually perform
 \todo[inline]{...to be written}
 
 
-
 \subsubsection{Open science in context of SRM study}
 
 \todo[inline]{...to be written}
-
-
-
 
 
 
@@ -741,6 +658,8 @@ Which is consequently leading to opportunity costs:
 
 \subsection{Opportunity costs}
 
+\paragraph{Definition of "opportunity costs"}
+
 Wikipedia: ``opportunity cost of a particular activity is the value or benefit
 given up by engaging in that activity, relative to engaging in an alternative
 activity.
@@ -751,6 +670,18 @@ are giving up the opportunity to do a different option.
 The optimal activity is the one that, net of its opportunity cost, provides the
 greater return compared to any other activities, net of their opportunity
 costs''.
+
+%
+headstart, solid base;
+%
+you need to trust the dataset creators but still test/[re]check the data
+according to your needs (and knowledge).
+
+%
+Any further processing steps is based on variables/decisions/parameters.
+%
+Opportunity costs: take (for granted) what is already done or do it yourself?
+
 
 %
 You save time and money (especially if you do not collect the data yourself) but
@@ -792,6 +723,79 @@ use-cases helps
 %
 In summary, it is mandatory to create awareness, and teach established and
 emerging standards to students.
+
+
+\paragraph{For example, missing ROIS of RSC and OPA in Sengupata}
+
+%
+Raw measures vs. preprocessed data vs. results
+%
+For example, analyzes in \citet{sengupta2016extension} were performed (and
+published) in voxel-space (not surface-space).
+%
+Resulting masks were restricted to one scene-selective area (\ac{ppa}; no
+\ac{rsc}, \ac{opa} = transverse occipital sulcus).
+%
+Should be very hard to exactly copy the procedure applied to \ac{ppa} to
+\ac{rsc} and \ac{opa}.
+
+
+We (and Sengupta) chose the PPA among three possible candidates (cf. answer to
+point 2) because it was the first area to be discovered as a visual
+``scene-selective'' region, is the most reliably activated region across studies
+that investigate visual scene perception [cf. response to reviewer \#2].
+
+``We thank the reviewer for bringing up the connection to visual scene
+processing and scene imagery in the medial parietal cortex. We adjusted the
+figures, as suggested (see point 3). We agree with the reviewer and also believe
+that the increased hemodynamic activity in the medial parietal cortex is of
+interest. We assumed that results (at least of the audio-visual stimulus) could
+also yield significant clusters in the retrosplenial complex (RSC) and superior
+lateral occipital cortex (i.e. “occipital place area”, OPA) but did not
+explicitly hypothesize that fact. Whereas the PPA is assumed to be more involved
+in landmark recognition by processing basal perceptual features that constitute
+a scene, the RSC (i.e. ventral precuneus and posterior cingulate region)
+exhibits stronger responses when the scenes are familiar to the participants
+suggesting the RSC might be more concerned with localizing, i.e. orienting, the
+observer in space (e.g. Epstein \& Vass, 2016). We believe that a detailed
+discussion of the RSC activation is out of scope for this manuscript, but the
+current results are certainly an incentive for further studies''.
+
+\todo[inline]{following paragraph is simply copied from the PPA paper}
+
+%#12 RSC + LOC
+``Apart from the PPA, results show significantly increased activity in the
+ventral precuneus and posterior cingulate region (referred to as ``retrosplenial
+complex'', RSC) of the medial parietal cortex, and in the superior lateral
+occipital cortex (referred to as ``occipital place area'', OPA) for both
+naturalistic stimuli.
+% RSC intro
+Like the PPA, the RSC and OPA have repeatedly shown increased hemodynamic
+activity in studies investigating visual spatial perception and navigation
+\citep{chrastil2018heterogeneity, bettencourt2013role, dilks2013occipital,
+epstein2019scene}.
+% inference
+Thus, our model-driven approach to operationalize spatial perception based on
+stimulus annotations reveals increased hemodynamic responses in a network that
+is implicated in visual spatial perception and cognition.
+% medial parietal cortex: anterior-posterior gradient
+Similarly to the parahippocampal cortex \citep{aminoff2013role}, the medial
+parietal cortex exhibits a posterior-anterior gradient from being more involved
+in perceptual processes to being more involved in memory related processes
+\citep{chrastil2018heterogeneity, hassabis2009construction, silson2019posterior,
+steel2021network}''.
+
+% future studies
+``Future, complementary studies using specifically designed paradigms could
+investigate where in the posterior-anterior axis of the parahippocampal and
+medial parietal cortex auditory semantic information is correlated with
+increased hemodynamic activity:
+% we hypothesize
+we hypothesize that the auditory perception of spatial information (compared to
+non-spatial information) is correlating with clusters in the middle of possibly
+overlapping clusters correlating with visual perception (peak activity more
+posterior) and scene construction from memory (peak activity more anterior)''
+\citep{haeusler2022processing}.
 
 
 
