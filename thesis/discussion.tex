@@ -417,96 +417,53 @@ objects.
 
 \subsubsection{Open science in context of PPA paper}
 
-\paragraph{Goal}
 % goal PPA study
 Under the perspective of an open science project, the goal of study 2 was to use
-freely available \ac{fmri} data \citep{hanke2014audiomovie,
-hanke2016simultaneous, sengupta2016extension} and stimulus annotations
-\citep{haeusler2021speechanno, haeusler2016cutanno}, as well as previously
-published results \citep{sengupta2016extension} for a new research question.
-
-\paragraph{Open science over the course of the study}
-
-\todo[inline]{notes so far; phrase that shit}
-
-% method
-``We took advantage of three fMRI acquisitions and two stimulus annotations that
-are part of the open-data resource
-\href{http://www.studyforrest.org}{studyforrest.org} to operationalize the
-perception of spatial information embedded in an audio-visual movie and an
-auditory narrative, and compare current results to a previous report of a
-conventional, block-design localizer'' \citep{haeusler2022processing}.
-
-%
-We got a headstart because \ac{fmri} data already existed.
-%
-Hence, we could focus on other stuff (performing the study AND documenting,
-version-controlling, automatization and publishing the whole shit to facilitate
-reproducibility and replicability.
-%
-The "general purpose" annotation of cuts and location, and annotation of speech
-we extended to study-specific needs.
+three \ac{fmri} datasets \citep{hanke2014audiomovie, hanke2016simultaneous,
+sengupta2016extension}, two stimulus annotations \citep{haeusler2021speechanno,
+haeusler2016cutanno}, as well as previously published results
+\citep{sengupta2016extension} for a new research question.
 
 
+% skipped work
+On the one hand, the availability of the \ac{fmri} data and the subject-specific
+\acp{roi} enabled us to shift our focus from acquiring the raw data to
+subsequent stages of a research project.
+% example of skipped work
+For example, the annotations that were created in a "general purpose state"
+could be extended immediately to match the needs of study 2, followed by writing
+the scripts that preprocessed and statistically analyzed the data.
+% additional work
+On the other hand, pursueing the goal of an open science project lead to
+additional work.
+% example of additional work
+For example, code needed to be in a state worthy to be published and documented
+for other readers, analyses pipelines needed to be in a state to be automatized,
+every processing step documented, saved, protocolled, and shared to allow
+reproducibility of results and facilitate replicability of finding.
 
-\paragraph{Conclusion on PPA paper in light of open science}
-
-\todo[inline]{main points of findings (contribution to "knowledge")}
-
-%
-``In summary, natural stimuli like movies \citep{eickhoff2020towards,
-hasson2008neurocinematics, sonkusare2019naturalistic} or narratives
-\citep{hamilton2018revolution, honey2012not, lerner2011topographic,
-silbert2014coupled, wilson2008beyond} can be used as a continuous, complex,
-immersive, task-free paradigm that more closely resembles our natural dynamic
-environment than traditional experimental paradigms''
-\citep{haeusler2022processing}.
+\todo[inline]{shorten results/findings}
 
 % results
-``The current study offers evidence that a model-driven GLM analysis based on
-annotations can be applied to a naturalistic paradigm to localize concise
-functional areas and networks correlating with specific perceptual processes''
-\citep{haeusler2022processing}.
-
-% interpretation
-``More specifically, our results demonstrate that increased activation in the
-PPA during the perception of static pictures generalizes to the perception of
-spatial information embedded in a movie and an exclusively auditory stimulus.
-% interpretation: aPPA vs. pPPA
-Our results provide further evidence that the PPA can be divided into functional
-subregions that coactivate during the perception of visual scenes.
-% interpretation
-Finally, the presented evidence on the in-principle suitability of a naturally
-engaging, purely auditory paradigm for localizing the PPA may offer a path to
-the development of diagnostic procedures more suitable for individuals with
-visual impairments or conditions like nystagmus''
-\citep{haeusler2022processing}.
-
-% general
 Our results have been published in a peer-reviewed, open-access journal
-\citep{haeusler2022processing}.
+%
+``offer evidence that a model-driven GLM analysis based on annotations can be
+applied to a naturalistic paradigm to localize concise functional areas and
+networks correlating with specific perceptual processes''
+\citep{haeusler2022processing},
+%
+``demonstrate that increased activation in the PPA during the perception of
+static pictures generalizes to the perception of spatial information embedded in
+a movie and an exclusively auditory stimulus \citep{haeusler2022processing}, and
+%
+``provide further evidence that the PPA can be divided into functional
+subregions that coactivate during the perception of visual scenes''
+\citep{haeusler2022processing}
 
-%
-In summary,
-%
-naturalistic stimuli are fucking rich
-%
-Successful example of data-reuse.
-%
-we were able to interpret the data under a new perspective that was not
-foreseen during the original generation of the studyforrest project.
-%
-we successfully reused existing data as a foundation for a new
-investigation in order to generate novel findings that illustrate the benefits
-of publicly and freely available dataset like the studyforrest project.
-
-Results encourage further studies
-
-%
-Our analyzes (also code for creation of speech annotation) are shared, open,
-reproducible etc.
-%
-serving as immediate foundation/headstart for further studies?
+% conclusion
+In summary, we reused existing data as a foundation for a new investigation in
+order to generate novel findings encourage further studies, and illustrate the
+benefits of publicly and freely available datasets.
 
 
 \subsection{SRM study}
@@ -591,6 +548,12 @@ Further, we hypothesized that \ac{fa} would eventually perform
 
 \section{Open Science: Conclusions across the whole project}
 
+\todo[inline]{cf. what is now written in the parts of each study}
+
+\todo[inline]{simply ask search engine for some inspiration / points of pro and
+contra to discuss}
+
+
 
 \subsection{Contra}
 
@@ -599,38 +562,37 @@ Further, we hypothesized that \ac{fa} would eventually perform
 Following the guidelines was not mandatory for submitting the thesis but
 constituted voluntary, additional careful work.
 %
-The additional benefits that go along this additional work are not immediately
-visible to researchers/authors.
-%
-Further, the standards to follow are still emerging and [probably] not yet
-standardized [?].
+The standards [cf. introduction] to follow are still emerging.
 %
 Guidelines are not [yet] part of a curriculum, neither in a bachelor's/master's
-program nor PhD program and therefore self-imposed and learned based on
-self-initiative.
+program nor PhD program.
+%
+Therefore following the guidelines is self-imposed and need to be learned based
+on a PhD student's self-initiative and self-teaching.
 
 
 \paragraph{Additional workload}
 %
-Take extra care to make everything really, really good 'cause other people will
-rely on your shit.
+You need to take extra care to everything really, really good 'cause other
+people will rely on your shit and, possible with another fokus and corresponding
+demands.
+% example: code
+For example, code needs to be documented in an extent and clarity so other helps
+not just the creator (and supervisor) but also "third-party persons".
 %
-You have to make your data and script extra pretty so other people can benefit
-from your work but you do not benefit yourself from doing more than is necessary
-for your own project.
-%
-Thus it is an added ``burden'' during PhD thesis.
-
+This additional work feels like a burden and does not contribute to the
+immediate benefits of the PhD project
 %
 People who do not give a shit about it and don't do it, do ``worse'' research
 but are faster/``better''.
 
 
-\paragraph{Science is competition; data leeching}
+\paragraph{Threat of published data: data leeching}
 %
-Other working groups (more money, brain/people power) can be faster and can use
-your data for similar findings (while you are still busy doing work yet others
-can benefit from).
+Publishing data comes with the thread that other working groups (possibly more
+money, brain and people power) use your data for similar project and eventually
+winning the "race of scientific competition" by preempt parts of your project
+making own analyses \& results "obsolete".
 
 
 \subsection{Trustful data}
@@ -641,22 +603,89 @@ can benefit from).
 %
 Dataset will never be perfect and will contain noise, or even artefacts.
 %
-Data description need to be as exhaustive as possible.
-%
-Re-users need to check the data according to their use case!
-%
-The unknown unknowns of dataset creators?
+Dataset creators need to be extra careful und describe description of procedures
+and data as exhaustive as possible.
 %
 Quality standards vary from field to field and even within subfields of
-neuroscience (a.k.a. ``interessiert uns ja nicht'').
+neuroscience (a.k.a. "interessiert uns ja nicht" vs. "nach bestem Wissen und
+Gewissen").
 %
-Everything that is not explicitly stated needs to be assumed to not be
-considered.
+Since it is impossible to anticipate all future use cases, unknown unknowns of
+dataset creators are inevitable.
 %
-Which is consequently leading to opportunity costs:
+This essentially boils down to researchers that want to publish data to highly
+take care that the dataset gets really, really good, and test and validate the
+data substantially and rigorously.
+%
+Contingencies need to be taken care of and use-cases considered/anticipated that
+go beyond the originally anticipated use-cases (``a.k.a. interessiert uns ja
+nicht'').
+%
+Analyses can be fixed and rerun, data based on shitty paradigms are a waste of
+time and money.
 
 
-\subsection{Opportunity costs}
+%
+The same applies not just for the collection of raw data but also any
+preprocessing steps, (that might lead to different results based on parameters,
+operation system, software version etc.) or any kind of results.
+%
+Standardizing the analyses pipelines helps.
+%
+Nevertheless, there is no "one size fits all" uses-cases.
+%
+Hence, being able to re-run analyses with custom parameters for specific
+use-cases helps
+
+%
+Vice versa, dataset "consumers" need to check the data according to their uses
+cases.
+%
+dataset "consumers need to assume that everything that is not explicitly stated
+in the description of the dataset is has not been considered and done.
+
+%
+In summary,
+%
+creators: work extra carefully, anticipate use cases (be aware of requirements
+in adjacent fields, and describe in as much detail as possible,
+%
+Academic education: it is mandatory to create awareness, and teach established
+and emerging standards to students.
+
+
+\subsection{Balance of checking and trust}
+
+%
+Consumers: "Trust is good, control is better" (Wladimir Iljitsch Lenin).
+%
+On the other hand, there is an hard to judge ``correct'' balance between
+trusting the work of others that collected the raw data, and checking the data
+and familiarize yourself with the data.
+%
+Researchers need to handle that two-sided sword and balance trusting the
+creators of the dataset and checking/validating everything themselves.
+
+
+
+%
+However, controlling everything leads the idea ad absurdum, not possible in some
+cases (visually check fmri data of hundreds of persons?)
+%
+Consumers need to be able to have a degree of trust.
+
+
+\paragraph{less work (i.e. raw data}
+%
+You save time and money (especially if you do not collect the data yourself) but
+you have to trust that the data are ``good'' and start at some point to reach
+goals that you would not accomplished if you would have done all from scratch
+(i.e. preprocessing).
+
+
+
+\subsection{Two-sided stuff}
+
 
 \paragraph{Definition of "opportunity costs"}
 
@@ -672,8 +701,6 @@ greater return compared to any other activities, net of their opportunity
 costs''.
 
 %
-headstart, solid base;
-%
 you need to trust the dataset creators but still test/[re]check the data
 according to your needs (and knowledge).
 
@@ -683,49 +710,7 @@ Any further processing steps is based on variables/decisions/parameters.
 Opportunity costs: take (for granted) what is already done or do it yourself?
 
 
-%
-You save time and money (especially if you do not collect the data yourself) but
-you have to trust that the data are ``good'' and start at some point to reach
-goals that you would not accomplished if you would have done all from scratch
-(i.e. preprocessing).
-%
-On the one hand, not spending time on collecting data is speeding up the process
-of getting to analyze the data, and go beyond what would have been possible if
-you would have collected the data yourself.
-%
-On the other hand, there is an hard to judge ``correct'' balance between
-trusting the work of others that collected the raw data, and checking the data
-and familiarize yourself with the data.
-%
-Researchers need to handle that two-sided sword and balance trusting the
-creators of the dataset and checking/validating everything themselves.
-
-%
-This essentially boils down to researchers that want to publish data to highly
-take care that the dataset gets really, really good, and test and validate the
-data substantially and rigorously.
-%
-Contingencies need to be taken care of and use-cases considered/anticipated that
-go beyond the originally anticipated use-cases (``a.k.a. interessiert uns ja
-nicht'').
-
-%
-The same applies not just for the collection of raw data but also any
-preprocessing steps, (that might lead to different results based on parameters,
-operation system, software version etc.) or any kind of results.
-%
-Standardizing the analyses pipelines helps.
-%
-Nevertheless, there is no "one size fits all" uses-cases.
-%
-Hence, being able to re-run analyses with custom parameters for specific
-use-cases helps
-%
-In summary, it is mandatory to create awareness, and teach established and
-emerging standards to students.
-
-
-\paragraph{For example, missing ROIS of RSC and OPA in Sengupata}
+\paragraph{For example: missing ROIS of RSC and OPA in Sengupata}
 
 %
 Raw measures vs. preprocessed data vs. results
@@ -798,12 +783,42 @@ posterior) and scene construction from memory (peak activity more anterior)''
 \citep{haeusler2022processing}.
 
 
+\paragraph{Saving time because data exist does not mean that you have more time}
+
+%
+It's not getting easier, it's just that the focus of the work shifts to another
+area [a.k.a. writing a thesis is so easy today because we did it on typing
+machines and you have computer software today]
+
+
+
 
 \subsection{Pro}
 
 \todo[inline]{Why was is good for science that the data were already existing?}
 
 \todo[inline]{Why was is good for you that the data were already existing?}
+
+
+
+
+\paragraph{Raw data}
+
+%
+On the one hand, not spending time on collecting data is speeding up the process
+of getting to analyze the data, and go beyond what would have been possible if
+you would have collected the data yourself solid base.
+
+%
+Not everybody has the resources to collect (big) datasets.
+%
+Covid-Pandemic has impressively shown that "human subject research" has gone
+dormant for almost 1.5 years.
+%
+Probably to personal: plan of the project was adjusted accordingly.
+
+
+\paragraph{The big picture of science in general + conclusion}
 
 \todo[inline]{think big regarding reproducibility}
 
@@ -812,6 +827,10 @@ posterior) and scene construction from memory (peak activity more anterior)''
 \todo[inline]{I could write here that I pulled my hair out while searching for
 inconsistencies in the timings, and found that the audio track of the
 audio-description is essentially unsystematically shifted}
+
+Benefits that go along this additional work are not immediately
+visible to researchers/authors but...
+
 
 From introduction:
 % reproducibility crisis
