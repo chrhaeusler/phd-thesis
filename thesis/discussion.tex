@@ -546,299 +546,215 @@ Further, we hypothesized that \ac{fa} would eventually perform
 
 
 
-\section{Open Science: Conclusions across the whole project}
+\section{Open Science (across the whole project)}
 
 \todo[inline]{cf. what is now written in the parts of each study}
+
+\todo[inline]{Following is preliminary phrasing; more important:
+%
+which points make sense to be brought up (and need to be phrased nicely)?
+%
+which points are missing?
+%
+which points should be left out?}
+
+
+\todo[inline]{in general there are to ways to structure it: a) do a
+"theoretical" part with stuff I stumbled across (but do not get personal) and
+write a personal assessment with examples at the end; or b) write the
+theoretical parts, each followed by an example from current thesis}
 
 
 
 \subsection{Contra}
 
-\subsubsection{Intro: not required / established and still emerging (standards)}
+\todo[inline]{imo, the whining should be concise \& kept to the most relevant
+points; ideally, summed up in 1-2 paragraphs (before "Two-sided stuff")}
 
-%
-Following the guidelines was not mandatory for submitting the thesis but
-constituted voluntary, additional careful work.
-%
-The standards [cf. introduction] to follow are still emerging.
-%
-Guidelines are not [yet] part of a curriculum, neither in a bachelor's/master's
-program nor PhD program.
-%
-Therefore following the guidelines is self-imposed and need to be learned based
-on a PhD student's self-initiative and self-teaching.
 
-Open data was originally collected for internal purposes of an organization.
-Since use by third parties was often not considered, there is often a lack of
-context, metadata and a suitable structure to interpret and reuse the data.
-interpret and reuse the data.
+\subsubsection{Intro}
+%
+Following the practices of open science was not mandatory for submitting the
+thesis and required additional work and time.
+%
+Standards to follow are not yet fully established and corresponding software
+tools are still emerging.
+%
+Further, the best practices are not yet part of a graduate or PhD curriculum.
+%
+Therefore, putting the principles into practice was based on a self-initiative
+and required self-learning of principles, standards, procedures, and software
+tools.
 
-%
-You need to take extra care to everything really, really good 'cause other
-people will rely on your shit and, possible with another focus and corresponding
-demands.
-% example: code
-For example, code needs to be documented in an extent and clarity so other helps
-not just the creator (and supervisor) but also "third-party persons".
-%
-Standardized format for everybody (but not necessarily of immediate benefit for
-current researcher / research project
-
-OS practices generally require more work and time.
-%
+% think about the other people, muhhh!
 Preparing data or code for others to access requires considerably more time than
 its preparation for personal use.
-%
-These extra efforts may not be valued appropriately by a scientific community
-who assesses research based on journal impact metrics and number of publications
-(Moher et al., 2018).
-%
-As long as scientists are being evaluated on traditional journal metrics, there
-are few incentives from a career perspective to fully commit to OS.
+% own stuff for other people
+Lastly, additional work is required not just to create a reproducible project
+but also 'cause other people might base their own work based on, e.g., data or
+code that would usually just have been created and kept fucking secret.
 
 %
-Efforts and contributions to achieving Open Data goals (e.g., transparency,
-innovation, economic growth) are not sufficiently recognized (nice to have but
-not mandatory).
+``Open and reproducible research means you need to guarantee the accuracy of the
+methods used and to explicitly describe and document all stages of the
+scientific process to ensure its transparency and traceability''.
 
 %
-Test works flows, automatization takes time (no human input)
-%
-This additional work feels like a burden and does not contribute to the
-immediate benefits of the PhD project.
-
-Learning about the issues, the principles, and procedures takes time.
-
-Open and reproducible research means you need to guarantee the accuracy of the
-methods used and to document all stages of the scientific process to ensure its
-transparency and traceability.
-
-%
-Affected procedures involve collecting, describing, storing, processing,
-analyzing, archiving and accessing data, and describing \& documenting all these
-activities, using the appropriate (software) tools.
-
-%
-Affected procedures in publishing data:
-%
-legal issues concerning collecting, processing and publishing personal data
-(statement of agreement, anonymization, licensing issues intellectual property
-rights, legal right of use, security issues,)
-
-%
-data management: standardized format, make data findable (metadata), accessible,
-and reusable for others
-
-%
-which people might wish to use your data for which purpose?
-
-%
-where do deposit the data (findable, accessible, persistent / long-term
-storage?)
-
+Over the course of the present project, affected procedures involved
+% data-related
+a) collecting / creating, describing, storing data,
+% processing-related
+b) processing and analyzing data,
+% code-related
+c) code,
+% publishing shit
+d) publishing data and results.
 
 
 \subsubsection{Creating data}
 
-
-\subsubsection{Processing data}
-
+Affected procedures in creating, processing and analyzing data:
 %
-It is important that researchers come to an agreement on common data analysis
-methods which go further than explanations provided in the methodological
-sections of articles.
-
+Usually, data is collected for internal purposes.
 %
-Organize data, files and folders: apply file naming conventions, construct
-folder trees with a consistent, scalable structure, separate raw data from
-analyzed data, etc.
+Since re-use of data by third parties needs to be considered in context of open
+data, you need to
 %
-Learn the basics of version control even if your actual research does not
-require coding skills.
+anticipate which people might use the data for which purpose,
 %
-Being able to restore a particular version of a document written over a period
-of several years can be highly valuable.
+collect according to best practices,
 %
-Automate certain recurring tasks.
+convert data into a suitable, standardized format (naming conventions, folder
+structure, separating raw from analyzed data),
 %
-You will be able to increase the reliability of your results and make writing
-scientific articles easier because you can vary parameters more easily.
+learn and applied version control of data, and
 %
-take part in a research project with other laboratories; use public datasets if
-these exist.
-
-%
-Automate your processing and workflows: design scripts to process your data and
-manage your workflow steps.
-%
-For example, avoid using spreadsheets for large datasets.
-%
-Document your code and data:
-%
-what is clear when working may be less clear two months later even when you are
-the author.
-%
-This is more a question of explaining the end-use of your functionalities rather
-than describing how they work.
+create metadata.
 
 
-\subsubsection{Publishing data and / or results}
+\subsubsection{Processing and analyzing data (via code)}
+%
+Documenting and describing the procudures (and the reasoning why they have been
+chosen among alternatives) need to go further than explanations provided in the
+methodological sections of articles.
+%
+Written code needs to be documented in an extent and clarity so other helps
+not just the creator (and supervisor) but also "third-party persons".
+%
+All steps of the workflow to process the data need to be designed and tested in
+order to be run reliably and automatically.
 
-The aim of findable principle's is to facilitate the discovery of data by
-humans and computer systems and requires the description and indexing of data
-and metadata.
-
-The Accessible principle encourages the long-term storage of data and metadata
-and facilitating their access and/or downloading by specifying the conditions of
-access (open or restricted) and use (license).
-
-TO CHOOSE THE RIGHT DATA WAREHOUSE YOU SHOULD CHECK:
-%
-the warehouse's conditions of use including licenses, the types and formats of
-data accepted, whether it is possible to deposit several versions of a dataset,
-the guarantees offered in terms of archiving and long-term access.
-
-
-\paragraph{Data leeching}
-%
-Publishing data comes with the thread that other working groups (possibly more
-money, brain and people power) use your data for similar project and eventually
-winning the "race of scientific competition" by preempt parts of your project
-making own analyses \& results "obsolete".
-%
-However, ECRs might also see risks associated with OS. While ECRs seem to a have
-a positive opinion on receiving open data, they are somewhat wary of supplying
-it, with the fear of being scooped as main reason (Nicholas et al., 2019).
-%
-Despite the available tools to avoid this risk (e.g., time stamped DOIs), it is
-difficult to counter this fear.
-%
-The damage that scooping entails for ECRs, generally with none or only a couple
-of publications, could be relatively higher than when it affects an established
-researcher with a long publication list.
-%
-This might be especially critical for ECRs pursuing their PhD, as they often
-need a certain number of first authorship articles to be able to defend their
-dissertation. Other negative factors that can be crucial when considering OS are
-flexibility and time.
-%
-Some OS practices (e.g., preregistrations) can reduce the flexibility of the
-researcher to look at new unexpected findings or tweak their methods halfway.
-%
-Although these practices are intended to reduce the researcher’s degrees of
-freedom when performing confirmatory research (Nosek et al., 2018), ECRs might
-perceive them as an obstacle under the pressure of conducting innovative
-research [Florez, 2021].
-
-
-\subsubsection{But: Nobody really gives a shit about it}
+\todo[inline]{Personal example: I have fond memories of trying to automate the
+stacked surface plots; I don't know if it makes sense to give that as a (super
+annoying example)}
 
 %
-Automatized creating (complex) figures without human intervention / finalization
-from numeric results. [limited software packages]
-%
-People who do not give a shit about it and don't do it, do ``worse'' research
-but are faster/``better''.
+This can get super fucking annoying in case of automatized creation of (complex)
+figures from numeric results without final editing of the figure by a human.
+Jeez! Fuck me sideways!
 
-Retrospectively, I cannot remember one case which made me glad having
-documented, version-controlled, automatized stuff (maybe, materials a little
-better organized or  my code was a little cleaner, I don't know)
 
-Benefits like: accessible can positively influence its impact. For example,
-sharing data and code can bring recognition and citations from replication
-studies or meta-analyses of published and unpublished data, whereas the
-citations of OA articles have been reported to be 18\% higher than those of
-non-OA articles (Piwowar et al., 2018).
+\subsubsection{Publishing}
+
+\paragraph{Publishing data[, results, paper]}
+
+\todo[inline]{imo, irrelevant in my case: statement of agreement, anonymization}
+
+\todo[inline]{cf. FAIR principles}
+
+\todo[inline]{points regarding "open paper"? speech anno paper is on github; ppa
+paper is not a public github repository (yet)}
+
+\todo[inline]{somehow bring up DataLad format \& software; skim DataLad paper}
+
+% intro
+Affected procedures in publishing data:
+% fucking law
+Legal issues concerning data (intellectual property rights, use license[, legal
+right of use]).
+% findable, accessible, interoperable, reusable
+Considering long-term storage, facilitate discovering by humans and web bots
+(description, machine-readable metadata), ensuring [long-term] curation (a.k.a.
+updating the version-controlled dataset) \& long-term access, and chosing the
+appropriate data hoster that can be accessed via DataLad software.
+
+
+\paragraph{Data "leeching"}
 %
-Thus, while conducting OS may initially require more work in the short term, it
-can greatly benefit one’s career in the long term. [Florez, 2021]
+Publishing data is associated with the risk that other working groups (possibly
+more money, brain and people power) use published data for similar project and
+eventually winning the "race of scientific competition" by preempting parts of
+your project making own analyses \& results "obsolete".
+%
+Consequently, a PhD students that need a certain number of published papers
+before being able to submit the thesis might have collected the data but has to
+adjust the project plan (possibly deviating from the project proposal [or even
+an already preregistered analyis) or might not be able to fulfil the
+requirements at all in the given time.
+
+\todo[inline]{Personal example: I fondly remember waking up on Sunday 2019-12-15
+(still drunk after a Christmas party) with a message in matrix from you pointing
+me towards \citep{jiahui2020predicting}}
 
 
 
+\subsection{The kind of two-sided stuff}
 
-\subsection{Two-sided stuff}
+\subsubsection{Dataset creators vs. dataset consumers}
 
-\subsubsection{As a data consumer, can you trust the data creators?}
 
-\todo[inline]{check the data you created or others will do it; might get
-"embarrassing"}
 
-\todo[inline]{I could write here that I pulled my hair out while searching for
-inconsistencies in the timings, and found that the audio track of the
-audio-description is essentially unsystematically shifted}
-
-%
-Dataset will never be perfect and will contain noise, or even artefacts.
+\paragraph{Dataset creators}
 %
 Dataset creators need to be extra careful and describe description of procedures
 and data as exhaustive as possible.
 %
-Quality standards vary from field to field and even within subfields of
-neuroscience (a.k.a. "interessiert uns ja nicht" vs. "nach bestem Wissen und
-Gewissen").
+Nevertheless, a dataset will never be perfect, and will contain artefacts and
+noise.
 %
-Since it is impossible to anticipate all future use cases, unknown unknowns of
-dataset creators are inevitable.
+Standards (quality, formats, parameters) might vary across scientific
+(sub)fields.
 %
-This essentially boils down to researchers that want to publish data to highly
-take care that the dataset gets really, really good, and test and validate the
-data substantially and rigorously.
+Even within a field, choices made during collection and preprocessing, despite
+being state-of-the-art, might not be optimal even within the same field
+depending on the use case.
 %
-Contingencies need to be taken care of and use-cases considered/anticipated that
-go beyond the originally anticipated use-cases (``a.k.a. interessiert uns ja
-nicht'').
-%
-Analyses can be fixed and rerun, data based on shitty paradigms are a waste of
-time and money.
+Dataset creators: work extra carefully, anticipate use cases (be aware of
+requirements in adjacent fields, and describe in as much detail as possible,
 
-%
-The same applies not just for the collection of raw data but also any
-preprocessing steps, (that might lead to different results based on parameters,
-operation system, software version etc.) or any kind of results.
-%
-Standardizing the analyses pipelines helps.
-%
-Nevertheless, there is no "one size fits all" uses-cases.
-%
-Hence, being able to re-run analyses with custom parameters for specific
-use-cases helps
 
+\paragraph{Dataset consumers}
 %
-Vice versa, dataset "consumers" need to check the data according to their uses
-cases.
-%
-dataset "consumers need to assume that everything that is not explicitly stated
+Dataset "consumers need to assume that everything that is not explicitly stated
 in the description of the dataset is has not been considered and done.
-
 %
-In summary,
+Hence, even if the data a from a renowned source, data quality should be tested
+and validated on one's own and according to their use cases.
 %
-creators: work extra carefully, anticipate use cases (be aware of requirements
-in adjacent fields, and describe in as much detail as possible,
+Preprocessing steps (that might lead to different results based on parameters,
+operation system, software version etc.) should be rerun.
 %
-Academic education: it is mandatory to create awareness, and teach established
-and emerging standards to students.
-
-
-\paragraph{"Solution": Balance of checking and trust}
-
-%
-Consumers: "Trust is good, control is better" (Wladimir Iljitsch Lenin).
-%
-On the other hand, there is an hard to judge ``correct'' balance between
-trusting the work of others that collected the raw data, and checking the data
-and familiarize yourself with the data.
-%
-Researchers need to handle that two-sided sword and balance trusting the
-creators of the dataset and checking/validating everything themselves.
-
-%
-However, controlling everything leads the idea ad absurdum, not possible in some
-cases (visually check fmri data of hundreds of persons?)
-%
-Consumers need to be able to have a degree of trust.
+Published materials (code etc.) helps to replicate the results, and to adjust
+parameters for specific-use cases.
 
 
+\todo[inline]{Personal example: I could write here that I pulled my hair out
+while searching for inconsistencies in the timings, and found that the audio
+track of the audio-description is essentially unsystematically shifted}
+
+
+
+\paragraph{Conclusion: find a balance of trusting and checking}
+
+However, consumers need to trust since controlling everything leads the idea ad
+absurdum, not possible in some cases (visually check fmri data of hundreds of
+persons?)
+%
+There is an hard to judge ``correct'' balance between trusting the work of
+others that collected the raw data, and checking the data and
+%
+In any case, familiarize yourself with the data and don't just throw data at an
+algorithm (but, but, but: the more data the better!)
 
 
 \subsection{Pro}
@@ -847,74 +763,19 @@ Consumers need to be able to have a degree of trust.
 
 \todo[inline]{Why was is good for you that the data were already existing?}
 
-The advantages of a reproducible approach
-%
-a) Errors are easier to identify and correct. You trace and record how your data
-and/or code evolves from the very start of the project and with each
-modification.
-%
-It is much harder and less safe if you have to reconstruct these developments a
-posteriori.
-%
-b) The results you obtain can be more easily explained and justified to peers.
-%
-When submitting an article for publication, it will be easier for you to respond
-to any requests from your reviewers.
-%
-c) Future work is made less uncertain.
-%
-You give yourself the possibility of reusing data, code, documents, etc. in the
-future.
-
-
-I was glad about the provided infrastructure.
-
-Open and transparent sciences increases trust of the public into scientific
-process and its results.
-
-Publishing data makes researchers accountable to collect, process, document, and
-store data properly (opposed to data collected and stored for mere in-house use;
-"ach, Tömme...")
-
-Published data allows validation by external persons.
-
-Also, helps students to take a look at the methods in detail and replicate the
-results (method sections of papers are often insufficient)
-
-Facilitates progress of a whole field: data re-use for bigger Projects
-(meta-analyzes) or unanticipated use cases.
-
-Open materials facilitate tracking (and understanding!) the process (esp.
-analyzes) in detail (pipelines are often far easier to understand by reading the
-code step-by-step than just reading the method section)
-
-Researchers want and have to be (more) responsible to create traceable [?] and
-understandable pipelines.
-%
-Be ready and open to held accountable years later how results were achieved
-(which should be self-evident by the published material anyway).
-
-Benefits are increased robustness and reliability of science when all steps are
-openly documented and data are openly available.
-%
-This is also a boon to the individual scientist, as open science can protect
-oneself against unreproducible studies to a certain degree.
-%
 
 \subsubsection{Raw data}
+
+%
+In case the data are already collected, time and resources can be shifted from
+data collection to subsequent stages.
 
 %
 On the one hand, not spending time on collecting data is speeding up the process
 of getting to analyze the data, and go beyond what would have been possible if
 you would have collected the data yourself solid base.
 
-%
-Not everybody has the resources to collect (big) datasets.
-%
-Covid-Pandemic has impressively shown that "human subject research" has gone
-dormant for almost 1.5 years.
-%
-Probably to personal: plan of the project was adjusted accordingly.
+
 
 \paragraph{Less work (i.e. raw data)}
 %
@@ -959,8 +820,9 @@ Any further processing steps is based on variables/decisions/parameters.
 Opportunity costs: take (for granted) what is already done or do it yourself?
 
 
-\paragraph{Opportunity cost example: missing ROIS of RSC and OPA in Sengupata}
+\paragraph{"Personal" example: missing ROIS of RSC \& OPA}
 
+\todo[inline]{fucking finally shorten this part!}
 %
 Raw measures vs. preprocessed data vs. results
 %
@@ -1033,26 +895,119 @@ posterior) and scene construction from memory (peak activity more anterior)''
 
 
 
-\subsubsection{Processing data}
+\subsubsection{Processing and analyzing data (via code)}
 
-\todo[inline]{cf. point as for FOSS and bugs in software; but nobody looked at
-my code anyway}
+\todo[inline]{cf. point as for FOSS and bugs in software}
+%
+Being able to restore a particular version of a document written over a period
+of several years can be highly valuable.
+%
+Automate certain recurring tasks.
+%
+You will be able to increase the reliability of your results and make writing
+scientific articles easier because you can vary parameters more easily.
+%
+Errors are easier to identify and correct. You trace and record how your data
+and/or code evolves from the very start of the project and with each
+modification.
 
 
 
 \subsubsection{Publishing data and / or results}
 
+The results you obtain can be more easily explained and justified to peers.
+%
+When submitting an article for publication, it will be easier for you to respond
+to any requests from your reviewers.
+%
+c) Future work is made less uncertain.
+%
+You give yourself the possibility of reusing data, code, documents, etc. in the
+future.
+
+
 
 \subsection{Conclusion (a.k.a. the greater goods of open science)}
+
+
+\subsubsection{Start with (short) a personal assessment?}
+
+\subsubsection{...and shift personal stuff from above to here?}
+
+\todo[inline]{might get too personal; Nobody (me included) cares about the
+personal life's journey}
+
 
 Benefits that go along this additional work are not immediately
 visible to researchers/authors but...
 
 %
-Scientific advancement is best served by enabling as large a community as
-possible to build upon existing research; and think about the general public and
-fucking humankind in general!.
+This additional work feels like a burden and does not contribute to the
+immediate benefits of the PhD project.
 
+%
+But not necessarily of immediate benefit for current researcher / research
+project
+
+I was glad about the provided infrastructure.
+
+%
+Covid-Pandemic has impressively shown that "human subject research" has gone
+dormant for almost 1.5 years.
+%
+Probably to personal: plan of the project was adjusted accordingly.
+
+%
+Actually, I am more confident about my work now compared to the dilettantish
+procedures experienced (and followed) in, uhm, another lab in Magdeburg.
+
+
+\subsubsection{End with the greater goods: science \& society, fuck yeah!}
+
+
+\paragraph{Interests of researchers}
+
+
+%
+Not everybody has the resources to collect (big) datasets, to read pay-walled
+articles.
+
+%
+Published data allows validation by external persons.
+
+%
+Also, helps students to take a look at the methods in detail and replicate the
+results (method sections of papers are often insufficient)
+
+%
+Open materials facilitate tracking (and understanding!) the process (esp.
+analyzes) in detail (pipelines are often far easier to understand by reading the
+code step-by-step than just reading the method section).
+
+%
+The extra time and effort lead to "increased processing depth", better
+understanding, higher confidence, and being able to explain it to others.
+
+%
+Ultimately, You are better prepared to be held accountable even years later on
+how results were achieved (which should be self-evident by the published
+material anyway).
+
+%
+Benefits are increased robustness and reliability is a boon to the individual
+scientist, as open science can protect oneself against unreproducible studies to
+a certain degree.
+
+
+
+\paragraph{Interests of science}
+
+%
+Benefits are increased robustness and reliability of science when all steps are
+openly documented and data are openly available.
+%
+Facilitates progress of a whole field: data re-use for bigger Projects
+(meta-analyzes) or unanticipated use cases.
 
 From introduction:
 % reproducibility crisis
@@ -1070,12 +1025,63 @@ A study is replicable if the same analysis of an equivalent experiment's data
 leads to consistent results \citep{dubois2016building, leek2017most}.
 
 
-\todo[inline]{cf. [Florez 2021]: 5.2. Implications for the Development of OS
-Policies and Training Programs}
+
+\paragraph{Interests of society}
+
+%
+Publishing data makes researchers accountable to collect, process, document, and
+store data properly (opposed to data collected and stored for mere in-house
+use).
+%
+Researchers want and have to be (more) responsible to create traceable [?] and
+understandable pipelines.
+%
+Open and transparent sciences increases trust of the public into scientific
+process and its results.
+
+
+
+\paragraph{Call to action: create an incentive or imperative to do it}
+
+\todo[inline]{Retrospectively, I cannot remember one case which made me glad
+having documented, version-controlled, automatized stuff (maybe, materials are a
+little better organized or my code was a little better to grasp again, I don't
+know)}
+
+%
+People who do not give a shit about it and don't do it, do ``worse'' research
+but are faster/``better''.
+%
+Benefits like: accessible can positively influence its impact. For example,
+sharing data and code can bring recognition and citations from replication
+studies or meta-analyses of published and unpublished data, whereas the
+citations of OA articles have been reported to be 18\% higher than those of
+non-OA articles [Piwowar et al., 2018].
+%
+Thus, while conducting OS may initially require more work in the short term, it
+can greatly benefit one’s career in the long term. [Florez, 2021]
+
+
+
+\paragraph{Template from Florez et al., 2021}
+
+\todo[inline]{check last part in Florez et al. (2021): 5.2. Implications for the
+Development of OS Policies and Training Programs}
 
 %
 There is a need to introduce systematic OS policies with clear incentives and
 specific training strategies to support these bottom-up interests.
+%
+These extra efforts may not be valued appropriately by a scientific community
+who assesses research based on journal impact metrics and number of publications
+(Moher et al., 2018).
+%
+As long as scientists are being evaluated on traditional journal metrics, there
+are few incentives from a career perspective to fully commit to OS.
+%
+Efforts and contributions to achieving Open Data goals (e.g., transparency,
+innovation, economic growth) are not sufficiently recognized (nice to have but
+not mandatory).
 
 
 
@@ -1116,6 +1122,8 @@ the development of diagnostic procedures more suitable for individuals with
 visual impairments or conditions like nystagmus''
 \citep{haeusler2022processing}.
 
+
+
 \subsubsection{Caveats of naturalistic stimuli}
 %
 Challenging data data analysis, but create \& share annotation.
@@ -1136,6 +1144,14 @@ Executive functions?
 \subsubsection{Clinical application}
 
 \todo[inline]{most on this topic is in SRM part}
+
+\todo[inline]{I abandoned the idea to come up with language area (asymmetry);
+the topic is clinically more relevant, but problem in case of prediction (esp.
+using ROI): most interesting is atypical language lateralization, and there is
+usually no lateralization in naturalistic stimuli (but operationalization is
+different from localizer paradigms), assumption of (strict) lateralization
+probably wrong anyway; templates from papers using \ac{fmri} to localize
+language areas are outsourced to separate file}
 
 %
 ``The ability to non-invasively and automatically delineate cortical areas in
@@ -1163,14 +1179,7 @@ of functional brain topography related to language (sub)functions, in order to
 guide pre- and perioperative assessment of neurosurgery, e.g., in case of
 epilepsy.
 
-\todo[inline]{language areas are more clinically relevant, but problem in case
-of prediction (esp. using ROI): atypical language lateralization \& usually no
-lateralization in naturalistic stimuli (but operationalization is different from
-localizer paradigms), assumption of (strict) lateralization probably wrong
-anyway}
 
-\todo[inline]{Further quotes/templates from papers using \ac{fmri} to localize
-language areas are outsourced to separate file}
 
 
 \section{Conclusion: naturalistic stimuli in general}
