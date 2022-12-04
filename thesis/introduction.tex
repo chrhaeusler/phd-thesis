@@ -337,28 +337,27 @@ really messy}
 
 \paragraph{Anatomical alignment}
 % intro
-In order to address the practical and monetary constraints of a clinical context,
-we also estimate a participant's localizer results from other participants'
-localizer results.
+In order to address the practical and monetary constraints of a clinical
+context, we also estimate a participant's localizer results from other
+participants' localizer results.
 % previous studies: anatomical alignment
 Previous studies have shown that the location of a participant's \ac{ppa} can be
 estimated using \ac{aa} \citep{frost2012measuring, rosenke2021probabilistic,
 weiner2018defining, zhen2017quantifying}:
 %
-First, a participant's functional data are aligned to a \ac{cas}, i.e. individual
-functional \acp{roi} are projected from each participant's brain space into an
-average brain (e.g., Montreal Neurological Institute (MNI) \citep{evans1993mni}
-or Talairach brain template).
+First, a participant's functional data are aligned to a \ac{cas}, i.e.
+individual functional \acp{roi} are projected from each participant's brain
+space into an average brain (e.g., Montreal Neurological Institute (MNI)
+\citep{evans1993mni} or Talairach brain template).
 %
 Then, the average of each participants' \ac{roi} is projected from the \ac{cas}
 into the brain anatomy of an individual participant, serving as a prediction of
 that individual participant's \ac{roi}.
 %
 However, even cortical surface-based alignment \citep{fischl2012freesurfer}
-cannot eliminate the mismatch between brain function and the anatomy of
-category-selective regions \citep{duncan2009consistency, frost2012measuring,
-weiner2018defining, weiner2014mid} [still similar phrasing to
-\citep{feilong2018reliable}].
+cannot eliminate the functional-anatomical variability of category-selective
+regions across persons \citep{duncan2009consistency, frost2012measuring,
+weiner2018defining, weiner2014mid}.
 
 
 \paragraph{Functional alignment}
@@ -372,8 +371,8 @@ using \ac{fa} that has been shown to outperform anatomical alignment
 
 %
 Following an exhaustive leave-one-out cross-validation, we split the dataset
-(N$=$14 subjects) repeatedly in a set N-1 subjects used to train the model and
-one subject used to test the model.
+(N$=$14 subjects) repeatedly in a set of N-1 subjects used to train the model
+and one subject used to test the model.
 %
 First, for every fold of the cross-validation procedure, we train a model of a
 \ac{cfs} based on the N-1 training subjects' response time series of the movie,
