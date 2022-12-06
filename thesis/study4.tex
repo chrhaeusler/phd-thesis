@@ -898,84 +898,58 @@ but is based on an increasing quantity of data used to calculate the mapping.
 The algorithm can also be applied to functional data of traditional paradigms
 using controlled stimuli.
 %
-However, ``results showed that the sampling of response vectors from these
-experiments is impoverished and produces a model representational space that
-does not generalize well to new stimuli in other experiments (Haxby et al.
-2011)'' \citep{guntupalli2016model}.
-
-\todo[inline]{I am here}
-
+Hence, results of previous studies \citep{guntupalli2016model, haxby2011common}
+suggest transformations based on data from traditional paradigms are of
+diminished validity diminshed generalizability to new stimuli in other
+experiments, presumably because such traditional paradigms sample a sparser
+range of brain states than naturalistic stimuli.
 %
-Previous studies have shown that transformations for functional alignment have
-greatly diminished general validity \citep{haxby2011common}, presumably because
-such experiments sample a sparser range of brain states
-\citep{guntupalli2016model}'' [project proposal].
+In order to compare the estimation performance based on matrices derived from
+the same traditional paradigm (within-experiment prediction) to the estimation
+performance based on matrices derived from naturalistic stimuli
+(across-experiment prediction), we also used data from the traditional localizer
+paradigm to learn a mapping from the test subject's brain space to the \ac{cfs}.
 %
-Transformations for functional alignment that were derived from data of
-naturalistic stimuli have been shown to be of increased validity, presumably
-because naturalistic stimuli sample a more diverse set of mental states (e.g.
-visual or auditory perception, spatial cognition; emotion; music, speech or
-social perception).
-
-%
-Naturalistic stimuli sample a broader range of brain states than paradigms
-with simplified stimuli \citep{guntupalli2016model, haxby2011common} promising
-an increased validity of transformations of functional alignment and increased
-generalizability to [research questions/domains/paradigms].
-
-%
-``rich variety of stimuli or conditions are necessary to  .rich set of data that
-samples a wide variety of cortical patterns (in the response vector space) in
-order to generalize to novel stimuli or tasks'' \citep{haxby2020hyperalignment}.
-
-
-\paragraph{Conclusion}
-
-%
-Hence, we also let the algorithm learn the orthogonal mapping to the \ac{cfs}
-based on a test subject's functional data of the localizer experiment in order
-to compare the estimation performance based on matrices derived from
-naturalistic stimuli and a paradigm using simplified stimuli.
-%
-We used one up to four runs (each lasting $\sim$\unit[312]{s}) of the localizer
-acquire four transformation matrices based on an increasing quantity of data
-used to calculate the mapping.
+We calculated four transformation matrices based on one
+up to four runs (each lasting $\sim$\unit[312]{s}) for each test subject.
 
 
 
 \subsection{Prediction of localizer}
 
-
 \todo[inline]{I also tested averaging data in \ac{cfs}: similar results; in case
 of anatomical alignment, I did not test averaging data in MNI152 space}
 
-%
-We then estimated a test subject's results of the functional localizer contrast
-(the empirical $Z$-map of the \ac{roi}) by projecting all training subjects'
-empirical $Z$-maps from their voxel space trough the template into the test
-subject's voxel space (i.e. through the \ac{cfs} in case of functional
-alignment; through the MNI space in case of anatomical alignment).
+% overview
+We then estimated a test subject's localizer results (the empirical $Z$-map) by
+projecting all training subjects' empirical $Z$-maps from their voxel space
+trough the brain template  (i.e. through the \ac{cfs} in case of functional
+alignment; through the MNI space in case of anatomical alignment) into the test
+subject's voxel space.
 
 
 \paragraph{Masking}
 %
-First, empirical $Z$-maps were masked with the same procedure as the time series
-data [by restricting the voxels to voxels within the union of the individual
-\acp{ppa} \citep[s.][]{haeusler2022processing} that was warped from group space
-into each subjects' space, and the subject-specific \ac{fov} of the
-audio-description]
+First, empirical $Z$-maps of the training subjects' localizer contrasts were
+masked with the same mask as the time series data that were used to generate the
+\ac{cfs}.
+%
+Thus, voxels were restricted to voxels located within the union of the
+individual \acp{ppa} \citep[s.][]{haeusler2022processing} that was warped from
+group space into each subjects' space, and the subject-specific \ac{fov} of the
+audio-description.
 
 
 \paragraph{Estimation via functional alignment}
 % functional alignment; into CFS (calling srm.transform(masked\_zmaps))
-In the case of estimation via functional alignment, we used the transformation
-matrices that were derived during training of the \ac{srm} in order to project
-the masked empirical $Z$-maps from each training subjects' voxel space into the
-\ac{cfs}.
+In the case of estimation via functional alignment, we then used the
+transformation matrices that were derived during training of the \ac{cfs} in
+order to project the masked empirical $Z$-maps from each training subject's
+voxel space into the \ac{cfs}.
 % into subject
-We then used the transpose of the transformation matrix that we acquired during
-the alignment of the test subject, in order to project the data from the
-\ac{cfs} into the test subject's anatomical voxel space.
+In order to project the data from the \ac{cfs} into the test subject's
+anatomical voxel space, we then used the transpose of the transformation matrix
+that we acquired during the alignment of the test subject.
 % take the mean
 The arithmetic mean of $N-1$ the projected empirical $Z$-maps served as the
 predicted $Z$-map estimating the test subject's empirical $Z$-map.
@@ -990,47 +964,38 @@ a separate one?}
 In case of estimation via anatomical alignment, we used previously computed
 transformation matrices
 \citep[][\href{https://github.com/psychoinformatics-de/studyforrest-data-templatetransforms}{\url{github.com/psychoinformatics-de/studyforrest-data-templatetransforms}}]{hanke2014audiomovie}
-in order to project the data via a non-linear transformation from each training
-subject into the MNI space.
+in order to project the data via a non-linear transformation rom each training
+subject's voxel space into the MNI space.
 % from MNI into subject
-We then used the transpose of the transformation matrix [did I? or was it
-another matrix?] in order to project the data from MNI space into the test
-subject's voxel space.
-%
+In order to project the data from MNI space into the test subject's voxel space,
+we then used the transpose of the transformation matrix [did I? or was it
+another matrix?].
+% take the mean
 As in the case of functional alignment, the arithmetic mean of the projected
 $Z$-maps served as a test subject's predicted $Z$-map.
 
 
 \subsection{Prediction of auditory PPA}
 
-\todo[inline]{we also estimate $Z$-maps from \citet{haeusler2022processing}}
+\todo[inline]{We also estimate $Z$-maps from \citet{haeusler2022processing}}
 
 \todo[inline]{add text here}
 
 
-\subsection{Quantifying the performance}
-
-
-\subsubsection{Pearson}
-%
-In order to quantify the performance of our two different estimation procedures,
-we calculated the Pearson's correlation coefficients as a measure of similarity
-between the empirical $Z$-maps gained from the localizer experiment and the
-predicted $Z$-maps.
-
-
-\subsubsection{Cronbach's alpha}
+\subsection{Pearson \& Cronbach's alpha}
+% Pearson's
+In order to quantify the estimation performance based on the functional and
+anatomical alignment procedure, we calculated the Pearson's correlation
+coefficients as a measure of similarity between the empirical $Z$-maps gained
+from the localizer experiment and the predicted $Z$-maps.
 
 % Cronbach's Alpha
-Further, we compare the prediction performance to the internal consistency (i.e.
-reliability) of the visual localizer by calculating Cronbach's Alpha across the
-four runs of the localizer.
-
-
-``We reasoned that across-subject variability cannot be expected to be lower
-than within-subject variability over time (reproducibility).
+Further, we calculating Cronbach's Alpha across the four runs of the localizer
+as a measure of internal consistency (i.e.  reliability) and proxy for noise
+ceiling of the visual localizer.
 %
-Hence, it can be used as a proxy for noise ceiling''
+``We reasoned that across-subject variability cannot be expected to be lower
+than within-subject variability over time (reproducibility)''
 \citep{rosenke2021probabilistic}.
 
 
@@ -1054,41 +1019,13 @@ audio-description) it gets totally messy \& computational intensive}
 
 \section{Results}
 
-\todo[inline]{we need statistical test of differences for prediction from
-alignment via localizer runs; which comparisons to test?}
+\todo[inline]{statistical test of differences for prediction from alignment via
+localizer runs}
 
 Unthresholded $Z$-maps [in each subject's voxel space] can be found at
 \href{https://identifiers.org/neurovault.collection:12340}{\url{neurovault.org/collections/12340}}.
 
 
-\subsection{Template(s) from from \citet{jiahui2020predicting}}
-
-``We correlated the whole-cortex contrast map (faces-vs-all) based on a
-participant's own data with the maps estimated from other participants' data.
-%
-After 1-step hyperalignment, the mean Pearson correlation values across
-participants were 0.58 (N = 15, S.D. = 0.08)'' \citep{jiahui2020predicting}.
-
-%
-``Hyperalignment greatly improved the prediction performance compared with
-anatomical surface alignment.
-%
-With surface alignment, the average Pearson correlation values across
-participants were 0.40 (N = 15, S.D. = 0.08) in the studyforrest dataset (Fig.
-3).
-%
-The difference between the hyperaligned and the surface-aligned mean correlation
-values was highly significant (studyforrest: t(14) = 17.39, p < 0.001)''
-\citep{jiahui2020predicting}.
-
-%
-``After 2-step hyperalignment, the mean Pearson correlation values between
-face-selectivity maps based on a participant's own localizer data and the
-predicted map after hyperalignment were 0.55 (N = 15, S.D. = 0.08).
-%
-These correlations after hyperalignment were significantly better than the
-correlations after surface alignment (t(14) = 15.78, p < 0.001)''
-\citep{jiahui2020predicting}.
 
 
 \subsection{My text}
@@ -1133,6 +1070,22 @@ localizer; y-axis) and estimated $Z$-maps (see Fig.~\ref{fig:stripplot}).
 \end{figure*}
 
 
+\subsection{Template(s) from from \citet{jiahui2020predicting}}
+
+%
+``After 2-step hyperalignment, the mean Pearson correlation values between
+face-selectivity maps based on a participant's own localizer data and the
+predicted map after hyperalignment were 0.55 (N = 15, S.D. = 0.08).
+%
+With surface alignment, the average Pearson correlation values across
+participants were 0.40 (N = 15, S.D. = 0.08) in the studyforrest dataset (Fig.
+3).
+%
+The difference between the hyperaligned and the surface-aligned mean correlation
+values was highly significant (studyforrest: t(14) = 17.39, p < 0.001)''
+\citep{jiahui2020predicting}.
+
+
 \subsubsection{Cronbach's Alpha by \citet{jiahui2020predicting}}
 
 %
@@ -1156,6 +1109,7 @@ correlation would be 0.60 on average in the studyforrest''
 hyperalignment is close to or as good as the real contrast map based on four
 localizer runs (studyforrest: t(14) = 0.61, p = 0.55; Grand Budapest: t(20) =
 3.02, p = 0.007)'' \citet{jiahui2020predicting}.
+
 %
 ``The predicted contrast map based on hyperalignment was better than the
 contrast map based on data from three out of four localizer runs in other
@@ -1163,11 +1117,6 @@ participants (t(14) = 2.36, p = 0.03) and in Grand Budapest, the predicted
 contrast map was comparable to the contrast map based on three localizer runs in
 other participants (t(20) = 0.48, p = 0.63)''
 \citet{jiahui2020predicting}.\todo{what?}
-%
-``A scatterplot of the individual correlation values with hyperalignment and
-with surface alignment (Fig 3), shows that predicted maps based on
-hyperalignment were more accurate than those based on surface alignment in every
-participant'' \citet{jiahui2020predicting}.
 
 
 \subsection{plot\_bland-altman.py}
@@ -1180,22 +1129,10 @@ participant'' \citet{jiahui2020predicting}.
 \todo[inline]{iirc, we agreed on that it's not necessary}
 
 
-\section{Discussion}
 
-%
-''There is a strong structural-functional correspondence in some areas whilst in
-others the spatial location of the functional area varies greatly across
-subjects within a cortical area'' \citep{frost2012measuring}.
-%
-``there is a surprising amount of variability in that not all
-functional areas are tightly bound to anatomical landmarks, i.e. there is no
-general rule describing how macroanatomical and functional areas correlate''
-\citep{frost2012measuring}.
-%
-``Remaining variability in the observed spatial location of functional regions,
-thus, reflects the "true" functional variability, i.e. the quantified
-variability is a good estimator of the underlying structural-functional
-correspondence'' \citep{frost2012measuring}.
+
+
+\section{Discussion}
 
 
 \subsection{Short Summary of...}
@@ -2527,6 +2464,22 @@ datasets]{zhang2018transfer}.
 \subsection{New dataset: other localizers = t-contrasts \& brain functions}
 
 \paragraph{functional-anatomical correspondence is different across ROIs}
+
+%
+''There is a strong structural-functional correspondence in some areas whilst in
+others the spatial location of the functional area varies greatly across
+subjects within a cortical area'' \citep{frost2012measuring}.
+%
+``There is a surprising amount of variability in that not all functional areas
+are tightly bound to anatomical landmarks, i.e. there is no general rule
+describing how macroanatomical and functional areas correlate''
+\citep{frost2012measuring}.
+%
+``Remaining variability in the observed spatial location of functional regions,
+thus, reflects the "true" functional variability, i.e. the quantified
+variability is a good estimator of the underlying structural-functional
+correspondence'' \citep{frost2012measuring}.
+
 
 %
 ``Analogously, the introduction of dynamic videos of faces and control
