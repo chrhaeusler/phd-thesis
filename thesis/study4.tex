@@ -12,33 +12,30 @@ category-selective brain regions like the \ac{ppa} \citep{epstein1998ppa}, the
 exhibit significantly increased \ac{bold} activity correlated with a
 ``preferred'' \citep{debeck2008interpreting} stimulus class.
 %
-The topographies (i.e. the location, size and shape) of category-selective areas
-are similarly distributed across individuals but the exact location, size and
-shape varies [considerably] \citep{rosenke2021probabilistic,
+The topographies (i.e. the location, size and shape) of these category-selective
+areas are similarly distributed across individuals but the exact location, size
+and shape vary interindividually \citep{rosenke2021probabilistic,
 zhen2017quantifying, zhen2015quantifying, frost2012measuring}.
 
 
-\subsection{Localizers}
+\subsection{Localizers (= problem)}
 
 \todo[inline]{Streamline with general intro \& general discussion}
 
 % definition of localizer
 In order to identify the topography of functional areas in individual persons,
 block-design \textit{functional localizer} paradigms are traditionally used that
-contrast regressors representing modeled hemodynamic responses to presented
-stimulus classes (i.e. landscapes, faces or bodies).
-
-
-\subsubsection{Problem}
+contrast regressors of modeled hemodynamic responses correlating with the
+corresponding stimulus classes (i.e. landscapes, faces, or bodies).
 % problem: one localizer for one domain
-However, functional localizers are designed to maximize detection power and thus
-dedicated to map just one domain of brain functions, for example, retinotopic
-visual areas \citep{wang2015probabilistic}, scene-selective regions
+Functional localizers are designed to maximize detection power and thus
+dedicated to map just one domain of brain functions like, for example,
+retinotopic visual areas \citep{wang2015probabilistic}, scene-selective regions
 \citep{stigliani2015temporal}, theory of mind \citep{spunt2014validating}, or
 semantic processes \citep{fernandez2001language}.
 % which gets messy
-Consequently, if one wants to map a variety of domains, the approach ``one
-paradigm for one domain of functions'' gets time-consuming and inefficient.
+However, if one wants to map a variety of domains, the approach ``one paradigm
+for one domain of functions'' gets time-consuming and inefficient.
 % localizer batteries: intro
 Researchers have tried to tackle that issue by creating time-efficient
 multi-functional \textit{localizer batteries} \citep[e.g.,][]{barch2013function,
@@ -50,9 +47,9 @@ criterion that can be difficult to meet in clinical or pediatric populations
 \citep{eickhoff2020towards, vanderwal2019movies}.
 
 
-\subsection{Solution}
+\subsection{Estimation from reference group (= solution)}
 
-\subsection{Recapitulation of study 2}
+\subsubsection{Intro (incl. recapitulation of study 2)}
 
 \todo[inline]{Streamline with general intro \& general discussion}
 
@@ -66,8 +63,6 @@ Results also suggest that a naturally engaging, purely auditory paradigm like an
 audio-description could, in principle, substitute a visual localizer as a
 diagnostic procedure to assess brain functions in visually impaired individuals
 \citep{haeusler2022processing}.
-
-\subsubsection{Estimation from reference group}
 % full feature film is too long
 However, a two-hour long paradigm is unsuitable for a clinical application due
 to practical and monetary reasons.
@@ -80,13 +75,13 @@ different persons (i.e. a \textit{reference group}).
 \subsubsection{Anatomical alignment}
 
 % intro: estimation via common anatomical space
-A traditional procedure \citep[e.g.,][]{frost2012measuring, weiner2018defining,
-zhen2017quantifying, zhen2015quantifying, rosenke2021probabilistic,
-wang2015probabilistic} to estimate the most probable location of a functional
-area in a person's anatomy from a reference group performs a volume-based or
-surface based alignment \textit{anatomical alignment}.
+Previous studies estimated the most probable location of a functional area in a
+person's anatomy from a reference group by performing a volume-based
+\citep[e.g.,][]{zhen2017quantifying, zhen2015quantifying} or surface-based
+\citep[e.g.,][]{frost2012measuring, weiner2018defining,
+rosenke2021probabilistic, wang2015probabilistic} \textit{anatomical alignment}.
 %
-In order to resolve [the issue of] anatomical variability across persons,
+First, in order to address the issue of anatomical variability across persons,
 functional data of persons in the reference group are anatomically aligned to
 (i.e.  projected into) a \textit{common anatomical space}.
 % project into test subject to estimate
@@ -94,57 +89,28 @@ Then, data are projected from the common anatomical space into the individual
 person's brain anatomy serving as an estimation of a functional region's
 location.
 
-
-\paragraph{Volume-based and surface-based alignment}
-% volume-based
+% volume-based alignment in one sentence
 Volume-based anatomical alignment \citep[s.][for a review]{klein2009evaluation}
-aligns voxel-wise data of individuals to a three-dimensional brain template
+aligns voxel-wise data to a three-dimensional common anatomical space
 \citep[e.g., MNI152 template;][]{fonov2011unbiased}.
-
-% method in one sentence
-Surface-based anatomical alignment \citep{fischl1999cortical,
-fischl2012freesurfer, yeo2009spherical} aligns vertex-wise data of individuals
-to a two-dimensional template \citep[e.g., FreeSurfer fsaverage
-template;][]{fischl1999high}.
-%
-Whereas volume-based alignment does not account for interindividual variability
-in sulcal and gyral folding patterns, surface-based alignment respects folding
-pattern of the cortical surface [Fischl et al., 2008; Hill et al., 2010; Van
-Essen and Dierker, 2007][references taken from \citet{zhen2017quantifying}].
-
-
-\paragraph{Surface-based works better}
-
-\todo[inline]{all three studies \citep{frost2012measuring,
-rosenke2021probabilistic, weiner2018defining} compare surface-based to linear /
-affine (!) volume-based alignment}
-
-\todo[inline]{Merge all studies into one point}
-
-% Frost: regions
-\citet{frost2012measuring} localized 13 functional areas of the high-level
-visual cortex and ``found a large variability in the degree to which functional
-areas respect macro-anatomical boundaries across the cortex''
-\citep{frost2012measuring}.
-% Frost: results
-\citet{frost2012measuring} compared a piece-wise linear volume-based alignment
-to a surface-based alignment, and found that surface-based alignment reduces
-variability of functional areas across study participants.
-
-% Rosenke
-Similarly, \citet{rosenke2021probabilistic} have shown cortex-based alignment
-reduced between-subject variability ``in the majority of functionally defined
-ROIs [which ones] compared to nonlinear volumetric alignment [NVA]''
-\citep{rosenke2021probabilistic}.
-
-% Weiner
-\citet{weiner2018defining} showed that ``the implementation of CBA significantly
-improved the alignment and predictability of place selectivity within medial VTC
-across participants compared to Talairach alignment''
-\citep{weiner2018defining}.
+% surface-based alignment in one sentence
+Surface-based anatomical alignment \citep{fischl1999cortical, yeo2009spherical}
+aligns vertex-wise data to a two-dimensional common anatomical space
+\citep[e.g., FreeSurfer fsaverage template;][]{fischl1999high}.
+% difference in one sentence
+Whereas volume-based alignment does not account for individual sulcal and gyral
+folding patterns, surface-based alignment respects interindividual variability
+of the cortical surface.
+% surface-based estimation works better
+Consequently, previous studies that estimated the locations of functional
+regions based on both [linear / affine] volume-based and [nonlinear]
+surface-based alignment have shown that surface-based alignment reduces
+between-subject variability resulting in an increased estimation performance
+\citep{rosenke2021probabilistic, frost2012measuring, wang2015probabilistic,
+weiner2018defining}.
 
 
-\paragraph{Remaining variability: functional-anatomical correspondence}
+\paragraph{But: remaining variability \& functional-anatomical correspondence}
 
 % remaining variability after surface-based alignment
 However, even after surface-based alignment the anatomical location of
@@ -152,14 +118,20 @@ functional regions varies anatomically across persons
 \citep[e.g.,][]{coalson2018impact, benson2014correction, natu2021sulcal,
 wang2015probabilistic, frost2012measuring, langers2014assessment, weiner2014mid,
 rosenke2021probabilistic}.
+% frost as an example
+For example, \citet{frost2012measuring} localized 13 functional areas of the
+high-level visual cortex and ``found a large variability in the degree to which
+functional areas respect macro-anatomical boundaries''
+\citep{frost2012measuring}.
+% functional--anatomical correspondence
+The remaining variability indicates that functional areas a not necessarily
+bound to anatomical landmarks, and reflects the degree of
+\textit{functional--anatomical correspondence} between a brain function and the
+underlying anatomical location.
 
 
-\todo[inline]{summarize results into 1-2 sentences}
-%
-Results of \citet{frost2012measuring} ``revealed that the PPA demonstrated
-significant spatial variability [after surface-based alignment] through
-constructing the probabilistic atlases of the PPA''
-\citep{zhen2017quantifying}.
+\todo[inline]{imo, reference to \citet{weiner2018defining} below can be dropped;
+study is about PPA, though}
 
 %
 \citet{weiner2018defining} showed ``that cortical folding patterns and
@@ -175,55 +147,48 @@ located within the CoS across participants.'' \citep{weiner2018defining}.
 
 
 
-%
-The remaining variability indicates that functional areas a not necessarily
-bound to anatomical landmarks, and reflects the degree of
-\textit{functional--anatomical correspondence} of a brain function's location in
-respect to the underlying anatomy.
-
-
 \subsubsection{Functional alignment}
 
 \todo[inline]{mih: This is too dense.}
 
 %
-Since anatomical alignment resolves anatomical variability but does not address
-the issue of functional-anatomical variability across subjects, algorithms ---
-like \textit{hyperalignment} \citep{haxby2011common, guntupalli2016model} or the
+Since anatomical alignment addresses the issue of anatomical variability but not
+functional-anatomical variability across subjects, algorithms --- like
+\textit{hyperalignment} \citep{haxby2011common, guntupalli2016model} or the
 \textit{shared response model} \citep{chen2015reduced, zhang2016searchlight} ---
 have been developed that perform a \textit{functional alignment}.
 %
-Whereas anatomical alignment aligns voxels (or surface vertices) that share the
-same anatomical location to a \textit{common anatomical space}, functional
-alignment aligns voxels (or surface vertices) that share similar functional
-properties to a \textit{common functional space} (CFS).
+Whereas anatomical alignment aligns voxels (or vertices) that share the same
+anatomical location to a common anatomical space, functional alignment aligns
+voxels (or vertices) that share similar functional properties to a
+\textit{common functional space} (CFS).
 %
-Functional alignment algorithms are usually used to construct both the \ac{cfs}
-(serving as ``a high-dimensional, functional brain template'') as well as
-subject-specific transformation matrices.
+Functional alignment algorithms are usually used to construct both a
+high-dimensional, functional brain template (i.e. the \ac{cfs}) from study
+participants' functional data as well as subject-specific transformation
+matrices.
 %
-A subject's transformation matrix can be used to perform a linear mapping of
-functional data from a subject's anatomical space into the \ac{cfs}, or to
-project data from the \ac{cfs} into a subject's anatomical space
-\citep{haxby2020hyperalignment}.
+A subject's transformation matrix allows a linear mapping of functional data
+from a subject's anatomical space [or native brain space] into the \ac{cfs}, or
+to project data from the \ac{cfs} into a subject's anatomical space [or brain
+space] \citep{haxby2020hyperalignment}.
 
 %
-The construction of the \ac{cfs} and transformation matrix can be created (i.e.
-\textit{trained}) based on the maximization of the inter-subject similarity of
-\ac{bold} response time series correlating with a time-locked external
-stimulation \citep{haxby2011common, chen2015reduced, sabuncu2010function}, or
-based on the inter-subject similarity of connectivity profiles
-\citep{feilong2018reliable, guntupalli2018computational, nastase2019leveraging}.
+The \ac{cfs} and transformation matrix can be created (i.e.  \textit{trained})
+based on the maximization of the inter-subject similarity of \ac{bold} response
+time series correlating with a time-locked external stimulation
+\citep{haxby2011common, chen2015reduced, sabuncu2010function}, or based on the
+inter-subject similarity of connectivity profiles \citep{feilong2018reliable,
+guntupalli2018computational, nastase2019leveraging}.
 %
-Functional alignment algorithms can be applied to \ac{fmri} data from paradigms
-employing simplified stimuli.
-%
-However, it has been shown that data from naturalistic stimuli provide increased
-validity of the \ac{cfs} and increased generalizability of transformation
-matrices to novel stimuli or tasks, presumably because naturalistic stimuli
-sample a broader range of brain states \citep{haxby2011common,
-guntupalli2016model}.
+Tough functional alignment algorithms can be applied to \ac{fmri} data from
+paradigms employing simplified stimuli, data from naturalistic stimuli provide
+increased validity of the \ac{cfs} and increased generalizability of
+transformation matrices to novel stimuli or tasks, presumably because
+naturalistic stimuli sample a broader range of brain states
+\citep{haxby2011common, guntupalli2016model}.
 
+\todo[inline]{what does increased validity of a \ac{cfs} actually mean?}
 
 \subsubsection{Estimation via functional alignment}
 %
@@ -232,12 +197,12 @@ guntupalli2016model, haxby2011common} to estimate the most probable location of
 a functional area in a person's anatomy from a reference group performs an
 functional alignment.
 % solve functional-anatomical variability
-In order to resolve [the issue of] functional-anatomical variability across
+First, in order to address the issue of functional-anatomical variability across
 persons, functional data from persons in the reference group are functionally
 aligned to (i.e. projected into) a \ac{cfs}.
 %
 Then, data are projected from the \ac{cfs} into the individual person's brain
-anatomy [serving as an estimation of a functional region's location].
+anatomy serving as an estimation of a functional region's location.
 
 % Jiahui
 For example, \citep{jiahui2020predicting} constructed a \ac{cfs} and
@@ -245,44 +210,58 @@ transformation matrices based on data from a) the movie ``Grand Budapest Hotel''
 ($\sim$\unit[50]{m}; \ac{tr}=\unit[1]{s}), and b) ``Forrest Gump''
 ($\sim$\unit[120]{m}; \ac{tr}=\unit[2]{s}).
 % summary of results
-Results revealed that the empirical results of a statistical contrasts aimed to
-localize the \ac{ffa} correlate more highly with maps that were estimated from
-other subjects' data based on hyperalignment than with maps that were estimated
-based on surface-based, anatomical alignment \citep{jiahui2020predicting}.
+Results revealed that the empirical results of a visual localizer's $t$-contrast
+aimed to localize the \ac{ffa} correlate more highly with contrast maps that
+were estimated from other subjects' data based on hyperalignment than with
+contrast maps that were estimated based on surface-based anatomical alignment
+\citep{jiahui2020predicting}.
 
 
 \subsection{Here, we}
 
-\todo[inline]{we do way too much}
+\todo[inline]{We do way too much!}
 
-\todo[inline]{emphasize (partial) alignment via movie segments}
+\todo[inline]{Emphasize (partial) alignment via movie segments}
 
-\todo[inline]{bonus:
+\todo[inline]{more a bonus:
 %
 a) prediction of "auditory PPA" (via movie \& audio-description),
 %
 b) alignment via functional localizer}
 
 \todo[inline]{Part on cross-validation is now pretty short here; cf. general
-intro (\& method section)}
+intro (\& SRM method section)}
 
 % focus: ppa
-As a proof of concept, we focus on the \ac{ppa}  \citep[e.g.,][for
+As a proof of concept, we focus on the \ac{ppa} \citep[e.g.,][for
 reviews]{epstein2014neural, aminoff2013role}, and explore whether we can
 estimate results of a visual localizer's $t$-contrast in one subject from other
 subjects' data.
 %
 Following an exhaustive leave-one-out cross-validation, we employ traditional
-volume-based, anatomical alignment procedure, and compare its estimation
+volume-based, anatomical alignment procedure and compare its estimation
 performance to the performance of a volume-based, functional alignment procedure
-based on the \ac{srm} algorithm \citep{chen2015reduced, richard2019fast}.
+that is based on the \ac{srm} algorithm \citep{chen2015reduced,
+richard2019fast}.
+% partially alignment
+Critically, we also assess the relationship between the estimation performance
+and the quantity of functional data used to functionally align a test subject to
+the \ac{cfs}.
+
+\todo[inline]{last sentence mentioning partial alignment does not really fit in
+there but is kinda necessary because readers will wonder where the difference to
+\citep{jiahui2020predicting} is (except they do FFA, we do PPA)}
 
 
 \subsubsection{SRM}
 
-\todo[inline]{imo, this part should be kept to a minimum}
+\todo[inline]{I decided to not explain the SRM in the general part on functional
+alignment above 'cause it gets way too messy there}
+
+\todo[inline]{imo, the following part on SRM should be kept to a minimum}
 
 \todo[inline]{"mathy" stuff is in method section}
+
 
 % Intro to SRM
 The \ac{srm} is an unsupervised probabilistic latent-factor model that
@@ -331,9 +310,8 @@ test subject's \textit{empirical $Z$-map}).
 \paragraph{Partial alignment}
 %
 Given that a two-hour long stimulation is unsuitable for a clinical setting, we
-critically also assess the relationship between the length of the naturalistic
-stimulus used for alignment of the test subject to the fixed \ac{cfs} and the
-subsequent estimation performance.
+assess the relationship between the length of the naturalistic stimulus used to
+align the test subject to the \ac{cfs} and the estimation performance.
 %
 Therefore, we use an increasing number of segments of the naturalistic stimuli
 (each lasting $\sim$\unit[15]{m}) to align the test subject to the corresponding
