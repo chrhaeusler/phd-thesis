@@ -149,8 +149,6 @@ located within the CoS across participants.'' \citep{weiner2018defining}.
 
 \subsubsection{Functional alignment}
 
-\todo[inline]{mih: This is too dense.}
-
 %
 Since anatomical alignment addresses the issue of anatomical variability but not
 functional-anatomical variability across subjects, algorithms --- like
@@ -235,22 +233,16 @@ intro (\& SRM method section)}
 % focus: ppa
 As a proof of concept, we focus on the \ac{ppa} \citep[e.g.,][for
 reviews]{epstein2014neural, aminoff2013role}, and explore whether we can
-estimate results of a visual localizer's $t$-contrast in one subject from other
+estimate results of a visual localizer's $t$-contrast in a subject from other
 subjects' data.
 %
-Following an exhaustive leave-one-out cross-validation, we employ traditional
+Following an exhaustive leave-one-out cross-validation, we employ a traditional
 volume-based, anatomical alignment procedure and compare its estimation
 performance to the performance of a volume-based, functional alignment procedure
-that is based on the \ac{srm} algorithm \citep{chen2015reduced,
-richard2019fast}.
-% partially alignment
-Critically, we also assess the relationship between the estimation performance
+% partially alignment = difference to \citep{jiahui2020predicting}
+[Critically,] we also assess the relationship between the estimation performance
 and the quantity of functional data used to functionally align a test subject to
 the \ac{cfs}.
-
-\todo[inline]{last sentence mentioning partial alignment does not really fit in
-there but is kinda necessary because readers will wonder where the difference to
-\citep{jiahui2020predicting} is (except they do FFA, we do PPA)}
 
 
 \subsubsection{SRM}
@@ -258,45 +250,92 @@ there but is kinda necessary because readers will wonder where the difference to
 \todo[inline]{I decided to not explain the SRM in the general part on functional
 alignment above 'cause it gets way too messy there}
 
-\todo[inline]{imo, the following part on SRM should be kept to a minimum}
 
-\todo[inline]{"mathy" stuff is in method section}
+\paragraph{Overview}
 
+\todo[inline]{revise reasoning / phrasing}
 
-% Intro to SRM
+% why SRM
+Our functional alignment approach utilizes the \ac{srm} algorithm
+\citep{chen2015reduced, richard2019fast} that is implemented in the open-source
+software package BrainIAK (Brain Imaging Analysis Kit;
+\href{https://brainiak.org}{\url{brainiak.org}}) and computationally less
+demanding [= "computationally more efficient"?] than hyperalignment, an
+advantage for scientists who want to replicate our results but do not have
+access to a high-performance computer cluster [or "high-throughput computer
+cluster" or simply "specialized hardware"?].
+
+% general overview of SRM
 The \ac{srm} is an unsupervised probabilistic latent-factor model that
-decomposes \ac{bold} \ac{fmri} responses time series of participants
-experiencing the same stimulus into a lower-dimensional space of shared features
-(i.e. the \ac{cfs}) and subject-specific orthogonal topographic transformation
-matrices \citep{kumar2020brainiak, cohen2017computational}.
-%
+decomposes \ac{bold} \ac{fmri} response time series of participants experiencing
+the same stimulus into a \ac{cfs} of \textit{shared features} (also called
+``\textit{shared feature space}'' \citet{chen2015reduced}) and subject-specific
+linear transformations matrices that represent the loadings of voxels onto the
+shared responses \citep{kumar2020brainiak, cohen2017computational}.
+% number of dimensions
 In contrast to hyperalignment \citep{haxby2011common, guntupalli2016model}, the
-number of dimensions of the shared feature space is not set by the number of
-voxels (or surface vertices) but is pre-specified by the researcher, a procedure
-that also filters out noise and reduces overfitting \citep{chen2015reduced}.
-%
-Consequently, the dimensions of the shared feature space do not correspond to
-individual voxels but \textit{shared features} that can be understood as a
-weighted sum of many voxels distributed across the full voxel space of each
-subject \citep{kumar2020brainiak}.
+number of dimensions of the \ac{cfs} is not set by the number of voxels (or
+surface vertices) but is specified by the researcher to a number lower than the
+number of voxels, a procedure that also filters out noise and reduces
+overfitting \citep{chen2015reduced}.
+
+
+\paragraph{Math stuff}
+% math stuff from citep{vodrahalli2018mapping}
+% ``SRM learns $N$ maps $W_{i}$ with orthogonal columns such that
+% $||X_{i}-W_{i}S||_{F}$ is minimized over $\left\{ W_{i}\right\} _{i=1}^{N},S$,
+% where $X_{i}\in\mathbb{R}^{v\times{T}}$ is the $i^{th}$ subject's fMRI
+% response ($v$ voxels by $T$ repetition times) and
+% $S\in\mathbb{R}^{k\times{T}}$ is a feature time-series in a $k$-dimensional
+% shared space'' \citep{vodrahalli2018mapping}.
+
+% math stuff
+More specifically, the \ac{srm} algorithm uses each $n^{th}$ training subject's
+response time series represented as matrix $X_{n}$ ({$v$} voxels by $t$ time
+points) to calculate the \ac{cfs} $C$ ($k$ shared responses by $t$ time points)
+and subject-specific, orthogonal transformation matrices $T_{n}$ ($v$ voxels by
+$k$ shared responses).
+% iteratively fitted
+The algorithm randomly initializes and fits the transformation matrices over
+iterations to minimize the error in explaining the participants' data, while
+also learning the time course of the shared responses (s.
+\href{https://brainiak.org/tutorials/11-SRM/}{\url{brainiak.org/tutorials/11-SRM}}).
+
+
+\paragraph{Result}
+% result = alignment
+Eventually, each transformation matrix represents a subject-specific functional
+topography of {$v$} voxels that allows to functionally align a subject's
+functional data to the \ac{cfs} by projecting responses within the {$v$} voxels
+into the $k$-dimensional \ac{cfs}.
+
+% explanation of shared features
+%Thus, each shared feature that can be understood as a weighted sum of many
+%voxels across subjects \citep{kumar2020brainiak}, whereas a subject-specific
+%transformation matrix represent each subject-specific voxel's weight on each
+%shared feature.
 
 
 \subsubsection{Our functional alignment procedure}
 
+%
+In the current study, our approach to estimate a test subject's localizer result
+(i.e. a test subject's \textit{empirical $Z$-map}) via functional alignment is
+conducted in four steps.
 % create CFS and training subjects' matrices
-First, for every fold of the cross-validation procedure, we train a shared
-response model on $N-1$ training subjects' response time series of the movie,
-audio-description and visual localizer in order to acquire both a \ac{cfs} (i.e.
-a shared feature space) and subject-specific transformation matrices.
+First, for every fold of the cross-validation, we train a shared response model
+on $N-1$ training subjects' response time series of the movie, audio-description
+and visual localizer in order to acquire both a \ac{cfs} (i.e.  the shared
+feature space) and subject-specific transformation matrices.
 % project into CFS
-Second, we used the subject-specific transformation matrices in order to perform
+Second, we use the subject-specific transformation matrices in order to perform
 a mapping of the visual localizer's results (i.e. the training subjects'
 \textit{empirical $Z$-maps}) from each training subject's voxel space into the
 \ac{cfs}.
 % align test subject
-Third, we use time series data from the naturalistic stimuli to align the test
-subject to the \ac{cfs} (that was derived from the training subjects' data) in
-order to acquire the test subject's transformation matrix.
+Third, in order to acquire the test subject's transformation matrix, we use time
+series data from the naturalistic stimuli to align the test subject to the
+\ac{cfs} (that was derived from the training subjects' data)
 % project from CFS into test subject
 Last, the transpose of the test subject's transformation matrix is used to
 project the training subjects' functional localizer results from the \ac{cfs}
@@ -304,30 +343,31 @@ into the test subject's voxel space.
 % actual prediction
 The average of these projected results serves as an estimation (hence, a
 \textit{predicted $Z$-map}) of the test subject's localizer results (i.e. the
-test subject's \textit{empirical $Z$-map}).
+empirical $Z$-map).
 
 
 \paragraph{Partial alignment}
 %
 Given that a two-hour long stimulation is unsuitable for a clinical setting, we
-assess the relationship between the length of the naturalistic stimulus used to
-align the test subject to the \ac{cfs} and the estimation performance.
+also assess the relationship between the length of the naturalistic stimulus
+used to align the test subject to the \ac{cfs} and the estimation performance.
 %
 Therefore, we use an increasing number of segments of the naturalistic stimuli
-(each lasting $\sim$\unit[15]{m}) to align the test subject to the corresponding
+(each lasting \unit[15]{m}) to align the test subject to the corresponding
 segments' time points within the \ac{cfs}.
 
 
 \subsubsection{Assessment via Pearson's}
 %
-We assess the predictability of a left-out subject's activation pattern using
-Pearson's Coefficient.
+The prediction performance is assessed by calculating the Pearson's Coefficient
+between a left-out subject's empirical $Z$-map and predicted $Z$-map.
 
 
 \paragraph{Anatomical alignment as benchmark}
 
-\todo[inline]{very shortly state how anatomical alignment is performed; cf.
-general introduction \& introduction above}
+\todo[inline]{very shortly state how anatomical alignment is performed}
+
+\todo[inline]{cf. general introduction \& introduction above}
 
 
 \subsubsection{Alignment via localizer runs}
@@ -337,7 +377,7 @@ sufficient to mention it in method section \& shortly discuss it in discussion}
 
 %
 We also test alignment based on one to four localizer runs (each lasting
-\unit[312]{s}; \unit[5.2]{m}) of data from the visual localizer to acquire the
+ $\sim$\unit[5.2]{m}) of data from the visual localizer to acquire the
 transformation matrices and perform a cross-subject-prediction (vs.
 cross-subject-cross-experiment-prediction).
 
@@ -348,9 +388,11 @@ cross-subject-cross-experiment-prediction).
 gets pretty messy; prediction of auditory PPA was more kind of a side note /
 sanity check?}
 
-\todo[inline]{results: SRM fails in case a subject has atypical results in study
-2 (i.e. subjects has no auditory PPA) independent of which naturalistic stimulus
-was used for alignment)}
+\todo[inline]{results: SRM "fails" in case a subject has atypical results in
+study 2 (i.e. subject has no auditory PPA) independent of which naturalistic
+stimulus was used for alignment}
+
+\todo[inline]{should be discussed in the discussion, though}
 
 %
 Results of our previous study \citep{haeusler2022processing} suggest that not
@@ -368,10 +410,11 @@ audio-description to estimate the results of study 2.
 
 \todo[inline]{draft; s. also general introduction}
 
-\todo[inline]{no hypothesis regarding alignment via localizer runs to
-predict localizer}
+\todo[inline]{at the moment, no hypothesis regarding alignment via localizer
+runs to predict localizer}
 
-\todo[inline]{no hypothesis regarding prediction of "auditory PPA"}
+\todo[inline]{at the moment, no hypothesis regarding prediction of "auditory
+PPA"}
 
 %
 We hypothesized that an increased quantity of data used to calculate the
@@ -454,8 +497,8 @@ as well as their results (i.e. the statistical $Z$-maps).
 % temporal filtering
 In summary, high-pass temporal filtering was applied using a Gaussian-weighted
 least-squares straight line to every run of the visual localizer (cutoff period
-of \unit[100]{s}; sigma= \unit[100]{s}/2)[???], and every segment of the movie
-and audio-description (\unit[150]{s}; sigma=\unit[75.0]{s}).
+of \unit[100]{s}; sigma= \unit[100]{s}/2) \todo{???}, and every segment of the
+movie and audio-description (\unit[150]{s}; sigma=\unit[75.0]{s}).
 % brain extraction
 Brains were extracted from surrounding tissues using BET \citep{smith2002bet}.
 % spatial smoothing
@@ -561,14 +604,17 @@ each subject by warping the union of individual \acp{ppa}
 space using previously computed subject-specific, non-linear transformation
 matrices
 \citep[][\href{https://github.com/psychoinformatics-de/studyforrest-data-templatetransforms
-}{\url{github.com/psychoinformatics-de/studyforrest-data-templatetransforms}}]{hanke2014audiomovie},
+}{\url{github.com/psychoinformatics-de/studyforrest-data-templatetransforms}}]{hanke2014audiomovie}.
 % applying masks
-Each subject's time series data were then masked by the bilateral union of
-individual \acp{ppa} and the subject-specific \ac{fov} of the audio-description.
+Each subject's time series data were then masked by the union of individual
+\acp{ppa} and the subject-specific \ac{fov} of the audio-description.
 % voxels = [1665, 1732, 1400, 1575, 1664, 1951, 1376, 1383, 1683, 1887, 1441,
 % 1729, 1369, 1437]
-The number of remaining voxels (range: 1369--1951 voxels, mean: 1592 voxels, SD:
-188 voxels) for each subject can be seen in Table \ref{tab:ppamaskvoxels}.
+The number of remaining voxels (range: 1369--1951, $\mu=1592$, $\sigma=188$) for
+each subject can be seen in Table \ref{tab:ppamaskvoxels}.
+
+\todo[inline]{table stating remaining voxels per subject can probably be
+deleted}
 
 \todo[inline]{I z-scored the runs runwise, concatenated them, and z-scored
 again}
@@ -637,8 +683,8 @@ imo}
 
 \paragraph{Fitting of shared response model: intro}
 
-\todo[inline]{mention that just 'ao \& av' as input were also tested; minimal
-"worse" results}
+\todo[inline]{mention that I also tested calculating the \ac{cfs} based on just
+data from 'ao \& av' and not VIS data? results: minimally "worse"}
 
 In order to compute the \ac{cfs} and the transformation matrices for the
 training subjects, we used the probabilistic \ac{srm} algorithm that
@@ -648,50 +694,13 @@ as proposed by \citep{chen2015reduced}, optimized by
 Imaging Analysis Kit;][]{kumar2020brainiak, kumar2020brainiaktutorial}.
 
 
-\paragraph{the math shit}
-% math shit from citep{vodrahalli2018mapping}
-
-% ``SRM learns $N$ maps $W_{i}$ with orthogonal columns such that
-% $||X_{i}-W_{i}S||_{F}$ is minimized over $\left\{ W_{i}\right\} _{i=1}^{N},S$,
-% where $X_{i}\in\mathbb{R}^{v\times{T}}$ is the $i^{th}$ subject's fMRI
-% response ($v$ voxels by $T$ repetition times) and
-% $S\in\mathbb{R}^{k\times{T}}$ is a feature time-series in a $k$-dimensional
-% shared space'' \citep{vodrahalli2018mapping}.
-
-% explain shit
-The algorithm uses each $n^{th}$ training subject's response time series
-represented as matrix $X_{n}$ ({$v$} voxel by $t$ time points) to calculate the
-\ac{cfs} $C$ ($k$ shared responses by $t$ time points) and subject-specific,
-orthogonal transformation matrices $T_{n}$ ($v$ voxel by $k$ shared responses).
-% what do the matrices represent?
-Each transformation matrix (or \textit{weight matrix}) reflects the loadings of
-voxels (i.e. a subject-specific functional topography) onto the shared
-responses.
-% what are they good for% what are they good for??
-Each transformation matrix allows to project the responses of voxels within a
-subjects' bilateral \acp{roi} from anatomical voxel space into the
-$k$-dimensional \ac{cfs}, and thus functionally aligns a subject's data.
-% iteratively fitted
-The transformation matrices are randomly initialized and fit over iterations to
-minimize the error in explaining participant data.
-%
-At the same time, the time course of the shared responses in the \ac{cfs} is
-learned (s.
-\href{https://brainiak.org/tutorials/11-SRM/}{\url{brainiak.org/tutorials/11-SRM}}).
-
-\todo[inline]{phrasing is pretty similar to phrasing in the tutorial}
-
-
 \paragraph{Cross-validation}
 
 %
-In order to avoid data leakage, we followed a leave-one-out cross-validation
-procedure:
-%
-for every test subject $n$, we used the $N-1$ training subjects' \ac{bold}
-\ac{fmri} responses to the functional localizer, movie, and audio-description to
-let the algorithm calculate the \ac{cfs} and transformation matrices for each
-training subject.
+For every fold of the leave-one-out cross-validation, we used the $N-1$ training
+subjects' \ac{bold} \ac{fmri} responses to the movie, audio-description, and
+functional localizer to let the algorithm calculate the \ac{cfs} and
+transformation matrices.
 
 
 \paragraph{Number of dimensions}
@@ -714,11 +723,13 @@ training subject.
 
 % features
 For the number of shared responses (i.e. the number of the \ac{cfs}'s
-dimensions), we chose a value of $k=10$ to be computed considering the temporal
-and spatial resolution of our data (\ac{tr} = \unit[2]{s}; \unit[2.5 $\times$
-2.5 $\times$ 2.5]{mm}), the average number of voxels per bilateral \acp{roi},
-and findings from \citet{haxby2011common}.
-%
+dimensions), we chose a value of $k=10$ considering a) the temporal and spatial
+resolution of our data (\ac{tr} = \unit[2]{s}; \unit[2.5 $\times$ 2.5 $\times$
+2.5]{mm}), b) the average number of voxels per \acp{roi}, b) and findings from
+\citet{haxby2011common}.
+
+\todo[inline]{shorten procedure of \citet{haxby2011common}?}
+
 \citet{haxby2011common} first used hyperalignment to create a \ac{cfs} of 1,000
 dimensions based of functional data (\ac{tr} = \unit[3]{s}) of voxels (of size
 \unit[3 $\times$ 3 $\times$ 3]{mm}) located in the ventral temporal cortex.
@@ -744,59 +755,40 @@ The number of iterations for the algorithm to minimize the error was set to 30.
 \paragraph{Correlation of regressors used in our previous studies with shared
 responses}
 
-\todo[inline]{Plots of correlation matrices should be presented here, not in
-results (as in the PPA paper)}
+\todo[inline]{Plots of correlation matrices should be presented here (cf. method
+section of PPA paper), not in results}
 
-\todo[inline]{what to adjust in the plots? Regressors of low-level confounds
+\todo[inline]{What to adjust in the plots? Regressors of low-level confounds
 might be dropped? imo, should be kept 'cause the are correlations}
 
+\todo[inline]{Plot of AO regressors: remove combination of regressors
+\texttt{geo\&groom\&furn} because \texttt{furn} was not used in any contrast}
+
 \todo[inline]{CFS for sub-01 as an example; funnily: the correlations even among
-shared responses change depending the 13 subjects used for each test subject to
-calculate the model}
+shared responses change depending the 13 subjects used for each test subject's
+\ac{cfs}}
 
 
 % Intro
 We calculated the correlations (Pearson's r) between shared responses within the
 \ac{cfs} and the regressors that were previously modeled
 \citep{sengupta2016extension, haeusler2022processing} to investigate hemodynamic
-responses to the three stimuli (localizer, movie, audio-description).
-%
-Correlation of shared responses (occurring during TRs of the visual localizer)
-with modeled responses (regressors) used in \citep{sengupta2016extension}: see
-Fig.~\ref{fig:corr-vis-reg-srm}.
+responses to the three stimuli (movie, audio-description, audio-description).
+
 %
 Correlation of shared responses (occurring during TRs of the movie) with modeled
 responses (regressors) to visual stimulus features as used in
 \citep{haeusler2022processing}: Fig.~\ref{fig:corr-av-reg-srm}.
+
 %
 Correlation of shared responses (occurring during TRs of the audio-description )
 with modeled responses (regressors) to auditory stimulus features as used in
 \citep{haeusler2022processing}: Fig.~\ref{fig:corr-ao-reg-srm}.
 
-
-
-\begin{figure*}[tbp]
-\centering
-\includegraphics[width=\linewidth]{figures/corr_vis-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_7123-7747.pdf}
-    \caption{
-    %
-    \textbf{Correlations of shared responses and regressors of the visual
-    localizer.
-    }
-    %
-    Pearson correlation coefficients between a) shared responses (sh. res.)
-    within the \ac{cfs} that was calculated for subject 01 and b) regressors
-    created in \citet{sengupta2016extension} to model hemodynamic responses
-    during the six-category visual localizer paradigm.
-    %
-    \texttt{geo\&groom} and \texttt{geo\&groom\&furn} are combination of
-    regressors (as used on the positive side of contrasts).
-    %
-    The time series of the \ac{cfs} were sliced to match the TRs of the
-    visual localizer.
-}
-    \label{fig:corr-vis-reg-srm}
-\end{figure*}
+%
+Correlation of shared responses (occurring during TRs of the visual localizer)
+with modeled responses (regressors) used in \citep{sengupta2016extension}: see
+Fig.~\ref{fig:corr-vis-reg-srm}.
 
 
 
@@ -832,8 +824,9 @@ with modeled responses (regressors) to auditory stimulus features as used in
     created in \citet{haeusler2022processing} to model hemodynamic responses to
     stimulus features of the audio-description.
     %
-    \texttt{geo\&groom} and \texttt{geo\&groom\&furn} are combination of
-    regressors (as used on the positive side of contrasts).
+    \texttt{geo\&groom} [and \texttt{geo\&groom\&furn}] is a combination of
+    regressors as used on the positive side of the primary contrasts aimed to
+    localize the \ac{ppa} (cf. Table 5 in \citet{haeusler2022processing}.
     %
     The time series of the \ac{cfs} were sliced to match the TRs of the
     audio-description.
@@ -842,6 +835,26 @@ with modeled responses (regressors) to auditory stimulus features as used in
 \end{figure*}
 
 
+
+\begin{figure*}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/corr_vis-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_7123-7747.pdf}
+    \caption{
+    %
+    \textbf{Correlations of shared responses and regressors of the visual
+    localizer.
+    }
+    %
+    Pearson correlation coefficients between a) shared responses (sh. res.)
+    within the \ac{cfs} that was calculated for subject 01 and b) regressors
+    created in \citet{sengupta2016extension} to model hemodynamic responses
+    during the six-category visual localizer paradigm.
+    %
+    The time series of the \ac{cfs} were sliced to match the TRs of the
+    visual localizer.
+}
+    \label{fig:corr-vis-reg-srm}
+\end{figure*}
 
 \paragraph{Negative control}
 % shuffle runs
@@ -865,17 +878,19 @@ shared responses that were calculated based on shuffled time series.
 %     3524-6785, 3524-7123
 % AO+AV: 0-7123
 
-\todo[inline]{how is it done? srm.transform\_subject calls np.linalg.svd()}
+\todo[inline]{How is it done? srm.transform\_subject calls np.linalg.svd()}
 
 \todo[inline]{in-code documentation says: ``Solve the Procrustes problem''}
 
 % Learn the mapping
-We then aligned the subject's data to the \ac{cfs} by letting the algorithm
+We then aligned the test subject's data to the \ac{cfs} by letting the algorithm
 learn a transformation matrix $T_{n}$ that performs an orthogonal mapping from
 the test subject's anatomical voxel space into the \ac{cfs}.
 
 
 \subsubsection{(Partial) alignment via movie \& audio-description}
+
+\todo[inline]{Revise (shorten) according to the new text in the introduction}
 
 % intro
 In order evaluate the relationship between estimation performance of the
@@ -899,33 +914,34 @@ but is based on an increasing quantity of data used to calculate the mapping.
 The algorithm can also be applied to functional data of traditional paradigms
 using controlled stimuli.
 %
-Hence, results of previous studies \citep{guntupalli2016model, haxby2011common}
-suggest transformations based on data from traditional paradigms are of
-diminished validity diminished generalizability to new stimuli in other
-experiments, presumably because such traditional paradigms sample a sparser
-range of brain states than naturalistic stimuli.
+However, results of previous studies \citep{guntupalli2016model,
+haxby2011common} suggest transformations based on data from traditional
+paradigms are of diminished validity [and diminished generalizability to new
+stimuli in other experiments], presumably because traditional paradigms sample a
+sparser range of brain states than naturalistic stimuli.
 %
 In order to compare the estimation performance based on matrices derived from
-the same traditional paradigm (within-experiment prediction) to the estimation
-performance based on matrices derived from naturalistic stimuli
-(across-experiment prediction), we also used data from the traditional localizer
-paradigm to learn a mapping from the test subject's brain space to the \ac{cfs}.
+naturalistic stimuli (across-experiment prediction) to the estimation
+performance based on matrices derived from the visual localizer
+(within-experiment prediction), we also used data from the traditional localizer
+to learn a mapping from the test subject's brain space to the \ac{cfs}.
 %
-We calculated four transformation matrices based on one
-up to four runs (each lasting $\sim$\unit[312]{s}) for each test subject.
+For each test subject, we calculated four transformation matrices based on one
+up to four runs (each lasting \unit[5.2]{m}).
 
 
 
 \subsection{Prediction of localizer}
 
-\todo[inline]{I also tested averaging data in \ac{cfs}: similar results; in case
-of anatomical alignment, I did not test averaging data in MNI152 space}
+\todo[inline]{Not mentioned: I tested averaging data in \ac{cfs}: similar
+results; in case of anatomical alignment, I did not test averaging data in
+MNI152 space}
 
 % overview
 We then estimated a test subject's localizer results (the empirical $Z$-map) by
 projecting all training subjects' empirical $Z$-maps from their voxel space
-trough the brain template  (i.e. through the \ac{cfs} in case of functional
-alignment; through the MNI space in case of anatomical alignment) into the test
+trough the common space (i.e. through the \ac{cfs} in case of functional
+alignment; through MNI space in case of anatomical alignment) into the test
 subject's voxel space.
 
 
@@ -935,10 +951,10 @@ First, empirical $Z$-maps of the training subjects' localizer contrasts were
 masked with the same mask as the time series data that were used to generate the
 \ac{cfs}.
 %
-Thus, voxels were restricted to voxels located within the union of the
-individual \acp{ppa} \citep[s.][]{haeusler2022processing} that was warped from
-group space into each subjects' space, and the subject-specific \ac{fov} of the
-audio-description.
+Thus, voxels were restricted to voxels located within the union of individual
+\acp{ppa} \citep[s.][]{haeusler2022processing} that was warped from group space
+\todo[inline]{"group space" is too vague!} into each subjects' voxel space, and
+the subject-specific \ac{fov} of the audio-description.
 
 
 \paragraph{Estimation via functional alignment}
@@ -949,7 +965,7 @@ order to project the masked empirical $Z$-maps from each training subject's
 voxel space into the \ac{cfs}.
 % into subject
 In order to project the data from the \ac{cfs} into the test subject's
-anatomical voxel space, we then used the transpose of the transformation matrix
+voxel space, we then used the transpose of the transformation matrix
 that we acquired during the alignment of the test subject.
 % take the mean
 The arithmetic mean of $N-1$ the projected empirical $Z$-maps served as the
@@ -1136,24 +1152,30 @@ other participants (t(20) = 0.48, p = 0.63)''
 
 \section{Discussion}
 
-\subsubsection{Just some templates that do not fit anywhere so far}
+\subsubsection{Just a template from \citet{weiner2018defining} with points
+remember}
 
 
 \citet{weiner2018defining} ``The identification of the PPA is complicated by
 methodological considerations:
+
+\begin{enumerate}
+
 %
-1) the PPA definition may depend on the type of experiment, task, and stimuli
-used.
+\item the PPA definition may depend on the type of experiment, task, and
+        stimuli used.
 %
-2) The boundaries of the PPA may depend on the statistical threshold used [which
-we did not not do].
+\item The boundaries of the PPA may depend on the statistical threshold used
+    [which we did not not do].
 %
-3) The spatial extent and localization of the PPA may vary if defined within the
-native brain space of an individual or based on a group analysis.
+\item The spatial extent and localization of the PPA may vary if defined within
+    the native brain space of an individual or based on a group analysis.
 %
-4) The size of the PPA may depend on data acquisition choices (e.g. large vs.
-small voxels) and data analysis choices (e.g. liberal smoothing vs. no spatial
-smoothing)'' \citep{weiner2018defining}.
+\item The size of the PPA may depend on data acquisition choices (e.g. large vs.
+    small voxels) and data analysis choices (e.g. liberal smoothing vs. no
+        spatial smoothing)'' \citep{weiner2018defining}.
+
+\end{enumerate}
 
 
 \subsection{Short Summary of...}
@@ -1337,6 +1359,9 @@ music, speech or social perception).
 
 
 \subsection{Differences to studies creating probabilistic atlases}
+
+\todo[inline]{This subsection is far too long, obviously; if discussed, quotes
+can be converted into some sentences stating the gist of the quotes}
 
 \subsubsection{we need fMRI not just MRI}
 
@@ -1882,9 +1907,9 @@ hemisphere and 0.65 +/- 0.03 in the left'' \citep{weiner2018defining}.
 
 
 
-\subsubsection{We predict $z$-maps}
+\subsubsection{We predict $Z$-maps}
 
-\todo[inline]{We predict $z$-maps that is way richer; what could you do with
+\todo[inline]{We predict $Z$-maps that is way richer; what could you do with
 that except just say that the location is here: classification etc.?}
 
 \todo[inline]{probabilistic atlas only allow binary classification of voxels}
@@ -2059,16 +2084,7 @@ variability in SSRs change with ages'' \citet{zhen2017quantifying}.
 
 \subsection{Future questions}
 
-\todo[inline]{Why did we use SRM in the first place? Mention some sentences in
-the intro, too:
-%
-a) nicely implemented in BrainIAK (cf. general intro on reproducibility);
-%
-b) we do not use the fastSRM algo, but it's probably still computationally less
-demanding than hyperalignment; ``computational efficiency is an important
-consideration for scientists who may not have access to specialized hardware''
-(cf. also evaluation of algos in \citet{chen2015reduced,
-bazeille2021empirical})}
+
 
 \todo[inline]{cf. \citet{bazeille2021template}'s dissertation}
 
@@ -2218,7 +2234,7 @@ parameters, estimation performance.
 
 %
 We demonstrated that 15 to 30 minutes of naturalistic stimulation is sufficient
-to estimate $z$-maps of a localizer paradigm.
+to estimate $Z$-maps of a localizer paradigm.
 %
 A future study of a larger sample size could use a just a part of the movie or
 audio-description..
@@ -2472,7 +2488,7 @@ multiple localizers (in case a functional atlas existed)}
 
 %
 A naturalistic stimulus like a move or audio-description could be used to map a
-variety $z$-maps created from a variety of $t$-contrast from a normative
+variety $Z$-maps created from a variety of $t$-contrast from a normative
 reference group onto an individual subjects and thus potentially substitute a
 variety of localizers.
 
