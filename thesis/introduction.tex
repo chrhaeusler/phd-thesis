@@ -68,12 +68,11 @@ individual person \citep{dubois2016building, wegrzyn2018thought}.
 % a.k.a. "state of research"
 
 % intro to functional localizer
-\textit{Functional localizer} experiments \citep[cf.,][for
-reviews]{saxe2006divide, friston2006critique} are \ac{fmri} experiments that
-specifically aim to characterize the location size, and shape of functional
-areas correlating with perceptual or cognitive processes like the perception of
-object categories \citep{kanwisher1997ffa} or speech
-\citep{fernandez2001language}, or theory of mind \citep{spunt2014validating}.
+\textit{Functional localizers} \citep[cf.,][for reviews]{saxe2006divide,
+friston2006critique} are \ac{fmri} experiments that specifically aim to
+characterize the location size, and shape of functional areas correlating with
+perceptual or cognitive processes like the perception of object categories
+\citep{kanwisher1997ffa} or theory of mind \citep{spunt2014validating}.
 
 
 \subsection{Pros \& cons}
@@ -94,8 +93,7 @@ identify a subject-specific functional \acp{roi} to ``guide, constrain or
 interpret results from a main experiment'' \citep{saxe2006divide}.
 % clinical application
 Functional localizers might also be used as a diagnostic procedure, e.g., prior
-to neurosurgery \citep[cf.][]{wegrzyn2018thought}.\todo{beinahe ein
-Sekundärzitat}
+to neurosurgery \citep[cf.][]{silva2018challenges, szaflarski2017practice}.
 % cons: designed for detection power
 However designed to maximize detection power, localizers employ carefully
 chosen, tightly controlled, and simplified stimuli presented in a block-wise
@@ -104,10 +102,10 @@ manner often accompanied by a task to keep study participants attentive.
 Consequently, one localizer paradigm can usually map just one domain of brain
 functions.
 % batteries: intro
-In order to map many different processes despite limited resources like time or
-applicability to a person, researchers have developed more time-efficient,
-multi-functional \textit{localizer batteries} \citep[e.g.,][]{barch2013function,
-drobyshevsky2006rapid, pinho2018individual, pinho2020individual, pinel2007fast}.
+In order to map many different processes despite limited resources, researchers
+have developed more time-efficient, multi-functional \textit{localizer
+batteries} \citep[e.g.,][]{barch2013function, drobyshevsky2006rapid,
+pinho2018individual, pinho2020individual, pinel2007fast}.
 % batteries: example
 For example, \citet{pinel2007fast} employ a range of dedicated stimuli and
 specific tasks in a 5-minute routine to map processes of ``auditory and visual
@@ -324,8 +322,8 @@ stimuli (each lasting $\approx$\unit[120]{m}), and create GLM $t$-contrasts in
 order to locate the \ac{ppa}.
 
 
-\todo[inline]{If study 4 is dropped, drop the following, preliminary phrasings
-(until open science), too}
+\todo[inline]{If study 4 is dropped, drop the following part until "open
+science"}
 
 
 \subsubsection{Estimating from reference group}
@@ -338,73 +336,86 @@ really messy}
 \paragraph{Anatomical alignment}
 % intro
 In order to address the practical and monetary constraints of a clinical
-context, we also estimate a participant's localizer results from other
-participants' localizer results.
+context, we also estimate a participant's localizer results from results of
+participants in a \textit{reference group}.
 % previous studies: anatomical alignment
 Previous studies have shown that the location of a participant's \ac{ppa} can be
-estimated using \ac{aa} \citep{frost2012measuring, rosenke2021probabilistic,
-weiner2018defining, zhen2017quantifying}:
+estimated using \textit{anatomical alignment} \citep{frost2012measuring,
+rosenke2021probabilistic, weiner2018defining, zhen2017quantifying}.
 %
-First, a participant's functional data are aligned to a \ac{cas}, i.e.
-individual functional \acp{roi} are projected from each participant's brain
-space into an average brain (e.g., Montreal Neurological Institute (MNI)
-\citep{evans1993mni} or Talairach brain template).
+First, in order to addresses the issue of anatomical variability, individual
+functional \acp{roi} of persons in the reference group are anatomically aligned
+to a \textit{common anatomical space}, i.e. functional data are projected from
+each participant's brain space into an average brain anatomy like the Montreal
+Neurological Institute brain atlas \citep[MNI152][]{fonov2011unbiased}.
 %
-Then, the average of each participants' \ac{roi} is projected from the \ac{cas}
-into the brain anatomy of an individual participant, serving as a prediction of
-that individual participant's \ac{roi}.
+Then, the average of \acp{roi} is projected from the common anatomical space
+into the individual person's brain anatomy serving as an estimation of a
+functional region's most probable location.
 %
-However, even cortical surface-based alignment \citep{fischl2012freesurfer}
-cannot eliminate the functional-anatomical variability of category-selective
-regions across persons \citep{duncan2009consistency, frost2012measuring,
+However, even cortical surface-based alignment \citep{fischl1999cortical,
+yeo2009spherical} cannot eliminate the functional-anatomical variability of
+category-selective regions across persons \citep{frost2012measuring,
 weiner2018defining, weiner2014mid}.
 
 
 \paragraph{Functional alignment}
 
-\todo[inline]{first sentence is oversimplified; revise it}
+\todo[inline]{this is very high-level overview; SRM is not even mentioned}
 
 % intro to functional alignment
-In order to overcome the limitations of \ac{aa}, we will employ a new procedure
-using \ac{fa} that has been shown to outperform anatomical alignment
-\citep{haxby2020hyperalignment, bazeille2021empirical}.
+In order to address the issue of functional-anatomical variability across
+subjects, we will estimate a participant's localizer results from other
+participants' results using a \textit{functional alignment} \citep[cf.][for
+reviews]{haxby2020hyperalignment, bazeille2021empirical}.
+%
+Whereas anatomical alignment aligns voxels (or vertices) that share the same
+anatomical location to a common anatomical space, functional alignment aligns
+voxels (or vertices) that share similar functional properties to a
+\textit{\ac{cfs}}.
+
+
+\paragraph{Cross-validation}
+
+\todo[inline]{check code: it is the transpose matrix, not the inverse, right?}
 
 %
 Following an exhaustive leave-one-out cross-validation, we split the dataset
-(N$=$14 subjects) repeatedly in a set of N-1 subjects used to train the model
-and one subject used to test the model.
+(N$=$14 subjects) repeatedly in a set of $N-1$ subjects used to train a model of
+a \ac{cfs} and one subject used to test the model.
 %
 First, for every fold of the cross-validation procedure, we train a model of a
-\ac{cfs} based on the N-1 training subjects' response time series of the movie,
-audio-description and visual localizer.
+\ac{cfs} based on the training subjects' response time series to a movie, an
+auditory narrative and a visual localizer.
 %
-Second, the test subjects' localizer results (statistical $Z$-maps) are
+Second, the training subjects' localizer results (statistical $Z$-maps) are
 projected from their respective native space into the \ac{cfs}.
 %
 Third, in order to acquire a transformation matrix for the test subject (i.e.
-left-out subject), the test subject's response time series are aligned to the
-\ac{cfs}.
+the left-out subject), the test subject's response time series are aligned to
+the \ac{cfs}.
 %
-The inverse of the test subject's transformation matrix is used to project the
-train subjects' localizer results from the \ac{cfs} into the test subject's
-native brain space serving as a prediction for the test subject's $Z$-map (i.e.
-the test subject's localizer result).
+Last, transpose of the test subject's transformation matrix is used to project
+the training subjects' localizer results from the \ac{cfs} into the test
+subject's native brain space serving as a prediction for the test subject's
+$Z$-map (i.e.  the test subject's localizer result).
 %
-Finally, we assess the model's performance by comparing the predicted $Z$-map
-against the actual $Z$-map.
+The prediction performance is assessed by calculating the Pearson's Coefficient
+between a left-out subject's actual and predicted localizer results.
 
 
 \paragraph{Partial alignment}
 % problem
 However, using the complete time series data of a two-hour paradigm in order to
-acquire the test subject's transformation matrix is inefficient plus unsuitable
+acquire a test subject's transformation matrix is inefficient plus unsuitable
 for a clinical population.
 %
-Therefore, we explore a) whether just a part of a movie or an auditory narrative
-could serve as a ``diagnostic'' run in order estimate a test
-subject's localizer results and b)  which amount of data was used for functional
-alignment is necessary to outperform an estimation procedure based on anatomical
-alignment.
+Preferably, just a part of a movie or an auditory narrative could serve as a
+``diagnostic'' run in order estimate a test subject's localizer results.
+%
+Therefore, we also assess the relationship between the quantity of functional
+data used to functionally align a test subject to the \ac{cfs} and the
+estimation performance.
 
 
 \subsection{Open, transparent, and reproducible science}
@@ -434,7 +445,7 @@ scientific computing \citep{wilson2014best}, b) procedures and data analyses
 sharing code, created data, and results \citep{eglen2017toward, nichols2017best,
 pernet2015improving}.
 
-\todo[inline]{maybe, give a short definition of version control}
+\todo[inline]{maybe, give a short definition of version control?}
 
 % \paragraph{input data}
 % open data \citep{eglen2017toward}
@@ -605,18 +616,13 @@ potentially substitute a visual localizer as a diagnostic procedure.
 functional alignment to predict results from a task-based functional localizer
 paradigm (study 3)}
 
-\todo[inline]{Following part is a draft \& similar to the part written in
-"overview" (1.3.1)}
-
 \todo[inline]{We agreed on study 3 not having at its own abstract; I might write
 a little more here (or add an abstract to study 3)}
 
+\todo[inline]{just ignore following part; it's less than a draft}
 
-% intro
-Results from study 2 suggest that we might be able to use the response patterns
-measured during the presentation of the audio-description in order to generate a
-\ac{cfs} [needs to be defined above in overview] in study 3, and
-align an ``unknown'' test participant to that \ac{cfs}.
+\todo[inline]{revise bearing in mind "overview" (1.3.1) and SRM study}
+
 
 
 \paragraph{Problem}
@@ -627,6 +633,11 @@ engaging, task-free paradigm to localize brain functions in individual subjects.
 However considering practical and monetary constraints in a clinical context, a
 paradigm lasting 90 to 120 minutes is inappropriate for even an extensive
 individual diagnostic procedure.
+%
+Results from study 2 also suggest that we might be able to use the response
+patterns measured during the presentation of the audio-description in order to
+generate a \ac{cfs} [needs to be defined above in overview] in study 3, and
+align an ``unknown'' test participant to that \ac{cfs}.
 
 
 \paragraph{Solution}
@@ -649,13 +660,6 @@ compared an estimation performance based on \ac{aa}.
 
 
 \paragraph{Hypotheses}
-%
-We hypothesized that an increased quantity of data used to calculate the
-transformation matrices of the left-out subjects for a \ac{fa} would to increase
-prediction performance.
-%
-Further, we hypothesized that \ac{fa} would eventually perform ``better'' than
-an estimation based on \ac{aa}.
 
 
 \paragraph{Results}
