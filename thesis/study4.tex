@@ -2,6 +2,9 @@
 spatial configuration  organisation (i.e. shape, size, and position) of
 functional regions \citep{bijsterbosch2018relationship}}
 
+\todo[inline]{mih: many points discussed in the discussion should aready be
+primed in the intro to better frame the problem space, the challenges and also
+the opportunities}
 
 \section{Introduction}
 
@@ -87,12 +90,12 @@ location.
 
 % volume-based alignment in one sentence
 Volume-based anatomical alignment \citep[s.][for a review]{klein2009evaluation}
-aligns voxel-wise data to a three-dimensional common anatomical space
-\citep[e.g., MNI152 atlas;][]{fonov2011unbiased}.
+aligns voxels to a three-dimensional common anatomical space \citep[e.g., MNI152
+atlas;][]{fonov2011unbiased}.
 % surface-based alignment in one sentence
 Surface-based anatomical alignment \citep{fischl1999cortical, yeo2009spherical}
-aligns vertex-wise data to a two-dimensional common anatomical space
-\citep[e.g., FreeSurfer fsaverage template;][]{fischl1999high}.
+aligns vertices to a two-dimensional common anatomical space \citep[e.g.,
+FreeSurfer fsaverage template;][]{fischl1999high}.
 % difference in one sentence
 Whereas volume-based alignment does not account for individual sulcal and gyral
 folding patterns, surface-based alignment respects interindividual variability
@@ -136,10 +139,12 @@ across individuals and experiments''.
 %
 However, ``this structural-functional coupling is not always perfect and there
 is inter-subject variability as to how much the place-selective voxels extend
-within the PHG, as well as the LG and medial aspects of the fusiform gyrus.
+within the parahippocampal gyrus, as well as the lingual gyrus and medial
+aspects of the fusiform gyrus.
 %
 Despite this inter-subject variability, place-selective voxels are always
-located within the CoS across participants.'' \citep{weiner2018defining}.
+located within the collateral sulcus across participants.''
+\citep{weiner2018defining}.
 
 
 
@@ -154,8 +159,8 @@ have been developed that perform a \textit{functional alignment}.
 %
 Whereas anatomical alignment aligns voxels (or vertices) that share the same
 anatomical location to a common anatomical space, functional alignment aligns
-voxels (or vertices) that share similar functional properties to a
-\textit{common functional space} (CFS).
+voxels (or vertices)\todo{unclear?} that share similar functional properties to
+a \textit{common functional space} (CFS).
 %
 Functional alignment algorithms are usually used to construct both a
 high-dimensional, functional brain template (i.e. the \ac{cfs}) from study
@@ -459,9 +464,6 @@ An exhaustive description of participants, stimulus creation, procedure,
 stimulation setup, and fMRI acquisition can be found in the corresponding
 publications, whereas a summary is provided in \citet{haeusler2022processing}.
 
-\todo[inline]{...which means the following about studyforrest data is pretty
-short now}
-
 
 
 \subsection{Preprocessing}
@@ -608,8 +610,7 @@ Each subject's time series data were then masked by the union of individual
 The remaining voxels across subjects have a range of 1369--1951,
 a mean of 1592, and a standard deviation of 188 voxels.\todo{phrasing?}
 
-\todo[inline]{table stating remaining voxels per subject can probably be
-deleted}
+\todo[inline]{Create a stripplot for the voxel counts}
 %
 The number of remaining voxels (range: 1369--1951, $\mu=1592$, $\sigma=188$) for
 each subject can be seen in Table \ref{tab:ppamaskvoxels}.
@@ -626,7 +627,7 @@ The last 75 \acp{tr} of the audio-description were missing in subject 04 due to
 an image reconstruction problem \citep[s.][]{hanke2014audiomovie}.
 %
 The \ac{srm} allows the number of voxels to be different across subjects but the
-number of samples must be the same.
+number of \acp{tr} must be the same.
 %
 Hence, we removed the last 75 \acp{tr} of the audio-description from the all
 other subjects' time series.
@@ -679,11 +680,13 @@ then z-scored the last segment but anyway...; does not make much difference}
 
 \paragraph{Fitting of shared response model: intro}
 
+\todo[inline]{add a figure of the \ac{cfs} created from differen stimuli}
+
 \todo[inline]{mention that I also tested calculating the \ac{cfs} based on just
 data from 'ao \& av' and not VIS data? results: minimally "worse"}
 
 In order to compute the \ac{cfs} and the transformation matrices for the
-training subjects, we used the probabilistic \ac{srm} algorithm that is and
+training subjects, we used the probabilistic \ac{srm} algorithm that is
 implemented in BrainIAK v.11 \citep[Brain Imaging Analysis
 Kit;][]{kumar2020brainiak, kumar2020brainiaktutorial}, and approximates the
 \ac{srm} based on the Expectation Maximization (EM) algorithm as proposed by
@@ -739,25 +742,41 @@ which the \ac{cfs} was derived.
 Results also showed that the cortical topographies of category-selective brain
 regions was preserved in the 35-dimensional \ac{cfs} \citep{haxby2011common}.
 %
-In the current study, we also explored \acp{cfs} of $k=5, 20, 30, 40, 50$ but
-results barely varied from a 10-dimensional \ac{cfs}.
+In the current study, we also computed \acp{cfs} of $k=5, 20, 30, 40, 50$ but
+prediction performance based on these \acp{cfs} barely varied from a
+10-dimensional \ac{cfs}.
 % iterations:
 The number of iterations for the algorithm to minimize the error was set to 30.
 
+\todo[inline]{I created the "other-dimensional" \acp{cfs} and printed the
+Pearon's r's to file; judge by eye balling results were not "better"}
 
 
 \paragraph{Correlation of regressors used in our previous studies with shared
 responses}
 
+\todo[inline]{For this entire section, it is not 100\% clear that there is only
+one [!] CFS that is built from all available data for the training subjects at
+once.
+%
+This is non-obvious, because the correlation between shared responses also
+differ, but likely because different segments are being compared.
+%
+It may  be useful to add a dedicated paragraph on the rational why all data was
+pooled to build a single model space.}
+
+
 \todo[inline]{Plots of correlation matrices should be presented here (cf. method
 section of PPA paper), not in results}
 
-\todo[inline]{CFS for sub-01 as an example; funnily: the correlations even among
-shared responses change depending the 13 subjects used for each test subject's
-\ac{cfs}}
+\todo[inline]{make more clear that this is an example for an CFS for sub-01;
+funnily: the correlations even among shared responses change depending the 13
+subjects used for each test subject's \ac{cfs}}
 
-\todo[inline]{What to adjust in the plots? Regressors of low-level confounds
-might be dropped? imo, should be kept 'cause the are correlations}
+\todo[inline]{What to adjust in the plots?  probably keep regressors of
+low-level confounds because there are correlations}
+
+\todo[inline]{in the plots, spell out regressor labels; cf. study2}
 
 \todo[inline]{Plot of AO regressors: remove combination of regressors
 \texttt{geo\&groom\&furn} because \texttt{furn} was not used in any contrast}
@@ -783,6 +802,7 @@ with modeled responses (regressors) to auditory stimulus features as used in
 Correlation of shared responses (occurring during TRs of the visual localizer)
 with modeled responses (regressors) used in \citet{sengupta2016extension}: see
 Fig.~\ref{fig:corr-vis-reg-srm}.
+
 
 
 
@@ -875,8 +895,6 @@ regressors used in the previous studies.
 
 \todo[inline]{in-code documentation says: ``Solve the Procrustes problem''}
 
-\todo[inline]{Revise (shorten) according to the new text in the introduction}
-
 % Learn the mapping
 We then aligned the test subject's data to the \ac{cfs} by letting the algorithm
 learn a transformation matrix $T_{n}$ that performs an orthogonal mapping from
@@ -924,7 +942,7 @@ up to four runs (each lasting \unit[5.2]{m}).
 
 \todo[inline]{Not mentioned: I tested averaging data in \ac{cfs}: similar
 results; in case of anatomical alignment, I did not test averaging data in
-MNI152 space}
+MNI152 space; marked green by mih probably means it should be mentioned}
 
 % overview
 We then estimated a test subject's localizer results (the empirical $Z$-map) by
@@ -954,7 +972,7 @@ that were derived during training of the \ac{cfs} in order to project the masked
 empirical $Z$-maps from each training subject's voxel space into the \ac{cfs}.
 % into subject
 In order to project the data from the \ac{cfs} into the test subject's voxel
-space, we then used the transpose of the transformation matrix that we acquired
+space, we then used the transpose [not correct?] of the transformation matrix that we acquired
 during the alignment of the test subject.
 % take the mean
 The arithmetic mean of $N-1$ the projected empirical $Z$-maps served as the
@@ -1130,6 +1148,7 @@ other participants (t(20) = 0.48, p = 0.63)''
 
 \todo[inline]{I hate that script! Hence, it should not be included ;-).}
 
+\todo[inline]{mih: but results?}
 
 \subsection{Plots of brain slices?}
 
@@ -1141,6 +1160,9 @@ other participants (t(20) = 0.48, p = 0.63)''
 
 \section{Discussion}
 
+\todo[inline]{Many points in the discussion would be very helpful to put into
+the intro to better frame the problem space, the challenges and also the
+opportunities}
 
 \subsection{Short Summary of...}
 
@@ -2398,8 +2420,8 @@ sufficient data to perform a functional alignment to a functional atlas.
 
 
 
-\subsubsection{fMRI scan session using naturalistic stimulus could substitute
-multiple localizers}
+\subsubsection{\ac{frmi} scan session using naturalistic stimulus could
+substitute multiple localizers}
 
 
 \paragraph{Database with naturalistic stimulus as main stimulus...}
@@ -2408,49 +2430,22 @@ Naturalistic stimuli ``engage in parallel multiple neural systems for vision,
 audition, language, person perception, social cognition, and other functions''
 \citep{jiahui2020predicting} and offer higher generalizability [and provide
 higher validity?] of transformations matrices.
+
 %
-``Consequently, movies have the potential to estimate selective topographies in
-all of these domains'' \citep{jiahui2020predicting}.
-
-
-
-
-
-\paragraph{...and possibly other paradigms}
+A naturalistic stimulus like a move or audio-description could be used to align
+a test subject to a \ac{cfs} created from data of a normative reference group.
 %
-``Such a tool would require a database of data for movies and a range of
+The reference group requires a ``database of data for movies and a range of
 functional localizers in a normative group of subjects''
 \citep{jiahui2020predicting}.
 
-
-
-\paragraph{...and as a result}
-
-%
-A naturalistic stimulus like a move or audio-description could be used to map a
-variety $Z$-maps created from a variety of $t$-contrast from a normative
-reference group onto an individual subjects and thus potentially substitute a
-variety of localizers.
 %
 Once a valid alignment is established, known functional properties of the
 (normative) reference can then be projected into the respective individual voxel
-space (s. Fig. 1 in \citep{nishimoto2016lining}).
-%
-That reference would enable an qualitative and quantitative description of an
-individual's brain function with respect to such a norm, and consequently
-progress the field towards neuroimaging studies of individual differences that
-more closely resemble their psychological counterparts.
+space (s. Fig. 1 in \citep{nishimoto2016lining}) by mapping a variety $Z$-maps
+created from a variety of $t$-contrast from a normative reference group onto an
+individual subjects and thus potentially substitute a variety of localizers.
 
-% from Jiahu
-``From a single movie dataset multiple functional topographies can be estimated
-\citep{guntupalli2016model}, whereas different localizers are typically required
-to map different functional topographies, making a thorough mapping of selective
-topographies time-consuming and inefficient'' \citep{jiahui2020predicting}.
-%
-``Functional topographies could be mapped from a database containing a wide
-range of perceptual and cognitive functions to new subjects based only on fMRI
-data collected while watching an engaging, naturalistic stimulus and other
-subjects' localizer data from a normative sample'' \citep{jiahui2020predicting}.
 %
 ``A new subject's functional topographies could be estimated based only on that
 subject's movie data and other subjects' localizer data from the normative
@@ -2458,6 +2453,27 @@ database that could be projected into that subject's cortical anatomy using
 hyperalignment transformation matrices derived from movie data and could replace
 tedious functional localizers with an engaging movie''
 \citep{jiahui2020predicting}.
+
+%
+``Functional topographies could be mapped from a database containing a wide
+range of perceptual and cognitive functions to new subjects based only on fMRI
+data collected while watching an engaging, naturalistic stimulus and other
+subjects' localizer data from a normative sample'' \citep{jiahui2020predicting}.
+
+% from Jiahu
+``From a single movie dataset multiple functional topographies can be estimated
+\citep{guntupalli2016model}, whereas different localizers are typically required
+to map different functional topographies, making a thorough mapping of selective
+topographies time-consuming and inefficient'' \citep{jiahui2020predicting}.
+
+%
+That reference would enable an qualitative and quantitative description of an
+individual's brain function with respect to such a norm, and consequently
+progress the field towards neuroimaging studies of individual differences that
+more closely resemble their psychological counterparts.
+
+
+
 
 
 \paragraph{Additional advantages of naturalistic stimuli: complicance!}
