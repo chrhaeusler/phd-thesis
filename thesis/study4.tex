@@ -290,6 +290,10 @@ noise and reduces overfitting \citep{chen2015reduced}.
 % $S\in\mathbb{R}^{k\times{T}}$ is a feature time-series in a $k$-dimensional
 % shared space'' \citep{vodrahalli2018mapping}.
 
+\todo[inline]{For orthogonal transformations (like we should have here, i.e.
+only rotation, expansion) these two are one and the same
+thing:https://www.quora.com/When-is-the-inverse-of-a-matrix-equal-to-its-transpose}
+
 % math stuff
 More specifically, the \ac{srm} algorithm uses each $n^{th}$ training subject's
 response time series represented as matrix $X_{n}$ ({$v$} voxels by $t$ time
@@ -321,6 +325,8 @@ the $k$-dimensional \ac{cfs}.
 
 
 \subsubsection{Our functional alignment procedure}
+
+
 
 %
 In the current study, our approach to estimate a test subject's localizer result
@@ -504,7 +510,7 @@ A grand-mean intensity normalization was applied to each run of the functional
 localizer and each segment of the naturalistic stimuli.
 
 
-\subsection{Modeling of the \ac{cfs}}
+\subsection{Modeling of the common functional space (CFS)}
 
 On these reproduced time series data, we then performed further analyses steps
 via Python scripts that relied on
@@ -884,7 +890,8 @@ shared responses that were calculated based on shuffled time series and the
 regressors used in the previous studies.
 
 
-\subsection{(Partial) alignment of test subjects to a fixed \ac{cfs}}
+\subsection{(Partial) alignment of test subjects to a fixed common functional
+space (CFS)}
 
 % AO: 0-451, 0-892, 0-1330, 0-1818, 0-2280, 0-2719, 0-3261, 0-3524
 % AV: 3524-3975, 3524-4416, 3524-4854, 3524-5342, 3524-5804, 3524-6243,
