@@ -1,12 +1,7 @@
-\todo[inline]{speaking of ``topography'' is little overstatement; topography =
-spatial configuration  organisation (i.e. shape, size, and position) of
-functional regions \citep{bijsterbosch2018relationship}}
-
-\todo[inline]{mih: many points discussed in the discussion should aready be
-primed in the intro to better frame the problem space, the challenges and also
-the opportunities}
-
 \section{Introduction}
+
+\todo[inline]{mih: many points of the discussion should be primed in the intro
+to better frame the problem space, challenges \& opportunities}
 
 % higher visual areas higher visual areas
 In the domain of higher-visual perception, functionally defined,
@@ -22,6 +17,15 @@ zhen2015quantifying, frost2012measuring}.
 
 
 \subsection{Localizers (= problem)}
+
+\todo[inline]{not mentioned here:
+    "tacit assumption";
+    what does the localizer actually do?
+    does it what we want it to do?
+    }
+
+\todo[inline]{imo, should be mentioned after part about naturalistic stimuli \&
+functional alignment (s. below)}
 
 % definition of localizer
 In order to identify the topography of functional areas in individual persons,
@@ -129,8 +133,10 @@ bound to anatomical landmarks, and reflects the degree of
 underlying anatomical location.
 
 
-\todo[inline]{imo, reference to \citet{weiner2018defining} below can be dropped;
-study is about PPA, though}
+\todo[inline]{Try to merge \citet{weiner2018defining} into text above; i.e. give
+one general example (that includes PPA) and one that just focusses on PPA}
+
+\todo[inline]{What did \citep{frost2012measuring} specifically say about PPA?}
 
 %
 \citet{weiner2018defining} showed ``that cortical folding patterns and
@@ -149,7 +155,6 @@ located within the collateral sulcus across participants.''
 
 
 \subsubsection{Functional alignment}
-
 %
 Since anatomical alignment addresses the issue of anatomical variability but not
 functional-anatomical variability across subjects, algorithms --- like
@@ -172,6 +177,10 @@ from a subject's anatomical space [or native brain space] into the \ac{cfs}, or
 to project data from the \ac{cfs} into a subject's anatomical space [or brain
 space] \citep{haxby2020hyperalignment}.
 
+
+\paragraph{Previous studies: focus on \ac{cfs} based on naturalistic stimuli}
+
+\todo[inline]{what does increased validity of a \ac{cfs} actually mean?}
 %
 The \ac{cfs} and transformation matrix can be created (i.e.  \textit{trained})
 based on the maximization of the inter-subject similarity of \ac{bold} response
@@ -187,7 +196,36 @@ transformation matrices to novel stimuli or tasks, presumably because
 naturalistic stimuli sample a broader range of brain states
 \citep{haxby2011common, guntupalli2016model}.
 
-\todo[inline]{what does increased validity of a \ac{cfs} actually mean?}
+Previous studies \citep{guntupalli2016model, haxby2020hyperalignment} that
+focused on the validity and generalizability of the \ac{cfs} have shown that:
+%
+``The algorithm also can be applied to simpler, controlled experimental data,
+but our previous results showed that the sampling of response vectors from these
+experiments is impoverished and produces a model representational space that
+does not generalize well to new stimuli in other experiments (Haxby et al.
+2011)'' \citep{guntupalli2016model}.
+%
+``Hyperalignment of data using a set of stimuli that is less diverse than the
+movie is effective, but the resultant common space has validity that is limited
+to a small subspace of the representational space in VT cortex''
+\citep{haxby2011common}
+%
+``Estimating the parameters to transform high-dimensional spaces from individual
+brains into a common high-dimensional space requires a rich set of data that
+samples a wide variety of cortical patterns in order to generalize to novel
+stimuli or tasks'' \citep{haxby2020hyperalignment}, ``presumably because such
+experiments sample a sparser range of brain states
+\citep{guntupalli2016model}''.
+
+% from project proposal
+From project proposal: ``Compared to paradigms with simplified stimuli,
+naturalistic stimuli sample a broad range of brain states
+\citep{guntupalli2016model, haxby2011common} that reflect (confound) statistics
+of the natural environment, promising an increased validity of transformations
+of functional alignment and enable investigation of the acquired data for a
+variety of research questions to research questions/domains/paradigms (e.g.
+visual or auditory perception, spatial cognition; emotion; music, speech or
+social perception).
 
 \subsubsection{Estimation via functional alignment}
 %
@@ -203,6 +241,9 @@ aligned to (i.e. projected into) a \ac{cfs}.
 Then, data are projected from the \ac{cfs} into the individual person's brain
 anatomy serving as an estimation of a functional region's location.
 
+\todo[inline]{check \citet{jiahui2020predicting}'s video localizer, studies that
+the localizer cites and new studies that that the localizer}
+
 % Jiahui
 For example, \citep{jiahui2020predicting} constructed a \ac{cfs} and
 transformation matrices based on data from a) the movie ``Grand Budapest Hotel''
@@ -215,18 +256,77 @@ were estimated from other subjects' data based on hyperalignment than with
 contrast maps that were estimated based on surface-based anatomical alignment
 \citep{jiahui2020predicting}.
 
+\todo[inline]{add here that alignment uses whole stimuli and that this is
+inefficient}
+
+
+\newpage
 
 \subsection{Here, we}
 
-\todo[inline]{We do way too much!}
+\noindent \textbf{Main idea:}
 
-\todo[inline]{Emphasize (partial) alignment via movie segments}
+\begin{itemize}
+    \item in general: one "expensive" model, one "affordable" calibration scan
+    \item prediction of localizer from reference (group)
+    \item data efficiency
+    \item generalizability
+\end{itemize}
 
-\todo[inline]{more a bonus:
-%
-a) prediction of "auditory PPA" (via movie \& audio-description),
-%
-b) alignment via functional localizer}
+
+\noindent \textbf{Message:}
+
+
+\begin{itemize}
+    \item one "multi-stimulus" model (cross-validated); rationale is
+        in literature (not without alternatives, but I did not do it);
+    \item partial alignment to that model;
+        to predict using the model you don't need the same amount of data;
+        I checked how much data you need (s. Figure in results)
+
+        \begin{itemize}
+            \item how good is which stimulus to perform alignment to that model
+                (for different predictions, i.e. which predicted PPA)?
+            \item evaluation of same modality / criterion (visual localizer)
+                using different predictors (localizer, movie, audio-description)
+            \item evaluation of other modality / criterion (movie \& audio PPA)
+        \end{itemize}
+
+\end{itemize}
+
+\todo[inline]{if messages are more clear, some captions in discussion are
+redundant}
+
+
+\noindent \textbf{Question:}
+
+\begin{itemize}
+    \item can I predict classic localizer?  SRM could just do a denoising, too;
+    \item question: What is causing the difference?
+    \item a) is it the quality of the alignment? or:
+        b) is the model doing a better prediction?
+        i.e. is the criterion doing an individual overfit?
+    \item How do I know if this (i.e. visual PPA) is the "gold standard"?
+        "tacit assumption";
+        what does the localizer actually do?
+        does it what we want it to do?
+    \item mention: higher reliability (and validity?) of localizers using video
+        (snippets), and higher generalizability of models (we: matrices) using
+        naturalistic stimuli
+    \item bonus: can I predict movie PPA and auditory PPA?
+\end{itemize}
+
+
+\noindent \textbf{Answer}:
+
+shift to discussion: naturalistic is awesome...
+
+\begin{itemize}
+    \item for fitting them model (cf. literature)
+    \item also for the alignment!
+    \item and therefore for the prediction
+\end{itemize}
+
 
 % focus: ppa
 As a proof of concept, we focus on the \ac{ppa} \citep[e.g.,][for
@@ -247,12 +347,6 @@ performance.
 
 
 \subsubsection{SRM}
-
-\todo[inline]{I decided to not explain the SRM in the general part about
-functional alignment above 'cause it gets way too messy there}
-
-\todo[inline]{revise reasoning / phrasing}
-
 
 \paragraph{Overview}
 
@@ -290,9 +384,10 @@ noise and reduces overfitting \citep{chen2015reduced}.
 % $S\in\mathbb{R}^{k\times{T}}$ is a feature time-series in a $k$-dimensional
 % shared space'' \citep{vodrahalli2018mapping}.
 
-\todo[inline]{For orthogonal transformations (like we should have here, i.e.
-only rotation, expansion) these two are one and the same
-thing:https://www.quora.com/When-is-the-inverse-of-a-matrix-equal-to-its-transpose}
+% Inverse vs. transpose of a matrix:
+% for orthogonal transformations (like we should have here, i.e. only rotation,
+% expansion) these two are one and the same thing:
+% https://www.quora.com/When-is-the-inverse-of-a-matrix-equal-to-its-transpose
 
 % math stuff
 More specifically, the \ac{srm} algorithm uses each $n^{th}$ training subject's
@@ -325,9 +420,6 @@ the $k$-dimensional \ac{cfs}.
 
 
 \subsubsection{Our functional alignment procedure}
-
-
-
 %
 In the current study, our approach to estimate a test subject's localizer result
 (i.e. a test subject's \textit{empirical $Z$-map}) via functional alignment is
@@ -367,19 +459,7 @@ Therefore, we use an increasing number of segments of the naturalistic stimuli
 segments' time points within the \ac{cfs}.
 
 
-\subsubsection{Assessment via Pearson's}
-
-%
-The prediction performance is assessed by calculating the Pearson's correlation
-coefficient between a left-out subject's empirical $Z$-map and predicted
-$Z$-map, and compared to the prediction performance based on a voxel-based
-anatomical alignment procedure.
-
-
 \subsubsection{Alignment via localizer runs}
-
-\todo[inline]{imo, mentioning this here further increases complexity; should be
-sufficient to mention it in method section \& shortly discuss it in discussion}
 
 %
 We also test alignment based on one to four localizer runs (each lasting
@@ -387,18 +467,40 @@ We also test alignment based on one to four localizer runs (each lasting
 matrices and perform a cross-subject-prediction (vs.
 cross-subject-cross-experiment-prediction).
 
+%
+We also performed functional alignment based on a stimulation paradigm using
+simplified stimuli [the localizer].
+%
+Our results provide evidence that transformation matrices calculated based on
+data from naturalistic stimuli promise an increased validity of derived
+transformation for functional alignment over transformation matrices based on
+data (of the same!) paradigm based on simplified stimuli.
 
-\subsubsection{Prediction of "auditory PPA"}
 
-\todo[inline]{Following text is more a placeholder than actual text; as said,
-the intro gets pretty messy; prediction of auditory PPA was more kind of a side
-note / sanity check?}
+\subsubsection{Alignment via movie segments}
+
+Lore ipsum...
+
+\subsubsection{Alignment via audio-description segments}
+
+Lore ipsum...
+
+
+\subsubsection{Bonus: prediction of "three PPAs"}
+
+\paragraph{Prediction of visual localizer}
+
+Lore ipsum...
+
+\paragraph{Prediction of movie PPA}
+
+Lore ipsum...
+
+\paragraph{Prediction of "auditory PPA"}
 
 \todo[inline]{results: SRM "fails" in case a subject has atypical results in
 study 2 (i.e. subject has no auditory PPA) independent of which naturalistic
 stimulus was used for alignment}
-
-\todo[inline]{should be discussed in the discussion, though}
 
 %
 Results of our previous study \citep{haeusler2022processing} suggest that not
@@ -409,17 +511,22 @@ of hemodynamic responses to ``spatial information'' in a time-locked manner
 across subjects.
 %
 Hence, we also test whether we can use the runs of the movie and
-audio-description to estimate the results of study 2.
+audio-description to estimate the results of \citet{haeusler2022processing}.
+
+
+
+\subsubsection{Assessment via Pearson's}
+
+\todo[inline]{Probably drop that point}
+
+%
+The prediction performance is assessed by calculating the Pearson's correlation
+coefficient between a left-out subject's empirical $Z$-map and predicted
+$Z$-map, and compared to the prediction performance based on a voxel-based
+anatomical alignment procedure.
 
 
 \subsection{Hypotheses}
-
-\todo[inline]{at the moment, no hypothesis regarding alignment via localizer
-runs to predict localizer}
-
-\todo[inline]{at the moment, no hypothesis regarding prediction of "auditory
-PPA"}
-
 %
 We hypothesized that an increased quantity of data used to calculate the
 transformation matrices of the test subjects would lead to an increasing
@@ -689,7 +796,8 @@ then z-scored the last segment but anyway...; does not make much difference}
 \todo[inline]{add a figure of the \ac{cfs} created from differen stimuli}
 
 \todo[inline]{mention that I also tested calculating the \ac{cfs} based on just
-data from 'ao \& av' and not VIS data? results: minimally "worse"}
+data from 'ao \& av' and not VIS data? results: minimally "worse"; can probably
+be dropped because there are no TRs in the model to align the localizer TRs to}
 
 In order to compute the \ac{cfs} and the transformation matrices for the
 training subjects, we used the probabilistic \ac{srm} algorithm that is
@@ -1005,12 +1113,13 @@ another matrix?].
 As in the case of functional alignment, the arithmetic mean of the projected
 $Z$-maps served as a test subject's predicted $Z$-map.
 
+\subsection{Prediction of movie PPA}
+
+We also estimate $Z$-maps from \citet{haeusler2022processing}
 
 \subsection{Prediction of auditory PPA}
 
-\todo[inline]{We also estimate $Z$-maps from \citet{haeusler2022processing}}
-
-\todo[inline]{add text here}
+We also estimate $Z$-maps from \citet{haeusler2022processing}
 
 
 \subsection{Pearson \& Cronbach's alpha}
@@ -1167,13 +1276,16 @@ other participants (t(20) = 0.48, p = 0.63)''
 
 \section{Discussion}
 
-\todo[inline]{Many points in the discussion would be very helpful to put into
-the intro to better frame the problem space, the challenges and also the
+\todo[inline]{mih: many points discussed in the discussion should aready be
+primed in the intro to better frame the problem space, challenges, and
 opportunities}
+
 
 \subsection{Short Summary of...}
 
 \subsubsection{Aims \& hypotheses}
+
+Lore ipsum...
 
 \subsubsection{Methods}
 
@@ -1183,61 +1295,26 @@ atlas in order to restrict the number of voxels to voxels that have shown to be
 located in the \ac{ppa} \ac{roi} of at least one subject [Julian et al., 2012,
 An algorithmic method (?)].
 
-
-
 \subsubsection{Results}
 
+Lore ipsum...
 
 
+\subsection{We created a common functional space from...}
 
-\subsection{We created a common functional space}
+We create one \ac{cfs} (for every fold) based on time-series of three stimuli
+that were concatenated before model fitting.
 
 %
 Results indicate that we are able to use data from a group of 13 participants to
 learn a 10-dimensional shared space.
 %
-We have cross-subject, cross-experiment, [and cross-scanner prediction]
+Enabled us to have cross-subject, cross-experiment, [and cross-scanner
+prediction]
 %
 Movie data and visual localizer are from the same scanner but not from the same
 session [???].
 
-
-
-\subsection{Prediction based on alignment via movie segments}
-
-%
-Results indicate that $\sim$15 minutes of movie watching used for functional
-alignment outperform prediction using anatomical alignment.
-%
-Prediction performance further increases when $\sim$30 minutes of movie data
-submitted to the algorithm to calculate the subject-specific transformation
-matrices.
-%
-However, more than $\sim$45 minutes do not lead to an significantly increased
-estimation performance suggesting a decreasing benefit of longer scanning time
-than 30 minutes during audio-visual naturalistic stimulation.
-
-
-
-\subsubsection{Why partial alignment is awesome}
-
-
-\todo[inline]{cf. general introduction \& SRM introduction}
-
-%
-Reduced costs.
-%
-There is a benefit of shared parts of naturalistic stimuli across datasets;
-shared stimulus part is easier than shared subjects (e.g.
-\citep{zhang2018transfer}).
-
-
-
-\subsection{Prediction based on alignment via localizer runs}
-
-\todo[inline]{This is kind of a bonus; imo, should not be discussed in length}
-
-\todo[inline]{Therefore, pretty much on the top of the discussion}
 
 \subsubsection{Previous studies (focused on \ac{cfs})}
 
@@ -1262,6 +1339,7 @@ stimuli or tasks'' \citep{haxby2020hyperalignment}, ``presumably because such
 experiments sample a sparser range of brain states
 \citep{guntupalli2016model}''.
 
+
 \subsubsection{Our study (focuses on transformation matrices)}
 %
 We also performed functional alignment based on a stimulation paradigm using
@@ -1283,12 +1361,127 @@ visual or auditory perception, spatial cognition; emotion; music, speech or
 social perception).
 
 
-\subsection{Prediction based on alignment via audio segments}
+\subsection{Tacit assumption that localizer = ground truth}
 
-Did work out but did not work out "so well"...
+\todo[inline]{essentially issues of reliability \& validity}
+
+\todo[inline]{We circumvent most of the problem 'cause we estimate $Z$-maps and
+not voxel that are  (not) in the \ac{ppa}}
+
+``The PPA definition may depend on the type of experiment, task, and stimuli
+used'' \citet{weiner2018defining}.
+%
+``The boundaries of the PPA may depend on the statistical threshold used''
+\citet{weiner2018defining}.
+%
+``The spatial extent and localization of the PPA may vary if defined within the
+native brain space of an individual or based on a group analysis''
+\citet{weiner2018defining}.
+%
+``The size of the PPA may depend on data acquisition choices (e.g. large vs.
+small voxels) and data analysis choices (e.g. liberal smoothing vs. no spatial
+smoothing)'' \citep{weiner2018defining}.
 
 
-\subsubsection{PPA study: model-driven; here: data-driven approach}
+%
+``The localized set of voxels may not correspond well to those being tested in
+the main experimental run, decreasing sensitivity and increasing both false
+positives and false negatives'' \citep{duncan2009consistency}.
+
+
+
+\subsection{Estimation of visual localizer}
+
+% usually, visual PPA works pretty well
+The visual \ac{ppa} can be reliably localized using a localizer.
+%
+For example, \citet{zhen2017quantifying} successfully delineated the left- and
+right hemispheric \acp{ppa} in 97.5\% of 202 subjects.
+
+% localizer data
+\citet{sengupta2016extension} successfully delineated the left-hemispheric
+\ac{ppa} in X of X subjects and right-hemispheric \ac{ppa} in X of X subjects
+based on localizer data
+
+
+\subsubsection{visual localizer via localizer runs}
+
+
+\subsubsection{visual localizer via movie segments}
+
+%
+Results indicate that $\sim$15 minutes of movie watching used for functional
+alignment outperform prediction using anatomical alignment.
+%
+Prediction performance further increases when $\sim$30 minutes of movie data
+submitted to the algorithm to calculate the subject-specific transformation
+matrices.
+%
+However, more than $\sim$45 minutes do not lead to an significantly increased
+estimation performance suggesting a decreasing benefit of longer scanning time
+than 30 minutes during audio-visual naturalistic stimulation.
+
+
+\subsubsection{visual localizer via audio-description segments}
+
+
+\subsection{Why partial alignment is awesome}
+
+%
+Reduced costs.
+%
+There is a benefit of shared parts of naturalistic stimuli across datasets;
+shared stimulus part is easier than shared subjects (e.g.
+\citep{zhang2018transfer}).
+
+
+
+\subsection{Estimation of movie PPA}
+
+\paragraph{More robust localizer that uses video snippets?}
+
+% take a more robust dynamic localizer using short videos
+``The dynamic localizer (in Grand Budapest data set) was significantly more
+reliable than the static localizer (in studyforrest data set) (t(34) = 3.76, p <
+0.001) despite its shorter length (four 234s runs versus four 312s runs,
+respectively)'' \citep{jiahui2020predicting}.
+%
+``Dynamic videos of faces and control categories to localize face-selective
+topographies provides more reliable maps and better estimate the extent of
+face-selective regions than do localizers with still image stimuli [Fox et al.,
+2009; Pitcher et al., 2011]'' \citep{jiahui2020predicting}.
+
+
+% movie
+\citet{haeusler2022processing} successfully delineated the left-hemispheric
+\ac{ppa} in X of X subjects and right-hemispheric \ac{ppa} in X of X subjects
+based on movie data.
+%
+But the modeling was adventurously in the first place and a proof of concept.
+
+
+
+\subsubsection{movie PPA via localizer runs}
+
+\subsubsection{movie PPA via movie segments}
+
+\subsubsection{movie PPA via audio segments}
+
+
+
+\subsection{Estimation of audio PPA}
+
+\todo[inline]{check: in those subjects who do not have an "auditory PPA" in the
+(specific) modeled contrast: is prediction performance of not just the auditory
+but also visual PPA worse? Is the response pattern simply not there or just
+poorly modeled poorly in \citet{haeusler2022processing}}
+
+% audio-description
+Using the audio-description's data, \citet{haeusler2022processing} we delineated
+the left-hemispheric \ac{ppa} in X of X subjects and right-hemispheric \ac{ppa}
+in X of X subjects.
+
+
 %
 Results from \citet{haeusler2022processing} revealed that stimulation by an
 audio-description is correlated with increased hemodynamic activity during in
@@ -1309,15 +1502,6 @@ Our current results add evidence that the responses to auditory spatial
 information lead to a different activity pattern than visual stimulation, and
 that... [cf. interpretation in \citet{haeusler2022processing}].
 
-
-
-\subsubsection{Auditory stimulus to localize visual area?}
-
-\todo[inline]{cf. general introduction \& SRM introduction}
-
-\todo[inline]{well, you can localize the anterior part but is this cool enough
-to make a (big) point here?}
-
 \begin{itemize}
 
 \item congenitally blind:
@@ -1337,6 +1521,34 @@ to make a (big) point here?}
     [cf. \citet{rosenke2021probabilistic}]
 
 \end{itemize}
+
+\todo[inline]{the text regarding individual differences in brain
+activation possibly correlating with behavior is in the general discussion where
+PPA is recapitulated (a.k.a "grasping of verbal way descriptions")}
+
+%
+Response in PPA during AO might (actually / reliably) be different (and not just
+a result that depends on the paradigm and the hilarious modeling approach in
+\citet{haeusler2022processing}).
+
+%
+If the response pattern is simply not occurring in these subjects then
+individual differences in brain patterns might reflect differences in behavior
+%
+Do the subjects simply do not give a shit about auditory spatial information?
+%
+Are they simply not attending to it? Or are they simply incapable to process it?
+
+
+
+
+
+\subsubsection{audio PPA via localizer runs}
+
+\subsubsection{audio PPA via movie segments}
+
+\subsubsection{audio PPA via audio segments}
+
 
 
 \subsection{Differences to studies creating probabilistic atlases}
@@ -1842,109 +2054,7 @@ selectivity (each vertex reflects the average t-value across subjects)''
 
 
 
-\subsection{Prediction of auditory PPA (via movie or audio-description)}
 
-
-\subsubsection{Reliability of visual PPA}
-
-% usually, visual PPA works pretty well
-The visual \ac{ppa} can be reliably localized using a localizer.
-%
-For example, \citet{zhen2017quantifying} successfully delineated the left- and
-right hemispheric \acp{ppa} in 97.5\% of 202 subjects.
-
-% localizer data
-\citet{sengupta2016extension} successfully delineated the left-hemispheric
-\ac{ppa} in X of X subjects and right-hemispheric \ac{ppa} in X of X subjects
-based on localizer data
-
-% movie
-\citet{haeusler2022processing} successfully delineated the left-hemispheric
-\ac{ppa} in X of X subjects and right-hemispheric \ac{ppa} in X of X subjects
-based on movie data.
-%
-But the modeling was adventurously in the first place and a proof of concept.
-
-
-\subsubsection{Reliability of auditory PPA in \citet{haeusler2022processing}}
-
-\todo[inline]{check: in those subjects who do not have an "auditory PPA" in the
-(specific) modeled contrast: is prediction performance of not just the auditory
-but also visual PPA worse? Is the response pattern simply not there or just
-poorly modeled poorly in \citet{haeusler2022processing}}
-
-% audio-description
-Using the audio-description's data, \citet{haeusler2022processing} we delineated
-the left-hemispheric \ac{ppa} in X of X subjects and right-hemispheric \ac{ppa}
-in X of X subjects.
-
-
-\subsubsection{Results of auditory PPA}
-
-Our results revealed that...
-
-
-\subsubsection{Discussion of auditory PPA}
-
-\todo[inline]{the text regarding individual differences in brain
-activation possibly correlating with behavior is in the general discussion where
-PPA is recapitulated (a.k.a "grasping of verbal way descriptions")}
-
-%
-Response in PPA during AO might (actually / reliably) be different (and not just
-a result that depends on the paradigm and the hilarious modeling approach in
-\citet{haeusler2022processing}).
-
-%
-If the response pattern is simply not occurring in these subjects then
-individual differences in brain patterns might reflect differences in behavior
-%
-Do the subjects simply do not give a shit about auditory spatial information?
-%
-Are they simply not attending to it? Or are they simply incapable to process it?
-
-
-\subsection{In all cases: tacit assumption that localizer = ground truth}
-
-\todo[inline]{essentially issues of reliability \& validity}
-
-\todo[inline]{We circumvent most of the problem 'cause we estimate $Z$-maps and
-not voxel that are  (not) in the \ac{ppa}}
-
-``The PPA definition may depend on the type of experiment, task, and stimuli
-used'' \citet{weiner2018defining}.
-%
-``The boundaries of the PPA may depend on the statistical threshold used''
-\citet{weiner2018defining}.
-%
-``The spatial extent and localization of the PPA may vary if defined within the
-native brain space of an individual or based on a group analysis''
-\citet{weiner2018defining}.
-%
-``The size of the PPA may depend on data acquisition choices (e.g. large vs.
-small voxels) and data analysis choices (e.g. liberal smoothing vs. no spatial
-smoothing)'' \citep{weiner2018defining}.
-
-
-%
-``The localized set of voxels may not correspond well to those being tested in
-the main experimental run, decreasing sensitivity and increasing both false
-positives and false negatives'' \citep{duncan2009consistency}.
-
-
-
-\paragraph{More robust localizer that uses video snippets?}
-
-% take a more robust dynamic localizer using short videos
-``The dynamic localizer (in Grand Budapest data set) was significantly more
-reliable than the static localizer (in studyforrest data set) (t(34) = 3.76, p <
-0.001) despite its shorter length (four 234s runs versus four 312s runs,
-respectively)'' \citep{jiahui2020predicting}.
-%
-``Dynamic videos of faces and control categories to localize face-selective
-topographies provides more reliable maps and better estimate the extent of
-face-selective regions than do localizers with still image stimuli [Fox et al.,
-2009; Pitcher et al., 2011]'' \citep{jiahui2020predicting}.
 
 
 \subsection{Shared responses are problematic in case of atypical organization /

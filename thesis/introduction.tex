@@ -1,13 +1,13 @@
 %% The introduction begins with an overview of the topic
 \todo[inline]{reduce number of literal quotes}
 
-\todo[inline]{delete unnecessary sub(sub)sections / captions turning them into
-regular paragraphs}
+\todo[inline]{delete unnecessary sub(sub)sections / captions to turn them into
+paragraphs}
 
 \todo[inline]{write \textit{new terms} in italics}
 
 \todo[inline]{give more hints in advanced about auditory naturalistic stimulus /
-auditory PPA}
+auditory PPA?}
 
 
 % introductory quote
@@ -252,7 +252,7 @@ initially not explicitly known.
 Consequently, modeling brain activity correlating with stimulus features
 embedded in a stimulus' time course is challenging
 \citep{saarimaki2021naturalistic, simony2020analysis} because such models, like
-a traditional \ac{glm}, rely on the stimulus features being annotated.
+a traditional \textit{\ac{glm}}, rely on the stimulus features being annotated.
 % lack of annotations = bottleneck
 The lack of extensive annotations has led to a ``usage bottleneck''
 \citep{aliko2020naturalistic} and might be the main reason why explicit models
@@ -301,15 +301,15 @@ nystagmus or lack of eyesight.
 
 \subsubsection{Focus on PPA}
 
-\todo[inline]{mih: audio stimulus to localize a visual area comes unexpected. It
-might just be enough to first declare that as an actual challenge (along the
-lines of "if you are so valid, how far can we take this?")}
+\todo[inline]{mih: audio stimulus to localize a visual area comes unexpected;
+might be enough to first declare that as an actual challenge (along the lines of
+"if valid, how far can we take this?")}
 
 \todo[inline]{"We" vs. "I"?}
 
 % therefore
-Therefore, this dissertation explores --- while following the principles of
-open, transparent, and reproducible science --- whether a movie and the movie's
+Therefore, this dissertation explores---while following the principles of
+open, transparent, and reproducible science---whether a movie and the movie's
 audio-description that was produced for a visually impaired audience could, in
 principle, substitute a traditional localizer paradigm.
 % focus: ppa
@@ -329,35 +329,33 @@ stimuli.
 I will evaluate the movie's and audio-description's potential to substitute a
 visual localizer in two ways.
 
+\subsubsection{Annotation as groundwork}
 
-\subsubsection{First: \ac{glm} $t$-contrasts}
+\subsubsection{Application 1: \ac{glm} $t$-contrasts}
 
-\todo[inline]{Following paragraph might be too short}
 
-% modeling hemodynamic responses
+
+% 1. modeling hemodynamic responses
 First, similarly to traditional localizer paradigms, we model hemodynamic
 activity correlating with the perception spatial information.
-%
+% based on stimulus annotations
 Differently from traditional localizers, we model hemodynamic activity based on
 annotated stimulus features that are embedded in the audio-visual movie and the
 movie's audio-description (each lasting $\approx$\unit[120]{m}).
-%
+% but technically similar to traditional localizers
 Using these modeled hemodynamic time courses (i.e. regressors), we then create
 \ac{glm} $t$-contrasts in order to locate the \ac{ppa}.
 
 
+\subsubsection{Application 2: Estimation from ref}
 
-\subsubsection{Second: estimating from reference group}
+\todo[inline]{Estimation from reference mentioned here for the first time}
 
-\todo[inline]{when SRM part is "finished", revise the following paragraph(s)}
+\todo[inline]{When SRM study is written, revise accordingly}
 
-\todo[inline]{Estimation from reference group is not mentioned in theory part
-above but is mentioned here for the first time; otherwise theory part gets
-really messy}
-
-% intro
+% 2. estimation from reference
 Second, in order to address the practical and monetary constraints of a clinical
-context, we estimate a participant's localizer results from results of
+context, we estimate localizer results of participants from results of
 participants in a \textit{reference group}.
 
 
@@ -455,7 +453,7 @@ A study is replicable if the same analysis of an equivalent experiment's data
 leads to consistent results \citep{dubois2016building, leek2017most}.
 %
 Hence, on a metalevel, this dissertation aims to meet both the requirements of
-open, accessible, shared, and transparent science \citep{watson2015will,
+open, shared, accessible, and transparent science \citep[cf.][]{watson2015will,
 fecher2014open} as well as the requirements of a reproducible and replicable
 research project:
 %
@@ -464,12 +462,6 @@ scientific computing \citep{wilson2014best}, b) procedures and data analyses
 \citep{nichols2017best, poldrack2017scanning, poldrack2019establishment}, and c)
 sharing code, created data, and results \citep{eglen2017toward, nichols2017best,
 pernet2015improving}.
-
-\todo[inline]{maybe, give a short definition of version control?}
-
-\todo[inline]{mih: I don't if it is needed, but a brief statement on the basic
-approach with which you are aiming to achieve the declared goal would make
-sense}
 
 % \paragraph{input data}
 % open data \citep{eglen2017toward}
@@ -492,19 +484,26 @@ international working groups to conduct and publish independent, peer-reviewed
 research (s.
 \href{www.studyforrest.org/publications.html}{\url{studyforrest.org/publications.html}}).
 
-\todo[inline]{hint at why they were created to make sure that they had a purpose
-here AND they have been published: "to enable the type of analysis underlying
-this thesis"}
+\todo[inline]{mih: hint at why they were created to make sure that they had a
+purpose here AND they have been published: "to enable the type of analysis
+underlying this thesis"}
+
+\todo[inline]{coh: this is done under "specific objectives"; imo, it is better
+to keep the open science part self-contained; same for Datalad: I made a
+subsection for the DataLad paper in "specific objectives" (which was strangely
+missing)}
 
 % annotations
 The additional stimulus annotations that have been created over the course of
-the dissertation are version-controlled and published in a standardized file
-format \citep{haeusler2021speechanno}, and therefore contribute to the
-studyforrest project as a resource for the scientific community.
+the dissertation are version-controlled---i.e. each change of data is logged and
+documented---to provide a historical record, and published in a standardized
+file format \citep{haeusler2021speechanno} to contribute to the studyforrest
+project.
 
 % \paragraph{code, analyses, output} intro
-Further, all code is shared to improve the reproducibility of current results
-and to facilitate the replicability of findings on other datasets.
+Further, all code is version-controlled and shared to improve the
+reproducibility of current results and to facilitate the replicability of
+findings on other datasets.
 % automatization
 Therefore, data analysis pipelines are designed in a way that enables automated
 processing.
@@ -520,17 +519,14 @@ Custom code written by myself is written in open-source programming languages
 (Python and Bash), is version-controlled, documented, and released publicly and
 freely accessible.
 
-\todo[inline]{This should state that you contributed to the development and
-evaluation of that software in order to enable it to become you workhorse}
-
 % DataLad
 All input data, custom code, analysis steps, and output data are accessible in
 standardized \textit{DataLad} (\href{www.datalad.org}{datalad.org}) datasets.
+%
 Since DataLad provides a free and open-source software solution that manages
-provenience, distribution, and version-control of code and data
+provenance, distribution, and version-control of code and data
 \citep{halchenko2021datalad}, all executed steps from downloading the input data
-to visualize the results can be rerun to check and validate the dissertation's
-results.
+to visualizing the results can be rerun to validate the dissertation's results.
 
 % \paragraph{publications} open-access publishing
 Last, because ``nature abhors a paywall'' \citep{dupre2020nature}, publications
@@ -544,41 +540,61 @@ additionally published at Neurovault
 
 \subsection{Specific objectives and hypotheses}
 
-\todo[inline]{in case studies are supposed to have their own subsections, short
-text here}
+\todo[inline]{mih: this section goes beyond hypotheses -> comment out results}
 
-\todo[inline]{mih: this section goes beyond hypotheses, it contains a summary of
-the results for some parts}
-
-\todo[inline]{-> comment out results; might get messy subsequent studies are
-conditional on results of the previous one(s)}
+\todo[inline]{if studies have their on caption, 2-3 sentences here here}
 
 
+\subsubsection{DataLad: distributed system for joint management of code, data,
+and their relationship}
+
+\todo[inline]{This is the technical basis / groundwork}
+
+\todo[inline]{This should state that you contributed to the development and
+evaluation of that software in order to enable it to become you workhorse}
 
 
-\subsubsection{A studyforrest extension, an annotation of spoken
-language in the German dubbed movie ``Forrest Gump'' and its audio-description
-(study 1)}
+In order implement the open science procedures, I chose DataLad as the technical
+foundation.
+%
+DataLad build on git (annex) \citep[cf.][for an git(hub) tutorial from an open
+science perspective]{gilroy2019furthering}.
+%
+DataLad is fucking awesome because it does...
+%
+I contributed to the development of DataLad during starting from its early
+stages in YEAR [???] by using alpha versions, evaluating usability of user
+interface and documentation, and giving feedback to the team of software
+engineers to improve the software's usability and documentation.
+%
+This resulted in a co-authorship of the software's accompanying publication.
+\citep[cf.][]{halchenko2021datalad}.
 
-\todo[inline]{"standard mass-univariate analysis" GLM comes out of nowhere}
-
-\todo[inline]{Quotes from other parts of these thesis take it too far ;-)}
 
 
+\subsubsection{A studyforrest extension, an annotation of spoken language in the
+German dubbed movie ``Forrest Gump'' and its audio-description}
 
+\todo[inline]{This is the non-technical basis / groundwork}
+
+\todo[inline]{Reduces literal quotes from my own studies}
 
 % intro
 ``Naturalistic stimuli have a fixed but initially unknown temporal structure of
 stimulus features of interest, as well as an equally unknown confound
 structure'' \citep{haeusler2021speechanno}.
 % what we did in 1 sentence
-Therefore in study 1 \citep{haeusler2021speechanno}, we created and validated an
+Therefore in \citep{haeusler2021speechanno}, we created and validated an
 annotation of speech occurring in the movie and its audio-description pursuing
 two goals.
 % goal #1: groundwork for PPA study
-The first goal was to build the groundwork that enabled us to create the
-\ac{glm} contrasts based on annotated stimulus features in order to localize the
-\ac{ppa} in study 2.
+The first goal was to build the groundwork that enabled us to model hemodynamic
+time courses (i.e. regressors), and create \ac{glm} contrasts in order to
+localize the \ac{ppa} in \citet{haeusler2022processing}.
+
+Using these modeled hemodynamic time courses (i.e. regressors), we then create
+\ac{glm} $t$-contrasts in order to locate the \ac{ppa}.
+
 % goal #2: extend studyforrest
 The second goal to extend the studyforrest dataset as a public resource for
 independent research by creating an exhaustive annotation of speech that
@@ -605,24 +621,27 @@ methods to analyze \ac{fmri} data from auditory naturalistic stimuli
 \citep{honey2012not, lerner2011topographic, silbert2014coupled}.
 % conclusion
 Hence, the results of the validation encouraged us to use the annotation as a
-groundwork to be adapted to our specific needs in study 2.
+groundwork to be adapted to our specific needs in \citet{haeusler2022processing}.
 
 
 \subsubsection{Processing of visual and non-visual naturalistic spatial
-information in the ``parahippocampal place area'' (study 2)}
+information in the ``parahippocampal place area''}
+
+\todo[inline]{First application of groundwork}
+
+\todo[inline]{proof of concept without "innovative" annalysis / method}
 
 % study in one sentence
-In study 2 \citep{haeusler2022processing}, we investigated whether it is
-possible to localize the \ac{ppa} by creating \ac{glm} contrasts
-based on annotations of both the two-our lasting movie as well as the movie's
-audio-description.
+In \citet{haeusler2022processing}, we investigated whether it is possible to
+localize the \ac{ppa} by creating \ac{glm} contrasts based on annotations of
+both the two-our lasting movie as well as the movie's audio-description.
 % AV annotation
 ``For the analysis of the movie stimulus, we took advantage of a previously
 published annotation movie cuts and the depicted location after each cut
 \citep{haeusler2016cutanno}'' \citep{haeusler2022processing}.
 % AD annotation
 For the analysis of the audio-description, we extended the annotation of speech
-that was created in study 1 \citep{haeusler2021speechanno}:
+that was created in \citet{haeusler2021speechanno}:
 %
 nouns that the narrator uses to describe the movie's absent visual content were
 semantically categorized in case the narrator used them to describe locations,
@@ -661,44 +680,47 @@ potentially substitute a visual localizer as a diagnostic procedure.
 
 \subsubsection{Using a varying amount of data from naturalistic stimulation for
 functional alignment to predict results from a task-based functional localizer
-paradigm (study 3)}
+paradigm}
 
-\todo[inline]{We agreed on study 3 not having at its own abstract; I might write
-a little more here (or add an abstract to study 3)}
+\todo[inline]{Second application of groundwork}
 
-\todo[inline]{just ignore following part; it's less than a draft}
+\todo[inline]{proof of concept with "innovative" annalysis / method}
 
-\todo[inline]{revise bearing in mind "overview" (1.3.1) and SRM study}
+\todo[inline]{We agreed on SRM study not having at its own abstract; I might
+write a little more here (or add an abstract to Chapter 5)}
 
+\todo[inline]{When 1.3.0  \& SRM study is written, revise accordingly}
 
 
 \paragraph{Problem}
-% summary of study 2
-Results of study 2 suggest that a naturalistic stimulus might provide an
-engaging, task-free paradigm to localize brain functions in individual subjects.
+% summary of haeusler2022processing
+Results of \citet{haeusler2022processing} suggest that a naturalistic stimulus
+might provide an engaging, task-free paradigm to localize brain functions in
+individual subjects.
 %
 However considering practical and monetary constraints in a clinical context, a
 paradigm lasting 90 to 120 minutes is inappropriate for even an extensive
 individual diagnostic procedure.
 %
-Results from study 2 also suggest that we might be able to use the response
-patterns measured during the presentation of the audio-description in order to
-generate a \ac{cfs} [needs to be defined above in overview] in study 3, and
-align an ``unknown'' test participant to that \ac{cfs}.
+Results from \citet{haeusler2022processing} also suggest that we might be able
+to use the response patterns measured during the presentation of the
+audio-description in order to generate a \ac{cfs} [needs to be defined above in
+overview] in chapter 5's study, and align an ``unknown'' test participant to
+that \ac{cfs}.
 
 
 \paragraph{Solution}
 %
-Therefore, the first goal of study 3 was to assess a procedure to estimate
-results of a dedicated localizer \citep{sengupta2016extension} based on data
-acquired during naturalistic stimulation.
+Therefore, the first goal of the study in chapter 5 was to assess a procedure to
+estimate results of a dedicated localizer \citep{sengupta2016extension} based on
+data acquired during naturalistic stimulation.
 %
 Following leave-one-out cross-validation, we estimated (i.e. predicted) the
 results of the visual localizer experiment ($Z$-values of voxels within a
 \ac{roi}) of a left-out test participant based on localizer results of a
 reference group.\todo{phrasing!}
 % partial alignment
-The second goal of study 3 was to assess the relationship between the length of
+The second goal was to assess the relationship between the length of
 naturalistic stimulation used to align the test participant to the fixed
 \ac{cfs} and the estimation performance.
 %
