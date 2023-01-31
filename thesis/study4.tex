@@ -824,7 +824,7 @@ responses}
 
 
 \todo[inline]{mih: spell out regressor labels; coh: that will get pretty messy;
-cf. Table 3 in \citep{haeusler2022processing}}
+cf. Table 3 in \citet{haeusler2022processing}}
 
 \todo[inline]{What is the point to make with presented plots as support?}
 
@@ -1029,9 +1029,11 @@ variability over time (reproducibility)'' \citep{rosenke2021probabilistic}.
 
 \section{Results}
 
-\todo[inline]{which statistical tests to perform? Problem for t-tests:
-Correlations (especially in case of auditory PPA) are not normally distributed
-(Fisher's Z-transform should not change that, probably}
+\todo[inline]{make list of which statistical tests to perform?}
+
+\todo[inline]{Problem for t-tests: Correlations (especially in case of auditory
+PPA) are not normally distributed (Fisher's Z-transform should not change that,
+probably)}
 
 \todo[inline]{'statistics\_t-test-correlations.py'}
 
@@ -1093,7 +1095,7 @@ $Z$-maps can be seen in Fig.~\ref{fig:stripplot}.
 
 
 
-\subsection{Template(s) from \citet{jiahui2020predicting}}
+\subsection{Template from \citet{jiahui2020predicting}}
 
 %
 ``After 2-step hyperalignment, the mean Pearson correlation values between
@@ -1113,7 +1115,7 @@ values was highly significant (studyforrest: t(14) = 17.39, p < 0.001)''
 \subsection{Templates for Cronbach's $\alpha$}
 
 
-\paragraph{Template from \citet{jiahui2020predicting}}
+\paragraph{\citet{jiahui2020predicting}}
 %
 ``We compared the correlations between maps estimated from a participant's own
 data and maps estimated from other participants' data to the reliability of the
@@ -1121,7 +1123,6 @@ localizer (across the four localizer runs).
 %
 The mean Cronbach's Alpha between the four localizer runs was 0.60 (N = 15, S.D.
 = 0.14)'' \citep{jiahui2020predicting}.
-
 %
 ``Results mean that if we scan each participant for another 4 localizer
 runs, and compute the correlation between the two maps (4 runs vs. 4 runs), the
@@ -1132,7 +1133,6 @@ correlation would be 0.60 on average in the studyforrest''
 hyperalignment is close to or as good as the real contrast map based on four
 localizer runs (studyforrest: t(14) = 0.61, p = 0.55; Grand Budapest: t(20) =
 3.02, p = 0.007)'' \citep{jiahui2020predicting}.
-
 %
 ``The predicted contrast map based on hyperalignment was better than the
 contrast map based on data from three out of four localizer runs in other
@@ -1143,9 +1143,100 @@ other participants (t(20) = 0.48, p = 0.63)''
 
 
 
-\citep{feilong2022individualized}
+\paragraph{\citet{jiahui2022cross}}
+%
+``Because the localizer task comprises several scanning runs, we calculated the
+reliability of the localizer across runs with Cronbach's alpha to provide an
+estimate of the noise ceiling for these correlations'' \citep{jiahui2022cross}.
+%
+``We compared the correlations between topographies estimated from a
+participant's own localizer data and those from other participants' data to the
+reliability of the localizer, calculated with Cronbach's alpha.
+%
+Predictions made with hyperalignment were close to and sometimes even exceeded
+the reliability values (Figure 1B).
+%
+This indicates that the predicted category-selective topographies from other
+participants' data using hyperalignment were as precise and sometimes even
+better than the topographies estimated with their own localizer data''
+\citep{jiahui2022cross}.
 
-\citep{jiahui2022cross}
+
+
+\paragraph{\citet{feilong2022individualized}}
+%
+``Due to the presence of noise in localizer data, the estimated face-selectivity
+map is a combination of a “true” face-selectivity map of the participant and
+some noise.
+%
+The component from the “true” map is supposed to be shared by all localizer
+runs, and thus the data quality and the level of noise can be estimated based on
+the similarity between the 4 maps (i.e., one from each run).
+%
+We used Cronbach's alpha to estimate the reliability  of the average map of the
+4 runs.
+%
+We estimated the reliability of the localizer-based map using Cronbach's alpha,
+which is the expected correlation between two average maps, each based on 4 runs
+of independent data.
+%
+If we were to collect another 4 localizer runs from the participant and get a
+new average map based on the 4 new runs (i.e., independent data), then the
+expected correlation between the two average maps would be Cronbach's alpha.
+%
+In other words, if the correlation between the model-predicted map and the
+localizer-based (average) map is higher than Cronbach's alpha, then the
+model-predicted map is more accurate than the average map based on 4 runs''
+\citep{feilong2022individualized}.
+
+%
+``Based on the similarity between these four maps, we computed the Cronbach's
+alpha coefficient for each participant, which estimates the reliability of the
+average map.
+%
+That is, if we were to scan the participant for another four localizer runs and
+correlate the new average map with the current average map, the expected
+correlation would be Cronbach's alpha.'' \citep{feilong2022individualized}
+
+%
+``For both datasets, the localizer-based and model-predicted face-selectivity
+maps were highly correlated (Forrest: r = 0.618 ± 0.089 [mean ± SD], Raiders: r
+= 0.716 ± 0.074), and the correlations were higher than our previous
+state-of-the-art model using the same dataset and hyperalignment (Jiahui et al.,
+2020).
+%
+Across all participants, the average Cronbach's alpha was 0.606 ± 0.126 for
+Forrest, and 0.764 ± 0.089 for Raiders.
+%
+For approximately a third of the participants (Forrest: 6 out of 15, 40\%;
+Raiders: 6 out of 20, 30\%), the correlation exceeded the Cronbach's alpha of
+localizer-based maps.
+%
+In other words, for these participants, the predicted map based on our model can
+be more accurate than the map based on a typical localizer scanning session
+comprising four runs'' \citep{feilong2022individualized}.
+
+%
+``Note that for the Forrest dataset, the similarity sometimes exceeded
+Cronbach's alpha, which means the model-predicted map is more accurate than a
+map based on 4 localizer runs (21 minutes).
+%
+The quality of localizer-based maps increases with more localizer data, which
+can be estimated using the Spearman–Brown prediction formula [Brown, 1910;
+Spearman, 1910].
+%
+Based on the Spearman–Brown prediction formula, we can estimate how Cronbach's
+alpha changes with the amount of data (i.e., the number of localizer runs), and
+correspondingly, how much localizer data is needed to achieve the quality of the
+model-predicted map
+%
+For the Forrest dataset, the maps predicted by 15, 30, 60, and 120 minutes of
+movie data were as accurate as 17, 22, 26, and 30 minutes of localizer data,
+respectively.
+%
+For the Raiders dataset, the maps predicted by 15, 28, and 56 minutes of movie
+data were as accurate as 10, 11 and 12 minutes of localizer data, respectively''
+\citep{feilong2022individualized}
 
 
 
