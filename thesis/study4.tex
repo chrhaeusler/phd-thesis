@@ -3,6 +3,10 @@
 \todo[inline]{mih: prime points of the discussion in intro to better frame the
 problem space, challenges \& opportunities}
 
+\todo[inline]{were to put "what does the localizer actually do?" for the first
+time; at the moment, I did not see any got spot in the intro; but should be
+primed for the discussion in the intro, though.}
+
 \todo[inline]{delete unnecessary sub(sub)sections / captions to turn them into
 paragraphs}
 
@@ -19,12 +23,9 @@ vary interindividually \citep{rosenke2021probabilistic, zhen2017quantifying,
 zhen2015quantifying, frost2012measuring}.
 
 
-\subsection{Localizers (= problem)}
+\subsection{Localizers}
 
-\todo[inline]{not mentioned here:
-    "tacit assumption";
-    what does the localizer actually do?
-    }
+
 
 % definition of localizer
 In order to identify the topography of functional areas in individual persons,
@@ -51,7 +52,7 @@ criterion that can be difficult to meet in clinical or pediatric populations
 \citep{eickhoff2020towards, vanderwal2019movies}.
 
 
-\subsection{Estimation from reference group (= solution)}
+\subsection{Estimation from reference group}
 
 % ppa via audio-description
 % Results also suggest that a naturally engaging, purely auditory paradigm like
@@ -213,7 +214,7 @@ that were estimated from other subjects' data based on hyperalignment than with
 contrast maps that were estimated based on surface-based anatomical alignment
 \citep{jiahui2020predicting}.
 
-
+\pagebreak
 
 \subsection{Here, we...}
 
@@ -385,15 +386,11 @@ outperform an estimation based on an anatomical alignment procedure.
 
 \subsection{Summary of results}
 
-\todo[inline]{at the end of intros, papers provide 2-3 sentences summarizing
-results and often also a 1-2 sentence conclusion}
-
-\todo[inline]{so far, just some building block that were shifted from other
-parts to here}
+\todo[inline]{2-3 sentences here}
 
 %
-Our results provide evidence that transformation matrices calculated based on
-data from naturalistic stimuli promise an increased validity of derived
+Our results provide evidence that transformation matrices calculated based
+on data from naturalistic stimuli promise an increased validity of derived
 transformation for functional alignment over transformation matrices based on
 data (of the same!) paradigm based on simplified stimuli.
 
@@ -401,9 +398,10 @@ data (of the same!) paradigm based on simplified stimuli.
 
 \subsection{Conclusion \& Vision}
 
-\todo[inline]{2-3 sentences are enough here; better write more in discussion}
+\todo[inline]{2-3 sentences here; better write more in discussion}
 
 Our results suggest that it is possible to ``scan once, estimate many''...
+
 
 
 \section{Methods}
@@ -772,7 +770,7 @@ and optimized by \citet{anderson2016enabling}.
 \todo[inline]{I created the "other-dimensional" \acp{cfs} \& printed the
 Pearon's r's to file; judged by eye balling results were not "better"}
 
-\todo[inline]{description of \citet{haxby2011common}'s might be too long}
+\todo[inline]{is description of \citet{haxby2011common} too long?}
 
 % ``The effect of number of PCs on BSC was similar for models that were based
 % only on Princeton (n = 10) or Dartmouth (n = 11) data, suggesting that this
@@ -823,15 +821,17 @@ The number of iterations for the algorithm to minimize the error was set to 30.
 \paragraph{Correlation of regressors used in our previous studies with shared
 responses}
 
-\todo[inline]{I have a plot of (just the) shared features but across all TRs
-within the \ac{cfs}; "problem" in the plots shown below: the correlations
-between the shared features vary depending on the TRs used => there is no clear
-"face" or "building" shared feature across paradigms.}
+
 
 \todo[inline]{mih: spell out regressor labels; coh: that will get pretty messy;
 cf. Table 3 in \citep{haeusler2022processing}}
 
-\todo[inline]{What is the point to make with the plots as support?}
+\todo[inline]{What is the point to make with presented plots as support?}
+
+\todo[inline]{not presented: a plot of (just the) shared features but across all
+TRs within the \ac{cfs}; "problem" in the plots shown below: the correlations
+between the shared features vary depending on the TRs used => there is no clear
+"face" or "building" shared feature across paradigms.}
 
 % Intro
 We calculated the Pearson correlation coefficients between shared features
@@ -840,17 +840,30 @@ within the \ac{cfs} and the regressors that were previously modeled
 responses to the three stimuli (movie, audio-description, audio-description).
 
 %
-Correlation of shared features (occurring during TRs of the visual localizer)
-with modeled responses (regressors) used in \citet{sengupta2016extension}: see
-Fig.~\ref{fig:corr-vis-reg-srm}.
+For the correlations between shared features (occurring during \acp{tr} of the
+visual localizer) and  modeled responses (i.e. regressors) to blocks of pictures
+used in \citet{sengupta2016extension}, see Fig.~\ref{fig:corr-vis-reg-srm}.
 %
-Correlation of shared features (occurring during TRs of the movie) with modeled
-responses (regressors) to visual stimulus features as used in
-\citet{haeusler2022processing}: Fig.~\ref{fig:corr-av-reg-srm}.
+For the correlations between shared features (occurring during \acp{tr} of the
+movie) and modeled responses (i.e. regressors) to visual stimulus features as
+used in \citet{haeusler2022processing}, see Fig.~\ref{fig:corr-av-reg-srm}.
 %
-Correlation of shared features (occurring during TRs of the audio-description)
-with modeled responses (regressors) to auditory stimulus features as used in
-\citet{haeusler2022processing}: Fig.~\ref{fig:corr-ao-reg-srm}.
+For the correlation between shared features (occurring during TRs of the
+audio-description) and modeled responses (i.e. regressors) to auditory stimulus
+features as used in \citet{haeusler2022processing}:
+Fig.~\ref{fig:corr-ao-reg-srm}.
+
+
+
+\paragraph{Negative control}
+% shuffle runs
+As a negative control, we randomly shuffled the order of runs (and segments) of
+the paradigms for each paradigm and subject independently before fitting a
+\ac{srm} to the time series.
+% results
+Calculations of correlations revealed no or minor correlations between the
+regressors used in the previous studies and the shared responses that were
+calculated based on shuffled time series.
 
 
 
@@ -865,7 +878,7 @@ with modeled responses (regressors) to auditory stimulus features as used in
     Pearson correlation coefficients between regressors
     created in \citet{sengupta2016extension} to model hemodynamic responses
     during the six-category visual localizer paradigm
-    and the corresponding \acp{tr} shared features within the \ac{cfs}
+    and the shared features within the \ac{cfs}
     (as calculated for subject 01 from $N-1$ training subjects in the first
     fold of the cross-validation).
     %
@@ -886,8 +899,8 @@ with modeled responses (regressors) to auditory stimulus features as used in
     Pearson correlation coefficients between regressors
     created in \citet{haeusler2022processing} to model hemodynamic responses to
     the movie
-    (cf. Table 3 in \citet{haeusler2022processing})
-    and the corresponding \acp{tr} shared features within the \ac{cfs}
+    \citep[cf. Table 3 in][]{haeusler2022processing}
+    and the shared features within the \ac{cfs}
     (as calculated for subject 01 from $N-1$ training subjects in the first
     fold of the cross-validation).
     %
@@ -910,8 +923,8 @@ with modeled responses (regressors) to auditory stimulus features as used in
     Pearson correlation coefficients between regressors
     created in \citet{haeusler2022processing} to model hemodynamic responses to
     stimulus features of the audio-description
-    (cf. Table 3 in \citet{haeusler2022processing})
-    and the corresponding \acp{tr} shared features within the \ac{cfs}
+    \citep[cf. Table 3 in][]{haeusler2022processing}
+    and the shared features within the \ac{cfs}
     (as calculated for subject 01 from $N-1$ training subjects in the first
     fold of the cross-validation).
     %
@@ -920,7 +933,7 @@ with modeled responses (regressors) to auditory stimulus features as used in
     %
     \texttt{geo\&groom} is a combination of
     regressors as used on the positive side of the primary contrasts aimed to
-    localize the \ac{ppa} (cf. Table 5 in \citet{haeusler2022processing}).
+    localize the \ac{ppa} \citep[cf. Table 5 in][]{haeusler2022processing}.
     }
     \label{fig:corr-ao-reg-srm}
 \end{figure*}
@@ -928,18 +941,6 @@ with modeled responses (regressors) to auditory stimulus features as used in
 
 
 
-\paragraph{Negative control}
-
-\todo[inline]{Mention negative control?}
-
-% shuffle runs
-As a negative control, we randomly shuffled the order of segments of the movie
-and audio-description, and the runs of the visual localizer for each training
-subject independently before fitting a \ac{srm} to the time series.
-% results
-Calculations of correlations revealed no or minor correlations between the
-shared responses that were calculated based on shuffled time series and the
-regressors used in the previous studies.
 
 
 \subsubsection{Alignment of the test subject}
@@ -984,11 +985,7 @@ but is based on an increasing quantity of data used to calculate the mapping.
 
 \subsubsection{Estimation of $t$-contrasts' results}
 
-\todo[inline]{Not mentioned: I tested averaging data in \ac{cfs}: similar
-results; in case of anatomical alignment, I did not test averaging data in
-MNI152 space; marked green by mih probably means it should be mentioned}
-
-\todo[inline]{Mention masking shortly (adjust first for anatomical alignment)}
+\todo[inline]{mention masking}
 
 % overview
 We then estimated the empirical $Z$-maps of the test subject by projecting all
@@ -1010,66 +1007,40 @@ predicted $Z$-map that estimates the test subject's empirical $Z$-map.
 
 \subsection{Pearson \& Cronbach's alpha}
 
-\todo[inline]{merge similar phrased parts}
-
-\todo[inline]{adjust to match contrasts from all paradigms}
-%
-The prediction performance is assessed by calculating the Pearson's correlation
-coefficient between a left-out subject's empirical $Z$-map and predicted
-$Z$-map, and compared to the prediction performance based on a voxel-based
-anatomical alignment procedure.
-
 % Pearson's
-In order to quantify the estimation performance based on the functional and
-anatomical alignment procedure, we calculated the Pearson's correlation
-coefficients as a measure of similarity between the empirical $Z$-maps gained
-from the localizer experiment and the predicted $Z$-maps.
+In order to quantify the estimation performance based on anatomical and the
+functional alignment procedure, we calculated the Pearson's correlation
+coefficients as a measure of similarity between the empirical $Z$-maps and the
+predicted $Z$-maps.
 
 % Cronbach's Alpha
-Further, we calculating Cronbach's Alpha across the four runs of the localizer
-as a measure of internal consistency (i.e.  reliability) and proxy for noise
-ceiling of the visual localizer.
+As a measure of the empirical $Z$-maps' internal consistency (i.e.
+reliability), we also calculated Cronbach's $\alpha$ across the four runs in
+case of the localizer's $t$-contrast, and across the eight segments in case of
+the movie's and audio-description's $t$-contrast.
 %
-``We reasoned that across-subject variability cannot be expected to be lower
-than within-subject variability over time (reproducibility)''
-\citep{rosenke2021probabilistic}.
+We assumed to Cronbach's $\alpha$ to be a noisei ceiling, and ``we reasoned that
+across-subject variability cannot be expected to be lower than within-subject
+variability over time (reproducibility)'' \citep{rosenke2021probabilistic}.
 
 
-\subsection{Backup: alternative template creation}
-
-\todo[inline]{imo, this part should be dropped but anyway...}
-
-\todo[inline]{iirc, I projected all subjects' localizer time series through
-model space into test subject voxel space; then, calculated the contrast
-with these data}
-
-\todo[inline]{s. scripts 'test/data\_denoise-vis.py' \& 'test/data\_srm-vis-to-ind.py'}
-
-\todo[inline]{the problem was: if one wants to test the different transformation
-matrices (I only did it with one; imo, based on alignment using the whole
-audio-description) it gets totally messy \& computational intensive}
-
-\todo[inline]{results: performance was the same if not slightly worse}
 
 
 
 \section{Results}
 
-\todo[inline]{as I see it, this section is (gonna be) pretty short...}
+\todo[inline]{which statistical tests to perform? Problem for t-tests:
+Correlations (especially in case of auditory PPA) are not normally distributed
+(Fisher's Z-transform should not change that, probably}
 
-\todo[inline]{statistical test of differences for prediction from alignment via
-localizer runs}
-
-\todo[inline]{finalize 'statistics\_t-test-correlations.py' (!), and write the
-text/numbers here; do not forget to mention that correlations were
-Fisher-transformed (which Jiahu did not)}
+\todo[inline]{'statistics\_t-test-correlations.py'}
 
 
 Unthresholded $Z$-maps [in each subject's voxel space] can be found at
 \href{https://identifiers.org/neurovault.collection:12340}{\url{neurovault.org/collections/12340}}.
 %
-Pearson correlation coefficients between empirical $Z$-maps (results of
-localizer; y-axis) and estimated $Z$-maps (see Fig.~\ref{fig:stripplot}).
+Pearson correlation coefficients between empirical $Z$-maps and predicted
+$Z$-maps can be seen in Fig.~\ref{fig:stripplot}.
 
 
 
@@ -1080,10 +1051,15 @@ localizer; y-axis) and estimated $Z$-maps (see Fig.~\ref{fig:stripplot}).
     \textbf{Correlations between empirical and predicted
     \textit{\textbf{Z}}-maps for each subject.}
     %
+    Dashed lines:
+    %
+    median of Cronbach's $\alpha$ across subjects for the respective paradigm's
+    $t$-contrast (i.e. Cronbach's $\alpha$ of empirical $Z$-maps).
+    %
     Grey dots:
     %
-    correlations between empirical $Z$-maps and an estimation using
-    anatomical alignment.
+    correlations between empirical $Z$-maps and an estimation using anatomical
+    alignment.
     %
     A left-out subject's $Z$-map was estimated by projecting the training
     subjects' $Z$-maps ($N=13$) from their respective voxel space through the
@@ -1092,44 +1068,32 @@ localizer; y-axis) and estimated $Z$-maps (see Fig.~\ref{fig:stripplot}).
     %
     Green dots:
     %
-    correlations between empirical $Z$-map and an estimation using
-    functional alignment based an transformation matrices
-    calculated from one up to four runs
-    (each lasting \unit[5.2]{m})  of the visual localizer.
+    correlations between empirical $Z$-map and an estimation using functional
+    alignment based an transformation matrices calculated from one up to four
+    runs (each lasting \unit[5.2]{m})  of the visual localizer.
     %
     Red dots:
     %
-    correlations between empirical $Z$-map and an estimation using
-    functional alignment based an transformation matrices
-    calculated from one up to eight segments
-    (each lasting $\sim$\unit[15]{m}) of the movie.
+    correlations between empirical $Z$-map and an estimation using functional
+    alignment based an transformation matrices calculated from one up to eight
+    segments (each lasting $\sim$\unit[15]{m}) of the movie.
     %
     Blue dots:
     %
-    correlations between empirical $Z$-map and an estimation using
-    functional alignment based an transformation matrices
-    calculated from one up to eight segments
-    (each lasting $\sim$\unit[15]{m}) of the audio-description.
-    }
-    \textbf{
-        ToDo: Legend for mean/median Cronbach's of empirical Z-maps;
-        keep boxplots (and median \& mean)?
-        }
+    correlations between empirical $Z$-map and an estimation using functional
+    alignment based an transformation matrices calculated from one up to eight
+    segments (each lasting $\sim$\unit[15]{m}) of the audio-description.
+    %
+    \textbf{to do: keep underlying boxplots (including mean \& median)?? Add
+    $Z$-maps median Cronbach's alpha? to legend?)}
+}
 
     \label{fig:stripplot}
 \end{figure*}
 
 
-In case of \acp{tr} of the visual localizer, we used one up to four runs (each
-lasting \unit[5.2]{m} to align the test subject to the corresponding \acp{tr}
-within the \ac{cfs}.
-%
-In case of the naturalistic stimuli, we used one up to eight segments (each
-lasting $\sim$\unit[15]{m}) [to align the test subject to the corresponding
-\acp{tr} within the \ac{cfs}].
 
-
-\subsection{Template(s) from from \citet{jiahui2020predicting}}
+\subsection{Template(s) from \citet{jiahui2020predicting}}
 
 %
 ``After 2-step hyperalignment, the mean Pearson correlation values between
@@ -1146,23 +1110,20 @@ values was highly significant (studyforrest: t(14) = 17.39, p < 0.001)''
 
 
 
-\subsubsection{Cronbach's Alpha}
+\subsection{Templates for Cronbach's $\alpha$}
 
 
 \paragraph{Template from \citet{jiahui2020predicting}}
 %
 ``We compared the correlations between maps estimated from a participant's own
 data and maps estimated from other participants' data to the reliability of the
-localizer.
-%
-We computed the reliability of the contrast maps with Cronbach's Alpha based on
-variability across the four localizer runs for each set.
+localizer (across the four localizer runs).
 %
 The mean Cronbach's Alpha between the four localizer runs was 0.60 (N = 15, S.D.
 = 0.14)'' \citep{jiahui2020predicting}.
 
 %
-``These results mean that if we scan each participant for another 4 localizer
+``Results mean that if we scan each participant for another 4 localizer
 runs, and compute the correlation between the two maps (4 runs vs. 4 runs), the
 correlation would be 0.60 on average in the studyforrest''
 \citep{jiahui2020predicting}.
@@ -1178,7 +1139,15 @@ contrast map based on data from three out of four localizer runs in other
 participants (t(14) = 2.36, p = 0.03) and in Grand Budapest, the predicted
 contrast map was comparable to the contrast map based on three localizer runs in
 other participants (t(20) = 0.48, p = 0.63)''
-\citep{jiahui2020predicting}.\todo{what?}
+\citep{jiahui2020predicting}.
+
+
+
+\citep{feilong2022individualized}
+
+\citep{jiahui2022cross}
+
+
 
 
 \subsection{plot\_bland-altman.py}
@@ -2509,3 +2478,29 @@ Unthresholded $Z$-maps of all contrasts can be found at
 Scripts to generate the results as Datalad \citep{halchenko2021datalad} datasets
 are available in a \emph{G-Node GIN} repository
 (\href{https://gin.g-node.org/chaeusler/studyforrest-ppa-srm}{\url{gin.g-node.org/chaeusler/studyforrest-ppa-srm}}).
+
+
+
+\section{Backup of texts regarding "done but not mentioned"}
+
+\subsection{Calculate $Z$-maps mean in the common space already}
+%
+I also tested averaging $Z$-maps in the \ac{cfs} (i.e.: not in the test
+subject's voxel space): similar results
+%
+In case of anatomical alignment, I did
+not test averaging data in MNI152 space.
+
+\subsection{Calculate $Z$-map from training subjects' TRs in FEAT}
+
+iirc, I projected all subjects' localizer time series through
+model space into test subject voxel space; then, calculated the contrast
+with these data (s. scripts 'test/data\_denoise-vis.py' \&
+'test/data\_srm-vis-to-ind.py').
+%
+
+The problem was: if one wants to test the different transformation matrices (I
+only did it with one; imo, based on alignment using the whole audio-description)
+it gets totally messy \& computational intensive.
+%
+Results were similar to the original procedure if not slightly worse.
