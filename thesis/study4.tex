@@ -25,19 +25,18 @@ zhen2015quantifying, frost2012measuring}.
 
 \subsection{Localizers}
 
-
-
 % definition of localizer
 In order to identify the topography of functional areas in individual persons,
 block-design \textit{functional localizer} paradigms are traditionally used that
-contrast regressors of modeled hemodynamic responses correlating with the
-corresponding stimulus classes (i.e. landscapes, faces, or bodies).
+contrast modeled hemodynamic responses correlating with the corresponding
+stimulus classes (i.e. landscapes, faces, or bodies).
 % problem: one localizer for one domain
 Functional localizers are designed to maximize detection power and thus
 dedicated to map just one domain of brain functions like, for example,
-retinotopic visual areas \citep{wang2015probabilistic}, scene-selective regions
-\citep{stigliani2015temporal}, theory of mind \citep{spunt2014validating}, or
-semantic processes \citep{fedorenko2010new, fernandez2001language}.
+retinotopic visual areas \citep{wang2015probabilistic}, category-selective
+regions \citep{stigliani2015temporal}, theory of mind
+\citep{spunt2014validating}, or semantic processes \citep{fedorenko2010new,
+fernandez2001language}.
 % which gets messy
 However, if one wants to map a variety of domains, the approach ``one paradigm
 for one domain of functions'' gets time-consuming and impractical.
@@ -46,7 +45,7 @@ Researchers have tried to tackle that issue by creating time-efficient
 multi-functional \textit{localizer batteries} \citep[e.g.,][]{barch2013function,
 drobyshevsky2006rapid, pinel2007fast}.
 % task based = shit
-Nevertheless, the diagnostic quality of localizer paradigms rely heavily on a
+Nevertheless, the diagnostic quality of localizer paradigms relies heavily on a
 participant's comprehension of the task instructions and general compliance, a
 criterion that can be difficult to meet in clinical or pediatric populations
 \citep{eickhoff2020towards, vanderwal2019movies}.
@@ -61,25 +60,25 @@ criterion that can be difficult to meet in clinical or pediatric populations
 % individuals \citep{haeusler2022processing}.
 
 % ppa via movie
-In \citet{haeusler2022processing}, we have shown that a functionally
-defined region, such as the \ac{ppa}, can be localized using a model-driven
-\ac{glm} analysis that is based on the annotated temporal structure of a
-two-hour long naturalistic stimulus.
+In \citet{haeusler2022processing}, we have shown that a functionally defined
+region, such as the \ac{ppa}, can be localized using a model-driven \ac{glm}
+analysis that is based on the annotated temporal structure of a two-hour long
+naturalistic stimulus.
 % full feature film is too long
 However, a two-hour long paradigm is unsuitable for a clinical application due
 to practical and monetary reasons.
 % hence, predict from reference
 An approach to reduce time and costs is to identify a functional area in an
-individual person based on data collected from an independent sample of
-different persons (i.e. data from a \textit{reference group}).
+individual person's brain anatomy based on data collected from an independent
+sample of different persons (i.e. data from a \textit{reference group}).
 
 
 
 \subsubsection{Anatomical alignment}
 
 % intro: estimation via common anatomical space
-Previous studies estimated the most probable location of a functional area in a
-person's anatomy from a reference group by performing a volume-based
+Previous studies estimated a functional area's most probable location from a
+reference group by performing a volume-based
 \citep[e.g.,][]{zhen2017quantifying, zhen2015quantifying} or surface-based
 \citep[e.g.,][]{frost2012measuring, weiner2018defining,
 rosenke2021probabilistic, wang2015probabilistic} \textit{anatomical alignment}.
@@ -106,7 +105,7 @@ Whereas volume-based alignment does not account for individual sulcal and gyral
 folding patterns, surface-based alignment respects interindividual variability
 of the cortical surface.
 % surface-based estimation works better
-Consequently, previous studies compared  [linear / affine] volume-based and
+Consequently, previous studies that compared  [linear / affine] volume-based and
 [nonlinear] surface-based alignment to estimate the location of functional
 regions have shown that surface-based alignment lead to reduced inter-subject
 variability, and thus increased estimation performance
@@ -159,7 +158,7 @@ anatomical location to a common anatomical space, functional alignment aligns
 voxels (or vertices)\todo{unclear?} that share similar functional properties to
 a \textit{common functional space} (CFS).
 %
-Functional alignment algorithms are usually used to construct both a
+Functional alignment algorithms are usually used to calculate both a
 high-dimensional, functional brain template (i.e. the \ac{cfs}) from study
 participants' functional data as well as subject-specific transformation
 matrices.
@@ -169,18 +168,28 @@ subject's three-dimensional voxel space into the \ac{cfs}, or to project data
 from the \ac{cfs} into a subject's voxel space \citep{haxby2020hyperalignment,
 kumar2020brainiak}.
 %
-The \ac{cfs} and transformation matrix can be created (i.e.  \textit{trained})
-based on the maximization of the inter-subject similarity of \ac{bold} response
-time series correlating with a time-locked external stimulation
-\citep{haxby2011common, chen2015reduced, sabuncu2010function}, or based on the
-inter-subject similarity of connectivity profiles \citep{feilong2018reliable,
-guntupalli2018computational, nastase2019leveraging}.
+The \ac{cfs} and transformation matrix can be calculated (i.e.
+\textit{trained}) based on the maximization of the inter-subject similarity of
+\ac{bold} response time series correlating with a time-locked external
+stimulation \citep{haxby2011common, chen2015reduced, sabuncu2010function}, or
+based on the inter-subject similarity of connectivity profiles
+\citep{feilong2018reliable, guntupalli2018computational, nastase2019leveraging}.
 %
-Tough functional alignment algorithms can be applied to \ac{fmri} time series
+Though functional alignment algorithms can be applied to \ac{fmri} time series
 data from paradigms employing simplified stimuli, data from naturalistic stimuli
-provide increased generalizability of the \ac{cfs} and transformation matrices
+provide
+%
+increased generalizability of the \ac{cfs}
+%
+and transformation matrices [???]
+%
 to novel stimuli or tasks, presumably because naturalistic stimuli sample a
 broader range of brain states \citep{haxby2011common, guntupalli2016model}.
+
+\todo[inline]{Validity of transformation matrices was not explicitly tested in
+previous studies; was there any cfs based on paradigm x, alignment via paradigm
+y???}
+
 
 
 
@@ -193,7 +202,7 @@ a functional area in a person's anatomy from a reference group performs an
 functional alignment.
 % solve functional-anatomical variability
 First, functional data from persons in the reference group are anatomical
-aligned to a common anatomical space.
+aligned to a common anatomical space [which we did not do, cause ROI].
 %
 Second, in order to address the issue of functional-anatomical variability
 across persons, functional data are functionally aligned (i.e. projected into) a
@@ -203,18 +212,17 @@ Then, data are projected from the \ac{cfs} into the individual person's brain
 anatomy serving as an estimation of a functional region's location.
 
 % Jiahui
-For example, \citet{jiahui2020predicting} calculated both a \ac{cfs} and
-transformation matrices based on data from a) the movie ``Grand Budapest Hotel''
-($\sim$\unit[50]{m}; \ac{tr}=\unit[1]{s}), and b) ``Forrest Gump''
-($\sim$\unit[120]{m}; \ac{tr}=\unit[2]{s}).
+For example, \citet{jiahui2020predicting} used surface-based hyperalignment to
+calculated both a \ac{cfs} and transformation matrices based on data from a) the
+movie ``Grand Budapest Hotel'' ($\sim$\unit[50]{m}; \ac{tr}=\unit[1]{s}), and b)
+``Forrest Gump'' ($\sim$\unit[120]{m}; \ac{tr}=\unit[2]{s}).
 % summary of results
 Results revealed that the empirical results of a visual localizer's $t$-contrast
 that aimed at localizing the \ac{ffa} correlate more highly with contrast maps
-that were estimated from other subjects' data based on hyperalignment than with
-contrast maps that were estimated based on surface-based anatomical alignment
+that were estimated via hyperalignment from the reference group than contrast
+maps that were estimated via surface-based anatomical alignment
 \citep{jiahui2020predicting}.
 
-\pagebreak
 
 \subsection{Here, we...}
 
@@ -295,7 +303,7 @@ guntupalli2016model, haxby2011common} that created a \ac{cfs} based on data from
 a single paradigm, we calculate a \textit{multi-stimulus \ac{cfs}}:
 % cross-validation
 following an exhaustive leave-one-out cross-validation (N$=$14 subjects), we
-train a shared response model (i.e. the \ac{cfs}) based on concatenated response
+train a shared feature space (i.e. the \ac{cfs}) based on concatenated response
 time series to [of / from???] a movie, an audio-description and a visual
 localizer from $N-1$ \textit{training subjects} as seen in in
 Fig.~\ref{fig:multi-stimulus-cfs}.
@@ -329,17 +337,17 @@ first, in order to investigate the validity and generalizability of our
 multi-stimulus \ac{cfs}, we predict a left-out \textit{test subject}'s results
 from the analysis of
 %
-a) the localizer \citep{sengupta2016extension}
+a) the localizer \citep{sengupta2016extension},
 %
 b) the movie \citep{haeusler2022processing}, and
 %
 c) the auditory narrative \citep{haeusler2022processing}.
 % three predictors
 Second, in order to investigate the validity and generalizability of a test
-subject's transformation matrix based on data from different paradigms, we use a
-test subject's response time series to each of the three paradigms independently
-to align the test subject with the corresponding \acp{tr} within the \ac{cfs}
-(i.e. one \textit{within-experiment} prediction, and two
+subject's transformation matrices based on data from different paradigms, we use
+a test subject's response time series to each of the three paradigms
+independently to align the test subject with the corresponding \acp{tr} within
+the \ac{cfs} (i.e. one \textit{within-experiment} prediction, and two
 \textit{cross-experiment} predictions).
 % partial lignment
 Third, since using a complete naturalistic stimulus to align a test subject is
@@ -349,39 +357,56 @@ data from each of the three paradigms used to functionally align the subject
 with the multi-stimulus \ac{cfs}.
 % benchmark: anatomical alignment
 Lastly, we compare the performance of your volume-based, functional alignment
-procedures to the performance of a volume-based, anatomical alignment
-approach that serves as a benchmark.
+procedures to the performance of a volume-based, anatomical alignment approach
+that serves as a benchmark.
 
 
 
 
 \subsection{Hypotheses}
 
-\todo[inline]{Write this inline with the introduction and what to explore}
-
-%
-We hypothesized that an increased quantity of data used to calculate the
-transformation matrices of the test subjects would lead to an increasing
-prediction performance.
-%
-Further, we hypothesized that functional alignment procedure would eventually
-outperform an estimation based on an anatomical alignment procedure.
-
-
-\subsubsection{Questions (as discussed during our meeting)}
-
+Questions as discussed during our meeting:
 \begin{itemize}
-    \item can I predict the localizer?
-    \item question: What is causing the difference?
+
+    \item What is causing the difference?
+
     \item a) is it the quality of the alignment? or:
-        b) is the model doing a better prediction?
-        i.e. is the criterion doing an individual overfit?
-    \item "SRM could just do a denoising, too"?
+
+    \item b) is the model doing a better prediction
+        (i.e. is the criterion doing an individual overfit?)
+
+    \item SRM could just do a denoising, too?
+
     \item How do I know if the "localizer PPA" is the "gold standard"?
+
     \item "tacit assumption"; what does the localizer actually do?
         does it what we want it to do?
+
 \end{itemize}
 
+\todo[inline]{It's kind of difficult (if not even wrong) to write "umbrella
+hypotheses"; in any case, I was expecting the localizer runs to better predict
+the localizer results (cf. hypotheses)}
+
+We hypothesize that:
+\begin{itemize}
+
+    \item functional alignment beats anatomical alignment in order to
+        estimate $Z$-map from the localizer, movie, audio-description
+        (eventually, depends on the quantity of data for the matrices).
+
+    \item in case of functional alignment alone, within paradigm prediction
+        beats across-paradigm prediction (at least based on similar amount of
+        TRs).
+
+    \item but eventually, naturalistic stimuli perform better in case of
+        cross-paradigm prediction of visual localizer
+        (cause four segments are more data than 1.5 localizer runs.
+
+    \item on average, movie is best (how to calculate average across which
+        conditions?); no ANOVA, please.
+
+\end{itemize}
 
 
 \subsection{Summary of results}
@@ -1257,61 +1282,17 @@ data were as accurate as 10, 11 and 12 minutes of localizer data, respectively''
 
 \section{Discussion}
 
-\todo[inline]{mih: many points discussed in the discussion should already be
-primed in the intro to better frame the problem space, challenges, and
-opportunities}
-
-
 \subsection{Short summary of aims \& hypotheses, method, results}
 
-\todo[inline]{to be written}
-
 %
-\paragraph{Methods} We used the union of individual \ac{ppa} ROIs as an
-probabilistic functional atlas in order to restrict the number of voxels to
-voxels that have shown to be located in the \ac{ppa} \ac{roi} of at least one
-subject.
-
-
-\subsection{We created one "multi-stimulus" model}
-
-\subsubsection{Previous studies}
-
-Previous studies \citep{guntupalli2016model, haxby2020hyperalignment} that
-focused on the validity and generalizability of the \ac{cfs} have shown that:
+Validity should be the cross-subject-\textbf{within-paradigm} prediction.
 %
-``The algorithm also can be applied to simpler, controlled experimental data,
-but our previous results showed that the sampling of response vectors from these
-experiments is impoverished and produces a model representational space that
-does not generalize well to new stimuli in other experiments (Haxby et al.
-2011)'' \citep{guntupalli2016model}.
-%
-``Hyperalignment of data using a set of stimuli that is less diverse than the
-movie is effective, but the resultant common space has validity that is limited
-to a small subspace of the representational space in VT cortex''
-\citep{haxby2011common}
-%
-``Estimating the parameters to transform high-dimensional spaces from individual
-brains into a common high-dimensional space requires a rich set of data that
-samples a wide variety of cortical patterns in order to generalize to novel
-stimuli or tasks'' \citep{haxby2020hyperalignment}, ``presumably because such
-experiments sample a sparser range of brain states
-\citep{guntupalli2016model}''.
+Generalizability should be the cross-subject-\textbf{cross-paradigm} prediction.
 
-
-\subsubsection{We: "multi-stimulus" model}
-
-%
-Validity should be the cross-subject-within-paradigm-prediction
-%
-Generalizability should be the (cross-subject) cross-paradigm prediction.
 %
 We create one \ac{cfs} (for every fold) based on time-series of three stimuli
 that were concatenated before model fitting.
 
-%
-Results indicate that we are able to use data from a group of 13 participants to
-learn a 10-dimensional shared space.
 %
 Enabled us to have cross-subject, cross-experiment, [and cross-scanner
 prediction]
@@ -1320,7 +1301,7 @@ Movie data and visual localizer are from the same scanner but not from the same
 session [???].
 
 
-\subsubsection{We: alignment via three paradigms}
+\paragraph{We: alignment via three paradigms}
 
 The \ac{srm} algorithm can be applied to functional data from traditional
 paradigms using controlled stimuli.
@@ -1337,7 +1318,7 @@ matrices to the prediction performance based on transformation matrices that
 we derive from the naturalistic stimulus paradigms.
 
 
-\subsubsection{We: partial alignment}
+\paragraph{We: partial alignment}
 
 \todo[inline]{to predict using the model you don't need the same amount of data;
 I checked how much data you need (s. Figure in results)}
@@ -1352,15 +1333,35 @@ transformation for functional alignment over transformation matrices based on
 data (of the same!) paradigm based on simplified stimuli.
 
 
+%
+\paragraph{Methods} We used the union of individual \ac{ppa} ROIs as an
+probabilistic functional atlas in order to restrict the number of voxels to
+voxels that have shown to be located in the \ac{ppa} \ac{roi} of at least one
+subject.
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Estimation of visual localizer}
 
-\todo[inline]{Evaluation of same modality / criterion (visual localizer)
-using different predictors (localizer, movie, audio-description)}
+\todo[inline]{estimated using different predictors: anatomically \& functionally
+based on three paradigms (localizer, movie, audio-description)}
 
-\todo[inline]{How good is which stimulus to perform alignment to that model?}
+\todo[inline]{How good is which stimulus to perform alignment to that
+(sub)model?}
+
 
 \subsubsection{Assumption that localizer is "ground truth"}
+
+\todo[inline]{This might be shifted downwards as intro to "prediction of movie
+and audio PPA}
 
 %
 ``The PPA definition may depend on the type of experiment, task, and stimuli
@@ -1375,6 +1376,7 @@ right hemispheric \acp{ppa} in 97.5\% of 202 subjects.
 \ac{ppa} in X of X subjects and right-hemispheric \ac{ppa} in X of X subjects
 based on localizer data
 
+\subsubsection{visual localizer via anatomical alignment}
 
 \subsubsection{visual localizer via localizer runs}
 
@@ -1401,24 +1403,11 @@ than 30 minutes during audio-visual naturalistic stimulation.
 \subsection{Interim summary \& transition to movie \& audio PPA}
 
 
+
 \subsubsection{One "multi-stimulus" model}
 
 \todo[inline]{Naturalistic is awesome for the model; cf. literature}
 
-``The general validity of the model across the varied stimulus sets that we
-tested could be achieved only when hyperalignment was based on responses to the
-movie.  Common models based on responses to smaller, more controlled stimulus
-sets---still images of a limited number of categories---were valid only for
-restricted stimulus domains, indicating that these models captured only a
-subspace of the substantially larger representational space in VT cortex''
-\citep{haxby2011common}.
-
-``The algorithm also can be applied to simpler, con- trolled experimental data,
-but our previous results showed that the sampling of response vectors from these
-experiments is impoverished and produces a model representational space that
-does not generalize well to new stimuli in other experiments (Haxby et al.
-2011). Results show that the computational principles underlying''
-\citep{guntupalli2016model}.
 
 
 \subsubsection{Partial alignment}
@@ -1434,7 +1423,11 @@ shared stimulus part is easier than shared subjects
 \citep[e.g.][]{zhang2018transfer}.
 
 
+
 \subsubsection{Naturalistic stimuli are awesome}
+
+\todo[inline]{check papers; they should all use whole stimulus matrices; also
+check for validity of \ac{cfs} based on different paradigms}
 
 % from project proposal
 Compared to paradigms with simplified stimuli, naturalistic stimuli sample a
@@ -1447,12 +1440,153 @@ cognition; emotion; music, speech or social perception).
 
 
 
+\subsubsection{Haxby et al. on validity and generalizability}
+
+%
+``The algorithm also can be applied to simpler, controlled experimental data but
+our previous results showed that the sampling of response vectors from these
+experiments is impoverished and produces a model representational space that
+does not generalize well to new stimuli in other experiments
+\citep{haxby2020hyperalignment}'' \citep{guntupalli2016model}.
+%
+``We base the derivation of the transformation matrices and the common space on
+responses to the movie---a complex, naturalistic, dynamic stimulus.
+%
+Although the algorithm also can be applied to fMRI data from more controlled
+experiments, we found that a common model based on such data has greatly
+diminished general validity \citep{haxby2011common}, presumably because,
+relative to a rich and dynamic naturalistic stimulus, such experiments sample an
+impoverished range of brain states \citep{guntupalli2016model}''.
+
+``The general validity of the model across the varied stimulus sets that we
+tested could be achieved only when hyperalignment was based on responses to the
+movie.
+%
+Common models based on responses to smaller, more controlled stimulus
+sets---still images of a limited number of categories---were valid only for
+restricted stimulus domains, indicating that these models captured only a
+subspace of the substantially larger representational space in VT cortex''
+\citep{haxby2011common}.
+
+``We used a complex and dynamic natural stimulus---a full-length action
+movie---to sample a diverse variety of representational states.
+%
+The results show that hyperalignment based on responses to this stimulus affords
+a single model of VT cortex with general validity across a broad range of
+stimuli, whereas hyperalignment based on responses to still images in more
+controlled, conventional experiments does not.
+%
+Thus, by virtue of the rich diversity of a complex, natural stimulus, our model
+of the representational space in VT cortex also has general validity across
+stimuli''\citep{haxby2011common}.
+
+``We also derived common models based on responses to the face and object
+categories in ten subjects and on responses to the pictures of animals in 11
+subjects.
+%
+These alternative common models afforded high levels of accuracy for BSC of the
+stimulus categories used to derive the common space but did not generalize to
+BSC for the movie time segments.
+%
+Thus, models based on hyperalignment of responses to a limited number of
+stimulus categories align only a small subspace within the representational
+space in VT cortex and are, therefore, inadequate as general models of that
+space.
+%
+On the positive side, these results also show that hyperalignment can be used
+for BSC of an fMRI experiment without data from movie viewing''
+\citep{haxby2011common}.
+
+%
+``Further analyses revealed other desirable properties of the movie as a
+stimulus for model derivation.
+%
+The movie evoked responses in VT cortex that were more distinctive than were
+responses to the still images in the category perception experiments.
+%
+Moreover, the general validity of the model based on the responses to the movie
+is not dependent on responses to stimuli that are in both the movie and the
+category perception experiments but, rather, appears to rest on stimulus
+properties that are more abstract and of more general utility''
+\citep{haxby2011common}.
+
+%
+``We investigated whether hyperalignment of the face and object data and
+hyperalignment of the animal species data would afford high levels of BSC
+accuracy using only the data from those experiments.
+%
+In each experiment, we derived a common space based on all runs but one. We
+transformed the data from all runs, including the left-out run, into this common
+space.
+%
+We trained the classifier on those runs used for hyperalignment in all subjects
+but one and tested the classifier on the data from the left-out run in the
+left-out subject (i.e. the test data for determining classifier accuracy played
+no role either in hyperalignment or in classifier training [Kriegeskorte et al.,
+2009]).
+%
+BSC of face and object categories after hyperalignment based on data from that
+experiment was equivalent to BSC after movie-based hyperalignment (62.9\% ±
+2.9\% versus 63.9\% ± 2.2\%, respectively; Figure 4).
+%
+BSC of the animal species after hyperalignment based on data from that
+experiment was significantly better than BSC after movie-based hyperalignment
+(76.2\% ± 3.7\% versus 68.0\% ± 2.8\%, respectively; p < 0.05; Figure 4).
+%
+Result suggests that the validity for a model of a specific subspace may be
+enhanced by designing a stimulus paradigm that samples the brain states in that
+subspace more extensively'' \citep{haxby2011common}.
+
+%
+``We next asked whether hyperalignment based on these simpler stimulus sets was
+sufficient to derive a common space with general validity across a wider array
+of complex stimuli.
+%
+We applied the hyperalignment parameters derived from the face and object data
+to the movie data in the ten Princeton subjects and the hyperalignment
+parameters derived from the animal species data to the movie data in the 11
+Dartmouth subjects.
+%
+BSC of 18s movie time segments after hyperalignment based on category perception
+experiment data was markedly worse than BSC after hyperalignment based on movie
+data (17.6\% ± 1.3\% versus 65.8\% ± 2.7\% for Princeton subjects; 28.3\% ±
+2.8\% versus 74.9\% ± 4.1\% for Dartmouth subjects; p < 0.001 in both cases;
+Figure 4).
+%
+Thus, hyperalignment of data using a set of stimuli that is less diverse than
+the movie is effective, but the resultant common space has validity that is
+limited to a small subspace of the representational space in VT cortex''
+\citep{haxby2011common}.
+
+%
+``We also tested whether the general validity of the model space reflects
+responses to stimuli that are in both the movie and the category perception
+experiments or reflects stimulus properties that are not specific to these
+stimuli.
+%
+We recomputed the common model after removing all movie time points in which a
+monkey, a dog, an insect, or a bird appeared. We also removed time points for
+the 30 s that followed such episodes to factor out effects of delayed
+hemodynamic responses.
+%
+BSC of the face and object and animal species categories, including distinctions
+among monkeys, dogs, insects, and birds, was not affected by removing these time
+points from the movie data (65.0\% ± 1.9\% versus 64.8\% ± 2.3\% for faces and
+objects; 67.1\% ± 3.0\% versus 67.6\% ± 3.1\% for animal species; Figure S4B).
+%
+This result suggests that the movie-based hyperalignment parameters that afford
+generalization to these stimuli are not stimulus specific but, rather, reflect
+stimulus properties that are more abstract and of more general utility for
+object representations'' \citep{haxby2011common}.
+
+
+
 \subsection{Estimation of movie PPA}
 
 \todo[inline]{evaluation of other modality / criterion (movie \& audio PPA)}
 
-\todo[inline]{Well, how reliable is the localization of movie PPA across
-segments?}
+\todo[inline]{How do I know if the "localizer PPA" is the "gold standard" "tacit
+assumption"; what does localizer actually do? does it what we want it to do?}
 
 % movie
 Despite an adventurous operationalization, \citet{haeusler2022processing}
@@ -1462,6 +1596,9 @@ right-hemispheric \ac{ppa} in X of X subjects based on movie data.
 Which actually should not matter, because the \ac{srm}/transformation matrices
 do not care about the operationalization but about a voxels responses time
 series across the whole stimulus.
+
+
+\subsubsection{movie PPA via anatomical alignment}
 
 \subsubsection{movie PPA via movie segments}
 
@@ -1503,6 +1640,7 @@ participants'' in such a way that the ``SRM will improve sensitivity for
 detecting a cognitive process of interest in the test data''
 \citep{cohen2017computational}.
 
+\subsubsection{audio PPA via anatomical alignment}
 
 \subsubsection{audio PPA via audio segments}
 
@@ -1512,14 +1650,14 @@ detecting a cognitive process of interest in the test data''
 
 \subsubsection{Interim summary of audio PPA}
 
-\todo[inline]{movie works better for movie and localizer \ac{ppa}}
-\todo[inline]{audio-description works better for audio \ac{ppa}}
-
 %
 Present results add evidence that the responses to auditory spatial information
 lead to different activity patterns than visual stimulation [cf. interpretation
 in \citet{haeusler2022processing}] and results in \citet{haeusler2022processing}
 are not based on the modeling choices?
+%
+And some subjects seem to just not have cared about auditory spatial
+information.
 
 
 
