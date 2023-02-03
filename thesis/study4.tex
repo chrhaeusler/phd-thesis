@@ -1,14 +1,14 @@
 \section{Introduction}
 
+\todo[inline]{delete unnecessary sub(sub)sections / captions to turn them into
+paragraphs}
+
 \todo[inline]{mih: prime points of the discussion in intro to better frame the
 problem space, challenges \& opportunities}
 
 \todo[inline]{were to put "what does the localizer actually do?" for the first
-time; at the moment, I did not see any got spot in the intro; but should be
-primed for the discussion in the intro, though.}
+time? at the moment, I do not see any good spot in the intro}
 
-\todo[inline]{delete unnecessary sub(sub)sections / captions to turn them into
-paragraphs}
 
 % higher visual areas higher visual areas
 In the domain of higher-visual perception, functionally defined,
@@ -155,8 +155,8 @@ have been developed that perform a \textit{functional alignment}.
 %
 Whereas anatomical alignment aligns voxels (or vertices) that share the same
 anatomical location to a common anatomical space, functional alignment aligns
-voxels (or vertices)\todo{unclear?} that share similar functional properties to
-a \textit{common functional space} (CFS).
+voxels (or vertices) that share similar functional properties to a
+\textit{common functional space} (CFS).
 %
 Functional alignment algorithms are usually used to calculate both a
 high-dimensional, functional brain template (i.e. the \ac{cfs}) from study
@@ -187,14 +187,19 @@ to novel stimuli or tasks, presumably because naturalistic stimuli sample a
 broader range of brain states \citep{haxby2011common, guntupalli2016model}.
 
 \todo[inline]{Validity of transformation matrices was not explicitly tested in
-previous studies; was there any cfs based on paradigm x, alignment via paradigm
-y???}
+previous studies; is there any studies that aligns via paradigm x but has a
+\ac{cfs} based on paradigm y}
 
 
 
 
 
 \subsubsection{Estimation via functional alignment}
+
+% \citep{guntupalli2016model}: s. Supplementary Figure S8.
+
+\todo[inline]{check \citep{jiahui2022cross, feilong2022individualized}}
+
 %
 Hence, a more recent procedure \citep[e.g., ][]{jiahui2020predicting,
 guntupalli2016model, haxby2011common} to estimate the most probable location of
@@ -321,7 +326,8 @@ Fig.~\ref{fig:multi-stimulus-cfs}.
     The \ac{srm} algorithm uses each $n^{th}$ training subject's
     concatenated response time series to three different paradigms
     represented as matrix $X_{n}$ ({$v$} voxels by $t$ time points)
-    to calculate the \ac{cfs} $C$ ($k$ shared features by $t$ time points)
+    to calculate the common functional space (CFS) $C$
+    ($k$ shared features by $t$ time points)
     and subject-specific, transformation matrices $W_{n}$ ($v$ voxels by $k$
     shared features) with orthonormal columns ($W_{n}^{T}W_{n}=I_{k}$).
     }
@@ -349,7 +355,7 @@ a test subject's response time series to each of the three paradigms
 independently to align the test subject with the corresponding \acp{tr} within
 the \ac{cfs} (i.e. one \textit{within-experiment} prediction, and two
 \textit{cross-experiment} predictions).
-% partial lignment
+% partial alignment
 Third, since using a complete naturalistic stimulus to align a test subject is
 impractical in a clinical setting, we also investigate the relationship between
 the estimation performance of the $t$-contrast's results and the quantity of
@@ -365,30 +371,11 @@ that serves as a benchmark.
 
 \subsection{Hypotheses}
 
-Questions as discussed during our meeting:
-\begin{itemize}
-
-    \item What is causing the difference?
-
-    \item a) is it the quality of the alignment? or:
-
-    \item b) is the model doing a better prediction
-        (i.e. is the criterion doing an individual overfit?)
-
-    \item SRM could just do a denoising, too?
-
-    \item How do I know if the "localizer PPA" is the "gold standard"?
-
-    \item "tacit assumption"; what does the localizer actually do?
-        does it what we want it to do?
-
-\end{itemize}
-
 \todo[inline]{It's kind of difficult (if not even wrong) to write "umbrella
 hypotheses"; in any case, I was expecting the localizer runs to better predict
-the localizer results (cf. hypotheses)}
+the localizer results (cf. \citet{haxby2011common}}
 
-We hypothesize that:
+We hypothesized that:
 \begin{itemize}
 
     \item functional alignment beats anatomical alignment in order to
@@ -405,6 +392,26 @@ We hypothesize that:
 
     \item on average, movie is best (how to calculate average across which
         conditions?); no ANOVA, please.
+
+\end{itemize}
+
+
+\textbf{Questions as discussed during our meeting}:
+\begin{itemize}
+
+    \item What is causing the difference?
+
+    \item a) is it the quality of the alignment? or:
+
+    \item b) is the model doing a better prediction
+        (i.e. is the criterion doing an individual overfit?)
+
+    \item SRM could just do a denoising, too?
+
+    \item How do I know if the "localizer PPA" is the "gold standard"?
+
+    \item "tacit assumption"; what does the localizer actually do?
+        does it what we want it to do?
 
 \end{itemize}
 
@@ -671,7 +678,7 @@ The number of remaining voxels per subject can be seen in Table
 
 \subsubsection{Concatenation of time series}
 
-\todo[inline]{goddamnit, this is actually the first step of the functional
+\todo[inline]{this is actually the first step of the functional
 alignment procedure; but: it kind of belongs to preprocessing}
 
 \todo[inline]{I z-scored the runs runwise, concatenated them, and z-scored
@@ -1010,14 +1017,12 @@ but is based on an increasing quantity of data used to calculate the mapping.
 
 \subsubsection{Estimation of $t$-contrasts' results}
 
-\todo[inline]{mention masking}
-
 % overview
 We then estimated the empirical $Z$-maps of the test subject by projecting all
 training subjects' empirical $Z$-maps from their voxel space trough the \ac{cfs}
-into the test subject's voxel space.
+into the test subject's voxel space:
 % functional alignment; into CFS (calling srm.transform(masked\_zmaps))
-First, we used the training subjects' transformation matrices that were derived
+first, we used the training subjects' transformation matrices that were derived
 during training of the \ac{cfs} to perform a mapping of the masked empirical
 $Z$-maps from each training subject's voxel space into the \ac{cfs}.
 % into subject
@@ -1044,7 +1049,7 @@ reliability), we also calculated Cronbach's $\alpha$ across the four runs in
 case of the localizer's $t$-contrast, and across the eight segments in case of
 the movie's and audio-description's $t$-contrast.
 %
-We assumed to Cronbach's $\alpha$ to be a noisei ceiling, and ``we reasoned that
+We assumed to Cronbach's $\alpha$ to be a noise ceiling, and ``we reasoned that
 across-subject variability cannot be expected to be lower than within-subject
 variability over time (reproducibility)'' \citep{rosenke2021probabilistic}.
 
@@ -1054,11 +1059,11 @@ variability over time (reproducibility)'' \citep{rosenke2021probabilistic}.
 
 \section{Results}
 
-\todo[inline]{make list of which statistical tests to perform?}
+\todo[inline]{make list of which statistical tests to perform!}
 
-\todo[inline]{Problem for t-tests: Correlations (especially in case of auditory
-PPA) are not normally distributed (Fisher's Z-transform should not change that,
-probably)}
+\todo[inline]{Problem for (parametric) t-tests: Correlations (especially in case
+of auditory PPA) are not normally distributed (Fisher's Z-transform should not
+change that, probably)}
 
 \todo[inline]{'statistics\_t-test-correlations.py'}
 
@@ -1139,129 +1144,10 @@ values was highly significant (studyforrest: t(14) = 17.39, p < 0.001)''
 
 \subsection{Templates for Cronbach's $\alpha$}
 
+\todo[inline]{cf. "Templates for Cronbach's" at the very end of the chapter}
 
-\paragraph{\citet{jiahui2020predicting}}
-%
-``We compared the correlations between maps estimated from a participant's own
-data and maps estimated from other participants' data to the reliability of the
-localizer (across the four localizer runs).
-%
-The mean Cronbach's Alpha between the four localizer runs was 0.60 (N = 15, S.D.
-= 0.14)'' \citep{jiahui2020predicting}.
-%
-``Results mean that if we scan each participant for another 4 localizer
-runs, and compute the correlation between the two maps (4 runs vs. 4 runs), the
-correlation would be 0.60 on average in the studyforrest''
-\citep{jiahui2020predicting}.
-%
-``Cronbach's alpha indicates that the predicted contrast map based on
-hyperalignment is close to or as good as the real contrast map based on four
-localizer runs (studyforrest: t(14) = 0.61, p = 0.55; Grand Budapest: t(20) =
-3.02, p = 0.007)'' \citep{jiahui2020predicting}.
-%
-``The predicted contrast map based on hyperalignment was better than the
-contrast map based on data from three out of four localizer runs in other
-participants (t(14) = 2.36, p = 0.03) and in Grand Budapest, the predicted
-contrast map was comparable to the contrast map based on three localizer runs in
-other participants (t(20) = 0.48, p = 0.63)''
-\citep{jiahui2020predicting}.
+\todo[inline]{print, read \& understand it, or die trying}
 
-
-
-\paragraph{\citet{jiahui2022cross}}
-%
-``Because the localizer task comprises several scanning runs, we calculated the
-reliability of the localizer across runs with Cronbach's alpha to provide an
-estimate of the noise ceiling for these correlations'' \citep{jiahui2022cross}.
-%
-``We compared the correlations between topographies estimated from a
-participant's own localizer data and those from other participants' data to the
-reliability of the localizer, calculated with Cronbach's alpha.
-%
-Predictions made with hyperalignment were close to and sometimes even exceeded
-the reliability values (Figure 1B).
-%
-This indicates that the predicted category-selective topographies from other
-participants' data using hyperalignment were as precise and sometimes even
-better than the topographies estimated with their own localizer data''
-\citep{jiahui2022cross}.
-
-
-
-\paragraph{\citet{feilong2022individualized}}
-%
-``Due to the presence of noise in localizer data, the estimated face-selectivity
-map is a combination of a “true” face-selectivity map of the participant and
-some noise.
-%
-The component from the “true” map is supposed to be shared by all localizer
-runs, and thus the data quality and the level of noise can be estimated based on
-the similarity between the 4 maps (i.e., one from each run).
-%
-We used Cronbach's alpha to estimate the reliability  of the average map of the
-4 runs.
-%
-We estimated the reliability of the localizer-based map using Cronbach's alpha,
-which is the expected correlation between two average maps, each based on 4 runs
-of independent data.
-%
-If we were to collect another 4 localizer runs from the participant and get a
-new average map based on the 4 new runs (i.e., independent data), then the
-expected correlation between the two average maps would be Cronbach's alpha.
-%
-In other words, if the correlation between the model-predicted map and the
-localizer-based (average) map is higher than Cronbach's alpha, then the
-model-predicted map is more accurate than the average map based on 4 runs''
-\citep{feilong2022individualized}.
-
-%
-``Based on the similarity between these four maps, we computed the Cronbach's
-alpha coefficient for each participant, which estimates the reliability of the
-average map.
-%
-That is, if we were to scan the participant for another four localizer runs and
-correlate the new average map with the current average map, the expected
-correlation would be Cronbach's alpha.'' \citep{feilong2022individualized}
-
-%
-``For both datasets, the localizer-based and model-predicted face-selectivity
-maps were highly correlated (Forrest: r = 0.618 ± 0.089 [mean ± SD], Raiders: r
-= 0.716 ± 0.074), and the correlations were higher than our previous
-state-of-the-art model using the same dataset and hyperalignment (Jiahui et al.,
-2020).
-%
-Across all participants, the average Cronbach's alpha was 0.606 ± 0.126 for
-Forrest, and 0.764 ± 0.089 for Raiders.
-%
-For approximately a third of the participants (Forrest: 6 out of 15, 40\%;
-Raiders: 6 out of 20, 30\%), the correlation exceeded the Cronbach's alpha of
-localizer-based maps.
-%
-In other words, for these participants, the predicted map based on our model can
-be more accurate than the map based on a typical localizer scanning session
-comprising four runs'' \citep{feilong2022individualized}.
-
-%
-``Note that for the Forrest dataset, the similarity sometimes exceeded
-Cronbach's alpha, which means the model-predicted map is more accurate than a
-map based on 4 localizer runs (21 minutes).
-%
-The quality of localizer-based maps increases with more localizer data, which
-can be estimated using the Spearman–Brown prediction formula [Brown, 1910;
-Spearman, 1910].
-%
-Based on the Spearman–Brown prediction formula, we can estimate how Cronbach's
-alpha changes with the amount of data (i.e., the number of localizer runs), and
-correspondingly, how much localizer data is needed to achieve the quality of the
-model-predicted map
-%
-For the Forrest dataset, the maps predicted by 15, 30, 60, and 120 minutes of
-movie data were as accurate as 17, 22, 26, and 30 minutes of localizer data,
-respectively.
-%
-For the Raiders dataset, the maps predicted by 15, 28, and 56 minutes of movie
-data were as accurate as 10, 11 and 12 minutes of localizer data, respectively''
-\citep{feilong2022individualized}
 
 
 
@@ -1284,65 +1170,58 @@ data were as accurate as 10, 11 and 12 minutes of localizer data, respectively''
 
 \subsection{Short summary of aims \& hypotheses, method, results}
 
-%
-Validity should be the cross-subject-\textbf{within-paradigm} prediction.
-%
-Generalizability should be the cross-subject-\textbf{cross-paradigm} prediction.
-
-%
-We create one \ac{cfs} (for every fold) based on time-series of three stimuli
-that were concatenated before model fitting.
-
-%
-Enabled us to have cross-subject, cross-experiment, [and cross-scanner
-prediction]
-%
-Movie data and visual localizer are from the same scanner but not from the same
-session [???].
 
 
-\paragraph{We: alignment via three paradigms}
+\subsubsection{Methods}
 
 The \ac{srm} algorithm can be applied to functional data from traditional
 paradigms using controlled stimuli.
 %
-However, previous studies \citep{guntupalli2016model, haxby2011common} that
-suggest that \acp{cfs} and transformation matrices derived from traditional
-paradigms are of diminished validity and a diminished generalizability to other
-paradigms, presumably because traditional paradigms sample a sparser range of
-brain states than naturalistic stimuli.
+However, results of \citet{haxby2011common} that suggest that \acp{cfs} [and
+transformation matrices???] derived from traditional paradigms are of diminished
+validity and a diminished generalizability to other paradigms, presumably
+because traditional paradigms sample a sparser range of brain states than
+naturalistic stimuli.
 %
-Hence, we let the \ac{srm} derive a test subject's transformation matrix from
-data of the visual localizer paradigm, and compare prediction based on these
-matrices to the prediction performance based on transformation matrices that
-we derive from the naturalistic stimulus paradigms.
-
-
-\paragraph{We: partial alignment}
-
-\todo[inline]{to predict using the model you don't need the same amount of data;
-I checked how much data you need (s. Figure in results)}
-
+Here, we created a \ac{cfs} (for every fold) based on time-series of three
+stimuli (visual localizer, movie, movie's audio-description) that were
+concatenated before model fitting.
 %
-We also performed functional alignment based on a stimulation paradigm using
-simplified stimuli [the localizer].
-%
-Our results provide evidence that transformation matrices calculated based on
-data from naturalistic stimuli promise an increased validity of derived
-transformation for functional alignment over transformation matrices based on
-data (of the same!) paradigm based on simplified stimuli.
+For every paradigms $Z$-map (visual localizer, movie, movie's
+audio-description), we use a test subject's response time series to the visual
+localizer, movie, or the audio-description to align the test subject to the
+respective \acp{tr} within the \ac{cfs} and acquire the respective
+transformation matrices.
 
+
+\subsubsection{Aims}
+
+\todo[inline]{Revise that part in parallel with the text in introduction}
+
+\todo[inline]{It's hard to separate validity and generalizability; I hope the
+text below makes sense?}
 
 %
-\paragraph{Methods} We used the union of individual \ac{ppa} ROIs as an
-probabilistic functional atlas in order to restrict the number of voxels to
-voxels that have shown to be located in the \ac{ppa} \ac{roi} of at least one
-subject.
+We assess the validity of the \ac{cfs} by estimating $Z$-maps from the analysis
+(i.e. $t$-contrast) of same paradigms used to align the test subject
+(cross-subject-\textbf{within-paradigm} prediction).
+%
+We assess the generalizability of the transformation matrices by estimating
+$Z$-maps from the analysis (i.e. $t$-contrast) of paradigms that were not used
+to align the test subject (cross-subject-\textbf{cross-paradigm} prediction).
+%
+Prediction based on anatomical alignment served as a benchmark.
 
 
+\subsubsection{Hypotheses}
+
+\todo[inline]{cf. introduction}
 
 
+\subsubsection{Results}
 
+\todo[inline]{Write a very high-level summary! It's way too much anyway: 3
+$Z$-maps $\times$ 3 paradigms for alignment ($\times$ y runs/segments)}
 
 
 
@@ -1351,34 +1230,36 @@ subject.
 
 \subsection{Estimation of visual localizer}
 
-\todo[inline]{estimated using different predictors: anatomically \& functionally
-based on three paradigms (localizer, movie, audio-description)}
-
-\todo[inline]{How good is which stimulus to perform alignment to that
-(sub)model?}
+We assess how good which stimulus is to perform the alignment to the
+corresponding \acp{tr} in our model and subsequently estimate the $Z$-map.
 
 
 \subsubsection{Assumption that localizer is "ground truth"}
 
-\todo[inline]{This might be shifted downwards as intro to "prediction of movie
-and audio PPA}
-
+We estimate the $Z$-map of an visual localizer which is the fucking established
+/ traditional method to identify the \ac{ppa}.
 %
-``The PPA definition may depend on the type of experiment, task, and stimuli
-used'' \citet{weiner2018defining}.
-% usually, visual PPA works pretty well
-The visual \ac{ppa} can be reliably localized using a localizer.
-%
-For example, \citet{zhen2017quantifying} successfully delineated the left- and
-right hemispheric \acp{ppa} in 97.5\% of 202 subjects.
 % localizer data
 \citet{sengupta2016extension} successfully delineated the left-hemispheric
 \ac{ppa} in X of X subjects and right-hemispheric \ac{ppa} in X of X subjects
 based on localizer data
 
-\subsubsection{visual localizer via anatomical alignment}
 
 \subsubsection{visual localizer via localizer runs}
+
+\todo[inline]{\citet{haxby2011common}'s non-naturalistic stimulus \acp{cfs} need
+to mentioned already (best somewhere in the intro already, not just discussion)
+in case the following is supposed to make sense}
+
+Surprisingly \citep[cf.][]{haxby2011common}, the within-experiment prediction
+(localizer \acp{tr} for alignment) is worse than anatomical alignment.
+%
+Independent from the number of runs used.
+%
+
+How does that come? At least the correlation of regressors with shared responses
+show the "clearest" correlations of a regressor with a shared response (which is
+not the case in the \acp{tr} of the movie or audio-description).
 
 
 \subsubsection{visual localizer via movie segments}
@@ -1391,222 +1272,83 @@ Prediction performance further increases when $\sim$30 minutes of movie data
 submitted to the algorithm to calculate the subject-specific transformation
 matrices.
 %
-However, more than $\sim$45 minutes do not lead to an significantly increased
-estimation performance suggesting a decreasing benefit of longer scanning time
-than 30 minutes during audio-visual naturalistic stimulation.
+However, three segments ($\sim$45 minutes) do not lead to an significantly
+increased estimation performance suggesting a decreasing benefit of longer
+scanning time than 30 minutes during audio-visual naturalistic stimulation.
 
 
 \subsubsection{visual localizer via audio-description segments}
 
+Audio-description cannot beat anatomical alignment;
+%
+It gets as good (no statistical difference anymore) as anatomical alignment.
+%
+Audio-description might not sample the response vector space of the visual
+paradigm "good" enough?
+%
+Or the shared responses of the AO within the \ac{cfs} are shitty?
 
 
-\subsection{Interim summary \& transition to movie \& audio PPA}
+\subsubsection{Interim summary \& transition to movie \& audio PPA}
 
+\todo[inline]{This should be rather short, cause there is a "Discussion across
+localizer PPA, movie PPA \& audio PPA" later.}
 
-
-\subsubsection{One "multi-stimulus" model}
-
-\todo[inline]{Naturalistic is awesome for the model; cf. literature}
-
-
-
-\subsubsection{Partial alignment}
-
-\todo[inline]{Naturalistic is awesome for alignment, too}
-
-%
-Data efficiency; reduced costs.
-
-%
-There is a benefit of shared parts of naturalistic stimuli across datasets;
-shared stimulus part is easier than shared subjects
-\citep[e.g.][]{zhang2018transfer}.
-
-
-
-\subsubsection{Naturalistic stimuli are awesome}
-
-\todo[inline]{check papers; they should all use whole stimulus matrices; also
-check for validity of \ac{cfs} based on different paradigms}
-
-% from project proposal
-Compared to paradigms with simplified stimuli, naturalistic stimuli sample a
-broad range of brain states \citep{guntupalli2016model, haxby2011common} that
-reflect (confound) statistics of the natural environment, promising an increased
-validity of transformations of functional alignment, and enable investigation of
-the acquired data for a variety of research questions to research
-questions/domains/paradigms (e.g.  visual or auditory perception, spatial
-cognition; emotion; music, speech or social perception).
-
-
-
-\subsubsection{Haxby et al. on validity and generalizability}
-
-%
-``The algorithm also can be applied to simpler, controlled experimental data but
-our previous results showed that the sampling of response vectors from these
-experiments is impoverished and produces a model representational space that
-does not generalize well to new stimuli in other experiments
-\citep{haxby2020hyperalignment}'' \citep{guntupalli2016model}.
-%
-``We base the derivation of the transformation matrices and the common space on
-responses to the movie---a complex, naturalistic, dynamic stimulus.
-%
-Although the algorithm also can be applied to fMRI data from more controlled
-experiments, we found that a common model based on such data has greatly
-diminished general validity \citep{haxby2011common}, presumably because,
-relative to a rich and dynamic naturalistic stimulus, such experiments sample an
-impoverished range of brain states \citep{guntupalli2016model}''.
-
-``The general validity of the model across the varied stimulus sets that we
-tested could be achieved only when hyperalignment was based on responses to the
-movie.
-%
-Common models based on responses to smaller, more controlled stimulus
-sets---still images of a limited number of categories---were valid only for
-restricted stimulus domains, indicating that these models captured only a
-subspace of the substantially larger representational space in VT cortex''
-\citep{haxby2011common}.
-
-``We used a complex and dynamic natural stimulus---a full-length action
-movie---to sample a diverse variety of representational states.
-%
-The results show that hyperalignment based on responses to this stimulus affords
-a single model of VT cortex with general validity across a broad range of
-stimuli, whereas hyperalignment based on responses to still images in more
-controlled, conventional experiments does not.
-%
-Thus, by virtue of the rich diversity of a complex, natural stimulus, our model
-of the representational space in VT cortex also has general validity across
-stimuli''\citep{haxby2011common}.
-
-``We also derived common models based on responses to the face and object
-categories in ten subjects and on responses to the pictures of animals in 11
-subjects.
-%
-These alternative common models afforded high levels of accuracy for BSC of the
-stimulus categories used to derive the common space but did not generalize to
-BSC for the movie time segments.
-%
-Thus, models based on hyperalignment of responses to a limited number of
-stimulus categories align only a small subspace within the representational
-space in VT cortex and are, therefore, inadequate as general models of that
-space.
-%
-On the positive side, these results also show that hyperalignment can be used
-for BSC of an fMRI experiment without data from movie viewing''
-\citep{haxby2011common}.
-
-%
-``Further analyses revealed other desirable properties of the movie as a
-stimulus for model derivation.
-%
-The movie evoked responses in VT cortex that were more distinctive than were
-responses to the still images in the category perception experiments.
-%
-Moreover, the general validity of the model based on the responses to the movie
-is not dependent on responses to stimuli that are in both the movie and the
-category perception experiments but, rather, appears to rest on stimulus
-properties that are more abstract and of more general utility''
-\citep{haxby2011common}.
-
-%
-``We investigated whether hyperalignment of the face and object data and
-hyperalignment of the animal species data would afford high levels of BSC
-accuracy using only the data from those experiments.
-%
-In each experiment, we derived a common space based on all runs but one. We
-transformed the data from all runs, including the left-out run, into this common
-space.
-%
-We trained the classifier on those runs used for hyperalignment in all subjects
-but one and tested the classifier on the data from the left-out run in the
-left-out subject (i.e. the test data for determining classifier accuracy played
-no role either in hyperalignment or in classifier training [Kriegeskorte et al.,
-2009]).
-%
-BSC of face and object categories after hyperalignment based on data from that
-experiment was equivalent to BSC after movie-based hyperalignment (62.9\% ±
-2.9\% versus 63.9\% ± 2.2\%, respectively; Figure 4).
-%
-BSC of the animal species after hyperalignment based on data from that
-experiment was significantly better than BSC after movie-based hyperalignment
-(76.2\% ± 3.7\% versus 68.0\% ± 2.8\%, respectively; p < 0.05; Figure 4).
-%
-Result suggests that the validity for a model of a specific subspace may be
-enhanced by designing a stimulus paradigm that samples the brain states in that
-subspace more extensively'' \citep{haxby2011common}.
-
-%
-``We next asked whether hyperalignment based on these simpler stimulus sets was
-sufficient to derive a common space with general validity across a wider array
-of complex stimuli.
-%
-We applied the hyperalignment parameters derived from the face and object data
-to the movie data in the ten Princeton subjects and the hyperalignment
-parameters derived from the animal species data to the movie data in the 11
-Dartmouth subjects.
-%
-BSC of 18s movie time segments after hyperalignment based on category perception
-experiment data was markedly worse than BSC after hyperalignment based on movie
-data (17.6\% ± 1.3\% versus 65.8\% ± 2.7\% for Princeton subjects; 28.3\% ±
-2.8\% versus 74.9\% ± 4.1\% for Dartmouth subjects; p < 0.001 in both cases;
-Figure 4).
-%
-Thus, hyperalignment of data using a set of stimuli that is less diverse than
-the movie is effective, but the resultant common space has validity that is
-limited to a small subspace of the representational space in VT cortex''
-\citep{haxby2011common}.
-
-%
-``We also tested whether the general validity of the model space reflects
-responses to stimuli that are in both the movie and the category perception
-experiments or reflects stimulus properties that are not specific to these
-stimuli.
-%
-We recomputed the common model after removing all movie time points in which a
-monkey, a dog, an insect, or a bird appeared. We also removed time points for
-the 30 s that followed such episodes to factor out effects of delayed
-hemodynamic responses.
-%
-BSC of the face and object and animal species categories, including distinctions
-among monkeys, dogs, insects, and birds, was not affected by removing these time
-points from the movie data (65.0\% ± 1.9\% versus 64.8\% ± 2.3\% for faces and
-objects; 67.1\% ± 3.0\% versus 67.6\% ± 3.1\% for animal species; Figure S4B).
-%
-This result suggests that the movie-based hyperalignment parameters that afford
-generalization to these stimuli are not stimulus specific but, rather, reflect
-stimulus properties that are more abstract and of more general utility for
-object representations'' \citep{haxby2011common}.
 
 
 
 \subsection{Estimation of movie PPA}
 
-\todo[inline]{evaluation of other modality / criterion (movie \& audio PPA)}
-
 \todo[inline]{How do I know if the "localizer PPA" is the "gold standard" "tacit
 assumption"; what does localizer actually do? does it what we want it to do?}
 
+% usually, visual PPA works pretty well
+The visual \ac{ppa} can be reliably localized using a localizer, which is why we
+considered it to be the "gold standard" or benchmark.
+%
+``The PPA definition may depend on the type of experiment, task, and stimuli
+used'' \citep{weiner2018defining}.
 % movie
 Despite an adventurous operationalization, \citet{haeusler2022processing}
 delineated the left-hemispheric \ac{ppa} in X of X subjects and
 right-hemispheric \ac{ppa} in X of X subjects based on movie data.
-%
-Which actually should not matter, because the \ac{srm}/transformation matrices
-do not care about the operationalization but about a voxels responses time
-series across the whole stimulus.
 
-
-\subsubsection{movie PPA via anatomical alignment}
-
-\subsubsection{movie PPA via movie segments}
 
 \subsubsection{movie PPA via localizer runs}
 
+Not even four runs of the localizer beat anatomical alignment.
+
+
+\subsubsection{movie PPA via movie segments}
+
+One segment of movie beats [test that] anatomical alignment?
+%
+One segment of movie beats the reliability of the $Z$-map??? What the fuck does
+that mean?
+%
+Interpretation:
+%
+Our modeling of spatial responses was moderate (probably!)? The participants
+are too heterogeneous in their responses (probably not; cf.  stripplot)?
+%
+At least they stay "true to themselves" over the course of the 8 segments:
+%
+there are no real outliers when it comes to Cronbach's alpha, but mean (and
+median) Cronbach's of about 0.6 is moderate anyway.
+
+
 \subsubsection{movie PPA via audio segments}
 
+Not even eight runs beat anatomical alignment.
+%
+But it gets better the more runs
+are used. Problematic are some outliers.
+
+
 \subsubsection{Interim summary of movie PPA}
+
+In any case: the movie is nice for alignment to estimate both the visual
+localizer and the movie PPA.
 
 
 
@@ -1619,6 +1361,11 @@ series across the whole stimulus.
     relevant events?), or
     b) is the response pattern simply not captured by the \ac{srm}
     }
+
+\todo[inline]{wow, that stripplot is a mess...; but hey, pretty much always the
+same three outliers; which are probably the outliers in Cronbach's alpha of the
+audio PPA z-map.}
+
 
 % audio-description
 Using the audio-description's data, \citet{haeusler2022processing} delineated
@@ -1640,15 +1387,36 @@ participants'' in such a way that the ``SRM will improve sensitivity for
 detecting a cognitive process of interest in the test data''
 \citep{cohen2017computational}.
 
+
 \subsubsection{audio PPA via anatomical alignment}
 
-\subsubsection{audio PPA via audio segments}
+\todo[inline]{parametric statistical test are "difficult" because non-normal
+distribution}
 
-\subsubsection{audio PPA via movie segments}
+If just one run (or segment) is used for functional alignment, then anatomical
+alignment performs best (and is as good as Cronbach's).
+
 
 \subsubsection{audio PPA via localizer runs}
 
+The localizer sucks as usual for estimation.
+
+
+\subsubsection{audio PPA via movie segments}
+
+The more segments are used, the better (and quickly) it gets; gets as good as
+anatomical alignment but not better
+
+
+\subsubsection{audio PPA via audio segments}
+
+The more data we use, the better it gets; eventually, outperforming anatomical
+alignment and Cronbach's alpha.
+
+
 \subsubsection{Interim summary of audio PPA}
+
+\todo[inline]{my biggest issue: what to do with the three outliers?}
 
 %
 Present results add evidence that the responses to auditory spatial information
@@ -1662,6 +1430,10 @@ information.
 
 
 \paragraph{Individual differences}
+
+\todo[inline]{well, if you cannot predict the $Z$-map "correctly" you could at
+least quantify how much the empirical $Z$-map is different from the prediction
+based on a "normative sample"?}
 
 \todo[inline]{the text regarding individual differences in brain
 activation possibly correlating with behavior is in general discussion}
@@ -1679,46 +1451,91 @@ Do the subjects simply do not give a shit about auditory spatial information?
 Are they simply not attending to it? Or are they simply incapable to process it?
 
 
-\subsubsection{Application of narrative for visually impaired?}
-
-\todo[inline]{Better, if at all, mention that in thesis' general discussion}
 
 
-\begin{itemize}
+\subsection{Discussion across "everything"}
 
-\item congenitally blind:
-    Mahon et al. 2009;
-    Bedny et al. 2011;
-    Striem-Amit, Cohen, et al. 2012a;
-    van den Hurk et al. 2017
-    [cf. \citet{rosenke2021probabilistic}]
+\subsubsection{We built a "multi-stimulus" model}
 
-\item individuals with visual agnosia/prosopagnosia:
-    Schiltz and Rossion 2006;
-    Steeves et al. 2006;
-    Sorger et al. 2007;
-    Barton 2008;
-    Gilaie-Dotan et al. 2009;
-    Susilo et al. 2015
-    [cf. \citet{rosenke2021probabilistic}]
+\todo[inline]{cf. "Templates from \citet{haxby2011common} on validity \&
+generalizability" at the very and of this chapter}
 
-\end{itemize}
+\todo[inline]{does one single paper except \citet{haxby2011common} exist that
+derives a \ac{cfs} from a non-naturalistic stimulus?}
 
-\subsection{Discussion across predicted localizer, movie PPA \& audio PPA}
+\todo[inline]{However, nothing comes close to the reliability (Cronbach's
+$\alpha$) of the localizer $Z$-maps.}
+
+The multi-stimulus model is kind of valid;
+%
+However, I have no clue which stimulus is the crucial one...
 
 
-\subsubsection{Vision: functional atlas}
+\subsubsection{Naturalistic stimuli for (partial) alignment}
 
-\todo[inline]{mih: this chapter does not need its own outlook; outlook will
-be in the general discussion anyway (and is more interesting there)}
-
-\todo[inline]{a smallish text should be sufficient here; shift most stuff into
-general discussion (and write intro in general intro)}
-
-\todo[inline]{check discussion of \citet{jiahui2020predicting} as last resource}
+\todo[inline]{focus on what we did in the present study}
+\todo[inline]{extend the idea to lots of "localizers" below in "Vision"!!! which
+should be shifted to the general discussion}
 
 
-\subsubsection{Time, money, questionable compliance / capability}
+\paragraph{Introductory statement}
+%
+Our results provide evidence that transformation matrices calculated based on
+data from naturalistic stimuli promise an increased validity for functional
+alignment over transformation matrices based on data of the same [!] paradigm
+based on simplified stimuli (kind of different to \citet{haxby2011common}).
+
+
+
+
+
+\paragraph{Partial Alignment}
+
+Moreover, our results suggest that just a part of a naturalistic stimulus
+provides enough data to estimate the $Z$-maps.
+%
+It is not "the more, the better", no linear but asymptopic relationship
+%
+
+This provides the oppportunity to add "diagnostic" (comparably to the standard
+anatomical scan session) during an fMRI experiment.
+%
+Moreover, it is easier to share a stimulus across experiments or research groups
+than participants \citep[e.g.][]{zhang2018transfer}.
+
+%
+We demonstrated that 15 to 30 minutes of naturalistic stimulation is sufficient
+to estimate $Z$-maps of a localizer paradigm.
+%
+A future study of a larger sample size could use just a part of the movie or
+audio-description.
+%
+Stimuli can more conveniently be shared across studies than participants across
+studies \citep[cf.][an extension of the \ac{srm} for shared subjects across
+datasets]{zhang2018transfer}.
+
+%
+Our results suggest that a \textit{calibration scan} could be used to align a
+subject to a fixed \ac{cfs} based on extensive scans and analyses of other
+subjects' data serving as a reference / functional atlas.
+%
+Similar to the standard procedure of a anatomical scan, additional 15 minutes
+functional scanning using an engaging naturalistic stimuli could provide
+sufficient data to perform a functional alignment to a functional atlas.
+
+
+
+
+
+\paragraph{Inference}
+% from project proposal
+In summary, compared to paradigms with simplified stimuli, naturalistic stimuli
+sample a broad range of brain states \citep{guntupalli2016model,
+haxby2011common} that reflect (confound) statistics of the natural environment,
+promising an increased validity of transformations of functional alignment, and
+might enable investigation of the acquired data for a variety of research
+questions to research questions/domains/paradigms (e.g. visual or auditory
+perception, spatial cognition; emotion; music, speech or social perception).
 
 ``Identifying all of the currently known topographic regions of the human visual
 system requires multiple scanning sessions.
@@ -1733,184 +1550,13 @@ time researchers may be able to spend with patients suffering from neurological
 or neuropsychological disorders, or with implanted subdural or deep electrodes
 (e.g., ECoG)'' \citep{wang2015probabilistic}.
 
-
-\paragraph{Probabilistic (anatomical) atlases: use cases}
+``To be useful for clinical diagnostics and prognostics, fMRI data must be
+interpretable on the level of the individual case \citep{dubois2016building}.
 %
-``One way to address limitations [of conducting many localizers] is to create an
-atlas in a standard space that links individual points in that space with
-functionally defined regions.
-%
-Given the anatomical and functional variability across subjects, this atlas
-should be "probabilistic":
-%
-it defines the likelihood of a given coordinate being associated with a given
-functional region. [our functional alignment procedure can improve these atlases
-by providing $z$-values]
-%
-Such an atlas could be used to infer the topographic location in the visual
-system for the results obtained from any independent dataset once transformed
-into the same standard space as the atlas'' \citep{wang2015probabilistic}.
-
-%
-``Individual \acp{roi} and associated features could serve as a database of the
-\acp{roi} in a healthy population.
-%
-The accumulated data in the atlas could be used as a norm to quantify the degree
-of deviation of the FSRs in a new subject and thereby have the potential to
-detect deficits in patients'' \citep{zhen2015quantifying}.
-
-%
-Atlases ``may prove especially useful for predicting an ROI when no localizer
-data is available, saving scanning time and expenses, or
-%
-patient populations, such as patients who
-%
-\begin{enumerate}
-
-\item are blind [
-        Mahon et al. 2009;
-        Bedny et al. 2011;
-        Striem-Amit, Dakwar, et al. 2012b;
-        van den Hurk et al. 2017
-    ] \citep{rosenke2021probabilistic}
-
-\item have a brain lesion [
-        Schiltz and Rossion 2006;
-        Steeves et al. 2006;
-        Sorger et al. 2007;
-        Barton 2008;
-        Gilaie-Dotan et al. 2009;
-        de Heering and Rossion 2015
-    ] \citep{rosenke2021probabilistic}
-
-\item are even more blind [
-        Amedi et al., 2007;
-        He et al., 2013;
-        Mahon et al., 2009;
-        Wolbers et al., 2011
-    ] \citep{weiner2018defining}
-
-\item undergo intracranial studies in which it it may not be possible to obtain
-    fMRI data, but high resolution anatomical MRI data are typically obtained [
-        Bastin et al., 2013;
-        Davidesco et al., 2013;
-        Engell and McCarthy, 2010;
-        Jacques et al., 2015;
-        Megevand et al., 2014;
-        Murphey et al., 2009;
-        Rangarajan et al., 2014
-    ] \citep{weiner2018defining}
-
-\end{enumerate}
-
-
-``Cortical atlases have been developed, which allow localization of visual areas
-in new subjects by leveraging ROI data from an independent set of typical
-participants [
-    %
-    Frost and Goebel 2012;
-    %
-    ventral temporal cortex (VTC) category selectivity:
-    %
-    Julian et al. 2012;
-    Zhen et al. 2017;
-    Weiner et al. 2018;
-    %
-    visual field maps:
-    Benson et al. 2012;
-    Benson and Winawer 2018;
-    Wang et al. 2015]'' \citep{rosenke2021probabilistic}.
-
-
-
-\subsubsection{Now: functional alignment}
-%
-Previous studies used anatomical alignment in order to project data from
-probabilistic functional atlases (aligned to a \ac{cas}) onto individual
-subjects in order to predict the location of functional areas in new/unknown
-subjects.
-%
-Anatomical alignment (used to create the probabilistic atlases above) relies on
-data of an anatomical MRI scan that performed as an standard routine
-before/after functional brain scans using fMRI.
-%
-Our procedure relies on data of a functional scan session during naturalistic
-stimulation.
-%
-But...
-
-
-\paragraph{We do not just provide binary decision}
-
-\todo[inline]{Why is estimation of pattern better than just estimation of ROI
-yes vs. no?}
-
-%
-We provide patterns that allow more than just localization but e.g.,
-classification and...?
-
-
-\paragraph{Partial alignment would lower scanning time}
-%
-Our results suggest that a \textit{calibration scan} could be used to align a
-subject to a fixed \ac{cfs} based on extensive scans and analyses of other
-subjects' data serving as a reference / functional atlas.
-%
-Similar to the standard procedure of a anatomical scan, additional 15 minutes
-functional scanning using an engaging naturalistic stimuli could provide
-sufficient data to perform a functional alignment to a functional atlas.
-
-\subsubsection{\ac{fmri} scan session using naturalistic stimulus could
-substitute multiple localizers}
-
-
-\paragraph{Database with naturalistic stimulus as main stimulus...}
-%
-Naturalistic stimuli ``engage in parallel multiple neural systems for vision,
-audition, language, person perception, social cognition, and other functions''
-\citep{jiahui2020predicting} and offer higher generalizability [and provide
-higher validity?] of transformations matrices.
-
-%
-A naturalistic stimulus like a move or audio-description could be used to align
-a test subject to a \ac{cfs} created from data of a normative reference group.
-%
-The reference group requires a ``database of data for movies and a range of
-functional localizers in a normative group of subjects''
-\citep{jiahui2020predicting}.
-
-%
-Once a valid alignment is established, known functional properties of the
-(normative) reference can then be projected into the respective individual voxel
-space (s. Fig. 1 in \citep{nishimoto2016lining}) by mapping a variety $Z$-maps
-created from a variety of $t$-contrast from a normative reference group onto an
-individual subjects and thus potentially substitute a variety of localizers.
-
-%
-``A new subject's functional topographies could be estimated based only on that
-subject's movie data and other subjects' localizer data from the normative
-database that could be projected into that subject's cortical anatomy using
-hyperalignment transformation matrices derived from movie data and could replace
-tedious functional localizers with an engaging movie''
-\citep{jiahui2020predicting}.
-
-%
-``Functional topographies could be mapped from a database containing a wide
-range of perceptual and cognitive functions to new subjects based only on fMRI
-data collected while watching an engaging, naturalistic stimulus and other
-subjects' localizer data from a normative sample'' \citep{jiahui2020predicting}.
-
-% from Jiahu
-``From a single movie dataset multiple functional topographies can be estimated
-\citep{guntupalli2016model}, whereas different localizers are typically required
-to map different functional topographies, making a thorough mapping of selective
-topographies time-consuming and inefficient'' \citep{jiahui2020predicting}.
-
-%
-That reference would enable an qualitative and quantitative description of an
-individual's brain function with respect to such a norm, and consequently
-progress the field towards neuroimaging studies of individual differences that
-more closely resemble their psychological counterparts.
+In the clinical context, fMRI plays an important role for planning surgery in
+patients with tumors or epilepsies, as it aids the understanding of which parts
+of the brain need to be spared in order to preserve sensory, motor or cognitive
+abilities'' \citep{wegrzyn2018thought}.
 
 
 \paragraph{Additional advantages of naturalistic stimuli: compliance!}
@@ -1937,411 +1583,11 @@ would not suffer less from fatigue than a one localizer or even a localizer
 battery demanding voluntary attention and handling a repetitive task.
 
 
-\subsubsection{Clinical Application}
-
-\todo[inline]{cf. general introduction}
-
-``To be useful for clinical diagnostics and prognostics, fMRI data must be
-interpretable on the level of the individual case \citep{dubois2016building}.
-%
-In the clinical context, fMRI plays an important role for planning surgery in
-patients with tumors or epilepsies, as it aids the understanding of which parts
-of the brain need to be spared in order to preserve sensory, motor or cognitive
-abilities'' \citep{wegrzyn2018thought}.
 
 
-
-\subsection{Differences to studies creating probabilistic atlases}
-
-\todo[inline]{Following are "notes" that can heavily be shortened to 1-2
-paragraphs}
-
-\subsubsection{We need fMRI not just MRI}
-
-\todo[inline]{should already be clear from discussion on partial alignment}
-
-%
-Compared to estimation procedures based on anatomical alignment (i.e.
-\citep{weiner2018defining}), the current estimation procedure needs an
-additional functional scan.
-
-
-\subsubsection{No cherry picking of subjects}
-
-\todo[inline]{actually, that's pretty cool; could be mentioned at some
-locations}
-
-%
-Compared to other studies [which studies did it?], we did no cherry picking by
-excluding subjects that did not provide a functional \ac{roi} in one or both
-hemisphere in the functional localizer [or naturalistic stimulus paradigms]
-before calculating the \ac{cfs}.
-
-
-\subsubsection{$Z$-maps in a \ac{roi}}
-
-\todo[inline]{what could you do with $Z$-maps except creating binary ROIs:
-classification etc.?}
-
-
-
-%
-We estimate $Z$-maps, whereas other estimate based on a binary decision if a
-voxels belongs to the \ac{roi} or not.
-%
-Our approach does not only ``contain unique tiling of cortical regions
-but also allows for multiple functional clusters to occupy overlapping
-areas'' [phrasing taken from \citet{rosenke2021probabilistic}].
-
-
-\subsubsection{Others: hand-picked \acp{roi}}
-
-%
-``ROIs where manually defined in individual subjects on their cortical surface
-reconstruction in anatomically plausible locations''
-\citep{rosenke2021probabilistic}.
-
-%
-``Functional areas of interest were determined by selecting the activity cluster
-on the surface falling in the region reported in previous standard localizer
-studies'' \citep{frost2012measuring}.
-
-%
-``We used the conventional approach of drawing are borders by hand.
-%
-At least 2 experimenters experienced in retinotopic mapping drew borders
-independently using the same set of published criteria (detailed below)''
-\citep{wang2015probabilistic}.
-
-%
-``Subject-specific scene-selective regions were delineated manually in the
-parcel unit based on the individual activation map from the contrast of scenes
-versus objects'' \citep{zhen2017quantifying}.
-
-
-\paragraph{Threshold is problematic}
-
-%
-``The choice of the threshold in localizing the face-selective regions
-inevitably influenced the amount of variation in the location of the
-face-selective regions'' \citep{zhen2015quantifying}.
-
-%
-``In the outlined procedure the extent of identified clusters (and thus the
-overlap calculation) depended on subjectively determined thresholds''
-\citep{frost2012measuring}.
-
-%
-``Decisions such as the statistical threshold used, the precise contrast, or the
-amount of spatial smoothing influence the spatial extent of the (p)ROI on the
-cortical surface'' \citep{weiner2018defining}.
-%
-\citet{weiner2018defining} identified place-selective voxels ``within each
-subject's native brain anatomy using a common threshold (t > 3, voxel-level)''.
-
-%
-\citet{rosenke2021probabilistic} ``selected a statistical threshold of t=3 for a
-whole-brain map''.
-
-
-%
-``The subject-specific activation image was first thresholded (Z>2.3,
-uncorrected).
-%
-Thresholded activation images were partitioned into many small parcels using the
-watershed algorithm [Meyer, 1994].
-%
-Raters handpicked the parcels on the individual activation map to construct the
-scene-selective regions following a standard procedure:
-%
-1) gyri and sulci from MNI152 template were used as the anatomical landmarks to
-locate the scene-selective regions.
-%
-2) we used the scene-selective regions group labels (the functional landmark) as
-a spatial extent reference (the major part of each candidate parcel overlapped
-with or neighbored to the corresponding functional label).
-%
-3) From the parcels that showed good correspondence to both anatomical and
-functional landmarks, we identified the one with the strongest scene-selective
-activation as the center of a scene-selective region, and iteratively merged the
-parcels which connected with the selected parcels into the regions until no
-candidate parcels met the criteria'' \citep{zhen2017quantifying}.
-
-
-\subsubsection{Others: probabilistic atlas in common common anatomical space
-(CAS)}
-
-%
-``Probabilistic maps were generated by summing the 12 fROIs [from 12
-participants] at each point along the cortical surface of the FreeSurfer average
-brain and dividing by the number of participants.
-%
-Each vertex within the map reflects the proportion of participants exhibiting
-place selectivity at that location on the cortical surface''
-\citep{weiner2018defining}.
-
-%
-``Probabilistic ROIs were generated using three different thresholds to test if
-and how different threshold values influence the predictability of place
-selectivity in a new group of participants.
-%
-(1) unthresholded,
-%
-(2) thresholded by 33\% overlapping participants, or
-%
-(3) thresholded by 66\% overlapping participants.
-%
-Since the 33\% thresholded pROI performed the best in the prior analyses [Weiner
-et al., 2017], we used this threshold for the present (and subsequent)
-analyses'' \citep{weiner2018defining}.
-
-%
-``Results revealed high predictability in the right and left hemisphere (about
-0.70), which was not different than the ceiling performance (all ts < .7, all ps
-> .5; Fig. 2D).
-%
-Cross-validated performance from 23 participants is not significantly different
-than the ceiling performance.
-%
-This provides statistical evidence supporting that the structural-functional
-predictability from our participants likely reflects a predictability that is
-reflective of the general population'' \citep{weiner2018defining}.
-
-%
-``We computed the overlap of functional areas across subjects for vertices
-belonging to a POI of at least one subject to constitute the probabilistic map
-for a particular localized region-of-interest using the formula: Nv/N.
-%
-Nv is the number of subjects whose functional area includes vertex v,
-%
-N is the number of subjects.
-%
-An overall probabilistic map is obtained by adding the resulting overlap vertex
-values for all included POIs.
-%
-A threshold of N=10\% is applied to all probabilistic maps to avoid depicting
-regions as "overlap" where only one subject has a functional area''
-\citep{frost2012measuring}.
-
-
-%
-``A probabilistic atlas (or map) was created for each scene-selective region by
-calculating the frequency of a respective SSR being present at a given position
-across all subjects'' \citep{zhen2017quantifying}.
-%
-``The map coded the occurrence probability of each voxel being located in the
-SSR, and provides a voxel-wise description for inter-individual variability in
-the location and extent'' \citep{zhen2017quantifying}.
-
-
-%
-``For each FSR, a probabilistic map was created to characterize the likelihood
-that a given voxel belonged to that FSR.
-%
-The subject-specific FSR delineated in individual brains were averaged in the
-MNI152 space so that the value at any voxel coded the likelihood of the voxel
-being located in the FSR, thus giving a measure of the variability in location
-and extent of the FSR over subjects at voxel-level resolution''
-\citep{zhen2015quantifying}.
-%
-``
-High interindividual variability was observed for all FSRs: no one voxel showed
-a 100-percent chance of being in one of the FSRs across subjects.
-%
-Maximum probability that a voxel belonged to an FSR ranged from 0.24 (left aFFA)
-to 0.74 (right pSTS) (Table 1)'' \citet{zhen2015quantifying}.
-
-
-
-\subsubsection{Others: binary prediction (quantified by Dice)}
-
-%
-``The atlas accurately predicts the location [but just the location] of an
-independent dataset of ventral temporal cortex ROIs''
-\citep{rosenke2021probabilistic}.
-
-%
-``We identify and predict the most probable location of place-selective voxels
-within medial VTC of an individual brain'' \citep{weiner2018defining}.
-%
-``Results suggest that our pROI of place selectivity provides a robust
-prediction of the location of high place selectivity within medial VTC''
-\citep{weiner2018defining}.
-
-
-%
-\citet{weiner2018defining} ``calculated the Dice coefficient to assess the
-correspondence between the probabilistic ROI and individually-defined ROIs in
-independent participants'' and ``to quantify how well pROIs predict
-functionally-defined ROIs in an independent group of participants.''
-\citep{weiner2018defining}.
-%
-``The Dice coefficient is a measure of similarity of two sample and calculated
-with the following formula:
-%
-P is the surface area of the probabilistic ROI.
-%
-A is the surface area of the actual ROI in an individual subject.
-%
-Perfect alignment between the probabilistic prediction and the actual ROI in
-individual subjects would result in a Dice coefficient of 1 (perfect
-predictability) and complete misclassification would result in a Dice
-coefficient of 0 (no predictability)'' \citep{weiner2018defining}.
-%
-We measured cross-validation performance at three threshold level:
-%
-a) no threshold, b) 33\%, and c) 66\%
-%
-using group pROIs from Study 1 and individual ROIs from Study 2 and vice versa.
-%
-The ceiling Dice coefficient in our data is 0.73 in the left hemisphere and 0.72
-the right hemisphere'' \citep{weiner2018defining}.
-
-``Results of the cross-validation analysis reveal that our pROI predicts
-individual ROIs with high accuracy across hemispheres.
-%
-The unthresholded ROI had the lowest predictability (about 0.56 left and right)
-%
-The 66\% thresholded ROI had an intermediate predictability (about 0.60 left and
-right)
-%
-All were significantly lower than the ceiling performance (all ts > 4.5, all ps
-< 10-4).
-%
-At a threshold of 33\%, the Dice coefficient is 0.70 +/- 0.03 in the right
-hemisphere and 0.65 +/- 0.03 in the left'' \citep{weiner2018defining}.
-
-%
-``We calculated the Dice coefficient using different thresholds for the
-probabilistic group map:
-%
-from a liberal unthreshold: one subject at a given voxel/vertex is enough to
-assign it to the group map;
-%
-to a conservative threshold: all N-1 subjects had to share a voxel/vertex to be
-assigned to the group map'' \citet{rosenke2021probabilistic}.
-
-
-\paragraph{Probabilistic atlas is problematic when \acp{roi} overlap}
-%
-``We generated a maximum probability map (MPM) of each area in order to assign a
-unique functional label to each vertex in the atlas by comparing the
-probabilities of all areas at that node and assigning the node to the area with
-the highest probability.
-%
-We determined which vertices were shared by more than one probabilistic fROI and
-assigned these vertices to a single fROI based on the area that showed the
-highest probability at that vertex'' \citep{rosenke2021probabilistic}.
-%
-``
-In the case of an activation cluster transitioning into an adjacent one of the
-same visual category, we divided those clusters into separate ROIs by following
-the spatial gradient of t-values and separating the two areas at the lowest
-t-value'' \citep{rosenke2021probabilistic}.
-
-
-%
-``Because the probabilistic maps of adjacent scene-selective regions (e.g., PPA
-and RSC) overlapped to some degree in the periphery, a maximum-probability map
-(MPM) was then created to obtain an integrated, non-overlapping map for all
-scene-selective regions'' \citep{zhen2017quantifying}.
-%
-Maximum-probability maps define the most likely scene-selective region to
-which each voxel belonged.
-%
-Each MPM integrates the multiple probabilistic scene-selective region maps into
-one map, and to characterize the spatial relations among SSRs:
-%
-We compared each voxel's values from each probabilistic map, and assigned that
-voxel to the SSR which showed the highest probability at the voxel.
-%
-The voxels with a maximal probability below 10\% were set to 0, indicating that
-they most likely did not belong to any SSR'' \citep{zhen2017quantifying}.
-
-
-\paragraph{Selectivity-map by \citet{weiner2018defining}}
-%
-``The question is whether this pROI captures the 'peak' voxels exhibiting the
-highest place selectivity in medial VTC.
-%
-The map of pROIs across subjects is generated after assigning either a 1 (if the
-ROI is present) or a 0 (if the ROI is not present) at vertices of the FS average
-surface.
-%
-In the pROI case, there is a threshold and the group map does not reflect
-selectivity and instead represents the percentage of overlap across subjects at
-each vertex.
-%
-We generated an average map of selectivity in which vertices are assigned
-continuous values of place selectivity rather than a binary distinction as in
-the probability maps from the prior analyses.
-%
-The selectivity map reflects a continuous metric in which a vertex is assigned a
-selectivity value (a t-statistic) first for each subject and then averaged
-across subjects.
-%
-The selectivity map is not thresholded and the group map directly indicates
-selectivity (each vertex reflects the average t-value across subjects)
-%
-We then visualized the group place selectivity map relative to the group pROI
-from all 24 participants (Fig. 4).
-%
-Weakly place-selective voxels (t-values greater than 0 and less than 2) extend
-into the medial fusiform gyrus and more posteriorly along the CoS.
-%
-The locus ("hotspot") of peak place selectivity is near the medial lip of the
-CoS in the right hemisphere and close to the center of our pROI near the fundus
-of the CoS in the left hemisphere (Fig. 4A)'' \citep{weiner2018defining}.
-%
-``Examining the location of our pROI relative to the peak cluster of place
-selectivity in individual participants shows that there are individual
-differences in the location of voxels with highest place selectivity (Fig.
-4B-C):
-%
-Voxels with the highest place selectivity are not always located within the same
-exact location in the pROI for each participant and small clusters of high place
-selectivity can also extend outside of the pROI.
-%
-Despite these individual differences, all participants have voxels with the
-highest place selectivity within the pROI''
-\citep{weiner2018defining}.
 
 
 \subsection{Shortcomings}
-
-
-\subsubsection{Sample size}
-
-\todo[inline]{cf. variability of the \ac{cfs}}
-
-\todo[inline]{can/should that variability somehow be quantified?}
-
-% what is the case
-The correlations of shared responses within the \acp{cfs} created from $N-1$
-training subjects varied across the folds of the cross-validation.
-% interpretation
-That means, a change of 1/13 of the data for every subject's analysis is causing
-the estimates to vary [how much?].
-% conclusion
-Future studies, should create a \ac{cfs} based on data from more subjects and
-investigate the relationship between number of participants, variability of
-parameters, and estimation performance.
-
-
-
-\subsubsection{Leakage of test data in union of individual \acp{ppa}}
-%
-We used the union of individual \acp{ppa} as spatial constrain for $Z$-maps.
-%
-But we have a leakage of test data (test subject is in data for the mask).
-%
-We might miss some voxels (of some participants) at the borders of the \ac{roi},
-because the subject-specific, binary masks are based on a ("titrated")
-threshold.  \citep{sengupta2016extension}
-%
-In the future, an independent probabilistic atlas should be used, the \ac{roi}
-dilated, [and a separate model calculated for each hemisphere].
-
 
 
 \subsubsection{Shared responses are problematic in case of atypical organization
@@ -2390,9 +1636,31 @@ connectivity)]'' \citep{cohen2017computational}.
 
 
 \paragraph{Applied to our results}
+%
+The database ``may prove especially useful for predicting functional patterns in
+case no localizer data are available, saving scanning time and expenses''
+\citep{rosenke2021probabilistic}
+%
+One could create an dataset based on many subjects (maybe even containing
+subgroups) and a collection of conducted paradigms that would enable a mapping
+of that collection into individual persons.
+
+%
+Functional patterns in an individuum could be infered from a database created
+from an (independent) healthy population.
+%
+This could serve as an estimation of a persons functional pattern and/or
+allows a comparisons to a persons "actual pattern" to a normative reference
+and/or non-normative reference.
+%
+In case the database is based on a healthy norm the projected data could
+quantify the degree of deviation of person's actual functional pattern from the
+norm, and potentially diagnose deficits in a patients.
+
+
+\paragraph{Applied to our results: some templates}
 
 \todo[inline]{Following are just some templates for inspirational purposes}
-
 %
 ``Variability was observed from a cohort of homogeneous young adults with a
 narrow age range, which limits the generalization of the variability observed
@@ -2411,6 +1679,44 @@ Such edge-case subjects could include members of clinical populations, such as
 individuals lacking an optic chiasm [Hoffmann et al., 2012; Bao et al., 2015;
 Olman et al., 2018], or healthy individuals whose retinotopic boundaries are
 merely unusual [Van Essen and Glasser, 2018]'' \citep{benson2018bayesian}.
+
+
+\subsubsection{Sample size}
+
+\todo[inline]{cf. variability of the \ac{cfs}}
+
+\todo[inline]{can/should that variability somehow be quantified?}
+
+% what is the case
+The correlations of shared responses within the \acp{cfs} created from $N-1$
+training subjects varied across the folds of the cross-validation.
+% interpretation
+That means, a change of 1/13 of the data for every subject's analysis is causing
+the estimates to vary [how much?].
+% conclusion
+Future studies, should create a \ac{cfs} based on data from more subjects and
+investigate the relationship between number of participants, variability of
+parameters, and estimation performance.
+
+
+
+\subsubsection{Leakage of test data in union of individual \acp{ppa}}
+
+\todo[inline]{yeah, whatever}
+%
+We used the union of individual \acp{ppa} as spatial constrain for $Z$-maps.
+%
+But we have a leakage of test data (test subject is in data for the mask).
+%
+We might miss some voxels (of some participants) at the borders of the \ac{roi},
+because the subject-specific, binary masks are based on a ("titrated")
+threshold.  \citep{sengupta2016extension}
+%
+In the future, an independent probabilistic atlas should be used, the \ac{roi}
+dilated, [and a separate model calculated for each hemisphere].
+
+
+
 
 
 
@@ -2629,35 +1935,6 @@ saw more modest increases in overlap after macro-anatomical alignment with
 \citep{frost2012measuring}.
 
 
-\paragraph{Sample size}
-
-\todo[inline]{cf. shortcomings}
-
-\todo[inline]{can/should that variability somehow be quantified?}
-
-Because size matter in the dataset measuring contest!
-
-
-
-\paragraph{Shared stimulus}
-
-%
-We demonstrated that 15 to 30 minutes of naturalistic stimulation is sufficient
-to estimate $Z$-maps of a localizer paradigm.
-%
-A future study of a larger sample size could use just a part of the movie or
-audio-description.
-%
-Stimuli can more conveniently be shared across studies than participants across
-studies \citep[cf.][an extension of the \ac{srm} for shared subjects across
-datasets]{zhang2018transfer}.
-
-
-
-
-
-
-
 \subsection{Conclusion}
 
 ``We have cross-validated our pROI across participants and studies collected
@@ -2733,3 +2010,274 @@ only did it with one; imo, based on alignment using the whole audio-description)
 it gets totally messy \& computational intensive.
 %
 Results were similar to the original procedure if not slightly worse.
+
+
+
+\pagebreak
+
+\section{Templates for Cronbach's $\alpha$}
+
+
+\paragraph{\citet{jiahui2020predicting}}
+%
+``We compared the correlations between maps estimated from a participant's own
+data and maps estimated from other participants' data to the reliability of the
+localizer (across the four localizer runs).
+%
+The mean Cronbach's Alpha between the four localizer runs was 0.60 (N = 15, S.D.
+= 0.14)'' \citep{jiahui2020predicting}.
+%
+``Results mean that if we scan each participant for another 4 localizer
+runs, and compute the correlation between the two maps (4 runs vs. 4 runs), the
+correlation would be 0.60 on average in the studyforrest''
+\citep{jiahui2020predicting}.
+%
+``Cronbach's alpha indicates that the predicted contrast map based on
+hyperalignment is close to or as good as the real contrast map based on four
+localizer runs (studyforrest: t(14) = 0.61, p = 0.55; Grand Budapest: t(20) =
+3.02, p = 0.007)'' \citep{jiahui2020predicting}.
+%
+``The predicted contrast map based on hyperalignment was better than the
+contrast map based on data from three out of four localizer runs in other
+participants (t(14) = 2.36, p = 0.03) and in Grand Budapest, the predicted
+contrast map was comparable to the contrast map based on three localizer runs in
+other participants (t(20) = 0.48, p = 0.63)''
+\citep{jiahui2020predicting}.
+
+
+\paragraph{\citet{jiahui2022cross}}
+%
+``Because the localizer task comprises several scanning runs, we calculated the
+reliability of the localizer across runs with Cronbach's alpha to provide an
+estimate of the noise ceiling for these correlations'' \citep{jiahui2022cross}.
+%
+``We compared the correlations between topographies estimated from a
+participant's own localizer data and those from other participants' data to the
+reliability of the localizer, calculated with Cronbach's alpha.
+%
+Predictions made with hyperalignment were close to and sometimes even exceeded
+the reliability values (Figure 1B).
+%
+This indicates that the predicted category-selective topographies from other
+participants' data using hyperalignment were as precise and sometimes even
+better than the topographies estimated with their own localizer data''
+\citep{jiahui2022cross}.
+
+
+\paragraph{\citet{feilong2022individualized}}
+%
+``Due to the presence of noise in localizer data, the estimated face-selectivity
+map is a combination of a “true” face-selectivity map of the participant and
+some noise.
+%
+The component from the “true” map is supposed to be shared by all localizer
+runs, and thus the data quality and the level of noise can be estimated based on
+the similarity between the 4 maps (i.e., one from each run).
+%
+We used Cronbach's alpha to estimate the reliability  of the average map of the
+4 runs.
+%
+We estimated the reliability of the localizer-based map using Cronbach's alpha,
+which is the expected correlation between two average maps, each based on 4 runs
+of independent data.
+%
+If we were to collect another 4 localizer runs from the participant and get a
+new average map based on the 4 new runs (i.e., independent data), then the
+expected correlation between the two average maps would be Cronbach's alpha.
+%
+In other words, if the correlation between the model-predicted map and the
+localizer-based (average) map is higher than Cronbach's alpha, then the
+model-predicted map is more accurate than the average map based on 4 runs''
+\citep{feilong2022individualized}.
+
+%
+``Based on the similarity between these four maps, we computed the Cronbach's
+alpha coefficient for each participant, which estimates the reliability of the
+average map.
+%
+That is, if we were to scan the participant for another four localizer runs and
+correlate the new average map with the current average map, the expected
+correlation would be Cronbach's alpha.'' \citep{feilong2022individualized}
+
+%
+``For both datasets, the localizer-based and model-predicted face-selectivity
+maps were highly correlated (Forrest: r = 0.618 ± 0.089 [mean ± SD], Raiders: r
+= 0.716 ± 0.074), and the correlations were higher than our previous
+state-of-the-art model using the same dataset and hyperalignment (Jiahui et al.,
+2020).
+%
+Across all participants, the average Cronbach's alpha was 0.606 ± 0.126 for
+Forrest, and 0.764 ± 0.089 for Raiders.
+%
+For approximately a third of the participants (Forrest: 6 out of 15, 40\%;
+Raiders: 6 out of 20, 30\%), the correlation exceeded the Cronbach's alpha of
+localizer-based maps.
+%
+In other words, for these participants, the predicted map based on our model can
+be more accurate than the map based on a typical localizer scanning session
+comprising four runs'' \citep{feilong2022individualized}.
+
+%
+``Note that for the Forrest dataset, the similarity sometimes exceeded
+Cronbach's alpha, which means the model-predicted map is more accurate than a
+map based on 4 localizer runs (21 minutes).
+%
+The quality of localizer-based maps increases with more localizer data, which
+can be estimated using the Spearman–Brown prediction formula [Brown, 1910;
+Spearman, 1910].
+%
+Based on the Spearman–Brown prediction formula, we can estimate how Cronbach's
+alpha changes with the amount of data (i.e., the number of localizer runs), and
+correspondingly, how much localizer data is needed to achieve the quality of the
+model-predicted map
+%
+For the Forrest dataset, the maps predicted by 15, 30, 60, and 120 minutes of
+movie data were as accurate as 17, 22, 26, and 30 minutes of localizer data,
+respectively.
+%
+For the Raiders dataset, the maps predicted by 15, 28, and 56 minutes of movie
+data were as accurate as 10, 11 and 12 minutes of localizer data, respectively''
+\citep{feilong2022individualized}
+
+
+\pagebreak
+
+\section{Templates from \citet{haxby2011common} on validity \& generalizability}
+
+%
+``The algorithm also can be applied to simpler, controlled experimental data but
+our previous results showed that the sampling of response vectors from these
+experiments is impoverished and produces a model representational space that
+does not generalize well to new stimuli in other experiments
+\citep{haxby2020hyperalignment}'' \citep{guntupalli2016model}.
+%
+``We base the derivation of the transformation matrices and the common space on
+responses to the movie---a complex, naturalistic, dynamic stimulus.
+%
+Although the algorithm also can be applied to fMRI data from more controlled
+experiments, we found that a common model based on such data has greatly
+diminished general validity \citep{haxby2011common}, presumably because,
+relative to a rich and dynamic naturalistic stimulus, such experiments sample an
+impoverished range of brain states \citep{guntupalli2016model}''.
+
+``The general validity of the model across the varied stimulus sets that we
+tested could be achieved only when hyperalignment was based on responses to the
+movie.
+%
+Common models based on responses to smaller, more controlled stimulus
+sets---still images of a limited number of categories---were valid only for
+restricted stimulus domains, indicating that these models captured only a
+subspace of the substantially larger representational space in VT cortex''
+\citep{haxby2011common}.
+
+``We used a complex and dynamic natural stimulus---a full-length action
+movie---to sample a diverse variety of representational states.
+%
+The results show that hyperalignment based on responses to this stimulus affords
+a single model of VT cortex with general validity across a broad range of
+stimuli, whereas hyperalignment based on responses to still images in more
+controlled, conventional experiments does not.
+%
+Thus, by virtue of the rich diversity of a complex, natural stimulus, our model
+of the representational space in VT cortex also has general validity across
+stimuli''\citep{haxby2011common}.
+
+``We also derived common models based on responses to the face and object
+categories in ten subjects and on responses to the pictures of animals in 11
+subjects.
+%
+These alternative common models afforded high levels of accuracy for BSC of the
+stimulus categories used to derive the common space but did not generalize to
+BSC for the movie time segments.
+%
+Thus, models based on hyperalignment of responses to a limited number of
+stimulus categories align only a small subspace within the representational
+space in VT cortex and are, therefore, inadequate as general models of that
+space.
+%
+On the positive side, these results also show that hyperalignment can be used
+for BSC of an fMRI experiment without data from movie viewing''
+\citep{haxby2011common}.
+
+%
+``Further analyses revealed other desirable properties of the movie as a
+stimulus for model derivation.
+%
+The movie evoked responses in VT cortex that were more distinctive than were
+responses to the still images in the category perception experiments.
+%
+Moreover, the general validity of the model based on the responses to the movie
+is not dependent on responses to stimuli that are in both the movie and the
+category perception experiments but, rather, appears to rest on stimulus
+properties that are more abstract and of more general utility''
+\citep{haxby2011common}.
+
+%
+``We investigated whether hyperalignment of the face and object data and
+hyperalignment of the animal species data would afford high levels of BSC
+accuracy using only the data from those experiments.
+%
+In each experiment, we derived a common space based on all runs but one. We
+transformed the data from all runs, including the left-out run, into this common
+space.
+%
+We trained the classifier on those runs used for hyperalignment in all subjects
+but one and tested the classifier on the data from the left-out run in the
+left-out subject (i.e. the test data for determining classifier accuracy played
+no role either in hyperalignment or in classifier training [Kriegeskorte et al.,
+2009]).
+%
+BSC of face and object categories after hyperalignment based on data from that
+experiment was equivalent to BSC after movie-based hyperalignment (62.9\% ±
+2.9\% versus 63.9\% ± 2.2\%, respectively; Figure 4).
+%
+BSC of the animal species after hyperalignment based on data from that
+experiment was significantly better than BSC after movie-based hyperalignment
+(76.2\% ± 3.7\% versus 68.0\% ± 2.8\%, respectively; p < 0.05; Figure 4).
+%
+Result suggests that the validity for a model of a specific subspace may be
+enhanced by designing a stimulus paradigm that samples the brain states in that
+subspace more extensively'' \citep{haxby2011common}.
+
+%
+``We next asked whether hyperalignment based on these simpler stimulus sets was
+sufficient to derive a common space with general validity across a wider array
+of complex stimuli.
+%
+We applied the hyperalignment parameters derived from the face and object data
+to the movie data in the ten Princeton subjects and the hyperalignment
+parameters derived from the animal species data to the movie data in the 11
+Dartmouth subjects.
+%
+BSC of 18s movie time segments after hyperalignment based on category perception
+experiment data was markedly worse than BSC after hyperalignment based on movie
+data (17.6\% ± 1.3\% versus 65.8\% ± 2.7\% for Princeton subjects; 28.3\% ±
+2.8\% versus 74.9\% ± 4.1\% for Dartmouth subjects; p < 0.001 in both cases;
+Figure 4).
+%
+Thus, hyperalignment of data using a set of stimuli that is less diverse than
+the movie is effective, but the resultant common space has validity that is
+limited to a small subspace of the representational space in VT cortex''
+\citep{haxby2011common}.
+
+%
+``We also tested whether the general validity of the model space reflects
+responses to stimuli that are in both the movie and the category perception
+experiments or reflects stimulus properties that are not specific to these
+stimuli.
+%
+We recomputed the common model after removing all movie time points in which a
+monkey, a dog, an insect, or a bird appeared. We also removed time points for
+the 30 s that followed such episodes to factor out effects of delayed
+hemodynamic responses.
+%
+BSC of the face and object and animal species categories, including distinctions
+among monkeys, dogs, insects, and birds, was not affected by removing these time
+points from the movie data [65.0\% ± 1.9\% versus 64.8\% ± 2.3\% for faces and
+objects; 67.1\% ± 3.0\% versus 67.6\% ± 3.1\% for animal species; Figure S4B].
+%
+This result suggests that the movie-based hyperalignment parameters that afford
+generalization to these stimuli are not stimulus specific but, rather, reflect
+stimulus properties that are more abstract and of more general utility for
+object representations'' \citep{haxby2011common}.
+
