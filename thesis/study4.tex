@@ -233,6 +233,9 @@ maps that were estimated via surface-based anatomical alignment
 
 \todo[inline]{mentioned here that number of voxels is constrained to a ROI?}
 
+\todo[inline]{Is cross-paradigm and within-paradigm estimation / prediction
+defined in the intro? These terms make discussion more concise to write}
+
 % focus: ppa
 Here, we focus on the \ac{ppa} \citep[e.g.,][for reviews]{epstein2014neural,
 aminoff2013role}, and explore whether we can estimate the results of
@@ -1037,6 +1040,11 @@ predicted $Z$-map that estimates the test subject's empirical $Z$-map.
 
 \subsection{Pearson \& Cronbach's alpha}
 
+\todo[inline]{Give the median / mean Cronbach's here (already although it's
+strictly results}
+
+\todo[inline]{sub-05 is an asshole, btw. Crombach's of -0.5}
+
 % Pearson's
 In order to quantify the estimation performance based on anatomical and the
 functional alignment procedure, we calculated the Pearson's correlation
@@ -1054,7 +1062,23 @@ across-subject variability cannot be expected to be lower than within-subject
 variability over time (reproducibility)'' \citep{rosenke2021probabilistic}.
 
 
-
+\begin{figure*}[tbp] \centering
+    \includegraphics[width=\linewidth]{figures/plot_cronbachs.pdf}
+    \caption{
+    %
+    \textbf{Reliability of the empirical $Z$-maps across runs / segments.}
+    %
+    Cronbach's $\alpha$ per subject and paradigm calculated across four runs of
+    the visual localizer and eight segments of the naturalistic stimuli
+    respectively.
+    %
+    Median = upper lines, mean = lower lines.
+    %
+    \textbf{If plot is supposed the stay, it needs a legend for medians
+    and means; Linien über die gesamte Horizontale durchgezogen lassen?}
+    }
+    \label{fig:stripplot}
+\end{figure*}
 
 
 \section{Results}
@@ -1455,6 +1479,8 @@ Are they simply not attending to it? Or are they simply incapable to process it?
 
 \subsection{Discussion across "everything"}
 
+
+
 \subsubsection{We built a "multi-stimulus" model}
 
 \todo[inline]{cf. "Templates from \citet{haxby2011common} on validity \&
@@ -1471,19 +1497,47 @@ The multi-stimulus model is kind of valid;
 However, I have no clue which stimulus is the crucial one...
 
 
+\subsubsection{Comparison to functional alignment (it's not that bad actually)}
+
+%
+Movie beats anatomical alignment when localizer and movie PPA are estimated.
+%
+Movie gets as good as anatomical alignment when audio PPA is estimated
+
+%
+Audio-description sucks compared to anatomical alignment for cross-paradigm
+estimation.
+%
+Audio-description eventually outperforms anatomical alignment for
+within-paradigm prediction.
+%
+Audio-description to estimate movie PPA gets better the more segments are used
+but does not outperform anatomical alignment eventually
+
+\todo[inline]{So what might be the reasons?}
+
+
+%
+The outliers in audio PPA are difficult to estimate via anatomical alignment,
+too.
+%
+Maybe, the outliers fucked up the model (cf. one segment of audio-description
+for functional alignment \& mean reliability of audio PPA)?
+
+
 \subsubsection{Naturalistic stimuli for (partial) alignment}
 
-\todo[inline]{focus on what we did in the present study}
+\todo[inline]{here, focus on what we did in the present study}
 \todo[inline]{extend the idea to lots of "localizers" below in "Vision"!!! which
-should be shifted to the general discussion}
+should be shifted mostly to the general discussion}
 
 
 \paragraph{Introductory statement}
 %
 Our results provide evidence that transformation matrices calculated based on
-data from naturalistic stimuli promise an increased validity for functional
-alignment over transformation matrices based on data of a paradigm based on
-simplified stimuli.
+data from naturalistic stimuli [at least in case of the movie] promise an
+increased validity for functional alignment over transformation matrices based
+on data of a paradigm based on simplified stimuli.
 %
 This is the case for both within-paradigm prediction (e.g., audio-description
 for alignment to estimate $Z$-maps from the audio-description's $t$-contrast)
@@ -1498,15 +1552,8 @@ But they had a \ac{cfs} that was just derived from the non-naturalistic stimulus
 paradigm, i.e. no multi-stimulus paradigm.  Maybe, our naturalistic stimuli
 (about 7000 TRs) fucked up our shared responses in 450 TRs within the SRM?
 
-\paragraph{But anatomical alignment is not bad}
 
-In case the audio-description is estimated (and when "not a lot" of data for
-functional alignment are used).
-%
-Which is also true when audio-description is used for alignment to estimate the
-movie PPA (in that case the amount of data doesn't matter).
-%
-Maybe, the outliers fucked up the model?
+
 
 
 \paragraph{Partial Alignment}
