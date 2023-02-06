@@ -710,8 +710,8 @@ The time series of all three paradigms were concatenated and $z$-scored.
 
 \subsection{Estimation via anatomical alignment}
 
-\todo[inline]{I shifted this up in front (now more in line with the intro);
-it kind of primes the (similar but more complicated) functional alignment, too}
+\todo[inline]{I shifted this up in front (now more in line with the intro); it
+primes the (similar but more complicated) functional alignment, too}
 
 \todo[inline]{was it transpose of the matrix to warp from MNI into subject, or
 a separate one?}
@@ -867,6 +867,16 @@ cf. Table 3 in \citet{haeusler2022processing}}
 TRs within the \ac{cfs}; "problem" in the plots shown below: the correlations
 between the shared features vary depending on the TRs used => there is no clear
 "face" or "building" shared feature across paradigms.}
+
+\todo[inline]{To keep in mind for the discussion: the highest correlations
+between individual regressors and shared responses can be seen in the visual
+localizer => but the matrices based on localizer runs suck the most for
+estimation; interpretation?}
+
+\todo[inline]{I have plots prepared for sub-05 (the biggest outlier regarding
+Cronbach's $\alpha$ of audio PPA): \ac{cfs} calculated from all subjects' data
+except sub-05 looks different; of course different value but also (slightly?)
+different patterns of correlations}
 
 % Intro
 We calculated the Pearson correlation coefficients between shared features
@@ -1043,7 +1053,7 @@ predicted $Z$-map that estimates the test subject's empirical $Z$-map.
 \todo[inline]{Give the median / mean Cronbach's here (already although it's
 strictly results}
 
-\todo[inline]{sub-05 is an asshole, btw. Crombach's of -0.5}
+\todo[inline]{btw, sub-05 is the asshole: Cronbach's of -0.5}
 
 % Pearson's
 In order to quantify the estimation performance based on anatomical and the
@@ -1085,11 +1095,14 @@ variability over time (reproducibility)'' \citep{rosenke2021probabilistic}.
 
 \todo[inline]{make list of which statistical tests to perform!}
 
-\todo[inline]{Problem for (parametric) t-tests: Correlations (especially in case
-of auditory PPA) are not normally distributed (Fisher's Z-transform should not
-change that, probably)}
+\todo[inline]{many cases should require non-parametric test; especially in case
+of auditory PPA as criterion and audio-description as predictor (Fisher's
+Z-transform should not change that, probably)}
 
-\todo[inline]{'statistics\_t-test-correlations.py'}
+\todo[inline]{adjust 'statistics\_t-test-correlations.py' accordingly}
+
+\todo[inline]{the plot: add median Cronbach's to the plot; take same line style
+as in the plot plot of Cronbach's per subject}
 
 
 Unthresholded $Z$-maps [in each subject's voxel space] can be found at
@@ -1260,13 +1273,13 @@ corresponding \acp{tr} in our model and subsequently estimate the $Z$-map.
 
 \subsubsection{Assumption that localizer is "ground truth"}
 
-We estimate the $Z$-map of an visual localizer which is the fucking established
-/ traditional method to identify the \ac{ppa}.
+We estimate the $Z$-map of a visual localizer which is the fucking established /
+traditional method to identify the \ac{ppa}.
 %
 % localizer data
 \citet{sengupta2016extension} successfully delineated the left-hemispheric
-\ac{ppa} in X of X subjects and right-hemispheric \ac{ppa} in X of X subjects
-based on localizer data
+\ac{ppa} in 12 of 14 subjects and right-hemispheric \ac{ppa} in 14 of 14
+subjects based on localizer data.
 
 
 \subsubsection{visual localizer via localizer runs}
@@ -1303,21 +1316,23 @@ scanning time than 30 minutes during audio-visual naturalistic stimulation.
 
 \subsubsection{visual localizer via audio-description segments}
 
-Audio-description cannot beat anatomical alignment;
+Audio-description for alignment gets as good (i.e. no statistical difference) as
+anatomical alignment but for similar performance >4-6 segments are needed.
+
+
+\paragraph{interpretation}
 %
-It gets as good (no statistical difference anymore) as anatomical alignment.
+What might be the cause?
 %
 Audio-description might not sample the response vector space of the visual
-paradigm "good" enough?
+paradigm "well" enough?
 %
+Maybe, the shared responses in the model space are shitty?
+
 Or the shared responses of the AO within the \ac{cfs} are shitty?
-
-
-\subsubsection{Interim summary \& transition to movie \& audio PPA}
-
-\todo[inline]{This should be rather short, cause there is a "Discussion across
-localizer PPA, movie PPA \& audio PPA" later.}
-
+%
+The shared responses might suffer from the outliers but "work" to estimate the
+audio PPA though.
 
 
 
@@ -1330,103 +1345,106 @@ assumption"; what does localizer actually do? does it what we want it to do?}
 The visual \ac{ppa} can be reliably localized using a localizer, which is why we
 considered it to be the "gold standard" or benchmark.
 %
-``The PPA definition may depend on the type of experiment, task, and stimuli
-used'' \citep{weiner2018defining}.
-% movie
-Despite an adventurous operationalization, \citet{haeusler2022processing}
-delineated the left-hemispheric \ac{ppa} in X of X subjects and
-right-hemispheric \ac{ppa} in X of X subjects based on movie data.
+However, ``the PPA definition may depend on the type of experiment, task, and
+stimuli used'' \citep{weiner2018defining}.
+
+%
+The primary movie contrast in \citet{haeusler2022processing} ``yielded bilateral
+clusters in five participants, a unilateral right cluster in six participants
+(of which one participant yielded a unilateral cluster in the visual localizer),
+and a unilateral left cluster in one participant. We find bilateral clusters for
+participant sub-20, whereas the block-design localizer yielded only one cluster
+in the right hemisphere'' \citep{haeusler2022processing};
+%
+i.e. 5 + 1  left-hemispheric, 5 + 6 right-hemispheric.
 
 
 \subsubsection{movie PPA via localizer runs}
 
-Not even four runs of the localizer beat anatomical alignment.
+Localizer, independent of number of runs, cannot beat anatomical alignment.
 
 
 \subsubsection{movie PPA via movie segments}
 
-One segment of movie beats [test that] anatomical alignment?
+\todo[inline]{cf. paper that used Cronbach's and put some templates here}
+
+One movie segment beats anatomical alignment.
 %
-One segment of movie beats the reliability of the $Z$-map??? What the fuck does
-that mean?
+One or two movie segments beat the reliability of the empirical $Z$-map [do the
+statistical test].
+
+
+\paragraph{Interpretation}
 %
-Interpretation:
+Our modeling of spatial responses during movie (probably) "moderate"?
 %
-Our modeling of spatial responses was moderate (probably!)? The participants
-are too heterogeneous in their responses (probably not; cf.  stripplot)?
+When it comes to Cronbach's alpha, there are no real outliers but Cronbach's of
+about 0.6 is moderate anyway.
 %
-At least they stay "true to themselves" over the course of the 8 segments:
-%
-there are no real outliers when it comes to Cronbach's alpha, but mean (and
-median) Cronbach's of about 0.6 is moderate anyway.
+The participants do not seem to be too heterogeneous in their responses (i.e.
+no "prediction outliers" in the stripplot).
+
 
 
 \subsubsection{movie PPA via audio segments}
 
-Not even eight runs beat anatomical alignment.
+\todo[inline]{the outlier is sub-02}
+
 %
-But it gets better the more runs
-are used. Problematic are some outliers.
+Eight audio-description segments cannot beat anatomical alignment.
+%
+From latest segments on, probably no difference to anatomical alignment (a.k.a.
+as good as).
 
 
 \subsubsection{Interim summary of movie PPA}
 
-In any case: the movie is nice for alignment to estimate both the visual
-localizer and the movie PPA.
+Movie is nice for alignment in order to estimate the visual paradigms.
 
 
 
 \subsection{Estimation of audio PPA}
 
-\todo[inline]{check subjects who do not have an "auditory PPA":
-    is prediction performance also worse in the (audio-)visual \acp{ppa}?
-    a) is the (average) response to spatial events just poorly modeled in
-    \citet{haeusler2022processing} (wrong assumption of process and / or
-    relevant events?), or
-    b) is the response pattern simply not captured by the \ac{srm}
-    }
+\todo[inline]{The stripplot is a mess; but almost always the same 3 outliers.}
 
-\todo[inline]{wow, that stripplot is a mess...; but hey, pretty much always the
-same three outliers; which are probably the outliers in Cronbach's alpha of the
-audio PPA z-map.}
-
-
-% audio-description
-Using the audio-description's data, \citet{haeusler2022processing} delineated
-the left-hemispheric \ac{ppa} in X of X subjects and right-hemispheric \ac{ppa}
-in X of X subjects.
 %
 Results of \citet{haeusler2022processing} suggest that selected events embedded
 in an auditory stimulation is correlated with increased hemodynamic activity in
 the anterior parts of the \ac{ppa} as it was defined by the localizer.
 %
-Results could be influenced by paradigm and methodological choices.
+The primary audio-description contrast in \citet{haeusler2022processing}
+``yielded bilateral clusters in nine participants that are within or overlapping
+with the block-design localizer results. In participant sub-04, two bilateral
+clusters are apparent, whereas block-design localizer, and movie stimulus
+yielded only one cluster in the right hemisphere.  For another participant
+(sub-09) the analysis yielded one cluster in the left-hemispheric PPA''
+\citep{haeusler2022processing};
+i.e. 9 + 1 left-hemispheric, 9 right-hemispheric.
 %
-For example, we might have modeled the time course of "spatial responses"
-"insufficiently" in \citep{haeusler2022processing}.
-%
-However, our current results suggest that ``the training stimuli or trials
-strongly and variably engage that process in a way that is reliable across
-participants'' in such a way that the ``SRM will improve sensitivity for
-detecting a cognitive process of interest in the test data''
-\citep{cohen2017computational}.
+Hence, we should have sampled response vector(s) that carry the spatial response
+information (if you know what I mean).
+
 
 
 \subsubsection{audio PPA via anatomical alignment}
 
-\todo[inline]{parametric statistical test are "difficult" because non-normal
-distribution}
-
 If just one run (or segment) is used for functional alignment, then anatomical
-alignment performs best (and is as good as Cronbach's).
+alignment performs (probably) better (and is as good as Cronbach's).
 
 
 \subsubsection{audio PPA via localizer runs}
 
+\todo[inline]{The outliers are sub-02, sub-04, sub-05 for 1-2 runs; with 3-4
+runs sub-04 gets comparatively better, and it's sub-20 again}
+
+%
 The localizer sucks as usual for estimation.
 
 
 \subsubsection{audio PPA via movie segments}
+
+\todo[inline]{The outliers are always sub-05, sub-02, sub-20; who have the
+lowest values of Cronbach's alpha, too}
 
 The more segments are used, the better (and quickly) it gets; gets as good as
 anatomical alignment but not better
@@ -1434,36 +1452,46 @@ anatomical alignment but not better
 
 \subsubsection{audio PPA via audio segments}
 
+\todo[inline]{The outliers are always sub-05, sub-02, sub-20; who have the
+lowest values of Cronbach's alpha, too}
+
 The more data we use, the better it gets; eventually, outperforming anatomical
 alignment and Cronbach's alpha.
 
 
 \subsubsection{Interim summary of audio PPA}
 
-\todo[inline]{my biggest issue: what to do with the three outliers?}
+
+\todo[inline]{Following is true for movie PPA, too}
+
+%
+Results of \citet{haeusler2022processing} should be influenced by paradigm and
+methodological choices.
+%
+In particular, we might have modeled the time course of "spatial responses"
+"insufficiently" in \citet{haeusler2022processing}.
+%
+However, our current results suggest that ``the training stimuli or trials
+strongly and variably engage that process in a way that is reliable across
+participants'' in such a way that the ``SRM will improve sensitivity for
+detecting a cognitive process of interest in the test data''
+\citep{cohen2017computational}.
 
 %
 Present results add evidence that the responses to auditory spatial information
 lead to different activity patterns than visual stimulation [cf. interpretation
 in \citet{haeusler2022processing}] and results in \citet{haeusler2022processing}
 are not based on the modeling choices?
-%
-And some subjects seem to just not have cared about auditory spatial
-information.
 
+\todo[inline]{However, my biggest issue: what to do with the three outliers?}
+%
+Some subject seem to just not have cared about auditory spatial information.
 
 
 \paragraph{Individual differences}
 
-\todo[inline]{well, if you cannot predict the $Z$-map "correctly" you could at
-least quantify how much the empirical $Z$-map is different from the prediction
-based on a "normative sample"?}
-
-\todo[inline]{the text regarding individual differences in brain
-activation possibly correlating with behavior is in general discussion}
-
 %
-Responses in \ac{ppa} during auditory stimulation might (actually / reliably) be
+Responses in \ac{ppa} during auditory stimulation might (reliably) be
 different (and not just a result that depends on the paradigm and the hilarious
 modeling approach in \citet{haeusler2022processing}).
 %
@@ -1479,60 +1507,65 @@ Are they simply not attending to it? Or are they simply incapable to process it?
 
 \subsection{Discussion across "everything"}
 
-
-
 \subsubsection{We built a "multi-stimulus" model}
 
 \todo[inline]{cf. "Templates from \citet{haxby2011common} on validity \&
 generalizability" at the very and of this chapter}
 
-\todo[inline]{does one single paper except \citet{haxby2011common} exist that
-derives a \ac{cfs} from a non-naturalistic stimulus?}
-
-\todo[inline]{However, nothing comes close to the reliability (Cronbach's
-$\alpha$) of the localizer $Z$-maps.}
+\todo[inline]{is there ANY paper except \citet{haxby2011common} that derives a
+\ac{cfs} from a non-naturalistic stimulus?}
 
 The multi-stimulus model is kind of valid;
 %
 However, I have no clue which stimulus is the crucial one...
 
 
-\subsubsection{Comparison to functional alignment (it's not that bad actually)}
+\subsubsection{Functional vs. anatomical alignment (it's not that bad actually)}
+
+Localizer paradigm sucks compared to anatomical alignment when used to estimate
+localizer (within-paradigm prediction) and movie PPA.
+%
+Localizer for alignment gets close to anatomical alignment when audio PPA is
+estimated.
 
 %
-Movie beats anatomical alignment when localizer and movie PPA are estimated.
+Movie beats anatomical alignment when localizer or movie PPA is estimated (i.e.
+the visual paradigms).
 %
-Movie gets as good as anatomical alignment when audio PPA is estimated
-
-%
-Audio-description sucks compared to anatomical alignment for cross-paradigm
-estimation.
-%
-Audio-description eventually outperforms anatomical alignment for
-within-paradigm prediction.
-%
-Audio-description to estimate movie PPA gets better the more segments are used
-but does not outperform anatomical alignment eventually
-
-\todo[inline]{So what might be the reasons?}
-
+Movie gets as good as anatomical alignment when audio PPA is estimated.
 
 %
-The outliers in audio PPA are difficult to estimate via anatomical alignment,
-too.
+Audio-description sucks---compared to anatomical alignment--for cross-paradigm
+estimation (it gets better the more data you use, though).
 %
-Maybe, the outliers fucked up the model (cf. one segment of audio-description
-for functional alignment \& mean reliability of audio PPA)?
+Though, it gets close to the performance via anatomical alignment when more /
+all segments are used for alignment..
+%
+For within-paradigm prediction, audio-description eventually outperforms
+anatomical alignment (when use more than 4-6 segments)
+%
+
+\todo[inline]{What might be the cause for that?}
+%
+In general, the outliers in audio PPA are difficult to estimate via anatomical
+alignment, too.
+%
+Maybe, the outliers fucked up the model space?
 
 
-\subsubsection{Naturalistic stimuli for (partial) alignment}
+\paragraph{Conclusion on comparison of anatomical and functional alignment}
 
-\todo[inline]{here, focus on what we did in the present study}
+Lore ipsum...
+
+
+\subsubsection{Functional alignment: naturalistic stimuli \& partial alignment}
+
+\todo[inline]{focus on what we did in the present study}
 \todo[inline]{extend the idea to lots of "localizers" below in "Vision"!!! which
 should be shifted mostly to the general discussion}
 
 
-\paragraph{Introductory statement}
+\paragraph{Controlled paradigm vs. naturalistic stimuli}
 %
 Our results provide evidence that transformation matrices calculated based on
 data from naturalistic stimuli [at least in case of the movie] promise an
@@ -1541,63 +1574,100 @@ on data of a paradigm based on simplified stimuli.
 %
 This is the case for both within-paradigm prediction (e.g., audio-description
 for alignment to estimate $Z$-maps from the audio-description's $t$-contrast)
-and across-paradigm prediction (e.g. audio-description for alignment to estimate
-$Z$-maps from the visual localizer's $t$-contrast).
+and results generalize to across-paradigm prediction (e.g. audio-description for
+alignment to estimate $Z$-maps from the visual localizer's $t$-contrast).
+
 %
 The latter case is different from findings of \citet{haxby2011common} who found
-that within-paradigm prediction of $Z$-maps from a non-naturalistic stimulus was
-as good or better than cross-paradigm prediction
+that within-paradigm prediction of $Z$-maps from a non-naturalistic paradigm
+stimulus via non-naturalistic paradigm was as good or [even] better than
+cross-paradigm prediction via naturalistic stimulus for alignment.
 %
-But they had a \ac{cfs} that was just derived from the non-naturalistic stimulus
-paradigm, i.e. no multi-stimulus paradigm.  Maybe, our naturalistic stimuli
-(about 7000 TRs) fucked up our shared responses in 450 TRs within the SRM?
-
-
-
+But: they had a \ac{cfs} that was just derived from the non-naturalistic
+stimulus paradigm, i.e. no multi-stimulus paradigm.
+%
+Maybe, our naturalistic stimuli (about 7000 TRs) fucked up our shared responses
+in 450 TRs within the SRM (imo, Fig.~\ref{fig:corr-vis-reg-srm} suggests
+otherwise)
 
 
 \paragraph{Partial Alignment}
 
-\todo[inline]{"asymptopic relationship", "ceiling", "saturation"?}
-
-\todo[inline]{Merge sentences making the same point}
+\todo[inline]{"asymptotic relationship", "low ceiling", "fast saturation"?}
 
 %
 Results suggest that 15 [to 30] minutes of a movie (TR=2s) of a movie outperform
-an estimation via anatomical alignment
+an estimation via anatomical alignment.
 %
 There is no linear relationship between the quantity of data and the prediction
 performance because 2 (or 3?) x 15 minutes of movie data did not lead to
 significant performance increase over data from one (or 2?) movie segments.
 
+
 \paragraph{The problem with the audio-description}
 
+%
 It is a "not as rich stimulation" as the movie?
 %
-It gives more room for individual variation of responses?
+The auditory response is (too) different from the visual response?
 %
-Some subjects where just not attending and drove off to sleep?
+Audio-description gave more room for individual variation of responses?
 %
-We need further studies to assess the reliability of individual differences in
-responses to auditory stimulation.
+Some subjects where just not attending or even drove off to sleep?
+
+%
+We need---of course---further studies to assess the reliability of individual
+differences in responses to auditory stimulation.
 %
 Control confounding variables like alertness and attentiveness.
 
 
 \paragraph{Inference: "Calibration scan"}
 
-Yeah, but anyway: movie's are awesome!
+% A shared calibration scan across datasets could be used to transfer data
+% between datasets, a procedure that is easier to accomplish than shared
+% subjects across datasets \citep[cf.][an extension of the \ac{srm} for shared
+% subjects across datasets]{zhang2018transfer}.
+
 %
-Similar to the standard procedure of a anatomical scan, additional 15 minutes
-functional scanning using an engaging naturalistic stimuli could provide
-sufficient data to perform a functional alignment to a functional atlas.
+Similar to the standard procedure of a anatomical scan, to perform a functional
+alignment to a functional atlas.
 %
-Our results suggest that a \textit{calibration scan} could be used---similar to
-a standard anatomical scan as part of main fMRI scan session---to align a
-subject to a fixed \ac{cfs} based on extensive scans and analyses of other
-subjects' data serving as a reference / functional atlas.
+Our results suggest that additional 15 minutes functional scanning using an
+engaging naturalistic stimuli could provide sufficient data for  a
+\textit{calibration scan}.
+%
+Similar to a standard anatomical scan as part of main fMRI scan session, such an
+calibration scan could align a subject to a \ac{cfs} derived from
+extensive scans and analyses of other subjects' data.
+%
+The \ac{cfs} serves as an \textit{functional atlas}.
 
 \todo[inline]{define functional atlas / database here}
+
+One could create an dataset based on many subjects (maybe even containing
+subgroups) and a collection of conducted paradigms that would enable a mapping
+of that collection into individual persons.
+
+
+
+
+\paragraph{Naturalistic stimulus: validity / generalizability of matrices}
+
+\todo[inline]{Merge following two paragraphs to "two advantages"}
+
+\todo[inline]{maybe, cite studies that did research on other brain functions
+using naturalistic stimuli; the awesome response vector space should be sampled
+by a movie or narrative (language, memory, emotions etc.)}
+
+The diagnostic run should be based on naturalistic stimuli, because---compared
+to paradigms with simplified stimuli---naturalistic stimuli sample a broad range
+of brain states \citep{guntupalli2016model, haxby2011common} that reflect
+(confound) statistics of the natural environment, promising an increased
+validity of transformations of functional alignment, and might enable
+investigation of the acquired data for a variety of research questions to
+research questions/domains/paradigms (e.g. visual or auditory perception,
+spatial cognition; emotion; music, speech or social perception).
 
 \paragraph{Naturalistic stimuli: compliance, visually impaired}
 %
@@ -1620,21 +1690,18 @@ letting the subject accommodate to the scanner environment.
 Also possible but imo not as good: An engaging naturalistic stimulus after the
 main experiment would not suffer less from fatigue than a one localizer or even
 a localizer battery demanding voluntary attention and handling a repetitive task
-(but prime the subject the the stimulus features within the naturalistic
+(but prime the subject the stimulus features within the naturalistic
 stimulus).
 
 
-\paragraph{Application 0: connect datasets}
+\paragraph{Simplified stimuli: for signal detection, "gold standard"}
 
+The database would also provide data from additional paradigms that are
+dedicated to investigate specific brain responses
 %
-A shared calibration scan across datasets could be used to transfer data between
-datasets, a procedure that is easier to accomplish than shared subjects across
-datasets \citep[cf.][an extension of the \ac{srm} for shared subjects across
-datasets]{zhang2018transfer}.
-%
-One could create an dataset based on many subjects (maybe even containing
-subgroups) and a collection of conducted paradigms that would enable a mapping
-of that collection into individual persons.
+because modeling of responses to specific stimulus features is fucking difficult
+and the dedicated paradigms are, well, designed / dedicated to probe specific
+brain process (and are the "gold standard").
 
 
 \paragraph{Application: estimate "regular pattern"}
@@ -1655,7 +1722,7 @@ case no localizer data are available, saving scanning time and expenses''
 \citep{rosenke2021probabilistic}
 
 %
-Functional patterns in an individuum could be infered from a database created
+Functional patterns in an individual could be inferred from a database created
 from an (independent) healthy population.
 %
 ``An atlas can be used under conditions in which collecting the data to define
@@ -1663,39 +1730,19 @@ maps in individual subjects is impractical or not feasible''
 \citep{wang2015probabilistic}.
 
 
-\paragraph{Naturalistic stimulus: validity}
+\paragraph{Application: Quantify deviation from regular pattern}
 
-The diagnostic run should be based on naturalistic stimuli, because---compared
-to paradigms with simplified stimuli---naturalistic stimuli sample a broad range
-of brain states \citep{guntupalli2016model, haxby2011common} that reflect
-(confound) statistics of the natural environment, promising an increased
-validity of transformations of functional alignment, and might enable
-investigation of the acquired data for a variety of research questions to
-research questions/domains/paradigms (e.g. visual or auditory perception,
-spatial cognition; emotion; music, speech or social perception).
+\todo[inline]{cf. shortcoming of SRM: estimation in case of atypical pattern}
 
 
 
-\paragraph{Simplified stimuli}
+\subsection{Shortcomings \& future questions}
 
-The database would also provide data from additional paradigms that dedicated to
-investigate specific brain responses
-%
-because modelling of responses to specific stimulus features is fucking
-difficult and the dedicated paradigms are, well, designed / dedicated to
-probe specific brain process (and are the "gold standard").
 
-\paragraph{Hence, to some future studies on other functional areas}
+\subsubsection{Other ROIs than category-selective areas}
 
-\todo[inline]{This also a point for the general discussion: how far can you push
-it?}
-
-\todo[inline]{Just discuss here what has been shown to work based on
-naturalistic stimuli}
-
-\todo[inline]{cite studies that did research on other brain functions using
-naturalistic stimuli; the awesome response vector space should be sampled by a
-movie or narrative (language, memory, emotions etc.)}
+\todo[inline]{Condense the following to the gist of the studies: the
+functional-anatomical correspondence differs across ROIs}
 
 ``Results show that the computational principles underlying this common model
 have broad general validity for representational spaces in occipital, temporal,
@@ -1773,10 +1820,20 @@ saw more modest increases in overlap after macro-anatomical alignment with
 \citep{frost2012measuring}.
 
 
+\subsubsection{Bigger sample size}
+%
+The SRM is computationally less demanding [= "computationally more efficient"?]
+than hyperalignment, an advantage for scientists who want to replicate our
+results but do not have access to a high-performance computer cluster [or
+"high-throughput computer cluster" or simply "specialized hardware"?].
+%
+Moreover, it should scale pretty well (compared that to
+\citep{jiahui2020predicting} 1-step alignment that needs pair-wise matrices for
+subjects 'cause no \ac{cfs}; similarly, \citep{busch2021hybrid})\todo{check
+Busch}.
 
-\subsection{Shortcomings \& future questions}
 
-\subsubsection{Sample size}
+\paragraph{...because our sample size was small with following effect}
 
 \todo[inline]{cf. variability of the \ac{cfs}}
 
@@ -1792,19 +1849,6 @@ the estimates to vary [how much?].
 Future studies, should create a \ac{cfs} based on data from more subjects and
 investigate the relationship between number of participants, variability of
 parameters, and estimation performance.
-
-\paragraph{bigger sample size}
-
-%
-The SRM is computationally less demanding [= "computationally more efficient"?]
-than hyperalignment, an advantage for scientists who want to replicate our
-results but do not have access to a high-performance computer cluster [or
-"high-throughput computer cluster" or simply "specialized hardware"?].
-%
-Moreover, it should scale pretty well (compared that to
-\citep{jiahui2020predicting} 1-step alignment that needs pair-wise matrices for
-subjects 'cause no \ac{cfs}; similarly, \citep{busch2021hybrid})\todo{check
-Busch}.
 
 
 \subsubsection{Shared responses are problematic in case of atypical organization
@@ -2242,6 +2286,7 @@ our previous results showed that the sampling of response vectors from these
 experiments is impoverished and produces a model representational space that
 does not generalize well to new stimuli in other experiments
 \citep{haxby2020hyperalignment}'' \citep{guntupalli2016model}.
+
 %
 ``We base the derivation of the transformation matrices and the common space on
 responses to the movie---a complex, naturalistic, dynamic stimulus.
