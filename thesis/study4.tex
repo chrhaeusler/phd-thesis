@@ -4,7 +4,9 @@
 paragraphs}
 
 \todo[inline]{mih: prime points of the discussion in intro to better frame the
-problem space, challenges \& opportunities}
+problem space, challenges \& opportunities; coh: should be way better now}
+
+
 
 \todo[inline]{were to put "what does the localizer actually do?" for the first
 time? at the moment, I do not see any good spot in the intro}
@@ -186,9 +188,7 @@ and transformation matrices [???]
 to novel stimuli or tasks, presumably because naturalistic stimuli sample a
 broader range of brain states \citep{haxby2011common, guntupalli2016model}.
 
-\todo[inline]{Validity of transformation matrices was not explicitly tested in
-previous studies; is there any studies that aligns via paradigm x but has a
-\ac{cfs} based on paradigm y}
+
 
 
 
@@ -198,7 +198,13 @@ previous studies; is there any studies that aligns via paradigm x but has a
 
 % \citep{guntupalli2016model}: s. Supplementary Figure S8.
 
-\todo[inline]{check \citep{jiahui2022cross, feilong2022individualized}}
+\todo[inline]{check if \citet{jiahui2022cross} or
+\citet{feilong2022individualized} MUST be cited here; imo, discussion should be
+sufficient}
+
+\todo[inline]{Validity of transformation matrices was not explicitly tested in
+previous studies; is there any studies that aligns via paradigm x but has a
+\ac{cfs} based on paradigm y?}
 
 %
 Hence, a more recent procedure \citep[e.g., ][]{jiahui2020predicting,
@@ -230,6 +236,10 @@ maps that were estimated via surface-based anatomical alignment
 
 
 \subsection{Here, we...}
+
+\todo[inline]{after having focussed on the discussion for a while: probably,
+\citet{haxby2011common}'s findings on validity and generalizability need to be
+better primed; text location \& phrasing depends on the discussion, though}
 
 \todo[inline]{mentioned here that number of voxels is constrained to a ROI?}
 
@@ -1070,6 +1080,11 @@ the movie's and audio-description's $t$-contrast.
 We assumed to Cronbach's $\alpha$ to be a noise ceiling, and ``we reasoned that
 across-subject variability cannot be expected to be lower than within-subject
 variability over time (reproducibility)'' \citep{rosenke2021probabilistic}.
+%
+Cronbach's $\alpha$ of empirical $Z$-maps for each subject and paradigm
+can be seen in Fig.~\ref{fig:cronbachs}.
+
+
 
 
 \begin{figure*}[tbp] \centering
@@ -1084,10 +1099,10 @@ variability over time (reproducibility)'' \citep{rosenke2021probabilistic}.
     %
     Median = upper lines, mean = lower lines.
     %
-    \textbf{If plot is supposed the stay, it needs a legend for medians
+    \textbf{to do: if plot is supposed to stay, it needs a legend for medians
     and means; Linien über die gesamte Horizontale durchgezogen lassen?}
     }
-    \label{fig:stripplot}
+    \label{fig:cronbachs}
 \end{figure*}
 
 
@@ -1100,9 +1115,6 @@ of auditory PPA as criterion and audio-description as predictor (Fisher's
 Z-transform should not change that, probably)}
 
 \todo[inline]{adjust 'statistics\_t-test-correlations.py' accordingly}
-
-\todo[inline]{the plot: add median Cronbach's to the plot; take same line style
-as in the plot plot of Cronbach's per subject}
 
 
 Unthresholded $Z$-maps [in each subject's voxel space] can be found at
@@ -1153,10 +1165,11 @@ $Z$-maps can be seen in Fig.~\ref{fig:stripplot}.
     alignment based an transformation matrices calculated from one up to eight
     segments (each lasting $\sim$\unit[15]{m}) of the audio-description.
     %
-    \textbf{to do: keep underlying boxplots (including mean \& median)?? Add
-    $Z$-maps median Cronbach's alpha? to legend?)}
+    \textbf{to do: keep underlying boxplots (including mean \& median)??
+    add median of Cronbach's, too? At least use the same line style as in
+    Fig.~\ref{fig:cronbachs}.
+    }
 }
-
     \label{fig:stripplot}
 \end{figure*}
 
@@ -1405,7 +1418,8 @@ Movie is nice for alignment in order to estimate the visual paradigms.
 
 \subsection{Estimation of audio PPA}
 
-\todo[inline]{The stripplot is a mess; but almost always the same 3 outliers.}
+\todo[inline]{it's (almost) always the same 3 outliers: sub 2, 5, 20; those have
+the lowest values of Cronbach's alpha, too}
 
 %
 Results of \citet{haeusler2022processing} suggest that selected events embedded
@@ -1434,8 +1448,8 @@ alignment performs (probably) better (and is as good as Cronbach's).
 
 \subsubsection{audio PPA via localizer runs}
 
-\todo[inline]{The outliers are sub-02, sub-04, sub-05 for 1-2 runs; with 3-4
-runs sub-04 gets comparatively better, and it's sub-20 again}
+\todo[inline]{For 1-2 runs, the outliers are sub 2, 4, 5; for 3-4 runs the
+outliers are 2, 5, 20 (as usual)}
 
 %
 The localizer sucks as usual for estimation.
@@ -1443,8 +1457,7 @@ The localizer sucks as usual for estimation.
 
 \subsubsection{audio PPA via movie segments}
 
-\todo[inline]{The outliers are always sub-05, sub-02, sub-20; who have the
-lowest values of Cronbach's alpha, too}
+\todo[inline]{The outliers are always sub 2, 5, 20}
 
 The more segments are used, the better (and quickly) it gets; gets as good as
 anatomical alignment but not better
@@ -1452,8 +1465,7 @@ anatomical alignment but not better
 
 \subsubsection{audio PPA via audio segments}
 
-\todo[inline]{The outliers are always sub-05, sub-02, sub-20; who have the
-lowest values of Cronbach's alpha, too}
+\todo[inline]{The outliers are always sub 2, 5, 20}
 
 The more data we use, the better it gets; eventually, outperforming anatomical
 alignment and Cronbach's alpha.
@@ -1520,13 +1532,14 @@ The multi-stimulus model is kind of valid;
 However, I have no clue which stimulus is the crucial one...
 
 
-\subsubsection{Functional vs. anatomical alignment (it's not that bad actually)}
+\subsubsection{Functional vs. anatomical alignment}
 
 Localizer paradigm sucks compared to anatomical alignment when used to estimate
-localizer (within-paradigm prediction) and movie PPA.
+localizer $Z$-map (within-paradigm prediction) and movie PPA (cross-paradigm
+prediction).
 %
-Localizer for alignment gets close to anatomical alignment when audio PPA is
-estimated.
+When audio PPA is estimated (cross-paradigm), localizer for alignment gets close
+to anatomical alignment [but why].
 
 %
 Movie beats anatomical alignment when localizer or movie PPA is estimated (i.e.
@@ -1536,33 +1549,33 @@ Movie gets as good as anatomical alignment when audio PPA is estimated.
 
 %
 Audio-description sucks---compared to anatomical alignment--for cross-paradigm
-estimation (it gets better the more data you use, though).
+estimation.
 %
 Though, it gets close to the performance via anatomical alignment when more /
-all segments are used for alignment..
+all segments are used for alignment.
 %
 For within-paradigm prediction, audio-description eventually outperforms
-anatomical alignment (when use more than 4-6 segments)
+anatomical alignment (when more than 4-6 segments are used)
 %
 
 \todo[inline]{What might be the cause for that?}
 %
-In general, the outliers in audio PPA are difficult to estimate via anatomical
-alignment, too.
+In general, the outliers in audio PPA are difficult to estimate (via anatomical
+alignment, too).
 %
-Maybe, the outliers fucked up the model space?
+Maybe, the outliers fucked up the \ac{cfs}?
 
 
 \paragraph{Conclusion on comparison of anatomical and functional alignment}
 
-Lore ipsum...
+It's not that bad actually.
 
 
 \subsubsection{Functional alignment: naturalistic stimuli \& partial alignment}
 
 \todo[inline]{focus on what we did in the present study}
-\todo[inline]{extend the idea to lots of "localizers" below in "Vision"!!! which
-should be shifted mostly to the general discussion}
+\todo[inline]{extend the idea to lots of "localizers" below in "Future studies";
+but keep the "Vision" for the general discussion!}
 
 
 \paragraph{Controlled paradigm vs. naturalistic stimuli}
@@ -1574,21 +1587,22 @@ on data of a paradigm based on simplified stimuli.
 %
 This is the case for both within-paradigm prediction (e.g., audio-description
 for alignment to estimate $Z$-maps from the audio-description's $t$-contrast)
-and results generalize to across-paradigm prediction (e.g. audio-description for
-alignment to estimate $Z$-maps from the visual localizer's $t$-contrast).
+and cross-paradigm prediction (e.g. audio-description for alignment to estimate
+$Z$-maps from the visual localizer's $t$-contrast).
 
 %
-The latter case is different from findings of \citet{haxby2011common} who found
-that within-paradigm prediction of $Z$-maps from a non-naturalistic paradigm
-stimulus via non-naturalistic paradigm was as good or [even] better than
-cross-paradigm prediction via naturalistic stimulus for alignment.
+In case of cross-paradigm prediction, our results are different from findings of
+\citet{haxby2011common} who found that within-paradigm prediction of $Z$-maps
+from a non-naturalistic paradigm was as good or better than cross-paradigm
+prediction via naturalistic stimulus for alignment.
+
 %
-But: they had a \ac{cfs} that was just derived from the non-naturalistic
-stimulus paradigm, i.e. no multi-stimulus paradigm.
+However, they had a \ac{cfs} that was derived just from the non-naturalistic
+paradigm, i.e. no multi-stimulus paradigm.
 %
 Maybe, our naturalistic stimuli (about 7000 TRs) fucked up our shared responses
-in 450 TRs within the SRM (imo, Fig.~\ref{fig:corr-vis-reg-srm} suggests
-otherwise)
+in the 450 \acp{tr} within the SRM (imo, Fig.~\ref{fig:corr-vis-reg-srm}
+suggests otherwise)
 
 
 \paragraph{Partial Alignment}
@@ -1596,93 +1610,82 @@ otherwise)
 \todo[inline]{"asymptotic relationship", "low ceiling", "fast saturation"?}
 
 %
-Results suggest that 15 [to 30] minutes of a movie (TR=2s) of a movie outperform
-an estimation via anatomical alignment.
+Results suggest that 15 [to 30] minutes of a movie (\ac{tr}=2s) of a movie
+outperform an estimation via anatomical alignment.
 %
-There is no linear relationship between the quantity of data and the prediction
-performance because 2 (or 3?) x 15 minutes of movie data did not lead to
-significant performance increase over data from one (or 2?) movie segments.
+However, there is no linear relationship between the quantity of data and the
+prediction performance because 2 (or 3?) x 15 minutes of movie data did not lead
+to significant performance increase over data from one (or 2?) movie segments.
 
 
 \paragraph{The problem with the audio-description}
 
-%
-It is a "not as rich stimulation" as the movie?
-%
-The auditory response is (too) different from the visual response?
-%
-Audio-description gave more room for individual variation of responses?
-%
-Some subjects where just not attending or even drove off to sleep?
+\begin{itemize}
 
+    \item it is a "not-as-rich" stimulation as the movie?
+
+    \item the auditory response is (too) different from the visual response?
+
+    \item audio-description gave more room for individual variation of
+        responses?
+
+    \item some subjects where just not attending or even drove off to sleep?
+
+\end{itemize}
 %
 We need---of course---further studies to assess the reliability of individual
-differences in responses to auditory stimulation.
+differences in responses to stimulus features providing information about the
+spatial layout of a naturalistic stimulus' scene.
 %
-Control confounding variables like alertness and attentiveness.
+Moreover, control confounding variables like alertness and attentiveness.
 
 
-\paragraph{Inference: "Calibration scan"}
+\subsection{Inference: calibration scan + database}
 
 % A shared calibration scan across datasets could be used to transfer data
 % between datasets, a procedure that is easier to accomplish than shared
 % subjects across datasets \citep[cf.][an extension of the \ac{srm} for shared
 % subjects across datasets]{zhang2018transfer}.
 
-%
-Similar to the standard procedure of a anatomical scan, to perform a functional
-alignment to a functional atlas.
+\todo[inline]{focus here more on what we did in the present study}
+
+\todo[inline]{especially, "clinical context" belongs to general discussion}
+
+\todo[inline]{text needs to match with general discussion's "Vision"}
+
+
+\subsubsection{Intro}
+
+\todo[inline]{define the terms "functional atlas" / "reference database" better}
+
+\todo[inline]{"functional atlas" might be a little bold anyway}
+
 %
 Our results suggest that additional 15 minutes functional scanning using an
-engaging naturalistic stimuli could provide sufficient data for  a
+engaging naturalistic stimuli could provide sufficient data for a
 \textit{calibration scan}.
 %
 Similar to a standard anatomical scan as part of main fMRI scan session, such an
-calibration scan could align a subject to a \ac{cfs} derived from
-extensive scans and analyses of other subjects' data.
+calibration scan could align a subject to a \ac{cfs} derived from extensive
+scans and analyses of other subjects' data.
 %
-The \ac{cfs} serves as an \textit{functional atlas}.
+The \ac{cfs} serves as an \textit{functional atlas} / \textit{reference
+database}.
 
-\todo[inline]{define functional atlas / database here}
-
-One could create an dataset based on many subjects (maybe even containing
-subgroups) and a collection of conducted paradigms that would enable a mapping
-of that collection into individual persons.
-
-
-
-
-\paragraph{Naturalistic stimulus: validity / generalizability of matrices}
-
-\todo[inline]{Merge following two paragraphs to "two advantages"}
-
-\todo[inline]{maybe, cite studies that did research on other brain functions
-using naturalistic stimuli; the awesome response vector space should be sampled
-by a movie or narrative (language, memory, emotions etc.)}
-
-The diagnostic run should be based on naturalistic stimuli, because---compared
-to paradigms with simplified stimuli---naturalistic stimuli sample a broad range
-of brain states \citep{guntupalli2016model, haxby2011common} that reflect
-(confound) statistics of the natural environment, promising an increased
-validity of transformations of functional alignment, and might enable
-investigation of the acquired data for a variety of research questions to
-research questions/domains/paradigms (e.g. visual or auditory perception,
-spatial cognition; emotion; music, speech or social perception).
-
-\paragraph{Naturalistic stimuli: compliance, visually impaired}
+\subsubsection{The diagnostic run}
 %
-``Compared with functional localizers, naturalistic stimuli provide several
-advantages such as stronger and widespread brain activation, greater engagement,
-and increased subject compliance'' \citep{jiahui2020predicting}.
+The diagnostic run should be based on a naturalistic stimulus because
+naturalistic stimulus samples a broad range of brain states
+\citep[cf.][]{guntupalli2016model, haxby2011common} and provide an increased
+generalizability of transformations for functional alignment to the reference
+database.
 %
-``Movies are more engaging and result in better compliance
-\citep{vanderwal2015inscapes}.
-%
-Movie viewing can also be used in subject populations, such as children
-\citep{richardson2018development} or patients, that may have trouble maintaining
-attention during repetitions of a tedious localizer task''
-\citep{jiahui2020predicting}.
-%
+From a practical perspective, a naturalistic stimulus would lead to higher
+engagement and better compliance \citep{vanderwal2015inscapes,
+eickhoff2020towards} in, e.g. children or a patients/clinical population ``that
+may have trouble maintaining attention during repetitions of a tedious localizer
+task'' \citep{jiahui2020predicting}.
+
 An engaging naturalistic stimulus as an calibration scan before the main
 experiment would have the benefit of putting a study participant at ease and
 letting the subject accommodate to the scanner environment.
@@ -1690,135 +1693,85 @@ letting the subject accommodate to the scanner environment.
 Also possible but imo not as good: An engaging naturalistic stimulus after the
 main experiment would not suffer less from fatigue than a one localizer or even
 a localizer battery demanding voluntary attention and handling a repetitive task
-(but prime the subject the stimulus features within the naturalistic
-stimulus).
-
-
-\paragraph{Simplified stimuli: for signal detection, "gold standard"}
-
-The database would also provide data from additional paradigms that are
-dedicated to investigate specific brain responses
-%
-because modeling of responses to specific stimulus features is fucking difficult
-and the dedicated paradigms are, well, designed / dedicated to probe specific
-brain process (and are the "gold standard").
-
-
-\paragraph{Application: estimate "regular pattern"}
-
-``Identifying all of the currently known topographic regions of the human visual
-system requires multiple scanning sessions'' \citep{wang2015probabilistic}.
-%
-``Given the expense and availability of fMRI, this is not always practical''
-\citep{wang2015probabilistic}.
-%
-``For example, time-limitations and subject-fatigue both potentially limit the
-time researchers may be able to spend with patients suffering from neurological
-or neuropsychological disorders, or with implanted subdural or deep electrodes
-(e.g., ECoG)'' \citep{wang2015probabilistic}.
-%
-The database ``may prove especially useful for predicting functional patterns in
-case no localizer data are available, saving scanning time and expenses''
-\citep{rosenke2021probabilistic}
+(but prime the subject the stimulus features within the naturalistic stimulus).
 
 %
-Functional patterns in an individual could be inferred from a database created
-from an (independent) healthy population.
+The reference should---of course---be based on many subjects (maybe even
+containing subgroups), and a collection of conducted paradigms that would enable
+a mapping of that collection into individual persons.
+
+
+\subsubsection{The database incl. dedicated paradigms}
+
+\todo[inline]{repeat phrasing from introduction (cf. localizer paradigms)}
+
 %
-``An atlas can be used under conditions in which collecting the data to define
-maps in individual subjects is impractical or not feasible''
-\citep{wang2015probabilistic}.
+Because modeling of responses to specific stimulus features in a naturalistic
+stimulus is fucking difficult, and the dedicated paradigms are, well, designed /
+dedicated to probe specific brain process (and are the "gold standard").
+
+%
+The reference database could provide extent measurements from additional
+paradigms that are dedicated and designed to probe specific brain functions like
+category-selective regions \citep{stigliani2015temporal}, theory of mind
+\citep{spunt2014validating}, or semantic processes \citep{fedorenko2010new,
+fernandez2001language};
+%
+employ a range of dedicated stimuli and specific tasks to map processes of
+``auditory and visual perception, motor actions, reading, language
+comprehension, and mental calculation'' \citep{pinel2007fast}.
 
 
-\paragraph{Application: Quantify deviation from regular pattern}
+\subsubsection{Application: estimate regular pattern \& quantify deviant
+pattern}
 
-\todo[inline]{cf. shortcoming of SRM: estimation in case of atypical pattern}
+%
+Functional patterns in response to a variety of paradigms could then be inferred
+from an (independent) healthy or clinical subgroup and mapped into the voxel
+space of an individual person, e.g.,
+%
+when additional functional scans are not possible due to time-limitations,
+monetary constrains, scanner availability, fatigue, inadequate task demands, or
+general compliance.
+%
+Another use case, is the assessment of a subject's actual (i.e. empirical)
+functional pattern in respect to its similarity to  an estimated pattern
+predicted from reference group of healthy individuals.
+%
+This would allow to quantify the deviation of the subject's empirical pattern to
+the norm [or the similarity of a subject's empirical pattern to a non-normative
+subgroup]
 
+
+\paragraph{Example}
+
+\todo[inline]{reduce abstract of \citet{yates2021emergence} to its gist}
+
+%
+For example, \citet{yates2021emergence} tested ``the presence, maturity, and
+localization of adult functions in children using shared response modeling, a
+machine learning approach for functional alignment.
+%
+After learning a lower-dimensional feature space from fMRI activity as adults
+watched a movie, we translated these shared features into the anatomical brain
+space of children 3--12 years old.
+%
+To evaluate functional maturity, we correlated this reconstructed activity with
+children’s actual fMRI activity as they watched the same movie. We found
+reliable correlations throughout cortex, even in the youngest children.
+%
+The strength of the correlation in the precuneus, inferior frontal gyrus, and
+lateral occipital cortex predicted chronological age.
+%
+These age-related changes were driven by three types of developmental
+trajectories: emergence from absence to presence, consistency in anatomical
+expression, and reorganization from one anatomical region to another.
+%
+We also found evidence that the processing of pain-related events in the movie
+underwent reorganization across childhood'' \citep{yates2021emergence}.
 
 
 \subsection{Shortcomings \& future questions}
-
-
-\subsubsection{Other ROIs than category-selective areas}
-
-\todo[inline]{Condense the following to the gist of the studies: the
-functional-anatomical correspondence differs across ROIs}
-
-``Results show that the computational principles underlying this common model
-have broad general validity for representational spaces in occipital, temporal,
-parietal, and frontal cortices'' \citep{guntupalli2016model}.
-%
-So, what is the limit of "brain functions" that we can estimate reliably?
-%
-Retinotopy, language, executive functions (from low-level perception to higher
-cognition, whereas the latter might not be sampled sufficiently by a movie).
-
-%
-Asymptotic ``performance curve'' might be different for another brain region
-(temporal receptive fields?); retinotopic mapping vs. ``higher'' cognition  vs.
-executive functions (prefrontal cortex)?
-
-% Zhen 2017
-``Scene-selective regions showed larger interindividual variability [after
-nonlinear volume-based alignment] than the face-selective regions in both
-spatial topography and functional selectivity'' \citet{zhen2017quantifying}.
-
-
-% category-specific areas
-Similar to nonlinear volume-based alignment, similarity across person is higher
-after surface-based alignment ``for retinotopically defined regions, with
-character-selective regions showing the lowest consistency for both alignments,
-closely followed by mFus- and IOG-faces'' \citep{rosenke2021probabilistic}.
-
-%
-``We localized 13 widely studied functional areas and found a large variability
-in the degree to which functional areas respect macro-anatomical boundaries
-across the cortex'' \citep{frost2012measuring}.
-%
-``The percent gain in overlap [after surface-based alignment] differed greatly
-across the different functional regions throughout the cortex''
-\citep{frost2012measuring}.
-%
-``There is a strong structural-functional correspondence in some areas whilst in
-others the spatial location of the functional area varies greatly across
-subjects within a cortical area'' \citep{frost2012measuring}.
-%
-``There is a surprising amount of variability in that not all functional areas
-are tightly bound to anatomical landmarks'' \citep{frost2012measuring}.
-%
-``Surface-based alignment is able to separate functional regions which are more
-prone to blur together if individual anatomical curvature patterns are not
-accounted for'' \citep{frost2012measuring}.
-
-%
-``Some areas, such as the frontal eye fields (FEF) are strongly bound to a
-macro-anatomical location.
-%
-``Both the sensory and motor hand areas (bank of the central sulcus) were much
-better aligned after surface-based alignment'' \citep{frost2012measuring}.
-%
-``Language areas were found to vary greatly across subjects whilst a high degree
-of overlap was observed in sensory and motor areas'' \citep{frost2012measuring}.
-
-%
-``The area which shows the most gain in overlap of these regions is V5 / hMT+
-with 70.9\% gain in the left hemisphere and 55.6\% gain in the right
-hemisphere'' \citep{frost2012measuring}.
-%
-``Area LOC also showed increased overlap after CBA with a 62.7\% gain in the
-left hemisphere and 38.4\% on the right'' \citep{frost2012measuring}.
-%
-Finally PPA exhibit more gain in the right hemisphere with 27.7\% gain, than on
-the left with 17.6\%'' \citep{frost2012measuring}.
-%
-``FFA varies in its location along the length of the fusiform gyrus even though
-the gyri themselves are well aligned across subjects''
-%
-The FFA did not exhibit the same strong structural-functional correspondence and
-saw more modest increases in overlap after macro-anatomical alignment with
-44.1\% and 12\% gain for the left and right hemispheres''
-\citep{frost2012measuring}.
-
 
 \subsubsection{Bigger sample size}
 %
@@ -1835,7 +1788,7 @@ Busch}.
 
 \paragraph{...because our sample size was small with following effect}
 
-\todo[inline]{cf. variability of the \ac{cfs}}
+\todo[inline]{cf. variability of present study's \acp{cfs}}
 
 \todo[inline]{can/should that variability somehow be quantified?}
 
@@ -1851,48 +1804,111 @@ investigate the relationship between number of participants, variability of
 parameters, and estimation performance.
 
 
-\subsubsection{Shared responses are problematic in case of atypical organization
-/ outliers}
 
-\citet{benson2018bayesian}: ``We developed using data from a small subset of the
-population (8 subjects)''.
-%
-Model is not super valid for the outliers in our sample.
+\subsubsection{Other ROIs than category-selective areas}
 
 %
-However, estimating a atypical brain activation pattern has not been pretty
-successful in the current study (which is somewhat more likely than that our
-modeling during the audio-description was total garbage).
+In the present study, we focused on the \ac{ppa} as an classic example of a
+higher-visual area.
+
+
+\paragraph{Studies on other functional areas}
 %
-``Variability was observed from a cohort of homogeneous young adults with a
-narrow age range'' \citep{zhen2017quantifying}.
+However, studies have shown a varying degree of \textit{functional--anatomical
+correspondence} between a brain function and its underlying anatomical location.
 %
-``[which limits the generalization of the variability observed here to people
-with different ages, especially children and the elderly''
-\citet{zhen2017quantifying}.]
+Previous studies that used either volume-based \citep{zhen2017quantifying,
+zhen2015quantifying} or surface-based alignment \citep{rosenke2021probabilistic,
+frost2012measuring} in order to estimate the most probable location of
+functional area in a test subject have ``found a large variability in the degree
+to which functional areas respect macro-anatomical boundaries across the
+cortex'' \citep{frost2012measuring}.
+%
+``There is a strong structural-functional correspondence in some areas whilst in
+others the spatial location of the functional area varies greatly across
+subjects within a cortical area'' \citep{frost2012measuring}.
+%
+``Language areas were found to vary greatly across subjects whilst a high degree
+of overlap was observed in sensory and motor areas'' \citep{frost2012measuring}.
+
+
+\paragraph{Example \ac{ppa} vs. \ac{ffa}}
+%
+For example, in domain of category-selective areas, the interindividual
+variability varies across functional areas \citep{zhen2017quantifying,
+zhen2015quantifying, frost2012measuring}:
+%
+``Scene-selective regions showed larger interindividual variability [after
+nonlinear volume-based alignment] than the face-selective regions in spatial
+topography'' \citep{zhen2017quantifying}.
+
+
+\paragraph{Inference}
+
+\todo[inline]{Mention whole-cortex (searchlight) alignment here already?
+...instead of writing a dedicated subsection about "Other functional alignment
+algorithms" below?}
+
+\todo[inline]{topic for general discussion: what is the limit of "brain
+functions" that we can estimate reliably using naturalistic stimuli (i.e.
+executive functions, decision-making?)}
+
+\todo[inline]{maybe, cite studies that did research on other brain functions
+using naturalistic stimuli; or just cite a good review}
 
 %
-But still you can quantify the deviation of an empirically measured pattern to
-an estimated pattern.
+Hence, a new dataset should not just have more subjects but also more
+localizers.
+%
+Then, future studies can investigate other functional domains.
+%
+Naturalistic stimuli have been used to investigate a variety of domains like XYZ
+[check for, e.g., visual or auditory perception, spatial cognition; emotion;
+music, speech or social perception], and possibly allow valid mapping of
+functional data in all of these domains.
+
+
+\subsubsection{\ac{srm} is problematic in case of atypical organization /
+outliers}
+
+\todo[inline]{example: papers / reviews about atypical language area topography
+in patients (of various diseases)}
+
+\todo[inline]{Check \citet{feilong2022individualized, jiahui2022cross,
+turek2018capturing}; at least two of them have modeled an individual component.}
 
 %
-This allows a comparisons to a persons "actual pattern" to a normative reference
-and/or non-normative reference.
+For every fold of the cross-validation, we calculated a \ac{cfs} from 13
+subjects.
 %
-In case the database is based on a healthy norm the projected data could
-quantify the degree of deviation of person's actual functional pattern from the
-norm, and potentially diagnose deficits in a patients.
+Especially in case of the audio-descriptions $Z$-maps, we observed variability
+despite our cohort was homogeneous (young, healthy adults).
+%
+Estimating a atypical brain activation pattern has not been pretty successful in
+the current study [which is somewhat more likely than that our modeling during
+the audio-description was total garbage?].
+%
+Hence, our model and/or the matrices [?] are not super valid for the outliers in
+our sample which limits the generalization of our model / matrices to people of
+different ages (children or elderly) or a clinical population.
+%
+Our approach can be used to quantify the deviation of an empirically measured
+pattern to a pattern estimated from a normative reference.
+%
 
-%
-One drawback of the shared response model is models responses that are common
-across persons without an individual component.
+However, a drawback of the SRM algorithm we employed here is that it models
+responses that are common across persons without an individual component.
 %
 A person's idiosyncratic responses are excluded from the shared response model
 but ``are not necessarily noise and may in fact be highly reliable within
-participants \citep{cohen2017computational}.
+participants'' \citep{cohen2017computational}.
 %
-A subject-specific transformation matrix performs an individual mapping but onto
-shared responses.
+In order to predict a atypical pattern (and not just quantify the deviation from
+norm), you need matching \ac{cfs} or---probably better---model has to have a
+shared response + individual component + noise.
+
+
+\paragraph{Templates that can probably be dropped}
 %
 ``SRM can be used to isolate participant-unique responses by examining the
 residuals after removing shared group responses, or it can be applied
@@ -1910,47 +1926,20 @@ previously unexplained variance in brain function, behavioral performance and
 clinical measures [e.g., Finn (2015). Functional fingerprinting (based on
 connectivity)]'' \citep{cohen2017computational}.
 
-\todo[inline]{Were to put the following?}
-%
-``To be useful for clinical diagnostics and prognostics, fMRI data must be
-interpretable on the level of the individual case \citep{dubois2016building}.
-%
-In the clinical context, fMRI plays an important role for planning surgery in
-patients with tumors or epilepsies, as it aids the understanding of which parts
-of the brain need to be spared in order to preserve sensory, motor or cognitive
-abilities'' \citep{wegrzyn2018thought}.
 
-
-\paragraph{subgroups (pediatric, elderly, visually impaired....)}
-
-\todo[inline]{check \citep{feilong2022individualized, jiahui2022cross,
-turek2018capturing} for modelling an individual component}
-
-%
-``Variability was observed from a cohort of homogeneous young adults with a
-narrow age range'' \citep{zhen2017quantifying}.
-%
-``[which limits the generalization of the variability observed here to people
-with different ages, especially children and the elderly''
-\citet{zhen2017quantifying}.]
-%
-In order to predict a atypical pattern (and not just quantify the deviation from
-norm), the model have to have a shared response, individual component + noise.
-%
-Such edge-case subjects could include members of clinical populations, such as
-individuals lacking an optic chiasm [Hoffmann et al., 2012; Bao et al., 2015;
-Olman et al., 2018], or healthy individuals whose retinotopic boundaries are
-merely unusual [Van Essen and Glasser, 2018]'' \citep{benson2018bayesian}.
 
 
 \subsubsection{Other functional alignment algorithms}
 
-%
-Further advances in functional alignment algorithms
-\citep{feilong2022individualized, jiahui2022cross, turek2018capturing}
+\todo[inline]{Evtl. kann man alle Punkte dieser Subsubsection bereits oben
+verwursten; hier kommen die Punkte eh so ein wenig zusammenhangslos als
+selbstzweck und ziehen allgemeine ganz am Ende die Ergebnisse runter (``a.k.a.
+"warum hast du nicht gleich Algo XY benutzt?'')}
 
 
 \subsubsection{ROI vs. whole-brain (i.e. searchlight)}
+
+\todo[inline]{Maybe, shift that to "future studies on other ROIs"}
 
 \todo[inline]{searchlight SRM \citep{zhang2016searchlight}}
 
@@ -1990,6 +1979,17 @@ centers'' \citep{bazeille2021empirical}.
 time series}
 
 \todo[inline]{wtf did \citep{nastase2019leveraging} do?}
+
+\todo[inline]{imo, this should not be a stand-alone paragraph; mention somewhere
+before in discussion (future studies on other functional areas?) and possibly in
+the intro that response-based functional alignment works better to predict
+response}
+
+\todo[inline]{Main message (for general discussion) regarding naturalistic
+stimuli stays the same: naturalistic is better than resting-state; does not
+matter if functional alignment based on response or connectivity (cf.
+\citep{haxby2020hyperalignment}}
+
 
 ``Hyperalignment projects cortical pattern vectors into a common,
 high-dimensional information space \citep{haxby2020hyperalignment}.
