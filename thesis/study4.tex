@@ -231,9 +231,10 @@ anatomy serving as an estimation of a functional region's location.
 For example, \citet{jiahui2020predicting} used surface-based hyperalignment to
 calculated both a \ac{cfs} and transformation matrices based on data from a) the
 whole movie ``Grand Budapest Hotel'' ($\sim$\unit[50]{m}; \ac{tr}=\unit[1]{s}),
-and b) the whole movie ``Forrest Gump'' ($\sim$\unit[120]{m}; \ac{tr}=\unit[2]{s}) in order to
-estimate $Z$-maps resulting from a visual localizer $t$-contrast (hence, a
-\textit{cross-paradigm prediction}) that aimed at localizing the \ac{ffa}.
+and b) the whole movie ``Forrest Gump'' ($\sim$\unit[120]{m};
+\ac{tr}=\unit[2]{s}) in order to estimate $Z$-maps resulting from a visual
+localizer $t$-contrast (hence, a \textit{cross-paradigm prediction}) that aimed
+at localizing the \ac{ffa}.
 % summary of results
 \citet{jiahui2020predicting}'s results revealed that $t$-contrast's $Z$-maps
 correlate more highly with $Z$-maps that were estimated via hyperalignment from
@@ -243,19 +244,12 @@ anatomical alignment \citep{jiahui2020predicting}.
 \todo[inline]{Add results from \citet{haxby2011common} that compare prediction
 performance based on naturalistc \ac{cfs} (more \acp{tr}) to non-naturalistic
 \ac{cfs} (less \acp{trs}) and establish the term \textit{within-paradigm
-prediction})}.
+prediction}); also mention length / \acp{tr}}
 
 
 \subsection{Here, we...}
 
-\todo[inline]{after having focussed on the discussion for a while: probably,
-\citet{haxby2011common}'s findings on validity and generalizability need to be
-better primed; text location \& phrasing depends on the discussion, though}
-
 \todo[inline]{mentioned here that number of voxels is constrained to a ROI?}
-
-\todo[inline]{Is cross-paradigm and within-paradigm estimation / prediction
-defined in the intro? These terms make discussion more concise to write}
 
 % focus: ppa
 Here again, we focus on the \ac{ppa} \citep[e.g.,][for
@@ -328,6 +322,11 @@ responses within the voxels into the $k$-dimensional \ac{cfs}.
 
 
 \subsubsection{Three aspects under investigation}
+
+\todo[inline]{number of respective \acp{tr} are now stated in the plot's
+description as well as here; for the regular text here, it might be too
+"method-detailed" though}
+
 % multi-stimulus model
 Contrary to previous studies \citep[e.g.][]{jiahui2020predicting,
 guntupalli2016model, haxby2011common} that created a \ac{cfs} based on data from
@@ -1114,18 +1113,18 @@ current average map, the expected correlation would be Cronbach's alpha''
 
 \begin{figure*}[tbp] \centering
     \includegraphics[width=\linewidth]{figures/plot_cronbachs.pdf}
-    \caption{
+    \caption{\textbf{Cronbach's $\alpha$ of the empirical $Z$-maps for each
+    paradigm and subject.}
     %
-    \textbf{Reliability of the empirical $Z$-maps across runs / segments.}
+    Cronbach's $\alpha$ was calculated based on the $Z$-maps yielded by the
+    first level \ac{glm} analyses of the visual localizer
+    \citep{sengupta2016extension} (four runs) and naturalistic stimuli
+    \citep{haeusler2022processing} (eight segments each) respectively.
     %
-    Cronbach's $\alpha$ per subject and paradigm calculated across four runs of
-    the visual localizer and eight segments of the naturalistic stimuli
-    respectively.
+    The second-level \ac{glm} analyses across runs / segments yielded the
+    empirical $Z$-maps that were estimated in the present study.
     %
-    Median = upper lines, mean = lower lines.
-    %
-    \textbf{to do: if plot is supposed to stay, it needs a legend for medians
-    and means; Linien über die gesamte Horizontale durchgezogen lassen?}
+    \textbf{needs legend for medians and means}
     }
     \label{fig:cronbachs}
 \end{figure*}
@@ -1157,10 +1156,17 @@ $Z$-maps can be seen in Fig.~\ref{fig:stripplot}.
     \textbf{Correlations between empirical and predicted
     \textit{\textbf{Z}}-maps for each subject.}
     %
-    Dashed lines:
+    \textbf{to do: keep both, median and mean of Cronbach's?}
     %
-    median of Cronbach's $\alpha$ across subjects for the respective paradigm's
-    $t$-contrast (i.e. Cronbach's $\alpha$ of empirical $Z$-maps).
+    Solid horizontal lines:
+    %
+    median of Cronbach's $\alpha$ across subjects for empirical $Z$-maps of the
+    respectively estimated paradigm (cf. Fig.~\ref{fig:cronbachs}).
+    %
+    Dotted horizontal lines:
+    %
+    mean of Cronbach's $\alpha$ across subjects for empirical $Z$-maps of the
+    respectively estimated paradigm (cf. Fig.~\ref{fig:cronbachs}).
     %
     Grey dots:
     %
@@ -1189,12 +1195,7 @@ $Z$-maps can be seen in Fig.~\ref{fig:stripplot}.
     correlations between empirical $Z$-map and an estimation using functional
     alignment based an transformation matrices calculated from one up to eight
     segments (each lasting $\sim$\unit[15]{m}) of the audio-description.
-    %
-    \textbf{to do: keep underlying boxplots (including mean \& median)??
-    add median of Cronbach's, too? At least use the same line style as in
-    Fig.~\ref{fig:cronbachs}.
     }
-}
     \label{fig:stripplot}
 \end{figure*}
 
