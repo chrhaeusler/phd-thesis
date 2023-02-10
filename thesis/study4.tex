@@ -230,14 +230,20 @@ anatomy serving as an estimation of a functional region's location.
 % Jiahui
 For example, \citet{jiahui2020predicting} used surface-based hyperalignment to
 calculated both a \ac{cfs} and transformation matrices based on data from a) the
-movie ``Grand Budapest Hotel'' ($\sim$\unit[50]{m}; \ac{tr}=\unit[1]{s}), and b)
-``Forrest Gump'' ($\sim$\unit[120]{m}; \ac{tr}=\unit[2]{s}).
+whole movie ``Grand Budapest Hotel'' ($\sim$\unit[50]{m}; \ac{tr}=\unit[1]{s}),
+and b) the whole movie ``Forrest Gump'' ($\sim$\unit[120]{m}; \ac{tr}=\unit[2]{s}) in order to
+estimate $Z$-maps resulting from a visual localizer $t$-contrast (hence, a
+\textit{cross-paradigm prediction}) that aimed at localizing the \ac{ffa}.
 % summary of results
-Results revealed that the empirical results of a visual localizer's $t$-contrast
-that aimed at localizing the \ac{ffa} correlate more highly with contrast maps
-that were estimated via hyperalignment from the reference group than contrast
-maps that were estimated via surface-based anatomical alignment
-\citep{jiahui2020predicting}.
+\citet{jiahui2020predicting}'s results revealed that $t$-contrast's $Z$-maps
+correlate more highly with $Z$-maps that were estimated via hyperalignment from
+the reference group than $Z$-maps that were estimated via surface-based
+anatomical alignment \citep{jiahui2020predicting}.
+
+\todo[inline]{Add results from \citet{haxby2011common} that compare prediction
+performance based on naturalistc \ac{cfs} (more \acp{tr}) to non-naturalistic
+\ac{cfs} (less \acp{trs}) and establish the term \textit{within-paradigm
+prediction})}.
 
 
 \subsection{Here, we...}
@@ -295,10 +301,10 @@ the same stimulus into a \ac{cfs} of \textit{shared features} \citep[also called
 ``\textit{shared feature space}'';][]{chen2015reduced} and subject-specific
 linear transformations matrices.
 % math stuff
-More specifically, the \ac{srm} algorithm uses each $n^{th}$ training subject's
-response time series represented as matrix $X_{n}$ ({$v$} voxels by $t$ time
-points) to calculate the \ac{cfs} $C$ ($k$ shared responses by $t$ time points)
-and subject-specific, transformation matrices $W_{n}$ ($v$ voxels by $k$ shared
+More specifically, the \ac{srm} algorithm uses each $n^{th}$ subject's response
+time series represented as matrix $X_{n}$ ({$v$} voxels by $t$ time points) to
+calculate the \ac{cfs} $C$ ($k$ shared responses by $t$ time points) and
+subject-specific, transformation matrices $W_{n}$ ($v$ voxels by $k$ shared
 responses) with orthonormal columns ($W_{n}^{T}W_{n}=I_{k}$).
 % iteratively fitted
 The algorithm randomly initializes and fits the transformation matrices over
@@ -329,15 +335,11 @@ a single paradigm, we calculate a \textit{multi-stimulus \ac{cfs}}:
 % cross-validation
 following an exhaustive leave-one-subject-out cross-validation (N$=$14
 subjects), we train a shared feature space (i.e. the \ac{cfs}) based on
-concatenated response time series to [of / from???] a movie, an
-audio-description and a visual localizer from $N-1$ \textit{training subjects}
-as seen in in Fig.~\ref{fig:multi-stimulus-cfs}.
+concatenated response time series to a movie (3599 \acp{tr}), an
+audio-description (3524 \acp{tr}) and a visual localizer (624 \acp{tr}) from
+$N-1$ \textit{training subjects} as seen in in
+Fig.~\ref{fig:multi-stimulus-cfs}.
 
-
-\todo[inline]{Localizer in smallest part. Say something about the relative
-impact on the shared response}
-
-\todo[inline]{Combination of red and green is shitty}
 
 \begin{figure*}[tbp]
 \centering
@@ -347,77 +349,49 @@ impact on the shared response}
     \textbf{Overview of the shared response model.
     }
     %
-    The \ac{srm} algorithm uses each $n^{th}$ training subject's
-    concatenated response time series to three different paradigms
-    represented as matrix $X_{n}$ ({$v$} voxels by $t$ time points)
-    to calculate the common functional space (CFS) $C$
-    ($k$ shared features by $t$ time points)
-    and subject-specific, transformation matrices $W_{n}$ ($v$ voxels by $k$
-    shared features) with orthonormal columns ($W_{n}^{T}W_{n}=I_{k}$).
-    }
-    \label{fig:multi-stimulus-cfs}
-\end{figure*}
-
+    For each fold of the leave-one-subject-out cross-validation, each training
+    subject's response time series from the movie (3599 \acp{tr}), the movie's
+    audio-description (3524 \acp{tr}), and the visual localizer (624 \acp{tr})
+    were concatenated to serve as input for the \ac{srm} algorithm.
+    %
+    From these response time series represented as matrix $X_{n}$ ({$v$} voxels
+    by $t$ time points), the algorithm then calculates the common functional
+    space (CFS) $C$ ($k$ shared features by $t$ time points) and subject-specific, transformation matrices $W_{n}$ ($v$
+    voxels by $k$ shared features) with orthonormal columns
+    ($W_{n}^{T}W_{n}=I_{k}$).
+} \label{fig:multi-stimulus-cfs} \end{figure*}
 
 
 % three aspects to explore
 In the present study, we aim to investigate three aspects:
 % the criteria
-first, in order to investigate the validity and generalizability of our
+first, in order to explore the validity and generalizability of our
 multi-stimulus \ac{cfs}, we predict a left-out \textit{test subject}'s results
 from the analysis of
 %
-a) the localizer \citep{sengupta2016extension},
+a) the localizer \citep{sengupta2016extension} as the assumed ``gold standard'',
 %
 b) the movie \citep{haeusler2022processing}, and
 %
 c) the auditory narrative \citep{haeusler2022processing}.
 % three predictors
-Second, in order to investigate the validity and generalizability of a test
+Second, in order to explore the validity and generalizability of a test
 subject's transformation matrices based on data from different paradigms, we use
 a test subject's response time series to each of the three paradigms
 independently to align the test subject with the corresponding \acp{tr} within
-the \ac{cfs} (i.e. one \textit{within-experiment} prediction, and two
-\textit{cross-experiment} predictions).
+the \ac{cfs} (i.e. one within-paradigm prediction, and two cross-paradigm
+predictions).
 % partial alignment
 Third, since using a complete naturalistic stimulus to align a test subject is
-impractical in a clinical setting, we also investigate the relationship between
-the estimation performance of the $t$-contrast's results and the quantity of
-data from each of the three paradigms used to functionally align the subject
-with the multi-stimulus \ac{cfs}.
+impractical in a clinical setting, we also explore the relationship between the
+estimation performance of the $t$-contrast's results and the quantity of data
+from each of the three paradigms used to functionally align the subject with the
+multi-stimulus \ac{cfs}.
 % benchmark: anatomical alignment
 Lastly, we compare the performance of your volume-based, functional alignment
 procedures to the performance of a volume-based, anatomical alignment approach
 that serves as a benchmark.
 
-
-
-
-\subsection{Hypotheses}
-
-\todo[inline]{It's kind of difficult (if not even wrong) to write "umbrella
-hypotheses"; in any case, I was expecting the localizer runs to better predict
-the localizer results (cf. \citet{haxby2011common}}
-
-We hypothesized that:
-\begin{itemize}
-
-    \item functional alignment beats anatomical alignment in order to
-        estimate $Z$-map from the localizer, movie, audio-description
-        (eventually, depends on the quantity of data for the matrices).
-
-    \item in case of functional alignment alone, within paradigm prediction
-        beats across-paradigm prediction (at least based on similar amount of
-        TRs).
-
-    \item but eventually, naturalistic stimuli perform better in case of
-        cross-paradigm prediction of visual localizer
-        (cause four segments are more data than 1.5 localizer runs.
-
-    \item on average, movie is best (how to calculate average across which
-        conditions?); no ANOVA, please.
-
-\end{itemize}
 
 
 \textbf{Questions as discussed during our meeting}:
