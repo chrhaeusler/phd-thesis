@@ -354,9 +354,10 @@ Fig.~\ref{fig:multi-stimulus-cfs}.
     were concatenated to serve as input for the \ac{srm} algorithm.
     %
     From these response time series represented as matrix $X_{n}$ ({$v$} voxels
-    by $t$ time points), the algorithm then calculates the common functional
-    space (CFS) $C$ ($k$ shared features by $t$ time points) and subject-specific, transformation matrices $W_{n}$ ($v$
-    voxels by $k$ shared features) with orthonormal columns
+    by $t$ time points), the algorithm calculates the common functional
+    space (CFS) $C$ ($k$ shared features by $t$ time points) and
+    subject-specific, transformation matrices $W_{n}$
+    ($v$ voxels by $k$ shared features) with orthonormal columns
     ($W_{n}^{T}W_{n}=I_{k}$).
 } \label{fig:multi-stimulus-cfs} \end{figure*}
 
@@ -607,23 +608,22 @@ Each subject's time series data were then masked by the union of individual
 The number of remaining voxels per subject (range 1369--1951,
 $\overline{X}=1592$, $SD=188$) can be seen in Fig.~\ref{fig:plot_voxel-counts}.
 
-\todo[inline]{it is a sample; better speak of $\overline{X}=1592$, $SD=188$, and
-not of $\mu=1592$, $\sigma=188$}
-
 
 \begin{figure*}[tbp]
 \centering
     \includegraphics[width=\linewidth]{figures/plot_voxel-counts.pdf}
     \caption{
     %
-        \textbf{Number of voxels in the subject-specific regions of interest
-        (ROIs).}
+    \textbf{Number of voxels in the bilateral regions of interest (ROIs)
+    of each subject.}
     %
-    Each subject's time series and $Z$-maps were masked in their subject's
-    voxel space by
-    the union of individual \acp{ppa} \citep[cf.][]{haeusler2022processing}
-    that was warped from MNI152 space into each subject's voxel space
-    and the subject-specific \ac{fov} of the audio-description.
+    In order to reduce the number of voxels, we warped the union of
+    individual \acp{ppa} \citep[cf. Fig. 1 in][]{haeusler2022processing} from
+    MNI152 space into each subject's native voxel space.
+    %
+    The remaining voxels of each subject were further constrained to those
+    voxels that are included in the respective subject's \ac{fov} of the
+    audio-description \citep[cf.][]{hanke2014audiomovie}.
     }
     \label{fig:plot_voxel-counts}
 \end{figure*}
@@ -851,59 +851,68 @@ The number of iterations for the algorithm to minimize the error was set to 30.
 responses}
 
 
+\todo[inline]{Feels like it took one hour to explain what was done; sounds a
+better now but still overly complex}
 
-\todo[inline]{mih: spell out regressor labels; coh: that will get pretty messy;
-cf. Table 3 in \citet{haeusler2022processing}}
+\todo[inline]{when plots are "perfect", put the model plot from Fig. 5.1 into
+the upper triangles; it should be pretty easy to grasp visually anyway.}
 
-\todo[inline]{What is the point to make with presented plots as support?}
 
-\todo[inline]{not presented: a plot of (just the) shared features but across all
-TRs within the \ac{cfs}; "problem" in the plots shown below: the correlations
-between the shared features vary depending on the TRs used => there is no clear
-"face" or "building" shared feature across paradigms.}
 
-\todo[inline]{To keep in mind for the discussion: the highest correlations
-between individual regressors and shared responses can be seen in the visual
-localizer => but the matrices based on localizer runs suck the most for
-estimation; interpretation?}
 
-\todo[inline]{I have plots prepared for sub-05 (the biggest outlier regarding
-Cronbach's $\alpha$ of audio PPA): \ac{cfs} calculated from all subjects' data
-except sub-05 looks different; of course different value but also (slightly?)
-different patterns of correlations}
 
 % Intro
-We calculated the Pearson correlation coefficients between shared features
-within the \ac{cfs} and the regressors that were previously modeled
-\citep{sengupta2016extension, haeusler2022processing} to investigate hemodynamic
-responses to the three stimuli (movie, audio-description, audio-description).
-
+In order to visualize characteristics of the \ac{cfs}, we calculated the Pearson
+correlation coefficients between the shared responses and the regressors that
+were previously modeled \citep{sengupta2016extension, haeusler2022processing} to
+investigate hemodynamic responses during the three paradigms.
 %
-For the correlations between shared features (occurring during \acp{tr} of the
-visual localizer) and  modeled responses (i.e. regressors) to blocks of pictures
-used in \citet{sengupta2016extension}, see Fig.~\ref{fig:corr-vis-reg-srm}.
+We chose the \ac{cfs} that was created in the first fold of the cross-
+validation from $N-1$ subjects to estimate $Z$-maps of subject 01, and sliced
+the time series of shared responses that were fitted to concatenated time series
+into three slices that matched the \acp{tr} of the paradigms' original time
+series.
 %
-For the correlations between shared features (occurring during \acp{tr} of the
-movie) and modeled responses (i.e. regressors) to visual stimulus features as
-used in \citet{haeusler2022processing}, see Fig.~\ref{fig:corr-av-reg-srm}.
+The correlations between regressors that were created to model hemodynamic
+responses during the visual localizer and shared responses (sliced to match the
+\acp{tr} of the visual localizer) can be seen in
+Fig.~\ref{fig:corr-vis-reg-srm}.
 %
-For the correlation between shared features (occurring during TRs of the
-audio-description) and modeled responses (i.e. regressors) to auditory stimulus
-features as used in \citet{haeusler2022processing}:
-Fig.~\ref{fig:corr-ao-reg-srm}.
-
+The correlations between regressors that were created to model hemodynamic
+responses during the movie \citep[cf. Table 3 in][]{haeusler2022processing} and
+shared responses (sliced to match the \acp{tr} of the movie) can be seen in
+Fig.~\ref{fig:corr-av-reg-srm}.
+%
+The correlations between regressors that were created to model hemodynamic
+responses during the audio-description \citep[cf. Table 3
+in][]{haeusler2022processing} and shared responses (sliced to match the \acp{tr}
+of the audio-description) can be seen in Fig.~\ref{fig:corr-ao-reg-srm}
 
 
 \paragraph{Negative control}
-% shuffle runs
-As a negative control, we randomly shuffled the order of runs (and segments) of
-the paradigms for each paradigm and subject independently before fitting a
-\ac{srm} to the time series.
-% results
-Calculations of correlations revealed no or minor correlations between the
-regressors used in the previous studies and the shared responses that were
-calculated based on shuffled time series.
 
+\todo[inline]{Plots of based on shuffled runs could be placed in an appendix}
+
+\todo[inline]{Results suggest that... ???, "no meaningful shared responses";
+"random shared response"; "shared responses that to not represent hemodynamic
+responses that have anything to do with XY"?}
+
+% shuffle runs
+As a negative control, we randomly shuffled the order of runs of the visual
+localizer and the segments of the naturalistic stimuli for each paradigm and
+training subject independently before concatenating the time series, fitting the
+\ac{srm} and calculating the Pearson correlation coefficients.
+%
+We assumed that the \ac{srm} algorithm would not be able to fit meaningful
+shared responses to randomly shuffled training data.
+%
+As hypothesized, results based on shuffled time series revealed no or minor
+correlations between the shared responses and regressors.
+
+
+\todo[inline]{Regressoren besser erklären; Regressors based on annotations vs,
+low-level regressors (used as nuisance regressors); dennoch auf Table 3
+verweisen}
 
 
 \begin{figure*}[tbp]
@@ -911,8 +920,8 @@ calculated based on shuffled time series.
 \includegraphics[width=\linewidth]{figures/corr_vis-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_7123-7747.pdf}
     \caption{
     %
-    \textbf{Correlations between regressors of the visual localizer and shared
-    features.}
+    \textbf{Correlations between regressors of the visual localizer and
+    shared features during corresponding \acp{tr}.}
     %
     Pearson correlation coefficients between regressors
     created in \citet{sengupta2016extension} to model hemodynamic responses
@@ -920,9 +929,6 @@ calculated based on shuffled time series.
     and the shared features within the \ac{cfs}
     (as calculated for subject 01 from $N-1$ training subjects in the first
     fold of the cross-validation).
-    %
-    The time series of the \ac{cfs} were sliced to match the TRs of the
-    visual localizer.
     }
     \label{fig:corr-vis-reg-srm}
 \end{figure*}
@@ -933,7 +939,8 @@ calculated based on shuffled time series.
     \includegraphics[width=\linewidth]{figures/corr_av-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_3524-7123.pdf}
     \caption{
     %
-    \textbf{Correlations between regressors of the movie and shared features.}
+    \textbf{Correlations between regressors of the movie and shared features
+    during corresponding \acp{tr}.}
     %
     Pearson correlation coefficients between regressors
     created in \citet{haeusler2022processing} to model hemodynamic responses to
@@ -942,9 +949,6 @@ calculated based on shuffled time series.
     and the shared features within the \ac{cfs}
     (as calculated for subject 01 from $N-1$ training subjects in the first
     fold of the cross-validation).
-    %
-    The time series of the \ac{cfs} were sliced to match the TRs of the
-    movie.
     }
     \label{fig:corr-av-reg-srm}
 \end{figure*}
@@ -956,8 +960,8 @@ calculated based on shuffled time series.
     \includegraphics[width=\linewidth]{figures/corr_ao-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_0-3524.pdf}
     \caption{
     %
-    \textbf{Correlations between regressors of the audio-description and share
-    features.}
+    \textbf{Correlations between regressors of the audio-description and
+    shared features during corresponding \acp{tr}.}
     %
     Pearson correlation coefficients between regressors
     created in \citet{haeusler2022processing} to model hemodynamic responses to
@@ -967,9 +971,6 @@ calculated based on shuffled time series.
     (as calculated for subject 01 from $N-1$ training subjects in the first
     fold of the cross-validation).
     %
-    The time series of the \ac{cfs} were sliced to match the TRs of the
-    audio-description.
-    %
     \texttt{geo\&groom} is a combination of
     regressors as used on the positive side of the primary contrasts aimed to
     localize the \ac{ppa} \citep[cf. Table 5 in][]{haeusler2022processing}.
@@ -977,6 +978,11 @@ calculated based on shuffled time series.
     \label{fig:corr-ao-reg-srm}
 \end{figure*}
 
+
+\todo[inline]{To keep in mind for the discussion: the highest correlations
+between individual regressors and shared responses can be seen in the visual
+localizer => but the matrices based on localizer runs suck the most for
+estimation; interpretation?}
 
 
 
