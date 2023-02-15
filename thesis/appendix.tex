@@ -1,1 +1,79 @@
-lore ipsum
+\begin{figure*}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/corr_vis-regressors-vs-cfs_sub-01_srm-ao-av-vis-shuffled_feat10-iter30_7123-7747.pdf}
+    \caption{
+    %
+    \textbf{Pearson correlation coefficients between regressors of the visual
+    localizer and shared features of a Shared Response Model that fitted to
+    shuffled time series data.}
+    %
+    The time series of the shared features within the multi-paradigm \ac{cfs}
+    %
+    (as calculated for subject 01 in the first fold of the cross-validation)
+    %
+    were trimmed to match the corresponding \acp{tr} of the visual localizer
+    paradigm \citep{sengupta2016extension}.
+    %
+    The six regressors of the visual localizer model hemodynamic responses to
+    the six categories of pictures that were presented in blocks.
+    }
+    \label{fig:corr-vis-reg-srm-shuffled}
+\end{figure*}
+
+
+\begin{figure*}[tbp]
+\centering
+    \includegraphics[width=\linewidth]{figures/corr_av-regressors-vs-cfs_sub-01_srm-ao-av-vis-shuffled_feat10-iter30_3524-7123.pdf}
+    \caption{
+    %
+    \textbf{Pearson correlation coefficients between regressors of the movie
+    and shared features of a Shared Response Model that was fitted to shuffled
+    time series data.}
+    %
+    The time series of the shared features within the multi-paradigm \ac{cfs}
+    %
+    (as calculated for subject 01 in the first fold of the cross-validation)
+    %
+    were trimmed to match the corresponding \acp{tr} of the movie paradigm
+    \citep{hanke2016simultaneous}
+    %
+    The regressors \texttt{vse\_new} to \texttt{vno\_cut} are based on
+    annotations of the content of movie frames, whereas the regressors
+    \texttt{fg\_av\_ger\_lr} to \texttt{fg\_av\_ger\_ud} represent low-level
+    visual or auditory confounds
+    \citep[cf. Table 3 in][]{haeusler2022processing}.
+}
+    \label{fig:corr-av-reg-srm-shuffled}
+\end{figure*}
+
+
+
+\begin{figure*}[tbp]
+\centering
+    \includegraphics[width=\linewidth]{figures/corr_ao-regressors-vs-cfs_sub-01_srm-ao-av-vis-shuffled_feat10-iter30_0-3524.pdf}
+    \caption{
+    %
+    \textbf{Pearson correlation coefficients between regressors of the
+    audio-description and shared features of Shared Response Model that was
+    fitted to shuffled time series data.}
+    %
+    The time series of the shared features within the multi-paradigm \ac{cfs}
+    %
+    (as calculated for subject 01 in the first fold of the cross-validation)
+    %
+    were trimmed to match the corresponding \acp{tr} of the
+    audio-description paradigm \citep{hanke2014audiomovie}.
+    %
+    The regressors \texttt{body} to \texttt{sex\_m} are based on
+    annotations of nouns spoken by the audio-description's narrator,
+    whereas the regressors \texttt{fg\_ad\_ger\_lrdiff} and
+    \texttt{fg\_ad\_ger\_rms} represent low-level auditory confounds
+    \citep[cf. Table 3 in][]{haeusler2022processing}.
+    %
+    \texttt{geo\&groom} is a combination of
+    regressors as used on the positive side of the primary contrasts aimed to
+    localize the \ac{ppa} \citep[cf. Table 5 in][]{haeusler2022processing}.
+    }
+    \label{fig:corr-ao-reg-srm-shuffled}
+\end{figure*}
+

@@ -327,10 +327,10 @@ responses within the voxels into the $k$-dimensional \ac{cfs}.
 description as well as here; for the regular text here, it might be too
 "method-detailed" though}
 
-% multi-stimulus model
+% multi-paradigm model
 Contrary to previous studies \citep[e.g.][]{jiahui2020predicting,
 guntupalli2016model, haxby2011common} that created a \ac{cfs} based on data from
-a single paradigm, we calculate a \textit{multi-stimulus \ac{cfs}}:
+a single paradigm, we calculate a \textit{multi-paradigm \ac{cfs}}:
 % cross-validation
 following an exhaustive leave-one-subject-out cross-validation (N$=$14
 subjects), we train a shared feature space (i.e. the \ac{cfs}) based on
@@ -338,6 +338,7 @@ concatenated response time series to a movie (3599 \acp{tr}), an
 audio-description (3524 \acp{tr}) and a visual localizer (624 \acp{tr}) from
 $N-1$ \textit{training subjects} as seen in in
 Fig.~\ref{fig:multi-stimulus-cfs}.
+
 
 
 \begin{figure*}[tbp]
@@ -366,7 +367,7 @@ Fig.~\ref{fig:multi-stimulus-cfs}.
 In the present study, we aim to investigate three aspects:
 % the criteria
 first, in order to explore the validity and generalizability of our
-multi-stimulus \ac{cfs}, we predict a left-out \textit{test subject}'s results
+multi-paradigm \ac{cfs}, we predict a left-out \textit{test subject}'s results
 from the analysis of
 %
 a) the localizer \citep{sengupta2016extension} as the assumed ``gold standard'',
@@ -386,7 +387,7 @@ Third, since using a complete naturalistic stimulus to align a test subject is
 impractical in a clinical setting, we also explore the relationship between the
 estimation performance of the $t$-contrast's results and the quantity of data
 from each of the three paradigms used to functionally align the subject with the
-multi-stimulus \ac{cfs}.
+multi-paradigm \ac{cfs}.
 % benchmark: anatomical alignment
 Lastly, we compare the performance of your volume-based, functional alignment
 procedures to the performance of a volume-based, anatomical alignment approach
@@ -851,14 +852,13 @@ The number of iterations for the algorithm to minimize the error was set to 30.
 responses}
 
 
-\todo[inline]{Feels like it took one hour to explain what was done; sounds a
+\todo[inline]{Feels like it took one hour to explain what was done; sounds
 better now but still overly complex}
 
 \todo[inline]{when plots are "perfect", put the model plot from Fig. 5.1 into
-the upper triangles; it should be pretty easy to grasp visually anyway.}
+the upper triangles; it should be pretty easy to grasp visually anyway}
 
-
-
+\todo[inline]{make colors of non-used TRs of the model more transparent}
 
 
 % Intro
@@ -867,31 +867,34 @@ correlation coefficients between the shared responses and the regressors that
 were previously modeled \citep{sengupta2016extension, haeusler2022processing} to
 investigate hemodynamic responses during the three paradigms.
 %
-We chose the \ac{cfs} that was created in the first fold of the cross-
-validation from $N-1$ subjects to estimate $Z$-maps of subject 01, and sliced
-the time series of shared responses that were fitted to concatenated time series
-into three slices that matched the \acp{tr} of the paradigms' original time
-series.
+As an example, we chose the \ac{cfs} that was created in the first fold of the
+cross-validation from $N-1$ subjects to estimate $Z$-maps of subject 01.
+%
+The time series of the shared features were trimmed to match the corresponding
+\acp{tr} of the respective paradigms.
 %
 The correlations between regressors that were created to model hemodynamic
-responses during the visual localizer and shared responses (sliced to match the
-\acp{tr} of the visual localizer) can be seen in
+responses during the visual localizer and shared responses (trimmed to \acp{tr}
+that match the \acp{tr} of the visual localizer) can be seen in
 Fig.~\ref{fig:corr-vis-reg-srm}.
 %
 The correlations between regressors that were created to model hemodynamic
 responses during the movie \citep[cf. Table 3 in][]{haeusler2022processing} and
-shared responses (sliced to match the \acp{tr} of the movie) can be seen in
-Fig.~\ref{fig:corr-av-reg-srm}.
+shared responses (trimmed to \acp{tr} that match the \acp{tr} of the movie)
+can be seen in Fig.~\ref{fig:corr-av-reg-srm}.
 %
 The correlations between regressors that were created to model hemodynamic
 responses during the audio-description \citep[cf. Table 3
-in][]{haeusler2022processing} and shared responses (sliced to match the \acp{tr}
-of the audio-description) can be seen in Fig.~\ref{fig:corr-ao-reg-srm}
+in][]{haeusler2022processing} and shared responses (trimmed to \acp{tr} that
+match the \acp{tr} of the audio-description) can be seen in
+Fig.~\ref{fig:corr-ao-reg-srm}.
+
+\todo[inline]{One sentence about what the plots "suggest"?}
 
 
 \paragraph{Negative control}
 
-\todo[inline]{Plots of based on shuffled runs could be placed in an appendix}
+\todo[inline]{Add representation of the model to the plots}
 
 \todo[inline]{Results suggest that... ???, "no meaningful shared responses";
 "random shared response"; "shared responses that to not represent hemodynamic
@@ -907,12 +910,13 @@ We assumed that the \ac{srm} algorithm would not be able to fit meaningful
 shared responses to randomly shuffled training data.
 %
 As hypothesized, results based on shuffled time series revealed no or minor
-correlations between the shared responses and regressors.
+correlations between the shared responses and regressors as can be seen in
+Fig.~\ref{fig:corr-vis-reg-srm-shuffled},
+Fig.~\ref{fig:corr-av-reg-srm-shuffled}, and
+Fig.~\ref{fig:corr-ao-reg-srm-shuffled}.
 
 
-\todo[inline]{Regressoren besser erklären; Regressors based on annotations vs,
-low-level regressors (used as nuisance regressors); dennoch auf Table 3
-verweisen}
+
 
 
 \begin{figure*}[tbp]
@@ -920,15 +924,18 @@ verweisen}
 \includegraphics[width=\linewidth]{figures/corr_vis-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_7123-7747.pdf}
     \caption{
     %
-    \textbf{Correlations between regressors of the visual localizer and
-    shared features during corresponding \acp{tr}.}
+    \textbf{Pearson correlation coefficients between regressors of the visual
+    localizer and shared features.}
     %
-    Pearson correlation coefficients between regressors
-    created in \citet{sengupta2016extension} to model hemodynamic responses
-    during the six-category visual localizer paradigm
-    and the shared features within the \ac{cfs}
-    (as calculated for subject 01 from $N-1$ training subjects in the first
-    fold of the cross-validation).
+    The time series of the shared features within the multi-paradigm \ac{cfs}
+    %
+    (as calculated for subject 01 in the first fold of the cross-validation)
+    %
+    were trimmed to match the corresponding \acp{tr} of the visual localizer
+    paradigm \citep{sengupta2016extension}.
+    %
+    The six regressors of the visual localizer model hemodynamic responses to
+    the six categories of pictures that were presented in blocks.
     }
     \label{fig:corr-vis-reg-srm}
 \end{figure*}
@@ -939,17 +946,22 @@ verweisen}
     \includegraphics[width=\linewidth]{figures/corr_av-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_3524-7123.pdf}
     \caption{
     %
-    \textbf{Correlations between regressors of the movie and shared features
-    during corresponding \acp{tr}.}
+    \textbf{Pearson correlation coefficients between regressors of the movie
+    and shared features}
     %
-    Pearson correlation coefficients between regressors
-    created in \citet{haeusler2022processing} to model hemodynamic responses to
-    the movie
-    \citep[cf. Table 3 in][]{haeusler2022processing}
-    and the shared features within the \ac{cfs}
-    (as calculated for subject 01 from $N-1$ training subjects in the first
-    fold of the cross-validation).
-    }
+    The time series of the shared features within the multi-paradigm \ac{cfs}
+    %
+    (as calculated for subject 01 in the first fold of the cross-validation)
+    %
+    were trimmed to match the corresponding \acp{tr} of the movie paradigm
+    \citep{hanke2016simultaneous}
+    %
+    The regressors \texttt{vse\_new} to \texttt{vno\_cut} are based on
+    annotations of the content of movie frames, whereas the regressors
+    \texttt{fg\_av\_ger\_lr} to \texttt{fg\_av\_ger\_ud} represent low-level
+    visual or auditory confounds
+    \citep[cf. Table 3 in][]{haeusler2022processing}.
+}
     \label{fig:corr-av-reg-srm}
 \end{figure*}
 
@@ -960,16 +972,21 @@ verweisen}
     \includegraphics[width=\linewidth]{figures/corr_ao-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_0-3524.pdf}
     \caption{
     %
-    \textbf{Correlations between regressors of the audio-description and
-    shared features during corresponding \acp{tr}.}
+    \textbf{Pearson correlation coefficients between regressors of the
+    audio-description and shared features.}
     %
-    Pearson correlation coefficients between regressors
-    created in \citet{haeusler2022processing} to model hemodynamic responses to
-    stimulus features of the audio-description
-    \citep[cf. Table 3 in][]{haeusler2022processing}
-    and the shared features within the \ac{cfs}
-    (as calculated for subject 01 from $N-1$ training subjects in the first
-    fold of the cross-validation).
+    The time series of the shared features within the multi-paradigm \ac{cfs}
+    %
+    (as calculated for subject 01 in the first fold of the cross-validation)
+    %
+    were trimmed to match the corresponding \acp{tr} of the
+    audio-description paradigm \citep{hanke2014audiomovie}.
+    %
+    The regressors \texttt{body} to \texttt{sex\_m} are based on
+    annotations of nouns spoken by the audio-description's narrator,
+    whereas the regressors \texttt{fg\_ad\_ger\_lrdiff} and
+    \texttt{fg\_ad\_ger\_rms} represent low-level auditory confounds
+    \citep[cf. Table 3 in][]{haeusler2022processing}.
     %
     \texttt{geo\&groom} is a combination of
     regressors as used on the positive side of the primary contrasts aimed to
@@ -1129,8 +1146,6 @@ current average map, the expected correlation would be Cronbach's alpha''
     %
     The second-level \ac{glm} analyses across runs / segments yielded the
     empirical $Z$-maps that were estimated in the present study.
-    %
-    \textbf{needs legend for medians and means}
     }
     \label{fig:cronbachs}
 \end{figure*}
@@ -1146,6 +1161,7 @@ Z-transform should not change that, probably)}
 
 \todo[inline]{adjust 'statistics\_t-test-correlations.py' accordingly}
 
+\todo[inline]{Collection at Neurovault is still empty}
 
 Unthresholded $Z$-maps [in each subject's voxel space] can be found at
 \href{https://identifiers.org/neurovault.collection:12340}{\url{neurovault.org/collections/12340}}.
@@ -1641,7 +1657,7 @@ Are they simply not attending to it? Or are they simply incapable to process it?
 
 \subsection{Discussion across "everything"}
 
-\subsubsection{We built a "multi-stimulus" model}
+\subsubsection{We built a "multi-paradigm" model}
 
 \todo[inline]{cf. "Templates from \citet{haxby2011common} on validity \&
 generalizability" at the very and of this chapter}
@@ -1649,7 +1665,7 @@ generalizability" at the very and of this chapter}
 \todo[inline]{is there ANY paper except \citet{haxby2011common} that derives a
 \ac{cfs} from a non-naturalistic stimulus?}
 
-The multi-stimulus model is kind of valid;
+The multi-paradigm model is kind of valid;
 %
 However, I have no clue which stimulus is the crucial one...
 
@@ -1720,7 +1736,7 @@ prediction via naturalistic stimulus for alignment.
 
 %
 However, they had a \ac{cfs} that was derived just from the non-naturalistic
-paradigm, i.e. no multi-stimulus paradigm.
+paradigm, i.e. no multi-paradigm \ac{cfs}.
 %
 Maybe, our naturalistic stimuli (about 7000 TRs) fucked up our shared responses
 in the 450 \acp{tr} within the SRM (imo, Fig.~\ref{fig:corr-vis-reg-srm}
