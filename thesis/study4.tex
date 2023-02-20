@@ -230,8 +230,8 @@ anatomy serving as an estimation of a functional region's location.
 % Jiahui
 For example, \citet{jiahui2020predicting} used surface-based hyperalignment to
 calculated both a \ac{cfs} and transformation matrices based on data from a) the
-whole movie ``Grand Budapest Hotel'' ($\sim$\unit[50]{m}; \ac{tr}=\unit[1]{s}),
-and b) the whole movie ``Forrest Gump'' ($\sim$\unit[120]{m};
+whole movie ``Grand Budapest Hotel'' ($\approx$\unit[50]{m}; \ac{tr}=\unit[1]{s}),
+and b) the whole movie ``Forrest Gump'' ($\approx$\unit[120]{m};
 \ac{tr}=\unit[2]{s}) in order to estimate $Z$-maps resulting from a visual
 localizer $t$-contrast (hence, a \textit{cross-paradigm prediction}) that aimed
 at localizing the \ac{ffa}.
@@ -740,7 +740,7 @@ alignment is conducted in four steps:
 % create CFS and training subjects' matrices
 first, for every fold of a leave-one-out cross-validation (N$=$14 subjects), we
 trained a \ac{srm} on $N-1$ training subjects' response time series
-of [to?] the movie, the audio-description, and the visual localizer.
+of the movie, the audio-description, and the visual localizer.
 % results in...
 This first step provides both a \ac{cfs} for every fold of the cross-validation
 and an orthonormal transformation matrix for each training subject.
@@ -997,7 +997,7 @@ responses that have anything to do with XY"?}
 % AO+AV: 0-7123
 
 %
-We then used the test subject's response time series of [to?] the visual
+We then used the test subject's response time series of the visual
 localizer, the movie, or the audio-description to align the test subject to the
 corresponding \acp{tr} within the \ac{cfs}.
 %
@@ -1015,7 +1015,7 @@ lasting \unit[5.2]{m} to align the test subject to the corresponding \acp{tr}
 within the \ac{cfs}.
 %
 In case of the naturalistic stimuli, we used one up to eight segments (each
-lasting $\sim$\unit[15]{m}) [to align the test subject to the corresponding
+lasting $\approx$\unit[15]{m}) [to align the test subject to the corresponding
 \acp{tr} within the \ac{cfs}].
 %
 Consequently, for every test subject, we obtained four matrices from data of the
@@ -1045,76 +1045,84 @@ predicted $Z$-map that estimates the test subject's empirical $Z$-map.
 
 
 
-\subsection{Pearson \& Cronbach's alpha}
+\subsection{Cronbach's alpha}
 
-\todo[inline]{btw, sub-05 is the asshole: Cronbach's of -0.5}
+\todo[inline]{I rephrased this paragraph a couple of times; still sounds meh...}
 
-\todo[inline]{Summarize / merge the templates}
+\todo[inline]{might be just a spontaneous brain fart: iirc, the "deviant"
+participants in the audio-description are mostly the ones that have a poor
+Cronbach's; so, they are less probably not "reliable outliers" being different
+from the norm but more probably noisy asses; hence, SRM should probably do more
+of a denoising as opposed to modelling (reliable) outliers incorrectly}
 
+\todo[inline]{might be interesting for the general discussion: does a
+naturalistic stimulus provide enough events and sufficiently balanced across
+segments?}
 
-\citet{jiahui2022cross}: ``Because the localizer task comprises several scanning
-runs, we calculated the reliability of the localizer across runs with Cronbach's
-alpha to provide an estimate of the noise ceiling for these correlations''
-\citep{jiahui2022cross}.
+\todo[inline]{I have no clue where \citet{jiahui2020predicting, jiahui2022cross}
+have the statement about what Cronbach's expresses from...}
 
-%
-\citep{feilong2022individualized}: ``Due to the presence of noise in localizer
-data, the estimated face-selectivity map is a combination of a “true”
-face-selectivity map of the participant and some noise.
-%
-The component from the “true” map is supposed to be shared by all localizer
-runs, and thus the data quality and the level of noise can be estimated based on
-the similarity between the 4 maps (i.e., one from each run).
-%
-We used Cronbach's alpha to estimate the reliability  of the average map of the
-4 runs.
-%
-We estimated the reliability of the localizer-based map using Cronbach's alpha,
-which is the expected correlation between two average maps, each based on 4 runs
-of independent data.
-%
-If we were to collect another 4 localizer runs from the participant and get a
-new average map based on the 4 new runs (i.e., independent data), then the
-expected correlation between the two average maps would be Cronbach's alpha.
-%
-In other words, if the correlation between the model-predicted map and the
-localizer-based (average) map is higher than Cronbach's alpha, then the
-model-predicted map is more accurate than the average map based on 4 runs''
-\citep{feilong2022individualized}.
-
-% Pearson's
-In order to quantify the estimation performance based on anatomical and the
-functional alignment procedure, we calculated the Pearson's correlation
-coefficients as a measure of similarity between the empirical $Z$-maps and the
-predicted $Z$-maps.
-
-% Cronbach's Alpha
-As a measure of the empirical $Z$-maps' internal consistency (i.e.
-reliability), we also calculated Cronbach's $\alpha$ across the four runs in
-case of the localizer's $t$-contrast, and across the eight segments in case of
-the movie's and audio-description's $t$-contrast.
-%
-We assumed to Cronbach's $\alpha$ to be a noise ceiling, and ``we reasoned that
-across-subject variability cannot be expected to be lower than within-subject
-variability over time (reproducibility)'' \citep{rosenke2021probabilistic}.
-
-\todo[inline]{Give the median / mean Cronbach's here (already although it's
-strictly results)}
+\todo[inline]{A negative Cronbach's alpha is really shitty; should be discussed
+(in the general discussion on naturalistic stimuli + \ac{glm}, too}
 
 %
-Cronbach's $\alpha$ of empirical $Z$-maps for each subject and paradigm
-can be seen in Fig.~\ref{fig:cronbachs}.
-
-``Based on the similarity between these four maps, we computed the Cronbach's
-alpha coefficient for each participant, which estimates the reliability of the
-average map.
-
+We calculated Cronbach's $\alpha$ for the empirical $Z$-maps of each paradigm
+and subject as a measure of the empirical $Z$-maps reliability and amount of
+measurement error \citep{cronbach1951coefficient, cortina1993coefficient}.
 %
-\citep{feilong2022individualized} ``That is, if we were to scan the participant
-for another four localizer runs and correlate the new average map with the
-current average map, the expected correlation would be Cronbach's alpha''
-\citep{feilong2022individualized}.
+Cronbach's $\alpha$ expresses the expected correlation between the currently
+used empirical $Z$-maps and an additional set of empirical $Z$-maps calculated
+based on data of a hypothetical independent dataset collected from the same
+paradigm and subjects \citep{jiahui2020predicting, jiahui2022cross}.
+%
+These expected correlations represented by Cronbach's $\alpha$ were therefor
+calculated based on values of the first-level \ac{glm} $Z$-maps (four in case of
+the visual localizer; eight in case of the naturalistic stimuli) that were
+averaged in the second-level \ac{glm} analyses of their respective study
+yielding the to be estimated empirical $Z$-maps of the present study.
 
+
+\todo[inline]{Strictly, the following is about results, not methods}
+%
+Cronbach's $\alpha$ of empirical $Z$-maps for each subject and paradigm can be
+seen in Fig.~\ref{fig:cronbachs}, descriptive statistics across subjects for
+each paradigm can be seen in Table~\ref{fig:cronbachs}.
+
+
+% Visual localizer:  mean=0.899990, std=0.087051, min=0.658523,
+% 25\%=0.906643, 50\%=0.934019, 75\%=0.947906, max=0.963065.
+
+% Movie: mean=0.611332, std=0.137878, min=0.284440,
+% 25\%=0.555529, 50\%=0.627240, 75\%=0.676353, max=0.800254.
+
+% Audio-description: mean=0.476194, std=0.358019, min=-0.526626,
+% 25\%=0.428975, 50\%=0.627799, 75\%=0.679987, max=0.823584.
+
+
+\begin{table*}[btp]
+    \caption{
+    %
+    \textbf{Descriptive statistics of Cronbach's $\alpha$ across subjects.}
+    %
+    Imo, not super necessary to provide these numbers. Stripplot + boxplots
+    could be sufficient. If table is supposed to be kept, round the numbers,
+    write a good description for the table.}
+\label{tab:cronbachs}
+\begin{tabular}{llll}
+    \toprule
+    \textbf{statistic} & \textbf{localizer} & \textbf{movie} & \textbf{audio-description} \\
+    \midrule
+    mean & 0.89999 & 0.611332 & 0.476194 \tabularnewline
+    std & 0.087051 & 0.137878 & 0.358019 \tabularnewline
+    min & 0.658523 & 0.28444 & -0.526626 \tabularnewline
+    25\% & 0.906643 & 0.555529 & 0.428975 \tabularnewline
+    50\% & 0.934019 & 0.62724 & 0.627799 \tabularnewline
+    75\% & 0.947906 & 0.676353 & 0.679987 \tabularnewline
+    max & 0.963065 & 0.800254 & 0.823584 \tabularnewline
+    \bottomrule
+\end{tabular}
+\caption*{The legend text goes here.}
+\end{table*}
 
 
 \begin{figure*}[tbp] \centering
@@ -1133,30 +1141,39 @@ current average map, the expected correlation would be Cronbach's alpha''
     \label{fig:cronbachs}
 \end{figure*}
 
-Visual localizer:  mean=0.899990, std=0.087051, min=0.658523, 25\%=0.906643,
-50\%=0.934019, 75\%=0.947906, max=0.963065.
 
-Movie: mean=0.611332, std=0.137878, min=0.284440, 25\%=0.555529, 50\%=0.627240,
-75\%=0.676353, max=0.800254.
-
-Audio-description: mean=0.476194, std=0.358019, min=-0.526626, 25\%=0.428975,
-50\%=0.627799, 75\%=0.679987, max=0.823584.
 
 
 \section{Results}
 
-\subsection{Short summary of Methods and goals}
 
-\todo[inline]{A couple of sentences should be enough; state again the
-"exploratory nature" of the study}
 
-Unthresholded $Z$-maps [in each subject's voxel space] can be found at
-\href{https://identifiers.org/neurovault.collection:12340}{\url{neurovault.org/collections/12340}}.
-%
-Pearson correlation coefficients between empirical $Z$-maps and predicted
-$Z$-maps can be seen in Fig.~\ref{fig:stripplot}.
+\todo[inline]{Report descriptive statistics of the correlations? imo, that's not
+necessary}
+
+\todo[inline]{I tested all Fisher transformed samples for normality via
+Shapiro-Wilk test (imo, the most appropriate test here)}
+
+\todo[inline]{in case Shapiro-Wilk is not significant (failed to reject H0 of
+normality), dependent [?!] t-test; should otherwise a
+(non-parametric) Wilcoxon signed-rank test (for dependent samples) be computed?}
+
+\todo[inline]{Round the values or just write $p$<.0001}
+
+\todo[inline]{So far, I did not test any difference(s) to Cronbach's}
 
 \todo[inline]{Collection at Neurovault is still empty}
+
+%
+Unthresholded [empirical and predicted] $Z$-maps in their respective subject's
+voxel space can be found at
+\href{https://identifiers.org/neurovault.collection:12340}{\url{neurovault.org/collections/12340}}.
+%
+In order to quantify the estimation performance of the alignment procedures, we
+correlated each individual's empirical $Z$-maps gained from previous analyses
+\citep{sengupta2016extension, haeusler2022processing} with their respective
+predicted $Z$-map.
+
 
 
 \begin{figure*}[tbp] \centering
@@ -1164,8 +1181,13 @@ $Z$-maps can be seen in Fig.~\ref{fig:stripplot}.
     \caption{
     %
     \textbf{Correlations between empirical and predicted
-    \textit{\textbf{Z}}-maps for each subject.}
-        %
+    \textit{\textbf{Z}}-maps for each paradigm and subject.}
+    %
+    Functional alignment was performed based on an increasing amount of
+    functional data used to align a test subject to the common functional space
+    (CFS): runs of the visual localizer paradigm lasted \unit[5.2]{m}; segments
+    of the naturalistic stimuli lasted $\approx$\unit[15]{m}.
+    %
     Solid horizontal lines:
     %
     median of Cronbach's $\alpha$ across subjects for empirical $Z$-maps of the
@@ -1174,7 +1196,7 @@ $Z$-maps can be seen in Fig.~\ref{fig:stripplot}.
     Dotted horizontal lines:
     %
     mean of Cronbach's $\alpha$ across subjects for empirical $Z$-maps of the
-    respectively estimated paradigm (cf. Fig.~\ref{fig:cronbachs}).
+    respectively estimated paradigm (cf. Fig.~\ref{fig:cronbachs});
     %
     Grey dots:
     %
@@ -1196,13 +1218,13 @@ $Z$-maps can be seen in Fig.~\ref{fig:stripplot}.
     %
     correlations between empirical $Z$-map and an estimation using functional
     alignment based an transformation matrices calculated from one up to eight
-    segments (each lasting $\sim$\unit[15]{m}) of the movie.
+    segments (each lasting $\approx$\unit[15]{m}) of the movie.
     %
     Blue dots:
     %
     correlations between empirical $Z$-map and an estimation using functional
     alignment based an transformation matrices calculated from one up to eight
-    segments (each lasting $\sim$\unit[15]{m}) of the audio-description.
+    segments (each lasting $\approx$\unit[15]{m}) of the audio-description.
     %
     \textbf{to do: keep both, median and mean of Cronbach's? Improve legend
     somehow without crowding figure / subplots?}
@@ -1211,52 +1233,127 @@ $Z$-maps can be seen in Fig.~\ref{fig:stripplot}.
 \end{figure*}
 
 
+\subsection{General stuff}
 
-\subsection{Overview of performed comparisons}
+\todo[inline]{Jeez! Phrasing!}
 
+\todo[inline]{Define "criteria" and "predictors" in the introduction}
 
-\todo[inline]{Here or per estimated criterion (s. below), give a short overview
-of the performed and reported tests (otherwise it will probably be confusing to
-read)}
-
-\todo[inline]{Explain here or somewhere else why which tests have (not) been
-chosen, while some findings, i.e. the "general trend", will be discussed based
-on eye-balling?}
-
-\todo[inline]{So far, I did not test difference(s) to Cronbach's}
-
-
-\subsection{General stuff concerning all the following tests}
-
-\todo[inline]{Correlations were Fisher's z transformed, tested for Normality via
-Shapiro-Wilk (imo, the most appropriate test here)}
-
-\todo[inline]{in case Shapiro-Wilk was not significant (failed to reject H0 of
-normality), an dependent [?!] t-Test was performed, otherwise (non-parametric)
-Wilcoxon signed-rank test (for dependent samples) should be computed?}
-
-\todo[inline]{Bonferroni correction: set alpha level according to the (final?)
-number test}
-
-\todo[inline]{Report descriptive statistics of the correlations? imo, that's not
-necessary}
-
-Descriptive statistics are reported for the "raw" correlation values; before
-performing statistical tests of differences, values Fisher z-transformed, and
-tested for normality;
 %
-in case a test failed to reject the H0 that assumes a normal distribution for
-both samples, we perform a t-Test [which assumes same variance, but whatever];
-in case H1 (non-normality) is accepted for one of the two to be compared
-samples, we use Wilcoxon signed-rank test.
+The [mean] Pearson correlation coefficients vary depending on the criterion to
+be estimated (i.e. $Z$-maps of the visual localizer, movie, or
+audio-description), the functional alignment procedure (anatomical vs.
+functional alignment), and---in case of functional alignment---on the quantity
+of a paradigm's data used to align a test subject to the \ac{cfs} as can be seen
+in Fig.~\ref{fig:stripplot}.
+%
+However, the functional alignment procedure across criteria and predictors
+reveals an increased estimation performance the more functional data are used to
+align the test subjects.
 
 
-\subsection{Estimation of the visual localizer's empirical $Z$-maps}
+\subsection{The exemplary tests}
+
+\todo[inline]{Give one-sentence interpretations / summary à la "Results
+suggest..."?}
+
+\todo[inline]{correlations based on 4 localizer runs fail the test for
+normality}
+
+\todo[inline]{correct the alpha-level (as it is done now) or the p-values?}
+
+%
+In order to investigate the differences between some conditions [well, if you
+know what I mean] more closely, we post-hoc performed eleven [final number?]
+paired t-tests on Fisher z-transformed correlation values, and set the
+$\alpha$-level to a Bonferroni corrected $\alpha$ of $0.05 / 11 =
+0.00\overline{45}$.
+%
+\textbf{For example, in case of estimating the $Z$-maps of the visual
+localizer}, the correlations between empirical $Z$-maps and $Z$-maps predicted
+via the first movie segment were significantly higher than the correlations
+between empirical $Z$-maps and $Z$-maps predicted via anatomical alignment
+(Fisher z-transformed, t(14)= 6.3525802, $p$=0.0000253).
+%
+Whereas the functional alignment via the first movie segment (451 \acp{tr})
+yielded significantly higher correlations than a functional alignment via four
+localizer runs lasting 624 \acp{tr} (Fisher z-transformed, t(14)=5.8905545,
+$p$<0.0000532),
+%
+the functional alignment via the first segment of the audio-description yielded
+significantly lower correlations than the functional alignment via four
+localizer runs (Fisher z-transformed, t(14)=-2.3000009, $p$<0.0386588, will not
+be significant when Bonferroni corrected).
+
+%
+The mean correlation between empirical $Z$-maps and $Z$-maps predicted via the
+first movie segment were significantly lower than the correlations between
+empirical $Z$-maps and $Z$-maps predicted via the first two
+movie segments (Fisher z-transformed, t(14)= -5.4946197, $p$=0.0001031,
+Bonferroni corrected).
+%
+The difference between mean correlations based on two movie segments in
+comparison the mean correlation based on three movie segments was not
+significant (Fisher z-transformed, t(14)= -0.1293547, $p$=0.8990569).
+
+\todo[inline]{Following phrasing is just copied from above; values are adjusted
+accordingly}
+
+\textbf{In case of estimating the $Z$-maps of movie}, the correlations between
+empirical $Z$-maps and predicted $Z$-maps via the first movie segment were
+significantly higher than the correlations between empirical $Z$-maps and
+predicted $Z$-maps via anatomical alignment (Fisher z-transformed, t(14)=
+5.7754451, $p$=0.0000643).
+%
+Whereas the functional alignment via the first movie segment (451 \acp{tr})
+yielded significantly higher correlation than a functional alignment via four
+localizer runs lasting 624 \acp{tr} (Fisher z-transformed, t(14)=6.8532349,
+$p$<0.0000116),
+%
+the functional alignment via the first segment of the audio-description yielded
+no significantly different correlations than the functional alignment via four
+localizer runs (Fisher z-transformed, t(14)=-1.8674144, $p$<0.084551).
+%
+The mean correlation between empirical $Z$-maps and predicted $Z$-maps via the
+first segment alone of the movie were significantly lower than the correlations
+between empirical $Z$-maps and predicted $Z$-maps predicted $Z$-maps via the
+first two movie segments (Fisher z-transformed, t(14)= -3.7454592,
+$p$=0.0024485).
+%
+The difference between mean correlations based on two movie segments in
+comparison the mean correlation based on three movie segments was [not]
+different [when adjusted alpha-level used] (Fisher z-transformed, t(14)=
+-2.5759899, $p$=0.02303].
+
+
+
+
+\todo[inline]{This part is the ugly one}
+
+\todo[inline]{All samples will fail the test of normality anyway}
+
+\textbf{In case of estimating the $Z$-maps of the audio-description} it's a
+fucking mess, which is why we tested only one difference [so far]:
+%
+Correlations between empirical $Z$-maps and predicted $Z$-maps via the first
+movie segment were significantly lower than the correlations between empirical
+$Z$-maps and predicted $Z$-maps via anatomical alignment (Fisher z-transformed,
+t(14)= -4.2004329, $p$=0.0010387, Bonferroni corrected).
+
+
+\subsubsection{Any differences compared to Cronbach's alpha to test?}
+
+\todo[inline]{Could be done; will lower the required alpha level tough}
+
+
+\subsection{Template of reporting descriptive statistics of (untransformed
+correlations)}
 
 \todo[inline]{Report mean correlations and standard deviations?; imo, it gets
-pretty crowded, can inferred from the stripplot, and they get Fisher transformed
-anyway before testing}
+pretty crowded, they can somewhat be inferred from the stripplot; they get
+Fisher transformed anyway before testing}
 
+%
 The mean Pearson correlation values [not yet Fisher transformed] between
 empirical $Z$-maps and predicted $Z$-maps via anatomical alignment were 0.xx
 ($N=14$, range 0.xx--0.xx, $\overline{X}=0.xx$, $SD=0.xx$).
@@ -1266,97 +1363,19 @@ empirical $Z$-maps and predicted $Z$-maps via one movie segment were 0.xx
 ($N=14$, range 0.xx--0.xx, $\overline{X}=0.xx$, $SD=0.xx$).
 
 
+\subsection{Template of procedure in case normality tests are relevant to
+perform and report}
+
 \todo[inline]{Correlations (Z-transformed) of estimation of visual localizer via
 4 runs of visual localizer are not normally distributed according to
-Shapiro-Wilk test -> non parametric test (Wilcoxon signed-rank should be the
-correct one)?}
-
-\todo[inline]{Round the values of just write $p$<.0001}
+Shapiro-Wilk test -> use non parametric test instead? Wilcoxon signed-rank
+should be the correct one?}
 
 %
-Correlations between empirical $Z$-maps and predicted $Z$-maps via the first
-movie segment were significantly higher than the correlations between empirical
-$Z$-maps and predicted $Z$-maps via anatomical alignment (Fisher z-transformed,
-t(14)= 6.3525802, $p$=0.0000253, Bonferroni corrected).
-%
-Whereas the functional alignment via the first movie segment (451 \acp{tr})
-yielded significantly higher correlations than a functional alignment via four
-localizer runs lasting 624 \acp{tr} (Fisher z-transformed, t(14)=5.8905545,
-$p$<0.0000532, Bonferroni corrected),
-%
-the functional alignment via the first segment of the audio-description yielded
-significantly lower correlations than the functional alignment via four
-localizer runs (Fisher z-transformed, t(14)=-2.3000009, $p$<0.0386588, will not
-be significant when Bonferroni corrected).
-%
-The mean correlation between empirical $Z$-maps and predicted $Z$-maps via the
-first segment alone of the movie were significantly lower than the
-correlations between empirical $Z$-maps and predicted $Z$-maps predicted
-$Z$-maps via the first two movie segments (Fisher
-z-transformed, t(14)= -5.4946197, $p$=0.0001031, Bonferroni corrected).
-%
-The difference between mean correlations based on two movie segments in
-comparison the mean correlation based on three movie segments was not
-significant (Fisher z-transformed, t(14)= -0.1293547, $p$=0.8990569, Bonferroni
-corrected).
-
-
-\subsection{Estimation of the movie's empirical $Z$-maps}
-
-\todo[inline]{Text is simply copied from above but adjusted according to the
-movie as criterion}
-
-%
-Correlations between empirical $Z$-maps and predicted $Z$-maps via the first
-movie segment were significantly higher than the correlations between empirical
-$Z$-maps and predicted $Z$-maps via anatomical alignment (Fisher z-transformed,
-t(14)= 5.7754451, $p$=0.0000643, Bonferroni corrected).
-%
-Whereas the functional alignment via the first movie segment (451 \acp{tr})
-yielded significantly higher correlation than a functional alignment via four
-localizer runs lasting 624 \acp{tr} (Fisher z-transformed, t(14)=6.8532349,
-$p$<0.0000116, Bonferroni corrected),
-%
-the functional alignment via the first segment of the audio-description yielded
-no significantly different correlations than the functional alignment via four
-localizer runs (Fisher z-transformed, t(14)=-1.8674144, $p$<0.084551, Bonferroni
-corrected).
-%
-The mean correlation between empirical $Z$-maps and predicted $Z$-maps via the
-first segment alone of the movie were significantly lower than the correlations
-between empirical $Z$-maps and predicted $Z$-maps predicted $Z$-maps via the
-first two movie segments (Fisher z-transformed, t(14)= -3.7454592,
-$p$=0.0024485, Bonferroni corrected).
-%
-The difference between mean correlations based on two movie segments in
-comparison the mean correlation based on three movie segments was "marginally
-different" (Fisher z-transformed, t(14)= -2.5759899, $p$=0.023031, definitively
-not significant when Bonferroni corrected).
-
-
-\subsection{Estimation of the audio-description's empirical $Z$-maps}
-
-\todo[inline]{Which tests to perform? Stripplot is a mess; merely eyeballing
-feels unsatisfactory; essentially all samples will fail the test for normality
-}
-
-%
-Correlations between empirical $Z$-maps and predicted $Z$-maps via the first
-movie segment were significantly lower than the correlations between empirical
-$Z$-maps and predicted $Z$-maps via anatomical alignment (Fisher z-transformed,
-t(14)= -4.2004329, $p$=0.0010387, Bonferroni corrected).
-
-
-\subsection{Cronbach's $\alpha$ stuff}
-
-``The mean Cronbach's Alpha between the four localizer runs was 0.60 (N = 15,
-S.D.  = 0.14).
-%
-Results mean that if we scan each participant for another 4 localizer runs, and
-compute the correlation between the two maps (4 runs vs. 4 runs), the
-correlation would be 0.60 on average in the studyforrest''
-\citep{jiahui2020predicting}.
-
+In case a test failed to reject the H0 that assumes a normal distribution for
+both samples, we perform a t-test [which assumes same variance, but whatever];
+in case H1 (non-normality) is accepted for one of the two to be compared
+samples, we use Wilcoxon signed-rank test.
 
 
 \subsection{plot\_bland-altman.py}
@@ -1506,14 +1525,14 @@ limited to a small subspace of the representational space in VT cortex''
 \subsubsection{visual localizer via movie segments}
 
 %
-Results indicate that $\sim$15 minutes of movie watching used for functional
+Results indicate that $\approx$15 minutes of movie watching used for functional
 alignment outperform prediction using anatomical alignment.
 %
-Prediction performance further increases when $\sim$30 minutes of movie data
+Prediction performance further increases when $\approx$30 minutes of movie data
 submitted to the algorithm to calculate the subject-specific transformation
 matrices.
 %
-However, three segments ($\sim$45 minutes) do not lead to an significantly
+However, three segments ($\approx$45 minutes) do not lead to an significantly
 increased estimation performance suggesting a decreasing benefit of longer
 scanning time than 30 minutes during audio-visual naturalistic stimulation.
 
