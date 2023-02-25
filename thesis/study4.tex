@@ -1526,10 +1526,10 @@ compared samples, we calculated a Wilcoxon signed-rank test.
 
 \section{Discussion}
 
-\todo[inline]{I restructured the discussion according to "three aspects under
-investigation" (at least, I started to do it; it's not final)}
+\todo[inline]{discussion (somewhat) restructured according to "three aspects
+under investigation"}
 
-\todo[inline]{maybe, biggest issue for discussion: how to separate validity /
+\todo[inline]{biggest issue for discussion: how to separate validity /
 generalizability of \ac{cfs} from validity / generalizability of transformation
 matrices? If I do not find a solution for that the intro should be adjusted (to,
 maybe, just two points?)}
@@ -1547,19 +1547,32 @@ model/matrices}
 
 \todo[inline]{cf. summary at the beginning of the results section}
 
-\todo[inline]{mention "within-paradigm" and "cross-paradigm" prediction}
+\todo[inline]{mention "within-paradigm" \& "cross-paradigm" prediction; cf.
+intro's "Here, we..."}
 
 %
-We created a \ac{cfs} (for every fold) based on time-series of three stimuli
-(visual localizer, movie, movie's audio-description) that were concatenated
-before model fitting.
+For every fold of the cross-validation, we created a \ac{cfs} based on
+time-series of three paradigms (i.e. a visual localizer, a movie, and the
+movie's audio-description) that were concatenated before model fitting.
 %
-For every paradigms $Z$-map (visual localizer, movie, movie's audio-description)
-serving as criteria to be estimated, we use a test subject's response time
-series to the visual localizer, movie, or the audio-description independently as
+For every test subject, we use the test subject's response time
+series of the visual localizer, movie, or the audio-description independently as
 predictors to align the test subject to the respective \acp{tr} within the
 \ac{cfs} and acquire the respective transformation matrices.
+%
+The $Z$-maps of every subject that were gained from previous analyses of the
+three paradigms servered as critera that we estimated by projecting the
+training subjects' respective $Z$-maps from their respective native voxel space
+through the \ac{cfs} into a test subject's native voxel space.
+%
+Prediction based on anatomical alignment served as a benchmark.
 
+
+\subsubsection{Aims / Hypotheses (a.k.a. three aspects under investigation)}
+
+\todo[inline]{rephrase; cf. beginning of results where
+it should be phrased better already; cf. "Here, we..." for within-paradigm and
+cross-paradigm prediction}
 %
 We assess the validity of the \ac{cfs} by estimating $Z$-maps from the analysis
 (i.e. $t$-contrast) of same paradigms used to align the test subject
@@ -1568,19 +1581,12 @@ We assess the validity of the \ac{cfs} by estimating $Z$-maps from the analysis
 We assess the generalizability of the transformation matrices by estimating
 $Z$-maps from the analysis (i.e. $t$-contrast) of paradigms that were not used
 to align the test subject (cross-subject-\textbf{cross-paradigm} prediction).
-%
-Prediction based on anatomical alignment served as a benchmark.
-
-
-\subsubsection{Aims / Hypotheses (a.k.a. three aspects under investigation)}
-
-\todo[inline]{cf. introduction}
 
 
 \subsubsection{Results}
 
-\todo[inline]{To be written; the high-level summary of results here, heavily
-depends on how the discussion turns out to be}
+\todo[inline]{short high-level summary here heavily depends on how the
+discussion turns out to be}
 
 
 \subsection{Validity \& generalizability of multi-stimulus model}
@@ -1591,76 +1597,73 @@ depends on how the discussion turns out to be}
 
 \subsection{Validity \& generalizability of transformation matrices}
 
+
 \subsubsection{Functional vs. anatomical alignment}
 
 %
-Movie beats anatomical alignment when localizer or movie PPA is estimated (i.e.
-the visual paradigms).
+Movie (sooner or later) beats anatomical alignment when the visual paradigms
+(i.e. localizer and movie PPA) are estimated.
 %
-Movie gets as good as anatomical alignment when audio PPA is estimated.
+Movie gets (sooner or later) as good as anatomical alignment when audio PPA is
+estimated (but is worse when just one movie segment is used).
 
-
-Localizer paradigm sucks compared to anatomical alignment when used to estimate
+%
+Localizer runs suck compared to anatomical alignment when used to estimate
 localizer $Z$-map (within-paradigm prediction) and movie PPA (cross-paradigm
 prediction).
 %
 When audio PPA is estimated (cross-paradigm), localizer for alignment gets close
-to anatomical alignment [but why?.
+to anatomical alignment.\todo{but why?}
 
 %
 Audio-description sucks---compared to anatomical alignment--for cross-paradigm
 estimation.
 %
-Though, it gets close to the performance via anatomical alignment when more /
-all segments are used for alignment.
+Though, it gets better when more / all segments are used for alignment:
 %
 For within-paradigm prediction, audio-description eventually outperforms
 anatomical alignment (when more than 4-6 segments are used)
 %
+
 For every alignment procedure (functional as well as anatomical), the outliers
-in audio PPA are difficult to estimate.
+of Cronbach's of audio PPA are difficult to estimate.
 
 
-\paragraph{Conclusion anatomical vs. functional alignment}
+\paragraph{Summary \& conclusion on anatomical vs. functional alignment}
+
+\todo[inline]{Results suggest...? Interpretation}
 
 Anatomical alignment is actually not that bad.
 %
-It pretty consistent across paradigms, too.
+It's pretty consistent across paradigms, too.
 
 
 
 \subsubsection{Functional alignment across predictors \& criteria}
 
-\todo[inline]{extend the idea to lots of "localizers" below in "Future studies";
-but keep the "Vision" for the general discussion!}
+\todo[inline]{stick to present results; extend the idea to "lots of localizers"
+below in "Future studies"}
+
+
+The multi-paradigm model is kind of valid, I guess...
+
+
+\paragraph{Validity \& generalizability of visual localizer}
 
 \todo[inline]{why is prediction of localizer based on localizer runs
-for alignment so "bad"? Is it our model or the transformation matrices? In any
-case, our results are different from \citep{haxby2011common}: \acf{cfs} \&
-transformation matrices based on visual localizer that predict the localizer as
-good as / better than than \ac{cfs} \& transformation matrices based on movie!}
+for alignment so "bad"?}
 
+\todo[inline]{Is it our model or the transformation matrices?}
 
-The multi-paradigm model is kind of valid;
+\todo[inline]{the localizer is "dedicated"; does not have a lot of \acp{tr} but
+"a lot" and controlled events}
+
+Surprisingly, prediction of localizer via localizer runs (i.e. within-experiment
+prediction) is worse than anatomical alignment.
 %
-However, I have no clue which stimulus is the crucial one...
-
-
-
-\paragraph{Why is localizer to predict localizer so bad?}
-
-\todo[inline]{if \citet{haxby2011common} that compare (within- and
-across-paradigm) prediction based on naturalistic \ac{cfs} (more TRs) to
-non-naturalistic \ac{cfs} (less TRs) is discussed (a lot), it should probably be
-primed (in respect to within- and across-paradigm prediction) before "Here,
-we..." in the introduction}
-
-Surprisingly, prediction of localizer via localizer runs (i.e. within-experiment prediction is worse than anatomical alignment.
-%
-How does that come? At least the correlations of regressors with
-shared responses show the "clearest" correlations of a regressor with a shared
-response (which is not the case in the \acp{tr} of the movie or
-audio-description).
+How does that come? At least the correlations of regressors with shared
+responses show the "clearest" correlations of a regressor with a shared response
+(which is not the case in the \acp{tr} of the movie or audio-description).
 
 %
 Maybe, our naturalistic stimuli (about 7000 TRs) fucked up our shared responses
@@ -1669,11 +1672,43 @@ suggests otherwise)
 
 
 
-\paragraph{Generalizability of naturalistic stimuli (esp. movie)}
+\paragraph{Templates from \citet{haxby2011common}}
 
-\todo[inline]{We have way more \ac{tr} in case of naturalistic stimuli; however
-not necessarily equal number of events; and events are not "clean" events but
-heavily confounded by other stuff}
+\todo[inline]{In any case, our results are different from
+\citep{haxby2011common}: \acf{cfs} \& transformation matrices based on visual
+localizer that predict the localizer as good as / better than than \ac{cfs} \&
+transformation matrices based on movie!}
+
+\todo[inline]{if \citet{haxby2011common} that compare (within- and
+across-paradigm) prediction based on naturalistic \ac{cfs} (more TRs) to
+non-naturalistic \ac{cfs} (less TRs) is discussed (a lot), it should probably be
+primed (in respect to within- and across-paradigm prediction) before "Here,
+we..." in the introduction}
+
+\todo[inline]{cf. long version at the very and of this chapter; here are the
+most important parts}
+
+%
+``We applied the hyperalignment parameters derived from the face and object data
+to the movie data in the ten Princeton subjects and the hyperalignment
+parameters derived from the animal species data to the movie data in the 11
+Dartmouth subjects.
+%
+BSC of 18s movie time segments after hyperalignment based on category perception
+experiment data was markedly worse than BSC after hyperalignment based on movie
+data (17.6\% ± 1.3\% versus 65.8\% ± 2.7\% for Princeton subjects; 28.3\% ±
+2.8\% versus 74.9\% ± 4.1\% for Dartmouth subjects; p < 0.001 in both cases;
+Figure 4).
+%
+Thus, hyperalignment of data using a set of stimuli that is less diverse than
+the movie is effective, but the resultant common space has validity that is
+limited to a small subspace of the representational space in VT cortex''
+\citep{haxby2011common}.
+
+
+\paragraph{Validity \& generalizability of movie (a.k.a. it's the best!)}
+
+\todo[inline]{a.k.a. movie is best}
 
 %
 Results of \citet{haxby2011common} that suggest that \acp{cfs} derived from
@@ -1703,55 +1738,27 @@ However, they had a \ac{cfs} that was derived just from the non-naturalistic
 paradigm, i.e. no multi-paradigm \ac{cfs}.
 
 
+\paragraph{Validity \& generalizability of audio-description}
 
+\todo[inline]{a.k.a. cross-modal!}
 
-\paragraph{Templates from \citet{haxby2011common}}
-
-\todo[inline]{cf. long version at the very and of this chapter; here are the
-most important parts}
-
-\todo[inline]{summarize to its gist}
-
+Kind of works, but you need a shit ton of data;
 %
-``We applied the hyperalignment parameters derived from the face and object data
-to the movie data in the ten Princeton subjects and the hyperalignment
-parameters derived from the animal species data to the movie data in the 11
-Dartmouth subjects.
-%
-BSC of 18s movie time segments after hyperalignment based on category perception
-experiment data was markedly worse than BSC after hyperalignment based on movie
-data (17.6\% ± 1.3\% versus 65.8\% ± 2.7\% for Princeton subjects; 28.3\% ±
-2.8\% versus 74.9\% ± 4.1\% for Dartmouth subjects; p < 0.001 in both cases;
-Figure 4).
-%
-Thus, hyperalignment of data using a set of stimuli that is less diverse than
-the movie is effective, but the resultant common space has validity that is
-limited to a small subspace of the representational space in VT cortex''
-\citep{haxby2011common}.
+It gets better, the more data; in case of within-paradigm prediction it's better
+than movie (and localizer, of course).
+
 
 
 
 \subsection{Relationship between estimation performance \& quantity of data}
 
-\todo[inline]{"asymptotic relationship", "low ceiling", "fast saturation"?}
+\todo[inline]{how to phrase? "asymptotic relationship", "reaching a ceiling"?}
 
-\todo[inline]{problem: \citet{feilong2022individualized} assess data quantity,
-too; results suggest 30m are "good" in case of their model; plus, they model
-individual component.}
+\todo[inline]{We have way more \acp{tr} in case of naturalistic stimuli; however
+not necessarily equal number of events; and events are not "clean" events but
+heavily confounded by other stuff}
 
 
-\paragraph{Estimation of localizer (a.k.a. "gold standard")}
-
-``Predicting face-selectivity map with lower volumes of movie data (cf. Figure
-3C). Face-selectivity maps can be accurately predicted with 20 minutes of movie
-data, but the prediction performance continues to grow with more data''
-\citep{feilong2022individualized}.
-
-``To summarize, the performance of our model continuously grows with more
-training data, but for certain tasks (e.g., individual identification,
-predicting category-selectivity and retinotopic maps), only a small amount of
-movie data (e.g., 30 minutes) is needed to achieve satisfying performance''
-\citep{feilong2022individualized}.
 
 %
 Results indicate that $\approx$15 minutes of movie watching used for functional
@@ -1774,6 +1781,25 @@ prediction performance because 2 (or 3?) x 15 minutes of movie data did not lead
 to significant performance increase over data from one (or 2?) movie segments.
 
 
+\paragraph{Templates from other studies}
+
+\todo[inline]{problem: \citet{feilong2022individualized} already did it (i.e.
+assess data quantity); results suggest 30m are "good" in case of their
+model; plus, they model individual component.}
+
+``Predicting face-selectivity map with lower volumes of movie data (cf. Figure
+3C). Face-selectivity maps can be accurately predicted with 20 minutes of movie
+data, but the prediction performance continues to grow with more data''
+\citep{feilong2022individualized}.
+
+``To summarize, the performance of our model continuously grows with more
+training data, but for certain tasks (e.g., individual identification,
+predicting category-selectivity and retinotopic maps), only a small amount of
+movie data (e.g., 30 minutes) is needed to achieve satisfying performance''
+\citep{feilong2022individualized}.
+
+
+
 
 \subsection{More specific stuff}
 
@@ -1782,55 +1808,26 @@ to significant performance increase over data from one (or 2?) movie segments.
 \todo[inline]{How do I know if the "localizer PPA" is the "gold standard" "tacit
 assumption"; what does localizer actually do? does it what we want it to do?}
 
-\todo[inline]{That's essentially why we estimated non-localizer $Z$-maps, too;
-which is not explicitly stated in the intro; I did not know where to state it
-there; imo, it's more interesting to discuss in the general discussion}
-
-We estimate the $Z$-map of a visual localizer which is the fucking established /
-traditional method to identify the \ac{ppa}.
-%
-% localizer data
-\citet{sengupta2016extension} successfully delineated the left-hemispheric
-\ac{ppa} in 12 of 14 subjects and right-hemispheric \ac{ppa} in 14 of 14
-subjects based on localizer data.
-
-% usually, visual PPA works pretty well
-The visual \ac{ppa} can be reliably localized using a localizer, which is why we
-considered it to be the "gold standard" or benchmark.
-%
-However, ``the PPA definition may depend on the type of experiment, task, and
-stimuli used'' \citep{weiner2018defining}.
-
-%
-The primary movie contrast in \citet{haeusler2022processing} ``yielded bilateral
-clusters in five participants, a unilateral right cluster in six participants
-(of which one participant yielded a unilateral cluster in the visual localizer),
-and a unilateral left cluster in one participant. We find bilateral clusters for
-participant sub-20, whereas the block-design localizer yielded only one cluster
-in the right hemisphere'' \citep{haeusler2022processing};
-%
-i.e. 5 + 1  left-hemispheric, 5 + 6 right-hemispheric.
+\todo[inline]{imo, this is more a topic for the general discussion (pros \& cons
+of naturalistic stimuli)}
 
 
 \subsubsection{The Reliability of the audio-descriptions PPA}
 
-\todo[inline]{following should also be true for movie PPA but it's more severe
-in case of audio-description}
+\todo[inline]{following should also true (but less severe) in case of movie
+PPA}
 
-\todo[inline]{the "deviant" participants in the audio-description are
-essentially the ones that have a poor Cronbach's; so, they are less probably not
-"reliable outliers" being different from the norm but more probably noisy asses;
-hence, SRM should probably do more of a denoising as opposed to modeling
-(reliable) outliers incorrectly}
-
-\todo[inline]{also a topic for the general discussion: reliability of an
-auditory naturalistic stimulus as a localizer; what's wrong?  the modeling in
-\citet{haeusler2022processing}? Or does an auditory naturalistic stimulus give
-too much room to participants to do not give a shit? a.k.a. freely listening is
+\todo[inline]{what's wrong?  the modeling in \citet{haeusler2022processing}? the
+unbalanced number of events? Or does an auditory naturalistic stimulus give too
+much room to participants to do not give a shit? a.k.a. freely listening is
 bad?}
 
-\todo[inline]{make distinction between "dynamic localizer", i.e. blocks of video
-snippets vs. event-related modeling of "face-events" or "landscape-events"}
+\todo[inline]{the "deviant" participants in the audio-description are
+essentially the ones that have a poor Cronbach's: they are not "reliable
+outliers" being different from the norm but noisy asses}
+
+\todo[inline]{possible inference: SRM should probably do more of a denoising as
+opposed to modeling (reliable) outliers incorrectly}
 
 %
 ``Note that brain responses to movies contain richer information than
@@ -1844,6 +1841,7 @@ that contained, e.g. faces).
 Results of \citet{haeusler2022processing} suggest that selected events embedded
 in an auditory stimulation is correlated with increased hemodynamic activity in
 the anterior parts of the \ac{ppa} as it was defined by the localizer.
+
 %
 The primary audio-description contrast in \citet{haeusler2022processing}
 ``yielded bilateral clusters in nine participants that are within or overlapping
@@ -2107,6 +2105,10 @@ parameters, and estimation performance.
 
 \subsubsection{Other ROIs than category-selective areas}
 
+\todo[inline]{don't write too much here; better discuss in general discussion
+that naturalistic stimuli might be limited (e.g., might not sample executive
+functions sufficiently)}
+
 %
 In the present study, we focused on the \ac{ppa} as an classic example of a
 higher-visual area.
@@ -2140,6 +2142,7 @@ sensorimotor cortex) reflect low reliabilities of the localizer runs''
 \citep{jiahui2022cross} (cf. also \citet{jiahui2020}, maybe also
 \citet{feilong2022individualized}).
 
+
 \paragraph{Example \ac{ppa} vs. \ac{ffa}}
 %
 For example, in domain of category-selective areas, the interindividual
@@ -2149,6 +2152,30 @@ zhen2015quantifying, frost2012measuring}:
 ``Scene-selective regions showed larger interindividual variability [after
 nonlinear volume-based alignment] than the face-selective regions in spatial
 topography'' \citep{zhen2017quantifying}.
+
+
+\paragraph{Studyforrest dataset's other localizer t-contrasts}
+
+\todo[inline]{Does it make sense to discuss that?}
+
+\todo[inline]{It's such a low-hanging fruit (more like bachelor thesis'
+project); which might be good or bad for mentioning it)}
+
+The studyforrest dataset's visual localizer \citep{sengupta2016extension} offers
+other contrasts (and thus \acp{roi} masks) aimed at localizing the \ac{ffa} and
+\ac{ofa} that are associated with face perception \citep{kanwisher1997ffa,
+pitcher2011occipitalfacearea}, the \ac{eba} that is associated with the
+perception of human bodies \citep{downing2001bodyarea}, and the \ac{loc} that is
+associated with the perception of (small) objects (like tools or toys)
+\citep{malach1995loc}.
+
+\paragraph{Obvious extension is a dataset with an additional localizer of
+speech}
+
+\todo[inline]{If this is mentioned at all, write half a sentence about speech
+lateralization; problem: even in case whole-cortex alignment algo is used,
+speech areas probably vary too much (search lights a probably too small in case
+of atypical speech topographies}
 
 
 \paragraph{Inference}
@@ -2371,22 +2398,7 @@ anatomical alignment \citep{weiner2018defining} -- to surface-based functional
 alignment.
 
 
-\subsubsection{Studyforrest dataset}
 
-\paragraph{other localizer t-contrasts}
-
-\todo[inline]{Does it make sense to discuss that?}
-
-\todo[inline]{It's such a low-hanging fruit (more like bachelor thesis'
-project); which might be good or bad for mentioning it)}
-
-The studyforrest dataset's visual localizer \citep{sengupta2016extension} offers
-other contrasts (and thus \acp{roi} masks) aimed at localizing the \ac{ffa} and
-\ac{ofa} that are associated with face perception \citep{kanwisher1997ffa,
-pitcher2011occipitalfacearea}, the \ac{eba} that is associated with the
-perception of human bodies \citep{downing2001bodyarea}, and the \ac{loc} that is
-associated with the perception of (small) objects (like tools or toys)
-\citep{malach1995loc}.
 
 
 
