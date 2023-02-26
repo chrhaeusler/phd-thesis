@@ -339,7 +339,15 @@ responses within the voxels into the $k$-dimensional \ac{cfs}.
 
 
 
-\subsubsection{Three aspects under investigation}
+\subsubsection{Three aspects under investigation (actually 4)}
+
+\todo[inline]{Shift comparison to anatomical alignment upwards and label it as
+aspect 1}
+
+\todo[inline]{biggest issue for discussion: how to separate validity /
+generalizability of CFS from validity / generalizability of transformation
+matrices? If I do not find a solution merge those two points to one?
+Four aspects are too much anyway}
 
 \todo[inline]{it might be too "method-detailed" here but number of respective
 \acp{tr} are now stated here \& in the plot's (as in the review of
@@ -396,8 +404,18 @@ subject-specific, transformation matrices $W_{n}$
 \todo[inline]{Problem: validity of \ac{cfs} is not really separable from
 validity of transformations in the current approach (if at all separable):}
 
+\todo[inline]{maybe, speak of "cross-subject-within-paradigm prediction" instead
+of just "within-paradigm prediction" (as done in the short overview at the
+beginning of the discussion)}
+
+
 % three aspects to explore
-In the present study, we aim to investigate three aspects:
+In the present study, we aim to investigate three [or four?] aspects:
+
+% benchmark: anatomical alignment
+zero, we compare the performance of your volume-based, functional alignment
+procedures to the performance of a volume-based, anatomical alignment approach
+that serves as a benchmark.
 % the criteria
 first, in order to explore the validity and generalizability of our
 multi-paradigm \ac{cfs}, we predict a left-out \textit{test subject}'s results
@@ -424,11 +442,6 @@ impractical in a clinical setting, we also explore the relationship between the
 estimation performance of the $t$-contrast's results and the quantity of data
 from each of the three paradigms used to functionally align the subject with the
 multi-paradigm \ac{cfs}.
-% benchmark: anatomical alignment
-Lastly, we compare the performance of your volume-based, functional alignment
-procedures to the performance of a volume-based, anatomical alignment approach
-that serves as a benchmark.
-
 
 
 \textbf{Questions as discussed during our meeting}:
@@ -1227,7 +1240,8 @@ comments below where it would makes sense to test difference to Cronbach's}
 
 \todo[inline]{Since the order is "Intro, Methods, Results" and not "Intro,
 Results, Discussion, Method", the following part should better fit into the
-beginning of the discussion (where it is not written so far)}
+beginning of the discussion (a newer/better version of the following paragraph
+is in the discussion now, too)}
 
 Following a leave-one-subject-out cross-validation, we trained a shared response
 model based on concatenated response time series of three different paradigms
@@ -1529,6 +1543,52 @@ compared samples, we calculated a Wilcoxon signed-rank test.
 \todo[inline]{discussion (somewhat) restructured according to "three aspects
 under investigation"}
 
+
+\subsection{Short summary of aims \& hypotheses, method, results}
+
+\todo[inline]{the version here is a little better than the version at the
+beginning of the results section (but super similar)}
+
+%
+In the present study, we estimated the results of $t$-contrasts that were
+created in previous studies \citep{sengupta2016extension,
+haeusler2022processing} in order to localize the \ac{ppa}.
+
+Following a leave-one-subject-out cross-validation, the $t$-contrasts' empirical
+$Z$-maps serving as the to be predicted criteria were estimated using an
+anatomical alignment approach \citep[cf.][]{zhen2015quantifying,
+zhen2017quantifying} and a functional alignment approach.
+%
+In case of the functional alignment approach, we fit a shared response model
+\citep{chen2015reduced} to the training subjects' concatenated response time
+series of three different paradigms in order to acquire a \ac{cfs} and the
+training subjects' subject-specific transformation matrices.
+%
+In order to acquire the test subject's transformation matrix, we used an
+increasing amount of the test subject's response time series of the three
+paradigms independently as predictors by functionally aligning the test subject
+to the corresponding \acp{tr} of the shared feature space (i.e. \ac{cfs}).
+%
+The empirical $Z$-maps of each training subject were projected from their
+respective voxel space through the \ac{cfs} into the test subject's voxel space
+to yield the test subject's predicted $Z$-maps (cf.
+%
+In case of the anatomical alignment approach, the training subjects' $Z$-maps
+were projected via nonlinear, volume-based transformation through the MNI152
+brain atlas \todo{kind of incorrect} into the test subject's voxel space.
+
+%
+The estimation performance of the alignment approaches was quantified by
+correlating the empirical $Z$-maps with their respective predicted $Z$-map
+(which can be found at
+\href{https://identifiers.org/neurovault.collection:12340}{\url{neurovault.org/collections/12340}}).
+
+
+\subsubsection{Three aspects under investigation}
+
+\todo[inline]{strictly speaking, with comparison to anatomical alignment it's
+four aspects}
+
 \todo[inline]{biggest issue for discussion: how to separate validity /
 generalizability of \ac{cfs} from validity / generalizability of transformation
 matrices? If I do not find a solution for that the intro should be adjusted (to,
@@ -1539,54 +1599,34 @@ responses can be seen in the visual localizer => but the matrices based on
 localizer runs suck the most for estimation; interpretation?}
 
 \todo[inline]{in any case: within-paradigm prediction is more about validity of
-model/matrices; cross-paradigm prediction is more generalizability of
-model/matrices}
-
-
-\subsection{Short summary of aims \& hypotheses, method, results}
-
-\todo[inline]{cf. summary at the beginning of the results section}
-
-\todo[inline]{mention "within-paradigm" \& "cross-paradigm" prediction; cf.
-intro's "Here, we..."}
+model (and matrices?); cross-paradigm prediction is more generalizability of
+(model and) matrices}
 
 %
-For every fold of the cross-validation, we created a \ac{cfs} based on
-time-series of three paradigms (i.e. a visual localizer, a movie, and the
-movie's audio-description) that were concatenated before model fitting.
+More specifically, we asked ourselves:
 %
-For every test subject, we use the test subject's response time
-series of the visual localizer, movie, or the audio-description independently as
-predictors to align the test subject to the respective \acp{tr} within the
-\ac{cfs} and acquire the respective transformation matrices.
+Zero, we compare anatomical to functional alignment.
 %
-The $Z$-maps of every subject that were gained from previous analyses of the
-three paradigms servered as critera that we estimated by projecting the
-training subjects' respective $Z$-maps from their respective native voxel space
-through the \ac{cfs} into a test subject's native voxel space.
+First, we assess the \textbf{validity of the \ac{cfs}} by estimating $Z$-maps
+from the analysis (i.e. $t$-contrast) of same paradigms used to align the test
+subject (cross-subject-\textbf{within-paradigm} prediction).
 %
-Prediction based on anatomical alignment served as a benchmark.
-
-
-\subsubsection{Aims / Hypotheses (a.k.a. three aspects under investigation)}
-
-\todo[inline]{rephrase; cf. beginning of results where
-it should be phrased better already; cf. "Here, we..." for within-paradigm and
-cross-paradigm prediction}
+Second, we assess the \textbf{generalizability of the transformation matrices}
+by estimating $Z$-maps from the analysis (i.e. $t$-contrast) of paradigms that
+were not used to align the test subject (cross-subject-\textbf{cross-paradigm}
+prediction).
 %
-We assess the validity of the \ac{cfs} by estimating $Z$-maps from the analysis
-(i.e. $t$-contrast) of same paradigms used to align the test subject
-(cross-subject-\textbf{within-paradigm} prediction).
-%
-We assess the generalizability of the transformation matrices by estimating
-$Z$-maps from the analysis (i.e. $t$-contrast) of paradigms that were not used
-to align the test subject (cross-subject-\textbf{cross-paradigm} prediction).
+Third, we explore the relationship between the estimation performance of the
+t-contrast's results and the quantity of data from each of the three paradigms
+used to functionally align the subject with the \ac{cfs}.
 
 
 \subsubsection{Results}
 
-\todo[inline]{short high-level summary here heavily depends on how the
-discussion turns out to be}
+\todo[inline]{if a high-level summary of results is supposed to be written here
+(at the moment I think it does not make a lot of sense), the summary heavily
+depends on the "final" phrasing of the discussion}
+
 
 
 \subsection{Validity \& generalizability of multi-stimulus model}
@@ -1805,11 +1845,8 @@ movie data (e.g., 30 minutes) is needed to achieve satisfying performance''
 
 \subsubsection{Assumption that localizer is "ground truth"}
 
-\todo[inline]{How do I know if the "localizer PPA" is the "gold standard" "tacit
-assumption"; what does localizer actually do? does it what we want it to do?}
-
-\todo[inline]{imo, this is more a topic for the general discussion (pros \& cons
-of naturalistic stimuli)}
+\todo[inline]{imo, this is more a topic for the general discussion: pros \& cons
+of naturalistic stimuli}
 
 
 \subsubsection{The Reliability of the audio-descriptions PPA}
