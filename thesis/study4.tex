@@ -1629,20 +1629,15 @@ depends on the "final" phrasing of the discussion}
 
 
 
-\subsection{Validity \& generalizability of multi-stimulus model}
-
-\todo[inline]{yeah, well, how to separate validity \& generalizability of
-\ac{cfs} from validity \& generalizability of transformation matrices?}
 
 
-\subsection{Validity \& generalizability of transformation matrices}
 
-
-\subsubsection{Functional vs. anatomical alignment}
+\subsection{Functional vs. anatomical alignment}
 
 %
-Movie (sooner or later) beats anatomical alignment when the visual paradigms
-(i.e. localizer and movie PPA) are estimated.
+When the visual paradigms (i.e. localizer and movie PPA) are estimated, the
+movie beats anatomical alignment with just one movie segment (which is
+statistically tested).
 %
 Movie gets (sooner or later) as good as anatomical alignment when audio PPA is
 estimated (but is worse when just one movie segment is used).
@@ -1653,7 +1648,8 @@ localizer $Z$-map (within-paradigm prediction) and movie PPA (cross-paradigm
 prediction).
 %
 When audio PPA is estimated (cross-paradigm), localizer for alignment gets close
-to anatomical alignment.\todo{but why?}
+to anatomical alignment; which is also the best estimated paradigm of the visual
+localizer. \todo{but why???}
 
 %
 Audio-description sucks---compared to anatomical alignment--for cross-paradigm
@@ -1664,7 +1660,10 @@ Though, it gets better when more / all segments are used for alignment:
 For within-paradigm prediction, audio-description eventually outperforms
 anatomical alignment (when more than 4-6 segments are used)
 %
+Generally, the more data of the audio-description is used, the narrower the gap
+between movie and audio-description gets.
 
+%
 For every alignment procedure (functional as well as anatomical), the outliers
 of Cronbach's of audio PPA are difficult to estimate.
 
@@ -1679,76 +1678,39 @@ It's pretty consistent across paradigms, too.
 
 
 
-\subsubsection{Functional alignment across predictors \& criteria}
+\subsection{Functional alignment across predictors \& criteria}
 
-\todo[inline]{stick to present results; extend the idea to "lots of localizers"
-below in "Future studies"}
+\todo[inline]{at the moment, I think it's best to order by paradigm used as
+predictor; i.e. per predictor, discuss each criterion and the quantity of data}
 
 
 The multi-paradigm model is kind of valid, I guess...
 
 
-\paragraph{Validity \& generalizability of visual localizer}
-
-\todo[inline]{why is prediction of localizer based on localizer runs
-for alignment so "bad"?}
-
-\todo[inline]{Is it our model or the transformation matrices?}
-
-\todo[inline]{the localizer is "dedicated"; does not have a lot of \acp{tr} but
-"a lot" and controlled events}
-
-Surprisingly, prediction of localizer via localizer runs (i.e. within-experiment
-prediction) is worse than anatomical alignment.
-%
-How does that come? At least the correlations of regressors with shared
-responses show the "clearest" correlations of a regressor with a shared response
-(which is not the case in the \acp{tr} of the movie or audio-description).
-
-%
-Maybe, our naturalistic stimuli (about 7000 TRs) fucked up our shared responses
-in the 450 \acp{tr} within the SRM (imo, Fig.~\ref{fig:corr-vis-reg-srm}
-suggests otherwise)
-
-
-
-\paragraph{Templates from \citet{haxby2011common}}
-
-\todo[inline]{In any case, our results are different from
-\citep{haxby2011common}: \acf{cfs} \& transformation matrices based on visual
-localizer that predict the localizer as good as / better than than \ac{cfs} \&
-transformation matrices based on movie!}
-
-\todo[inline]{if \citet{haxby2011common} that compare (within- and
-across-paradigm) prediction based on naturalistic \ac{cfs} (more TRs) to
-non-naturalistic \ac{cfs} (less TRs) is discussed (a lot), it should probably be
-primed (in respect to within- and across-paradigm prediction) before "Here,
-we..." in the introduction}
-
-\todo[inline]{cf. long version at the very and of this chapter; here are the
-most important parts}
-
-%
-``We applied the hyperalignment parameters derived from the face and object data
-to the movie data in the ten Princeton subjects and the hyperalignment
-parameters derived from the animal species data to the movie data in the 11
-Dartmouth subjects.
-%
-BSC of 18s movie time segments after hyperalignment based on category perception
-experiment data was markedly worse than BSC after hyperalignment based on movie
-data (17.6\% ± 1.3\% versus 65.8\% ± 2.7\% for Princeton subjects; 28.3\% ±
-2.8\% versus 74.9\% ± 4.1\% for Dartmouth subjects; p < 0.001 in both cases;
-Figure 4).
-%
-Thus, hyperalignment of data using a set of stimuli that is less diverse than
-the movie is effective, but the resultant common space has validity that is
-limited to a small subspace of the representational space in VT cortex''
-\citep{haxby2011common}.
-
-
-\paragraph{Validity \& generalizability of movie (a.k.a. it's the best!)}
+\subsubsection{Validity \& generalizability of movie (a.k.a. it's the best!)}
 
 \todo[inline]{a.k.a. movie is best}
+
+\todo[inline]{order by criteria: localizer, movie PPA, audio PPA}
+%
+Results indicate that $\approx$15 minutes of movie watching used for functional
+alignment outperform prediction using anatomical alignment.
+%
+Prediction performance further increases when $\approx$30 minutes of movie data
+submitted to the algorithm to calculate the subject-specific transformation
+matrices.
+%
+However, three segments ($\approx$45 minutes) do not lead to an significantly
+increased estimation performance suggesting a decreasing benefit of longer
+scanning time than 30 minutes during audio-visual naturalistic stimulation.
+
+%
+Results suggest that 15 [to 30] minutes of a movie (\ac{tr}=2s) of a movie
+outperform an estimation via anatomical alignment.
+%
+However, there is no linear relationship between the quantity of data and the
+prediction performance because 2 (or 3?) x 15 minutes of movie data did not lead
+to significant performance increase over data from one (or 2?) movie segments.
 
 %
 Results of \citet{haxby2011common} that suggest that \acp{cfs} derived from
@@ -1778,54 +1740,11 @@ However, they had a \ac{cfs} that was derived just from the non-naturalistic
 paradigm, i.e. no multi-paradigm \ac{cfs}.
 
 
-\paragraph{Validity \& generalizability of audio-description}
+\paragraph{Templates for "data quantity" from \citet{feilong2022individualized}}
 
-\todo[inline]{a.k.a. cross-modal!}
-
-Kind of works, but you need a shit ton of data;
-%
-It gets better, the more data; in case of within-paradigm prediction it's better
-than movie (and localizer, of course).
-
-
-
-
-\subsection{Relationship between estimation performance \& quantity of data}
-
-\todo[inline]{how to phrase? "asymptotic relationship", "reaching a ceiling"?}
-
-\todo[inline]{We have way more \acp{tr} in case of naturalistic stimuli; however
-not necessarily equal number of events; and events are not "clean" events but
-heavily confounded by other stuff}
-
-
-
-%
-Results indicate that $\approx$15 minutes of movie watching used for functional
-alignment outperform prediction using anatomical alignment.
-%
-Prediction performance further increases when $\approx$30 minutes of movie data
-submitted to the algorithm to calculate the subject-specific transformation
-matrices.
-%
-However, three segments ($\approx$45 minutes) do not lead to an significantly
-increased estimation performance suggesting a decreasing benefit of longer
-scanning time than 30 minutes during audio-visual naturalistic stimulation.
-
-%
-Results suggest that 15 [to 30] minutes of a movie (\ac{tr}=2s) of a movie
-outperform an estimation via anatomical alignment.
-%
-However, there is no linear relationship between the quantity of data and the
-prediction performance because 2 (or 3?) x 15 minutes of movie data did not lead
-to significant performance increase over data from one (or 2?) movie segments.
-
-
-\paragraph{Templates from other studies}
-
-\todo[inline]{problem: \citet{feilong2022individualized} already did it (i.e.
-assess data quantity); results suggest 30m are "good" in case of their
-model; plus, they model individual component.}
+\todo[inline]{problem: \citet{feilong2022individualized} already assessed data
+quantity; results suggest 30m are "good" in case of their model; plus, they
+model individual component.}
 
 ``Predicting face-selectivity map with lower volumes of movie data (cf. Figure
 3C). Face-selectivity maps can be accurately predicted with 20 minutes of movie
@@ -1839,106 +1758,170 @@ movie data (e.g., 30 minutes) is needed to achieve satisfying performance''
 \citep{feilong2022individualized}.
 
 
+\subsubsection{Validity \& generalizability of visual localizer}
+
+\todo[inline]{a.k.a. why is it so "bad"???}
+
+\todo[inline]{order by criteria: localizer, movie PPA, audio PPA}
+
+\todo[inline]{We have way more \acp{tr} in case of naturalistic stimuli; however
+not necessarily equal number of events; and events are not "clean" events but
+heavily confounded by other stuff}
+
+%
+Surprisingly, prediction of localizer via localizer runs (i.e. within-experiment
+prediction) is worse than anatomical alignment.
+%
+How does that come? At least the correlations of regressors with shared
+responses show the "clearest" correlations of a regressor with a shared response
+(which is not the case in the \acp{tr} of the movie or audio-description).
+
+%
+Maybe, our naturalistic stimuli (about 7000 TRs) fucked up our shared responses
+in the 450 \acp{tr} within the SRM (imo, Fig.~\ref{fig:corr-vis-reg-srm}
+suggests otherwise)
+
+
+\paragraph{Templates from \citet{haxby2011common}}
+
+\todo[inline]{cf. template at the very end of this chapter}
+
+\todo[inline]{if \citet{haxby2011common} is discussed (a lot), it should
+probably be primed before "Here, we..." in the introduction}
+
+
+\subsubsection{Validity \& generalizability of audio-description}
+
+\todo[inline]{a.k.a. it's different previous studies!}
+
+\todo[inline]{order by criteria: localizer, movie PPA, audio PPA}
+
+
+\paragraph{audio-description to estimate the visual paradigms}
+%
+It's not a dynamic localizer employing video snippets of landscapes and faces
+but a "real naturalistic localizer".
+%
+Kind of works, but you need a shit ton of data, i.e. it gets better, the more
+data are available
+%
+It's cross-modal in case visual paradigms are supposed to be estimated.
+
+%
+
+%
+Audio-description is lacking visual stimulation and is obviously "not-as-rich"
+as the movie;
+%
+Additionally, maybe, the auditory response is (too) different from visual response?
+
+%
+Audio-description gave more room for individual variation of responses (cf.
+reliability of the audio-PPA-contrast in some subjects)?
+
+\paragraph{audio-description to estimate the auditory PPA}
+
+%
+Even with just one segment it outperforms (slightly) the functional alignment
+using localizer runs or movie segments (not statistically tested though).
+%
+Eventually, audio-description based functional alignment outperforms anatomical
+alignment.
+
+
+\paragraph{Inference}
+
+\todo[inline]{yeah, what does that mean?}
+
+Obviously, interesting would be estimation of results from a controlled speech
+paradigm (=different same-modality criterion).
+
+
+\subsection{Interim summary: Validity \& generalizability of multi-stimulus
+model and validity \& generalizability of matrices}
+
+\todo[inline]{yeah, well, how to separate validity \& generalizability of
+\ac{cfs} from validity \& generalizability of transformation matrices?}
+
 
 
 \subsection{More specific stuff}
 
-\subsubsection{Assumption that localizer is "ground truth"}
+\subsubsection{Localizer as criterion = "ground truth"?}
 
 \todo[inline]{imo, this is more a topic for the general discussion: pros \& cons
 of naturalistic stimuli}
 
 
-\subsubsection{The Reliability of the audio-descriptions PPA}
+\subsubsection{audio PPA as criterion = issue of reliability}
 
-\todo[inline]{following should also true (but less severe) in case of movie
-PPA}
-
-\todo[inline]{what's wrong?  the modeling in \citet{haeusler2022processing}? the
-unbalanced number of events? Or does an auditory naturalistic stimulus give too
-much room to participants to do not give a shit? a.k.a. freely listening is
-bad?}
-
-\todo[inline]{the "deviant" participants in the audio-description are
-essentially the ones that have a poor Cronbach's: they are not "reliable
-outliers" being different from the norm but noisy asses}
-
-\todo[inline]{possible inference: SRM should probably do more of a denoising as
-opposed to modeling (reliable) outliers incorrectly}
-
-%
-``Note that brain responses to movies contain richer information than
-traditional experimental paradigm'' \citep{feilong2022individualized} and
-audio-description (it's cross-modal; i.e. lacks visual stimulation; interesting
-in case "executive functions" are supposed to be sampled/predicted; however
-\citet{haxby2011common} removed \acp{tr} (+ following \acp{tr} from the movie
-that contained, e.g. faces).
-
-%
-Results of \citet{haeusler2022processing} suggest that selected events embedded
-in an auditory stimulation is correlated with increased hemodynamic activity in
-the anterior parts of the \ac{ppa} as it was defined by the localizer.
-
-%
-The primary audio-description contrast in \citet{haeusler2022processing}
-``yielded bilateral clusters in nine participants that are within or overlapping
-with the block-design localizer results. In participant sub-04, two bilateral
-clusters are apparent, whereas block-design localizer, and movie stimulus
-yielded only one cluster in the right hemisphere.  For another participant
-(sub-09) the analysis yielded one cluster in the left-hemispheric PPA''
-\citep{haeusler2022processing};
-i.e. 9 + 1 left-hemispheric, 9 right-hemispheric.
-%
-Hence, we should have sampled response vector(s) that carry the spatial response
-information (if you know what I mean).
+\todo[inline]{also true (but less severe) in case of movie PPA}
 
 
-\paragraph{audio-description for (cross-paradigm) prediction}
-
-\begin{itemize}
-
-    \item it is a "not-as-rich" stimulation as the movie?
-
-    \item the auditory response is (too) different from the visual response?
-
-    \item audio-description gave more room for individual variation of
-        responses?
-
-    \item some subjects where just not attending or even drove off to sleep?
-
-\end{itemize}
-
-%
-Audio-description might not sample the response vector space of the visual
-paradigm "well" enough?
-%
-Maybe, the shared responses in the model space are shitty?
-
-Or the shared responses of the AO within the \ac{cfs} are shitty?
-%
-The shared responses might suffer from the outliers but "work" to estimate the
-audio PPA though.
-
-%
-We need---of course---further studies to assess the reliability of individual
-differences in responses to stimulus features providing information about the
-spatial layout of a naturalistic stimulus' scene.
-%
-Moreover, control confounding variables like alertness and attentiveness.
-
-\todo[inline]{However, my biggest issue: what to do with the three outliers?}
-%
-Some subject seem to just not have cared about auditory spatial information.
-
-
-\paragraph{Summary of: The Reliability of the audio-descriptions PPA}
 
 %
 Results of \citet{haeusler2022processing} should be influenced by paradigm and
 methodological choices.
+
+Issues of methodological decisions:
 %
-In particular, we might have modeled the time course of "spatial responses"
-"insufficiently" in \citet{haeusler2022processing}.
+We might have modeled the time course of "spatial responses" "insufficiently" in
+\citet{haeusler2022processing}.
+%
+However, the primary audio-description contrast in
+\citet{haeusler2022processing} ``yielded bilateral clusters in nine participants
+that are within or overlapping with the block-design localizer results.
+%
+For another participant (sub-09) the analysis yielded one cluster in the
+left-hemispheric PPA'' \citep{haeusler2022processing}.
+%
+Generally, we should have modeled the construct "correctly" for >50\% of
+subjects in \citet{haeusler2022processing}.
+
+Issues of the paradigm:
+%
+Results of \citet{haeusler2022processing} also suggest that the
+audio-description generally samples the response vector(s) that carry the
+spatial response information.
+%
+
+The plots of shared responses \& AO regressors (kind of) suggest that the shared
+responses during \acp{tr} of the audio-description are not total garbage.
+%
+Also, within-paradigm prediction kind of works for most subjects
+%
+Which also suggest, that the Cronbach's-a-outliers do not degrade the model too
+much.
+
+%
+Did the audio-description give too much room for individual variation of
+responses?
+%
+Issue of auditory domain in general?
+%
+Or an issue of a 2h-long auditory-stimulation that is not as immersive /
+engaging as flashy movie frames?
+%
+Is the number of events across segments too unbalanced?
+
+
+Does an auditory naturalistic stimulus give too much room to participants to do
+not give a shit?
+%
+Is freely listening "bad"?
+%
+In case of audio-description attentional focus is hard to judge / control (cf.
+eye-tracking during movie); alertness (via EEG) should be possible though.
+
+\todo[inline]{No, I am not eager to look at the outliers' first-level
+$Z$-maps in detail...}
+
+
+
+\paragraph{Inference}
+
+\todo[inline]{just some random ideas}
+
 %
 However, our current results suggest that ``the training stimuli or trials
 strongly and variably engage that process in a way that is reliable across
@@ -1952,12 +1935,25 @@ lead to different activity patterns than visual stimulation [cf. interpretation
 in \citet{haeusler2022processing}] and results in \citet{haeusler2022processing}
 are not based on the modeling choices?
 
+%
+We need---of course---further studies to assess the reliability of individual
+differences in responses to stimulus features providing information about the
+spatial layout of a naturalistic stimulus' scene.
+
 
 \subsubsection{Individual differences}
 
 \todo[inline]{This should not be relevant anymore; because the outliers in
 prediction should be caused by shitty reliability not by the outliers being
 reliably deviant from the norm}
+
+\todo[inline]{the "deviant" participants in the audio-description are
+essentially the ones that have a poor Cronbach's: they are not "reliable
+outliers" being different from the norm but noisy asses}
+
+\todo[inline]{possible inference: SRM should probably do more of a denoising as
+opposed to modeling (reliable) outliers incorrectly}
+
 
 %
 Responses in \ac{ppa} during auditory stimulation might (reliably) be
