@@ -1,3 +1,5 @@
+\todo[inline]{Print intro and phrase parts here accordingly}
+
 \section{Theory part}
 
 \todo[inline]{This is supposed to be an updated version of the text in 1.1 (functional localization) to 1.3.3 (Application 2: Estimation from ref)}
@@ -27,32 +29,17 @@ also be appropriate for visually impaired persons[, e.g., suffering from
 nystagmus or lack of eyesight].
 
 
-\section{"Aims of thesis" \& some high-level of what was done}
+\section{Aims of thesis \& overview}
 
-\todo[inline]{Do not get too much into details (of results); this will be done
-after the open-science-excurse}
+\todo[inline]{cf. 1.3}
 
-\todo[inline]{Priming open science \& write a good transition to the theory part
-of open science (it's an excursion and "super meta" for a thesis)}
-
-\subsection{Meta goal: open science}
-
-% paragraph on open science
-An additional goal of this dissertation was to perform all studies under the
-principles of open, shared, and transparent science.
-%
-In order to enable independent researchers to validate current results and use
-written code to replicate current findings in prospective studies, all created
-data, code, analysis steps, and results are published as version-controlled
-DataLad \citep[\href{www.datalad.org}{datalad.org};][]{halchenko2021datalad}
-datasets.
-
+\todo[inline]{Don't get into details here, esp. regarding results; this will be
+done after the open-science-excurse}
 
 
 \subsection{Actual goals: naturalistic stimuli as functiona localizer?}
 
-\todo[inline]{a.k.a. overview about what was done (including what not necessary
-but contributed to open science project)}
+\todo[inline]{cf. text 1.3.5}
 
 % PPA as proof of concept
 Focussing on the \ac{ppa}, a ``classic'' higher-visual area,
@@ -60,8 +47,19 @@ Focussing on the \ac{ppa}, a ``classic'' higher-visual area,
 and the movie's audio-description could, in principle, substitute a traditional
 localizer paradigm.
 
+
+\paragraph{\citet{haeusler2021speechanno}}
+
+\todo[inline]{if not already mentioned in the theory part above, mention here
+that this is considered to be "prohibitively difficult"}
+
 %
-First, we extended the studyforrest dataset (study 1).
+First, we lay the non-technical [???] groundwork.
+%
+En passant, this is also an extension of the studyforrest dataset.
+
+
+\paragraph{\citet{haeusler2022processing}}
 %
 Second and similarly to traditional localizer paradigms, we modeled hemodynamic
 activity based on annotated stimulus features embedded in the movie ``Forrest
@@ -73,15 +71,39 @@ through a \ac{cfs}.
 
 
 
+\subsection{Meta goal: open science}
 
-\section{General stuff on "Open, transparent, and reproducible science"}
+\paragraph{\citet{halchenko2021datalad}}
 
-\todo[inline]{at the moment the idea is: discuss open science in general (i.e.
-in a block); then apply the general stuff to the thesis (i.e. in a block); but
-do not get too much into details regarding results}
+\todo[inline]{cf. text 1.3.5}
+
+%
+The meta goal of this dissertation was to perform all studies under the
+principles of open, shared, and transparent science.
+
+% goal PPA study
+Under the perspective of an open science project, the goal of study 2 was to use
+three \ac{fmri} datasets \citep{hanke2014audiomovie, hanke2016simultaneous,
+sengupta2016extension}, two stimulus annotations \citep{haeusler2021speechanno,
+haeusler2016cutanno}, as well as previously published results
+\citep{sengupta2016extension} for a new research question.
+
+%
+Hence, \citet{halchenko2021datalad} was the technical groundwork for the
+"actual" thesis.
+%
+Results enabled us to track, version-control stuff and publish data, code,
+materials, results, publications in a way that...
+
+%
+...enables independent researchers to validate current results and use written
+code to replicate current findings in prospective studies, all created data,
+code, analysis steps, and results are published as version-controlled DataLad
+\citep[\href{www.datalad.org}{datalad.org};][]{halchenko2021datalad} datasets.
 
 
-\subsection{Intro}
+
+\section{Open Science}
 %
 Following the practices of open and reproducible science was not mandatory for
 submitting the thesis but required additional work and time.
@@ -99,111 +121,30 @@ procedures and necessary tools was based on self-initiative and self-learning.
 %
 Over the course of the present project, affected stages were
 % data-related
-a) collection, description and storage of data,
-% processing-related
-c) processing and analyzing data via code, and
+a) acquiring open data and assessing their quality,
+%
+b) collection, description and storage of data,
+%
+c) automatize all that shit (processing and analyzing data) via code,
 % publishing shit
 d) publication of data, materials and results.
 
 
-\subsection{Data collection; data analysis; publishing}
-%
-In the context of open data, data are not collected for mere internal purposes
-but re-use by third parties needs to be considered.
-%
-Hence, dataset creators need to anticipate which people might use the data for
-which purpose, collect the data according to best practices, convert data into a
-standardized format (considering, e.g., naming conventions, folder structure,
-separating raw from analyzed data), and create metadata.
 
-% data analysis & automatization
-The data, materials and code need to be documented more rigorously, and coverage
-of procedures need to exceed the coverage given in method sections of regular
-articles.
-%
-Every change made to data, materials or code, and command line invocations need
-to be tracked via a version control system \citep[e.g.,][]{halchenko2021datalad}
-to allow other researchers to inspect a study's full history.
-%
-In order to allow reproducibility from input data, changes made to the data, to
-computation and visualization of results, every processing step needs to be
-designed and tested to be run reliably and automatically.
+\subsection{Acquiring open data and assessing their quality}
 
-% publication: findable, accessible, interoperable, reusable
-In the stage of preparing a publication, a researcher needs to facilitate
-discovery by humans and web bots (e.g., via extensive description and
-machine-readable metadata), ensure long-term curation [e.g., maintenance],
-availability [e.g., accessibility], and choose an appropriate data host.
-% legal issues
-Finally, a researcher need to resolve legal issues that raise during due to the
-publication of data, materials and code (e.g. statement of agreement / consent,
-anonymization, intellectual property rights, use license).
+\todo[inline]{Why was is good for you that the data were already existing?}
 
-
-\subsection{Cons from perspective of creators}
+\todo[inline]{imo, irrelevant in my case: participants' consent, anonymization,
+most legal issues}
 
 
 
-% jeez! it's annoying!
-In general, creating open data, materials and code requires a considerable about
-of time and effort with little incentives and little, immediate rewards.
-%
-Publishing data (or merely using open data) is associated with the risk that
-other working groups, possibly having more funding and ``people and brain
-power'' at disposal, are using the same data for a similar research question at
-the same time.
-%
-Hence, there is the concern that someone else might ``claim priority, usually
-through publishing, to a research idea or result you yourself have been working
-on'' \citep{laine2017afraid}.
-%
-On the one hand, being second in the ``competitive race in the sciences'' leads
-to diminished opportunities to publish own results because high impact journals
-favour novel findings.
-%
-The risk, and therefore stress, is aggravated in case of researchers that are
-early in their scientific career \citep[cf.][]{toribio2021early}, created and
-curate the published dataset, pre-registered studies based on open data, or have
-to stick to inflexible project plans.
-%
-On the other hand one advantage of publishing a dataset with an assigned DOI is
-that it might get re-used and cited in another study.
-%
-In case of a dataset creator's fear of being superseded / outrun, ``concerns can
-be alleviated by delaying the sharing or using a data-sharing repository with an
-embargo period'' \citep{nichols2017best}.
+\todo[inline]{Opportunity costs: analyzes in \citet{sengupta2016extension} were
+performed and \acp{roi} published in voxel-space (i.e., not surface-space)}
 
 
-\subsection{Pros from perspective of creators}
-
-% better organized, better documented
-An immediate benefit of following the principles of a reproducible study is that
-a researcher is forced to work more organized and document every step from a
-study's start to finish more rigorously.
-%
-First, documenting every step and justifying every step by weighting pros and
-cons of alternative [mutual exclusive] procedural paths leads to better
-understanding, avoids tricking oneself into performing unnecessary statistical
-tests, HARKing hypothesizing after the results are known; Kerr, 1998,
-HARKing...), and therefore supports following general good scientific practices.
-%
-Similarly, the extra time and effort spend on inspecting data and testing code
-leads to higher confidence in one's own work and the reliability of results.
-%
-Second, a researcher who records all changes to data and code from the start to
-the final results can restore a particular state of data and code and trace,
-identify and correct errors more easily [similar: Klein, 2018. A practical guide
-for transparency in psychological science].
-%
-Third, tracking and documenting every step increases reliability of results and
-can be seen as a "lab protocol" containing information / templates for writing
-scientific articles.
-%
-Last, automating recurring tasks gives yourself the possibility of reusing
-certain data, code, documents, etc. in the future.
-
-
-\subsection{Pros from perspective of consumers}
+\subsubsection{Pros from perspective of consumers}
 
 \todo[inline]{following needs revision but general train of thought should be
 clear}
@@ -242,7 +183,7 @@ collection to subsequent stages of a study, share code helps researchers adjust
 and extent the analysis pipeline as part of an exploratory data analysis.
 
 
-\subsection{Cons from perspective of consumers}
+\subsubsection{Cons from perspective of consumers}
 
 % avoid "the bigger, the better" and "garbage in, garbage out"
 An mostly not explicitly stated issue in the context of open science is that
@@ -257,207 +198,6 @@ creator.
 Even if the data a from a renowned source, researchers should consider
 themselves to be obliged to test and validate a dataset's quality according to
 their standards and specific use cases.
-
-
-\subsubsection{Tell me about opportunity costs without saying opportunity costs}
-
-% problem of preprocessed data
-Moreover, choices made during data collection and preprocessing -- despite being
-state-of-the-art at the time of being published -- might not be optimal for
-every use case or made obsolete by more advanced methods.
-% tell me about opportunity costs without saying opportunity costs
-Hence, researchers need to weigh the costs and benefits of one path (e.g.,
-preprocessing the same data differently than the preprocessing performed as part
-of an open dataset) relative to an alternative path (e.g., using the
-preprocessed data and performing new analyses), and choose the path with the
-greater net return.
-
-
-\subsection{Conclusions on open science}
-
-
-\todo[inline]{following could be heavily summarized as a conclusion or phrased
-like an (summarizing) personal opinion}
-
-%
-Open sciences makes researchers accountable to collect, document, process and
-store data and materials according to best practices.
-%
-Published data and analysis pipelines allow external persons to check the data
-and analyses for undiscovered errors, and replicate the results step by step.
-%
-Varying parameters and running different statistics on the data allows
-inspection of robustness of results.
-
-%
-``As scientists, we are supposed to be objective arbiters of evidence and
-theory, but we are not infallible and must be ready to accept criticism and
-revise our claims when errors are discovered'' \citep{nichols2017best}.
-%
-``However, we need to develop a culture of constructive criticism, which
-recognizes that errors are an inevitable part of scientific progress and
-protects individual researchers from inappropriately harsh consequences when
-honest mistakes are discovered'' \citep{nichols2017best}.
-
-%
-``We see no better way to advance understanding on a contested finding than to
-have as many researchers as possible puzzling over the data at hand''
-\citep{nichols2017best}
-
-%
-Benefits are increased robustness and reliability of science when all steps are
-openly documented and data are openly available.
-%
-Multiple datasets can be combined to perform unanticipated use cases, and
-extensively and openly documented results of multiple studies facilitate
-performing meta-analyses to strengthen the claims of individual studies.
-%
-Thus, open transparent science is the way to make knowledge and technologies
-widely accessible, and increase reproducibility of study results and
-replicability of scientific findings while increasing trust of the public into
-scientific process and its results.
-%
-Open science promises increased efficiency (time and financial expense) of
-making scientific progress, make advance, and promotes innovation.
-
-
-\subsection{Call to action: create an incentive or imperative to do it}
-
-\paragraph{Questionable, immediate benefits}
-%
-``The weight that OS currently has for researchers’ career advancement is rather
-small, despite'' \citep{toribio2021early}.
-%
-At the same time, they might feel that investing additional effort in making
-research open (i.e., transparent and reproducible) is unrewarded [Nicholas et
-al., 2017], such as conducting replication studies that might not be considered
-for publication in high-impact journals'' \citep{toribio2021early}.
-%
-``As long as scientists are being evaluated on traditional journal metrics,
-there are few incentives from a career perspective to fully commit to OS''
-\citep{toribio2021early}.
-
-
-\paragraph{Gambling on long-term benefits}
-
-\todo[inline]{80\% of PhD students leave science anyway}
-%
-``Thus, while conducting OS may initially require more work in the short term,
-it can greatly benefit one’s career in the long term'' \citep{toribio2021early}.
-%
-``OA publications have been found to receive more citations than paywalled
-publications [Piwowar et al., 2018] and can therefore aid ECRs’ career
-advancement'' \citep{toribio2021early}.
-%
-``Similarly, open data can be highly beneficial to promote new collaborations
-and increase the number of citations and the confidence that the field has in
-the findings [Popkin, 2019]'' \citep{toribio2021early}.
-%
-Currently, playing be the old rules is the ``smarter way'' than gambling getting
-cited when data or code get re-used.
-
-
-\paragraph{Guidelines}
-%
-``OS still requires the establishment of clear guidelines for transparency and
-openness of research at the international level.
-%
-Examples for guidelines for OA publishing [Nosek et al., 2015; Schiltz, 2018],
-and collaborations [Gold et al., 2019] are already existing, and their use
-should be promoted by governments and funding agencies, as well as integrated in
-the training of ECRs by academic institutions.
-%
-Organizations and/or regulators in charge of overviewing the open scholarly
-system need to be established [cf. Nicholas et al., 2019, 2020]''
-\citep{toribio2021early}.
-
-
-\paragraph{Education}
-
-\todo[inline]{Breed open science enthusiast in (under)graduate curriculi}
-
-%
-``It is necessity to promote further training on the benefits and risks of OS
-practices [cf. Schönbrodt, 2019].
-%
-Promoting training would not only increase the knowledge of ECRs about specific
-OS practices but also could foster its implementation among ECRs.
-%
-It would be highly beneficial to introduce these training schemes in the
-curriculum of undergraduates programs.
-%
-Courses should cover the benefits and risks of OS practices, together with a
-guideline on how to implement them [cf. Farnham et al., 2017]''
-\citep{toribio2021early}.
-
-
-\paragraph{Carrots...}
-
-\todo[inline]{Start with incentives to foster self-learning and applying the
-principles "voluntarily"}
-
-%
-More incentives to conduct open science project needs to be established.
-%
-``Extra efforts may not be valued appropriately by a scientific community who
-assesses research based on journal impact metrics and number of publications
-[Moher et al., 2018]'' \citep{toribio2021early}.
-%
-``Individual incentives for researchers should be introduced through, for
-example, professional recognition or the allocation of extra funding [Kidwell et
-al., 2016; Fecher et al., 2015; Ali-Khan et al., 2018].
-
-
-\paragraph{...and sticks}
-
-\todo[inline]{later, convince the remaining insurgents by force}
-%
-``Funding agencies already require publication of findings in OA
-schemes and data-sharing plans [Neylon, 2017]'' \citep{toribio2021early}.
-%
-``Compulsory requirements from funders, which might only lead researchers to
-show minimal compliance [Neylon, 2017]'' \citep{toribio2021early}.
-todo[inline]{This is supposed to be abstract}
-
-
-\section{This thesis in context of "Open, transparent, and reproducible
-science"}
-
-\subsection{Short personal assessment}
-
-
-% intro
-The additional time and effort feel like a burden and do not contribute to the
-immediate benefits of the PhD project, how-fucking-ever:
-
-
-\subsubsection{I used open-source software packages}
-
-Often forgotten, but open-source packages were prerequisite.
-
-
-\subsubsection{I used existing data}
-
-\todo[inline]{Why was is good for you that the data were already existing?}
-
-\todo[inline]{imo, irrelevant in my case: participants' consent, anonymization,
-most legal issues}
-
-\todo[inline]{Caveat of data re-use: know your data! I could write that I pulled
-my hair out while searching for inconsistencies in the timings, and found that
-the audio track of the audio-description is essentially unsystematically
-shifted; similar cases stay probably undiscovered in non-open datasets; vice
-versa, a point for less error-prone open science}
-
-\todo[inline]{Covid-Pandemic has impressively shown that collecting data based
-on human subjects" can go dormant for almost 1.5 years; plan of the project was
-adjusted accordingly; and I am so lucky that I could fall back on open data}
-
-\todo[inline]{it is/was somewhere between "stupid" and "brave" to mess with
-someone like Haxby's group; also, cf. "my precious" of Susanne and Lisa}
-
-\todo[inline]{Opportunity costs: analyzes in \citet{sengupta2016extension} were
-performed and \acp{roi} published in voxel-space (i.e., not surface-space)}
 
 
 \subsubsection{Opportunity costs: missing ROIS of RSC \& OPA}
@@ -534,7 +274,188 @@ sadly because automatization takes a long time for some stuff or is not possible
 for some stuff.
 
 
-\paragraph{Code: documenting, version-controlled, automatize pipeline}
+
+\subsubsection{Tell me about opportunity costs without saying opportunity costs}
+
+% problem of preprocessed data
+Moreover, choices made during data collection and preprocessing -- despite being
+state-of-the-art at the time of being published -- might not be optimal for
+every use case or made obsolete by more advanced methods.
+% tell me about opportunity costs without saying opportunity costs
+Hence, researchers need to weigh the costs and benefits of one path (e.g.,
+preprocessing the same data differently than the preprocessing performed as part
+of an open dataset) relative to an alternative path (e.g., using the
+preprocessed data and performing new analyses), and choose the path with the
+greater net return.
+
+
+
+\subsection{Collection, description and storage of data}
+
+% additional effort 1
+Pursuing the goal of creating a publication-worthy dataset led to additional
+work that goes far beyond the work that was necessary to build the \ac{glm} in
+study 2.
+% additional effort 2
+The published annotation provides, among others, time-stamps of phonemes, words
+and sentences of all speakers, a grammatical tagging, and an annotation of
+syntactic dependencies and semantics.
+
+% skipped work
+On the one hand, the availability of the \ac{fmri} data and the subject-specific
+\acp{roi} enabled us to shift our focus from acquiring the raw data to
+subsequent stages of a research project.
+% example of skipped work
+For example, the annotations that were created in a "general purpose state"
+could be extended immediately to match the needs of study 2, followed by writing
+the scripts that preprocessed and statistically analyzed the data.
+% additional work
+On the other hand, pursuing the goal of an open science project lead to
+additional work.
+% example of additional work
+For example, code needed to be in a state worthy to be published and documented
+for other readers, analyses pipelines needed to be in a state to be automatized,
+every processing step documented, saved, protocolled, and shared to allow
+reproducibility of results and facilitate replicability of finding.
+
+%
+In summary, the annotation provides extensive information about the time course
+of stimulus features, and therefore a headstart to independent researchers that
+wish to ``model hemodynamic brain responses that correlate with a variety of
+aspects of spoken language ranging from a speaker's identity, to phonetics,
+grammar, syntax, and semantics'' \citep{haeusler2021speechanno} under more
+real-life like conditions.
+%
+Consequently, the outcome of study 1 contributes to the studyforrest project as
+a resource for the scientific community by further widening the ``annotation
+bottleneck'' \citep{aliko2020naturalistic} of two naturalistic stimuli.
+
+
+% results
+Our results have been published in a peer-reviewed, open-access journal
+%
+``offer evidence that a model-driven GLM analysis based on annotations can be
+applied to a naturalistic paradigm to localize concise functional areas and
+networks correlating with specific perceptual processes''
+\citep{haeusler2022processing},
+%
+``demonstrate that increased activation in the PPA during the perception of
+static pictures generalizes to the perception of spatial information embedded in
+a movie and an exclusively auditory stimulus \citep{haeusler2022processing}, and
+%
+``provide further evidence that the PPA can be divided into functional
+subregions that coactivate during the perception of visual scenes''
+\citep{haeusler2022processing}
+
+% conclusion
+In summary, we re-used existing data as a foundation for a new investigation in
+order to generate novel findings encourage further studies, and illustrate the
+benefits of publicly and freely available datasets.
+
+
+%
+In the context of open data, data are not collected for mere internal purposes
+but re-use by third parties needs to be considered.
+%
+Hence, dataset creators need to anticipate which people might use the data for
+which purpose, collect the data according to best practices, convert data into a
+standardized format (considering, e.g., naming conventions, folder structure,
+separating raw from analyzed data), and create metadata.
+
+% data analysis & automatization
+The data, materials and code need to be documented more rigorously, and coverage
+of procedures need to exceed the coverage given in method sections of regular
+articles.
+%
+Every change made to data, materials or code, and command line invocations need
+to be tracked via a version control system \citep[e.g.,][]{halchenko2021datalad}
+to allow other researchers to inspect a study's full history.
+%
+In order to allow reproducibility from input data, changes made to the data, to
+computation and visualization of results, every processing step needs to be
+designed and tested to be run reliably and automatically.
+
+% publication: findable, accessible, interoperable, reusable
+In the stage of preparing a publication, a researcher needs to facilitate
+discovery by humans and web bots (e.g., via extensive description and
+machine-readable metadata), ensure long-term curation [e.g., maintenance],
+availability [e.g., accessibility], and choose an appropriate data host.
+% legal issues
+Finally, a researcher need to resolve legal issues that raise during due to the
+publication of data, materials and code (e.g. statement of agreement / consent,
+anonymization, intellectual property rights, use license).
+
+
+\subsubsection{Cons from perspective of creators}
+% jeez! it's annoying!
+In general, creating open data, materials and code requires a considerable about
+of time and effort with little incentives and little, immediate rewards.
+%
+Publishing data (or merely using open data) is associated with the risk that
+other working groups, possibly having more funding and ``people and brain
+power'' at disposal, are using the same data for a similar research question at
+the same time.
+%
+Hence, there is the concern that someone else might ``claim priority, usually
+through publishing, to a research idea or result you yourself have been working
+on'' \citep{laine2017afraid}.
+%
+On the one hand, being second in the ``competitive race in the sciences'' leads
+to diminished opportunities to publish own results because high impact journals
+favour novel findings.
+%
+The risk, and therefore stress, is aggravated in case of researchers that are
+early in their scientific career \citep[cf.][]{toribio2021early}, created and
+curate the published dataset, pre-registered studies based on open data, or have
+to stick to inflexible project plans.
+%
+On the other hand one advantage of publishing a dataset with an assigned DOI is
+that it might get re-used and cited in another study.
+%
+In case of a dataset creator's fear of being superseded / outrun, ``concerns can
+be alleviated by delaying the sharing or using a data-sharing repository with an
+embargo period'' \citep{nichols2017best}.
+
+
+
+\subsubsection{Pros from perspective of creators}
+
+% better organized, better documented
+An immediate benefit of following the principles of a reproducible study is that
+a researcher is forced to work more organized and document every step from a
+study's start to finish more rigorously.
+%
+First, documenting every step and justifying every step by weighting pros and
+cons of alternative [mutual exclusive] procedural paths leads to better
+understanding, avoids tricking oneself into performing unnecessary statistical
+tests, HARKing hypothesizing after the results are known; Kerr, 1998,
+HARKing...), and therefore supports following general good scientific practices.
+%
+Similarly, the extra time and effort spend on inspecting data and testing code
+leads to higher confidence in one's own work and the reliability of results.
+%
+Second, a researcher who records all changes to data and code from the start to
+the final results can restore a particular state of data and code and trace,
+identify and correct errors more easily [similar: Klein, 2018. A practical guide
+for transparency in psychological science].
+%
+Third, tracking and documenting every step increases reliability of results and
+can be seen as a "lab protocol" containing information / templates for writing
+scientific articles.
+%
+Last, automating recurring tasks gives yourself the possibility of reusing
+certain data, code, documents, etc. in the future.
+
+
+
+
+\subsection{Automatize all that shit: processing \& analyzing data via code}
+
+Often forgotten, but open-source packages were prerequisite and done by others
+"that like to share".
+
+
+\paragraph{personal whining}
 
 \todo[inline]{Retrospectively, I cannot remember one clear case which made me
 glad having documented, version-controlled, and automatized stuff; maybe,
@@ -548,7 +469,8 @@ Jeez! Fuck me sideways!
 
 
 
-\paragraph{Publishing stuff}
+\subsection{Publication of data, materials and results}
+
 
 \todo[inline]{choosing the data host was easy because filtered based on DataLad
 support (and Michael knows everything anyway)}
@@ -567,54 +489,24 @@ But this is no immediate benefit, and gambling (for the 20\% of PhD's that stay
 in science).
 
 
-\paragraph{Conclusion of my life's story}
 
-% no incentive
-``Current incentives do not justify spending large amounts of time preparing
-data for sharing, as institutional promotion panels or grant reviewers currently
-do not adequately reward such efforts'' \citep{nichols2017best}.
+\subsection{Conclusions on open science}
 
-Grateful, that open source neuro-software as well as the data were available,
-which allowed me to go far beyond what would have been possible without open
-data [kind of not true because I used "in-house data"].
-%
-Lastly, I feel more confident about my work now compared to the dilettantish
-procedures experienced (and followed) in, uhm, another lab in Magdeburg.
+\subsubsection{It sucks hard (if you do it)}
 
+\todo[inline]{Caveat of data re-use: know your data! I could write that I pulled
+my hair out while searching for inconsistencies in the timings, and found that
+the audio track of the audio-description is essentially unsystematically
+shifted; similar cases stay probably undiscovered in non-open datasets; vice
+versa, a point for less error-prone open science}
 
+\todo[inline]{Covid-Pandemic has impressively shown that collecting data based
+on human subjects" can go dormant for almost 1.5 years; plan of the project was
+adjusted accordingly; and I am so lucky that I could fall back on open data}
 
-\subsection{DataLad \& Paper as technical groundwork}
+\todo[inline]{it is/was somewhere between "stupid" and "brave" to mess with
+someone like Haxby's group; also, cf. "my precious" of Susanne and Lisa}
 
-\subsection{Pro's: existing groundwork}
-
-Data
-
-\subsection{How I contributed}
-
-\todo[inline]{Do not talk about concrete results in detail}
-
-
-\subsubsection{Open science in context of speech anno}
-
-\todo[inline]{how "personal" am I supposed to get?}
-
-\todo[inline]{mih: such remarks could be one of the most interesting parts of a
-thesis. Maybe it is best to condense them all into a single section, but
-interspersed like this could work too}
-
-\paragraph{Intro}
-
-% additional effort 1
-Pursuing the goal of creating a publication-worthy dataset led to additional
-work that goes far beyond the work that was necessary to build the \ac{glm} in
-study 2.
-% additional effort 2
-The published annotation provides, among others, time-stamps of phonemes, words
-and sentences of all speakers, a grammatical tagging, and an annotation of
-syntactic dependencies and semantics.
-
-
-\paragraph{The self-flagellation retrospectively}
 %
 Great care was taken during the initial creation and subsequent iterative
 corrections in order to provide accurate information to the scientific
@@ -642,88 +534,286 @@ also the raw data and documented code that can automatically be rerun step by
 step to reproduce the final outcome of both the annotation and its validation
 analysis, all freely accessible in a version-controlled dataset.
 
+% no incentive
+``Current incentives do not justify spending large amounts of time preparing
+data for sharing, as institutional promotion panels or grant reviewers currently
+do not adequately reward such efforts'' \citep{nichols2017best}.
 
-\paragraph{Conclusion}
+Grateful, that open source neuro-software as well as the data were available,
+which allowed me to go far beyond what would have been possible without open
+data [kind of not true because I used "in-house data"].
 %
-In summary, the annotation provides extensive information about the time course
-of stimulus features, and therefore a headstart to independent researchers that
-wish to ``model hemodynamic brain responses that correlate with a variety of
-aspects of spoken language ranging from a speaker's identity, to phonetics,
-grammar, syntax, and semantics'' \citep{haeusler2021speechanno} under more
-real-life like conditions.
+Lastly, I feel more confident about my work now compared to the dilettantish
+procedures experienced (and followed) in, uhm, another lab in Magdeburg.
+
+
+\paragraph{Questionable, immediate benefits}
 %
-Consequently, the outcome of study 1 contributes to the studyforrest project as
-a resource for the scientific community by further widening the ``annotation
-bottleneck'' \citep{aliko2020naturalistic} of two naturalistic stimuli.
-
-
-\subsubsection{Open science in context of PPA paper}
-
-% goal PPA study
-Under the perspective of an open science project, the goal of study 2 was to use
-three \ac{fmri} datasets \citep{hanke2014audiomovie, hanke2016simultaneous,
-sengupta2016extension}, two stimulus annotations \citep{haeusler2021speechanno,
-haeusler2016cutanno}, as well as previously published results
-\citep{sengupta2016extension} for a new research question.
-
-
-% skipped work
-On the one hand, the availability of the \ac{fmri} data and the subject-specific
-\acp{roi} enabled us to shift our focus from acquiring the raw data to
-subsequent stages of a research project.
-% example of skipped work
-For example, the annotations that were created in a "general purpose state"
-could be extended immediately to match the needs of study 2, followed by writing
-the scripts that preprocessed and statistically analyzed the data.
-% additional work
-On the other hand, pursuing the goal of an open science project lead to
-additional work.
-% example of additional work
-For example, code needed to be in a state worthy to be published and documented
-for other readers, analyses pipelines needed to be in a state to be automatized,
-every processing step documented, saved, protocolled, and shared to allow
-reproducibility of results and facilitate replicability of finding.
-
-\todo[inline]{shorten results/findings}
-
-% results
-Our results have been published in a peer-reviewed, open-access journal
+``The weight that OS currently has for researchers’ career advancement is rather
+small, despite'' \citep{toribio2021early}.
 %
-``offer evidence that a model-driven GLM analysis based on annotations can be
-applied to a naturalistic paradigm to localize concise functional areas and
-networks correlating with specific perceptual processes''
-\citep{haeusler2022processing},
+At the same time, they might feel that investing additional effort in making
+research open (i.e., transparent and reproducible) is unrewarded [Nicholas et
+al., 2017], such as conducting replication studies that might not be considered
+for publication in high-impact journals'' \citep{toribio2021early}.
 %
-``demonstrate that increased activation in the PPA during the perception of
-static pictures generalizes to the perception of spatial information embedded in
-a movie and an exclusively auditory stimulus \citep{haeusler2022processing}, and
+``As long as scientists are being evaluated on traditional journal metrics,
+there are few incentives from a career perspective to fully commit to OS''
+\citep{toribio2021early}.
+
+
+\paragraph{Gambling on long-term benefits}
+
+\todo[inline]{80\% of PhD students leave science anyway}
 %
-``provide further evidence that the PPA can be divided into functional
-subregions that coactivate during the perception of visual scenes''
-\citep{haeusler2022processing}
+``Thus, while conducting OS may initially require more work in the short term,
+it can greatly benefit one’s career in the long term'' \citep{toribio2021early}.
+%
+``OA publications have been found to receive more citations than paywalled
+publications [Piwowar et al., 2018] and can therefore aid ECRs’ career
+advancement'' \citep{toribio2021early}.
+%
+``Similarly, open data can be highly beneficial to promote new collaborations
+and increase the number of citations and the confidence that the field has in
+the findings [Popkin, 2019]'' \citep{toribio2021early}.
+%
+Currently, playing be the old rules is the ``smarter way'' than gambling getting
+cited when data or code get re-used.
 
-% conclusion
-In summary, we re-used existing data as a foundation for a new investigation in
-order to generate novel findings encourage further studies, and illustrate the
-benefits of publicly and freely available datasets.
 
+\subsubsection{But, probably, it needs to be done}
+
+Open sciences makes researchers accountable to collect, document, process and
+store data and materials according to best practices.
+%
+Published data and analysis pipelines allow external persons to check the data
+and analyses for undiscovered errors, and replicate the results step by step.
+%
+Varying parameters and running different statistics on the data allows
+inspection of robustness of results.
+
+%
+``As scientists, we are supposed to be objective arbiters of evidence and
+theory, but we are not infallible and must be ready to accept criticism and
+revise our claims when errors are discovered'' \citep{nichols2017best}.
+%
+``However, we need to develop a culture of constructive criticism, which
+recognizes that errors are an inevitable part of scientific progress and
+protects individual researchers from inappropriately harsh consequences when
+honest mistakes are discovered'' \citep{nichols2017best}.
+
+%
+``We see no better way to advance understanding on a contested finding than to
+have as many researchers as possible puzzling over the data at hand''
+\citep{nichols2017best}
+
+%
+Benefits are increased robustness and reliability of science when all steps are
+openly documented and data are openly available.
+%
+Multiple datasets can be combined to perform unanticipated use cases, and
+extensively and openly documented results of multiple studies facilitate
+performing meta-analyses to strengthen the claims of individual studies.
+%
+Thus, open transparent science is the way to make knowledge and technologies
+widely accessible, and increase reproducibility of study results and
+replicability of scientific findings while increasing trust of the public into
+scientific process and its results.
+%
+Open science promises increased efficiency (time and financial expense) of
+making scientific progress, make advance, and promotes innovation.
+
+
+
+\subsection{Call to action: educate, incentivize, coerce}
+
+\paragraph{Guidelines \& tools}
+
+\todo[inline]{need to be established; and not change all the fucking time, so as
+soon as you have done it, the procedure is not obsolete already again}
+%
+``OS still requires the establishment of clear guidelines for transparency and
+openness of research at the international level.
+%
+Examples for guidelines for OA publishing [Nosek et al., 2015; Schiltz, 2018],
+and collaborations [Gold et al., 2019] are already existing, and their use
+should be promoted by governments and funding agencies, as well as integrated in
+the training of ECRs by academic institutions.
+%
+Organizations and/or regulators in charge of overviewing the open scholarly
+system need to be established [cf. Nicholas et al., 2019, 2020]''
+\citep{toribio2021early}.
+
+
+\paragraph{Education}
+
+\todo[inline]{Breed open science enthusiast in (under)graduate curriculi}
+
+%
+``It is necessity to promote further training on the benefits and risks of OS
+practices [cf. Schönbrodt, 2019].
+%
+Promoting training would not only increase the knowledge of ECRs about specific
+OS practices but also could foster its implementation among ECRs.
+%
+It would be highly beneficial to introduce these training schemes in the
+curriculum of undergraduates programs.
+%
+Courses should cover the benefits and risks of OS practices, together with a
+guideline on how to implement them [cf. Farnham et al., 2017]''
+\citep{toribio2021early}.
+
+
+\paragraph{Carrots...}
+
+\todo[inline]{Start with incentives to foster self-learning and applying the
+principles "voluntarily"}
+
+%
+More incentives to conduct open science project needs to be established.
+%
+``Extra efforts may not be valued appropriately by a scientific community who
+assesses research based on journal impact metrics and number of publications
+[Moher et al., 2018]'' \citep{toribio2021early}.
+%
+``Individual incentives for researchers should be introduced through, for
+example, professional recognition or the allocation of extra funding [Kidwell et
+al., 2016; Fecher et al., 2015; Ali-Khan et al., 2018].
+
+
+\paragraph{...and sticks}
+
+\todo[inline]{later, convince the remaining insurgents by force}
+%
+``Funding agencies already require publication of findings in OA
+schemes and data-sharing plans [Neylon, 2017]'' \citep{toribio2021early}.
+%
+``Compulsory requirements from funders, which might only lead researchers to
+show minimal compliance [Neylon, 2017]'' \citep{toribio2021early}.
+todo[inline]{This is supposed to be abstract}
 
 
 
 \section{Naturalistic stimuli as functional localizer?}
 
-\todo[inline]{This is the part most similar to "Specific objectives and
-hypothesis}
-
 \todo[inline]{mih: aggregate across studies; show how things are connected}
+
+\todo[inline]{cf. 1.3.5}
+
+
+
+
+\subsection{Localizer is "ground truth"?}
+
+We estimate the $Z$-map of a visual localizer which is the fucking established /
+traditional method to identify the \ac{ppa}.
+%
+% localizer data
+\citet{sengupta2016extension} successfully delineated the left-hemispheric
+\ac{ppa} in 12 of 14 subjects and right-hemispheric \ac{ppa} in 14 of 14
+subjects based on localizer data.
+
+% usually, visual PPA works pretty well
+The visual \ac{ppa} can be reliably localized using a localizer, which is why we
+considered it to be the "gold standard" or benchmark.
+%
+However, ``the PPA definition may depend on the type of experiment, task, and
+stimuli used'' \citep{weiner2018defining}.
+
+%
+The primary movie contrast in \citet{haeusler2022processing} ``yielded bilateral
+clusters in five participants, a unilateral right cluster in six participants
+(of which one participant yielded a unilateral cluster in the visual localizer),
+and a unilateral left cluster in one participant. We find bilateral clusters for
+participant sub-20, whereas the block-design localizer yielded only one cluster
+in the right hemisphere'' \citep{haeusler2022processing};
+%
+i.e. 5 + 1  left-hemispheric, 5 + 6 right-hemispheric.
+%
+%
+The primary audio-description contrast in \citet{haeusler2022processing}
+``yielded bilateral clusters in nine participants that are within or overlapping
+with the block-design localizer results. In participant sub-04, two bilateral
+clusters are apparent, whereas block-design localizer, and movie stimulus
+yielded only one cluster in the right hemisphere.  For another participant
+(sub-09) the analysis yielded one cluster in the left-hemispheric PPA''
+\citep{haeusler2022processing};
+i.e. 9 + 1 left-hemispheric, 9 right-hemispheric.
+%
+Hence, we should have sampled response vector(s) that carry the spatial response
+information (if you know what I mean).
+
+Template from \citet{jiahui2020predicting}: ``We found more reliable estimates
+using the dynamic localizer than the static localizer, consistent with previous
+reports on the increased power of dynamic localizers (Fox et al., 2009; Pitcher
+et al., 2011).
+%
+The maps show that the dynamic localizer better maps face-selectivity in lateral
+temporal and prefrontal cortices, and that this is captured well by the
+movie-viewing derived transformations.
+%
+We would predict that the studyforrest data also could reveal this more
+extensive face-selectivity map with high fidelity if dynamic localizer data were
+available in those subjects.
+%
+The variable results with different localizers indicate that no localizer should
+be considered the “ground truth”.
+%
+Furthermore, the responsivity of the network defined by “face selectivity” also
+encompasses modulation of responses to nonface information related to the
+animacy continuum [Connolly et al., 2012, 2016; Çukur et al., 2013; Sha et al.,
+2014; Thorat et al., 2019], biological motion [Beauchamp et al., 2003; Bonda et
+al., 1996; Çukur et al., 2013; Gobbini et al., 2007; Grossman and Blake, 2002],
+social interaction [Castelli et al., 2002; Çukur et al., 2013; Gobbini et al.,
+2007; Schultz et al., 2003], and agentic behavior [Gobbini et al., 2011; Nastase
+et al., 2017], suggesting that the ground truth for the functional selectivity
+of the system identified by face-selectivity may extend well beyond
+face-selectivity per se.
+%
+Thus, any functional localizer can provide only an imprecise estimate of a
+topography whose function is only partially defined''
+\citep{jiahui2020predicting}.
+
+Template from \citet{jiahui2022cross}:
+%
+``The four datasets in our study included two types of category-selective
+localizers (dynamic and static).
+%
+The dynamic localizer used short video clips for each category and the
+traditional static localizer used still images.
+%
+For all categories, the dynamic localizer elicited stronger and broader
+category-selective activations than the static localizer, and the searchlight
+analysis showed that the dynamic localizer had higher reliabilities across the
+cortex, especially in regions that were selectively responsive to the target
+category.
+%
+Due to differences between topographies activated by the dynamic and the static
+localizers, predictions across localizer types generated lower correlations than
+those within localizer types.
+%
+For example, for the face-selective topographies, the dynamic localizer
+activated more areas than the static localizer (e.g., in superior temporal and
+frontal cortices).
+%
+In the ventral temporal cortex, especially in the right hemisphere, both dynamic
+and static localizers performed well in the cross-localizer-type predictions.
+%
+But in cortical areas where the static localizer did not match the dynamic
+localizer, predictions from the same dynamic localizer always outperformed the
+predictions from a different static localizer (Figure S6 \& S8).
+%
+The low correlations were not because the prediction method failed but reflected
+the difference in the topographies activated by different types of localizers.
+%
+In summary, our study demonstrated that accurate predictions of individualized
+category-selective topographies can be achieved with high fidelity using CHA
+across different naturalistic movie contents, across different scanners, and
+across different scanning parameters'' \citep{jiahui2022cross}.
 
 
 
 \subsection{Speech anno}
-
-
-\subsubsection{Goal of speech anno}
-
 % what we did in 1 sentence
 In study 1 \citep{haeusler2021speechanno}, we created and validated an
 annotation of speech occurring in the movie and its audio-description pursuing
@@ -752,8 +842,6 @@ These results encouraged us to a) use the annotation as the groundwork for study
 
 
 \subsection{PPA paper}
-
-\paragraph{Goal of PPA paper}
 % study in one sentence
 The goal of study 2 \citep{haeusler2022processing} was to explore whether an
 audio-visual and an exclusively auditory naturalistic stimulus could be used in
@@ -1445,113 +1533,6 @@ visual impairments or conditions like nystagmus''
 \citep{haeusler2022processing}.
 
 
-\subsection{Localizer is "ground truth"?}
-
-We estimate the $Z$-map of a visual localizer which is the fucking established /
-traditional method to identify the \ac{ppa}.
-%
-% localizer data
-\citet{sengupta2016extension} successfully delineated the left-hemispheric
-\ac{ppa} in 12 of 14 subjects and right-hemispheric \ac{ppa} in 14 of 14
-subjects based on localizer data.
-
-% usually, visual PPA works pretty well
-The visual \ac{ppa} can be reliably localized using a localizer, which is why we
-considered it to be the "gold standard" or benchmark.
-%
-However, ``the PPA definition may depend on the type of experiment, task, and
-stimuli used'' \citep{weiner2018defining}.
-
-%
-The primary movie contrast in \citet{haeusler2022processing} ``yielded bilateral
-clusters in five participants, a unilateral right cluster in six participants
-(of which one participant yielded a unilateral cluster in the visual localizer),
-and a unilateral left cluster in one participant. We find bilateral clusters for
-participant sub-20, whereas the block-design localizer yielded only one cluster
-in the right hemisphere'' \citep{haeusler2022processing};
-%
-i.e. 5 + 1  left-hemispheric, 5 + 6 right-hemispheric.
-%
-%
-The primary audio-description contrast in \citet{haeusler2022processing}
-``yielded bilateral clusters in nine participants that are within or overlapping
-with the block-design localizer results. In participant sub-04, two bilateral
-clusters are apparent, whereas block-design localizer, and movie stimulus
-yielded only one cluster in the right hemisphere.  For another participant
-(sub-09) the analysis yielded one cluster in the left-hemispheric PPA''
-\citep{haeusler2022processing};
-i.e. 9 + 1 left-hemispheric, 9 right-hemispheric.
-%
-Hence, we should have sampled response vector(s) that carry the spatial response
-information (if you know what I mean).
-
-Template from \citet{jiahui2020predicting}: ``We found more reliable estimates
-using the dynamic localizer than the static localizer, consistent with previous
-reports on the increased power of dynamic localizers (Fox et al., 2009; Pitcher
-et al., 2011).
-%
-The maps show that the dynamic localizer better maps face-selectivity in lateral
-temporal and prefrontal cortices, and that this is captured well by the
-movie-viewing derived transformations.
-%
-We would predict that the studyforrest data also could reveal this more
-extensive face-selectivity map with high fidelity if dynamic localizer data were
-available in those subjects.
-%
-The variable results with different localizers indicate that no localizer should
-be considered the “ground truth”.
-%
-Furthermore, the responsivity of the network defined by “face selectivity” also
-encompasses modulation of responses to nonface information related to the
-animacy continuum [Connolly et al., 2012, 2016; Çukur et al., 2013; Sha et al.,
-2014; Thorat et al., 2019], biological motion [Beauchamp et al., 2003; Bonda et
-al., 1996; Çukur et al., 2013; Gobbini et al., 2007; Grossman and Blake, 2002],
-social interaction [Castelli et al., 2002; Çukur et al., 2013; Gobbini et al.,
-2007; Schultz et al., 2003], and agentic behavior [Gobbini et al., 2011; Nastase
-et al., 2017], suggesting that the ground truth for the functional selectivity
-of the system identified by face-selectivity may extend well beyond
-face-selectivity per se.
-%
-Thus, any functional localizer can provide only an imprecise estimate of a
-topography whose function is only partially defined''
-\citep{jiahui2020predicting}.
-
-Template from \citet{jiahui2022cross}:
-%
-``The four datasets in our study included two types of category-selective
-localizers (dynamic and static).
-%
-The dynamic localizer used short video clips for each category and the
-traditional static localizer used still images.
-%
-For all categories, the dynamic localizer elicited stronger and broader
-category-selective activations than the static localizer, and the searchlight
-analysis showed that the dynamic localizer had higher reliabilities across the
-cortex, especially in regions that were selectively responsive to the target
-category.
-%
-Due to differences between topographies activated by the dynamic and the static
-localizers, predictions across localizer types generated lower correlations than
-those within localizer types.
-%
-For example, for the face-selective topographies, the dynamic localizer
-activated more areas than the static localizer (e.g., in superior temporal and
-frontal cortices).
-%
-In the ventral temporal cortex, especially in the right hemisphere, both dynamic
-and static localizers performed well in the cross-localizer-type predictions.
-%
-But in cortical areas where the static localizer did not match the dynamic
-localizer, predictions from the same dynamic localizer always outperformed the
-predictions from a different static localizer (Figure S6 \& S8).
-%
-The low correlations were not because the prediction method failed but reflected
-the difference in the topographies activated by different types of localizers.
-%
-In summary, our study demonstrated that accurate predictions of individualized
-category-selective topographies can be achieved with high fidelity using CHA
-across different naturalistic movie contents, across different scanners, and
-across different scanning parameters'' \citep{jiahui2022cross}.
 
 
 \subsection{Caveats of naturalistic stimuli}
