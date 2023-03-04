@@ -104,26 +104,18 @@ code, analysis steps, and results are published as version-controlled DataLad
 
 
 \section{Open Science}
-%
-Following the practices of open and reproducible science was not mandatory for
-submitting the thesis but required additional work and time.
+
 %
 ``Open and reproducible research means you need to guarantee the accuracy of the
 methods used and to explicitly describe and document all stages of the
 scientific process to ensure its transparency and traceability''.
-%
-Standards to follow are not yet fully established and corresponding software
-tools are still emerging.
-%
-Since the best practices are not yet part of a graduate or PhD curriculum,
-learning about the principles and standards and applying the corresponding
-procedures and necessary tools was based on self-initiative and self-learning.
+
 %
 Over the course of the present project, affected stages were
 % data-related
-a) acquiring open data and assessing their quality,
+a) acquiring open data (assessing their quality, processing it),
 %
-b) collection, description and storage of data,
+b) providing open data (collect or create, description and storage of data),
 %
 c) automatize all that shit (processing and analyzing data) via code,
 % publishing shit
@@ -131,106 +123,63 @@ d) publication of data, materials and results.
 
 
 
-\subsection{Acquiring open data and assessing their quality}
+\subsection{Acquiring open data}
 
-\todo[inline]{Why was is good for you that the data were already existing?}
 
-\todo[inline]{imo, irrelevant in my case: participants' consent, anonymization,
+\subsubsection{Definition of "open data"}
+
+\todo[inline]{Define open data here (includes preprocessed data \& results)}
+
+find, download, assess quality
+
+\subsubsection{Example: Data for PPA study}
+
+% skipped work
+On the one hand, the availability of the \ac{fmri} data and the subject-specific
+\acp{roi} enabled us to shift our focus from acquiring the raw data to
+subsequent stages of a research project.
+
+% example of skipped work
+For example, the annotations \citep{haeusler2016cutanno} that were created in a
+"general purpose state" could be extended immediately to match the needs of
+\citep{haeusler2022processing}, followed by writing the scripts that
+preprocessed and statistically analyzed the data.
+%
+For me, it was not "3rd party" data but I was involved in the data collection
+process and hence somewhat familiar with the data (provenience, location,
+quality, accessibility, storage format, performed preprocessing steps).
+
+\todo[inline]{not relevant in my case: participants' consent, anonymization,
 most legal issues}
 
+\subsubsection{Example: analyses in voxel space \&  missing ROIS of RSC \& OPA}
 
+More an issue, when data have been preprocessed (more decisions were made) or in
+case of results.
 
-\todo[inline]{Opportunity costs: analyzes in \citet{sengupta2016extension} were
-performed and \acp{roi} published in voxel-space (i.e., not surface-space)}
-
-
-\subsubsection{Pros from perspective of consumers}
-
-\todo[inline]{following needs revision but general train of thought should be
-clear}
-
+We focussed on the \ac{ppa}.
 %
-From the perspective of reader, open access journals provides low-cost access to
-information.
-% readers get a better understanding
-A ``transparent and complete reporting of all facets of a study, allowing a
-critical reader to evaluate the work and fully understand its strengths and
-limitations'' \citep{nichols2017best}.
-%
-It helps readers to take a look at the methods in more detail it is conveyed in
-a often limited method section of a regular study.
-%
-``This also facilitates subsequent research efforts by other investigators, who
-can exactly follow (or carefully manipulate) each aspect of a study''
-\citep{nichols2017best}.
-%
-Open materials facilitate tracking (and understanding!) the process (esp.
-analyzes) in detail (pipelines are often far easier to understand by reading the
-code step-by-step than just reading the method section).
-%
-Interesting to students how can not just read a method section but also take a
-look at the code and follow step by step every command.
-%
-Fully transparent studies that also include the input data can serve as an
-``education playground'' by enabling (undergraduate) student to trace the
-progress of real world project, to learn coding and data analysis.
-%
-Open data provide groups that enjoy minor funding low-threshold access to
-datasets.
-%
-While open data helps researchers to shift time and resources from data
-collection to subsequent stages of a study, share code helps researchers adjust
-and extent the analysis pipeline as part of an exploratory data analysis.
-
-
-\subsubsection{Cons from perspective of consumers}
-
-% avoid "the bigger, the better" and "garbage in, garbage out"
-An mostly not explicitly stated issue in the context of open science is that
-standards (quality, formats, parameters) and open sciences practices (e.g.,
-documenting) might vary across scientific field, or within scientific fields
-depending on a working group's knowledge and rigor.
-% check the data
-Dataset consumers need to assume that everything that is not explicitly stated
-in the description of a dataset has not been considered and done by a dataset's
-creator.
-% laugh with many, don't trust any
-Even if the data a from a renowned source, researchers should consider
-themselves to be obliged to test and validate a dataset's quality according to
-their standards and specific use cases.
-
-
-\subsubsection{Opportunity costs: missing ROIS of RSC \& OPA}
-
-\todo[inline]{does it make sense to talk about "missing" \acp{roi} of RSC and
-OPA at all?}
-
-\todo[inline]{a short version could simply state "it would be fucking awesome to
-perform a follow-up study that investigates \ac{rsc}, \ac{opa}; most text is
-simply a template to be summarized}
-
-%
-``Apart from the PPA, results show significantly increased activity in the
-ventral precuneus and posterior cingulate region (referred to as ``retrosplenial
-complex'', RSC) of the medial parietal cortex, and in the superior lateral
-occipital cortex (referred to as ``occipital place area'', OPA) for both
-naturalistic stimuli.
 % RSC intro
 Like the PPA, the RSC and OPA have repeatedly shown increased hemodynamic
 activity in studies investigating visual spatial perception and navigation
 \citep{chrastil2018heterogeneity, bettencourt2013role, dilks2013occipital,
 epstein2019scene}'' \citep{haeusler2022processing}.
-
+%
+``We (and Sengupta) chose the PPA among three possible candidates
+because it was the first area to be discovered as a visual ``scene-selective''
+region, is the most reliably activated region across studies that investigate
+visual scene perception'' [response to reviewer \#2].
 %
 In the progress of conducting study 2, ``we assumed that results (at least of
 the audio-visual stimulus) could also yield significant clusters in the
 retrosplenial complex (RSC) and superior lateral occipital cortex (i.e.
 “occipital place area”, OPA) but did not explicitly hypothesize that fact''.
 %
-``We (and Sengupta) chose the PPA among three possible candidates
-because it was the first area to be discovered as a visual ``scene-selective''
-region, is the most reliably activated region across studies that investigate
-visual scene perception'' [response to reviewer \#2].
+``Apart from the PPA, results show significantly increased activity in the
+ventral precuneus and posterior cingulate region (referred to as ``retrosplenial
+complex'', RSC) of the medial parietal cortex, and in the superior lateral
+occipital cortex (referred to as ``occipital place area'', OPA) for both
+naturalistic stimuli.
 
 %
 ``Whereas the PPA is assumed to be more involved in landmark recognition by
@@ -268,14 +217,43 @@ coverage of mask for functional areas \citet{sengupta2016extension}, and the
 non-algorithmic procedure of \citet{sengupta2016extension} based on subjective
 decision that is hard to replicate \& to amply to the other functional areas
 \citep[cf. algorithmic procedure in, e.g.,][]{julian2012algorithmic}.
+
+
+
+\subsubsection{Pro's \& Con's}
+
+
+\paragraph{Pros from perspective of consumers}
+
 %
-In summary: everything that is not 100\% automatized is not 100\% reproducible,
-sadly because automatization takes a long time for some stuff or is not possible
-for some stuff.
+Open data low-threshold access to datasets, especially fruitful for research
+groups that enjoy minor funding but also students that can learn hands-on using
+"real world data".
+%
+Open data helps researchers to shift time and resources from data collection to
+subsequent stages of a study; or evaluate data quality given the decisions,
+parameters made during the data collection, or just run proof-of-concept before
+collection their own data.
 
 
+\paragraph{Cons from perspective of consumers}
 
-\subsubsection{Tell me about opportunity costs without saying opportunity costs}
+% avoid "the bigger, the better" and "garbage in, garbage out"
+An mostly not explicitly stated issue in the context of open science is that
+standards (quality, formats, parameters) and open sciences practices (e.g.,
+documenting) might vary across scientific field, or within scientific fields
+depending on a working group's knowledge and rigor.
+% check the data
+Dataset consumers need to assume that everything that is not explicitly stated
+in the description of a dataset has not been considered and done by a dataset's
+creator.
+% laugh with many, don't trust any
+Even if the data a from a renowned source, researchers should consider
+themselves to be obliged to test and validate a dataset's quality according to
+their standards and specific use cases.
+
+
+\paragraph{Conclusion (= consider opportunity costs)}
 
 % problem of preprocessed data
 Moreover, choices made during data collection and preprocessing -- despite being
@@ -287,36 +265,33 @@ preprocessing the same data differently than the preprocessing performed as part
 of an open dataset) relative to an alternative path (e.g., using the
 preprocessed data and performing new analyses), and choose the path with the
 greater net return.
+%
+Anything that is not 100\% automatized is not 100\% reproducible, hard to
+extend, sadly because automatization takes a long time for some stuff or is not
+possible for some stuff.
+
+
+\subsection{Providing open data}
+
+"It is more blessed to give than to receive"
+%
+In the context of open data, data are not collected for mere internal purposes
+but also collected, described, stored for re-use by third parties which needs to
+be considered.
 
 
 
-\subsection{Collection, description and storage of data}
-
+\subsubsection{Example: Annotation}
 % additional effort 1
-Pursuing the goal of creating a publication-worthy dataset led to additional
-work that goes far beyond the work that was necessary to build the \ac{glm} in
-study 2.
+Pursuing the goal of creating a publication-worthy annotation of speech in
+\citep{haeusler2021speechanno} as dataset led to additional work that goes far
+beyond the work that was necessary to build the \ac{glm} in
+\citep{haeusler2022processing}.
+
 % additional effort 2
 The published annotation provides, among others, time-stamps of phonemes, words
 and sentences of all speakers, a grammatical tagging, and an annotation of
 syntactic dependencies and semantics.
-
-% skipped work
-On the one hand, the availability of the \ac{fmri} data and the subject-specific
-\acp{roi} enabled us to shift our focus from acquiring the raw data to
-subsequent stages of a research project.
-% example of skipped work
-For example, the annotations that were created in a "general purpose state"
-could be extended immediately to match the needs of study 2, followed by writing
-the scripts that preprocessed and statistically analyzed the data.
-% additional work
-On the other hand, pursuing the goal of an open science project lead to
-additional work.
-% example of additional work
-For example, code needed to be in a state worthy to be published and documented
-for other readers, analyses pipelines needed to be in a state to be automatized,
-every processing step documented, saved, protocolled, and shared to allow
-reproducibility of results and facilitate replicability of finding.
 
 %
 In summary, the annotation provides extensive information about the time course
@@ -326,99 +301,21 @@ aspects of spoken language ranging from a speaker's identity, to phonetics,
 grammar, syntax, and semantics'' \citep{haeusler2021speechanno} under more
 real-life like conditions.
 %
+Therefor, it's an exhaustive annotation of speech that substantially exceeds the
+groundwork necessary to conduct study \citep{haeusler2022processing} in order to
+extend the studyforrest dataset as a public resource for independent research.
+
+%
 Consequently, the outcome of study 1 contributes to the studyforrest project as
 a resource for the scientific community by further widening the ``annotation
 bottleneck'' \citep{aliko2020naturalistic} of two naturalistic stimuli.
 
 
-% results
-Our results have been published in a peer-reviewed, open-access journal
-%
-``offer evidence that a model-driven GLM analysis based on annotations can be
-applied to a naturalistic paradigm to localize concise functional areas and
-networks correlating with specific perceptual processes''
-\citep{haeusler2022processing},
-%
-``demonstrate that increased activation in the PPA during the perception of
-static pictures generalizes to the perception of spatial information embedded in
-a movie and an exclusively auditory stimulus \citep{haeusler2022processing}, and
-%
-``provide further evidence that the PPA can be divided into functional
-subregions that coactivate during the perception of visual scenes''
-\citep{haeusler2022processing}
 
-% conclusion
-In summary, we re-used existing data as a foundation for a new investigation in
-order to generate novel findings encourage further studies, and illustrate the
-benefits of publicly and freely available datasets.
+\subsubsection{Pros \& Cons}
 
 
-%
-In the context of open data, data are not collected for mere internal purposes
-but re-use by third parties needs to be considered.
-%
-Hence, dataset creators need to anticipate which people might use the data for
-which purpose, collect the data according to best practices, convert data into a
-standardized format (considering, e.g., naming conventions, folder structure,
-separating raw from analyzed data), and create metadata.
-
-% data analysis & automatization
-The data, materials and code need to be documented more rigorously, and coverage
-of procedures need to exceed the coverage given in method sections of regular
-articles.
-%
-Every change made to data, materials or code, and command line invocations need
-to be tracked via a version control system \citep[e.g.,][]{halchenko2021datalad}
-to allow other researchers to inspect a study's full history.
-%
-In order to allow reproducibility from input data, changes made to the data, to
-computation and visualization of results, every processing step needs to be
-designed and tested to be run reliably and automatically.
-
-% publication: findable, accessible, interoperable, reusable
-In the stage of preparing a publication, a researcher needs to facilitate
-discovery by humans and web bots (e.g., via extensive description and
-machine-readable metadata), ensure long-term curation [e.g., maintenance],
-availability [e.g., accessibility], and choose an appropriate data host.
-% legal issues
-Finally, a researcher need to resolve legal issues that raise during due to the
-publication of data, materials and code (e.g. statement of agreement / consent,
-anonymization, intellectual property rights, use license).
-
-
-\subsubsection{Cons from perspective of creators}
-% jeez! it's annoying!
-In general, creating open data, materials and code requires a considerable about
-of time and effort with little incentives and little, immediate rewards.
-%
-Publishing data (or merely using open data) is associated with the risk that
-other working groups, possibly having more funding and ``people and brain
-power'' at disposal, are using the same data for a similar research question at
-the same time.
-%
-Hence, there is the concern that someone else might ``claim priority, usually
-through publishing, to a research idea or result you yourself have been working
-on'' \citep{laine2017afraid}.
-%
-On the one hand, being second in the ``competitive race in the sciences'' leads
-to diminished opportunities to publish own results because high impact journals
-favour novel findings.
-%
-The risk, and therefore stress, is aggravated in case of researchers that are
-early in their scientific career \citep[cf.][]{toribio2021early}, created and
-curate the published dataset, pre-registered studies based on open data, or have
-to stick to inflexible project plans.
-%
-On the other hand one advantage of publishing a dataset with an assigned DOI is
-that it might get re-used and cited in another study.
-%
-In case of a dataset creator's fear of being superseded / outrun, ``concerns can
-be alleviated by delaying the sharing or using a data-sharing repository with an
-embargo period'' \citep{nichols2017best}.
-
-
-
-\subsubsection{Pros from perspective of creators}
+\paragraph{Pros from perspective of creators}
 
 % better organized, better documented
 An immediate benefit of following the principles of a reproducible study is that
@@ -447,30 +344,143 @@ Last, automating recurring tasks gives yourself the possibility of reusing
 certain data, code, documents, etc. in the future.
 
 
+\paragraph{Cons from perspective of creators}
+
+%
+Hence, dataset creators need to anticipate which people might use the data for
+which purpose, collect the data according to best practices, convert data into a
+standardized format (considering, e.g., naming conventions, folder structure,
+separating raw from analyzed data), and create metadata.
+
+% data analysis & automatization
+The data, materials and code need to be documented more rigorously, and coverage
+of procedures need to exceed the coverage given in method sections of regular
+articles.
+
+Data need to be of quality and in a state worthy to be published and documented
+for other readers, analyses pipelines needed to be in a state to be automatized,
+every processing step documented, saved, protocolled, and shared to allow
+reproducibility of results and facilitate replicability of finding.
 
 
-\subsection{Automatize all that shit: processing \& analyzing data via code}
+% jeez! it's annoying!
+In general, creating open data, materials and code requires a considerable about
+of time and effort with little incentives and little, immediate rewards.
+
+
+%
+Publishing data (or merely using open data) is associated with the risk that
+other working groups, possibly having more funding and ``people and brain
+power'' at disposal, are using the same data for a similar research question at
+the same time.
+%
+Hence, there is the concern that someone else might ``claim priority, usually
+through publishing, to a research idea or result you yourself have been working
+on'' \citep{laine2017afraid}.
+%
+On the one hand, being second in the ``competitive race in the sciences'' leads
+to diminished opportunities to publish own results because high impact journals
+favour novel findings.
+%
+The risk, and therefore stress, is aggravated in case of researchers that are
+early in their scientific career \citep[cf.][]{toribio2021early}, created and
+curate the published dataset, pre-registered studies based on open data, or have
+to stick to inflexible project plans.
+%
+On the other hand one advantage of publishing a dataset with an assigned DOI is
+that it might get re-used and cited in another study.
+%
+In case of a dataset creator's fear of being superseded / outrun, ``concerns can
+be alleviated by delaying the sharing or using a data-sharing repository with an
+embargo period'' \citep{nichols2017best}.
+
+
+
+\subsection{Providing code \& Automatize everything}
+
+
+Open access packages, transparency, reproducibility, avoid creating a "paywall"
+for processing open data (turning that shit ad absurdum)
+
+
+
+Code need to be of quality and in a state worthy to be published and documented
+for other readers, analyses pipelines needed to be in a state to be automatized,
+every processing step documented, saved, protocolled, and shared to allow
+reproducibility of results and facilitate replicability of finding.
+
+Automatization of downloading, processing \& analyzing, creating figures,
+results.
+
+
+
+
+
+\subsubsection{Example: from basic python to neuroscience-specific packages}
+
+
+
+Python, NumPy, Brainiak, NiLearn...
+%
+Shared code (analyses-pipelines) helps researchers adjust
+and extent the analysis pipeline as part of an exploratory data analysis.
+
+\subsubsection{Pro's \& Con's}
 
 Often forgotten, but open-source packages were prerequisite and done by others
 "that like to share".
 
-
-\paragraph{personal whining}
-
-\todo[inline]{Retrospectively, I cannot remember one clear case which made me
-glad having documented, version-controlled, and automatized stuff; maybe,
-materials are a little better organized or my code was a little better to grasp
-after not having taken a look at it for a longer time...}
+\paragraph{Contra}
 
 %
-This can get super fucking annoying in case of automatized creation of (complex)
-figures from numeric results without final editing of the figure by a human.
-Jeez! Fuck me sideways!
+In order to allow reproducibility from input data, changes made to the data, to
+computation and visualization of results, every processing step needs to be
+designed and tested to be run reliably and automatically.
 
+%
+Every change made to data, materials or code, and command line invocations need
+to be tracked via a version control system \citep[e.g.,][]{halchenko2021datalad}
+to allow other researchers to inspect a study's full history.
+
+
+\paragraph{Pro}
+
+Similarly, the extra time and effort spend on inspecting data and testing code
+leads to higher confidence in one's own work and the reliability of results.
+%
+Second, a researcher who records all changes to data and code from the start to
+the final results can restore a particular state of data and code and trace,
+identify and correct errors more easily [similar: Klein, 2018. A practical guide
+for transparency in psychological science].
+%
+Third, tracking and documenting every step increases reliability of results and
+can be seen as a "lab protocol" containing information / templates for writing
+scientific articles.
+%
+Last, automating recurring tasks gives yourself the possibility of reusing
+certain data, code, documents, etc. in the future.
+
+
+\subsubsection{Pros \& Cons}
 
 
 \subsection{Publication of data, materials and results}
 
+\subsubsection{Definition of open access}
+
+% publication: findable, accessible, interoperable, reusable
+In the stage of preparing a publication, a researcher needs to facilitate
+discovery by humans and web bots (e.g., via extensive description and
+machine-readable metadata), ensure long-term curation [e.g., maintenance],
+availability [e.g., accessibility], and choose an appropriate data host.
+% legal issues
+Finally, a researcher need to resolve legal issues that raise during due to the
+publication of data, materials and code (e.g. statement of agreement / consent,
+anonymization, intellectual property rights, use license).
+
+
+
+\subsubsection{Example from present thesis}
 
 \todo[inline]{choosing the data host was easy because filtered based on DataLad
 support (and Michael knows everything anyway)}
@@ -478,21 +488,83 @@ support (and Michael knows everything anyway)}
 \todo[inline]{mention "open paper"? speech anno paper is on github;
 ppa paper is not a public github repository (yet)}
 
+% results
+Our results have been published in a peer-reviewed, open-access journal
+%
+``offer evidence that a model-driven GLM analysis based on annotations can be
+applied to a naturalistic paradigm to localize concise functional areas and
+networks correlating with specific perceptual processes''
+\citep{haeusler2022processing},
+%
+``demonstrate that increased activation in the PPA during the perception of
+static pictures generalizes to the perception of spatial information embedded in
+a movie and an exclusively auditory stimulus \citep{haeusler2022processing}, and
+%
+``provide further evidence that the PPA can be divided into functional
+subregions that coactivate during the perception of visual scenes''
+\citep{haeusler2022processing}
+
+% conclusion
+In summary, we re-used existing data as a foundation for a new investigation in
+order to generate novel findings encourage further studies, and illustrate the
+benefits of publicly and freely available datasets.
+
+
+
+\subsubsection{Pros \& Cons}
+
+
+\paragraph{Cons}
+
+
+
+\paragraph{Pros}
+
 \todo[inline]{My super interesting papers might get cited more often because,
 yeah, open access that gets, on average, cited more often [REFERENCE?]}
-%
+
+\todo[inline]{compare that to papers that do not share code}
+
+\todo[inline]{better understanding (than from a method section), step-by-step
+guide; learning via reading or "trying it yourself"}
+
+
 ``greater potential impact of a work when it may be cited not just for its
 scientific findings but also when its data is reused in other works''
 \citep{nichols2017best}.
-%
-But this is no immediate benefit, and gambling (for the 20\% of PhD's that stay
-in science).
 
+
+
+%
+From the perspective of reader, open access journals provides low-cost access to
+information.
+% readers get a better understanding
+A ``transparent and complete reporting of all facets of a study, allowing a
+critical reader to evaluate the work and fully understand its strengths and
+limitations'' \citep{nichols2017best}.
+%
+It helps readers to take a look at the methods in more detail it is conveyed in
+a often limited method section of a regular study.
+%
+``This also facilitates subsequent research efforts by other investigators, who
+can exactly follow (or carefully manipulate) each aspect of a study''
+\citep{nichols2017best}.
+%
+Open materials facilitate tracking (and understanding!) the process (esp.
+analyzes) in detail (pipelines are often far easier to understand by reading the
+code step-by-step than just reading the method section).
+%
+Interesting to students how can not just read a method section but also take a
+look at the code and follow step by step every command.
+%
+Fully transparent studies that also include the input data can serve as an
+``education playground'' by enabling (undergraduate) student to trace the
+progress of real world project, to learn coding and data analysis.
 
 
 \subsection{Conclusions on open science}
 
-\subsubsection{It sucks hard (if you do it)}
+\subsubsection{Summary of my life's story}
 
 \todo[inline]{Caveat of data re-use: know your data! I could write that I pulled
 my hair out while searching for inconsistencies in the timings, and found that
@@ -506,6 +578,20 @@ adjusted accordingly; and I am so lucky that I could fall back on open data}
 
 \todo[inline]{it is/was somewhere between "stupid" and "brave" to mess with
 someone like Haxby's group; also, cf. "my precious" of Susanne and Lisa}
+
+
+
+%
+Following the practices of open and reproducible science was not mandatory for
+submitting the thesis but required additional work and time.
+
+%
+Standards to follow are not yet fully established and corresponding software
+tools are still emerging.
+%
+Since the best practices are not yet part of a graduate or PhD curriculum,
+learning about the principles and standards and applying the corresponding
+procedures and necessary tools was based on self-initiative and self-learning.
 
 %
 Great care was taken during the initial creation and subsequent iterative
@@ -534,6 +620,17 @@ also the raw data and documented code that can automatically be rerun step by
 step to reproduce the final outcome of both the annotation and its validation
 analysis, all freely accessible in a version-controlled dataset.
 
+%
+Automatization gets super fucking annoying in case of automatized creation of
+(complex) figures from numeric results without final editing of the figure by a
+human.  Jeez! Fuck me sideways!
+
+\todo[inline]{I cannot remember one clear case which made me
+glad having documented, version-controlled, and automatized stuff; maybe,
+materials are a little better organized or my code was a little better to grasp
+after not having taken a look at it for a longer time...}
+
+
 % no incentive
 ``Current incentives do not justify spending large amounts of time preparing
 data for sharing, as institutional promotion panels or grant reviewers currently
@@ -547,7 +644,10 @@ Lastly, I feel more confident about my work now compared to the dilettantish
 procedures experienced (and followed) in, uhm, another lab in Magdeburg.
 
 
-\paragraph{Questionable, immediate benefits}
+\paragraph{Questionable, immediate benefits; gambling}
+
+\todo[inline]{80\% of PhD students leave science anyway}
+
 %
 ``The weight that OS currently has for researchers’ career advancement is rather
 small, despite'' \citep{toribio2021early}.
@@ -562,9 +662,6 @@ there are few incentives from a career perspective to fully commit to OS''
 \citep{toribio2021early}.
 
 
-\paragraph{Gambling on long-term benefits}
-
-\todo[inline]{80\% of PhD students leave science anyway}
 %
 ``Thus, while conducting OS may initially require more work in the short term,
 it can greatly benefit one’s career in the long term'' \citep{toribio2021early}.
@@ -578,7 +675,7 @@ and increase the number of citations and the confidence that the field has in
 the findings [Popkin, 2019]'' \citep{toribio2021early}.
 %
 Currently, playing be the old rules is the ``smarter way'' than gambling getting
-cited when data or code get re-used.
+cited when data or code get re-used, imo.
 
 
 \subsubsection{But, probably, it needs to be done}
@@ -690,160 +787,48 @@ schemes and data-sharing plans [Neylon, 2017]'' \citep{toribio2021early}.
 %
 ``Compulsory requirements from funders, which might only lead researchers to
 show minimal compliance [Neylon, 2017]'' \citep{toribio2021early}.
-todo[inline]{This is supposed to be abstract}
 
 
 
-\section{Naturalistic stimuli as functional localizer?}
+\section{Discussion across studies}
 
 \todo[inline]{mih: aggregate across studies; show how things are connected}
 
-\todo[inline]{cf. 1.3.5}
+\todo[inline]{cf. 1.3 \& 1.3.5}
 
+\todo[inline]{This might be merged into "Naturalistic stimuli as functional
+localizer?" below}
 
-
-
-\subsection{Localizer is "ground truth"?}
-
-We estimate the $Z$-map of a visual localizer which is the fucking established /
-traditional method to identify the \ac{ppa}.
-%
-% localizer data
-\citet{sengupta2016extension} successfully delineated the left-hemispheric
-\ac{ppa} in 12 of 14 subjects and right-hemispheric \ac{ppa} in 14 of 14
-subjects based on localizer data.
-
-% usually, visual PPA works pretty well
-The visual \ac{ppa} can be reliably localized using a localizer, which is why we
-considered it to be the "gold standard" or benchmark.
-%
-However, ``the PPA definition may depend on the type of experiment, task, and
-stimuli used'' \citep{weiner2018defining}.
-
-%
-The primary movie contrast in \citet{haeusler2022processing} ``yielded bilateral
-clusters in five participants, a unilateral right cluster in six participants
-(of which one participant yielded a unilateral cluster in the visual localizer),
-and a unilateral left cluster in one participant. We find bilateral clusters for
-participant sub-20, whereas the block-design localizer yielded only one cluster
-in the right hemisphere'' \citep{haeusler2022processing};
-%
-i.e. 5 + 1  left-hemispheric, 5 + 6 right-hemispheric.
-%
-%
-The primary audio-description contrast in \citet{haeusler2022processing}
-``yielded bilateral clusters in nine participants that are within or overlapping
-with the block-design localizer results. In participant sub-04, two bilateral
-clusters are apparent, whereas block-design localizer, and movie stimulus
-yielded only one cluster in the right hemisphere.  For another participant
-(sub-09) the analysis yielded one cluster in the left-hemispheric PPA''
-\citep{haeusler2022processing};
-i.e. 9 + 1 left-hemispheric, 9 right-hemispheric.
-%
-Hence, we should have sampled response vector(s) that carry the spatial response
-information (if you know what I mean).
-
-Template from \citet{jiahui2020predicting}: ``We found more reliable estimates
-using the dynamic localizer than the static localizer, consistent with previous
-reports on the increased power of dynamic localizers (Fox et al., 2009; Pitcher
-et al., 2011).
-%
-The maps show that the dynamic localizer better maps face-selectivity in lateral
-temporal and prefrontal cortices, and that this is captured well by the
-movie-viewing derived transformations.
-%
-We would predict that the studyforrest data also could reveal this more
-extensive face-selectivity map with high fidelity if dynamic localizer data were
-available in those subjects.
-%
-The variable results with different localizers indicate that no localizer should
-be considered the “ground truth”.
-%
-Furthermore, the responsivity of the network defined by “face selectivity” also
-encompasses modulation of responses to nonface information related to the
-animacy continuum [Connolly et al., 2012, 2016; Çukur et al., 2013; Sha et al.,
-2014; Thorat et al., 2019], biological motion [Beauchamp et al., 2003; Bonda et
-al., 1996; Çukur et al., 2013; Gobbini et al., 2007; Grossman and Blake, 2002],
-social interaction [Castelli et al., 2002; Çukur et al., 2013; Gobbini et al.,
-2007; Schultz et al., 2003], and agentic behavior [Gobbini et al., 2011; Nastase
-et al., 2017], suggesting that the ground truth for the functional selectivity
-of the system identified by face-selectivity may extend well beyond
-face-selectivity per se.
-%
-Thus, any functional localizer can provide only an imprecise estimate of a
-topography whose function is only partially defined''
-\citep{jiahui2020predicting}.
-
-Template from \citet{jiahui2022cross}:
-%
-``The four datasets in our study included two types of category-selective
-localizers (dynamic and static).
-%
-The dynamic localizer used short video clips for each category and the
-traditional static localizer used still images.
-%
-For all categories, the dynamic localizer elicited stronger and broader
-category-selective activations than the static localizer, and the searchlight
-analysis showed that the dynamic localizer had higher reliabilities across the
-cortex, especially in regions that were selectively responsive to the target
-category.
-%
-Due to differences between topographies activated by the dynamic and the static
-localizers, predictions across localizer types generated lower correlations than
-those within localizer types.
-%
-For example, for the face-selective topographies, the dynamic localizer
-activated more areas than the static localizer (e.g., in superior temporal and
-frontal cortices).
-%
-In the ventral temporal cortex, especially in the right hemisphere, both dynamic
-and static localizers performed well in the cross-localizer-type predictions.
-%
-But in cortical areas where the static localizer did not match the dynamic
-localizer, predictions from the same dynamic localizer always outperformed the
-predictions from a different static localizer (Figure S6 \& S8).
-%
-The low correlations were not because the prediction method failed but reflected
-the difference in the topographies activated by different types of localizers.
-%
-In summary, our study demonstrated that accurate predictions of individualized
-category-selective topographies can be achieved with high fidelity using CHA
-across different naturalistic movie contents, across different scanners, and
-across different scanning parameters'' \citep{jiahui2022cross}.
-
+\todo[inline]{for now: structure, clean, shorten this part}
 
 
 \subsection{Speech anno}
+
+\todo[inline]{maybe, cite \citet{bartels2004mapping}, and a study that did GLM +
+naturalistic speech paradigm}
+
 % what we did in 1 sentence
-In study 1 \citep{haeusler2021speechanno}, we created and validated an
-annotation of speech occurring in the movie and its audio-description pursuing
-two goals.
-% aim #1: groundwork for PPA study
-The first aim was to build the groundwork that enabled us to conduct study 2.
-% aim #2: extend studyforrest
-The second aim was to create an exhaustive annotation of speech that
-substantially exceeds the groundwork necessary to conduct study 2 in order to
-extend the studyforrest dataset as a public resource for independent research.
-
-
-\subsubsection{Discussion of speech anno}
-
+In \citep{haeusler2021speechanno}, we created and validated an annotation of
+speech occurring in the movie and its audio-description.
 % validation analysis
-We validated the annotation's quality in study 1 and performed a canonical
-\ac{glm} analysis by contrasting regressors correlating with speech-related
-events to a regressor correlating with events without speech.
+We validated the annotation's quality \citep{haeusler2021speechanno} and
+performed a canonical \ac{glm} analysis by contrasting regressors correlating
+with speech-related events to a regressor correlating with events without
+speech.
 % results
 As hypothesized, results revealed statistically significant increased
 hemodynamic activity in a bilateral cortical network known to be involved in the
 perception of speech \citep[e.g.,][]{friederici2011brain, wilson2008beyond}.
+
 % conclusion
-These results encouraged us to a) use the annotation as the groundwork for study
-2, b) publish the annotation as an extension of the studyforrest project.
+These results (group-level) encouraged us to a) use the annotation as the
+groundwork for \citep{haeusler2022processing}, b) publish the annotation as an
+extension of the studyforrest project.
 
 
 \subsection{PPA paper}
 % study in one sentence
-The goal of study 2 \citep{haeusler2022processing} was to explore whether an
+The goal \citep{haeusler2022processing} was to explore whether an
 audio-visual and an exclusively auditory naturalistic stimulus could be used in
 order to localize the \ac{ppa} as it was previously identified in the same set
 of participants by a traditional block-design functional localizer that employed
@@ -887,7 +872,7 @@ diagnostic procedure to assess brain functions in visually impaired individuals
 
 \subsubsection{Future studies: PPA}
 
-\todo[inline]{mih: worth stating again somehere in the discussion that the
+\todo[inline]{mih: worth stating again somewhere in the discussion that the
 studyforrest dataset is not for this (diverse), but it is a small dataset, which
 limits the generality}
 
@@ -898,9 +883,10 @@ properties of the \ac{ppa}.
 First, the responses correlating with an auditory stimulation are spatially
 restricted to the anterior \ac{ppa}, and
 %
-Second, we observed higher intersubject variability of responses of the \ac{ppa}
-to a naturalistic auditory stimulation compared to the visual stimulation during
-the localizer and movie paradigm.
+Second, we observed higher intersubject variability  of responses of the
+\ac{ppa} to a naturalistic auditory stimulation [because the reliability across
+segments sucks] compared to the visual stimulation during the localizer and
+movie paradigm.
 
 
 \paragraph{Just anterior PPA during auditory stimulation}
@@ -910,7 +896,7 @@ Previous studies in the field of visual perception suggest that the \ac{ppa} can
 be divided into functionally subregions that might process different stimulus
 features.
 
-\todo[inline]{paraphrase stuff from paper here}
+\todo[inline]{paraphrase quotes}
 
 %
 Hence, we attributed the revealed pattern to different features inherent in the
@@ -928,7 +914,7 @@ investigate in detail whether the observed differential activations during
 visual and auditory stimulation are replicable.
 
 
-\paragraph{Interindividual variability in response to auditory stimulation}
+\paragraph{Reliability of audio-description as localizer}
 
 % statement
 On an individual-level, we observed higher intersubject variability of responses
@@ -936,38 +922,17 @@ of the \ac{ppa} to a naturalistic auditory stimulation compared to the
 audio-visual movie and visual localizer paradigms \citep[cf. Table 3
 in][]{sengupta2016extension}.
 % not necessarily noise
-However, the divergent pattern from the group mean in four of fourteen
-individuals should not necessarily be interpreted as measurement errors,
-artefacts, or ``random noise'' \todo{choose just one term} but could also be
-attributed to individual differences in responses to the task free, auditory
-paradigm.
-%
 Our naturalistic auditory paradigm differs from block-design localizer paradigms
 not just in the exclusively auditory stimulation but also in the accidental,
 event-like presentation of spatial information, and the absence of a task which
 leaves study participant naive to the investigated cognitive process.
 
-
-\paragraph{Possibly correlated factors}
-
-\todo[inline]{rephrase in a "readable" (but still preliminary) way}
-
-``consistent with previous reports showing significant differences between
-topographies estimated by static and dynamic localizers, especially in superior
-temporal and frontal cortices (Fox et al., 2009; Pitcher et al., 2011)''
-\citep{jiahui2022cross}.
-
 %
-The revealed pattern could correlated with [influenced by] situational factors
-like the experimental design (stimulus type, no task), (transient) state of a
-participant (e.g., alertness or engagement),  our simply our ``adventurous''
-modeling approach[?].
-%
-\todo{well...}
-%
-More stable factors might be individual differences in cognitive tendencies or
-cognitive abilities like susceptibility / predisposition [?] to attend to, [or]
-recognize [or process] auditory spatial information.
+Reliability could be influenced by uncontrolled situational factors like the
+experimental design (stimulus type, no task), (transient) state of a participant
+(e.g., alertness or engagement),  our simply our ``adventurous'' modeling
+approach[?].
+
 % Conclusion
 Future studies could employ both controlled and naturalistic stimuli to
 investigate whether our results that revealed higher intersubject variability in
@@ -975,220 +940,292 @@ response to auditory spatial information are a) replicable across different
 experiments and paradigms, and b) reliable within subjects.
 
 
-\paragraph{Brain \& behavior: intro to "fingerprints"}
-
-\todo[inline]{following is pretty speculative 'cause reliability of differences
-is premise for "fingerprints"; hence, just a draft; does it make sense to
-discuss it?}
-
-% kanai
-In case the pattern is stable within individual subjects / is ``highly
-consistent across different sessions [or experiments], then they are
-characteristics of the individuals and may reflect differences in their brain
-function'' \citep{kanai2011structural} [on structural diffences].
-%
-``Individual differences in topology (i.e. location, size, shape of functional
-areas) and the activity within functional areas can also be considered to be
-interesting cases of inter-individual variability to understand the neural basis
-of human cognition and behavior, brain-phenotype relationships'', and ``present
-useful phenotypes or biomarkers \citep{glasser2016multi,
-vanhorn2008individual}''
-%
-\todo{paraphrase}
-
-\paragraph{Brain \& behavior: example studies}
-
-\todo[inline]{shorten heavily or drop altogether}
-
-\todo[inline]{cf. also \citep{gordon2017individual, gordon2017precision}}
-%
-For example, \citet{kong2019spatial} suggested based on resting-state functional
-connectivity measures ``that individual-specific network topography (i.e.,
-location and spatial arrangement) might serve as a fingerprint of human behavior
-that can predict behavioral phenotypes across cognition, personality, and
-emotion'' \citep{kong2019spatial} [with modest accuary, comparable to previous
-reports predicting phenotypes based on connectivity strength].
-
-%
-\citep{bijsterbosch2018relationship}'s ``results indicate that spatial variation
-in the topography of functional regions across individuals is strongly
-associated with behaviour'' \citep{bijsterbosch2018relationship}.
-%
-\citet{bijsterbosch2018relationship} found ``that the spatial arrangement of
-functional regions is strongly predictive of non-imaging measures of behavior
-and lifestyle'' [however shape \& exact location of brain regions interacted
-strongly with  modeling of brain connectivity].
-%
-\citet{bijsterbosch2018relationship} found ``that individual differences in the
-size, shape and exact position of the brain regions [as identified by
-resting-state functional connectivity measures] was strongly linked to
-individual differences in behavioral tests and questionnaires [including
-intelligence, life satisfaction, drug use and aggression problems]''
-\citep{bijsterbosch2018relationship}.
-
-%
-``The variations in spatial topographical features captured a more direct and
-unique representation of subject variability than temporal correlations between
-regions defined by group parcellation approaches (coupling).
-%
-Hence, the cross-subject information represented in commonly adopted
-'connectivity fingerprints' could largely reflect spatial variability in the
-location of functional regions across individuals, rather than variability in
-coupling strength (at least for methods that directly map group-level
-parcellations onto individual data)'' \citep{bijsterbosch2018relationship}.
-
-\todo[inline]{drop following paragraph; just here to better understand paragraph
-above}
-%
-``Depending on the employed spatial alignment algorithm and the amount of
-removed spatial intersubject variability, the degree to which spatial
-information may influence FC estimates possibly varies considerably across
-studies.
-%
-In recent years, significant efforts have gone into the methods that more
-accurately estimate the spatial location of functional parcels in individual
-subjects [Chong et al., 2017; Glasser et al., 2016; Gordon et al., 2016; Hacker
-et al., 2013; Harrison et al., 2015; Varoquaux et al., 2011; Wang et al., 2015],
-and into advanced hyperalignment approaches [Chen et al., 2015; Guntupalli et
-al., 2016; Guntupalli and Haxby, 2017]'' \citep{bijsterbosch2018relationship}.
-
 
 \subsubsection{Conclusion on future PPA studies}
 
-\todo[inline]{draft; clean \& rephrase!}
+
+\todo[inline]{imo, RSC and OPA do not need to be discussed in general
+discussion (it's mentioned in the paper, and discussed in "open science"
+regarding opportunity costs)}
+
 %
-In summary, our results invite further studies that investigate the properties
-of the parahippocampal area in response to
+Our results invite further studies that investigate the properties of the
+parahippocampal area in response to
 %
-a) in response to an auditory naturalistic stimulation (with or without a
+a) in response to a controlled paradigm (with or without any task).
+%
+b) in response to an auditory naturalistic stimulation (with or without a
 simultaneous task to attend to spatial information, or with subsequent memory
 task),
 %
-b) in response to a controlled paradigm (with or without any task).
+The respective paradigms could elaborate whether
 %
-The respective paradigms could elaborate whether interindividual variability of
-responses in the parahippocampal area is related to cognitive processes like
-``auditory scene perception'' [is that a valid term?], and to degree auditory
-spatial information is utilized for, e.g., spatial orientation, way finding or
-[planing, remembering, executing] navigation.
-
-
-\subsubsection{Future studies: other scene-selective areas}
-
-\todo[inline]{imo, RSC and OPA do not need to be discussed in general
-discussion; could be shortly discussed in "open science in general" (->
-opportunity costs)}
-
-
-\subsubsection{Future studies: other functional areas (studyforrest dataset)}
-
-\todo[inline]{imo, a side note; not necessarily needed to be discussed; hence,
-draft}
-
-The visual localizer performed by \citet{sengupta2016extension} employed images
-from six categories (houses, landscapes, faces, bodies without heads, small
-objects, and scrambled images).
+a) anterior PPA is also the case in controlled paradigms
 %
-As a results, the corresponding dataset provides subject-specific \acp{roi}
-masks for higher visual areas besides the \ac{ppa}:
-%
-the fusiform face area (FFA) \citep{kanwisher1997ffa} and the occipital face
-area (OFA) \citep{pitcher2011occipitalfacearea},
-%
-the extrastriate body area (EBA) \citep{downing2001bodyarea},
-%
-and the lateral occipital complex (LOC) \citep{malach1995loc}.
-%
-Future studies (e.g., a master's thesis or part of a PhD project) could adjust
-our extension of the annotation of speech created in study 2 and the
-corresponding analysis pipeline in order to explore hemodynamic responses
-correlating with auditory information related to faces, body parts or small
-objects.
-
+b) reliability can be increased by sampling more events in less time (fatigue),
+improve modeling, control for alertness.
 
 
 
 
 \subsection{SRM study}
 
-\todo[inline]{following parts are an old draft}
+\todo[inline]{cf. discussion of SRM part (when that version is final)}
 
-\subsubsection{Transition from study 2 to study 3}
+\citet{haeusler2022processing} suggest:
+
+
+% summary of study 2
+Results of \citet{haeusler2022processing}  suggest that a naturalistic stimulus
+might provide an engaging, task-free paradigm to localize brain functions in
+individual subjects.
 %
-Despite exploratory approach in study 2 (a.k.a. shitty modeling of subjectively
-assessed events), results suggest:
+But results are far from perfect and won't substitute the localizer.
+
+
 %
-the response to spatial information must be somewhere in within the response
-time series and is detectable.
+Still, modeling hemodynamic responses to annotated stimulus features detected
+responses correlated to auditory spatial information (in the PPA).
 %
-Hence, we might be able to use the response patterns measured during the
+Hence, the audio-description samples response vectors that might be consistent
+across subjects and "catchable" for a \ac{srm}.
+%
+We might be able to use the response patterns measured during the
 presentation of the audio-description in order to generate a \ac{cfs} [needs to
 be defined above in overview] in study 3, and align an ``unknown'' test
 participant to that \ac{cfs}.
 
 % align left-out subject
-Based on our findings in study 2 \citep{haeusler2022processing}, we assumed that
-the event structure in both naturalistic stimuli would correlate, among others,
-with brain responses that are similar to those correlating with the event
-structure in a dedicated functional localizer.
+If the response vectors sampled during auditory naturalistic stimulation are
+similar to the ones that are correlated pics of landscapes in the visual
+localizer we can predict the localizer \todo{if you know what I mean}
 
-% summary of study 2
-Results of study 2 suggest that a naturalistic stimulus might provide an
-engaging, task-free paradigm to localize brain functions in individual subjects.
+
 
 
 \subsubsection{Goal of SRM study}
+% goal 1: new procedure
+We estimated results of a dedicated localizer \citep{sengupta2016extension}
+via functional alignment from results of a
+reference group.
+
+
 % the problem
 Considering practical and monetary constraints in a clinical context, a paradigm
 lasting 90 to 120 minutes is inappropriate for even an extensive individual
-diagnostic procedure.
-
-% goal 1: new procedure
-The first goal was to assess a procedure to estimate results of a dedicated
-localizer \citep{sengupta2016extension} based on data acquired during
-naturalistic stimulation.
-%
-Following leave-one-subject out cross-validation, we estimated (i.e. predicted)
-the results of the visual localizer experiment ($Z$-values of voxels within a
-\ac{roi}) of a left-out test participant based on localizer results of a
-reference group.
-
-% goal 2: partial alignment
-The second goal was to assessed the relationship between length of
+diagnostic procedure, we also assessed the relationship between length of
 naturalistic stimulation used to align the test participant to the fixed
 \ac{cfs} and the estimation performance.
+
+
+
+\section{Naturalistic stimuli as functional localizer?}
+
+\todo[inline]{cf. 1.3 \& 1.3.5}
+
+\todo[inline]{this is more about the general aims}
+
+
+\subsection{Intro: localizer is standard, but problematic}
+
+\todo[inline]{it is reliable, but construct?}
+
+\todo[inline]{ecologically validity?}
+
+\todo[inline]{boring, compliance, inefficient}
+
+\todo[inline]{Therefor: naturalistic stimulus}
+
+
+\subsection{Evaluation in two ways: direct modeling \& estimation}
+
+
+\subsection{Results: direct modeling works moderately}
+
+\todo[inline]{literature says it is impossible (but Alexander Hut!). But: how
+"prohibitive" is it? How naive was it to do it? What did take the most time?}
+
+\todo[inline]{yes, you can analyze data from naturalistic stimuli based on
+stimulus annotation despite people saying it is not possible}
+
+
+
+\todo[inline]{cf. \citep{haeusler2022processing}'s discussion regarding
+neuroscout / modeling and the new, corresponding paper
+\citep{delavega2022neuroscout}}
+
+``consistent with previous reports showing significant differences between
+topographies estimated by static and dynamic localizers, especially in superior
+temporal and frontal cortices (Fox et al., 2009; Pitcher et al., 2011)''
+\citep{jiahui2022cross}.
+
+% localizer data
+\citet{sengupta2016extension} successfully delineated the left-hemispheric
+\ac{ppa} in 12 of 14 subjects and right-hemispheric \ac{ppa} in 14 of 14
+subjects based on localizer data.
+
+Notably, 20 years after group-level findings of \citep{bartels2004mapping} there
+might be "dynamic localizers" using video snippets
+\citep{pitcher2011differential, fox2009defining} but, to my knowledge, no
+localizers based on naturalistic stimuli!
+
 %
-Lastly, the estimation performance of our new procedure based on \ac{fa} was
-compared an estimation performance based on \ac{aa}.
-
-
-\paragraph{Hypotheses}
+Assumptions of the form of the HRF and modelling HRF  might be adjusted;
 %
-We hypothesized that increased quantity of data used to calculate the
-transformation matrices of the left-out subjects for a \ac{fa} would to increase
-prediction performance.
+The approach is not simply transferable
 %
-Further, we hypothesized that \ac{fa} would eventually perform
-``better'' than an estimation based on \ac{aa}.
+Naturalistic stimuli are hyped, imo (a.k.a. "I want to do what I did before
+using controlled experiments but simply using naturalistic stimuli").
+
+Nevertheless, the primary movie contrast in \citet{haeusler2022processing}
+``yielded bilateral clusters in five participants, a unilateral right cluster in
+six participants (of which one participant yielded a unilateral cluster in the
+visual localizer), and a unilateral left cluster in one participant. We find
+bilateral clusters for participant sub-20, whereas the block-design localizer
+yielded only one cluster in the right hemisphere''
+\citep{haeusler2022processing} (= i.e. 5 + 1  left-hemispheric, 5 + 6
+right-hemispheric).
+%
+The primary audio-description contrast in \citet{haeusler2022processing}
+``yielded bilateral clusters in nine participants that are within or overlapping
+with the block-design localizer results.
+%
+In participant sub-04, two bilateral clusters are apparent, whereas block-design
+localizer, and movie stimulus yielded only one cluster in the right hemisphere.
+For another participant (sub-09) the analysis yielded one cluster in the
+left-hemispheric PPA'' \citep{haeusler2022processing}; i.e. 9 + 1
+left-hemispheric, 9 right-hemispheric.
 
 
-\subsubsection{Discussion of SRM study}
+Summary of PPA paper:
+%#13 natural stimulation
+``In summary, natural stimuli like movies \citep{eickhoff2020towards,
+hasson2008neurocinematics, sonkusare2019naturalistic} or narratives
+\citep{hamilton2018revolution, honey2012not, lerner2011topographic,
+silbert2014coupled, wilson2008beyond} can be used as a continuous, complex,
+immersive, task-free paradigm that more closely resembles our natural dynamic
+environment than traditional experimental paradigms.
+% method
+We took advantage of three fMRI acquisitions and two stimulus annotations that
+are part of the open-data resource
+\href{http://www.studyforrest.org}{studyforrest.org} to operationalize the
+perception of spatial information embedded in an audio-visual movie and an
+auditory narrative, and compare current results to a previous report of a
+conventional, block-design localizer.
+% results
+The present study offers evidence that a model-driven GLM analysis based on
+annotations can be applied to a naturalistic paradigm to localize concise
+functional areas and networks correlating with specific perceptual processes --
+an analysis approach that can be facilitated by the neuroscout.org platform
+\citep{delavega2021neuroscout}.
+% interpretation
+More specifically, our results demonstrate that increased activation in the PPA
+during the perception of static pictures generalizes to the perception of
+spatial information embedded in a movie and an exclusively auditory stimulus.
+% interpretation: aPPA vs. pPPA
+Our results provide further evidence that the PPA can be divided into functional
+subregions that coactivate during the perception of visual scenes.
+% interpretation
+Finally, the presented evidence on the in-principle suitability of a naturally
+engaging, purely auditory paradigm for localizing the PPA may offer a path to
+the development of diagnostic procedures more suitable for individuals with
+visual impairments or conditions like nystagmus''
+\citep{haeusler2022processing}.
 
-\todo[inline]{...to be written}
+%
+Hence, we should have sampled response vector(s) that carry the spatial response
+information (if you know what I mean).
 
 
-\subsubsection{Future studies on SRM / functional alignment}
-
-\todo[inline]{...to be written}
+\subsection{Results: estimation works amazingly}
 
 
-\subsubsection{Open science in context of SRM study}
-
-\todo[inline]{...to be written}
-
+\subsection{However, for now, better stick to localizer as the established
+method}
 
 
-\section{Vision: Scan once, estimate many}
+\todo[inline]{Even if the construct is "watching pics of landscapes" or "pics
+with similar low-level features of landscapes"}
+
+\todo[inline]{There is no functional localizer based on naturalistic stimuli
+for a reason yet! Probably, for a reason...}
+
+% usually, visual PPA works pretty well
+The visual \ac{ppa} can be reliably localized using a localizer, which is why we
+considered it to be the "gold standard" or benchmark.
+%
+However, ``the PPA definition may depend on the type of experiment, task, and
+stimuli used'' \citep{weiner2018defining}.
+%
+What does the PPA actually do? What is the psychological construct?
+%
+Yet, we estimate the $Z$-map of a visual localizer which is the fucking
+established / traditional method to identify the \ac{ppa}.
+%
+It's reliable (in most block-design paradigms at least?) and yield bilateral
+clusters of increased hemodynamic activity in most subjects.
+
+
+Template from \citet{jiahui2020predicting}:
+%
+``We found more reliable estimates
+using the dynamic localizer than the static localizer, consistent with previous
+reports on the increased power of dynamic localizers (Fox et al., 2009; Pitcher
+et al., 2011).
+%
+The maps show that the dynamic localizer better maps face-selectivity in lateral
+temporal and prefrontal cortices, and that this is captured well by the
+movie-viewing derived transformations.
+%
+The variable results with different localizers indicate that no localizer should
+be considered the “ground truth”.
+%
+Furthermore, the responsivity of the network defined by “face selectivity” also
+encompasses modulation of responses to nonface information related to the
+%
+animacy continuum [Connolly et al., 2012, 2016; Çukur et al., 2013; Sha et al.,
+2014; Thorat et al., 2019],
+%
+biological motion [Beauchamp et al., 2003; Bonda et al., 1996; Çukur et al.,
+2013; Gobbini et al., 2007; Grossman and Blake, 2002],
+%
+social interaction [Castelli et al., 2002; Çukur et al., 2013; Gobbini et al.,
+2007; Schultz et al., 2003],
+%
+and agentic behavior [Gobbini et al., 2011; Nastase et al., 2017],
+%
+suggesting that the ground truth for the functional selectivity of the system
+identified by face-selectivity may extend well beyond face-selectivity per se.
+%
+Thus, any functional localizer can provide only an imprecise estimate of a
+topography whose function is only partially defined''
+\citep{jiahui2020predicting}.
+
+
+Template from \citet{jiahui2022cross}:
+%
+``The dynamic localizer used short video clips for each category.
+%
+For all categories, the dynamic localizer elicited stronger and broader
+category-selective activations than the static localizer, and the searchlight
+analysis showed that the dynamic localizer had higher reliabilities across the
+cortex, especially in regions that were selectively responsive to the target
+category.
+%
+For example, for the face-selective topographies, the dynamic localizer
+activated more areas than the static localizer (e.g., in superior temporal and
+frontal cortices).
+%
+In the ventral temporal cortex, especially in the right hemisphere, both dynamic
+and static localizers performed well in the cross-localizer-type predictions.
+%
+The low correlations were not because the prediction method failed but reflected
+the difference in the topographies activated by different types of localizers.''
+\citep{jiahui2022cross}.
+
+
+
+\section{But functional alignment rocks: scan once, estimate many!}
 
 % examples of probabilistic atlasses: \citet{rosenke2021probabilistic}:
 % Cortical atlases have been developed, which allow localization of visual areas
@@ -1486,56 +1523,10 @@ abilities'' \citep{wegrzyn2018thought}.
 
 
 
-\section{Conclusion: Naturalistic stimuli as functional localizer}
-
-\todo[inline]{literature says it is impossible (but Alexander Hut!). But: how
-"prohibitive" is it? How naive was it to do it? What did take the most time?}
-
-\todo[inline]{yes, you can analyze data from naturalistic stimuli based on
-stimulus annotation despite people saying it is not possible}
-
-\todo[inline]{There is no functional localizer based on naturalistic stimuli
-for a reason yet!}
-
-Summary of PPA paper:
-%#13 natural stimulation
-``In summary, natural stimuli like movies \citep{eickhoff2020towards,
-hasson2008neurocinematics, sonkusare2019naturalistic} or narratives
-\citep{hamilton2018revolution, honey2012not, lerner2011topographic,
-silbert2014coupled, wilson2008beyond} can be used as a continuous, complex,
-immersive, task-free paradigm that more closely resembles our natural dynamic
-environment than traditional experimental paradigms.
-% method
-We took advantage of three fMRI acquisitions and two stimulus annotations that
-are part of the open-data resource
-\href{http://www.studyforrest.org}{studyforrest.org} to operationalize the
-perception of spatial information embedded in an audio-visual movie and an
-auditory narrative, and compare current results to a previous report of a
-conventional, block-design localizer.
-% results
-The present study offers evidence that a model-driven GLM analysis based on
-annotations can be applied to a naturalistic paradigm to localize concise
-functional areas and networks correlating with specific perceptual processes --
-an analysis approach that can be facilitated by the neuroscout.org platform
-\citep{delavega2021neuroscout}.
-% interpretation
-More specifically, our results demonstrate that increased activation in the PPA
-during the perception of static pictures generalizes to the perception of
-spatial information embedded in a movie and an exclusively auditory stimulus.
-% interpretation: aPPA vs. pPPA
-Our results provide further evidence that the PPA can be divided into functional
-subregions that coactivate during the perception of visual scenes.
-% interpretation
-Finally, the presented evidence on the in-principle suitability of a naturally
-engaging, purely auditory paradigm for localizing the PPA may offer a path to
-the development of diagnostic procedures more suitable for individuals with
-visual impairments or conditions like nystagmus''
-\citep{haeusler2022processing}.
 
 
+\section{General conclusion: naturalistic stimuli are no panacea}
 
-
-\subsection{Caveats of naturalistic stimuli}
 
 \todo[inline]{imo, you cannot simply transfer the approach to analyse controlled
 paradigms to naturalistic stimuli; a.k.a. it's a pain; plus, reliability}
@@ -1554,6 +1545,10 @@ to do it}
 \todo[inline]{make distinction between "dynamic localizer", i.e. blocks of video
 snippets vs. event-related modeling of "face-events" or "landscape-events"}
 
+\todo[inline]{model-driven analyses are possible; but no simple mapping of
+methods from controlled paradigms to naturalistic stimuli}
+
+
 %
 Challenging data data analysis, but create \& share annotation.
 %
@@ -1571,7 +1566,6 @@ Executive functions?
 
 
 
-\section{General conclusion (= naturalistic stimuli in general?)}
 %
 Naturalistic stimuli are not a panacea but traditional paradigms and
 naturalistic paradigms should be used in tandem / reciprocally to generate new
@@ -1596,6 +1590,9 @@ more'' \citep{saarimaki2021naturalistic}.
 
 \section{Some backups}
 
+
+\subsection{Group-level vs individual-level analyses}
+
 Backup of quotes for general discussion (or SRM study).  Studies that average
 data across study participants may draw
 
@@ -1612,3 +1609,81 @@ data across study participants may draw
     \citep{laumann2015functional}.
 
 \end{itemize}
+
+
+\subsection{Brain \& behavior: "fingerprints"}
+
+\todo[inline]{reliability of differences is premise for "fingerprints"}
+%
+Maybe might be stable individual differences in cognitive tendencies or
+cognitive abilities like susceptibility / predisposition [?] to attend to, [or]
+recognize [or process] auditory spatial information.
+% kanai
+In case the pattern is stable within individual subjects / is ``highly
+consistent across different sessions [or experiments], then they are
+characteristics of the individuals and may reflect differences in their brain
+function'' \citep{kanai2011structural} [on structural diffences].
+%
+``Individual differences in topology (i.e. location, size, shape of functional
+areas) and the activity within functional areas can also be considered to be
+interesting cases of inter-individual variability to understand the neural basis
+of human cognition and behavior, brain-phenotype relationships'', and ``present
+useful phenotypes or biomarkers \citep{glasser2016multi,
+vanhorn2008individual}''
+
+
+\subsubsection{Brain \& behavior: example studies}
+
+\todo[inline]{shorten heavily or drop altogether}
+
+\todo[inline]{cf. also \citep{gordon2017individual, gordon2017precision}}
+%
+For example, \citet{kong2019spatial} suggested based on resting-state functional
+connectivity measures ``that individual-specific network topography (i.e.,
+location and spatial arrangement) might serve as a fingerprint of human behavior
+that can predict behavioral phenotypes across cognition, personality, and
+emotion'' \citep{kong2019spatial} [with modest accuary, comparable to previous
+reports predicting phenotypes based on connectivity strength].
+
+%
+\citep{bijsterbosch2018relationship}'s ``results indicate that spatial variation
+in the topography of functional regions across individuals is strongly
+associated with behaviour'' \citep{bijsterbosch2018relationship}.
+%
+\citet{bijsterbosch2018relationship} found ``that the spatial arrangement of
+functional regions is strongly predictive of non-imaging measures of behavior
+and lifestyle'' [however shape \& exact location of brain regions interacted
+strongly with  modeling of brain connectivity].
+%
+\citet{bijsterbosch2018relationship} found ``that individual differences in the
+size, shape and exact position of the brain regions [as identified by
+resting-state functional connectivity measures] was strongly linked to
+individual differences in behavioral tests and questionnaires [including
+intelligence, life satisfaction, drug use and aggression problems]''
+\citep{bijsterbosch2018relationship}.
+
+%
+``The variations in spatial topographical features captured a more direct and
+unique representation of subject variability than temporal correlations between
+regions defined by group parcellation approaches (coupling).
+%
+Hence, the cross-subject information represented in commonly adopted
+'connectivity fingerprints' could largely reflect spatial variability in the
+location of functional regions across individuals, rather than variability in
+coupling strength (at least for methods that directly map group-level
+parcellations onto individual data)'' \citep{bijsterbosch2018relationship}.
+
+\todo[inline]{drop following paragraph; just here to better understand paragraph
+above}
+%
+``Depending on the employed spatial alignment algorithm and the amount of
+removed spatial intersubject variability, the degree to which spatial
+information may influence FC estimates possibly varies considerably across
+studies.
+%
+In recent years, significant efforts have gone into the methods that more
+accurately estimate the spatial location of functional parcels in individual
+subjects [Chong et al., 2017; Glasser et al., 2016; Gordon et al., 2016; Hacker
+et al., 2013; Harrison et al., 2015; Varoquaux et al., 2011; Wang et al., 2015],
+and into advanced hyperalignment approaches [Chen et al., 2015; Guntupalli et
+al., 2016; Guntupalli and Haxby, 2017]'' \citep{bijsterbosch2018relationship}.
