@@ -1988,7 +1988,7 @@ reliable}
 
 
 
-\subsection{Inference: calibration scan + database}
+\subsection{Vision: calibration scan + database}
 
 % A shared calibration scan across datasets could be used to transfer data
 % between datasets, a procedure that is easier to accomplish than shared
@@ -2032,6 +2032,7 @@ stimulus would have the additional benefit of higher engagement and better
 compliance \citep{vanderwal2015inscapes, eickhoff2020towards} in, e.g., children
 or a patients.
 
+
 \paragraph{application: estimate \& quantifiy regular vs. deviant pattern}
 
 %
@@ -2046,6 +2047,32 @@ time-limiations or monetary constrains, or compliance issues.
 On the other hand, this would allow to quantify the similarity (or difference)
 of a new subject's actual pattern (i.e. a empirical $Z$-map) to a pattern
 estimated from a healthy or clinical reference group.
+
+
+\paragraph{Examples for clinical populations}
+
+%
+Patient populations, such as patients who
+%
+are blind
+%
+[Mahon et al. 2009; Bedny et al. 2011; Striem-Amit, Dakwar, et al.  2012b; van
+den Hurk et al. 2017] \citep{rosenke2021probabilistic},
+%
+[Amedi et al., 2007; He et al., 2013; Mahon et al., 2009; Wolbers et al., 2011]
+\citep{weiner2018defining}, or
+%
+have a brain lesion
+%
+[Schiltz and Rossion 2006; Steeves et al. 2006; Sorger et al. 2007; Barton 2008;
+Gilaie-Dotan et al.  2009; de Heering and Rossion 2015]
+\citep{rosenke2021probabilistic},
+%
+individuals with visual agnosia/prosopagnosia
+%
+[Schiltz and Rossion 2006; Steeves et al. 2006; Sorger et al. 2007; Barton 2008;
+Gilaie-Dotan et al. 2009; Susilo et al. 2015] \citep{rosenke2021probabilistic}.
+
 
 
 \paragraph{Example: \citet{yates2021emergence} quantify difference}
@@ -2139,6 +2166,8 @@ nonlinear volume-based alignment] than the face-selective regions in spatial
 topography'' \citep{zhen2017quantifying}.
 
 
+
+
 \paragraph{Studyforrest dataset's other localizer t-contrasts}
 
 \todo[inline]{does it make sense to discuss that? it's such a low-hanging fruit}
@@ -2146,8 +2175,7 @@ topography'' \citep{zhen2017quantifying}.
 \todo[inline]{if it makes sense to be discussed, discuss it here and not in the
 general discussion}
 
-
-
+%
 The studyforrest dataset's visual localizer \citep{sengupta2016extension} offers
 other contrasts (and thus \acp{roi} masks) aimed at localizing the \ac{ffa} and
 \ac{ofa} that are associated with face perception \citep{kanwisher1997ffa,
@@ -2177,6 +2205,55 @@ our extension of the annotation of speech created in study 2 and the
 corresponding analysis pipeline in order to explore hemodynamic responses
 correlating with auditory information related to faces, body parts or small
 objects.
+
+
+\paragraph{Examples}
+
+\todo[inline]{shorten this part}
+
+% Zhen 2017
+``Scene-selective regions showed larger interindividual variability [after
+nonlinear volume-based alignment] than the face-selective regions in both
+spatial topography and functional selectivity'' \citet{zhen2017quantifying}.
+
+
+% category-specific areas
+Similar to nonlinear volume-based alignment, similarity across person is higher
+after surface-based alignment ``for retinotopically defined regions, with
+character-selective regions showing the lowest consistency for both alignments,
+closely followed by mFus- and IOG-faces'' \citep{rosenke2021probabilistic}.
+
+%
+``We localized 13 widely studied functional areas and found a large variability
+in the degree to which functional areas respect macro-anatomical boundaries
+across the cortex'' \citep{frost2012measuring}.
+%
+``The percent gain in overlap [after surface-based alignment] differed greatly
+across the different functional regions throughout the cortex''
+\citep{frost2012measuring}.
+%
+``There is a strong structural-functional correspondence in some areas whilst in
+others the spatial location of the functional area is not tightly bound to
+anatomical landmarks and varies greatly across subjects within a cortical area''
+\citep{frost2012measuring}.
+%
+``Language areas were found to vary greatly across subjects whilst a high degree
+of overlap was observed in sensory and motor areas'' \citep{frost2012measuring}.
+
+%
+``Area LOC also showed increased overlap after CBA with a 62.7\% gain in the
+left hemisphere and 38.4\% on the right'' \citep{frost2012measuring}.
+%
+Finally PPA exhibit more gain in the right hemisphere with 27.7\% gain, than on
+the left with 17.6\%'' \citep{frost2012measuring}.
+%
+``FFA varies in its location along the length of the fusiform gyrus even though
+the gyri themselves are well aligned across subjects''
+%
+The FFA did not exhibit the same strong structural-functional correspondence and
+saw more modest increases in overlap after macro-anatomical alignment with
+44.1\% and 12\% gain for the left and right hemispheres''
+\citep{frost2012measuring}.
 
 
 
