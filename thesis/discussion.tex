@@ -93,9 +93,12 @@ Mention partial alignment.
 
 
 
-\subsection{Open Science}
+\subsubsection{Transition to open Science}
 
-\paragraph{\citet{halchenko2021datalad}}
+\todo[inline]{probably, just mention \citet{halchenko2021datalad} here; the most
+will be written about DataLad in "personal assessment" because DataLad tied it
+here; the most will be written about DataLad in "personal assessment" because
+DataLad tied it all together}
 
 
 
@@ -126,9 +129,9 @@ d) publication of data, materials and results.
 
 \todo[inline]{Define "open data" here (includes preprocessed data \& results)}
 
-\subsubsection{Raw data: example, pro \& cons}
+\subsubsection{Raw open data}
 
-\paragraph{example}
+\paragraph{Example}
 
 The current thesis capitalized on publicly and freely available
 %
@@ -143,7 +146,7 @@ that are part of the \textit{studyforrest} project
 (\href{www.studyforrest.org}{\url{studyforrest.org}}).
 
 
-\paragraph{pro}
+\paragraph{Pro}
 
 %
 Consequently, already existing raw and preprocessed data as well as results from
@@ -157,7 +160,7 @@ Open data allow easy access to data which benefits, e.g., researchers that enjoy
 minor funding to generate new findings, or students that are eager to learn
 hands-on with "real-world" data.
 
-\paragraph{con}
+\paragraph{Con}
 %
 However, the current project also highlighted an issue that is often overlooked
 when "free data are so near and just need to be picked up to be analyzed":
@@ -175,7 +178,7 @@ themselves to be obliged to test and validate a dataset's quality according to
 their standards and specific use cases.
 
 
-\subsubsection{preprocessed data \& results: example, pro \& cons}
+\subsubsection{Preprocessed open data \& open results/materials}
 
 % what does RSC do?
 % ``Whereas the PPA is assumed to be more involved in landmark recognition by
@@ -216,7 +219,7 @@ every use case or made obsolete by more advanced methods.
 However, the extent of raw data and decisions made during preprocessing of
 published data influence the subsequently performed analyses.
 
-\paragraph{example}
+\paragraph{Example}
 %
 For example, like the \ac{ppa}, the \ac{rsc} and \ac{opa} have repeatedly shown
 increased hemodynamic activity in studies investigating visual spatial
@@ -245,7 +248,10 @@ out of scope of the current study, results are an incentive for further
 studies''.
 
 
-\paragraph{pro \& con (= opportunity costs)}
+\paragraph{Pro \& Con}
+
+\todo[inline]{a.k.a. opportunity costs)}
+
 %
 In the context of open science, this was kind of an limitation / aftereffect of
 coverage of mask for functional areas \citet{sengupta2016extension}, and the
@@ -277,7 +283,7 @@ third parties.
 
 \subsubsection{Example: Annotation}
 
-\todo[inline]{mention "prohibitively difficult"}.
+\todo[inline]{mention "prohibitively difficult"}
 
 % additional effort 1
 Creating a publication-worthy annotation of speech in
@@ -293,9 +299,6 @@ Consequently, it widens the ``annotation bottleneck''
 headstart for independent research that wish to model hemodynamic brain
 responses that correlated with different aspects of spoken language under more
 real-life like conditions.
-
-
-\subsubsection{Pros \& Cons}
 
 
 \paragraph{Pro}
@@ -323,7 +326,7 @@ can be seen as a "lab protocol" containing information / templates for writing
 scientific articles.
 
 
-\subsubsection{Cons}
+\subsubsection{Con}
 %
 However, some disadvantages were of creating open data:
 %
@@ -411,8 +414,9 @@ to plotting figures are implemented in code that can be rerun from the command
 line.
 
 
-\paragraph{Contra: it's fucking annoying}
+\paragraph{Contra}
 
+\todo[inline]{Jeezs! Automatization is the most annoying part}
 %
 In order to allow reproducibility every processing step needs to be designed and
 tested to be run and automatically and reliably.
@@ -423,7 +427,7 @@ to be tracked via a version control system \citep[e.g.,][]{halchenko2021datalad}
 to allow other researchers to inspect a study's full history.
 
 
-\paragraph{Pro: but some benefits, too}
+\paragraph{Pro}
 
 \todo[inline]{smooth phrasings!}
 
@@ -484,17 +488,12 @@ order to generate novel findings encourage further studies, and illustrate the
 benefits of publicly and freely available datasets.
 
 
-\subsubsection{Pros \& Cons}
-
-
-\paragraph{Cons}
+\paragraph{Con}
 
 As usually, time and effort (more severe in case of publishing data than in case
 of merely publishing a paper plus code)
 
-\paragraph{Pros from creator}
-
-
+\paragraph{Pro from creator}
 
 \todo[inline]{My super interesting papers might get cited more often because,
 yeah, open access that gets, on average, cited more often [REFERENCE?]}
@@ -502,7 +501,6 @@ yeah, open access that gets, on average, cited more often [REFERENCE?]}
 ``greater potential impact of a work when it may be cited not just for its
 scientific findings but also when its data is reused in other works''
 \citep{nichols2017best}.
-
 
 
 \paragraph{Pros from readers}
@@ -514,7 +512,6 @@ guide; learning via reading or "trying it yourself"}
 code to replicate current findings in prospective studies, all created data,
 code, analysis steps, and results are published as version-controlled DataLad
 \citep[\href{www.datalad.org}{datalad.org};][]{halchenko2021datalad} datasets.
-
 
 %
 From the perspective of reader, open access journals provides low-cost access to
@@ -548,90 +545,137 @@ progress of real world project, to learn coding and data analysis.
 
 \subsection{Personal assessment}
 
-\todo[inline]{a.k.a. summary of my life's story}
+\todo[inline]{how personal am I supposed to get? Telling "the story of my
+thesis?"}
 
-\subsubsection{DataLad (tied the project together)}
 
-\todo[inline]{from downloading to publishing and getting downloaded}
+\todo[inline]{probably, merge the following four subsections into one}
 
+
+\subsubsection{a) acquiring open data (assessing their quality, processing it)}
+
+%
+Being able to use already existing data was convenient because not dealing with
+ethic committee, participants' consent, anonymization, legal issues.
+%
+Especially, Covid-Pandemic has impressively shown that collecting data based on
+human subjects can go dormant for almost 1.5 years.
+%
+Luckily, the project plan could be adjusted to just rely on the studyforrest
+dataset as it was then.
+%
+Strictly, it was not "3rd party data" for my, because I was (somewhat) involved
+in the data collection process, and hence somewhat familiar with the data
+(provenience, location, quality, accessibility, storage format, performed
+preprocessing steps).
+%
+However, I cannot stress enough: know your data! Plot, test, and check for
+errors.
+%
+Especially, assume that everything that is not mentioned has not been
+considered.
+%
+It is too easy to switch the focus from the data collection, quality assessment,
+and exploratory data analysis to "just pushing the data through the analysis
+pipeline".
+
+
+
+\subsubsection{b) providing open data (creation, description, and storage of data)}
+
+\todo[inline]{somehow related: Haxby's group with more brain / people power can
+use the same open data for a similar topic; cf. Susannes \& Lisas "precious"; an
+embargo period makes sense}
+
+
+When providing data there is a trade-off that needed to be balanced between a)
+doing the ``mere minimum'' and  might not be fruitful, and b) putting time and
+effort in creating additional information that to provide a sound/substantial
+groundwork for potential use-cases.
+
+%
+Vibrant example is the annotation of speech:
+%
+As in human language in general, an annotation of speech will always contain
+ambiguities.
+%
+Any further processing step might be based on a decision that might not match
+the requirement of a specific use case.
+%
+For example, an annotation of semantics might be based on a current state-of-the
+art language model that might be superseded by future language models.
+%
+Therefore, the published annotation does not only comprise the final outcome but
+also the raw data and documented code that can automatically be rerun step by
+step to reproduce the final outcome of both the annotation and its validation
+analysis, all freely accessible in a version-controlled dataset.
+
+%
+Anything that is not 100\% automatized is not 100\% reproducible, hard to
+extend, sadly because automatization takes a long time for some stuff or is not
+possible for some stuff.
+
+%
+It needs a shit town of time, anticipating potential use cases is fine but
+gambling on somebody to give a shit about it.
+
+
+
+\subsubsection{c) use open-source software to implement and automatize every
+step via code}
+
+
+Writing cleaner code is fine, automatization is the biggest pain, especially
+when not needed to rerun stuff yourself.
+
+
+\subsubsection{d) publication of data, materials and results}
+
+\todo[inline]{mention "open paper"? speech anno paper is on github;
+ppa paper is on github but not public; diss is not on github}
+
+
+\todo[inline]{three open access paper are published}
+
+%
+Choosing a data hast was easy because guided / filtered by DataLad's
+functionality / support.
+%
+Having a supervisor with knowledge of data hosts and licences helps a lot.
+
+
+
+\subsubsection{Summary (for all steps)}
+
+\paragraph{DataLad (tied the room together)}
+%
+DataLad \citet{halchenko2021datalad} is the technical foundation that made
+following the principles possible.
+%
+DataLad is a free and open-source software solution
+that manages provenance, distribution, and version-control of code and data,
+was the technical groundwork for the "actual" thesis.
 
 %
 Another goal was to provide all data and code documented, version-controlled,
-automatized processing (from downloading to plotting) in order to allow  he
+automatized processing (from downloading to plotting) in order to allow the
 reproducibility of current results and to facilitate the replicability of
 findings on other datasets.
-%
-DataLad \citet{halchenko2021datalad} was the technical groundwork for the
-"actual" thesis.
-%
-DataLad provides a free and open-source software solution that manages
-provenance, distribution, and version-control of code and data
-\citep{halchenko2021datalad}.
 
 %
 Without DataLad (still in its "infancy"? alpha, beta-stadium?) that would not
 have been possible (at least is see no competitive software solution)
-%
 
 
-
-
-\subsubsection{Acquiring open data (assessing their quality, processing it)}
-
-\todo[inline]{Covid-Pandemic has impressively shown that collecting data based
-on human subjects" can go dormant for almost 1.5 years; plan of the project was
-adjusted accordingly; and I am so lucky that I could fall back on open data}
-
-\todo[inline]{Caveat of data re-use: know your data! I could write that I pulled
-my hair out while searching for inconsistencies in the timings, and found that
-the audio track of the audio-description is essentially unsystematically
-shifted; similar cases stay probably undiscovered in non-open datasets; vice
-versa, a point for less error-prone open science}
-
-\todo[inline]{not relevant in my case: participants' consent, anonymization,
-most legal issues}
-
-%
-For me, it was not "3rd party" data but I was involved in the data collection
-process and hence somewhat familiar with the data (provenience, location,
-quality, accessibility, storage format, performed preprocessing steps).
-
-
-
-\subsubsection{Providing open data (creation, description, and storage of data)}
-
-\todo[inline]{it is/was somewhere between "stupid" and "brave" to mess with
-someone like Haxby's group; also, }
-
-\todo[inline]{cf. "my precious" of Susanne and Lisa"}
-
-
-
-
-\subsubsection{Use open-source software to implement and automatize every step
-via code}
-
-\subsubsection{Publication of data, materials and results}
-
-\todo[inline]{choosing the data host was easy because filtered based on DataLad
-support (and Michael knows everything anyway)}
-
-\todo[inline]{mention "open paper"? speech anno paper is on github;
-ppa paper is not a public github repository (yet)}
-
-\todo[inline]{three open access paper are published}
-
-
-
-\subsubsection{Valid for all steps}
+\paragraph{Yes, it's annoying}
 
 %
 Following the practices of open and reproducible science was not mandatory for
 submitting the thesis but required additional work and time.
-
 %
 Standards to follow are not yet fully established and corresponding software
-tools are still emerging.
+tools are still emerging / in a developmental state.
+
 %
 Since the best practices are not yet part of a graduate or PhD curriculum,
 learning about the principles and standards and applying the corresponding
@@ -645,49 +689,6 @@ allow reproducibility of results and facilitate replicability of finding.
 %
 Automatization of downloading, processing \& analyzing, creating figures,
 results.
-%
-Which takes fucking time!
-
-
-
-
-
-
-%
-However, over the course of generating the dataset it became apparent that there
-is no such thing as a ``perfect'' annotation:
-%
-As in human language in general, an annotation of speech will always contain
-ambiguities.
-%
-Additionally, there is a trade-off that needed to be balanced between a) doing
-the ``mere minimum'' and putting time and effort in creating additional
-information that might not be fruitful, and b) providing a sound/substantial
-groundwork for potential use-cases that needed to be anticipated.
-%
-Any further processing step might be based on a decision that might not match
-the requirement of a specific use case.
-%
-For example, an annotation of semantics might be based on a current state-of-the
-art language model that might be superseded by future language models.
-%
-Therefore, the published annotation does not only comprise the final outcome but
-also the raw data and documented code that can automatically be rerun step by
-step to reproduce the final outcome of both the annotation and its validation
-analysis, all freely accessible in a version-controlled dataset.
-
-
-Open-source software (the more neuro-specific the better) and open data
-allowed me to go far beyond what would have been possible without open
-data [kind of not true because I used "in-house data"].
-%
-The thesis makes me appreciate open source neuro-software as well as the data
-more
-
-%
-Anything that is not 100\% automatized is not 100\% reproducible, hard to
-extend, sadly because automatization takes a long time for some stuff or is not
-possible for some stuff.
 
 %
 Automating recurring tasks gives yourself the possibility of reusing
@@ -699,56 +700,33 @@ materials are a little better organized or my code was a little better to grasp
 after not having taken a look at it for a longer time...}
 
 %
-Lastly, I feel more confident about my work now compared to the dilettantish
-procedures experienced (and followed) in, uhm, another lab in Magdeburg.
+It takes fucking time!
+
+
+\paragraph{However...}
+
 %
-Similarly, the extra time and effort spend on inspecting data and testing code
+However, open-source software (the more neuro-specific the better) and open data
+allowed me to go far beyond what would have been possible without open
+data [kind of not true because I used "in-house data"].
+%
+The thesis makes me appreciate open source neuro-software as well as the data
+more.
+
+%
+The extra time and effort spend on inspecting data and testing code
 leads to higher confidence in one's own work and the reliability of results.
-
-
-\subsubsection{Questionable, immediate benefits; gambling}
-
-In summary, perceived immediate benefits are pretty low...
-
-
-\todo[inline]{80\% of PhD students leave science anyway}
-
-% no incentive
-``Current incentives do not justify spending large amounts of time preparing
-data for sharing, as institutional promotion panels or grant reviewers currently
-do not adequately reward such efforts'' \citep{nichols2017best}.
 %
-``The weight that OS currently has for researchers’ career advancement is rather
-small, despite'' \citep{toribio2021early}.
-%
-At the same time, they might feel that investing additional effort in making
-research open (i.e., transparent and reproducible) is unrewarded [Nicholas et
-al., 2017], such as conducting replication studies that might not be considered
-for publication in high-impact journals'' \citep{toribio2021early}.
-%
-``As long as scientists are being evaluated on traditional journal metrics,
-there are few incentives from a career perspective to fully commit to OS''
-\citep{toribio2021early}.
+Lastly, I feel more confident about my work now compared to previous projects
+during which I did not do it.
 
 
-%
-``Thus, while conducting OS may initially require more work in the short term,
-it can greatly benefit one’s career in the long term'' \citep{toribio2021early}.
-%
-``OA publications have been found to receive more citations than paywalled
-publications [Piwowar et al., 2018] and can therefore aid ECRs’ career
-advancement'' \citep{toribio2021early}.
-%
-``Similarly, open data can be highly beneficial to promote new collaborations
-and increase the number of citations and the confidence that the field has in
-the findings [Popkin, 2019]'' \citep{toribio2021early}.
-%
-Currently, playing be the old rules is the ``smarter way'' than gambling getting
-cited when data or code get re-used, imo.
 
-
-\subsubsection{But, probably, it needs to be done}
-
+\subsection{Summary: it needs to be done (for greater goods)}
+%
+Nevertheless, open science is the best [?] way takle the issue if
+``reprodicibility crisis'' or ``replication crisis''.
+%
 Open sciences makes researchers accountable to collect, document, process and
 store data and materials according to best practices.
 %
@@ -757,45 +735,62 @@ and analyses for undiscovered errors, and replicate the results step by step.
 %
 Varying parameters and running different statistics on the data allows
 inspection of robustness of results.
-
-%
-``As scientists, we are supposed to be objective arbiters of evidence and
-theory, but we are not infallible and must be ready to accept criticism and
-revise our claims when errors are discovered'' \citep{nichols2017best}.
-%
-``However, we need to develop a culture of constructive criticism, which
-recognizes that errors are an inevitable part of scientific progress and
-protects individual researchers from inappropriately harsh consequences when
-honest mistakes are discovered'' \citep{nichols2017best}.
-
-%
-``We see no better way to advance understanding on a contested finding than to
-have as many researchers as possible puzzling over the data at hand''
-\citep{nichols2017best}
-
 %
 Benefits are increased robustness and reliability of science when all steps are
 openly documented and data are openly available.
+
 %
 Multiple datasets can be combined to perform unanticipated use cases, and
 extensively and openly documented results of multiple studies facilitate
 performing meta-analyses to strengthen the claims of individual studies.
 %
+Open science promises increased efficiency (time and financial expense) of
+making scientific progress, make advance, and promotes innovation.
+%
 Thus, open transparent science is the way to make knowledge and technologies
 widely accessible, and increase reproducibility of study results and
 replicability of scientific findings while increasing trust of the public into
 scientific process and its results.
+
+
+\paragraph{immediate benefits are small; "gambling" vs. "being smart"}
+
+\todo[inline]{80\% of PhD students leave science anyway}
+
+Perceived immediate benefits outweight the required time and effort.
 %
-Open science promises increased efficiency (time and financial expense) of
-making scientific progress, make advance, and promotes innovation.
+Open access publications might receive more citations than paywaylled
+publications [\citep{piwowar2018state}], open data might
+get cited, and promote new collaborations [\citep{popkin2019data}].
 
 
-\subsection{Call to action: educate, incentivize, coerce}
+However, from a career perspective, I see few if none incentives to commit to
+OS.
 
-\paragraph{Guidelines \& tools}
+% no incentive
+However, ``current incentives do not justify spending large amounts of time
+preparing data for sharing, as institutional promotion panels or grant reviewers
+currently do not adequately reward such efforts'' \citep{nichols2017best}.
+%
+``the weight that open science currently has for researchers' career advancement
+is small'' \citep{toribio2021early}.
+%
+``investing additional effort in making research open (i.e., transparent and
+reproducible) is unrewarded [Nicholas et al., 2017], such as conducting
+replication studies that might not be considered for publication in high-impact
+journals'' \citep{toribio2021early}.
 
-\todo[inline]{need to be established; and not change all the fucking time, so as
-soon as you have done it, the procedure is not obsolete already again}
+%
+Currently, playing be the ``old rules'' is the ``smarter way'' than gambling
+getting cited when data or code get re-used, imo.
+
+
+\paragraph{Therefore: guidlines \& tools: Guidelines \& tools}
+
+\todo[inline]{Problem: standards change, software tools are in development,
+change, "landscape is moving too much" still; concrete standards, tools might be
+outdated quickly}
+
 %
 ``OS still requires the establishment of clear guidelines for transparency and
 openness of research at the international level.
@@ -812,50 +807,20 @@ system need to be established [cf. Nicholas et al., 2019, 2020]''
 
 \paragraph{Education}
 
-\todo[inline]{Breed open science enthusiast in (under)graduate curriculi}
+% incentives like ``professional recognition or the allocation of extra funding
+% [Kidwell et al., 2016; Fecher et al., 2015; Ali-Khan et al., 2018];
+% Funding agencies already require publication of findings in OA schemes and
+% data-sharing plans [Neylon, 2017]'' \citep{toribio2021early}.
 
+In my opinion, risk, benefits, and practices of OS should be introduced trained
+in the curriculum of undergraduates programs.
 %
-``It is necessity to promote further training on the benefits and risks of OS
-practices [cf. Schönbrodt, 2019].
+Hands-on training would not only increase the knowledge of OS practices but
+familiarize user with emerging software tools.
 %
-Promoting training would not only increase the knowledge of ECRs about specific
-OS practices but also could foster its implementation among ECRs.
-%
-It would be highly beneficial to introduce these training schemes in the
-curriculum of undergraduates programs.
-%
-Courses should cover the benefits and risks of OS practices, together with a
-guideline on how to implement them [cf. Farnham et al., 2017]''
-\citep{toribio2021early}.
-
-
-\paragraph{Carrots...}
-
-\todo[inline]{Start with incentives to foster self-learning and applying the
-principles "voluntarily"}
-
-%
-More incentives to conduct open science project needs to be established.
-%
-``Extra efforts may not be valued appropriately by a scientific community who
-assesses research based on journal impact metrics and number of publications
-[Moher et al., 2018]'' \citep{toribio2021early}.
-%
-``Individual incentives for researchers should be introduced through, for
-example, professional recognition or the allocation of extra funding [Kidwell et
-al., 2016; Fecher et al., 2015; Ali-Khan et al., 2018].
-
-
-\paragraph{...and sticks}
-
-\todo[inline]{later, convince the remaining insurgents by force}
-%
-``Funding agencies already require publication of findings in OA
-schemes and data-sharing plans [Neylon, 2017]'' \citep{toribio2021early}.
-%
-``Compulsory requirements from funders, which might only lead researchers to
-show minimal compliance [Neylon, 2017]'' \citep{toribio2021early}.
-
+Instead of compulsory requirements from funders, which might only lead
+researchers to show minimal compliance [Neylon, 2017], more incentives to
+conduct open science project needs to be established.
 
 
 
