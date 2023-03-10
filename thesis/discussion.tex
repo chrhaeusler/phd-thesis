@@ -1,9 +1,14 @@
 \section{Overview}
 
-\todo[inline]{just an overview over the structure of the discussion; delete
-subsection(s), so 6.1. will be "Open Scienc"}
+\todo[inline]{an overview over the structure of the discussion that is supposed
+to prime its topics}
 
-\subsection{Intro}
+\todo[inline]{it doesn't matter where I place the part on "open science", it's
+an excursion and doesn't fit in anywhere perfectly; at the moment it comes
+before going into details about naturalistic stimuli as localizer}
+
+\todo[inline]{delete subsection(s), so 6.1. will be "Open Science"}
+
 
 Human brain mapping studies have traditionally averaged \ac{fmri} data across
 participants.
@@ -20,30 +25,38 @@ controlled stimuli, rely heavily on a participant's compliance, and can usually
 map just one domain of brain functions.
 
 
+\subsection{The usual rant about localizers here}
+
+\todo[inline]{Revise with general intro \& SRM part: localizer is standard, but
+problematic; it is reliable, but construct? ecologically validity? boring,
+compliance, inefficient; therefor: naturalistic stimulus}
+
+
+
 \subsection{Naturalistic stimuli as functional localizer?}
 
-\todo[inline]{Maybe, mention here that annotations are bottleneck and stuff}
+\todo[inline]{prime here that annotations are bottleneck and modeling
+is "prohibitively" difficult? imo, it's not necessary}
 
 % movies & narratives
 Naturalistic stimuli like movies and auditory narratives \citep[cf.][for
 reviews]{jaaskelainen2021movies, jaaskelainen2020neural} provide a time-locked
-event structure that samples a broad range of brain
-states ranging from low-level
-perception (e.g., luminance) to high-level cognition (e.g., social cognition)
+event structure that samples a broad range of brain states ranging from
+low-level perception (e.g., luminance) to high-level cognition (e.g., social
+cognition)
 %
 A localizer based on naturalistic stimuli could
 %
-a) provide higher external validity because they resemble how we perceive
-the real world outside of the laboratory during everyday life more close and,
+a) provide higher external validity because they resemble how we perceive the
+real world outside of the laboratory during everyday life more close and,
 %
 b) potentially map a variety of brain functions.
 
-%
+% goal of thesis
 Therefore, the goal of this thesis was---while following the principles of open,
 transparent, and reproducible science---to explore whether a movie and the
 movie's audio-description could, in principle, substitute a traditional
 localizer paradigm.
-
 % PPA as proof of concept
 As a proof of concept, we focused on the \ac{ppa}, a ``classic'' higher visual
 area.
@@ -57,13 +70,14 @@ activity levels in the \ac{ppa} correlated with different categories
 presented in spoken sentences suggest that activity level of the  \ac{ppa}
 are modulated by semantic scene-related information.
 %
-The the movie's and audio-description's potential to substitute a
-visual localizer were asssessed in two ways.
+The movie's and audio-description's potential to substitute a
+visual localizer were assessed in two ways.
 
 
 \subsubsection{First approach: \ac{glm} $t$-contrasts}
 
-\todo[inline]{Somehow better prime that stimuli need(ed) to be annotated}
+\todo[inline]{prime here that annotations are bottleneck and modeling is
+"prohibitively" difficult? imo, it's not necessary}
 
 % similarity
 Similarly to traditional localizers, we model hemodynamic responses correlating
@@ -78,7 +92,7 @@ and audio-description \citep{haeusler2021speechanno}.
 
 \subsubsection{Second approach: estimation from ref}
 
-\todo[inline]{When SRM study is written, revise general intro \& here
+\todo[inline]{when SRM study is written, revise general intro \& here
 accordingly}
 
 %
@@ -88,19 +102,13 @@ participants in a \textit{reference group}.
 %
 This is based on a super awesome functional alignment using naturalistic fMRI
 data (to create the common functional space and align a left-out subject).
-%
-Mention partial alignment.
 
 
 
 \subsubsection{Transition to open Science}
 
-\todo[inline]{probably, just mention \citet{halchenko2021datalad} here; the most
-will be written about DataLad in "personal assessment" because DataLad tied it
-here; the most will be written about DataLad in "personal assessment" because
-DataLad tied it all together}
-
-
+\todo[inline]{if the overview above stays short, imo, not explicit transition
+necessary}
 
 
 
@@ -111,23 +119,29 @@ shared, accessible, and transparent science \citep[cf.][]{watson2015will,
 fecher2014open} as well as the requirements of a reproducible and replicable
 research project.
 
-\todo[inline]{points have to be the same as the subsections' names}
+\todo[inline]{Prime the four topics to be discussed here}
+
+\todo[inline]{below, try to make one paragraph per topic with definition,
+example from current thesis, pro, con; then, delete subsections' titles}
+
 %
 Over the course of the present project, affected stages were
-% data-related
-a) acquiring open data (assessing their quality, processing it),
-%
-b) providing open data (creation, description, and storage of data),
-%
-c) use open-source software to implement and automatize every step via code,
-% publishing shit
-d) publication of data, materials and results.
+
+\begin{itemize}
+    \item acquiring open data (assessing their quality, processing it),
+    \item providing open data (creation, description, and storage of data),
+    \item use open-source software to implement \& automatize every step via
+        code,
+    \item publication of data, materials and results.
+\end{itemize}
 
 
 
 \subsection{Acquiring open data}
 
-\todo[inline]{Define "open data" here (includes preprocessed data \& results)}
+\paragraph{Definition of "open data"}
+
+\todo[inline]{maybe, "raw" and "preprocessed" open data can be merged}
 
 \subsubsection{Raw open data}
 
@@ -250,7 +264,7 @@ studies''.
 
 \paragraph{Pro \& Con}
 
-\todo[inline]{a.k.a. opportunity costs)}
+\todo[inline]{a.k.a. opportunity costs}
 
 %
 In the context of open science, this was kind of an limitation / aftereffect of
@@ -416,11 +430,12 @@ line.
 
 \paragraph{Contra}
 
-\todo[inline]{Jeezs! Automatization is the most annoying part}
+\todo[inline]{Automatization is the most annoying part; but keep that for
+personal assessment later}
+
 %
 In order to allow reproducibility every processing step needs to be designed and
 tested to be run and automatically and reliably.
-
 %
 Every change made to data, materials or code, and command line invocations need
 to be tracked via a version control system \citep[e.g.,][]{halchenko2021datalad}
@@ -505,8 +520,8 @@ scientific findings but also when its data is reused in other works''
 
 \paragraph{Pros from readers}
 
-\todo[inline]{better understanding (than from a method section), step-by-step
-guide; learning via reading or "trying it yourself"}
+\todo[inline]{learning via reading or "trying it yourself"; better understanding
+(than from a method section); essentially, a step-by-step guide}
 
 ...enables independent researchers to validate current results and use written
 code to replicate current findings in prospective studies, all created data,
@@ -609,12 +624,10 @@ Therefore, the published annotation does not only comprise the final outcome but
 also the raw data and documented code that can automatically be rerun step by
 step to reproduce the final outcome of both the annotation and its validation
 analysis, all freely accessible in a version-controlled dataset.
-
 %
 Anything that is not 100\% automatized is not 100\% reproducible, hard to
 extend, sadly because automatization takes a long time for some stuff or is not
 possible for some stuff.
-
 %
 It needs a shit town of time, anticipating potential use cases is fine but
 gambling on somebody to give a shit about it.
@@ -624,7 +637,10 @@ gambling on somebody to give a shit about it.
 \subsubsection{c) use open-source software to implement and automatize every
 step via code}
 
-
+%
+Automatization of downloading, processing \& analyzing, creating figures,
+results.
+%
 Writing cleaner code is fine, automatization is the biggest pain, especially
 when not needed to rerun stuff yourself.
 
@@ -641,7 +657,7 @@ ppa paper is on github but not public; diss is not on github}
 Choosing a data hast was easy because guided / filtered by DataLad's
 functionality / support.
 %
-Having a supervisor with knowledge of data hosts and licences helps a lot.
+Having a supervisor with knowledge of data hosts and licenses helps a lot.
 
 
 
@@ -685,11 +701,6 @@ Data and code need to be of quality and in a state worthy to be published and
 documented for other readers, analyses pipelines needed to be in a state to be
 automatized, every processing step documented, saved, protocolled, and shared to
 allow reproducibility of results and facilitate replicability of finding.
-
-%
-Automatization of downloading, processing \& analyzing, creating figures,
-results.
-
 %
 Automating recurring tasks gives yourself the possibility of reusing
 certain data, code, documents, etc. in the future.
@@ -698,9 +709,6 @@ certain data, code, documents, etc. in the future.
 glad having documented, version-controlled, and automatized stuff; maybe,
 materials are a little better organized or my code was a little better to grasp
 after not having taken a look at it for a longer time...}
-
-%
-It takes fucking time!
 
 
 \paragraph{However...}
@@ -724,8 +732,8 @@ during which I did not do it.
 
 \subsection{Summary: it needs to be done (for greater goods)}
 %
-Nevertheless, open science is the best [?] way takle the issue if
-``reprodicibility crisis'' or ``replication crisis''.
+Nevertheless, open science is the best [?] way tackle the issue if
+``reproducibility crisis'' or ``replication crisis''.
 %
 Open sciences makes researchers accountable to collect, document, process and
 store data and materials according to best practices.
@@ -757,20 +765,19 @@ scientific process and its results.
 
 \todo[inline]{80\% of PhD students leave science anyway}
 
-Perceived immediate benefits outweight the required time and effort.
+Perceived immediate benefits outweigh the required time and effort.
 %
-Open access publications might receive more citations than paywaylled
+Open access publications might receive more citations than paywalled
 publications [\citep{piwowar2018state}], open data might
 get cited, and promote new collaborations [\citep{popkin2019data}].
 
 
 However, from a career perspective, I see few if none incentives to commit to
-OS.
-
+OS:
 % no incentive
-However, ``current incentives do not justify spending large amounts of time
-preparing data for sharing, as institutional promotion panels or grant reviewers
-currently do not adequately reward such efforts'' \citep{nichols2017best}.
+``current incentives do not justify spending large amounts of time preparing
+data for sharing, as institutional promotion panels or grant reviewers currently
+do not adequately reward such efforts'' \citep{nichols2017best}.
 %
 ``the weight that open science currently has for researchers' career advancement
 is small'' \citep{toribio2021early}.
@@ -785,7 +792,7 @@ Currently, playing be the ``old rules'' is the ``smarter way'' than gambling
 getting cited when data or code get re-used, imo.
 
 
-\paragraph{Therefore: guidlines \& tools: Guidelines \& tools}
+\paragraph{Therefore: guidelines \& tools: Guidelines \& tools}
 
 \todo[inline]{Problem: standards change, software tools are in development,
 change, "landscape is moving too much" still; concrete standards, tools might be
@@ -826,32 +833,10 @@ conduct open science project needs to be established.
 
 \section{Naturalistic stimuli as functional localizer?}
 
-\todo[inline]{cf. 1.3 \& 1.3.5}
-
-\todo[inline]{this is more about the general aims}
-
-
-\subsection{Intro: localizer is standard, but problematic}
-
-\todo[inline]{it is reliable, but construct?}
-
-\todo[inline]{ecologically validity?}
-
-\todo[inline]{boring, compliance, inefficient}
-
-\todo[inline]{Therefor: naturalistic stimulus}
-
-
-\subsection{Evaluation in two ways: direct modeling \& estimation}
+\subsection{Functional localization via modeling hemodynamic responses}
 
 \todo[inline]{maybe, cite \citet{bartels2004mapping}, and a study that did GLM +
 naturalistic speech paradigm}
-
-
-
-
-
-\subsection{Results: direct modeling works moderately}
 
 \todo[inline]{literature says it is impossible (but Alexander Hut!). But: how
 "prohibitive" is it? How naive was it to do it? What did take the most time?}
