@@ -2541,6 +2541,12 @@ are available in a \emph{G-Node GIN} repository
 
 
 
+
+
+
+\pagebreak
+
+
 \section{Backup of texts regarding "done but not mentioned"}
 
 \subsection{Calculate $Z$-maps mean in the common space already}
@@ -2564,6 +2570,24 @@ only did it with one; imo, based on alignment using the whole audio-description)
 it gets totally messy \& computational intensive.
 %
 Results were similar to the original procedure if not slightly worse.
+
+
+
+\subsection{Shortcoming: leakage of test data in union of individual
+\acp{ppa}}
+
+\todo[inline]{yeah, whatever}
+%
+We used the union of individual \acp{ppa} as spatial constrain for $Z$-maps.
+%
+But we have a leakage of test data (test subject is in data for the mask).
+%
+We might miss some voxels (of some participants) at the borders of the \ac{roi},
+because the subject-specific, binary masks are based on a ("titrated")
+threshold.  \citep{sengupta2016extension}
+%
+In the future, an independent probabilistic atlas should be used, the \ac{roi}
+dilated, [and a separate model calculated for each hemisphere].
 
 
 
@@ -2835,20 +2859,3 @@ This result suggests that the movie-based hyperalignment parameters that afford
 generalization to these stimuli are not stimulus specific but, rather, reflect
 stimulus properties that are more abstract and of more general utility for
 object representations'' \citep{haxby2011common}.
-
-
-\subsubsection{Shortcoming: leakage of test data in union of individual
-\acp{ppa}}
-
-\todo[inline]{yeah, whatever}
-%
-We used the union of individual \acp{ppa} as spatial constrain for $Z$-maps.
-%
-But we have a leakage of test data (test subject is in data for the mask).
-%
-We might miss some voxels (of some participants) at the borders of the \ac{roi},
-because the subject-specific, binary masks are based on a ("titrated")
-threshold.  \citep{sengupta2016extension}
-%
-In the future, an independent probabilistic atlas should be used, the \ac{roi}
-dilated, [and a separate model calculated for each hemisphere].
