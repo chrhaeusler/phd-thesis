@@ -116,44 +116,41 @@ necessary}
 
 \section{Open Science}
 
+\todo[inline]{phrase more in terms of (sub)goals not about "affected stages";
+adjust general intro accordingly}
+
+\todo[inline]{where definition is necessary, check if intro concisely defines it
+(e.g., "open-source", "open data", "open science", "open access")}
+
+
 On a metalevel, this dissertation aimed to meet both the requirements of open,
 shared, accessible, and transparent science \citep[cf.][]{watson2015will,
 fecher2014open} as well as the requirements of a reproducible and replicable
 research project.
 %
-Over the course of the present project, affected stages were
-
+Two (sub)goals:
 
 \begin{itemize}
-    \item acquiring open data (assessing their quality, processing it),
-    \item providing open data (creation, description, and storage of data,
-        implement everything in ope-source software \& automatize everything),
-    \item publication of data, materials and results.
+    \item Utilize open data, open materials, and open-source software,
+    \item Publishing open data, open materials, and open-access manuscripts
 \end{itemize}
 
 
-\todo[inline]{below, try to make one paragraph per topic with a) definition, b)
-example from current thesis, c) pro, con; then, delete subsections' titles}
-
-\todo[inline]{finalize the merge of open-source software \& custom code into
-"acquiring open data" \& "providing open data" respectively}
-
-
-
-
-\pagebreak
-
-\subsection{Acquiring open-source software, and open data \& results from
-previous analyses}
-
-\paragraph[inline]{Definition}
-
-\todo[inline]{give one sentence def of open data (incl. preprocessed data \&
-results)}
+The publications that describe generated data, the reasoning of methodological
+choices, analysis steps, and results of this thesis have been published in
+open-access journal.
+%
+Unthresholded statistical maps are available at Neurovault
+(\href{https://neurovault.org/}{\url{neurovault.org}}).
 
 
 
-\paragraph{Example 1: Open data}
+\subsection{Utilize open data, open materials, and open-source software}
+
+%
+First goal was to use open data and open-source software.
+
+\paragraph{Example: Open data \& open source}
 
 The current thesis capitalized on publicly and freely available
 %
@@ -166,16 +163,11 @@ stimulus annotations \citep{haeusler2016cutanno}
 %
 that are part of the \textit{studyforrest} project
 (\href{www.studyforrest.org}{\url{studyforrest.org}}).
-
-
-\paragraph{Example 2: Open-source software}
-
-All analyses steps were implemented in open-source software packages that
-provide a solid documentation and a broad basis of developers and maintainers.
 %
-In his way, we thrived to ensure long-term software support, and avoid the trap
-of creating a "paywall" for rerunning analyses on originally open data.
-%
+In order to avoid creating an ``artificial paywall'' for rerunning the analyses
+on open data, all analyses are implemented in open-source software
+packages\todo{FSL is not OS?}.
+
 We benefited from established free software like
 %
 Python and
@@ -184,7 +176,8 @@ FSL \citep[\href{https://www.fmrib.ox.ac.uk/fsl}{FMRIB's Software
 Library;}][]{smith2004fsl} that have been developed and debugged over years by
 an collaborative effort,
 %
-but also from software packages that emerged during current years like
+but also from scientific software packages that emerged during current years
+like
 %
 DataLad
 \citep[\href{www.datalad.org}{\url{datalad.org}};][]{halchenko2021datalad} or
@@ -194,23 +187,14 @@ BrainIAK
 kumar2020brainiaktutorial}.
 
 
+\paragraph{Pro \& Con.}
 
-
-\paragraph{Pro}
-
-\todo[inline]{A sentence about pro of open-source is missing}
-
+Preexisting software packages, data, and results from previous analyses enabled
+us shift time and resources from software development and data collection to
+subsequent stages of the project.\todo{what else?}
 %
-The present thesis highlights the utility of openly shared datasets in order to
-generate new findings:
-%
-already existing raw and preprocessed data, and results from previous analyses
-enabled us shift time and resources to subsequent stages of the project.
-
-\paragraph{Con}
-%
-However, the current project also highlighted an issue that is often overlooked
-when "free data are so near and just need to be picked up to be analyzed".
+However, a too often neglected aspect of open data is that open data does not
+exempt from the duty to familiarize yourself with the data.\todo{Jeez! OK!}
 % check the data
 Dataset consumers need to assume that everything that is not explicitly
 stated in the description of a dataset has not been considered by a dataset's
@@ -227,52 +211,41 @@ depending on a working group's knowledge and rigor.
 Choices made during data collection and preprocessing -- despite being
 state-of-the-art at the time of being published -- might not be optimal for
 every use case or made obsolete by more advanced methods.
-%
-However, the extent of raw data and decisions made during data collection,
-preprocessing, and further analyses might influence the subsequently performed
-analyses.
 
 
 \paragraph{Example 3: ROIs}
 %
-For example, like the \ac{ppa}, the \ac{rsc} and \ac{opa} have repeatedly shown
+Moreover, the extent of raw data and decisions made during data collection,
+preprocessing, and further analyses might influence the subsequently performed
+analyses.
+%
+For example, we and \citet{sengupta2016extension} chose the \ac{ppa} among
+possible candidates of ``scene-selective'' regions because it was the first area
+to be discovered and is the most reliably activated region across
+studies that investigate visual scene perception.
+%
+Like the \ac{ppa}, the \ac{rsc} and \ac{opa} have repeatedly shown
 increased hemodynamic activity in studies investigating visual spatial
 perception and navigation \citep{chrastil2018heterogeneity, bettencourt2013role,
 dilks2013occipital, epstein2019scene}.
 %
-Nevertheless, we and \citet{sengupta2016extension} chose the \ac{ppa} among
-three possible candidates because it was the first area to be discovered as a
-visual ``scene-selective'' region, is the most reliably activated region across
-studies that investigate visual scene perception.
-
-%
-``We assumed that results (at least of the audio-visual stimulus) could also
+We assumed that results (at least of the audio-visual stimulus) could also
 yield significant clusters in the \ac{rsc} and \ac{opa} but did not explicitly
-hypothesize that fact''.
+hypothesize that fact.
 %
-``Apart from the PPA, results show significantly increased activity in the
-ventral precuneus and posterior cingulate region (referred to as ``retrosplenial
-complex'', RSC) of the medial parietal cortex, and in the superior lateral
-occipital cortex (referred to as ``occipital place area'', OPA) for both
-naturalistic stimuli.
-
+Apart from the PPA, results show significantly increased activity in the
+\ac{rsc} \ac{opa} and are an incentive for further studies.
+% \citep[cf. algorithmic procedure in, e.g.,][]{julian2012algorithmic}.
+However, in case of preexisting \acp{roi} of \citep{sengupta2016extension}, one
+would have to replicate the non-automatized procedure of
+\citep{sengupta2016extension}.
 %
-''We believe that a detailed discussion of the RSC Activation in RSC and OPA was
-out of scope of the current study, results are an incentive for further
-studies''.
-
-\todo[inline]{In summary: a study on the same dataset would have to mimic the
-(non-automatized) procedure of \citep{sengupta2016extension}}
-
-%
-In the context of open science, this was kind of an limitation / aftereffect of
-coverage of mask for functional areas \citet{sengupta2016extension}, and the
-non-algorithmic procedure of \citet{sengupta2016extension} based on subjective
-decision that is hard to replicate \& to amply to the other functional areas
-\citep[cf. algorithmic procedure in, e.g.,][]{julian2012algorithmic}.
+A point that also highlights that some stages or results may rely on human
+decisions that cannot be replicated complicating updating or the extension of
+datasets.\todo{daddy, chill!}
 
 
-\paragraph{Pro \& Con}
+\paragraph{Pro \& Con: Opportunity costs}
 
 % tell me about opportunity costs without saying opportunity costs
 Hence, when considering using open data, researchers need to weigh the costs and
@@ -283,140 +256,107 @@ the path with the greater net return.
 
 
 
-
-
-\pagebreak
-
-
-\subsection{Providing open data}
-
-\todo[inline]{Try to merge "providing code" into here to create a "providing a
-dataset"}
-
+\subsection{Publishing open data, open materials, and open-access manuscripts}
+%
+%The annotation comprises, e.g., time-stamps of phonemes, words and sentences of
+%all speakers, a grammatical tagging, and an annotation of syntactic
+%dependencies and semantics.
 
 %
-Another subgoal of the present thesis was to provide open data by extending the
-studyforrest dataset.
-%
-Therefore, data were not collected for mere internal purposes but collected,
-described, stored and published in a manner that allows convenient re-use by
-third parties.
-
-
-
-In order to facilitate transparency of materials and procedures, data and custom
-code are version-controlled, and changes made to data and code were protocolled
-and documented.
-%
-In order to facilitate reproducibility, all stages ranging from downloading data
-to plotting figures are implemented in code that can be rerun from the command
-line.
-
-
-\subsubsection{Example: Annotation}
-
+The second goal was to create open data and extend the studyforrest dataset.
 % additional effort 1
-For example, the content of the published annotation of speech
-\citep{haeusler2021speechanno} goes far beyond what was necessary to perform the
-analyses in\citep{haeusler2022processing}.
-%
-The annotation comprises, e.g., time-stamps of phonemes, words and sentences of
-all speakers, a grammatical tagging, and an annotation of syntactic dependencies
-and semantics.
+The content of the published annotation of speech \citep{haeusler2021speechanno}
+goes beyond what was necessary to perform the analyses in
+\citet{haeusler2022processing}.
 %
 Consequently, the annotation further widen the ``annotation bottleneck''
 \citep{aliko2020naturalistic} of two naturalistic stimuli, and provides a
 headstart for independent research that wish to model hemodynamic brain
 responses that are correlated with different aspects of spoken language.
+%
+In order to facilitate transparency, data and custom code are
+version-controlled, and changes made to data and code were protocolled and
+documented.
+%
+In order to facilitate reproducibility, processing steps ranging from
+downloading input data to plotting figures are implemented in custom code that
+can be rerun from the command line.
+
+
+\subsubsection{Con}
+%
+Creating data, materials, and code to be published requires a considerable about
+of time and effort.
+%
+A dataset's content needs to be collected, described, stored and published in a
+manner that attracts re-use by third parties.
+%
+Dataset creators need to anticipate use cases, collect the data according to
+best practices, convert data into a standardized format (considering, e.g.,
+naming conventions, folder structure, separating raw from analyzed data), and
+create metadata.
+%
+Analyses pipelines need to be designed and tested to automatically and
+reliably rerun the history of a dataset's stages.
+%
+% publication: findable, accessible, interoperable, reusable
+Especially when data are supposed to be published, a researcher needs consider
+legal issues (e.g. intellectual property rights, use license, statement of
+agreement and anonymization of participant data,), facilitate discovery by
+humans and web bots (e.g., via extensive description and machine-readable
+metadata), and ensure long-term curation and accessibility at an appropriate
+data host.
 
 
 
 \subsubsection{Pro}
 
-\todo[inline]{Pro here \& following Cons have probably big intersection of text
-that can be dropped}
 
-\todo[inline]{generally: phrasing!}
-
-\todo[inline]{focus on immediate benefits}
-% better organized, better documented
-% hypothesizing after the results are known \citep[a.k.a. ``HARKing''; cf.][]{kerr1998harking}
-
-Advantages of creating a dataset that is supposed to be published:
-%
-documenting every step and, weighting pros and cons of alternative procedural
-paths in written form lead to better understanding, and avoided tricking oneself
-into performing unnecessary statistical tests.
-%
-Moreover, tracking and documenting all changes to data and code from the start
-to the final results can be created as lab protocol that contains information
-and drafts for writing the corresponding scientific article.
-%
-Therefore, creating a dataset supposed to be published supports meticulous
-working methods and following general good scientific practices.
-
-The extra time and effort spend on inspecting data and testing code as benefits
-for both the creators of the analyses pipelines as well as the target audience.
-%
-Shared code helps independent researchers to assess and rerun code in order to
-validate results.
-%
-Shared code can adjusted and extended  as part of their own data analysis.
-
-%
-The creators can tracking the development of code from start to current state,
-document every step extensively, automatize the stuff which lead to easier
-tracing, identifying and correcting bugs.
-%
-Tracking and documenting every step increases reliability of results and can be
-seen as a "lab protocol" containing information / templates for writing
-scientific articles.
-
-%
-Ultimately, leads to higher confidence in one's own work and the reliability of
-results.
-
-%
-Last, automating recurring tasks gives yourself the possibility of reusing
-certain data, code, documents, etc. in the future.
+% method sections is too short
+It helps readers to gain a better understanding from documented step-by-step
+workflow than the often limited coverage of a regular publication's methods
+section.
 
 
 
-\subsubsection{Con: time}
+%
+However, creating a dataset that is supposed to be published provides immediate
+benefits to the dataset's creator.
+%
+Documenting every step and commenting on pros and cons of alternative procedural
+paths lead[s] to better understanding.
+%
+Version-controlling steps diminishes the risk of look-ahead bias.
+%
+Extensively tracking and documenting the state and development of data and code
+from the start to the final results can also be considered as a form of a lab
+protocol that contains structured information for writing the corresponding
+scientific article.
+%
+In summary, creating a dataset supposed to be published supports meticulous
+working methods and good scientific practices.
+%
+Finally, it enables independent researchers to validate current results and use
+written code to replicate current findings in prospective studies.
 
-\todo[inline]{shorten following paragraph}
-%
-Dataset creators need to anticipate which people might use the data for which
-purpose, collect the data according to best practices, convert data into a
-standardized format (considering, e.g., naming conventions, folder structure,
-separating raw from analyzed data), and create metadata.
-%
-Data need to be of quality and in a state worthy to be published and documented
-for other readers, analyses pipelines needed to be in a state to be automatized,
-every processing step documented, saved, protocolled, and shared to allow
-reproducibility of results and facilitate replicability of finding.
 
+% readers get a better understanding
+``Transparent and complete reporting of all facets of a study allows a critical
+reader to evaluate the work and fully understand its strengths and limitations
 %
-In order to allow reproducibility every processing step needs to be designed and
-tested to be run and automatically and reliably.
-%
-Every change made to data, materials or code, and command line invocations need
-to be tracked via a version control system \citep[e.g.,][]{halchenko2021datalad}
-to allow other researchers to inspect a study's full history.
+and it facilitates subsequent research efforts by other investigators, who can
+exactly follow (or carefully manipulate) each aspect of a study''
+\citep{nichols2017best}.
 
-% data analysis & automatization
-In summary data, materials and code need to be documented more rigorously, and
-coverage of procedures need to exceed the coverage given in method sections of
-regular articles.
-%
-Creating materials and code requires a considerable about of time and effort
-with little, immediate rewards.
 
 
 
 \subsubsection{Con: scooped}
+
+\todo[inline]{maybe, shift this into personal assessment}
+
 %
-Second, publishing data is associated with the risk of being ``scooped''
+Publishing data is associated with the risk of being ``scooped''
 \citep[cf.][]{laine2017afraid}, i.e. that other working groups are using the
 same data for a similar research question at the same time.
 %
@@ -433,107 +373,25 @@ stick to inflexible project plans \citep[cf.][]{toribio2021early}.
 \pagebreak
 
 
-
-\subsection{Publication of data, materials and results}
-
-
-\subsubsection{Definition of open access}
-
-\todo[inline]{Print and revise}
-
-\subsubsection{Example}
-
-Because ``nature abhors a paywall'' \citep{dupre2020nature}, publications
-describing generated data, the reasoning of methodological choices, analysis
-steps, and results \citep{haeusler2021speechanno, haeusler2022processing} have
-been published in a peer-reviewed, open-access journal.
-%
-Unthresholded statistical maps of all computed statistical t-contrasts are
-additionally published at Neurovault (neurovault.org).
-
-
-% publication: findable, accessible, interoperable, reusable
-In the stage of preparing a publication, a researcher needs to facilitate
-discovery by humans and web bots (e.g., via extensive description and
-machine-readable metadata), ensure long-term curation [e.g., maintenance],
-availability [e.g., accessibility], and choose an appropriate data host.
-% legal issues
-Finally, a researcher need to resolve legal issues that raise during due to the
-publication of data, materials and code (e.g. statement of agreement / consent,
-anonymization, intellectual property rights, use license).
-
-% conclusion
-In summary, we re-used existing data as a foundation for a new investigation in
-order to generate novel findings encourage further studies, and illustrate the
-benefits of publicly and freely available datasets.
-
-
-\paragraph{Con}
-
-As usually, time and effort (more severe in case of publishing data than in case
-of merely publishing a paper plus code)
-
-\paragraph{Pro from creator}
-
-\todo[inline]{My super interesting papers might get cited more often because,
-yeah, open access that gets, on average, cited more often [REFERENCE?]}
-
-``greater potential impact of a work when it may be cited not just for its
-scientific findings but also when its data is reused in other works''
-\citep{nichols2017best}.
-
-
-\paragraph{Pros from readers}
-
-\todo[inline]{learning via reading or "trying it yourself"; better understanding
-(than from a method section); essentially, a step-by-step guide}
-
-...enables independent researchers to validate current results and use written
-code to replicate current findings in prospective studies, all created data,
-code, analysis steps, and results are published as version-controlled DataLad
-\citep[\href{www.datalad.org}{datalad.org};][]{halchenko2021datalad} datasets.
-
-%
-From the perspective of reader, open access journals provides low-cost access to
-information.
-
-% readers get a better understanding
-A ``transparent and complete reporting of all facets of a study, allowing a
-critical reader to evaluate the work and fully understand its strengths and
-limitations'' \citep{nichols2017best}.
-%
-It helps readers to take a look at the methods in more detail it is conveyed in
-a often limited method section of a regular study.
-%
-``This also facilitates subsequent research efforts by other investigators, who
-can exactly follow (or carefully manipulate) each aspect of a study''
-\citep{nichols2017best}.
-%
-Open materials facilitate tracking (and understanding!) the process (esp.
-analyzes) in detail (pipelines are often far easier to understand by reading the
-code step-by-step than just reading the method section).
-
-%
-Interesting to students how can not just read a method section but also take a
-look at the code and follow step by step every command.
-%
-Fully transparent studies that also include the input data can serve as an
-``education playground'' by enabling (undergraduate) student to trace the
-progress of real world project, to learn coding and data analysis.
-
-
-
-
-\pagebreak
-
-
 \subsection{Personal assessment}
 
 \todo[inline]{how personal am I supposed to get? Telling "the story of my
 thesis?"}
 
 
-\todo[inline]{probably, merge the following four subsections into one}
+\subsubsection{Utilize open data, open materials, and open-source software}
+
+
+
+
+\subsubsection{Publishing open data, open materials, and open-access
+manuscripts}
+
+
+
+
+
+\todo[inline]{merge the following four subsections into the two new ones}
 
 
 \subsubsection{a) acquiring open data (assessing their quality, processing it)}
@@ -701,9 +559,21 @@ leads to higher confidence in one's own work and the reliability of results.
 Lastly, I feel more confident about my work now compared to previous projects
 during which I did not do it.
 
+%
+We re-used existing data as a foundation for a new investigation in
+order to generate novel findings encourage further studies, and illustrate the
+benefits of publicly and freely available datasets.
+%
+Extended studyforrest
+%
 
 
 \subsection{Summary: it needs to be done (for greater goods)}
+
+%
+From the perspective of reader, open access journals provides low-cost access to
+information.
+
 %
 Nevertheless, open science is the best [?] way tackle the issue if
 ``reproducibility crisis'' or ``replication crisis''.
@@ -744,6 +614,10 @@ Open access publications might receive more citations than paywalled
 publications [\citep{piwowar2018state}], open data might
 get cited, and promote new collaborations [\citep{popkin2019data}].
 
+
+``greater potential impact of a work when it may be cited not just for its
+scientific findings but also when its data is reused in other works''
+\citep{nichols2017best}.
 
 However, from a career perspective, I see few if none incentives to commit to
 OS:
@@ -1370,6 +1244,11 @@ and developing databases that allow adjustment for factors such as age''
 
 
 \section{Conclusion}
+
+\todo[inline]{Somehow manage to combine open science and naturalistic stuff?}
+
+
+
 
 %
 In summary, naturalistic stimuli ``impose a meaningful timecourse across
