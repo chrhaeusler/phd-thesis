@@ -25,7 +25,7 @@ controlled stimuli, rely heavily on a participant's compliance, and can usually
 map just one domain of brain functions.
 
 
-\subsection{The usual rant about localizers here}
+\subsection{The usual rant about localizers}
 
 \todo[inline]{imo, it makes sense to shortly repeat the usual stuff here}
 
@@ -45,7 +45,7 @@ Naturalistic stimuli like movies and auditory narratives \citep[cf.][for
 reviews]{jaaskelainen2021movies, jaaskelainen2020neural} provide a time-locked
 event structure that samples a broad range of brain states ranging from
 low-level perception (e.g., luminance) to high-level cognition (e.g., social
-cognition)
+cognition).
 %
 A localizer based on naturalistic stimuli could
 %
@@ -605,8 +605,47 @@ results.
 
 \section{Naturalistic stimuli as functional localizer?}
 
-\todo[inline]{is following in line with "aims of thesis" \& "specific aims and
-objectives"?}
+\todo[inline]{is following in line with "aims of thesis", "specific aims and
+objectives"? "The usual rant about localizers? (6.6.1. \& 6.6.2"}
+
+
+%
+The localizer is the established method to identify the \ac{ppa}.
+% usually, visual PPA works pretty well
+It's a reliable methods that yields bilateral clusters of increased hemodynamic
+activity in most subjects.
+%
+\citet{sengupta2016extension} successfully delineated the left-hemispheric
+\ac{ppa} in 12 of 14 subjects and right-hemispheric \ac{ppa} in 14 of 14
+subjects based on localizer data.
+%
+However, ``the PPA definition may depend on the type of experiment, task, and
+stimuli used'' \citep{weiner2018defining}.
+
+
+\paragraph{Naturalistic stimuli, why the hype?}
+
+%
+``Reductionist stimuli facilitating precise assessment of “isolated” mental
+process of interest via cognitive subtraction.
+%
+Cognitive subtraction assumes that a single added cognitive process does not
+alter the other, co-occurring processes, both neutrally and cognitively.
+%
+As such, task-based fMRI has traditionally utilized precisely controlled tasks
+to study the neurobiological substrates of cognition''
+\citep{bottenhorn2018cooperating}.
+
+%
+``However, cognition does not occur by pure insertion;
+%
+the functioning of any cognitive process is not wholly independent from other
+co-occurring processes [Friston et al., 1996].
+%
+Instead, cognition is highly interactive, encompassing measurable changes in
+neural activity that are dependent on the full amalgamation of relevant social,
+cognitive, perceptual, and motor processes'' \citep{bottenhorn2018cooperating}.
+
 
 
 ``Natural stimuli like movies \citep{eickhoff2020towards,
@@ -617,12 +656,50 @@ immersive, task-free paradigm that more closely resembles our natural dynamic
 environment than traditional experimental paradigms''
 \citep{haeusler2022processing}''.
 
+``A major concern is the type of stimuli used in the majority of fMRI research.
+Many studies attempt to isolate cognitive constructs using highly controlled and
+limited sets of reductive stimuli, such as still images depicting specific
+classes of objects in isolation, or pure tones.
+%
+However, such stimuli radically differ in complexity and cognitive demand from
+real-world contexts, calling into question whether resulting inferences
+generalize outside the laboratory to more ecological settings [Nastase et al.,
+2020]'' \citep{delavega2022neuroscout}.
+
+%
+``Naturalistic paradigms using life-like stimuli have been advocated as a way to
+increase the generalizability of fMRI studies [DuPre et al., 2020; Hamilton and
+Huth, 2020; Nastase et al., 2020; Sonkusare et al., 2019]''
+\citep{delavega2022neuroscout}.
+
+%
+``Stimuli such as movies and narratives feature rich, multidimensional
+variation, presenting an opportunity to test hypotheses from highly controlled
+experiments in more ecological settings \citep{delavega2022neuroscout}''.
+
+
+
 
 \subsection{Functional localization via modeling hemodynamic responses}
 
+%
+``A major challenge in the analysis of naturalistic stimuli is the high degree
+of collinearity between features, as the interpretation of individual features
+is dependent on co-occurring features.
+%
+In many cases, controlling for confounding variables is critical for the
+interpretation of the primary feature---as is evident in our investigation of
+the relationship between FFA and face perception''
+\citep{delavega2022neuroscout}.
+
+%
+``For instance, we are developing an interactive visualization of the covariance
+between all features in Neuroscout that may help users discover relationships
+between a predictor of interest and potential confounds''
+\citep{delavega2022neuroscout}.
+
 
 \subsubsection{Speech Anno}
-
 
 % what we did in 1 sentence
 In \citet{haeusler2021speechanno}, we created and validated an annotation of
@@ -631,9 +708,8 @@ speech occurring in the movie and its audio-description.
 The results of the validation encouraged us to use the annotation as the
 groundwork for \citep{haeusler2022processing}.
 
+
 \subsubsection{PPA paper}
-
-
 
 \todo[inline]{mih: worth stating again somewhere in the discussion that the
 studyforrest dataset is not for this (diverse), but it is a small dataset, which
@@ -696,8 +772,6 @@ audio-description could potentially substitute a visual localizer as a
 diagnostic procedure to assess brain functions in visually impaired individuals.
 
 
-
-
 \paragraph{Results: Contra naturalistic localizer}
 
 \todo[inline]{Annotation \& modeling}
@@ -740,46 +814,134 @@ any task) investigating generalizability of findings to, well, controlled
 paradigms.
 
 
-
 \subsection{Interim summary \& future studies: stick to dedicated for now}
 
 \todo[inline]{I assume this part will be a pretty personal opinion}
 
-
-
 \subsubsection{What does a dedicated localizer actually do?}
 
+\todo[inline]{What does the PPA actually do?}
 
 
-
-
-\todo[inline]{What does the PPA actually do? What is the psychological
-construct?}
-
-\todo[inline]{Even if the construct is "watching pics of landscapes" or "pics
-with similar low-level features of landscapes"}
+\paragraph{Analyses}
 
 %
-The localizer is the established method to identify the \ac{ppa}.
-% usually, visual PPA works pretty well
-It's a reliable methods that yields bilateral clusters of increased hemodynamic
-activity in most subjects.
+``Challenges in modeling data of available naturalistic datasets limit the
+impact of open datasets.
 %
-\citet{sengupta2016extension} successfully delineated the left-hemispheric
-\ac{ppa} in 12 of 14 subjects and right-hemispheric \ac{ppa} in 14 of 14
-subjects based on localizer data.
+Naturalistic features are difficult to characterize and co-occur with potential
+confounds in complex and unexpected ways [Nastase et al., 2020]''
+\citep{delavega2022neuroscout}.
 %
-However, ``the PPA definition may depend on the type of experiment, task, and
-stimuli used'' \citep{weiner2018defining}.
+``There are arguably no standardised approaches for analysing complex and high
+dimensional fMRI data from long naturalistic stimuli like movies (though a few
+approaches are becoming increasingly common  [64,125,126])
+\citep{aliko2020naturalistic}''
+
+%
+``However, it can also be argued that in dynamic narrative driven media (i.e.
+films and movies), the so-called confounds themselves encode information of
+interest that cannot or should not be cleanly regressed out [Grall and Finn,
+2020].
+%
+However, as the number of features continues to grow, a critical future
+direction for Neuroscout will be to implement statistical models which are
+optimized to estimate a large number of covarying targets.
+%
+Of note are regularized encoding models, such as the banded-ridge regression as
+implemented by the Himalaya package [Latour et al., 2022].
+%
+These models have the additional advantage of implementing feature-space
+selection and variance partitioning methods, which can deal with the difficult
+problem of model selection in highly complex feature spaces such as naturalistic
+stimuli.
+%
+Such models are particularly useful for modeling high-dimensional embeddings,
+such as those produced by deep learning models'' \citep{delavega2022neuroscout}.
 
 
-\paragraph{Dynamic localizers}
+\paragraph{Annotations}
+%
+``This is exacerbated by the laborious task of annotating events at fine
+temporal resolution, which limits the number of variables that can realistically
+be defined and modelled.
+%
+As a result, isolating relationships between specific features of the stimuli
+and brain activity in naturalistic data is especially challenging, which deters
+researchers from conducting naturalistic experiments and limiting re-use of
+existing public datasets.
+%
+In movies, face perception involves repeated and protracted presentation of a
+relatively narrow set of individual faces. Given evidence of rapid adaptation of
+category-­selective fMRI response to individual stimuli [Grill-Spector et al.,
+1999], FFA activation in naturalistic stimuli may be attenuated by a failure to
+distinguish transient processes (e.g. initial encoding) from indiscriminate face
+exposure'' \citep{delavega2022neuroscout}.
 
+%
+``Studies would greatly benefit from an automated annotation process for an
+objective functional decoding of included papers, instead of subjective manual
+annotation.'' \citep{bottenhorn2018cooperating}.
+
+%
+``Annotation bottleneck.
+%
+This involves not only coding a stimulus feature of interest but also a suitable
+range of controls at a finer level of detail than used to label ‘language’ and
+‘face’ networks herein.
+%
+If done manually, movie annotations at this level of detail will be very time
+consuming.
+%
+Though this might prove necessary for testing some hypotheses, we suggest
+automated approaches.
+%
+Automated approaches to annotation can make use of a large number of existing
+text-based descriptions of movies to provide time-locked features.
+%
+‘Pliers’ is a tool that uses approaches like these to automatically extract
+features (https://github.com/tyarkoni/pliers)[123].
+%
+NeuroScout (https://neuroscout.org/) is a platform that provides automatic
+feature extraction of publicly available naturalistic datasets''
+\citep{aliko2020naturalistic}''.
+
+%
+``We expect that as machine learning models continue to evolve, it will be
+possible automatically extract higher level features from naturalistic stimuli''
+\citep{delavega2022neuroscout}.
+
+
+\subsubsection{Transition to estimation}
+%
+Notably, 20 years after group-level findings of \citep{bartels2004mapping} there
+might be "dynamic localizers" using video snippets
+\citep{pitcher2011differential, fox2009defining} but, to my knowledge, no
+localizers based on naturalistic stimuli.
+%
+The approach is not easily transferable from block-design to incidental,
+event-like presentation of spatial information
+%
+For now better stick to usual localizer, maybe dynamic localizers:
+
+%
+``Thus, it is perhaps unreasonable to expect findings from a highly restricted
+assessment of a psychological construct in the scanner to fully generalize to
+real-world behaviors and settings'' \citep{bottenhorn2018cooperating}.
+
+\paragraph{Dynamic localizers (still block-design)}
+
+\todo[inline]{GLM easily applicable}
+%
+``Naturalistic might be defined on a continuum from short, static, simple,
+decontextualised, repeating, unisensory stimuli to long, dynamically changing,
+complex, contextualised, continuous, typically multisensory stimuli''
+\citep{aliko2020naturalistic}.
+%
 ``Previous reports showing significant differences between topographies
 estimated by static and dynamic localizers, especially in superior temporal and
 frontal cortices [Fox et al., 2009; Pitcher et al., 2011]''
 \citep{jiahui2022cross}.
-
 %
 ``For all categories, the dynamic localizer elicited stronger and broader
 category-selective activations than the static localizer''
@@ -798,44 +960,11 @@ reflected the difference in the topographies activated by different types of
 localizers.'' \citep{jiahui2022cross}.
 
 
-\paragraph{Future studies on modeling naturalistic stimuli}
-
-\todo[inline]{check \citet{delavega2022neuroscout}; cf. also
-\citet{haeusler2022processing}'s discussion}
-
-\todo[inline]{literature says it is impossible (but Alexander Hut) but how
-"prohibitive" is it? How naive was it to do it? What did take the most time?}
-
-\todo[inline]{data from naturalistic stimuli can be analyzed using model-driven
-analyses based on stimulus annotations: but no simple mapping of methods from
-controlled paradigms to naturalistic stimuli}
-
-\todo[inline]{There is no localizer based on naturalistic stimuli for a reason}
-
-%
-Notably, 20 years after group-level findings of \citep{bartels2004mapping} there
-might be "dynamic localizers" using video snippets
-\citep{pitcher2011differential, fox2009defining} but, to my knowledge, no
-localizers based on naturalistic stimuli.
-%
-The approach is not easily transferable from block-design to incidental,
-event-like presentation of spatial information
-%
-Assumptions of HRF still valid?
-%
-Naturalistic stimuli are hyped, imo (a.k.a. "I want to do what I did before
-using controlled experiments but simply using naturalistic stimuli").
-
-
-\subsubsection{Transition to estimation}
-
-%
-However, we should have sampled response vector(s) that carry the spatial
-response information (if you know what I mean).
-
-
-
 \subsection{Functional localization via estimation from ref}
+
+%
+We should have sampled response vector(s) that carry the spatial response
+information (if you know what I mean).
 
 
 \subsubsection{Goal of SRM study}
@@ -1004,11 +1133,31 @@ patients with tumors or epilepsies, as it aids the understanding of which parts
 of the brain need to be spared in order to preserve sensory, motor or cognitive
 abilities'' \citep{wegrzyn2018thought}.
 
-
+``Data discovery is nearly unlimited with the NNDb as there are a vast number of
+annotations that can be made from the movies and approaches to analysis.
+%
+This flexibility makes it usable across disciplines to address questions
+pertaining to how the brain processes information associated with more
+naturalistic stimuli.
+%
+This includes more than replicating prior findings with more ecologically valid
+stimuli.
+%
+That is, there are a number of broad open questions that the NNDb can be used to
+address for the first time, like the systematic study of how context is used by
+the brain [5].
+%
+Given the lack of robust neuroimaging biomarkers for mental illness [71,72], the
+NNDb might also help increase the pace of clinically relevant discovery, e.g.,
+by uncovering labelled network patterns that predict individual differences
+[46]'' \citep{aliko2020naturalistic}.
 
 \section{Conclusion}
 
 \todo[inline]{Somehow manage to combine open science and naturalistic stuff?}
+
+\todo[inline]{literature says it is impossible (but Alexander Hut) but how
+"prohibitive" is it? How naive was it to do it? What did take the most time?}
 
 %
 Naturalistic stimuli are not a panacea but traditional paradigms and
