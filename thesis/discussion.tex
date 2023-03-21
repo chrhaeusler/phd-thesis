@@ -7,6 +7,7 @@ before going into details about naturalistic stimuli as localizer}
 \todo[inline]{an overview over the structure of the discussion that is supposed
 to prime its topics}
 
+
 \todo[inline]{delete subsection(s), so 6.1. will be "Open Science"}
 
 
@@ -606,30 +607,136 @@ results.
 \section{Naturalistic stimuli as functional localizer?}
 
 \todo[inline]{is following in line with "aims of thesis", "specific aims and
-objectives"? "The usual rant about localizers? (6.6.1. \& 6.6.2"}
+objectives"? "The usual rant about localizers? (6.6.1. \& 6.6.2)"}
 
-
-%
-The localizer is the established method to identify the \ac{ppa}.
-% usually, visual PPA works pretty well
-It's a reliable methods that yields bilateral clusters of increased hemodynamic
-activity in most subjects.
-%
-\citet{sengupta2016extension} successfully delineated the left-hemispheric
-\ac{ppa} in 12 of 14 subjects and right-hemispheric \ac{ppa} in 14 of 14
-subjects based on localizer data.
-%
-However, ``the PPA definition may depend on the type of experiment, task, and
-stimuli used'' \citep{weiner2018defining}.
-
-
-\paragraph{Naturalistic stimuli, why the hype?}
+\todo[inline]{phrasing!}
 
 %
-``Reductionist stimuli facilitating precise assessment of “isolated” mental
-process of interest via cognitive subtraction.
+The \ac{ppa} is traditionally identified by contrasting hemodynamic responses to
+blocks of pictures of scenes or landscapes to, e.g., blocks of pictures of tools
+or faces.
 %
-Cognitive subtraction assumes that a single added cognitive process does not
+Although the exact definition of the \ac{ppa} depends on the type of stimuli,
+the task, and the $t$-contrast, the traditional localizer approach can reliably
+delineate the \ac{ppa} bilaterally in a large proportion of subjects
+\citep[e.g.,][]{zhen2017quantifying}.
+%
+For example, \citet{sengupta2016extension} successfully delineated the
+left-hemispheric \ac{ppa} in 12 of 14 subjects and right-hemispheric \ac{ppa} in
+14 of 14 subjects based on localizer data.
+%
+However, the highly controlled nature of the employed stimuli raises the
+question whether the spatial localization of the isolated psychological
+construct of "scene perception" generalizes to more ecological settings outside
+of the laboratory (the neuronal correlate of the perception of black-and-white
+landscape pictures).
+%
+Hence, we employed two naturalistic stimuli, a movie and its audio-description
+that provides a continuous, complex, immersive, task-free paradigm that more
+closely resembles our natural dynamic environment than traditional experimental
+paradigms in order to assess the generalizability of inferences drawn from
+highly controlled experiments to more naturalistic stimulation.
+
+
+
+\subsection{Functional localization via modeling hemodynamic responses}
+
+\todo[inline]{mih: worth stating again somewhere in the discussion that the
+studyforrest dataset is not for this (diverse), but it is a small dataset, which
+limits the generality}
+
+% study in one sentence
+In \citet{haeusler2022processing} we explored whether an audio-visual
+naturalistic stimulus and an exclusively auditory naturalistic stimulus could be
+used in order to localize the \ac{ppa} as it was previously identified in the
+same set of participants by a traditional block-design functional localizer that
+employed static pictures \citep{sengupta2016extension}.
+
+
+\paragraph{Method}
+% stress similarity to localizer approach
+Adopting the approach of traditional localizer, we modeled hemodynamic responses
+to events in two naturalistic stimuli in order to create $t$-contrasts that
+aimed to localize the \ac{ppa}.
+% AV operationalization
+For the model-based mass-univariate statistical analysis (i.e. \ac{glm}) of the
+movie's data, we operationalized the perception of visual spatial information
+based on an annotation of movie cuts and depicted locations
+\citep{haeusler2016cutanno}.
+% AD operationalization
+For the \ac{glm} of the audio-description's data, we extended the annotation of
+speech that we created and validated in \citep{haeusler2021speechanno} by
+further annotating nouns that the narrator uses to describe the movie's absent
+visual content.
+
+
+\paragraph{Results}
+% group results
+On a group-average level, results demonstrate that increased activation in the
+\ac{ppa} during the perception of static pictures generalizes to the perception
+of spatial information embedded in an audio-visual movie and exclusively
+auditory naturalistic stimulus \citep{haeusler2022processing}.
+% glm analysis
+Further, results show that a model-driven \ac{glm} analysis based on a
+naturalistic stimulus' annotation can be used to replicate findings of studies
+that employed traditional paradigms, and add evidence
+\citep[cf.][]{bartels2004mapping} that functional specialization of cortical
+areas is preserved during naturalistic stimulation.
+% individual AD
+On an individual level, the analysis of the movie yielded bilateral clusters of
+increased hemodynamic activity in the \ac{ppa} of five participants and a
+unilateral cluster in seven participants, whereas the analysis of the
+audio-description revealed bilateral clusters in nine participants and one
+unilateral cluster in one participant.
+% conclusion
+Results suggest that a movie and a exclusively auditory naturalistic stimulus
+could potentially substitute a visual localizer as a diagnostic procedure to
+assess brain functions in individual persons.
+
+
+\paragraph{Contra: auditory response is different; sometime not reliable}
+
+\todo[inline]{however: non-reliability might be reliable in some subjects}
+%
+However, the usability of a purely auditory paradigm to localize the \ac{ppa} as
+it is defined by a visual paradigm might be limited by our findings that suggest
+that increased hemodynamic activity during auditory stimulation is spatially
+restricted to the anterior \ac{ppa}.
+%
+On the one hand, our results provide further evidence to studies in the field of
+visual perception that suggest that the \ac{ppa} can be divided into
+functionally subregions that are coactivate during the perception of visual
+scenes but process different stimulus features
+\citep{aminoff2007parahippocampal, baldassano2013differential}.
+%
+On the other hand, results encourage future studies to investigate response in
+the parahippocampal region to auditory stimuli under more controlled conditions.
+%
+In case the controlled paradigm reveals less variation in reliability across
+participants, future studies employing naturalistic stimuli could then
+investigate factors that might have influenced reliability of individual results
+in \citet{haeusler2022processing}:
+%
+a) stimulus-related factors like the number available events that can be modeled
+and contrasted per stimulus segment, or the general confound structure,
+%
+b) modeling-related factors like the assumed shape of the hemodynamic response
+function [?], or
+%
+c) subject-specific factors like alertness or engagement over the course of the
+experiment.
+
+
+
+\subsection{Interim summary \& future studies: stick to dedicated for now}
+
+\todo[inline]{I assume this part will be a pretty personal opinion}
+
+\todo[inline]{check the papers that claim "prohibitively difficult" (cf. general
+intro) and state the point again differently phrased}
+
+
+``Cognitive subtraction assumes that a single added cognitive process does not
 alter the other, co-occurring processes, both neutrally and cognitively.
 %
 As such, task-based fMRI has traditionally utilized precisely controlled tasks
@@ -646,273 +753,14 @@ Instead, cognition is highly interactive, encompassing measurable changes in
 neural activity that are dependent on the full amalgamation of relevant social,
 cognitive, perceptual, and motor processes'' \citep{bottenhorn2018cooperating}.
 
-
-
-``Natural stimuli like movies \citep{eickhoff2020towards,
-hasson2008neurocinematics, sonkusare2019naturalistic} or narratives
-\citep{hamilton2018revolution, honey2012not, lerner2011topographic,
-silbert2014coupled, wilson2008beyond} can be used as a continuous, complex,
-immersive, task-free paradigm that more closely resembles our natural dynamic
-environment than traditional experimental paradigms''
-\citep{haeusler2022processing}''.
-
-``A major concern is the type of stimuli used in the majority of fMRI research.
-Many studies attempt to isolate cognitive constructs using highly controlled and
-limited sets of reductive stimuli, such as still images depicting specific
-classes of objects in isolation, or pure tones.
 %
-However, such stimuli radically differ in complexity and cognitive demand from
-real-world contexts, calling into question whether resulting inferences
-generalize outside the laboratory to more ecological settings [Nastase et al.,
-2020]'' \citep{delavega2022neuroscout}.
-
-%
-``Naturalistic paradigms using life-like stimuli have been advocated as a way to
-increase the generalizability of fMRI studies [DuPre et al., 2020; Hamilton and
-Huth, 2020; Nastase et al., 2020; Sonkusare et al., 2019]''
-\citep{delavega2022neuroscout}.
-
-%
-``Stimuli such as movies and narratives feature rich, multidimensional
-variation, presenting an opportunity to test hypotheses from highly controlled
-experiments in more ecological settings \citep{delavega2022neuroscout}''.
+``Thus, it is perhaps unreasonable to expect findings from a highly restricted
+assessment of a psychological construct in the scanner to fully generalize to
+real-world behaviors and settings'' \citep{bottenhorn2018cooperating}.
 
 
 
 
-\subsection{Functional localization via modeling hemodynamic responses}
-
-%
-``A major challenge in the analysis of naturalistic stimuli is the high degree
-of collinearity between features, as the interpretation of individual features
-is dependent on co-occurring features.
-%
-In many cases, controlling for confounding variables is critical for the
-interpretation of the primary feature---as is evident in our investigation of
-the relationship between FFA and face perception''
-\citep{delavega2022neuroscout}.
-
-%
-``For instance, we are developing an interactive visualization of the covariance
-between all features in Neuroscout that may help users discover relationships
-between a predictor of interest and potential confounds''
-\citep{delavega2022neuroscout}.
-
-
-\subsubsection{Speech Anno}
-
-% what we did in 1 sentence
-In \citet{haeusler2021speechanno}, we created and validated an annotation of
-speech occurring in the movie and its audio-description.
-% validation analysis conclusion
-The results of the validation encouraged us to use the annotation as the
-groundwork for \citep{haeusler2022processing}.
-
-
-\subsubsection{PPA paper}
-
-\todo[inline]{mih: worth stating again somewhere in the discussion that the
-studyforrest dataset is not for this (diverse), but it is a small dataset, which
-limits the generality}
-
-
-\paragraph{Goal}
-
-% study in one sentence
-The goal of \citet{haeusler2022processing} was to explore whether an
-audio-visual naturalistic stimulus and an exclusively auditory naturalistic
-stimulus could be used in order to localize the \ac{ppa} as it was previously
-identified in the same set of participants by a traditional block-design
-functional localizer that employed static pictures
-\citep{sengupta2016extension}.
-
-
-\paragraph{Method}
-
-% AV operationalization
-For the model-based mass-univariate statistical analysis (i.e. \ac{glm}) of the
-movie's data, we operationalized the perception of visual spatial information
-based on an annotation of movie cuts and depicted locations
-\citep{haeusler2016cutanno}.
-% AD operationalization
-For the \ac{glm} of the audio-description's data, we extended the annotation of
-speech \citep{haeusler2021speechanno} by further annotating nouns that the
-narrator uses to describe the movie's absent visual content.
-
-
-\paragraph{Results}
-
-\todo[inline]{following is the same text as in general intro's ``specific
-objectives''}
-
-% group results
-On a group-average level, findings demonstrate that increased activation in the
-\ac{ppa} during the perception of static pictures generalizes to the perception
-of spatial information embedded in an audio-visual movie and exclusively
-auditory naturalistic stimulus \citep{haeusler2022processing}.
-% individual AD
-On an individual level, the analysis of the movie yielded bilateral
-clusters of increased hemodynamic activity in the \ac{ppa} of five participants
-and a unilateral cluster in seven participants.
-%
-The analysis of the audio-description revealed bilateral clusters in nine
-participants and one unilateral cluster in one participant.
-
-% conclusion 1
-Results add evidence \citep[cf.][]{bartels2004mapping} that a that functional
-specialization of cortical areas is preserved during naturalistic stimulation.
-%
-Results also suggest that model-driven \ac{glm} analysis based on a naturalistic
-stimulus' annotation could be used to localize functional areas in individual
-subjects.
-
-% conclusion 2
-Further, results suggest that a purely auditory naturalistic stimulus like an
-audio-description could potentially substitute a visual localizer as a
-diagnostic procedure to assess brain functions in visually impaired individuals.
-
-
-\paragraph{Results: Contra naturalistic localizer}
-
-\todo[inline]{Annotation \& modeling}
-
-\todo[inline]{Length, sampling of events}
-
-% statement
-Audio-description is less reliable (has three outliers) compared to movie and
-localizer
-%
-Reliability could be influenced by uncontrolled situational factors like the
-experimental design (stimulus type, no task), (transient) state of a participant
-(e.g., alertness or engagement),  our simply our ``adventurous'' modeling
-approach[?].
-
-
-\paragraph{Auditory response might be too different, too}
-
-%
-``The presented evidence on the in-principle suitability of a naturally
-engaging, purely auditory paradigm for localizing the PPA may offer a path to
-the development of diagnostic procedures more suitable for individuals with
-visual impairments or conditions like nystagmus''
-\citep{haeusler2022processing}.
-
-%
-Present results revealed that increased hemodynamic activity during auditory
-stimulation is spatially restricted to the anterior \ac{ppa}.
-% our interpretation
-Previous studies in the field of visual perception suggest that the \ac{ppa} can
-be divided into functionally subregions that might process different stimulus
-features.
-% interpretation: aPPA vs. pPPA
-Our results provide further evidence that the PPA can be divided into functional
-subregions that coactivate during the perception of visual scenes.
-%
-Our results invite further studies that investigate the properties of the
-parahippocampal area in response to to a controlled paradigm (with or without
-any task) investigating generalizability of findings to, well, controlled
-paradigms.
-
-
-\subsection{Interim summary \& future studies: stick to dedicated for now}
-
-\todo[inline]{I assume this part will be a pretty personal opinion}
-
-\subsubsection{What does a dedicated localizer actually do?}
-
-\todo[inline]{What does the PPA actually do?}
-
-
-\paragraph{Analyses}
-
-%
-``Challenges in modeling data of available naturalistic datasets limit the
-impact of open datasets.
-%
-Naturalistic features are difficult to characterize and co-occur with potential
-confounds in complex and unexpected ways [Nastase et al., 2020]''
-\citep{delavega2022neuroscout}.
-%
-``There are arguably no standardised approaches for analysing complex and high
-dimensional fMRI data from long naturalistic stimuli like movies (though a few
-approaches are becoming increasingly common  [64,125,126])
-\citep{aliko2020naturalistic}''
-
-%
-``However, it can also be argued that in dynamic narrative driven media (i.e.
-films and movies), the so-called confounds themselves encode information of
-interest that cannot or should not be cleanly regressed out [Grall and Finn,
-2020].
-%
-However, as the number of features continues to grow, a critical future
-direction for Neuroscout will be to implement statistical models which are
-optimized to estimate a large number of covarying targets.
-%
-Of note are regularized encoding models, such as the banded-ridge regression as
-implemented by the Himalaya package [Latour et al., 2022].
-%
-These models have the additional advantage of implementing feature-space
-selection and variance partitioning methods, which can deal with the difficult
-problem of model selection in highly complex feature spaces such as naturalistic
-stimuli.
-%
-Such models are particularly useful for modeling high-dimensional embeddings,
-such as those produced by deep learning models'' \citep{delavega2022neuroscout}.
-
-
-\paragraph{Annotations}
-%
-``This is exacerbated by the laborious task of annotating events at fine
-temporal resolution, which limits the number of variables that can realistically
-be defined and modelled.
-%
-As a result, isolating relationships between specific features of the stimuli
-and brain activity in naturalistic data is especially challenging, which deters
-researchers from conducting naturalistic experiments and limiting re-use of
-existing public datasets.
-%
-In movies, face perception involves repeated and protracted presentation of a
-relatively narrow set of individual faces. Given evidence of rapid adaptation of
-category-­selective fMRI response to individual stimuli [Grill-Spector et al.,
-1999], FFA activation in naturalistic stimuli may be attenuated by a failure to
-distinguish transient processes (e.g. initial encoding) from indiscriminate face
-exposure'' \citep{delavega2022neuroscout}.
-
-%
-``Studies would greatly benefit from an automated annotation process for an
-objective functional decoding of included papers, instead of subjective manual
-annotation.'' \citep{bottenhorn2018cooperating}.
-
-%
-``Annotation bottleneck.
-%
-This involves not only coding a stimulus feature of interest but also a suitable
-range of controls at a finer level of detail than used to label ‘language’ and
-‘face’ networks herein.
-%
-If done manually, movie annotations at this level of detail will be very time
-consuming.
-%
-Though this might prove necessary for testing some hypotheses, we suggest
-automated approaches.
-%
-Automated approaches to annotation can make use of a large number of existing
-text-based descriptions of movies to provide time-locked features.
-%
-‘Pliers’ is a tool that uses approaches like these to automatically extract
-features (https://github.com/tyarkoni/pliers)[123].
-%
-NeuroScout (https://neuroscout.org/) is a platform that provides automatic
-feature extraction of publicly available naturalistic datasets''
-\citep{aliko2020naturalistic}''.
-
-%
-``We expect that as machine learning models continue to evolve, it will be
-possible automatically extract higher level features from naturalistic stimuli''
-\citep{delavega2022neuroscout}.
-
-
-\subsubsection{Transition to estimation}
 %
 Notably, 20 years after group-level findings of \citep{bartels2004mapping} there
 might be "dynamic localizers" using video snippets
@@ -921,13 +769,42 @@ localizers based on naturalistic stimuli.
 %
 The approach is not easily transferable from block-design to incidental,
 event-like presentation of spatial information
+
+
+In summary, modeling hemodynamic responses during naturalistic stimulation to
+investigate neural correlates of specific psychological constructs under more
+ecologically valid conditions is challenging for a couple of reasons:
+%
+a) naturalistic stimuli offer a continuous, time-locked and complex stimulation
+at the expense of a confounded feature space, which is why
+%
+b) there is no consensus on how to adopt model-based analyses from traditional
+block or event-related experimental designs to naturalistic stimuli [attentional
+focus, fMRI adaption, transient vs. non-transient responses etc.], which is hard
+to establish
+%
+c) because creating and assessing the suitability of different model-based
+analyses requires the feature space to be extensively annotated which is often
+still tediously and time-consuming.
+%
+Further advances in machine learning promise to facilitate creation of formerly
+manual annotation to automatized annotation of higher-level features [at the
+cost of ambiguity?], widen the annotation bottleneck and allow easier modeling,
+and assessing models.
+
+%
+``cf. NeuroScout (https://neuroscout.org/) is a platform that provides automatic
+feature extraction of publicly available naturalistic datasets, and relies on
+``Pliers'', a tool thrives to automatically extract features
+(https://github.com/tyarkoni/pliers)[123]'' \citep{aliko2020naturalistic}.
+
+
+
+\subsubsection{Conclusion: stick to usual localizer for now}
+
 %
 For now better stick to usual localizer, maybe dynamic localizers:
 
-%
-``Thus, it is perhaps unreasonable to expect findings from a highly restricted
-assessment of a psychological construct in the scanner to fully generalize to
-real-world behaviors and settings'' \citep{bottenhorn2018cooperating}.
 
 \paragraph{Dynamic localizers (still block-design)}
 
@@ -958,6 +835,16 @@ responsive to the target category'' \citep{jiahui2022cross}.
 ``The low correlations were not because the prediction method failed but
 reflected the difference in the topographies activated by different types of
 localizers.'' \citep{jiahui2022cross}.
+
+
+\paragraph{This is especially true if the group-average is of more interest}
+
+...than individual variation;
+
+\todo[inline]{Elliot: What Is the Test-Retest Reliability of Common...; the two
+schools: individual variation = noise vs. individual variation = individual
+differences; however: best case scenario: reliably unreliable participants}
+
 
 
 \subsection{Functional localization via estimation from ref}
@@ -1151,6 +1038,8 @@ Given the lack of robust neuroimaging biomarkers for mental illness [71,72], the
 NNDb might also help increase the pace of clinically relevant discovery, e.g.,
 by uncovering labelled network patterns that predict individual differences
 [46]'' \citep{aliko2020naturalistic}.
+
+
 
 \section{Conclusion}
 
