@@ -2,13 +2,9 @@
 an excursion \& doesn't fit in anywhere perfectly; at the moment it comes
 before going into details about naturalistic stimuli as localizer}
 
-\section{Overview}
-
-\todo[inline]{an overview over the structure of the discussion that is supposed
-to prime its topics}
 
 
-\todo[inline]{delete subsection(s), so 6.1. will be "Open Science"}
+\todo[inline]{delete subsection(s)}
 
 
 Human brain mapping studies have traditionally averaged \ac{fmri} data across
@@ -28,18 +24,18 @@ map just one domain of brain functions.
 
 \subsection{The usual rant about localizers}
 
-\todo[inline]{imo, it makes sense to shortly repeat the usual stuff here}
-
-\todo[inline]{cf. general intro \& SRM part (localizer is standard, but
-problematic; it's reliable, but what is the construct? ecologically validity?
-boring, compliance, inefficient; therefor, naturalistic stimulus)}
-
+\todo[inline]{keep it pretty short! cf. general intro \& SRM part: localizer is
+standard, but problematic; it's reliable, but what is the construct?
+ecologically validity?  boring, compliance, inefficient; therefor, naturalistic
+stimulus)}
 
 
-\subsection{Naturalistic stimuli as functional localizer?}
+\subsection{Functional localization via naturalistic stimuli as functional localizer?}
 
-\todo[inline]{prime here that annotations are bottleneck and modeling
+\todo[inline]{prime that annotations are bottleneck and modeling
 is "prohibitively" difficult? imo, it's not necessary}
+
+\todo[inline]{maybe, cite \citet{bartels2004mapping} again}
 
 % movies & narratives
 Naturalistic stimuli like movies and auditory narratives \citep[cf.][for
@@ -69,91 +65,54 @@ photos of landscapes, buildings or landmarks, compared to, e.g., photos of faces
 or tools \citep[e.g.,][for reviews]{epstein2014neural, aminoff2013role}.
 %
 Moreover, results of \citep{aziz2008modulation} that compared hemodynamic
-activity levels in the \ac{ppa} correlated with different categories
-presented in spoken sentences suggest that activity level of the  \ac{ppa}
-are modulated by semantic scene-related information.
-%
-The movie's and audio-description's potential to substitute a
-visual localizer were assessed in two ways.
-
-
-\subsubsection{First approach: \ac{glm} $t$-contrasts}
-
-\todo[inline]{prime here that annotations are bottleneck and modeling is
-"prohibitively" difficult? imo, it's not necessary}
-
-% similarity
-Similarly to traditional localizers, we model hemodynamic responses correlating
-with the temporal structure the paradigm in order to create \ac{glm}
-$t$-contrasts that aimed at localizing the \ac{ppa}.
-%
-Differently localizer paradigms that employ blocks of stimuli, we created
-\ac{glm} $t$-contrasts based on modeled hemodynamic responses correlating
-annotated stimulus features embedded in the movie \citep{haeusler2016cutanno}
-and audio-description \citep{haeusler2021speechanno}.
-
-
-\subsubsection{Second approach: estimation from ref}
-
-\todo[inline]{when SRM study is written, revise general intro \& here
-accordingly}
+activity levels in the \ac{ppa} correlated with different categories presented
+in spoken sentences suggest that activity level of the \ac{ppa} is also
+modulated by semantic scene-related information.
 
 %
-In order to address the practical and monetary constraints of a clinical
-context, we estimate localizer results of participants from results of
-participants in a \textit{reference group}.
+Hence, we assessed the potential of both the movie and the audio-description
+to substitute a visual localizer two ways.
+% direct modeling
+First, we adapted the method used to analyze data from traditional localizer
+paradigms to the analysis of data from the two naturalistic paradigms:
 %
-This is based on a super awesome functional alignment using naturalistic fMRI
-data (to create the common functional space and align a left-out subject).
+hemodynamic responses correlating with the temporal structure of annotated
+stimulus features \citep[cf.][]{haeusler2016cutanno, haeusler2021speechanno}
+were modeled in order to create \ac{glm} $t$-contrasts that aimed at localizing
+the \ac{ppa}.
+% estimation
+Second, we applied functional alignment procedure as a new method in order to
+estimate results from the visual localizer \citep[cf.][]{sengupta2016extension},
+movie and audio-description \citep[cf.][]{haeusler2022processing} in one
+participant from results of participants in a reference group.
 
 
-
-\subsubsection{Transition to open Science}
-
-\todo[inline]{if the overview above stays short, imo, not explicit transition
-necessary}
-
+\pagebreak
 
 
 \section{Open Science}
 
-\todo[inline]{phrase more in terms of (sub)goals not about "affected stages";
-adjust general intro accordingly}
+\todo[inline]{"open-source", "open data", "open science", "open access" are
+defined in intro?}
 
-\todo[inline]{where definition is necessary, check if intro concisely defines it
-(e.g., "open-source", "open data", "open science", "open access")}
+\todo[inline]{I absolutely do not like it but provide an overview in the sense
+of "I will first describe what was done and then evaluate pro's \& con's"?}
 
-
-On a metalevel, this dissertation aimed to meet both the requirements of open,
-shared, accessible, and transparent science \citep[cf.][]{watson2015will,
+%
+An overarching goal of this dissertation was to meet both the requirements of
+open, shared, accessible, and transparent science \citep[cf.][]{watson2015will,
 fecher2014open} as well as the requirements of a reproducible and replicable
-research project.
-%
-Two (sub)goals:
-
-\begin{itemize}
-    \item Utilize open data, open materials, and open-source software,
-    \item Publishing open data, open materials, and open-access manuscripts
-\end{itemize}
+research project. This goal included to a) utilize open data and open-source
+software, and b) publish data, materials, code, and results openly available.
 
 
-The publications that describe generated data, the reasoning of methodological
-choices, analysis steps, and results of this thesis have been published in
-open-access journal.
-%
-Unthresholded statistical maps are available at Neurovault
-(\href{https://neurovault.org/}{\url{neurovault.org}}).
-
-
-
-\subsection{Utilize open data, open materials, and open-source software}
+\subsection{Utilizing open data and open-source software}
 
 %
-First goal was to use open data and open-source software.
-
-\paragraph{Example: Open data \& open source}
-
-The current thesis capitalized on publicly and freely available
+The first subgoal was to use open data, open materials, and open-source
+software.
+%
+The current thesis capitalized on publicly available
 %
 \ac{fmri} data \citep{hanke2014audiomovie, hanke2016simultaneous,
 sengupta2016extension},
@@ -162,13 +121,13 @@ subject-specific \acp{roi} \citep{sengupta2016extension} and
 %
 stimulus annotations \citep{haeusler2016cutanno}
 %
-that are part of the \textit{studyforrest} project
+that are part of the studyforrest project
 (\href{www.studyforrest.org}{\url{studyforrest.org}}).
 %
 In order to avoid creating an ``artificial paywall'' for rerunning the analyses
-on open data, all analyses are implemented in open-source software
-packages\todo{FSL is not OS?}.
-
+on the originally open data, all analyses are implemented in open-source
+software packages\todo{FSL is not OS?}.
+%
 We benefited from established free software like
 %
 Python and
@@ -177,25 +136,24 @@ FSL \citep[\href{https://www.fmrib.ox.ac.uk/fsl}{FMRIB's Software
 Library;}][]{smith2004fsl} that have been developed and debugged over years by
 an collaborative effort,
 %
-but also from scientific software packages that emerged during current years
-like
+but also from scientific software packages like
 %
 DataLad
 \citep[\href{www.datalad.org}{\url{datalad.org}};][]{halchenko2021datalad} or
 %
 BrainIAK
 \citep[\href{https://brainiak.org}{\url{brainiak.org}};][]{kumar2020brainiak,
-kumar2020brainiaktutorial}.
+kumar2020brainiaktutorial}
+%
+that emerged recently.
 
-
-\paragraph{Pro \& Con.}
-
+%
 Preexisting software packages, data, and results from previous analyses enabled
 us shift time and resources from software development and data collection to
-subsequent stages of the project.\todo{what else?}
+subsequent stages of the project.
 %
 However, a too often neglected aspect of open data is that open data does not
-exempt from the duty to familiarize yourself with the data.\todo{Jeez! OK!}
+exempt from the duty to familiarize yourself with the data.
 % check the data
 Dataset consumers need to assume that everything that is not explicitly
 stated in the description of a dataset has not been considered by a dataset's
@@ -213,8 +171,6 @@ Choices made during data collection and preprocessing -- despite being
 state-of-the-art at the time of being published -- might not be optimal for
 every use case or made obsolete by more advanced methods.
 
-
-\paragraph{Example 3: ROIs}
 %
 Moreover, the extent of raw data and decisions made during data collection,
 preprocessing, and further analyses might influence the subsequently performed
@@ -222,16 +178,16 @@ analyses.
 %
 For example, we and \citet{sengupta2016extension} chose the \ac{ppa} among
 possible candidates of ``scene-selective'' regions because it was the first area
-to be discovered and is the most reliably activated region across
-studies that investigate visual scene perception.
+to be discovered and is the most reliably activated region across studies that
+investigate visual scene perception.
 %
-Like the \ac{ppa}, the \ac{rsc} and \ac{opa} have repeatedly shown
-increased hemodynamic activity in studies investigating visual spatial
-perception and navigation \citep{chrastil2018heterogeneity, bettencourt2013role,
+Like the \ac{ppa}, the \ac{rsc} and \ac{opa} have repeatedly shown increased
+hemodynamic activity in studies investigating visual spatial perception and
+navigation \citep{chrastil2018heterogeneity, bettencourt2013role,
 dilks2013occipital, epstein2019scene}.
 %
-We assumed that results (at least of the audio-visual stimulus) could also
-yield significant clusters in the \ac{rsc} and \ac{opa} but did not explicitly
+We assumed that results (at least of the audio-visual stimulus) could also yield
+significant clusters in the \ac{rsc} and \ac{opa} but did not explicitly
 hypothesize that fact.
 %
 Apart from the PPA, results show significantly increased activity in the
@@ -243,12 +199,8 @@ would have to replicate the non-automatized procedure of
 %
 A point that also highlights that some stages or results may rely on human
 decisions that cannot be replicated complicating updating or the extension of
-datasets.\todo{daddy, chill!}
-
-
-\paragraph{Pro \& Con: Opportunity costs}
-
-% tell me about opportunity costs without saying opportunity costs
+datasets.
+% pro & contra: opportunity costs
 Hence, when considering using open data, researchers need to weigh the costs and
 benefits of one path (e.g., preprocessing the same data differently than the
 preprocessing performed as part of an open dataset) relative to an alternative
@@ -257,35 +209,39 @@ the path with the greater net return.
 
 
 
-\subsection{Publishing open data, open materials, and open-access manuscripts}
+\subsection{Publishing data, materials, code, and results openly available}
+
+\todo[inline]{speech anno paper is on github; ppa paper is on github but not
+public; thesis is not on github}
+
 %
 %The annotation comprises, e.g., time-stamps of phonemes, words and sentences of
 %all speakers, a grammatical tagging, and an annotation of syntactic
 %dependencies and semantics.
 
 %
-The second goal was to create open data and extend the studyforrest dataset.
-% additional effort 1
-The content of the published annotation of speech \citep{haeusler2021speechanno}
-goes beyond what was necessary to perform the analyses in
-\citet{haeusler2022processing}.
+The second subgoal was to publish data, materials, and results openly
+accessible.
 %
-Consequently, the annotation further widen the ``annotation bottleneck''
+For example, the content of annotation of speech \citep{haeusler2021speechanno}
+goes beyond what was necessary to perform the analyses in
+\citet{haeusler2022processing} and serves as an extension of the studyforrest
+dataset.
+%
+Consequently, the annotation widens the ``annotation bottleneck''
 \citep{aliko2020naturalistic} of two naturalistic stimuli, and provides a
 headstart for independent research that wish to model hemodynamic brain
 responses that are correlated with different aspects of spoken language.
 %
-In order to facilitate transparency, data and custom code are
-version-controlled, and changes made to data and code were protocolled and
-documented.
+Moreover, in order to facilitate transparency, data and custom code generated
+over the course of this dissertation are version-controlled, and changes made to
+data and code were protocolled and documented.
 %
-In order to facilitate reproducibility, processing steps ranging from
+Lastly, in order to facilitate reproducibility, processing steps ranging from
 downloading input data to plotting figures are implemented in custom code that
 can be rerun from the command line.
 
-
-\subsubsection{Con}
-%
+% contra
 Creating data, materials, and code to be published requires a considerable about
 of time and effort.
 %
@@ -308,19 +264,7 @@ humans and web bots (e.g., via extensive description and machine-readable
 metadata), and ensure long-term curation and accessibility at an appropriate
 data host.
 
-
-
-\subsubsection{Pro}
-
-
-% method sections is too short
-It helps readers to gain a better understanding from documented step-by-step
-workflow than the often limited coverage of a regular publication's methods
-section.
-
-
-
-%
+% pro
 However, creating a dataset that is supposed to be published provides immediate
 benefits to the dataset's creator.
 %
@@ -334,13 +278,17 @@ from the start to the final results can also be considered as a form of a lab
 protocol that contains structured information for writing the corresponding
 scientific article.
 %
-In summary, creating a dataset supposed to be published supports meticulous
-working methods and good scientific practices.
+Hence, creating a dataset supposed to be published supports meticulous working
+methods and good scientific practices.
+
+
+\todo[inline]{summarize following paragraph and merge into above paragraph}
 %
-Finally, it enables independent researchers to validate current results and use
-written code to replicate current findings in prospective studies.
-
-
+From the perspective of readers, all that bullshit helps independent researchers
+to gain a better understanding from documented step-by-step workflow than the
+often limited coverage of a regular publication's methods section, validate a
+study's results, and extend published code to replicate findings in prospective
+studies.
 % readers get a better understanding
 ``Transparent and complete reporting of all facets of a study allows a critical
 reader to evaluate the work and fully understand its strengths and limitations
@@ -352,9 +300,10 @@ exactly follow (or carefully manipulate) each aspect of a study''
 
 
 
-\paragraph{perceived dread: scooping}
+\paragraph{Perceived dread: scooping}
 
-
+\todo[inline]{probably, shift that (heavily shortened) into "personal
+assessment"; à la: allay worries about being scooped by creating incentives}
 
 %
 Publishing data is associated with the risk of being ``scooped''
@@ -376,30 +325,16 @@ embargo period'' \citep{nichols2017best}.
 
 
 
-
-
 \pagebreak
 
 
 \subsection{Personal assessment}
 
-\todo[inline]{how personal am I supposed to get? Telling "the story of my
-thesis?"}
-
-\todo[inline]{actually, almost the whole subsection "Personal assessment"
-could be merged into the part above}
-
-\subsubsection{Utilize open data, open materials, and open-source software}
+\todo[inline]{merge subsection "Personal assessment" into paragraphs above;
+should be possible and circumvents a pretty personal story telling}
 
 
-DataLad \citet{halchenko2021datalad} is the technical foundation.
-%
-DataLad provided the functionality of managing provenance, distribution, and
-version-control of code and data in order to allow the reproducibility of
-current results and to facilitate the replicability of findings on other
-datasets.
-
-
+\subsubsection{Utilizing open data and open-source software}
 %
 Being able to use already existing data was convenient because not dealing with
 ethic committee, participants' consent, anonymization, legal issues.
@@ -412,6 +347,14 @@ in the data collection process, and hence somewhat familiar with the data
 (provenience, location, quality, accessibility, storage format, performed
 preprocessing steps).
 
+DataLad \citet{halchenko2021datalad} is the technical foundation.
+%
+DataLad provided the functionality of managing provenance, distribution, and
+version-control of code and data in order to allow the reproducibility of
+current results and to facilitate the replicability of findings on other
+datasets.
+
+
 %
 Know your data: plot, test, and check for errors.
 %
@@ -423,11 +366,7 @@ pipeline".
 
 
 
-\subsubsection{Publishing open data, open materials, and open-access
-manuscripts}
-
-\todo[inline]{speech anno paper is on github; ppa paper is on github but not
-public; thesis is not on github}
+\subsubsection{Publishing data, materials, code, and results openly available}
 
 %
 Following the practices of open and reproducible science was not mandatory for
@@ -478,20 +417,24 @@ For example, an annotation of semantics might be based on a current state-of-the
 art language model that might be superseded by future language models.
 
 
+\pagebreak
 
 
-\subsection{In summary: it needs to be done anyway}
+\subsection{Interim summary: it needs to be done anyway}
+
+\todo[inline]{cf. general introduction}
 
 %
 Open science in order to tackle the issue if ``reproducibility crisis'' or
 ``replication crisis''.
 
-
 \paragraph{Create standards}
-
-\todo[inline]{Problem: standards change, software tools are in development,
-"landscape is moving too much" still; concrete standards, tools might be
-outdated quickly}
+%
+The problem is that standards are still emerging, they change, software tools
+are in development, changes, functionality gets added constantly.
+%
+Generally the "landscape is moving too much" still; today's standards, tools
+might be outdated quickly.
 
 %
 ``OS still requires the establishment of clear guidelines for transparency and
@@ -526,14 +469,9 @@ conduct open science project needs to be established.
 
 
 
-
-
 \paragraph{Create incentives (not just "gambling")}
-
-\todo[inline]{80\% of PhD students leave science anyway}
-
 %
-Perceived immediate benefits outweigh the required time and effort.
+Immediate benefits do not outweigh the required time and effort.
 %
 Open access publications might receive more citations than paywalled
 publications [\citep{piwowar2018state}], open data might get cited, and promote
@@ -563,6 +501,32 @@ journals'' \citep{toribio2021early}.
 Currently, playing be the ``old rules'' is the ``smarter way'' than gambling
 getting cited when data or code get re-used, imo.
 
+\todo[inline]{80\% of PhD students leave science anyway and do not give a shit
+in the first place in case they know already}
+
+
+\paragraph{Perceived dread: scooping}
+
+\todo[inline]{probably, shift that (heavily shortened) into "personal
+assessment"; à la: allay worries about being scooped by creating incentives}
+
+%
+Publishing data is associated with the risk of being ``scooped''
+\citep[cf.][]{laine2017afraid}, i.e. that other working groups are using the
+same data for a similar research question at the same time.
+%
+There is the concern that someone else might ``claim priority, usually through
+publishing, to a research idea or result you yourself have been working on''
+\citep{laine2017afraid}.
+%
+This risk is aggravated in case of early career scientists that created and
+curate published datasets, pre-registered studies based on open data, or have to
+stick to inflexible project plans \citep[cf.][]{toribio2021early}.
+
+%
+In case of a dataset creator's fear of being superseded / outrun, ``concerns can
+be alleviated by delaying the sharing or using a data-sharing repository with an
+embargo period'' \citep{nichols2017best}.
 
 
 \paragraph{Reap benefits}
@@ -604,12 +568,10 @@ results.
 
 
 
-\section{Naturalistic stimuli as functional localizer?}
+\section{Naturalistic stimuli for functional localization?}
 
-\todo[inline]{is following in line with "aims of thesis", "specific aims and
-objectives"? "The usual rant about localizers? (6.6.1. \& 6.6.2)"}
-
-\todo[inline]{phrasing!}
+\todo[inline]{everything in line with Intro ("aims of thesis", "specific aims
+and objectives"?) and discussion above ("The usual rant about localizers?)}
 
 %
 The \ac{ppa} is traditionally identified by contrasting hemodynamic responses to
@@ -646,7 +608,7 @@ studyforrest dataset is not for this (diverse), but it is a small dataset, which
 limits the generality}
 
 % study in one sentence
-In \citet{haeusler2022processing} we explored whether an audio-visual
+In \citet{haeusler2022processing}, we explored whether an audio-visual
 naturalistic stimulus and an exclusively auditory naturalistic stimulus could be
 used in order to localize the \ac{ppa} as it was previously identified in the
 same set of participants by a traditional block-design functional localizer that
@@ -728,48 +690,12 @@ experiment.
 
 
 
-\subsection{Interim summary \& future studies: stick to dedicated for now}
+\subsection{Interim summary \& future studies}
 
 \todo[inline]{I assume this part will be a pretty personal opinion}
 
 \todo[inline]{check the papers that claim "prohibitively difficult" (cf. general
 intro) and state the point again differently phrased}
-
-
-``Cognitive subtraction assumes that a single added cognitive process does not
-alter the other, co-occurring processes, both neutrally and cognitively.
-%
-As such, task-based fMRI has traditionally utilized precisely controlled tasks
-to study the neurobiological substrates of cognition''
-\citep{bottenhorn2018cooperating}.
-
-%
-``However, cognition does not occur by pure insertion;
-%
-the functioning of any cognitive process is not wholly independent from other
-co-occurring processes [Friston et al., 1996].
-%
-Instead, cognition is highly interactive, encompassing measurable changes in
-neural activity that are dependent on the full amalgamation of relevant social,
-cognitive, perceptual, and motor processes'' \citep{bottenhorn2018cooperating}.
-
-%
-``Thus, it is perhaps unreasonable to expect findings from a highly restricted
-assessment of a psychological construct in the scanner to fully generalize to
-real-world behaviors and settings'' \citep{bottenhorn2018cooperating}.
-
-
-
-
-%
-Notably, 20 years after group-level findings of \citep{bartels2004mapping} there
-might be "dynamic localizers" using video snippets
-\citep{pitcher2011differential, fox2009defining} but, to my knowledge, no
-localizers based on naturalistic stimuli.
-%
-The approach is not easily transferable from block-design to incidental,
-event-like presentation of spatial information
-
 
 In summary, modeling hemodynamic responses during naturalistic stimulation to
 investigate neural correlates of specific psychological constructs under more
@@ -786,75 +712,43 @@ to establish
 c) because creating and assessing the suitability of different model-based
 analyses requires the feature space to be extensively annotated which is often
 still tediously and time-consuming.
-%
-Further advances in machine learning promise to facilitate creation of formerly
-manual annotation to automatized annotation of higher-level features [at the
-cost of ambiguity?], widen the annotation bottleneck and allow easier modeling,
-and assessing models.
 
 %
-``cf. NeuroScout (https://neuroscout.org/) is a platform that provides automatic
-feature extraction of publicly available naturalistic datasets, and relies on
-``Pliers'', a tool thrives to automatically extract features
-(https://github.com/tyarkoni/pliers)[123]'' \citep{aliko2020naturalistic}.
+Consequently, 20 years after group-level findings of \citep{bartels2004mapping}
+and despite the rising popularity of naturalistic stimuli in neuroscience no
+localizer exists that is based on a movie or an auditory narrative.
+%
+Probably, the most ecologically valid localizers today are so called
+\textit{dynamic} localizers \citep[e.g.,][]{pitcher2011differential,
+fox2009defining}:
+%
+dynamic localizers employ blocks of short videos (each video lasting
+$\approx$\unit[2-3]{s}) of scenes, faces etc., and lend themselves conveniently
+to traditional modeling procedures.
+%
+However, advances in machine learning promise to increase the number of stimulus
+features that can---at least preliminarily---be annotated automatically.
+\citep[cf., for example,
+\href{https://neuroscout.org/}{\url{neuroscout.org}};][]{delavega2022neuroscout}.
+%
+After all, easing the annotation bottleneck of naturalistic stimuli is probably
+the biggest prerequisite to further investigate methodological issues, adapt
+traditional and develop new methods, and evaluate their appropriateness to draw
+valid inferences from naturalistic stimuli.
 
 
 
-\subsubsection{Conclusion: stick to usual localizer for now}
+\subsection{Functional localization via estimation from reference group}
+
+\todo[inline]{Write when SRM part is finished; (re)state goals explicitly}
 
 %
-For now better stick to usual localizer, maybe dynamic localizers:
-
-
-\paragraph{Dynamic localizers (still block-design)}
-
-\todo[inline]{GLM easily applicable}
+Results from \citet{haeusler2022processing} suggest that the movie as well as
+the audio-description sample hemodynamic responses that correlate with the
+occurrence of spatial information.
 %
-``Naturalistic might be defined on a continuum from short, static, simple,
-decontextualised, repeating, unisensory stimuli to long, dynamically changing,
-complex, contextualised, continuous, typically multisensory stimuli''
-\citep{aliko2020naturalistic}.
-%
-``Previous reports showing significant differences between topographies
-estimated by static and dynamic localizers, especially in superior temporal and
-frontal cortices [Fox et al., 2009; Pitcher et al., 2011]''
-\citep{jiahui2022cross}.
-%
-``For all categories, the dynamic localizer elicited stronger and broader
-category-selective activations than the static localizer''
-\citep{jiahui2022cross}.
-%
-``For example, for the face-selective topographies, the dynamic localizer
-activated more areas than the static localizer (e.g., in superior temporal and
-frontal cortices)'' \citep{jiahui2022cross}.
-%
-``The searchlight analysis showed that the dynamic localizer had higher
-reliabilities across the cortex, especially in regions that were selectively
-responsive to the target category'' \citep{jiahui2022cross}.
-%
-``The low correlations were not because the prediction method failed but
-reflected the difference in the topographies activated by different types of
-localizers.'' \citep{jiahui2022cross}.
+Therefor, we did the following ...
 
-
-\paragraph{This is especially true if the group-average is of more interest}
-
-...than individual variation;
-
-\todo[inline]{Elliot: What Is the Test-Retest Reliability of Common...; the two
-schools: individual variation = noise vs. individual variation = individual
-differences; however: best case scenario: reliably unreliable participants}
-
-
-
-\subsection{Functional localization via estimation from ref}
-
-%
-We should have sampled response vector(s) that carry the spatial response
-information (if you know what I mean).
-
-
-\subsubsection{Goal of SRM study}
 % goal 1: new procedure
 We estimated results of a dedicated localizer \citep{sengupta2016extension} via
 functional alignment from results of a reference group.
@@ -867,13 +761,12 @@ naturalistic stimulation used to align the test participant to the fixed
 
 
 
-\subsection{Interim summary and future studies: calibration scan + database}
+\subsection{Interim summary and future studies}
 
-\todo[inline]{This topic is only touched in the SRM study's discussion}
+\todo[inline]{This topic is only touched in the SRM study's discussion;
+probably, it is better to discuss it here more than in the SRM part}
 
-\todo[inline]{probably, it is better to discuss it here more than in the SRM
-part}
-
+\todo[inline]{Following are some "templates" outlining the general idea}
 
 % examples of probabilistic atlasses: \citet{rosenke2021probabilistic}:
 % Cortical atlases have been developed, which allow localization of visual areas
@@ -886,6 +779,7 @@ part}
 
 \subsubsection{Problem space}
 
+%
 ``Identifying all of the currently known topographic regions of the human visual
 system requires multiple scanning sessions'' \citep{wang2015probabilistic}.
 %
@@ -897,12 +791,8 @@ topographies at the individual level based on the responses to a single
 naturalistic, dynamic stimulus'' \citep{jiahui2020predicting}.
 
 
-
 \subsubsection{Database}
-%
-The database ``may prove especially useful for predicting functional patterns in
-case no localizer data are available, saving scanning time and expenses''
-\citep{rosenke2021probabilistic}.
+
 %
 ``A normative database of participants who were scanned during movie viewing and
 during functional localizers for different perceptual and cognitive functions
@@ -912,12 +802,16 @@ would serve as a reference'' \citep{jiahui2020predicting}.
 cognitive domains, such as simple visual motion, biological motion, tonotopy,
 voice perception, music perception, language, calculations, working memory, and
 theory of mind'' \citep{jiahui2020predicting}.
+
 %
 ``A database from a normative group could allow researchers to estimate new
 subjects' functional topographies by collecting only a movie-viewing data set
 and then deriving the individualized topographies with the normative database''
 \citep{jiahui2020predicting}.
-
+%
+The database ``may prove especially useful for predicting functional patterns in
+case no localizer data are available, saving scanning time and expenses''
+\citep{rosenke2021probabilistic}.
 
 
 \subsubsection{Calibration}
@@ -973,7 +867,6 @@ to map different functional topographies, making a thorough mapping of selective
 topographies time-consuming and inefficient'' \citep{jiahui2020predicting}.
 
 
-
 \subsubsection{Application: deviation}
 
 \todo[inline]{cf. SRM discussion: quantify the deviation from the norm vs.
@@ -988,30 +881,12 @@ progress the field towards neuroimaging studies of individual differences that
 more closely resemble their psychological counterparts.
 
 
-\paragraph{Language lateralization}
-
-\todo[inline]{I abandoned the idea to come up with language area (asymmetry);
-the topic is clinically more relevant, but problem in case of prediction (esp.
-using ROI): most interesting is atypical language lateralization, and there is
-usually no lateralization in naturalistic stimuli (but operationalization is
-different from localizer paradigms), assumption of (strict) lateralization
-probably wrong anyway; templates from papers using \ac{fmri} to localize
-language areas are outsourced to separate file}
-
-%
-For example \ac{fmri} could be used as an noninvasive alternative to map
-language areas and potentially assess lateralization (or hemispheric asymmetry)
-of functional brain topography related to language (sub)functions, in order to
-guide pre- and perioperative assessment of neurosurgery, e.g., in case of
-epilepsy.
-
-
-
-\subsubsection{Clinical application?}
+\paragraph{Clinical application?}
 
 \todo[inline]{cf. general introduction}
 
-\todo[inline]{Maybe, reduced to one sentence on the conclusion?}
+\todo[inline]{Maybe, reduced to one sentence and just state in in the general
+conclusion?}
 
 \todo[inline]{\citet{silva2018challenges, szaflarski2017practice}}
 
@@ -1020,24 +895,21 @@ patients with tumors or epilepsies, as it aids the understanding of which parts
 of the brain need to be spared in order to preserve sensory, motor or cognitive
 abilities'' \citep{wegrzyn2018thought}.
 
-``Data discovery is nearly unlimited with the NNDb as there are a vast number of
-annotations that can be made from the movies and approaches to analysis.
+
+\paragraph{Language lateralization}
+
+\todo[inline]{I abandoned the idea to come up with language area asymmetry at
+least in the SRM study; the problem in case of prediction is that most
+interesting are cases of atypical language lateralization (problem for models,
+and ROIs and searchlight spheres; templates from papers using \ac{fmri} to
+localize language areas are outsourced to separate file}
+
 %
-This flexibility makes it usable across disciplines to address questions
-pertaining to how the brain processes information associated with more
-naturalistic stimuli.
-%
-This includes more than replicating prior findings with more ecologically valid
-stimuli.
-%
-That is, there are a number of broad open questions that the NNDb can be used to
-address for the first time, like the systematic study of how context is used by
-the brain [5].
-%
-Given the lack of robust neuroimaging biomarkers for mental illness [71,72], the
-NNDb might also help increase the pace of clinically relevant discovery, e.g.,
-by uncovering labelled network patterns that predict individual differences
-[46]'' \citep{aliko2020naturalistic}.
+For example \ac{fmri} could be used as an noninvasive alternative to map
+language areas and potentially assess lateralization (or hemispheric asymmetry)
+of functional brain topography related to language (sub)functions, in order to
+guide pre- and perioperative assessment of neurosurgery, e.g., in case of
+epilepsy.
 
 
 
@@ -1122,6 +994,30 @@ data across study participants may draw
     \citep{laumann2015functional}.
 
 \end{itemize}
+
+
+\subsection{Dynamic localizers}
+%
+``Previous reports showing significant differences between topographies
+estimated by static and dynamic localizers, especially in superior temporal and
+frontal cortices [Fox et al., 2009; Pitcher et al., 2011]''
+\citep{jiahui2022cross}.
+%
+``For all categories, the dynamic localizer elicited stronger and broader
+category-selective activations than the static localizer''
+\citep{jiahui2022cross}.
+%
+``For example, for the face-selective topographies, the dynamic localizer
+activated more areas than the static localizer (e.g., in superior temporal and
+frontal cortices)'' \citep{jiahui2022cross}.
+%
+``The searchlight analysis showed that the dynamic localizer had higher
+reliabilities across the cortex, especially in regions that were selectively
+responsive to the target category'' \citep{jiahui2022cross}.
+%
+``The low correlations were not because the prediction method failed but
+reflected the difference in the topographies activated by different types of
+localizers.'' \citep{jiahui2022cross}.
 
 
 \subsection{Brain \& behavior: "fingerprints"}
