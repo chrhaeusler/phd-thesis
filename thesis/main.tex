@@ -114,6 +114,7 @@
     linkcolor=black
 ]{hyperref}
 
+% enable support for "\begin{comment}" and "\end{comment}"
 \usepackage{verbatim}
 
 % manage list of abbreviations
@@ -125,16 +126,6 @@
 % \acl{} -> force long version
 % \acp{} -> make it plural (adds an "s")
 \usepackage[printonlyused]{acronym}
-
-% make sure that acronyms get hyphenated
-\usepackage{etoolbox}
-
-\makeatletter
-\patchcmd\@acf{\AC@acl}{\AC@foo}{}{}
-\patchcmd\@acf{\AC@acl}{\AC@foo}{}{}
-\patchcmd\@acf{\AC@foo}{\hskip\z@\AC@acl}{}{}
-\patchcmd\@acf{\AC@foo}{\hskip\z@\AC@acl}{}{}
-\makeatother
 
 % prevent widows and orphans
 % cf. https://en.wikipedia.org/wiki/Widows_and_orphans
@@ -391,7 +382,7 @@ doi: \href{https://doi.org/10.1038/s41597-022-01250-4}
     \acro{fmri}[fMRI]{functional magnetic resonance imaging}
     \acro{loocv}[LOOCV]{leave-one-out cross-validation}
     \acro{loc}[LOC]{lateral occipital complex}
-    \acro{meg}[MEG]{magnetoencephalography}
+    \acro{meg}[MEG]{magneto\-encephalo\-graphy}
     \acro{ofa}[OFA]{occipital face area}
     \acro{opa}[OPA]{occipital place area}
     \acro{pca}[PCA]{principal component analysis}
@@ -403,6 +394,8 @@ doi: \href{https://doi.org/10.1038/s41597-022-01250-4}
     \acro{srm}[SRM]{shared response model}
     \acro{snr}[SNR]{signal-to-noise ratio}
 \end{acronym}
+
+
 
 % set line spacing back to normal
 \renewcommand{\baselinestretch}{1}\normalsize

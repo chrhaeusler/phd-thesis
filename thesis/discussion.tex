@@ -15,83 +15,6 @@ localizers.
 However, traditional localizer paradigms employ selectively sampled, tightly
 controlled stimuli, rely heavily on a participant's compliance, and can usually
 map just one domain of brain functions.
-
-
-\subsection{The usual rant about localizers}
-
-\todo[inline]{cf. general intro (\& SRM part)}
-
-\todo[inline]{keep it pretty short!}
-
-%
-Localizer is standard, but problematic.
-%
-Ecologically validity?
-%
-Boring, compliance, inefficient.
-%
-Therefor, naturalistic stimulus...
-
-% intro to functional localizer
-\textit{\textit{Functional localizers} \citep[cf.][for reviews]{saxe2006divide,
-friston2006critique} are \ac{fmri} experiments that specifically aim to
-characterize the \textit{topography} (i.e. the location, size, and shape) of
-functional areas correlating with perceptual or cognitive processes like the
-perception of object categories \citep{kanwisher1997ffa} or theory of mind
-\citep{spunt2014validating}.
-% purpose: ROI improve the statistical power of the main experiment's analysis
-Currently, functional localizers are often used as a separate experiment to
-identify a subject-specific functional \acp{roi} that constrain the number of
-voxels under investigation in the main experiment \citep{poldrack2007region,
-saxe2006divide}.
-% clinical application
-Functional localizers might also be used as a diagnostic procedure, e.g., prior
-to neurosurgery \citep[cf.][]{silva2018challenges, szaflarski2017practice}.
-% cons: designed for detection power
-However designed to maximize detection power, localizers employ carefully
-chosen, tightly controlled, and simplified stimuli presented in a block-wise
-manner often accompanied by a task to keep study participants attentive.
-% one localizer = one domain of functions
-Consequently, one localizer paradigm can usually map just one domain of brain
-functions.
-% batteries: intro
-In order to map many different processes despite limited resources, researchers
-have developed more time-efficient, multi-functional \textit{localizer
-batteries} \citep[e.g.,][]{barch2013function, drobyshevsky2006rapid,
-pinho2018individual, pinho2020individual, pinel2007fast}.
-% batteries: example
-For example, \citet{pinel2007fast} employ a range of dedicated stimuli and
-specific tasks in a 5-minute routine to map processes of ``auditory and visual
-perception, motor actions, reading, language comprehension, and mental
-calculation'' \citep[][p. 15]{pinel2007fast}.
-% but still...
-Nevertheless, the current paradigms face two challenges.
-% validity?
-From a theoretical point of view, localizers rely on selectively sampled,
-tightly controlled stimuli presented in blocks, and do not resemble how we
-perceive the real world outside of the laboratory during everyday life.
-% compliance?
-From a practical point of view, localizers depend on the comprehension of the
-task instructions and the participants' compliance during the scan session,
-criteria that can be difficult to meet in clinical or pediatric populations
-\citep{eickhoff2020towards, vanderwal2015inscapes, vanderwal2019movies}}.
-
-
-\subsection{Naturalistic stimuli as functional localizer}
-
-\todo[inline]{prime that annotations are bottleneck and modeling is
-"prohibitively" difficult? imo, it's not necessary}
-
-\todo[inline]{check \citet{bartels2004mapping} for phrasing}
-
-\textit{Importantly in the context of the present thesis, a pioneering study
-\citep{bartels2004mapping} revealed that functional specialization of cortical
-areas is preserved during complex, life-like stimulation.
-% conclusion: naturalistic stimuli as a localizer
-Hence, results of \citet{bartels2004mapping} suggest that naturalistic stimuli
-could, in principle, be used as a more life-like paradigm in order to substitute
-traditional localizer paradigms.}
-
 % movies & narratives
 Naturalistic stimuli like movies and auditory narratives \citep[cf.][for
 reviews]{jaaskelainen2021movies, jaaskelainen2020neural} provide a time-locked
@@ -119,14 +42,13 @@ The \ac{ppa} exhibits increased hemodynamic activity when participants view
 photos of landscapes, buildings or landmarks, compared to, e.g., photos of faces
 or tools \citep[e.g.,][for reviews]{epstein2014neural, aminoff2013role}.
 %
-Moreover, results of \citep{aziz2008modulation} that compared hemodynamic
+Moreover, results of \citet{aziz2008modulation} that compared hemodynamic
 activity levels in the \ac{ppa} correlated with different categories presented
 in spoken sentences suggest that activity level of the \ac{ppa} is also
 modulated by semantic scene-related information.
-
 %
-Hence, we assessed the potential of both the movie and the audio-description
-to substitute a visual localizer two ways.
+We assessed the potential of both the movie and the audio-description to
+substitute a visual localizer two ways.
 % direct modeling
 First, we adapted the method used to analyze data from traditional localizer
 paradigms to the analysis of data from the two naturalistic paradigms:
@@ -292,16 +214,6 @@ public; thesis is not on github}
 The second subgoal was to publish data, materials, and results openly
 accessible.
 %
-For example, the content of annotation of speech \citep{haeusler2021speechanno}
-goes beyond what was necessary to perform the analyses in
-\citet{haeusler2022processing} and serves as an extension of the studyforrest
-dataset.
-%
-Consequently, the annotation widens the ``annotation bottleneck'' \citep[][p.
-16]{aliko2020naturalistic} of two naturalistic stimuli, and provides a headstart
-for independent research that wish to model hemodynamic brain responses that are
-correlated with different aspects of spoken language.
-%
 In order to increase transparency, data and custom code generated over the
 course of this dissertation are version-controlled, and changes made to data and
 code were protocolled and documented.
@@ -309,6 +221,24 @@ code were protocolled and documented.
 In order to facilitate reproducibility, processing steps ranging from
 downloading input data to plotting figures are implemented in custom code that
 can be rerun from the command line.
+%
+The content of annotation of speech \citep{haeusler2021speechanno} goes beyond
+what was necessary to perform the analyses in \citet{haeusler2022processing} and
+serves as an extension of the studyforrest dataset.
+%
+Consequently, the annotation widens the ``annotation bottleneck'' \citep[][p.
+16]{aliko2020naturalistic} of two naturalistic stimuli, and provides a headstart
+for independent research that wish to model hemodynamic brain responses that are
+correlated with different aspects of spoken language.
+%
+In \citet{haeusler2022processing}, we relied on open \ac{fmri} data in order to
+investigate a research question that was not foreseen during the data's initial
+release.
+%
+Results of \citet{haeusler2022processing} suggest that increased hemodynamic
+activity in the \ac{ppa} generalizes from blocks of pictures to spatial
+information embedded in a movie and an auditory narrative, and illustrate the
+benefits of publishing and reusing open data.
 
 % contra
 From a negative perspective, creating data, materials, and code to be published
@@ -351,12 +281,6 @@ methods and following good scientific practices in general.
 
 
 \subsection{Interim summary}
-
-\todo[inline]{cf. general introduction}
-
-\todo[inline]{accomplished goals: extension of the studyforrest dataset is
-published and available; novel findings, unforseen use-case on "old" data
-published in peer-reviewed journals}
 
 \todo[inline]{this is the new "personal assessment"; how personal can I / am I
 supposed to get?}
@@ -442,37 +366,6 @@ results.
 
 
 \section{Naturalistic stimuli for functional localization?}
-
-\todo[inline]{cf. general introduction ("aims of thesis" + "specific aims and
-objectives")}
-
-
-\textit{
-In summary, functional localizer paradigms that aim to characterize the
-topography of functional areas on the level of individual subjects are a
-promising tool to advance brain mapping towards a clinical application.
-% contra localizers
-However, traditional localizer paradigms employ selectively sampled, tightly
-controlled stimuli, rely heavily on a participant's compliance, and can usually
-map just one domain of brain functions
-% naturalistic stimuli could replace
-A functional localizer based on a naturalistic stimulus could, in principle,
-replace a traditional localizer paradigm while also providing a couple of
-advantages:
-% fixed time course
-a) naturalistic stimuli offer a fixed time course correlating with a variety of
-different brain functions ranging from low-level perception (e.g., luminance) to
-high-level cognition (e.g., social cognition);
-% richness
-b) the richness and multi-dimensionality of naturalistic stimuli might impose a
-challenging data analysis put promises a higher external validity;
-% compliance
-c) naturalistic stimuli are an easy-to-follow and immersive paradigm leading to
-improved data quality.
-% visually impaired
-Lastly, an exclusively auditory stimulus like an audiobook or audio drama would
-also be appropriate for visually impaired persons, e.g., suffering from
-nystagmus or lack of eyesight.}
 
 %
 The \ac{ppa} is traditionally identified by contrasting hemodynamic responses to
