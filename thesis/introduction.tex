@@ -132,10 +132,10 @@ stimuli. Naturalistic paradigms are typically complex and dynamic, and longer in
 duration than many conventional stimuli.'' \citep[][p. 2]{vanderwal2019movies}.
 % movies & narratives
 The currently most popular naturalistic stimuli in neuroscience are movies and
-auditory narratives \citep[cf.][for reviews]{jaaskelainen2021movies,
-jaaskelainen2020neural} that provide a time-locked event structure that samples
-a broad range of brain states, and engage multiple perceptual and cognitive
-systems in parallel \citep{haxby2020naturalistic}.
+auditory narratives \citep[cf.][for an introduction]{sonkusare2019naturalistic}
+that provide a time-locked event structure that samples a broad range of brain
+states, and engage multiple perceptual and cognitive systems in parallel
+\citep{haxby2020naturalistic}.
 
 %
 Therefore, naturalistic stimuli have several advantages over traditional
@@ -175,9 +175,9 @@ auditorily experience our environment outside of the scanner bore.
 % reviews
 Consequently, audio-visual movies and spoken narratives have been used during
 \ac{fmri} \citep[cf.][for reviews]{hamilton2018revolution,
-hasson2008neurocinematics, sonkusare2019naturalistic,
-saarimaki2021naturalistic}, and \ac{eeg} or \ac{meg} data acquisition
-\citep[s.][for reviews]{alday2019meg, kandylaki2019story}.
+hasson2008neurocinematics, jaaskelainen2021movies, saarimaki2021naturalistic},
+and \ac{eeg} or \ac{meg} data acquisition \citep[s.][for reviews]{alday2019meg,
+kandylaki2019story}.
 % early findings: spatiotemporal synchronization
 Early studies have shown that watching a movie \citep{hasson2004intersubject,
 hasson2008neurocinematics, hasson2010reliability} or listening to a narrative
@@ -252,6 +252,8 @@ paragraphs}
 
 \todo[inline]{write the following in past}
 
+\todo[inline]{I / my vs. We / our? Maybe, just switch to passive form}
+
 
 % clinical application
 In summary, functional localizer paradigms that aim to characterize the
@@ -287,8 +289,6 @@ nystagmus or lack of eyesight.
 might be enough to first declare that as an actual challenge (along the lines of
 "if valid, how far can we take this?")}
 
-\todo[inline]{"We" vs. "I"?}
-
 % therefore
 Therefore, this dissertation explores---while following the principles of
 open, transparent, and reproducible science---whether a movie and the movie's
@@ -312,10 +312,6 @@ I will evaluate the movie's and audio-description's potential to substitute a
 visual localizer in two ways.
 
 \subsection{Approach 1: \ac{glm} $t$-contrasts}
-
-\todo[inline]{Maybe, prime here, too (somehow) that stimuli need(ed) to be
-annotated; it's stated, of course, in specific objectives \& hypotheses}
-
 
 % 1. modeling hemodynamic responses
 First, similarly to traditional localizer paradigms, we model hemodynamic
@@ -439,9 +435,10 @@ results'' \citep[][p. 111]{leek2017most}.
 % replicability: definition
 A study is replicable if the same analysis of an equivalent experiment's data
 leads to consistent results \citep{dubois2016building, leek2017most}.
+
 %
-Hence, on a metalevel, this dissertation aims to meet both the requirements of
-open, shared, accessible, and transparent science \citep[cf.][]{watson2015will,
+One goal of the disseration was to meet both the requirements of open, shared,
+accessible, and transparent science \citep[cf.][]{watson2015will,
 fecher2014open} as well as the requirements of a reproducible and replicable
 research project:
 %
@@ -450,19 +447,20 @@ scientific computing \citep{wilson2014best}, b) procedures and data analyses
 \citep{nichols2017best, poldrack2017scanning, poldrack2019establishment}, and c)
 sharing code, created data, and results \citep{eglen2017toward, nichols2017best,
 pernet2015improving}.
+% \paragraph{input data} open data \citep{eglen2017toward}
+A second goal in the context of open science reuse a publicly and freely
+available dataset for a new reasearch question that was not anticipated during
+the data's initial release, extend the dataset, and generate novel findings to
+be published in open-acess journals.
 
-% \paragraph{input data}
-% open data \citep{eglen2017toward}
-First, my work is built on top of publicly and freely available \ac{fmri} data
-that are part of the \textit{studyforrest} project
-(\href{www.studyforrest.org}{\url{studyforrest.org}}).
 %
-The studyforrest project is an open science project that aims to provide a
-versatile resource for investigating human brain function under quasi-natural
-conditions.
+The present work is built upon \ac{fmri} data that are part of the
+\textit{studyforrest} project
+(\href{www.studyforrest.org}{\url{studyforrest.org}}), an open science project
+that aims to provide
 % core stimuli
 The core of this dataset are two-hour long \ac{bold} \ac{fmri} scans of
-participants watching the movie Forrest Gump \citep{ForrestGumpMovie} and
+participants watching the movie ``Forrest Gump'' \citep{ForrestGumpMovie} and
 listening to the movie's audio-description that was created for a visually
 impaired audience by adding a narrator to the movie's audio track.
 % used by 3rd parties
@@ -471,33 +469,23 @@ studyforrest project has served as a resource of raw (and preprocessed) data for
 international working groups to conduct and publish independent, peer-reviewed
 research (s.
 \href{www.studyforrest.org/publications.html}{\url{studyforrest.org/publications.html}}).
-
-\todo[inline]{mih: hint at why they were created to make sure that they had a
-purpose here AND they have been published: "to enable the type of analysis
-underlying this thesis"}
-
-\todo[inline]{coh: this is done under "specific objectives"; imo, it is better
-to keep the open science part self-contained; same for Datalad: I made a
-subsection for the DataLad paper in "specific objectives" (which was strangely
-missing)}
-
-% annotations
-The additional stimulus annotations that have been created over the course of
-the dissertation are version-controlled---i.e. each change of data is logged and
-documented---to provide a historical record, and published in a standardized
-file format \citep{haeusler2021speechanno} to contribute to the studyforrest
-project.
-
-% \paragraph{code, analyses, output} intro
-Further, all code is version-controlled and shared to improve the
-reproducibility of current results and to facilitate the replicability of
-findings on other datasets.
+%
+In order to lay the groundwork for the presently performed analyses and to
+further extent the studyforrest dataset as a versatile resource for independent
+researchers an additional annotation of speech occuring in the two stimuli was
+created and published \citep{haeusler2021speechanno} in a standardized file
+format.
+%
+All code to create data, materials, and results is version-controlled---i.e.
+each change of data is logged and documented---and shared to improve the their
+reproducibility and to facilitate the replicability of findings on other
+datasets.
 % automatization
-Therefore, data analysis pipelines are designed in a way that enables automated
-processing.
+Therefore, data analysis pipelines are additionally designed in a way that
+enables automated processing.
 % FOSS
-Analyses pipelines are not implemented in proprietary software but in freely
-available and, if possible, open-source software.
+Further, analyses pipelines are not implemented in proprietary software but in
+freely available and, if possible, open-source software.
 % which tools to choose why?
 Among potential software packages, we chose the tools that offer the most solid
 documentation, and a broad basis of developers and maintainers to ensure
@@ -506,7 +494,6 @@ long-term support.
 Custom code written by myself is written in open-source programming languages
 (Python and Bash), is version-controlled, documented, and released publicly and
 freely accessible.
-
 % DataLad
 All input data, custom code, analysis steps, and output data are accessible in
 standardized \textit{DataLad} (\href{www.datalad.org}{datalad.org}) datasets.
@@ -515,7 +502,6 @@ Since DataLad provides a free and open-source software solution that manages
 provenance, distribution, and version-control of code and data
 \citep{halchenko2021datalad}, all executed steps from downloading the input data
 to visualizing the results can be rerun to validate the dissertation's results.
-
 % \paragraph{publications} open-access publishing
 Last, because ``nature abhors a paywall'' \citep{dupre2020nature}, publications
 describing generated data, the reasoning of methodological choices, analysis
@@ -538,17 +524,15 @@ sense because they lead from one study to the next}
 and their relationship}
 
 %
-DataLad served as the technical foundation and tool to pursue the goal of a
-transparent and open research project.
-%
 I used DataLad during its early development phase, and contributed to its
 improvement by testing features on a real-world project, evaluated the usability
-of its user interface and documentation, and giving feedback to the team of
+of its user interface and documentation, and by giving feedback to the team of
 software engineers.
 %
 This resulted in a co-authorship of the software's accompanying publication
-\citep[cf.][]{halchenko2021datalad}, and laid the groundwork to create,
-version-control and openly publish the subsequent datasets and studies.
+\citep[cf.][]{halchenko2021datalad}, and laid the technical foundation that
+enabled archieving the goal of conducting a transparent and reproducible
+research project.
 
 
 \subsubsection{A studyforrest extension, an annotation of spoken language in the
@@ -639,7 +623,7 @@ The analysis of the audio-description revealed bilateral clusters in nine
 participants and one unilateral cluster in one participant.
 
 % conclusion 1
-Results add evidence \citep[cf.][]{bartels2004mapping} that a that functional
+Results add evidence \citep[cf.][]{bartels2004mapping} that functional
 specialization of cortical areas is preserved during naturalistic stimulation.
 %
 Results also suggest that model-driven \ac{glm} analysis based on a naturalistic

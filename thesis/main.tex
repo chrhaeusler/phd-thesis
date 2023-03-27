@@ -136,6 +136,12 @@
 \patchcmd\@acf{\AC@foo}{\hskip\z@\AC@acl}{}{}
 \makeatother
 
+% prevent widows and orphans
+% cf. https://en.wikipedia.org/wiki/Widows_and_orphans
+\usepackage[all]{nowidow}
+
+
+
 
 \begin{document}
 % set pagestyle to 'no header' and 'page number at bottom in the middle'

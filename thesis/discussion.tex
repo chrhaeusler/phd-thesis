@@ -1,5 +1,6 @@
-\todo[inline]{delete subsection(s)}
+\todo[inline]{most importantly: is anything missing that needs to be discussed?}
 
+\todo[inline]{delete subsection(s)}
 
 Human brain mapping studies have traditionally averaged \ac{fmri} data across
 participants.
@@ -18,11 +19,62 @@ map just one domain of brain functions.
 
 \subsection{The usual rant about localizers}
 
+\todo[inline]{cf. general intro (\& SRM part)}
+
 \todo[inline]{keep it pretty short!}
 
-\todo[inline]{cf. general intro \& SRM part: localizer is standard, but
-problematic; it's reliable, but what is the construct?  ecologically validity?
-boring, compliance, inefficient; therefor, naturalistic stimulus)}
+%
+Localizer is standard, but problematic.
+%
+Ecologically validity?
+%
+Boring, compliance, inefficient.
+%
+Therefor, naturalistic stimulus...
+
+% intro to functional localizer
+\textit{\textit{Functional localizers} \citep[cf.][for reviews]{saxe2006divide,
+friston2006critique} are \ac{fmri} experiments that specifically aim to
+characterize the \textit{topography} (i.e. the location, size, and shape) of
+functional areas correlating with perceptual or cognitive processes like the
+perception of object categories \citep{kanwisher1997ffa} or theory of mind
+\citep{spunt2014validating}.
+% purpose: ROI improve the statistical power of the main experiment's analysis
+Currently, functional localizers are often used as a separate experiment to
+identify a subject-specific functional \acp{roi} that constrain the number of
+voxels under investigation in the main experiment \citep{poldrack2007region,
+saxe2006divide}.
+% clinical application
+Functional localizers might also be used as a diagnostic procedure, e.g., prior
+to neurosurgery \citep[cf.][]{silva2018challenges, szaflarski2017practice}.
+% cons: designed for detection power
+However designed to maximize detection power, localizers employ carefully
+chosen, tightly controlled, and simplified stimuli presented in a block-wise
+manner often accompanied by a task to keep study participants attentive.
+% one localizer = one domain of functions
+Consequently, one localizer paradigm can usually map just one domain of brain
+functions.
+% batteries: intro
+In order to map many different processes despite limited resources, researchers
+have developed more time-efficient, multi-functional \textit{localizer
+batteries} \citep[e.g.,][]{barch2013function, drobyshevsky2006rapid,
+pinho2018individual, pinho2020individual, pinel2007fast}.
+% batteries: example
+For example, \citet{pinel2007fast} employ a range of dedicated stimuli and
+specific tasks in a 5-minute routine to map processes of ``auditory and visual
+perception, motor actions, reading, language comprehension, and mental
+calculation'' \citep[][p. 15]{pinel2007fast}.
+% but still...
+Nevertheless, the current paradigms face two challenges.
+% validity?
+From a theoretical point of view, localizers rely on selectively sampled,
+tightly controlled stimuli presented in blocks, and do not resemble how we
+perceive the real world outside of the laboratory during everyday life.
+% compliance?
+From a practical point of view, localizers depend on the comprehension of the
+task instructions and the participants' compliance during the scan session,
+criteria that can be difficult to meet in clinical or pediatric populations
+\citep{eickhoff2020towards, vanderwal2015inscapes, vanderwal2019movies}}.
 
 
 \subsection{Naturalistic stimuli as functional localizer}
@@ -30,7 +82,15 @@ boring, compliance, inefficient; therefor, naturalistic stimulus)}
 \todo[inline]{prime that annotations are bottleneck and modeling is
 "prohibitively" difficult? imo, it's not necessary}
 
-\todo[inline]{maybe, cite \citet{bartels2004mapping} again}
+\todo[inline]{check \citet{bartels2004mapping} for phrasing}
+
+\textit{Importantly in the context of the present thesis, a pioneering study
+\citep{bartels2004mapping} revealed that functional specialization of cortical
+areas is preserved during complex, life-like stimulation.
+% conclusion: naturalistic stimuli as a localizer
+Hence, results of \citet{bartels2004mapping} suggest that naturalistic stimuli
+could, in principle, be used as a more life-like paradigm in order to substitute
+traditional localizer paradigms.}
 
 % movies & narratives
 Naturalistic stimuli like movies and auditory narratives \citep[cf.][for
@@ -292,7 +352,11 @@ methods and following good scientific practices in general.
 
 \subsection{Interim summary}
 
-\todo[inline]{streamline with general introduction}
+\todo[inline]{cf. general introduction}
+
+\todo[inline]{accomplished goals: extension of the studyforrest dataset is
+published and available; novel findings, unforseen use-case on "old" data
+published in peer-reviewed journals}
 
 \todo[inline]{this is the new "personal assessment"; how personal can I / am I
 supposed to get?}
@@ -379,8 +443,36 @@ results.
 
 \section{Naturalistic stimuli for functional localization?}
 
-\todo[inline]{everything in line with Intro ("aims of thesis", "specific aims
-and objectives"?) and discussion above ("The usual rant about localizers?)}
+\todo[inline]{cf. general introduction ("aims of thesis" + "specific aims and
+objectives")}
+
+
+\textit{
+In summary, functional localizer paradigms that aim to characterize the
+topography of functional areas on the level of individual subjects are a
+promising tool to advance brain mapping towards a clinical application.
+% contra localizers
+However, traditional localizer paradigms employ selectively sampled, tightly
+controlled stimuli, rely heavily on a participant's compliance, and can usually
+map just one domain of brain functions
+% naturalistic stimuli could replace
+A functional localizer based on a naturalistic stimulus could, in principle,
+replace a traditional localizer paradigm while also providing a couple of
+advantages:
+% fixed time course
+a) naturalistic stimuli offer a fixed time course correlating with a variety of
+different brain functions ranging from low-level perception (e.g., luminance) to
+high-level cognition (e.g., social cognition);
+% richness
+b) the richness and multi-dimensionality of naturalistic stimuli might impose a
+challenging data analysis put promises a higher external validity;
+% compliance
+c) naturalistic stimuli are an easy-to-follow and immersive paradigm leading to
+improved data quality.
+% visually impaired
+Lastly, an exclusively auditory stimulus like an audiobook or audio drama would
+also be appropriate for visually impaired persons, e.g., suffering from
+nystagmus or lack of eyesight.}
 
 %
 The \ac{ppa} is traditionally identified by contrasting hemodynamic responses to
@@ -492,7 +584,7 @@ a) stimulus-related factors like the number available events that can be modeled
 and contrasted per stimulus segment, or the general confound structure,
 %
 b) modeling-related factors like the assumed shape of the hemodynamic response
-function [?], or
+function \todo{??}, or
 %
 c) subject-specific factors like alertness or engagement over the course of the
 experiment.
@@ -501,14 +593,15 @@ experiment.
 
 \subsubsection{Interim summary \& future studies}
 
-\todo[inline]{I assume this part will be a pretty personal opinion}
+\todo[inline]{cf. general intro; check the papers that claim "prohibitively
+difficult"}
 
 \todo[inline]{literature says it is impossible (but Alexander Hut) but how
 "prohibitive" is it? How naive was it to do it? What did take the most time?}
 
-\todo[inline]{check the papers that claim "prohibitively difficult" (cf. general
-intro) and state the point again differently phrased}
+\todo[inline]{I assume this part will be a pretty personal opinion}
 
+%
 In summary, modeling hemodynamic responses during naturalistic stimulation to
 investigate neural correlates of specific psychological constructs under more
 ecologically valid conditions is challenging for a couple of reasons:
@@ -552,7 +645,9 @@ valid inferences from naturalistic stimuli.
 
 \subsection{Functional localization via estimation from reference group}
 
-\todo[inline]{Write when SRM part is finished; (re)state goals explicitly}
+\todo[inline]{write when SRM part is finished}
+
+\todo[inline]{explicitly (re)state aims}
 
 %
 Results from \citet{haeusler2022processing} suggest that the movie as well as
@@ -764,7 +859,10 @@ domains of high-level cognition.  '' \citep{jiahui2020predicting}.
 
 %
 Challenging data data analysis, but create \& share (data from naturalistic
-stimuli \& ) annotations:
+stimuli \& ) annotations.
+%
+Naturalistic stimuli are so rich that dataset decay is low, everybody can get
+a slice of the cake and do his/her part to advance the field.
 %
 We re-used existing data as a foundation for a new investigation in order to
 generate novel findings encourage further studies, and illustrate the benefits
