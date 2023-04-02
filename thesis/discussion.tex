@@ -368,6 +368,10 @@ results.
 
 
 
+
+
+\pagebreak
+
 \section{Naturalistic stimuli for functional localization?}
 
 \todo[inline]{This discussion is about the present project; might be merged with
@@ -488,38 +492,39 @@ c) subject-specific factors like alertness or engagement over the course of the
 experiment.
 
 
-\pagebreak
-
 \subsection{The rant about model-driven analyses of nat. stimuli}
 
-\todo[inline]{This discussion is about the naturalistic stimuli in general; it
-might be possible to merge it in to the discussion above}
+\todo[inline]{This discussion is about the naturalistic stimuli in general}
 
-\todo[inline]{Keep this part a little longer (same idea differently phrased),
-because some stuff will be restated in the general discussion)}
+\todo[inline]{If SRM part will be dropped, just merge with the part above}
 
-\paragraph{Origin and assumptions of GLM}
+\todo[inline]{If SRM part is supposed to stay: final points to make, their
+location, and exact phrasing depend on where which parts of "Naturalistic Stmuli
+for Functional Alignment" will be discussed how extensively (cf. "The Vision:
+Scan once, estimate many")}
 
+
+\subsubsection{Origin and assumptions of GLM}
 %
 Originating from \ac{pet} research, the currently dominating \ac{glm} is
 tailored to analyse data of parametric\todo{Def?} experimental designs that
 manipulate isolated experimental variables of interest.
 %
-It requires the researcher to model a hypothesized hemodynamic time course that
-is fit to the data in order to predict and contrast the observed hemodynamic
-activity \citep{friston1998event}.
+The \ac{glm} requires the researcher to model a hypothesized hemodynamic time
+course that is fit to the data in order to predict and contrast the observed
+hemodynamic activity \citep{friston1998event}.
 %
 However, the continuity and complexity of naturalistic stimuli stress
-physiolgical assumptions like
+physiological assumptions like
 %
-a) the consistency of responses across [time-locked] events (the basis for
-\textit{trial-averaging}) [Dale and Buckner (1997)],
+a) the consistency of responses across events \citep[the basis for
+\textit{trial-averaging};][]{dale1997selective},
 %
 b) the linearity of the hemodynamic responses [Cohen (1997). Parametric Analysis
 of fMRI; Boynton (1996). Linear systems analsysis; Dale (1999). Optimal
 experimental design for event-related fmri]
 %
-c) and cognitive substraction [Friston (1996)],
+c) and cognitive subtraction [Friston (1996)],
 %
 as well as statistical assumptions like the absence of collinearity among
 variables.
@@ -529,59 +534,101 @@ statistical assumption underlying model-driven analyses from traditional
 paradigms to naturalistic stimuli.
 
 
-\subsubsection{Solution to lack of control: annotations}
-
-\todo[inline]{but how to model constructs like growing empathy}
-
-
+\paragraph{Annotations}
 
 %
-A common method to tackle the lack of experimental control over temporal
+A common method to tackle the lack of experimental control over the temporal
 structure of stimulus features are extensive annotations that allow the modeling
-and statistical control of possibly confounding variables \citep[e.g., Wagner,
-2016, The dorsal medial prefrontal cortex
-responds...,][]{deniz2019representation}.
+and statistical control of possibly confounding variables
+\citep[e.g.,][]{deniz2019representation}.
 %
-Low-level visual features like luminance / brightness\todo{difference?} or
-perceptual difference of consecutive movie frames, and or low-level auditory
-features like root-mean square power (a.k.a. volume) or left-right volume
-difference can be extracted automatically reliably at [on?] a low temporal scale
+Low-level visual features like brightness\todo{or is it luminance???} or
+perceptual difference of consecutive movie frames, and low-level auditory
+features like root-mean square power (i.e., volume) or left-right volume
+difference can be extracted automatically reliably on a low temporal scale
 (e.g., per movie frame; cf.
 \href{https://github.com/psychoinformatics-de/studyforrest-data-confoundsannotation
 }{\url{github.com/psychoinformatics-de/studyforrest-data-confoundsannotation}}
 for low-level annotations of the studyforrest dataset).
 %
-Current advances in machine learning allow the creation tools (e.g., the
-software package 'pliers' [McNamara et al., 2017]) that can automatically
-extract higher-level features like clearly defined object categories or
-semantics in order to substitute tedious manual annotation, or at least provide
-a provisional scaffold that alleviates manual labor \citep[cf. the toolbox
-``pliers'' that is implemented in the
+Current advances in machine learning allow the creation tools \citep[e.g., the
+toolbox ``pliers'' that is implemented in the
 \href{https://neuroscout.org/}{\url{neuroscout.org}}
-platform;][]{mcnamara2017developing, delavega2022neuroscout}.
+platform;][]{mcnamara2017developing, delavega2022neuroscout} that can
+automatically extract higher-level features like clearly defined object
+categories or semantics in order to substitute tedious manual annotation or
+provide a provisional scaffold that alleviates manual labor.
 %
-However, subject-related variables \citep[e.g., felt
-emotions,][]{lettieri2019emotionotopy}, subjective and ambiguous, or variables
-that fluctuate at [on?] longer time scales (e.g., context) still defy an
-automatic annotation.
+However, subjective and ambiguous variables, variables that fluctuate on longer
+time scales like context, or subject-related variables like the level of
+engagement, the attentional focus (especially during non-visual stimulation) or
+felt emotions \citep[cf., e.g.,][]{lettieri2019emotionotopy,
+saarimaki2021naturalistic} still defy an automatic annotation.
 %
 Hence, merely assessing the confound structure of a naturalistic stimulus as an
 possible candidate for a prospective model-driven analysis might become
-time-consuming\todo{nobody does it anyway}.
+time-consuming.
 %
-Further, depending on the covariance of variables, a naturalistic stimulus might
-eventually turn out be inappropriate.
+Depending on the covariance of variables, a naturalistic stimulus---if not all
+naturalistic stimuli---might eventually turn out be inappropriate to test an
+experimental hypothesis given current statistical methods.
 %
-Last, a large amount of annotated features might lead to annotations that are
-``hard to use'' \citep[][p. 2]{richard2019fast} or ``high-dimensional,
+Moreover, a large amount of annotated features might lead to annotations that
+are ``hard to use'' \citep[][p. 2]{richard2019fast} or ``high-dimensional,
 cumbersome models'' \citep[][p. 2]{richard2019fast} that eventually lack
-statistical power due to insufficient data samples.
+statistical power due to insufficient data samples.\todo{correct?}
 
-\todo[inline]{These literal quotes might 100\% match the point Richard tried to
-make (his phrasing is ambiguous anyway)}
+\todo[inline]{These literal quotes might not 100\% match the point Richard tried
+to make (his phrasing is ambiguous anyway)}
 
 
-\subsubsection{Designed to be engaging but do they engage?}
+\subsection{Interim conclusion}
+
+%
+Given the current challenges and limitations it is probably not surprising that
+even 20 years after the group-level findings of \citet{bartels2004mapping} no
+functional localizer exists that is based on a movie or an auditory narrative.
+%
+Probably, the ecologically most valid localizers today are so called
+\textit{dynamic} localizers \citep[e.g.,][]{pitcher2011differential,
+fox2009defining} that employ blocks of short videos (each video lasting
+$\approx$\unit[2-3]{s}) of scenes, faces etc., and therefore lend themselves
+conveniently to traditional modeling procedures.
+%
+Moreover, naturalistic stimuli, despite being termed ``naturalistic'', are not
+naturalistic in a strict sense but only an approximation of real-life that is
+presented in the laboratory on a screen and / or via headphones.
+%
+Similar to traditionally employed stimuli that have been carefully designed by
+researchers to probe specific processes, most naturalistic stimuli that have
+been employed in neuroscience have been carefully designed by professional media
+creators to entertain to entertain, inform, or advertise.
+%
+Film directors utilize a variety of techniques like camera-movement,
+composition, movie editing, voice-overs \citep{brown2012cinematography,
+dancyger2011film-technique, katz1991film, mercado2011filmmakers} intentionally
+manipulate the viewers' attentional focus and mental states but largely occur
+unnoticed by the viewer.
+%
+For example, participants asked to spot movie cuts miss between 10\% and 50\% of
+them depending on the type of cut \citep{smith2008edit}.
+%
+These techniques lead to diminished individual variation and consequently
+reliably synchronized spatial-temporal responses across subjects
+\citep{hasson2008neurocinematics}, but also ``naturalistic stimulus statistics''
+[a.k.a. medium-specific confound structure] that differs from ``real-world
+statistics''.
+%
+Generally, a naturalistic stimulus' confound structure should be quantified
+before launching a study, controlled during the statistical analysis, and
+considered when interpreting results.
+%
+However, a naturalistic stumulus' artifical properties can also be desireable
+\citep{kauttonen2018brain} or can be exploited \citep{haeusler2022processing}
+[``Demons to some, angels to others'' -- Pinhead].
+
+
+\paragraph{Despite designed to engage, do they really engage?}
 
 \todo[inline]{control observer features by recording or self-reports}
 
@@ -622,135 +669,68 @@ of the real-time engagement in the absence of action remains unclear''
 \citep{sonkusare2019naturalistic}.
 
 
-
-
-\subsubsection{Some, if not most, naturalistic stimuli might offer higher
-ecologically validity at the cost of simply not suitable given limitations of
-current analyses methods}
+\subsubsection{Shitty when individual variation is considered noise}
 
 %
-However, some low-level features are inherently intertwined with higher-level
-features (e.g., the low-level feature ``green'' and the higher-level feature
-``tree-leaf'') and therefore represent ``natural image statistics''.
+``two disciplines of scientific psychology."
+%According to Cronbach,
+the experimental discipline strives to uncover universal human traits and
+abilities through experimental control and group averaging, whereas the
+correlational discipline strives to explain variation between people by
+measuring how they differ from one another.
+%
+A fundamental distinction between the two disciplines is how they treat
+individual differences.
+%
+For the experimental researcher, variation between people is an error that must
+be minimized to detect the largest experimental effect.
+%
+For the correlational investigator, variation between people is the primary unit
+of analysis and must be measured carefully to extract reliable individual
+differences (Cronbach, 1957; Hedge, Powell, \& Sumner, 2018).
+%
+Current task-fMRI paradigms are largely descended from the experimental
+discipline.
+%
+Task-fMRI paradigms are intentionally designed to reveal how the average human
+brain responds to provocation, while minimizing between-subjects variance.
+%
+Paradigms that are able to elicit robust targeted brain activity at the group
+level are subsequently converted into tools for assessing individual
+differences.
+%
+Within-subjects robustness is, then, often inappropriately invoked to suggest
+between-subjects reliability, despite the fact that reliable within-subjects
+experimental effects at a group level can arise from unreliable between-subjects
+measurements [Fröhner, Teckentrup, Smolka, \& Kroemer, 2019].
+%
+Instead of continuing to adopt fMRI tasks from experimental studies emphasizing
+within-subjects effects, we need to develop new tasks (and naturalistic stimuli)
+from the ground up with the goal of optimizing their utility in
+individual-differences research (i.e., between-subjects effects).
+%
+Psychometrics provides many tools and methods for developing reliable
+individual-differences measures that have been underutilized in task-fMRI
+development.
+%
+For example, stimuli in task fMRI could be selected on the basis of their
+ability to maximally distinguish groups of people or to elicit reliable
+between-subjects variance.
+%
+As noted in the first recommendation, psychometric tools for test construction
+could be adopted to optimize reliable task-fMRI measures, including item
+analysis, latent variable modeling, and internal-consistency measures (Crocker
+\& Algina, 2006)'' \citep{elliott2020test}.
 
 
-``Prior to launching a full-scale study with a given media stimulus, one could
-extract continuous regressors for low-level (e.g. luminance and audio
-envelope), mid-level (e.g. presence of certain characters on screen) and
-high-level (e.g. mood) features to determine the degree of collinearity between
-features and the extent to which this might confound testing of a particular
-hypothesis using that stimulus.
-%
-The potential ‘confounding’ features will vary based on the research questions
-and phenomena of interest. For an example of assessing feature collinearity
-profiles as part of the stimulus selection process, see Figure 2''
-\citep{grall2022leveraging}.
+\subsubsection{Recommendations}
 
-%
-Still similar to \citet{grall2022leveraging}: ``One popular solution to this
-problem is to regress out the effects of these features in preprocessing or
-first-level general linear model analyses and/or to limit analyses to
-higher-order regions, which are assumed to be less closely driven by purely
-perceptual features.
-%
-This is because those exact features, and how they vary and covary over time,
-fundamentally influence the experience of the product as a whole.
-%
-Hence, the covariance of features of interest and confound features need to be
-assessed, ultimately deeming some, if not most, naturalistic stimuli
-inappropriate to investigate a specific aspect of perception and cognition under
-current modeling approaches that produce unsatisfactory results in case of
-collinearity''
-%
-Depending on the research question, a investigator need to assess the
-covariance, if not collinearity, among stimulus features considered to be of
-interest or considered to be a confound variable.
-
-
-
-\subsubsection{Naturalistic stimuli are not naturalistic in the strict sense}
-
-\todo[inline]{a.k.a. natural image statistics vs. crafted "movie statistics"}
-
-%
-This is aggravated because naturalistic stimuli are not "naturalistic" in the
-strict sense
-%
-Despite the growing popularity of naturalistic stimuli it should not be
-forgotten that naturalistic stimuli like movies and narratives are not
-``naturalistic'' in the strict sense but only an approximation of real-life.
-%
-The experimental setting (e.g., lying in a noise fMRI scanner), the limited
-field of view, and passive participation in the paradigm limit a fully immersive
-experience and the range of potentially sampled cognitive brain states (e.g.,
-movement, mental calculation, decision-making, social interaction).
-%
-Similar to traditionally employed stimuli that have been carefully designed by
-researchers to probe specific processes, most naturalistic stimuli that have
-been employed in neuroscience have been carefully designed by professional media
-creators to entertain an audience.
-%
-For example, a film director's utilize a variety of techniques like
-camera-movement, composition, movie editing, voice-overs
-\citep{brown2012cinematography, dancyger2011film-technique, katz1991film,
-mercado2011filmmakers}---despite occurring largely unnoticed as a cinematography
-tool by the viewer---often fundamentally differ from real-live in order to
-intentionally manipulate the viewers' attentional focus and mental states.
-%
-For example, participants asked to spot movie cuts miss between 10\% and 50\% of
-them depending on the type of cut \citep{smith2008edit}.
-%
-These techniques might lead to a large amount of synchronized spatial-temporal
-responses across subjects that is reliably across presentations
-\citep{hasson2008neurocinematics}, but also leads to an artificial product and a
-medium-specific confound structure, and diminishes individual variation.
-%
-These may be exploited or need to be considered in order to assess
-appropriateness of naturalistic stimuli to be chosen and/or modeled in order to
-interpret the results (not just "how" and "when" but also "why").
-
-%
-Stimulus features that are related to film making techniques can be exploited
-\citep{haeusler2022processing, kauttonen2018brain} or need to be controlled
-(``Demons to some, angels to others'' -- Pinhead).
-
-%
-Physiologial assumptions need to be reevaluated, methods and models need to be refined
-
-
-\subsection{Interim conclusion: recommendations}
-
-\todo[inline]{ecologically validity at the cost of interpretability (data-driven
-is more "how" and "when", less "why")}
-
-\todo[inline]{despited being designed to be engaging, the lack of task leaves
+\todo[inline]{despite being designed to be engaging, the lack of task leaves
 room for more individual variation that is difficult to record; especially
 shitty when individual variation is considered noise}
 
-%
-Consequently, 20 years after group-level findings of \citep{bartels2004mapping}
-and despite the rising popularity of naturalistic stimuli in neuroscience no
-localizer exists that is based on a movie or an auditory narrative.
-%
-Probably, the most ecologically valid localizers today are so called
-\textit{dynamic} localizers \citep[e.g.,][]{pitcher2011differential,
-fox2009defining}:
-%
-dynamic localizers employ blocks of short videos (each video lasting
-$\approx$\unit[2-3]{s}) of scenes, faces etc., and lend themselves conveniently
-to traditional modeling procedures.
-
-%
-Naturalistic stimuli might be considered to provide a higher ecological
-validity, however at the expense of a challenging data analysis and
-interpretability of results.
-%
-In case of model-driven analyses, easing the``annotation bottleneck''
-\citep[][p. 16]{aliko2020naturalistic}  of naturalistic stimuli is probably the
-biggest prerequisite to test physiological assumptions, tackle methodological
-issues, and develop appropriate analyses [cf. Nunez-Elizalde (2019), Dupre la
-Tour (2022) for recent examples] in order to draw valid inferences from naturalistic stimuli.
-
+\todo[inline]{Add physiological recordings, combine with EEG, eye-tracking, add
+self-reports [assess controll alertness, engagement, audibility etc.]}
 
 %
 ``Questions to guide researchers in choosing media stimuli for a future
@@ -798,12 +778,53 @@ consider naturalistic stimuli.
 
 stimulus variables can be statistically controlled
 observer variables [fluctuating engagement due to lack of task] is hard record
-and therefore statisticall controlled.
+and therefore statistically controlled.
+
+%
+Still similar to \citet{grall2022leveraging}: ``One popular solution to this
+problem is to regress out the effects of these features in preprocessing or
+first-level general linear model analyses and/or to limit analyses to
+higher-order regions, which are assumed to be less closely driven by purely
+perceptual features.
+%
+This is because those exact features, and how they vary and covary over time,
+fundamentally influence the experience of the product as a whole.
+%
+Hence, the covariance of features of interest and confound features need to be
+assessed, ultimately deeming some, if not most, naturalistic stimuli
+inappropriate to investigate a specific aspect of perception and cognition under
+current modeling approaches that produce unsatisfactory results in case of
+collinearity''
+%
+Depending on the research question, a investigator need to assess the
+covariance, if not collinearity, among stimulus features considered to be of
+interest or considered to be a confound variable.
+
+
+\paragraph{In summary}
+
+%
+Naturalistic stimuli might be considered to provide a higher ecological
+validity, however at the expense of a challenging data analysis and
+interpretability of results.
+
+%
+Physiological assumptions need to be reevaluated, methods and models need to be
+refined
+
+%
+Easing the``annotation bottleneck'' \citep[][p. 16]{aliko2020naturalistic}  of
+naturalistic stimuli is probably the biggest prerequisite to test physiological
+assumptions, tackle methodological issues, and develop appropriate analyses [cf.
+Nunez-Elizalde (2019), Dupre la Tour (2022) for recent examples] in order to
+draw valid inferences from naturalistic stimuli.
 
 
 
 
 
+
+\pagebreak
 
 
 
@@ -1177,55 +1198,6 @@ localizers.'' \citep{jiahui2022cross}.
 
 \subsection{Brain \& behavior: "fingerprints"}
 
-``two disciplines of scientific psychology."
-%According to Cronbach,
-the experimental discipline strives to uncover universal human traits and
-abilities through experimental control and group averaging, whereas the
-correlational discipline strives to explain variation between people by
-measuring how they differ from one another.
-%
-A fundamental distinction between the two disciplines is how they treat
-individual differences.
-%
-For the experimental researcher, variation between people is an error that must
-be minimized to detect the largest experimental effect.
-%
-For the correlational investigator, variation between people is the primary unit
-of analysis and must be measured carefully to extract reliable individual
-differences (Cronbach, 1957; Hedge, Powell, \& Sumner, 2018).
-%
-Current task-fMRI paradigms are largely descended from the experimental
-discipline.
-%
-Task-fMRI paradigms are intentionally designed to reveal how the average human
-brain responds to provocation, while minimizing between-subjects variance.
-%
-Paradigms that are able to elicit robust targeted brain activity at the group
-level are subsequently converted into tools for assessing individual
-differences.
-%
-Within-subjects robustness is, then, often inappropriately invoked to suggest
-between-subjects reliability, despite the fact that reliable within-subjects
-experimental effects at a group level can arise from unreliable between-subjects
-measurements [Fröhner, Teckentrup, Smolka, \& Kroemer, 2019].
-%
-Instead of continuing to adopt fMRI tasks from experimental studies emphasizing
-within-subjects effects, we need to develop new tasks (and naturalistic stimuli)
-from the ground up with the goal of optimizing their utility in
-individual-differences research (i.e., between-subjects effects).
-%
-Psychometrics provides many tools and methods for developing reliable
-individual-differences measures that have been underutilized in task-fMRI
-development.
-%
-For example, stimuli in task fMRI could be selected on the basis of their
-ability to maximally distinguish groups of people or to elicit reliable
-between-subjects variance.
-%
-As noted in the first recommendation, psychometric tools for test construction
-could be adopted to optimize reliable task-fMRI measures, including item
-analysis, latent variable modeling, and internal-consistency measures (Crocker
-\& Algina, 2006)'' \citep{elliott2020test}.
 
 %
 Maybe might be stable individual differences in cognitive tendencies or
