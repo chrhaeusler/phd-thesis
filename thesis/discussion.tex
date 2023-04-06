@@ -80,9 +80,6 @@ publishing data, materials, code, and results openly available.
 
 \subsection{Using open data and open-source software}
 
-\todo[inline]{add: familiarize yourself not just with the data but the
-experimental paradigm / stimulus, too!}
-
 %
 The first subgoal was to use open data, open materials, and open-source
 software.
@@ -137,11 +134,12 @@ storage format and already performed preprocessing step.
 
 % issue 1: data quality
 However, an issue of open data that is all too frequently overlooked is the fact
-it does not exempt the ``data consumer'' from the responsibility of checking the
-data carefully for potential errors.
+it does not exempt the ``data consumer'' from the responsibility of carefully
+checking data's underlying experimental paradigm (e.g., stimuli and code) and
+the data themselves for potential errors.
 %
-It is tempting to ``just push the data through an analysis pipeline'' as soon as
-possible without carefully assessing the quality of the data first.
+It is too tempting to ``just push the data through an analysis pipeline'' as
+soon as possible without carefully assessing the quality of the data first.
 % check the data
 Consumers of datasets must presume that anything not specified clearly in the
 description of a dataset has not been taken into account.
@@ -219,73 +217,69 @@ replicated, updated, or extended.
 %dependencies and semantics.
 
 %
-The second subgoal was to publish data, materials, and results openly
-accessible.
+The second subgoal was to publish data, materials, and results openly available.
 %
-In order to increase transparency, data and custom code generated over the
-course of this dissertation are version-controlled, and changes made to data and
-code were protocolled and documented.
+Data and custom code created for this dissertation are version-controlled, i.e.
+modifications to the data and code were logged and documented, in order to
+promote transparency.
 %
-In order to facilitate reproducibility, processing steps ranging from
-downloading input data to plotting figures are implemented in custom code that
-can be rerun from the command line.
+In order to promote reproducibility, processing steps ranging from downloading
+input data to plotting figures are implemented in scripts that can be rerun from
+the command line.
 %
-The content of annotation of speech \citep{haeusler2021speechanno} goes beyond
-what was necessary to perform the analyses in \citet{haeusler2022processing} and
-serves as an extension of the studyforrest dataset.
+The speech annotation has been made publicly available
+\citep{haeusler2021speechanno} and its content goes beyond what was required to
+conduct the analyses in \citet{haeusler2022processing}.
 %
-Consequently, the annotation widens the ``annotation bottleneck'' \citep[][p.
-16]{aliko2020naturalistic} of two naturalistic stimuli, and provides a headstart
-for independent research that wish to model hemodynamic brain responses that are
-correlated with different aspects of spoken language.
+The annotation serves as an extension of the studyforrest project and widens the
+``annotation bottleneck'' \citep[][p.  16]{aliko2020naturalistic} of two
+naturalistic stimuli, and might give independent researchers a head start in
+modeling hemodynamic brain responses that are correlated with features of spoken
+language.
 %
-In \citet{haeusler2022processing}, we relied on open \ac{fmri} data in order to
-investigate a research question that was not foreseen during the data's initial
-release.
+In \citet{haeusler2022processing}, we used open \ac{fmri} data to look into a
+research subject that was not anticipated when the data were first made
+available.
 %
-Results of \citet{haeusler2022processing} suggest that increased hemodynamic
+Results of \citet{haeusler2022processing} indicate that increased hemodynamic
 activity in the \ac{ppa} generalizes from blocks of pictures to spatial
-information embedded in a movie and an auditory narrative, and illustrate the
-benefits of publishing and reusing open data.
+information embedded in a movie and an auditory narrative, and demonstrate the
+advantages of sharing and reusing data.
 
 % contra
 From a negative perspective, creating data, materials, and code to be published
 requires a considerable about of time and effort.
 %
-A dataset's content needs to be collected, described, stored and published in a
-manner that attracts re-use by third parties.
-%
-Dataset creators need to anticipate use cases in order to attract re-use by
-third parties, collect the data accordingly in extent and rigor, convert data
-into a standardized format (considering, e.g., naming conventions, folder
-structure, separating raw from analyzed data).
-%
-Analyses pipelines need to be designed and tested to automatically and reliably
-rerun the history of a dataset's stages.
+To encourage third parties to reuse the data, dataset creators must anticipate
+potential use cases, collect the data with appropriate extent and rigor, convert
+the data into a standardized format (taking into account, for example, naming
+conventions and folder structure).
+% automation
+Analyses pipelines need to be designed and tested in a way that they can
+reliably and replicate every stage stage of a dataset.
 % publication: findable, accessible, interoperable, reusable
-Especially when data are supposed to be published, a researcher needs consider
-legal issues (e.g. intellectual property rights, use license, statement of
-agreement and anonymization of participant data, anonymization), facilitate
-discovery by humans and web bots (e.g., via extensive description and
-machine-readable metadata), and ensure long-term curation and accessibility at
-an appropriate data host.
+Additionally, dataset creators must take into account legal matters (such as
+intellectual property rights, use licenses, statements of agreement, and
+anonymization of participant data), facilitate discovery by humans and web bots
+(e.g., by including detailed descriptions and machine-readable metadata), and
+guarantee long-term curation and accessibility an appropriate data host.
 %
-From a positive perspective, creating a dataset that is supposed to be published
-provides immediate benefits to the dataset's creator.
+From a positive perspective, a researcher gains immediate benefits from creating
+a dataset that is intended to be published.
+
+Meticulously recording each step and commenting the advantages and disadvantages
+of alternate procedural options results in deeper understanding of the
+scientific area, its practices, and methods.
 %
-Documenting every step and commenting on pros and cons of alternative procedural
-paths lead[s] to better understanding of the scientific field, its methods and
-practices.
+The version-control of every step reduces the likelihood of a look-ahead bias.
 %
-Version-controlling steps diminishes the risk of look-ahead bias.
+Tracking and extensively documenting each stage of the data and code from the
+beginning to the final results can also be thought of a lab protocol that
+comprises structured information for writing the corresponding scientific
+article.
 %
-Extensively tracking and documenting the state and development of data and code
-from the start to the final results can also be considered as a form of a lab
-protocol that contains structured information for writing the corresponding
-scientific article.
-%
-Hence, creating a dataset supposed to be published supports meticulous working
-methods and following good scientific practices in general.
+Hence, creating a dataset supposed to be published encourages precise work
+habits and good scientific practices in general.
 
 
 \subsection{Interim summary}
@@ -303,73 +297,70 @@ supposed to get?}
 % data-sharing plans [Neylon, 2017]'' \citep{toribio2021early}.
 
 %
-In summary, following the goal to conduct an open and reproducible science
-project was not mandatory for submitting the thesis, and required considerably
-additional work and time.
+In summary, pursuing the objective of conducting an open and reproducible
+research project was not a requirement for submitting the thesis and required
+considerably additional work and time.
 %
-Since the best practices are not part of a graduate or PhD curriculum yet,
-learning about the principles and standards, and applying the corresponding
-procedures was based on self-initiative and self-learning.
+Since best practices are not yet covered in graduate or PhD curricula, learning
+about principles and standards, as well as putting them into practice, relied on
+self-initiative and self-learning.
 %
-Implementing the theoretical knowledge in practice was impeded by still emerging
-standards and best practices, and software packages that are in early
-development to implement said standards and practices \citep[e.g., DataLad's
-recently added support of software
-containerization;][]{wagner2022fairly}.\todo{which I didn't implement}
+Steadily emerging standards and principles and steadily developing software
+packages to apply said standards impeded putting theoretical knowledge into
+practice.
 %
-In my fucking opinion, the required time and effort heavily outweigh immediate
-benefits.
+The time and effort needed, in my opinion, greatly exceed any short-term
+advantages:
 %
-Pursuing the ``higher goal'' of contributing to tackle the replication crisis,
-or ``gambling'' on getting cited for data reuse does not justify preparing and
-maintaining openly shared datasets.
+The lengthy procedure is not justified by ``gambling'' on being cited in the
+event that released data are reused or by merely pursuing the ``higher purpose''
+of addressing the replication crisis.
 %
-Especially, designing and testing fully automated processing of data or
-automated creation of complex figures for the perceived pure sake of
-replicability is out of proportion to the immediate benefit of, e.g., easier bug
-tracking or simply ``higher confidence in one's own work''.
+The immediate benefit of, for example, better bug tracking or just "greater
+confidence in one's own work," is out of proportion to
 %
-The incentive to do all that stuff is especially low for those PhD students that
-do not consider a career in science;
+Particularly, designing and testing fully automated analysis pipelines or
+scripts to plot complex figures without any manual finishing for the perceived
+sole purpose of reproducibility is out of proportion to the immediate benefit
+of, e.g., easier bug tracking or simply ``higher confidence in one's own work''.
 %
 PhD students that pursue a career in science are faced with the concern of
-making themselves vulnerable to critique due to a maximum of transparency or
-simply overlooked errors.
+exposing themselves to critique owing to a maximum of transparency and
+(blamelessly?) overlooked errors.
 %
-Another concern is the possibility of being ``scooped'', i.e. the risk that
-other working groups are using the same data for a similar research question at
-the same time, eventually claiming priority to a research idea or discovery
-\citep[cf.][]{laine2017afraid}.
+Another concern is the potential of being ``scooped'', i.e. the risk that
+another working group is using the same data for a similar research question at
+the same time and eventually claiming priority to the research idea and its
+findings \citep[cf.][]{laine2017afraid}.
 %
-This risk is aggravated in case of early career scientists that created and
-maintain public datasets, pre-registered studies based on open data, or have to
-stick to inflexible project plans.
+This risk is aggravated in case of early-career scientists that created and
+maintain the public dataset, pre-registered studies based on a public dataset,
+or have to adhere to inflexible project plans.
 %
-Therefor, risks, benefits and best practices of open science and hands-on
-training of related software packages should be introduced in undergraduate
-programs.
+Hence, undergraduate programs should teach risks, benefits and best practices of
+open science and provide practical training in related software packages;
 %
-For graduate students, incentives to conduct an open science project should be
-established.
+postgraduate programs should create incentives to conduct open science projects.
 % Instead of compulsory requirements from funders, which might only lead
 % researchers to show minimal compliance [Neylon, 2017].
 %
-After all, open sciences is an appropriate tool to
+After all, open sciences is a suitable tool to
 %
-a) make researchers accountable to collect, store, document, process, and
-publish data and materials according to best practices,
+a) hold researchers responsible for collecting, storing, documenting,
+processing, and publishing data and materials in accordance with best practices,
 %
-b) increase reproducibility of results and reliability of findings,
+b) increase the reproducibility of results and reliability of findings,
 %
 c) make knowledge and technologies widely accessible,
 %
-d) increase the efficiency of the scientific progress and promote innovation,
-and
+d) therefor increase the efficiency of the scientific progress and promote
+innovation, and
 %
-e) ultimately increase the trust of the public into scientific process and its
-results.
+e) ultimately increase the public's trust in the scientific process and its
+findings.
 
-\todo[inline]{just bold statements at the end but probably okay}
+\todo[inline]{just bold statements at the end, without any references but
+probably okay}
 
 
 
