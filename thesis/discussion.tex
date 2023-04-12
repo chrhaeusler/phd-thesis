@@ -2,29 +2,26 @@
 
 \todo[inline]{delete subsection(s); delete pagebreaks}
 
-Human brain mapping studies have traditionally averaged \ac{fmri} data across
+Traditionally, human brain mapping studies have averaged \ac{fmri} data across
 participants.
 %
-In order to advance the field towards a clinical application, data need to be
+However, to advance the field towards a clinical application, data need to be
 assessed on the level of individual persons.
 % functional localizer
 Functional localizers are an established method to describe the topography (i.e.
-the location, size, and shape) of functional areas on the level of individuals
-are functional localizers.
+the location, size, and shape) of functional areas on the level of individuals.
 % contra localizers
-However, traditional localizer paradigms employ selectively sampled, tightly
-controlled stimuli, rely heavily on a participant's compliance, and can usually
-map only one domain of brain functions.
+However, traditional localizer paradigms rely on selectively sampled, tightly
+controlled stimuli and participant compliance, and can usually map only one
+domain of brain functions.
 % movies & narratives
 Naturalistic stimuli like movies and auditory narratives \citep[cf.][for
 reviews]{jaaskelainen2021movies, jaaskelainen2020neural} offer a time-locked
 event structure that samples a variety of brain functions ranging from low-level
 perception (e.g., luminance) to high-level cognition (e.g., social cognition).
 %
-A localizer based on naturalistic stimuli could map a variety of brain functions
-and would offer higher external validity because naturalistic stimuli more
-closely resemble how we perceive the real world outside of the laboratory.
-
+A localizer based on a naturalistic stimulus could offer a higher external
+validity and potentially map a variety of brain functions.
 % goal of thesis
 Consequently, the purpose of this thesis was---while adhering to the principles
 of open, transparent, and reproducible science---to investigate whether a movie
@@ -50,9 +47,9 @@ We assessed the potential of both the movie and the audio-description to replace
 a visual localizer two different ways.
 % direct modeling
 First, we modified the procedure for the analysis of data from a standard
-localizer paradigm to data from the two naturalistic paradigms:
+localizer paradigm to data from the two naturalistic paradigms,
 %
-hemodynamic responses correlating with the temporal structure of annotated
+i.e. hemodynamic responses correlating with the temporal structure of annotated
 stimulus features \citep[cf.][]{haeusler2016cutanno, haeusler2021speechanno}
 were modeled in order to create \ac{glm} $t$-contrasts that aimed to localize
 the \ac{ppa}.
@@ -73,13 +70,13 @@ participant from results of participants in a reference group.
 an excursion \& doesn't fit in anywhere perfectly}
 
 %
-An overarching objective of this dissertation was to satisfy the standards of
-open, shared, accessible, and transparent science \citep[cf.][]{watson2015will,
-fecher2014open} as well as the standards of a reproducible and replicable
-research project.
+The overarching objective of this dissertation was to meet the standards of
+open, shared, accessible, and transparent science, as well as the standards of a
+reproducible and replicable research project \citep[cf.][]{watson2015will,
+fecher2014open}.
 %
-This goal included to a) using open data and open-source software, and b)
-publishing data, materials, code, and results openly available.
+This goal included to using open data and open-source software, and publishing
+data, materials, code, and results openly available.
 
 
 \subsection{Using open data and open-source software}
@@ -88,7 +85,7 @@ publishing data, materials, code, and results openly available.
 The first subgoal was to use open data, open materials, and open-source
 software.
 %
-The current thesis capitalized on publicly available
+To achieve this, the thesis utilized publicly available
 %
 \ac{fmri} data \citep{hanke2014audiomovie, hanke2016simultaneous,
 sengupta2016extension},
@@ -100,17 +97,17 @@ stimulus annotations \citep{haeusler2016cutanno}
 that are part of the studyforrest project
 (\href{www.studyforrest.org}{\url{studyforrest.org}}).
 %
-All analyses are implemented in open-source software packages to prevent the
-creation of a ``artificial paywall'' for running the analyses again on the
+The analyses were implemented in open-source software packages to prevent
+creating a ``artificial paywall'' for running the analyses again on the
 initially openly accessible data.\todo{FSL is not OS?}.
 %
-We benefited from established free software like
+The thesis benefited from established free software such as
 %
 Python and
 %
 FSL \citep[\href{https://www.fmrib.ox.ac.uk/fsl}{FMRIB's Software
-Library;}][]{smith2004fsl} that have been developed and debugged since years by
-an collaborative effort,
+Library;}][]{smith2004fsl}, which have been developed and debugged for years
+through collaborative efforts,
 %
 but also from scientific software packages like
 %
@@ -124,44 +121,39 @@ kumar2020brainiaktutorial}
 that emerged recently.
 
 %
-Preexisting software packages, data, and results from previous analyses enabled
-us shift time and resources from software development and data collection to
-subsequent stages of the project.
+The use of preexisting software packages, data, and results from previous
+analyses enabled the project to shift time and resources from software
+development and data collection to subsequent stages of the project.
 %
-The already existing data were immensely valuable, when the project plan had to
-be refocused owing to the COVID-19 epidemic that severely collecting \ac{fmri}
-data from new subjects.
-%
-Moreover, it was very advantageous to have already been involved in the data
-collection and being rather familiar with the data's location, accessibility,
-storage format and already performed preprocessing step.
-
+The available data proved to be extremely valuable during the COVID-19 pandemic
+as acquiring new fMRI data from participants became impossible, which led to a
+need to revise the project plan.
 % issue 1: data quality
-However, an issue of open data that is all too frequently overlooked is the fact
-it does not exempt the ``data consumer'' from the responsibility of carefully
-checking data's underlying experimental paradigm (e.g., stimuli and code) and
-the data themselves for potential errors.
+However, an issue with open data that is frequently overlooked is that openly
+accessible data do not exempt the data consumer from the responsibility of
+carefully checking the underlying experimental paradigm (e.g., stimuli and code)
+and the data themselves for potential errors.
 %
-It is too tempting to ``just push the data through an analysis pipeline'' as
-soon as possible without carefully assessing the quality of the data first.
+It is too tempting to ``simply push the data through an analysis pipeline''
+without carefully assessing the quality of the data first.
 % check the data
-Consumers of datasets must presume that anything not specified clearly in the
-description of a dataset has not been taken into account.
+Consumers of datasets must assume that anything not clearly specified in the
+dataset's description has not been taken into account.
 % standards may differ
 Moreover, standards (quality, formats, parameters) and open sciences practices
 (e.g., documenting) may differ across scientific field, or even within a
 scientific field depending on a working group's expertise and rigor.
 % laugh with many, don't trust any
-Even if the data are provided by a reputable source, researchers that consider
+Even if the data are provided by a reputable source, researchers considering
 using third-party data should also consider themselves to be obliged to test and
-validate a dataset's quality as if collected by themselves, and in accordance
-with their standards and particular use case.
+validate a dataset's quality as if it was created by themselves, and in
+accordance with their standards and particular use case.
 %
-In this regard, open data---despite being collected to the best of knowledge and
-belief---could be compared to open-source software:
+In this regard, open data, despite being collected to the best of knowledge and
+belief, can be compared to open-source software:
 % super fancy literal quote
-Data will contain noise, errors, or artifacts as software will contain bugs but
-``given enough eyeballs, all bugs are shallow'' \citep[][p.
+data will contain noise, errors, or artifacts, just as software will contain
+bugs, but ``given enough eyeballs, all bugs are shallow'' \citep[][p.
 30]{raymond1999cathedral}.
 
 
@@ -182,28 +174,28 @@ dilks2013occipital, epstein2019scene}.
 %
 Although we did not explicitly hypothesize it, we assumed that at least the
 analysis of the movie might yield significant clusters in the medial parietal
-and lateral occipital cortex that might correspond to the \ac{rsc} and \ac{opa}
-respectively.
+and lateral occipital cortex that might correspond to the functionally defined
+\ac{rsc} and \ac{opa} respectively.
 %
 Indeed, results revealed significantly increased activity in the medial parietal
-and lateral occipital cortex, and are an incentive for further studies.
+and lateral occipital cortex, and provide an incentive for further studies.
 % \citep[cf. algorithmic procedure in, e.g.,][]{julian2012algorithmic}.
-However, in case results from \citep{sengupta2016extension}, one would have to
-replicate the non-automatized procedure of \citep{sengupta2016extension} in
-order to create the corresponding masks.
+However, in the case of results from \citep{sengupta2016extension}, one would
+have to replicate the non-automatized procedure of \citep{sengupta2016extension}
+in order to create the corresponding masks.
 %
 This example shows how decisions made during data collection, preprocessing or
-preceding investigations---despite being state-of-the-art at the time of being
-published---are affecting subsequent studies.
+preceding investigations, despite being state-of-the-art at the time of being
+published, are affecting subsequent studies.
 % pro & contra: opportunity costs
 Hence, when considering using open data, researchers need to weigh the costs and
 benefits of one option (such as using preprocessed data as provided) relative to
 an alternative option (such as preprocessing raw data differently than
 provided), then choose the option that will yield the highest net return.
 %
-In summary, any previous step that required human intervention or has not been
-fully automated influences the degree to which data or materials can be
-replicated, updated, or extended.
+In summary, any previous step that required human intervention or was not fully
+automated influences the degree to which data or materials can be replicated,
+updated, or extended.
 
 
 
@@ -221,38 +213,37 @@ replicated, updated, or extended.
 %dependencies and semantics.
 
 %
-The second subgoal was to publish data, materials, and results openly available.
-%
-Data and custom code created for this dissertation are version-controlled, i.e.
-modifications to the data and code were logged and documented, in order to
-promote transparency.
-%
-In order to promote reproducibility, processing steps ranging from downloading
-input data to plotting figures are implemented in scripts that can be rerun from
-the command line.
-%
-The speech annotation has been made publicly available
-\citep{haeusler2021speechanno} and its content goes beyond what was required to
-conduct the analyses in \citet{haeusler2022processing}.
-%
-The annotation serves as an extension of the studyforrest project and widens the
-``annotation bottleneck'' \citep[][p.  16]{aliko2020naturalistic} of two
-naturalistic stimuli, and might give independent researchers a head start in
-modeling hemodynamic brain responses that are correlated with features of spoken
-language.
-%
-In \citet{haeusler2022processing}, we used open \ac{fmri} data to look into a
-research subject that was not anticipated when the data were first made
+The second sub-goal was to make the data, materials, and results publicly
 available.
 %
-Results of \citet{haeusler2022processing} indicate that increased hemodynamic
-activity in the \ac{ppa} generalizes from blocks of pictures to spatial
-information embedded in a movie and an auditory narrative, and demonstrate the
-advantages of sharing and reusing data.
+The data and custom code created for this dissertation are version-controlled,
+meaning that any changes made were logged and documented, to promote
+transparency.
+%
+To ensure reproducibility, processing steps, ranging from downloading input data
+to plotting figures, are implemented in scripts that can be rerun from the
+command line.
+%
+For example, the created annotation of speech has been made publicly available
+\citep{haeusler2021speechanno}.
+
+Its content goes beyond what was required to conduct the analyses in
+\citet{haeusler2022processing} and serves as an extension of the studyforrest
+project and widens the ``annotation bottleneck'' \citep[][p.
+16]{aliko2020naturalistic} of two naturalistic stimuli.
+%
+In \citet{haeusler2022processing}, we used open \ac{fmri} data to investigate a
+research subject that was not anticipated when the data were initially made
+available
+%
+The results of \citet{haeusler2022processing} indicate that increased
+hemodynamic activity in the \ac{ppa} generalizes from blocks of pictures to
+spatial information embedded in a movie and an auditory narrative, and
+demonstrate the advantages of sharing and reusing data.
 
 % contra
 From a negative perspective, creating data, materials, and code to be published
-requires a considerable about of time and effort.
+requires a considerable amount of time and effort.
 %
 To encourage third parties to reuse the data, dataset creators must anticipate
 potential use cases, collect the data with appropriate extent and rigor, convert
@@ -260,20 +251,20 @@ the data into a standardized format (taking into account, for example, naming
 conventions and folder structure).
 % automation
 Analyses pipelines need to be designed and tested in a way that they can
-reliably and replicate every stage stage of a dataset.
+reliably replicate every stage stage of a dataset.
 % publication: findable, accessible, interoperable, reusable
 Additionally, dataset creators must take into account legal matters (such as
 intellectual property rights, use licenses, statements of agreement, and
 anonymization of participant data), facilitate discovery by humans and web bots
 (e.g., by including detailed descriptions and machine-readable metadata), and
-guarantee long-term curation and accessibility an appropriate data host.
+guarantee long-term curation and accessibility.
 
 %
-From a positive perspective, a researcher gains immediate benefits from creating
-a dataset that is intended to be published.
+From a positive perspective, creating a dataset that is intended to be published
+has immediate benefits for researchers.
 %
 Meticulously recording each step and commenting the advantages and disadvantages
-of alternate procedural options results in deeper understanding of the
+of alternate procedural options leads to in deeper understanding of the
 scientific area, its practices, and methods.
 %
 The version-control of every step reduces the likelihood of a look-ahead bias.
@@ -300,62 +291,64 @@ habits and good scientific practices in general.
 
 %
 In summary, pursuing the objective of conducting an open and reproducible
-research project was not a requirement for submitting the thesis and required
-considerably additional work and time.
+research project was not a requirement for submitting the thesis but required
+considerable additional work and time.
 %
 Since open science practices are not yet covered in graduate or PhD curricula,
 learning about principles and standards, as well as putting them into practice,
 relied on self-initiative and self-learning.
 %
-Steadily emerging standards and principles and steadily developing software
-packages to apply said standards impeded putting theoretical knowledge into
-practice.
+The constantly emerging standards and principles, and the steadily developing
+software packages to apply these standards, made it difficult to put theoretical
+knowledge into practice.
 %
-The time and effort needed, in my opinion, greatly exceed any short-term
-advantages:
+In my opinion, the time and effort needed for open science practices greatly
+exceed any short-term advantages.
 %
 The lengthy procedures are not justified by ``gambling'' on being cited in the
-event that released data are reused or by merely pursuing the ``higher purpose''
-of addressing the replication crisis.
+event that released data are reused, or by merely pursuing the ``higher
+purpose'' of addressing the replication crisis.
 %
 Particularly, designing and testing fully automated analysis pipelines or
 scripts to plot complex figures without any manual finishing for the perceived
-sole purpose of reproducibility is out of proportion to the immediate benefit
-of, e.g., easier bug tracking or simply ``higher confidence in one's own work''.
+sole purpose of reproducibility is out of proportion to the immediate benefit of
+easier bug tracking or simply ``higher confidence in one's own work''.
 %
-On the contrary, PhD students that pursue a career in science are faced with the
-concern of exposing themselves to critique owing to a maximum of voluntary
+On the contrary, PhD students that pursue a career in science may be concerned
+about exposing themselves to critique owing to a maximum of voluntary
 transparency and possibly (and blamelessly?) overlooked errors.
 %
-Another concern is the potential of being ``scooped'', i.e. the risk that
-another working group is using the same data for a similar research question at
-the same time and eventually claiming priority to the research idea and its
-findings \citep[cf.][]{laine2017afraid}.
+Another concern is the potential for being ``scooped'', which refers to the risk
+that another working group is using the same data for a similar research
+question at the same time and eventually claiming priority to the research idea
+and its findings \citep[cf.][]{laine2017afraid}.
 %
 This risk is aggravated in case of early-career scientists that created and
 maintain a public dataset, pre-registered studies based on a public dataset, or
 have to adhere to inflexible project plans.
 %
-Hence, undergraduate programs should teach risks, benefits and best practices of
-open science and provide practical training in related software packages;
+Hence, undergraduate programs should teach the risks, benefits and best
+practices of open science, and provide practical training in related software
+packages,
 %
-postgraduate programs should create incentives to conduct open science projects.
+while postgraduate programs should create incentives to conduct open science
+projects.
 % Instead of compulsory requirements from funders, which might only lead
 % researchers to show minimal compliance [Neylon, 2017].
 %
 After all, open sciences is a suitable tool to
 %
-a) hold researchers responsible for collecting, storing, documenting,
+(a) hold researchers responsible for collecting, storing, documenting,
 processing, and publishing data and materials in accordance with best practices,
 %
-b) increase the reproducibility of results and reliability of findings,
+(b) increase the reproducibility of results and reliability of findings,
 %
-c) make knowledge and technologies widely accessible,
+(c) make knowledge and technologies widely accessible,
 %
-d) therefor increase the efficiency of the scientific progress and promote
+(d) therefore increase the efficiency of the scientific progress and promote
 innovation, and
 %
-e) ultimately increase the public's trust in the scientific process and its
+(e) ultimately increase the public's trust in the scientific process and its
 findings.
 
 \todo[inline]{just bold statements at the end, without any references but
@@ -378,14 +371,14 @@ studyforrest dataset is not for this (diverse), but it is a small dataset, which
 limits the generality; coh: I don't know where this point could be mentioned}
 
 %
-The \ac{ppa} is traditionally identified by contrasting hemodynamic responses to
-blocks of pictures of scenes or landscapes to, e.g., blocks of pictures of tools
-or faces.
+The traditional method for identifying the \ac{ppa} is to contrast hemodynamic
+responses to blocks of pictures of scenes or landscapes with blocks of pictures
+of tools or faces.
 %
-Although the exact outline of the \ac{ppa} varies depending on the type of
-stimuli, task, and contrast (as well as statistical threshold), the traditional
-localizer approach can reliably delineate the \ac{ppa} bilaterally in a large
-proportion of subjects \citep{zhen2017quantifying}.
+While the exact outline of the \ac{ppa} varies depending on the type of stimuli,
+task, and contrast (as well as statistical threshold), the traditional localizer
+approach can reliably delineate the \ac{ppa} bilaterally in a large proportion
+of subjects \citep{zhen2017quantifying}.
 %
 \citet{sengupta2016extension}, for instance, were able to identify the
 left-hemispheric \ac{ppa} in 12 of 14 subjects and right-hemispheric \ac{ppa} in
@@ -401,21 +394,21 @@ left-hemispheric \ac{ppa} in 12 of 14 subjects and right-hemispheric \ac{ppa} in
 \subsubsection{Recapitulation of current thesis}
 
 % study in one sentence
-In \citet{haeusler2022processing}, we explored whether the \ac{ppa}, which had
-previously been identified in the same group of participants by a conventional
-block-design functional localizer using static pictures
+In \citet{haeusler2022processing}, we investigated whether the \ac{ppa},
+previously identified in the same group of participants by a conventional
+block-design functional localizer using static pictures,
 \citep{sengupta2016extension}, could be localized using an audio-visual
 naturalistic stimulus and an exclusively auditory naturalistic stimulus.
 
 \paragraph{Method}
 
 % stress similarity to localizer approach
-We adapted the approach of traditional localizers and modeled hemodynamic
-responses to events in two naturalistic stimuli to create $t$-contrasts that
-aimed to localize the \ac{ppa}.
+We adapted the traditional localizer approach and modeled hemodynamic responses
+to events in two naturalistic stimuli to create $t$-contrasts that aimed to
+localize the \ac{ppa}.
 % AV operationalization
 For the model-based mass-univariate statistical analysis (i.e. \ac{glm}) of the
-movie, we capitalized on an annotation of movie cuts and depicted locations
+movie, we utilized an annotation of movie cuts and depicted locations
 \citep{haeusler2016cutanno}.
 % AD operationalization
 For the \ac{glm} of the audio-description, we extended the annotation of speech
@@ -433,10 +426,10 @@ that employed traditional paradigms, and add evidence
 \citep[cf.][]{bartels2004mapping} that functional specialization of cortical
 areas is maintained during naturalistic stimulation.
 % group results: PPA specifically
-Further, results demonstrate that increased activation in the \ac{ppa} during
-the perception of static images generalizes to the perception of spatial
+Furthermore, our results indicated that increased activation in the \ac{ppa}
+during the perception of static images generalizes to the perception of spatial
 information embedded in an audio-visual movie and exclusively auditory
-naturalistic stimulus \citep{haeusler2022processing}.
+naturalistic stimulus.
 % individual results
 On an individual level, the analysis of the movie yielded bilateral clusters of
 increased hemodynamic activity in the \ac{ppa} of five participants and a
@@ -444,7 +437,7 @@ unilateral cluster in seven participants, whereas the analysis of the
 audio-description revealed bilateral clusters in nine participants and one
 unilateral cluster in one participant.
 % conclusion
-Results indicate that a movie and an exclusively auditory naturalistic stimulus
+Results suggest that a movie and an exclusively auditory naturalistic stimulus
 could potentially replace a visual localizer to assess brain functions in
 individuals.
 %
@@ -452,7 +445,7 @@ Due to the multi-dimensionality and richness of naturalistic stimuli, one
 naturalistic paradigm might, in theory, replace a number of localizers while
 simultaneously offering a more ecologically valid stimulation.
 %
-However, the multi-dimensionality comes at the expense of a challenging
+Nevertheless, the multi-dimensionality comes at the expense of a challenging
 model-driven data analysis that impedes the development of a ``multi-functional
 localizer''.
 
@@ -491,33 +484,32 @@ c) and cognitive subtraction [Friston (1996)].
 
 \paragraph{Annotations}
 %
-Further, naturalistic stimuli stress statistical assumptions like the absence of
-collinearity among variables.
+Further, naturalistic stimuli stress statistical assumptions, such as the
+absence of collinearity among variables.
 %
 Detailed annotations can alleviate the lack of experimental control over
 stimulus features by enabling modeling and statistically controlling potentially
 confounding variables \citep[e.g.,][]{deniz2019representation}.
 %
-Low-level visual features like brightness\todo{or is it luminance???} and
-low-level auditory features like root-mean square power (i.e., volume) can be
-automatically extracted on a low temporal scale (e.g., per movie frame; cf.
+Low-level visual features, such as brightness\todo{or is it luminance???}, and
+low-level auditory features, such as root-mean square power (i.e., volume) can
+be automatically extracted on a low temporal scale (e.g., per movie frame; cf.
 \href{https://github.com/psychoinformatics-de/studyforrest-data-confoundsannotation
 }{\url{github.com/psychoinformatics-de/studyforrest-data-confoundsannotation}}
 for low-level annotations of the studyforrest dataset).
 %
-Recent advances in machine learning allow the creation tools \citep[e.g., the
-toolbox ``pliers'' that is implemented in the
+Recent advances in machine learning allow the creation tools, such as the
+``pliers'' \citep{mcnamara2017developing} implemented in the
 \href{https://neuroscout.org/}{\url{neuroscout.org}}
-platform;][]{mcnamara2017developing, delavega2022neuroscout} that can
-automatically extract higher-level features like semantics or clearly defined
-object categories.
+platform;][]{delavega2022neuroscout}, that can automatically extract
+higher-level features like semantics or clearly defined object categories.
 %
 Such tools can replace time-consuming manual annotations or provide a
 provisional scaffold that reduces manual labor for a growing number of stimulus
 features.
 %
 However, ambiguous variables, variables that fluctuate on longer time scales, or
-subject-related variables like the level of engagement or felt emotions
+subject-related variables, such as the level of engagement or felt emotions
 \citep[cf., e.g.,][]{lettieri2019emotionotopy, saarimaki2021naturalistic} still
 defy an automatic annotation.
 %
@@ -525,14 +517,14 @@ Hence, merely assessing the confound structure of a naturalistic stimulus as an
 possible candidate for a prospective model-driven analysis might become
 time-consuming.
 %
-Depending on the covariance of variables, a naturalistic stimulus---if not all
-naturalistic stimuli---might eventually turn out be inappropriate for testing a
-specific experimental hypothesis given current statistical methods.
-%
 Moreover, a large amount of annotated features might lead to annotations that
 are ``hard to use'' \citep[][p. 2]{richard2019fast} or ``high-dimensional,
 cumbersome models'' \citep[][p. 2]{richard2019fast} that eventually lack
 statistical power due to insufficient data samples.
+%
+Depending on the covariance of variables, a naturalistic stimulus, if not all
+naturalistic stimuli, might eventually turn out be inappropriate for testing a
+specific experimental hypothesis given current statistical methods.
 
 
 \paragraph{Lack of task: ``Demons to some, angels to others'' --- Pinhead}
@@ -552,22 +544,22 @@ On the other hand, ``freely viewing'' a movie or ``freely listening'' to an
 auditory narrative requires attending to the paradigm, which some participants
 may find difficult to sustain over longer periods of time.
 %
-On a group-level, the occasional disengagement of single subjects may have a
-negligible effect on group average results, especially when statistics are
-calculated over long stimulus intervals.
+The occasional disengagement of single subjects may have a negligible effect on
+group average results, especially when statistics are calculated over long
+stimulus intervals.
 %
 On an individual level, a fluctuating level of engagement is difficult to
-measure and statistically control, negatively impacts reliability across
-stimulus segments, and may ultimately obscure effects of interest.
+measure and statistically control, negatively impacting reliability across
+stimulus segments, and potentially obscuring effects of interest.
 %
-The level of engagement, however, might also be an reflection of a personal
-preference towards the presented stimulus or of a personal trait.
+The level of engagement, however, might reflect a personal preference towards
+the presented stimulus or a personal trait.
 %
 In summary, researcher always need to consider carefully advantages and
 disadvantages of naturalistic stimuli and carefully assess
 %
-Therefor, a researcher needs to consider these advantages and disadvantages of
-naturalistic stimuli in general and evaluate a naturalistic stimulus among
+Therefore, researchers always need consider the advantages and disadvantages
+of naturalistic stimuli in general and evaluate a naturalistic stimulus among
 different candidates.
 
 
@@ -579,18 +571,19 @@ the construct?}
 %
 Given the current challenges and limitations, it is probably not surprising
 that, even 20 years after the group-level findings of
-\citet{bartels2004mapping}, no functional localizer exists that is based on a
-movie or an auditory narrative.
+\citet{bartels2004mapping}, no functional localizer based on a movie or an
+auditory narrative exists.
 %
-Today, the ecologically ``most valid'' localizers are so called \textit{dynamic
-localizers} \citep{pitcher2011differential, fox2009defining} that employ blocks
-of short videos (each video lasting $\approx$\unit[2-3]{s}) of scenes, faces
-etc., and thus lend themselves conveniently to traditional modeling procedures.
+The ecologically ``most valid'' localizers today are so called \textit{dynamic
+localizers} \citep{pitcher2011differential, fox2009defining}, which employ
+blocks of short videos (each video lasting $\approx$\unit[2-3]{s}) of scenes,
+faces etc., and thus lend themselves conveniently to traditional modeling
+procedures.
 %
 However, even naturalistic stimuli, despite being labeled as ``naturalistic''
-and ubiquitously labeled as ``ecologically more valid'', are not in a strict
-sense ``naturalistic'', but rather an approximation of real-life that presented
-in the laboratory on a screen and/or via headphones.
+and ubiquitously labeled as ``ecologically more valid'', are not strictly
+``naturalistic'', but rather an approximation of real-life presented on a screen
+and/or via headphones in the laboratory.
 % entertain, inform, or advertise.
 Similar to traditionally used stimuli that have been carefully designed by
 researchers to probe specific brain processes, most naturalistic stimuli used in
@@ -606,27 +599,26 @@ correctly, largely occur unnoticed.
 For example, participants asked to spot movie cuts miss between 10\% and 50\% of
 them depending on the type of cut \citep{smith2008edit}.
 %
-These techniques not only result in reduced individual variation and thus
-reliably synchronized spatial-temporal responses across subjects in a large part
-of the cortex \citep{hasson2008neurocinematics}, but also in ``naturalistic
-stimulus statistics'' (i.e. a medium-specific confound structure) that differ
-from ``real-world statistics''.
+These techniques result in reduced individual variation and thus reliably
+synchronized spatial-temporal responses across subjects in a large part of the
+cortex  \citep{hasson2008neurocinematics}, but also in ``naturalistic stimulus
+statistics'' (i.e. a medium-specific confound structure) that differ from
+``real-world statistics''.
 
 
 \paragraph{Recommendations}
 
 %
-In summary, naturalistic stimuli might be considered to provide a higher
-ecological validity, but at the expense of a challenging data analysis and
-interpretability of results.
+In summary, naturalistic stimuli may provide a higher ecological validity but at
+the expense of a challenging data analysis and interpretability of results.
 %
 Despite the growing popularity of naturalistic stimuli, a researcher must
 carefully weigh the advantages and disadvantages of naturalistic stimuli in
 general.
 %
 To determine whether a naturalistic stimulus is an appropriate candidate for a
-given study, researcher should become acquainted with media techniques and how
-they are applied to craft professional media products.
+given study, researchers should become acquainted with media techniques and how
+they are applied to create professional media products.
 %
 In particular, a naturalistic stimulus' confound structure should be quantified
 before launching a full study.
@@ -637,17 +629,16 @@ inappropriate to investigate some aspect of perception and cognition under
 current modeling approaches.
 %
 In comparison to traditional paradigms, naturalistic stimuli are designed to be
-naturally engaging on their own.
+inherently engaging.
 %
 However, the lack of a task allows for more individual variation, which is
-difficult to record or self-report and thus difficult to statistically
-control which is problematic when individual variation is viewed as noise
+difficult to record or self-report, difficult to statistically control, and
+particularly problematic when individual variation is viewed as noise.
 %
 Therefore, \ac{fmri} scanning session should be accompanied by physiological
-recordings (e.g., skin conductance response, heart rate) and ideally by
-\ac{eeg} or eye-tracking, and combined with follow-up self-reports (e.g.,
-regarding alertness, engagement, an audio track's audibility within the noisy
-scanner).
+recordings (e.g., skin conductance response, heart rate) and ideally by \ac{eeg}
+or eye-tracking, and combined with follow-up self-reports (e.g., regarding
+alertness, engagement, an audio track's audibility within the noisy scanner).
 
 
 
@@ -662,7 +653,7 @@ Results from \citet{haeusler2022processing} suggest that the movie as well as
 the audio-description sample hemodynamic responses that correlate with the
 occurrence of spatial information.
 %
-Therefor, we did the following ...
+Therefore, we did the following ...
 
 % goal 1: new procedure
 We estimated results of a dedicated localizer \citep{sengupta2016extension} via
@@ -856,7 +847,7 @@ analyze data from naturalistic stimuli.
 Naturalistic stimuli might provide a higher ecological validity.
 %
 However, this is at the expense of experimental control, aggravated in case of
-subject-related variables that are harder to record and therefor statistically
+subject-related variables that are harder to record and therefore statistically
 to control than stimulus features that are time-locked and replicable.
 %
 The present thesis's results suggest this is at the expense of increased
