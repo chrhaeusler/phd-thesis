@@ -1,12 +1,11 @@
 \todo[inline]{most importantly: is anything missing that needs to be discussed?}
 
-\todo[inline]{delete subsection(s); delete pagebreaks}
-
+%
 Traditionally, human brain mapping studies have averaged \ac{fmri} data across
 participants.
 %
-However, to advance the field towards a clinical application, data need to be
-assessed on the level of individual persons.
+To advance the field towards a clinical application, data need to be assessed on
+the level of individual persons.
 % functional localizer
 Functional localizers are an established method to describe the topography (i.e.
 the location, size, and shape) of functional areas on the level of individuals.
@@ -40,43 +39,49 @@ Moreover, results of \citet{aziz2008modulation}, who compared hemodynamic
 activity levels in the \ac{ppa} correlated with different categories presented
 in spoken sentences, revealed that semantic scene-related information also
 modulates the \ac{ppa}'s activity level.
-
-\todo[inline]{drop the second way}
 %
 We assessed the potential of both the movie and the audio-description to replace
-a visual localizer two different ways.
-% direct modeling
-First, we modified the procedure for the analysis of data from a standard
-localizer paradigm to data from the two naturalistic paradigms,
+a visual localizer by modifying the procedure for the analysis of data from a
+standard localizer paradigm to data from the two naturalistic paradigms,
 %
-i.e. hemodynamic responses correlating with the temporal structure of annotated
+Hemodynamic responses correlating with the temporal structure of annotated
 stimulus features \citep[cf.][]{haeusler2016cutanno, haeusler2021speechanno}
 were modeled in order to create \ac{glm} $t$-contrasts that aimed to localize
 the \ac{ppa}.
+
+
+
+% SRM
+\begin{comment}
+
 % estimation
 Second, we applied functional alignment procedure as a novel method in order to
 estimate results from the visual localizer \citep[cf.][]{sengupta2016extension},
 movie and audio-description \citep[cf.][]{haeusler2022processing} in one
 participant from results of participants in a reference group.
 
+\end{comment}
 
 
-\pagebreak
 
 
 \section{Open Science}
 
-\todo[inline]{it doesn't matter where I place the part on "open science": it's
-an excursion \& doesn't fit in anywhere perfectly}
-
+% intro
+In recent years, there has been a growing movement towards open science, which
+seeks to make scientific research more accessible, transparent, and
+reproducible.
+%
+Open science encompasses a range of practices, including open data, open-source
+software, and open access publishing.
 %
 The overarching objective of this dissertation was to meet the standards of
-open, shared, accessible, and transparent science, as well as the standards of a
-reproducible and replicable research project \citep[cf.][]{watson2015will,
-fecher2014open}.
+open, shared, accessible, and transparent science in general, as well as the
+standards of a reproducible and replicable research project specifically
+\citep[cf.][]{watson2015will, fecher2014open}.
 %
-This goal included to using open data and open-source software, and publishing
-data, materials, code, and results openly available.
+This objective included to using open data and open-source software, and
+publishing data, materials, code, and results openly available.
 
 
 \subsection{Using open data and open-source software}
@@ -97,9 +102,9 @@ stimulus annotations \citep{haeusler2016cutanno}
 that are part of the studyforrest project
 (\href{www.studyforrest.org}{\url{studyforrest.org}}).
 %
-The analyses were implemented in open-source software packages to prevent
-creating a ``artificial paywall'' for running the analyses again on the
-initially openly accessible data.\todo{FSL is not OS?}.
+The analyses were implemented in freely available and, where possible,
+open-source software to prevent creating a ``artificial paywall'' for running
+the analyses again on the initially openly accessible data.
 %
 The thesis benefited from established free software such as
 %
@@ -119,7 +124,6 @@ BrainIAK
 kumar2020brainiaktutorial}
 %
 that emerged recently.
-
 %
 The use of preexisting software packages, data, and results from previous
 analyses enabled the project to shift time and resources from software
@@ -128,21 +132,26 @@ development and data collection to subsequent stages of the project.
 The available data proved to be extremely valuable during the COVID-19 pandemic
 as acquiring new fMRI data from participants became impossible, which led to a
 need to revise the project plan.
+
 % issue 1: data quality
-However, an issue with open data that is frequently overlooked is that openly
+A first issue with open data that is frequently overlooked is that openly
 accessible data do not exempt the data consumer from the responsibility of
-carefully checking the underlying experimental paradigm (e.g., stimuli and code)
-and the data themselves for potential errors.
+carefully scrutinizing the quality of the data and the underlying experimental
+paradigm (e.g., stimuli and code).
 %
 It is too tempting to ``simply push the data through an analysis pipeline''
 without carefully assessing the quality of the data first.
+%
+Researchers must ensure that any potential errors in the data are identified and
+addressed before proceeding with their analysis.
 % check the data
 Consumers of datasets must assume that anything not clearly specified in the
 dataset's description has not been taken into account.
 % standards may differ
-Moreover, standards (quality, formats, parameters) and open sciences practices
-(e.g., documenting) may differ across scientific field, or even within a
-scientific field depending on a working group's expertise and rigor.
+This is particularly important as the standards (quality, formats, parameters)
+and open sciences practices (e.g., documenting) may differ across scientific
+fields or even within a scientific field depending on a working group's
+expertise and rigor.
 % laugh with many, don't trust any
 Even if the data are provided by a reputable source, researchers considering
 using third-party data should also consider themselves to be obliged to test and
@@ -156,21 +165,23 @@ data will contain noise, errors, or artifacts, just as software will contain
 bugs, but ``given enough eyeballs, all bugs are shallow'' \citep[][p.
 30]{raymond1999cathedral}.
 
-
 % issue 2: decisions were made
-Another issue of open data is that the decisions made during data collection,
+A second issue of open data is that the decisions made during data collection,
 preprocessing, and further analyses might influence or even limit subsequently
 performed analyses.
+%
+Researchers must carefully consider these decisions when deciding whether to use
+pre-existing data or to preprocess the data themselves.
 %
 For instance, we and \citet{sengupta2016extension} selected the \ac{ppa} among
 possible candidates of scene-selective area because the \ac{ppa} was the first
 scene-selective area to be discovered and is the most reliably activated region
 across studies that investigate visual scene perception.
 %
-Like the \ac{ppa}, the \ac{rsc} and \ac{opa} have repeatedly shown increased
-hemodynamic activity in studies investigating visual spatial perception and
-navigation \citep{chrastil2018heterogeneity, bettencourt2013role,
-dilks2013occipital, epstein2019scene}.
+However, other areas, such as the \ac{rsc} and \ac{opa}, have repeatedly been
+shown to be involved in visual spatial perception and navigation
+\citep{chrastil2018heterogeneity, bettencourt2013role, dilks2013occipital,
+epstein2019scene}.
 %
 Although we did not explicitly hypothesize it, we assumed that at least the
 analysis of the movie might yield significant clusters in the medial parietal
@@ -200,7 +211,7 @@ updated, or extended.
 
 
 
-\subsection{Publishing data, materials, code, and results openly available}
+\subsection{Publishing data, materials, code, and results}
 
 \todo[inline]{speech anno paper \& ppa paper are on github and public}
 
@@ -226,7 +237,7 @@ command line.
 %
 For example, the created annotation of speech has been made publicly available
 \citep{haeusler2021speechanno}.
-
+%
 Its content goes beyond what was required to conduct the analyses in
 \citet{haeusler2022processing} and serves as an extension of the studyforrest
 project and widens the ``annotation bottleneck'' \citep[][p.
@@ -351,24 +362,8 @@ innovation, and
 (e) ultimately increase the public's trust in the scientific process and its
 findings.
 
-\todo[inline]{just bold statements at the end, without any references but
-probably okay}
 
-
-
-
-
-\pagebreak
-
-\section{Naturalistic stimuli for functional localization?}
-
-\todo[inline]{if excursion about open science makes the switch back to
-naturalistic stimuli confusing, start more generally by repeating some stuff
-from the general discussion's intro or \citet{bartels2004mapping} as hook)}
-
-\todo[inline]{mih: worth stating again somewhere in the discussion that the
-studyforrest dataset is not for this (diverse), but it is a small dataset, which
-limits the generality; coh: I don't know where this point could be mentioned}
+\section{Naturalistic stimuli for functional localization}
 
 %
 The traditional method for identifying the \ac{ppa} is to contrast hemodynamic
@@ -383,25 +378,12 @@ of subjects \citep{zhen2017quantifying}.
 \citet{sengupta2016extension}, for instance, were able to identify the
 left-hemispheric \ac{ppa} in 12 of 14 subjects and right-hemispheric \ac{ppa} in
 14 of 14 subjects based on localizer data.
-
-
-\subsection{Functional localization via modeling hemodynamic responses}
-
-\todo[inline]{Two separate parts have been merged; structure might be improvable
-(redundancies and stuff)}
-
-
-\subsubsection{Recapitulation of current thesis}
-
 % study in one sentence
 In \citet{haeusler2022processing}, we investigated whether the \ac{ppa},
 previously identified in the same group of participants by a conventional
 block-design functional localizer using static pictures,
 \citep{sengupta2016extension}, could be localized using an audio-visual
 naturalistic stimulus and an exclusively auditory naturalistic stimulus.
-
-\paragraph{Method}
-
 % stress similarity to localizer approach
 We adapted the traditional localizer approach and modeled hemodynamic responses
 to events in two naturalistic stimuli to create $t$-contrasts that aimed to
@@ -415,175 +397,132 @@ For the \ac{glm} of the audio-description, we extended the annotation of speech
 that we created and validated in \citep{haeusler2021speechanno} by further
 annotating nouns that the audio-description's narrator uses to describe lacking
 visual content.
-
-
-\paragraph{Results}
-
-% group results: generally
-On a group-average level, results demonstrate a model-driven \ac{glm} analysis
-based on a naturalistic stimulus' annotation may replicate findings of studies
-that employed traditional paradigms, and add evidence
-\citep[cf.][]{bartels2004mapping} that functional specialization of cortical
-areas is maintained during naturalistic stimulation.
-% group results: PPA specifically
-Furthermore, our results indicated that increased activation in the \ac{ppa}
-during the perception of static images generalizes to the perception of spatial
-information embedded in an audio-visual movie and exclusively auditory
-naturalistic stimulus.
+% group results: specifically
+On a group-average level, results demonstrate that increased hemodynamic
+activation in the \ac{ppa} during the perception of static pictures generalizes
+to the perception of spatial information embedded in a movie and an exclusively
+auditory stimulus.
+%
+We have shown that a model-driven \ac{glm} analysis based on a naturalistic
+stimulus' annotation can replicate findings of studies that employed traditional
+paradigms.
+%
+Our results provide further evidence \citep[cf.][]{bartels2004mapping} that
+functional specialization of cortical areas is maintained during naturalistic
+stimulation.
 % individual results
-On an individual level, the analysis of the movie yielded bilateral clusters of
+On an individual level, our analysis of the movie revealed bilateral clusters of
 increased hemodynamic activity in the \ac{ppa} of five participants and a
-unilateral cluster in seven participants, whereas the analysis of the
-audio-description revealed bilateral clusters in nine participants and one
-unilateral cluster in one participant.
+unilateral cluster in seven participants.
+%
+The analysis of the audio-description revealed bilateral clusters in nine
+participants and one unilateral cluster in one participant.
 % conclusion
-Results suggest that a movie and an exclusively auditory naturalistic stimulus
-could potentially replace a visual localizer to assess brain functions in
+These findings suggest that a naturalistic stimulus, whether visual or auditory,
+could potentially replace a traditional localizer to assess brain functions in
 individuals.
-%
-Due to the multi-dimensionality and richness of naturalistic stimuli, one
-naturalistic paradigm might, in theory, replace a number of localizers while
-simultaneously offering a more ecologically valid stimulation.
-%
-Nevertheless, the multi-dimensionality comes at the expense of a challenging
-model-driven data analysis that impedes the development of a ``multi-functional
-localizer''.
 
 
-\subsubsection{...and the from current thesis derived general discussion}
 
-
-\paragraph{Origin and assumptions of GLM}
-
-\todo[inline]{check the references and improve phrasing}
+\subsection{Current challenges and limitations}
 
 %
-The currently dominant \ac{glm}, which has its roots in \ac{pet} research, is
-tailored to analyze data of parametric\todo{Def?} experimental designs that
-manipulate isolated experimental variables of interest.
+The current thesis highlights obstacles in the pursuit of developing a
+multi-functional localizer.
 %
-The \ac{glm} requires the researcher specify which stimulus features are
-presumably correlated with the brain process under investigation.
+Traditional experimental designs typically involve presenting participants with
+simple, well-controlled stimuli that are carefully designed to elicit
+clearly-defined responses in targeted brain regions.
+%
+This allows for modeling of hemodynamic responses that can predict and explain
+the neural activity observed in response to these stimuli.
+%
+The currently dominant analysis approach is the General Linear Model (GLM),
+which has its roots in \ac{pet} research, and is tailored to analyze data of
+parametric experimental designs that manipulate isolated experimental variables
+of interest.
+%
+The GLM requires the researcher to specify which stimulus features are presumed
+to be correlated with the brain process under investigation.
 %
 Then, the researcher needs to model a hypothesized hemodynamic time course that
 is fit to the data in order to predict the observed hemodynamic activity and
 contrast parameter estimates \citep{friston1998event}.
 %
-Depending on the investigated perceptual or cognitive process, the continuity
-and complexity of naturalistic stimuli stress physiological assumptions like
+Naturalistic stimuli, however, are continuous and complex, with a multitude of
+sensory features that can activate different brain regions simultaneously.
 %
-a) the consistency of responses across events \citep[the rationale behind
-\textit{trial-averaging};][]{dale1997selective},
+Applying the traditional analysis approach is challenging and can lead to
+difficulties in isolating specific neural correlates of perceptual or cognitive
+processes.
 %
-b) the linearity of the hemodynamic responses [Cohen (1997). Parametric Analysis
-of fMRI; Boynton (1996). Linear systems analysis; Dale (1999). Optimal
-experimental design for event-related fmri]
+The properties of naturalistic stimuli can stress physiological assumptions of
+the traditional GLM approach, such as cognitive subtraction [Friston, 1996], the
+consistency of hemodynamic responses across events \citep[the rationale behind
+\textit{trial-averaging};][]{dale1997selective}, and the linearity of
+hemodynamic responses (Cohen, 1997; Boynton, 1996; Dale, 1999).  \todo{if points
+are correct, extend}
 %
-c) and cognitive subtraction [Friston (1996)].
-
-
-\paragraph{Annotations}
+The properties of naturalistic stimuli also stress statistical assumptions such
+as the absence of collinearity among variables.
 %
-Further, naturalistic stimuli stress statistical assumptions, such as the
-absence of collinearity among variables.
-%
-Detailed annotations can alleviate the lack of experimental control over
-stimulus features by enabling modeling and statistically controlling potentially
+The lack of experimental control, however, can be alleviated by detailed
+annotations that allow modeling and statistically controlling potentially
 confounding variables \citep[e.g.,][]{deniz2019representation}.
 %
-Low-level visual features, such as brightness\todo{or is it luminance???}, and
-low-level auditory features, such as root-mean square power (i.e., volume) can
-be automatically extracted on a low temporal scale (e.g., per movie frame; cf.
+Low-level visual features, such as brightness, and low-level auditory features,
+such as root-mean square power (i.e., volume) can be automatically extracted on
+a low temporal scale (e.g., per movie frame; cf.
 \href{https://github.com/psychoinformatics-de/studyforrest-data-confoundsannotation
 }{\url{github.com/psychoinformatics-de/studyforrest-data-confoundsannotation}}
 for low-level annotations of the studyforrest dataset).
 %
-Recent advances in machine learning allow the creation tools, such as the
-``pliers'' \citep{mcnamara2017developing} implemented in the
-\href{https://neuroscout.org/}{\url{neuroscout.org}}
-platform;][]{delavega2022neuroscout}, that can automatically extract
-higher-level features like semantics or clearly defined object categories.
+Recent advances in machine learning have led to the creation tools, such as the
+``pliers'' \citep{mcnamara2017developing} implemented in the neuroscout platform
+\citep[\href{https://neuroscout.org/}{\url{neuroscout.org}};][]{delavega2022neuroscout},
+that can automatically extract higher-level features like semantics or clearly
+defined object categories.
 %
 Such tools can replace time-consuming manual annotations or provide a
 provisional scaffold that reduces manual labor for a growing number of stimulus
 features.
 %
-However, ambiguous variables, variables that fluctuate on longer time scales, or
+However, variables that are difficult to define, hard to consistently label,
+have multiple interpretations, fluctuate on longer time scales, or
 subject-related variables, such as the level of engagement or felt emotions
-\citep[cf., e.g.,][]{lettieri2019emotionotopy, saarimaki2021naturalistic} still
+\citep[cf., e.g.,][]{lettieri2019emotionotopy, saarimaki2021naturalistic}, still
 defy an automatic annotation.
 %
-Hence, merely assessing the confound structure of a naturalistic stimulus as an
+Hence, merely assessing the confound structure of a naturalistic stimulus as a
 possible candidate for a prospective model-driven analysis might become
 time-consuming.
 %
 Moreover, a large amount of annotated features might lead to annotations that
 are ``hard to use'' \citep[][p. 2]{richard2019fast} or ``high-dimensional,
-cumbersome models'' \citep[][p. 2]{richard2019fast} that eventually lack
-statistical power due to insufficient data samples.
-%
-Depending on the covariance of variables, a naturalistic stimulus, if not all
-naturalistic stimuli, might eventually turn out be inappropriate for testing a
-specific experimental hypothesis given current statistical methods.
+cumbersome models'' \citep[][p. 2]{richard2019fast} eventually resulting in a
+lack of statistical power due to insufficient data samples.
 
 
-\paragraph{Lack of task: ``Demons to some, angels to others'' --- Pinhead}
 
-\todo[inline]{maybe, add that auditory stimulation is ``less crowded'' /
-``less rich'', more ``linear'' than the content of movie frames but level of
-engagement is harder to assess}
+\subsection{Interim summary}
 
 %
-The individual-level results of \citet{haeusler2022processing} also indicate
-that a lack of task can be viewed as a dubious advantage.
-%
-On the one hand, the absence of a task reduces the need for instructions,
-training, and generally relieves the participants of a burden.
-%
-On the other hand, ``freely viewing'' a movie or ``freely listening'' to an
-auditory narrative requires attending to the paradigm, which some participants
-may find difficult to sustain over longer periods of time.
-%
-The occasional disengagement of single subjects may have a negligible effect on
-group average results, especially when statistics are calculated over long
-stimulus intervals.
-%
-On an individual level, a fluctuating level of engagement is difficult to
-measure and statistically control, negatively impacting reliability across
-stimulus segments, and potentially obscuring effects of interest.
-%
-The level of engagement, however, might reflect a personal preference towards
-the presented stimulus or a personal trait.
-%
-In summary, researcher always need to consider carefully advantages and
-disadvantages of naturalistic stimuli and carefully assess
-%
-Therefore, researchers always need consider the advantages and disadvantages
-of naturalistic stimuli in general and evaluate a naturalistic stimulus among
-different candidates.
-
-
-\subsubsection{Interim summary}
-
-\todo[inline]{Still begging the question: WTF does the PPA actually do? What is
-the construct?}
-
-%
-Given the current challenges and limitations, it is probably not surprising
+Given the unsolved issues and current limitations, it is perhaps not surprising
 that, even 20 years after the group-level findings of
 \citet{bartels2004mapping}, no functional localizer based on a movie or an
-auditory narrative exists.
+auditory narrative exists to localize higher visual areas.
 %
-The ecologically ``most valid'' localizers today are so called \textit{dynamic
-localizers} \citep{pitcher2011differential, fox2009defining}, which employ
-blocks of short videos (each video lasting $\approx$\unit[2-3]{s}) of scenes,
-faces etc., and thus lend themselves conveniently to traditional modeling
-procedures.
+The most ecologically valid visual localizers currently available are
+\textit{dynamic localizers} \citep[e.g.,][]{pitcher2011differential,
+fox2009defining}, which use blocks of short videos (each video lasting
+$\approx$\unit[2-3]{s}) of scenes, faces, etc., making them well-suited for
+traditional modeling procedures.
+
 %
-However, even naturalistic stimuli, despite being labeled as ``naturalistic''
-and ubiquitously labeled as ``ecologically more valid'', are not strictly
+Even naturalistic stimuli, despite being labeled as ``naturalistic''
+and ubiquitously referred to as ``more ecologically valid'', are not strictly
 ``naturalistic'', but rather an approximation of real-life presented on a screen
-and/or via headphones in the laboratory.
+or via headphones in the laboratory.
 % entertain, inform, or advertise.
 Similar to traditionally used stimuli that have been carefully designed by
 researchers to probe specific brain processes, most naturalistic stimuli used in
@@ -599,48 +538,38 @@ correctly, largely occur unnoticed.
 For example, participants asked to spot movie cuts miss between 10\% and 50\% of
 them depending on the type of cut \citep{smith2008edit}.
 %
-These techniques result in reduced individual variation and thus reliably
+While these techniques reduce individual variation and lead to reliably
 synchronized spatial-temporal responses across subjects in a large part of the
-cortex  \citep{hasson2008neurocinematics}, but also in ``naturalistic stimulus
-statistics'' (i.e. a medium-specific confound structure) that differ from
-``real-world statistics''.
-
-
-\paragraph{Recommendations}
+cortex \citep{hasson2008neurocinematics}, they also introduce a confounding
+factor in the form of ``naturalistic stimulus statistics''.
 
 %
-In summary, naturalistic stimuli may provide a higher ecological validity but at
-the expense of a challenging data analysis and interpretability of results.
+Although naturalistic stimuli are intended to be inherently
+engaging and offer a task-free paradigm, sustained attention is still required
+by participants when ``freely viewing'' a movie or ``freely listening'' to an
+auditory narrative, which may become challenging over longer periods of time.
 %
-Despite the growing popularity of naturalistic stimuli, a researcher must
-carefully weigh the advantages and disadvantages of naturalistic stimuli in
-general.
+The occasional disengagement of single subjects may have a negligible effect on
+group average results, especially when statistics are calculated over long
+stimulus intervals.
 %
-To determine whether a naturalistic stimulus is an appropriate candidate for a
-given study, researchers should become acquainted with media techniques and how
-they are applied to create professional media products.
+However, when a study aims to investigate a brain process that is expected to be
+universal across humans on an individual level, a varying engagement may impair
+the reliability of individual-level results across stimulus segments and
+potentially mask effects of interest.
 %
-In particular, a naturalistic stimulus' confound structure should be quantified
-before launching a full study.
-%
-The covariance of variables of interest and confound variables must be
-evaluated, with some, if not most, naturalistic stimuli ultimately deemed
-inappropriate to investigate some aspect of perception and cognition under
-current modeling approaches.
-%
-In comparison to traditional paradigms, naturalistic stimuli are designed to be
-inherently engaging.
-%
-However, the lack of a task allows for more individual variation, which is
-difficult to record or self-report, difficult to statistically control, and
-particularly problematic when individual variation is viewed as noise.
-%
-Therefore, \ac{fmri} scanning session should be accompanied by physiological
-recordings (e.g., skin conductance response, heart rate) and ideally by \ac{eeg}
-or eye-tracking, and combined with follow-up self-reports (e.g., regarding
-alertness, engagement, an audio track's audibility within the noisy scanner).
+Nonetheless, a varying level of engagement might reflect a personal preference
+towards the presented stimulus or elicit, given the low demand characteristics
+\citep[cf.][]{orne1962social} of naturalistic paradigms, a more natural behavior
+reflecting a personal trait.
 
 
+
+
+
+
+% SRM
+\begin{comment}
 
 \subsection{Functional localization via estimation from reference group}
 
@@ -822,111 +751,226 @@ of functional brain topography related to language (sub)functions, in order to
 guide pre- and perioperative assessment of neurosurgery, e.g., in case of
 epilepsy.
 
+\end{comment}
+
+
+
+
 
 
 \section{Conclusion}
 
-\todo[inline]{Similarly to the summary / abstract, the general conclusion
-belongs to the parts of the thesis written at the very end; here are some rough
-ideas}
-
-\subsection{Naturalistic stimuli}
+\todo[inline]{This is too long; shift stuff that is not mentioned in the
+discussion (enough) into the discussion and merely stick to recommendations
+here?}
 
 %
-Naturalistic stimuli ``impose a meaningful timecourse across subjects while
-still allowing for individual variation in brain activity and behavioral
-responses, and lend themselves to a broader set of analyses than either pure
-rest or pure event-related task designs'' \citep[][p. 142]{finn2017can}.
+Traditional localizer paradigms in neuroscience are designed to identify
+specific brain regions that are selectively engaged by certain cognitive or
+perceptual processes on an individual level.
+%
+In contrast, naturalistic stimuli capture the complexity and richness of
+real-world experiences, leading to responses in multiple brain regions
+simultaneously.
+%
+Therefore, naturalistic stimuli have the potential to replace multiple
+traditional localizer paradigms while offering a more ecologically valid
+paradigm.
 
 %
-In case, minimization of intersubject-variability and reliability in all
-subjects is the main goal, stick to classic localizers in a practical setting;
-in a research setting, adapt traditional methods and develop new methods to
-analyze data from naturalistic stimuli.
+This thesis investigated the potential of two naturalistic stimuli to replace a
+traditional localizer paradigm.
 %
-Naturalistic stimuli might provide a higher ecological validity.
+We found that naturalistic stimuli can produce results that are consistent with
+previous studies using traditional localizer paradigms.
 %
-However, this is at the expense of experimental control, aggravated in case of
-subject-related variables that are harder to record and therefore statistically
-to control than stimulus features that are time-locked and replicable.
+Findings suggest that naturalistic stimuli that capture the complexity of
+real-world experiences could be used as a functional localizer.
 %
-The present thesis's results suggest this is at the expense of increased
-within-subject variability in some subjects.
+However, the use of naturalistic stimuli in neuroscience also presents
+challenges that must be carefully considered.
 %
-In case reliability is the key and findings are supposed to represent general
-mechanism common to all humans, this is shitty.
+The current study highlights challenges, such as the medium-specific confound
+structure and lack of an explicit task, which allows for more individual
+variation in engagement in the paradigm.
+% further studies
+Further studies are needed to investigate whether the findings from our study,
+which focused on one higher-visual area, generalize to other higher-visual areas
+and other domains of brain functions.
 %
-In case maximization of within-subject and intersubject-variability, this might
-be desirable.
+The results of this study invite further investigation into adapting and
+refining model-driven analysis methods for localizing concise functional areas
+and networks that correlate with specific brain processes during naturalistic
+stimulation.
+%
+With further investigation and refinement of model-driven analysis methods, it
+may be possible to localize multiple concise functional areas and networks that
+correlate with specific brain processes using only one naturalistic stimulus.
+
+% considerations before using a naturalistic stimulus at all
+Researchers should carefully consider the strengths and limitations of
+naturalistic stimuli and use appropriate methods to address these challenges in
+their research.
+%
+Before choosing a naturalistic stimulus, researchers should become familiar with
+media techniques and evaluate potential use cases.
+%
+It is crucial to quantify a naturalistic stimulus' confound structure and
+consider how data will be analyzed and reported. Naturalistic stimuli are highly
+versatile and offer a wealth of information that can be used to investigate
+various research questions.
+% consider sharing
+Therefore, when a researcher decides to employ a naturalistic stimulus for their
+own research, they should also consider creating a dataset with the intention of
+sharing it with the community to promote the development of new methods and
+techniques.
+%
+Researchers should adhere to strict data collection and processing procedures,
+ensuring data integrity, minimizing noise and artifacts, and using appropriate
+statistical analyses.
+%
+The data should be properly documented and labeled, and the dataset should be of
+high quality and accuracy to ensure reproducibility and credibility of research
+findings.
+%
+To address the challenge of individually varying levels of engagement,
+physiological recordings, such as skin conductance response and heart rate,
+should be accompanied by EEG or eye-tracking, and followed by self-reports to
+evaluate a participant's alertness, engagement, and audio track audibility
+within the noisy scanner.
+%
+Researchers should take measures to record and monitor a participant's level of
+engagement during naturalistic paradigms, such as including self-report measures
+and physiological measures like eye-tracking or EEG.
+
+% create and provide annotations
+
+Annotating and sharing naturalistic stimuli is crucial to overcoming the
+annotation bottleneck.
+%
+Annotations can enhance data analysis from naturalistic paradigms and validate
+findings from traditional paradigms under more ecologically valid conditions.
+However, to maximize the potential of naturalistic stimuli, it is essential to
+develop and adapt analytical methods.
+%
+Modeling stimulus and task properties is a central challenge in using
+naturalistic stimuli.
+%
+By openly sharing annotated data, researchers can access a larger pool of
+annotated data, which can help address these challenges.
+%
+Stimulus annotations can be used to check physiological assumptions, address
+methodological or statistical issues, and provide a detailed record of stimuli
+presented during an experiment.
+%
+Sharing annotated data can also encourage the development of novel analytical
+methods and insights into the brain's processing of complex information in
+naturalistic paradigms.
+%
+Increased annotations of naturalistic stimuli promote collaborative development
+of model-driven analyses.
+%
+Creating and sharing annotated data can help address the annotation bottleneck
+and promote further developments in the field.
+%
+Additionally, model-driven analyses can reveal which stimulus features are
+driving brain responses, which enables researchers to more effectively choose
+appropriate research questions or target populations.
+
+
+
+% naturalistic stimuli are not supposed to replace traditional paradigms
+% entirely
+Currently, neuroscience is still in the research and development stage, and
+needs to explore how traditional methods can be adapted and new methods can be
+developed to analyze data from naturalistic stimuli.
+%
+Embracing open science and shared datasets can facilitate progress in the field.
+%
+The use of additional measures and recordings seem to be necessary at the
+current stage but complicate the application of naturalistic stimuli in clinical
+settings.
 
 %
-Naturalistic stimuli are not a panacea but traditional paradigms and
-naturalistic paradigms should be used in tandem / reciprocally to generate new
-hypotheses and progress our understanding of the brain.
+In general, naturalistic stimuli should not replace traditional paradigms but
+should be used in conjunction with them to generate new hypotheses and advance
+our understanding of the brain \citep{sonkusare2019naturalistic}.
+%
+By combining traditional controlled experiments with the use of naturalistic
+stimuli, researchers can generate new hypotheses and test them in ecologically
+valid settings.
+%
+The utilization of artificial and naturalistic stimulus paradigms in parallel,
+and the modeling of both factors of interest and potential nuisance factors, is
+critical to avoiding potential caveats and advancing the use of naturalistic
+stimuli in neuroscience research \citep{jaaskelainen2021movies}.
 
 %
-``Caveats can be avoided by utilization of artificial and naturalistic stimulus
-paradigms in parallel (e.g., by using a continuum of stimuli from artificial to
-naturalistic across experiments in the same subjects) and by modeling both
-factors of interest (e.g., self-reports of emotional experiences) and potential
-nuisance factors (e.g., shot sizes in the movie) and taking them into account in
-the analyses'' \citep{jaaskelainen2021movies}.
+In case of functional localizers, it should be noted that the use of
+naturalistic stimuli may not yield the same results as traditional paradigms.
 %
-``Naturalistic paradigms do not aim to replace the classic, controlled
-neuroimaging paradigms \citep{sonkusare2019naturalistic}.
+Traditional localizers aim to minimize individual variation and localize
+functional areas in all healthy individuals, while naturalistic stimuli lack a
+specific task and may result in more individual variation.
 %
-Due to their complexity and current limitations in understanding the statistical
-properties of different features in naturalistic conditions, naturalistic
-stimuli are not optimal for model development [see, e.g., Rust and Movshon,
-2005].
+The lack of demand characteristics may enable participants to behave more
+naturally, revealing important individual differences in cognitive processing
+and styles that can affect their engagement with and processing of information
+in the real world.
 %
-Controlled experiments are still needed for hypothesis testing and developing
-models, while naturalistic stimuli are best employed to test models in
-ecologically valid settings and to expand them to situations where context
-matters more'' \citep[][p. 19]{saarimaki2021naturalistic}.
-
+Although the lack of control over engagement levels in naturalistic paradigms
+may present challenges in investigating universal brain processes on an
+individual level, it also provides a unique opportunity to explore individual
+differences and their relationship to cognitive and personality traits.
 %
-``Combining more traditional controlled experimental designs, such as ToM and
-other localizer tasks, with use of movies and narratives represents another
-highly promising research direction, as does expanding naturalistic stimulation
-from movie clips and narratives to virtual reality and computer-game/simulated
-environments'' \citep{jaaskelainen2021movies}.
-
-
+Even in a non-clinical population, analyses from naturalistic stimuli may not
+reproduce results from traditional localizers because naturalistic stimuli probe
+more naturalistic behavior.
 %
-``Modeling the stimulus and task properties is a central challenge with
-naturalistic paradigms and one that has great potential if solved [Simony and
-Chang, 2020].
+This can be considered a confound when searching for a pattern of brain activity
+common to all humans, or an advantage when individual variation is critical to
+differentiate between subjects or groups.
 %
-Compared to controlled paradigms, naturalistic stimuli allow investigating
-multiple functional components simultaneously, and studying individual
-variation'' \citep{saarimaki2021naturalistic}.
+If the minimization of inter-subject variability and reliability in all subjects
+is the primary goal, traditional localizers should be used.
 
 %
-``Developments in neuroimaging and in complementary behavior- and data-analysis
-methods hold keys to advancing rapidly to even more robust use of naturalistic
-stimuli'' \citep{jaaskelainen2021movies}.
-
-
+In conclusion, naturalistic stimuli offer a complementary approach to the
+traditional localizer paradigm, providing more ecologically valid and engaging
+stimuli.
 %
-``As is the case with any scientific field, the introduction of new
-methods requires independent validation and the reproduction of findings from
-previous studies before embarking upon higher aspiration and practical
-applications.
+It is crucial for researchers to recognize the distinct purposes of traditional
+and naturalistic paradigms and to address the challenges posed by naturalistic
+stimuli.
 %
-Exploratory studies and ``methodological developments are still needed to
-account for the complex interaction dynamics, such as feedback loops, between
-different component processes [e.g., Pessoa, 2018]''
-\citep{saarimaki2021naturalistic}.
+Although it is challenging to directly replace traditional localizer paradigms
+with naturalistic stimuli given current knowledge, the use of naturalistic
+stimuli as a replacement should be approached with caution and depends on the
+specific research question and goals.
+%
+Therefore, we recommend that future neuroscience research continues to explore
+the use of naturalistic stimuli while also developing new methods to better
+control confounding variables and individual variations in engagement.
 
 
-\paragraph{Example: auditory PPA is in anterior visual PPA}
 
-\todo[inline]{This does not fit into the general discussion well anymore
-anywhere; maybe, shift it to SRM study}
 
-\todo[inline]{If it is given as an example here; shorten it heavily}
 
+\begin{comment}
+
+
+
+\pagebreak
+
+
+
+\section{Some backups}
+
+
+\subsection{auditory PPA is in anterior visual PPA}
+
+\todo[inline]{at the moment, that is not mentioned in the general discussion;
+imo, it's more a bycatch and does not really fit into the main topic}
 %
 However, the usability of a purely auditory paradigm to localize the \ac{ppa} as
 it is defined by a visual paradigm might be limited by our findings that suggest
@@ -956,73 +1000,272 @@ c) subject-specific factors like alertness or engagement over the course of the
 experiment.
 
 
-\subsection{Sharing is caring: Advancing the field through collaborative effort}
+
+
+\subsection{Templates for Cronbach's $\alpha$}
+
+
+\paragraph{\citet{jiahui2020predicting}}
+%
+``We compared the correlations between maps estimated from a participant's own
+data and maps estimated from other participants' data to the reliability of the
+localizer (across the four localizer runs).
+%
+The mean Cronbach's Alpha between the four localizer runs was 0.60 (N = 15, S.D.
+= 0.14)'' \citep{jiahui2020predicting}.
+%
+``Results mean that if we scan each participant for another 4 localizer
+runs, and compute the correlation between the two maps (4 runs vs. 4 runs), the
+correlation would be 0.60 on average in the studyforrest''
+\citep{jiahui2020predicting}.
+%
+``Cronbach's alpha indicates that the predicted contrast map based on
+hyperalignment is close to or as good as the real contrast map based on four
+localizer runs (studyforrest: t(14) = 0.61, p = 0.55; Grand Budapest: t(20) =
+3.02, p = 0.007)'' \citep{jiahui2020predicting}.
+%
+``The predicted contrast map based on hyperalignment was better than the
+contrast map based on data from three out of four localizer runs in other
+participants (t(14) = 2.36, p = 0.03) and in Grand Budapest, the predicted
+contrast map was comparable to the contrast map based on three localizer runs in
+other participants (t(20) = 0.48, p = 0.63)''
+\citep{jiahui2020predicting}.
+
+
+\paragraph{\citet{jiahui2022cross}}
+%
+``Because the localizer task comprises several scanning runs, we calculated the
+reliability of the localizer across runs with Cronbach's alpha to provide an
+estimate of the noise ceiling for these correlations'' \citep{jiahui2022cross}.
+%
+``We compared the correlations between topographies estimated from a
+participant's own localizer data and those from other participants' data to the
+reliability of the localizer, calculated with Cronbach's alpha.
+%
+Predictions made with hyperalignment were close to and sometimes even exceeded
+the reliability values (Figure 1B).
+%
+This indicates that the predicted category-selective topographies from other
+participants' data using hyperalignment were as precise and sometimes even
+better than the topographies estimated with their own localizer data''
+\citep{jiahui2022cross}.
+
+
+\paragraph{\citet{feilong2022individualized}}
+%
+``Due to the presence of noise in localizer data, the estimated face-selectivity
+map is a combination of a “true” face-selectivity map of the participant and
+some noise.
+%
+The component from the “true” map is supposed to be shared by all localizer
+runs, and thus the data quality and the level of noise can be estimated based on
+the similarity between the 4 maps (i.e., one from each run).
+%
+We used Cronbach's alpha to estimate the reliability  of the average map of the
+4 runs.
+%
+We estimated the reliability of the localizer-based map using Cronbach's alpha,
+which is the expected correlation between two average maps, each based on 4 runs
+of independent data.
+%
+If we were to collect another 4 localizer runs from the participant and get a
+new average map based on the 4 new runs (i.e., independent data), then the
+expected correlation between the two average maps would be Cronbach's alpha.
+%
+In other words, if the correlation between the model-predicted map and the
+localizer-based (average) map is higher than Cronbach's alpha, then the
+model-predicted map is more accurate than the average map based on 4 runs''
+\citep{feilong2022individualized}.
 
 %
-Challenging data data analysis, but create \& share (data from naturalistic
-stimuli \& ) annotations.
+``Based on the similarity between these four maps, we computed the Cronbach's
+alpha coefficient for each participant, which estimates the reliability of the
+average map.
+%
+That is, if we were to scan the participant for another four localizer runs and
+correlate the new average map with the current average map, the expected
+correlation would be Cronbach's alpha.'' \citep{feilong2022individualized}
 
 %
-Naturalistic stimuli are so rich that dataset decay is low, everybody can get
-a slice of the cake and do his/her part to advance the field.
+``For both datasets, the localizer-based and model-predicted face-selectivity
+maps were highly correlated (Forrest: r = 0.618 ± 0.089 [mean ± SD], Raiders: r
+= 0.716 ± 0.074), and the correlations were higher than our previous
+state-of-the-art model using the same dataset and hyperalignment (Jiahui et al.,
+2020).
+%
+Across all participants, the average Cronbach's alpha was 0.606 ± 0.126 for
+Forrest, and 0.764 ± 0.089 for Raiders.
+%
+For approximately a third of the participants (Forrest: 6 out of 15, 40\%;
+Raiders: 6 out of 20, 30\%), the correlation exceeded the Cronbach's alpha of
+localizer-based maps.
+%
+In other words, for these participants, the predicted map based on our model can
+be more accurate than the map based on a typical localizer scanning session
+comprising four runs'' \citep{feilong2022individualized}.
 
 %
-We re-used existing data as a foundation for a new investigation in order to
-generate novel findings encourage further studies, and illustrate the benefits
-of publicly and freely available datasets.
+``Note that for the Forrest dataset, the similarity sometimes exceeded
+Cronbach's alpha, which means the model-predicted map is more accurate than a
+map based on 4 localizer runs (21 minutes).
+%
+The quality of localizer-based maps increases with more localizer data, which
+can be estimated using the Spearman–Brown prediction formula [Brown, 1910;
+Spearman, 1910].
+%
+Based on the Spearman–Brown prediction formula, we can estimate how Cronbach's
+alpha changes with the amount of data (i.e., the number of localizer runs), and
+correspondingly, how much localizer data is needed to achieve the quality of the
+model-predicted map
+%
+For the Forrest dataset, the maps predicted by 15, 30, 60, and 120 minutes of
+movie data were as accurate as 17, 22, 26, and 30 minutes of localizer data,
+respectively.
+%
+For the Raiders dataset, the maps predicted by 15, 28, and 56 minutes of movie
+data were as accurate as 10, 11 and 12 minutes of localizer data, respectively''
+\citep{feilong2022individualized}
+
+\subsection{Templates from \citet{haxby2011common} on validity \&
+    generalizability}
 
 %
-``There lacks a movie database with robustly validated measures, especially with
-test--retest reliability.
-%
-This is perhaps a key requirement for valid and reproducible research, which the
-field should strive to establish.
-%
-``No doubt, such data sharing initiatives will provide a further impetus to the
-development of novel analytical methods and insights into brain processing of
-complex information in naturalistic paradigms''
-\citep{sonkusare2019naturalistic}.
+``The algorithm also can be applied to simpler, controlled experimental data but
+our previous results showed that the sampling of response vectors from these
+experiments is impoverished and produces a model representational space that
+does not generalize well to new stimuli in other experiments
+\citep{haxby2020hyperalignment}'' \citep{guntupalli2016model}.
 
 %
-Since all that shit is more difficult than one might think (it's not ``just
-present the movie in the scanner'') and naturalistic stimuli are so rich and
-versatile, a researcher should consider making corresponding data, additional
-measures public eventually and collect the data according to best practices, and
-to the best knowledge and belief.
+``We base the derivation of the transformation matrices and the common space on
+responses to the movie---a complex, naturalistic, dynamic stimulus.
 %
-Especially, creating and sharing stimulus annotations to ease the``annotation
-bottleneck'' \citep[][p. 16]{aliko2020naturalistic} of naturalistic stimuli is
-probably the biggest prerequisite to test physiological assumptions, tackle
-methodological issues of model-driven analyses, and foster further developments
-[cf.  Nunez-Elizalde (2019), Dupre la Tour (2022) for recent examples] in order
-to draw valid inferences from naturalistic stimuli and advance the field as a
-whole.
+Although the algorithm also can be applied to fMRI data from more controlled
+experiments, we found that a common model based on such data has greatly
+diminished general validity \citep{haxby2011common}, presumably because,
+relative to a rich and dynamic naturalistic stimulus, such experiments sample an
+impoverished range of brain states \citep{guntupalli2016model}''.
 
+``The general validity of the model across the varied stimulus sets that we
+tested could be achieved only when hyperalignment was based on responses to the
+movie.
+%
+Common models based on responses to smaller, more controlled stimulus
+sets---still images of a limited number of categories---were valid only for
+restricted stimulus domains, indicating that these models captured only a
+subspace of the substantially larger representational space in VT cortex''
+\citep{haxby2011common}.
 
-\pagebreak
+``We used a complex and dynamic natural stimulus---a full-length action
+movie---to sample a diverse variety of representational states.
+%
+The results show that hyperalignment based on responses to this stimulus affords
+a single model of VT cortex with general validity across a broad range of
+stimuli, whereas hyperalignment based on responses to still images in more
+controlled, conventional experiments does not.
+%
+Thus, by virtue of the rich diversity of a complex, natural stimulus, our model
+of the representational space in VT cortex also has general validity across
+stimuli''\citep{haxby2011common}.
 
+``We also derived common models based on responses to the face and object
+categories in ten subjects and on responses to the pictures of animals in 11
+subjects.
+%
+These alternative common models afforded high levels of accuracy for BSC of the
+stimulus categories used to derive the common space but did not generalize to
+BSC for the movie time segments.
+%
+Thus, models based on hyperalignment of responses to a limited number of
+stimulus categories align only a small subspace within the representational
+space in VT cortex and are, therefore, inadequate as general models of that
+space.
+%
+On the positive side, these results also show that hyperalignment can be used
+for BSC of an fMRI experiment without data from movie viewing''
+\citep{haxby2011common}.
 
-\section{Some backups}
+%
+``Further analyses revealed other desirable properties of the movie as a
+stimulus for model derivation.
+%
+The movie evoked responses in VT cortex that were more distinctive than were
+responses to the still images in the category perception experiments.
+%
+Moreover, the general validity of the model based on the responses to the movie
+is not dependent on responses to stimuli that are in both the movie and the
+category perception experiments but, rather, appears to rest on stimulus
+properties that are more abstract and of more general utility''
+\citep{haxby2011common}.
 
+%
+``We investigated whether hyperalignment of the face and object data and
+hyperalignment of the animal species data would afford high levels of BSC
+accuracy using only the data from those experiments.
+%
+In each experiment, we derived a common space based on all runs but one. We
+transformed the data from all runs, including the left-out run, into this common
+space.
+%
+We trained the classifier on those runs used for hyperalignment in all subjects
+but one and tested the classifier on the data from the left-out run in the
+left-out subject (i.e. the test data for determining classifier accuracy played
+no role either in hyperalignment or in classifier training [Kriegeskorte et al.,
+2009]).
+%
+BSC of face and object categories after hyperalignment based on data from that
+experiment was equivalent to BSC after movie-based hyperalignment (62.9\% ±
+2.9\% versus 63.9\% ± 2.2\%, respectively; Figure 4).
+%
+BSC of the animal species after hyperalignment based on data from that
+experiment was significantly better than BSC after movie-based hyperalignment
+(76.2\% ± 3.7\% versus 68.0\% ± 2.8\%, respectively; p < 0.05; Figure 4).
+%
+Result suggests that the validity for a model of a specific subspace may be
+enhanced by designing a stimulus paradigm that samples the brain states in that
+subspace more extensively'' \citep{haxby2011common}.
 
-\subsection{Group-level vs individual-level analyses}
+%
+``We next asked whether hyperalignment based on these simpler stimulus sets was
+sufficient to derive a common space with general validity across a wider array
+of complex stimuli.
+%
+We applied the hyperalignment parameters derived from the face and object data
+to the movie data in the ten Princeton subjects and the hyperalignment
+parameters derived from the animal species data to the movie data in the 11
+Dartmouth subjects.
+%
+BSC of 18s movie time segments after hyperalignment based on category perception
+experiment data was markedly worse than BSC after hyperalignment based on movie
+data (17.6\% ± 1.3\% versus 65.8\% ± 2.7\% for Princeton subjects; 28.3\% ±
+2.8\% versus 74.9\% ± 4.1\% for Dartmouth subjects; p < 0.001 in both cases;
+Figure 4).
+%
+Thus, hyperalignment of data using a set of stimuli that is less diverse than
+the movie is effective, but the resultant common space has validity that is
+limited to a small subspace of the representational space in VT cortex''
+\citep{haxby2011common}.
 
-Backup of quotes for general discussion (or SRM study).  Studies that average
-data across study participants may draw
-
-\begin{itemize}
-
-\item ``provide only an approximate view of any individual's brain organization,
-    potentially obscuring meaningful individual differences in cortical
-        organization'' \citep{laumann2015functional},
-
-\item may just ``capture the common denominator of each individual cognitive
-    circuit and lose a large amount of information''
-
-\item ``obscure(s) patterns of brain organization specific to each individual''
-    \citep{laumann2015functional}.
-
-\end{itemize}
+%
+``We also tested whether the general validity of the model space reflects
+responses to stimuli that are in both the movie and the category perception
+experiments or reflects stimulus properties that are not specific to these
+stimuli.
+%
+We recomputed the common model after removing all movie time points in which a
+monkey, a dog, an insect, or a bird appeared. We also removed time points for
+the 30 s that followed such episodes to factor out effects of delayed
+hemodynamic responses.
+%
+BSC of the face and object and animal species categories, including distinctions
+among monkeys, dogs, insects, and birds, was not affected by removing these time
+points from the movie data [65.0\% ± 1.9\% versus 64.8\% ± 2.3\% for faces and
+objects; 67.1\% ± 3.0\% versus 67.6\% ± 3.1\% for animal species; Figure S4B].
+%
+This result suggests that the movie-based hyperalignment parameters that afford
+generalization to these stimuli are not stimulus specific but, rather, reflect
+stimulus properties that are more abstract and of more general utility for
+object representations'' \citep{haxby2011common}.
 
 
 \subsection{Dynamic localizers}
@@ -1050,13 +1293,11 @@ localizers.'' \citep{jiahui2022cross}.
 
 
 \subsection{Brain \& behavior: "fingerprints"}
-
-
 %
 Maybe might be stable individual differences in cognitive tendencies or
 cognitive abilities like susceptibility / predisposition [?] to attend to, [or]
 recognize [or process] auditory spatial information.
-% kanai
+% Kanai
 In case the pattern is stable within individual subjects / is ``highly
 consistent across different sessions [or experiments], then they are
 characteristics of the individuals and may reflect differences in their brain
@@ -1121,3 +1362,5 @@ subjects [Chong et al., 2017; Glasser et al., 2016; Gordon et al., 2016; Hacker
 et al., 2013; Harrison et al., 2015; Varoquaux et al., 2011; Wang et al., 2015],
 and into advanced hyperalignment approaches [Chen et al., 2015; Guntupalli et
 al., 2016; Guntupalli and Haxby, 2017]'' \citep{bijsterbosch2018relationship}.
+
+\end{comment}
