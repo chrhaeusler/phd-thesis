@@ -867,21 +867,29 @@ but being based on an increasing amount of data used to calculate the mapping.
 \subsubsection{Estimation of $t$-contrasts' results}
 
 % overview
-We then estimated the empirical $Z$-maps of the test subject by projecting all
-training subjects' empirical $Z$-maps from their voxel space trough the \ac{cfs}
-into the test subject's voxel space:
-% functional alignment; into CFS (calling srm.transform(masked\_zmaps))
-first, we used the training subjects' transformation matrices that were derived
-during training of the \ac{cfs} to perform a mapping of the masked empirical
-$Z$-maps from each training subject's voxel space into the \ac{cfs}.
-% into subject
-Then, we used the transpose of a transformation matrix that was acquired from
-the alignment of the test subject in order to project the $Z$-maps from the
-\ac{cfs} into the test subject's voxel space.
-% take the mean
-The arithmetic mean of $N-1$ the projected empirical $Z$-maps served as the
-predicted $Z$-map that estimates the test subject's empirical $Z$-map.
+to estimate the results of
+the three $t$-contrast (i.e. the \textit{empirical $Z$-maps}).
 
+
+We estimated the results of the three $t$-contrast (i.e. the \textit{empirical
+$Z$-maps}) of the test subject by projecting the empirical $Z$-maps of all
+training subjects trough the \ac{cfs} into the test subject's voxel space:
+% functional alignment; into CFS (calling srm.transform(masked\_zmaps))
+First, we masked the empirical $Z$-maps of the training subjects' empirical
+$Z$-maps with the same subject-specific masks used to generate the \ac{cfs} from
+the time series data.
+%
+Then,  we used the transformation matrices derived during the training of the
+\ac{cfs} to map the masked empirical $Z$-maps from each training subject's voxel
+space into the \ac{cfs}.
+%
+Next, we used the transpose of a transformation matrix obtained from the
+alignment of the test subject to project the $Z$-maps from the \ac{cfs} into the
+test subject's voxel space.
+% take the mean
+For each of the three $t$-contrasts, we computed the arithmetic mean of the
+respective projected $Z$-maps, which served as an estimation of the test
+subject's empirical $Z$-maps (hence, a \textit{predicted $Z$-maps}).
 
 \subsection{Estimation via anatomical alignment}
 
@@ -889,11 +897,13 @@ predicted $Z$-map that estimates the test subject's empirical $Z$-map.
 but through a study-specific brain template co-registered to the MNI152 atlas,
 wasn't it?}
 
+\todo[inline]{was the matrix the transpose or a "totally" different one?}
+
 %
-As a baseline, we used anatomical alignment procedure to estimate the results of
-the three $t$-contrast (i.e. the \textit{empirical $Z$-maps}).
+As a baseline, we used an anatomical alignment procedure to estimate the results
+of $t$-contrast of each paradigm.
 %
-A test subject's empirical $Z$-maps from the analysis of
+We predicted a test subject's empirical $Z$-maps from the analysis of
 %
 the visual localizer \citep{sengupta2016extension},
 %
@@ -901,26 +911,20 @@ the movie \citep{haeusler2022processing}, and
 %
 the audio-description \citep{haeusler2022processing}
 %
-were predicted based using the training subjects' results of the same paradigm
-(hence, a within-paradigm prediction).
+using the training subjects' results of the same paradigm (hence,
+cross-subject-within-paradigm predictions).
 %
-First, the empirical $Z$-maps of the training subjects' localizer contrasts were
-masked with the same subject-specific masks as the time series data that were
-used to generate the \ac{cfs}.
-% anatomical alignment; into MNI
-We used previously computed transformation matrices
+To do this, we projected the masked empirical $Z$-maps of each paradigm and each
+subject were projected from their native voxel space into the MNI space via
+previously computed subject-specific transformation matrices
 \citep[][\href{https://github.com/psychoinformatics-de/studyforrest-data-templatetransforms}{\url{github.com/psychoinformatics-de/studyforrest-data-templatetransforms}}]{hanke2014audiomovie}
-to project the respective $t$-contrast's masked $Z$-map via a non-linear
-transformation from each training subject's voxel space into the MNI space.
 % from MNI into subject
-Then, we used the transpose of the transformation matrix [or was it another
-matrix?]\todo{check that} to project the data from MNI space into the test
-subject's voxel space.
+We then used the transpose of the transformation matrix to project the data from
+the MNI space into the test subject's voxel space.
 % take the mean
-For each of the three $t$-contrast, the arithmetic mean of the respective
-projected $Z$-maps served as an estimation (hence, a \textit{predicted $Z$-map})
-of the test subject's empirical $Z$-map.
-
+Similar to our functional alignment procedure, we obtained an estimation of the
+test subject's empirical $Z$-maps by taking the arithmetic mean of the projected
+$Z$-maps.
 
 
 
@@ -936,45 +940,68 @@ far)?}
 
 
 %
-We calculated Cronbach's $\alpha$ for the empirical $Z$-maps of each paradigm
-and subject as a measure of the empirical $Z$-maps reliability and amount of
-measurement error \citep{cronbach1951coefficient, cortina1993coefficient}.
+We calculated Cronbach's $\alpha$ as a measure of reliability and the amount of
+measurement error \citep{cronbach1951coefficient, cortina1993coefficient}
+present in the empirical $Z$-maps of each paradigm and subject.
 %
 Cronbach's $\alpha$ expresses the expected correlation between the currently
 used empirical $Z$-maps and an additional set of empirical $Z$-maps calculated
 based on data of a hypothetical independent dataset collected from the same
 paradigm and subjects \citep{jiahui2020predicting, jiahui2022cross}.
 %
-These expected correlations represented by Cronbach's $\alpha$ were calculated
-based on values of the first-level \ac{glm} $Z$-maps (four in case of the visual
+These expected correlations, represented by Cronbach's $\alpha$, were calculated
+based on the first-level \ac{glm} $Z$-maps (four in case of the visual
 localizer; eight in case of the naturalistic stimuli) that were averaged in the
-second-level \ac{glm} analyses of their respective study
-\citep{sengupta2016extension, haeusler2022processing} yielding the to be
-estimated empirical $Z$-maps of the present study.
+second-level \ac{glm} analyses of \citet{sengupta2016extension} and
+\citet{haeusler2022processing}.
 %
-Cronbach's $\alpha$ of empirical $Z$-maps for each subject and paradigm can be
-seen in Fig.~\ref{fig:cronbachs}, descriptive statistics across subjects for
-each paradigm can be seen in Table~\ref{fig:cronbachs}.
+Cronbach's $\alpha$ of empirical (i.e. second-level) $Z$-maps for each subject
+and paradigm can be seen in Fig.~\ref{fig:cronbachs}, descriptive statistics
+across subjects for each paradigm can be seen in Table~\ref{fig:cronbachs}.
 
-\todo[inline]{Provide (some of the) descriptive statistics in the text? at the
-moment, there are just some numbers without real text because I think that plot
-and table are more than sufficient}
+\todo[inline]{imo, descriptive statistics given in a text are not necessary;
+i.e. plot and/or table are better}
 
-Visual localizer:  mean=0.899990, std=0.087051, min=0.658523,
-25\%=0.906643, 50\%=0.934019, 75\%=0.947906, max=0.963065.
+%Visual localizer:  mean=0.899990, std=0.087051, min=0.658523,
+%25\%=0.906643, 50\%=0.934019, 75\%=0.947906, max=0.963065.
 %
-Movie: mean=0.611332, std=0.137878, min=0.284440,
-25\%=0.555529, 50\%=0.627240, 75\%=0.676353, max=0.800254.
+%Movie: mean=0.611332, std=0.137878, min=0.284440,
+%25\%=0.555529, 50\%=0.627240, 75\%=0.676353, max=0.800254.
 %
-Audio-description: mean=0.476194, std=0.358019, min=-0.526626,
-25\%=0.428975, 50\%=0.627799, 75\%=0.679987, max=0.823584.
+%Audio-description: mean=0.476194, std=0.358019, min=-0.526626,
+%25\%=0.428975, 50\%=0.627799, 75\%=0.679987, max=0.823584.
 
 \todo[inline]{movie's outlier: sub-06 (0.28); but when movie PPA is predicted he
 / she is not the outlier}
 
-\todo[inline]{audio-description's outlier: sub-05 (\textbf{-0.5!!}), sub-02 (0.0), sub-20
-(0.27); when audio PPA is predicted (based on max of functional data per
-paradigm), these three subjects are the outliers}
+\todo[inline]{audio-description's outlier: sub-05 (\textbf{-0.5!!}), sub-02
+(0.0), sub-20 (0.27); when audio PPA is predicted (based on max of functional
+data per paradigm), these three subjects are the outliers}
+
+The Cronbach's $\alpha$ values for each paradigm are as follows:
+%
+for the visual localizer,
+%
+the mean is 0.899990 with a standard deviation of 0.087051.
+%
+The minimum value is 0.658523, the 25th percentile is 0.906643, the median is
+0.934019, the 75th percentile is 0.947906, and the maximum is 0.963065.
+%
+For the movie paradigm,
+%
+the mean is 0.611332 with a standard deviation of 0.137878.
+%
+The minimum value is 0.284440, the 25th percentile is 0.555529, the median is
+0.627240, the 75th percentile is 0.676353, and the maximum is 0.800254.
+%
+Finally, for the audio-description paradigm, the mean is 0.476194 with a
+standard deviation of 0.358019.
+%
+The minimum value is -0.526626, the 25th percentile is 0.428975, the median is
+0.627799, the 75th percentile is 0.679987, and the maximum is 0.823584.
+
+
+
 
 \begin{table*}[btp]
 \centering
