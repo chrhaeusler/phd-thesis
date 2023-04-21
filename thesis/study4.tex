@@ -1307,7 +1307,7 @@ done now)}
 \todo[inline]{Problem: \citet{feilong2022individualized} assess data quantity,
 too; results suggest 30m are "good" in case of their model.}
 
-\todo[inline]{point for the discussion: what makes the prediction of the
+\todo[inline]{what makes the prediction of the
 localizer based on localizer runs for alignment so "bad"? Is it our model or the
 transformation matrices? In any case, our results are different from
 \citep{haxby2011common}: CFS \& transformation matrices based on controlled
@@ -1338,71 +1338,45 @@ segments when $t$-contrasts for whatever functions are supposed to be modeled?
 Naturalistic stimuli are not the panacea...!}
 
 
-\subsection{Short summary of aims \& hypotheses, method, results}
+\subsection{Introductory paragraph}
 
-\todo[inline]{if necessary, write similar text at the beginning of results}
-
-\todo[inline]{Try to start with aims \& goals before reviewing methods}
-
-\todo[inline]{in general, it's probably (still) too long}
-
-
-\paragraph{Methods}
 %
-In the present study, we estimated the results of $t$-contrasts that were
-created in previous studies \citep{sengupta2016extension,
-haeusler2022processing} in order to localize the \ac{ppa}.
+We investigated the performance of a functional alignment procedure that we used
+to predict results of $t$-contrasts (i.e. the criteria) that were created in
+previous studies \citep{sengupta2016extension, haeusler2022processing} in order
+to localize the \ac{ppa}.
 %
-Following a leave-one-subject-out cross-validation, the $t$-contrasts' empirical
-$Z$-maps serving as the to be predicted criteria were estimated using an
-anatomical alignment approach \citep[cf.][]{zhen2015quantifying,
-zhen2017quantifying} and a functional alignment approach.
-%
-In case of the functional alignment approach, we fit a shared response model
-\citep{chen2015reduced} to the training subjects' concatenated response time
-series of three different paradigms in order to acquire a \ac{cfs} and the
-training subjects' subject-specific transformation matrices.
+Following a leave-one-subject-out cross-validation, we fit a shared response
+model \citep{chen2015reduced} to the training subjects' concatenated response
+time series of three different paradigms in order to create a multi-paradigm
+\ac{cfs} and the training subjects' subject-specific transformation matrices.
 %
 In order to acquire the test subject's transformation matrix, we used an
 increasing amount of the test subject's response time series of the three
-paradigms separately as predictors by functionally aligning the test subject
-to the corresponding \acp{tr} of the shared feature space (i.e. \ac{cfs}).
+paradigms (i.e. the predictors)  separately by functionally aligning the test
+subject to the corresponding \acp{tr} of the shared feature space (i.e.
+\ac{cfs}).
 %
 The empirical $Z$-maps of each training subject were projected from their
 respective voxel space through the \ac{cfs} into the test subject's voxel space
 to yield the test subject's predicted $Z$-maps.
 %
-In case of the anatomical alignment approach, the training subjects' $Z$-maps
-were projected via nonlinear, volume-based transformation through the MNI152
-brain atlas \todo{kind of incorrect} into the test subject's voxel space.
-
-%
-The estimation performance of the alignment approaches was quantified by
-correlating the empirical $Z$-maps with their respective predicted $Z$-map
-(which can be found at
-\href{https://identifiers.org/neurovault.collection:12340}{\url{neurovault.org/collections/12340}}).
+In case of the anatomical alignment approach that served as a baseline, the
+training subjects' $Z$-maps were projected via nonlinear, volume-based
+transformation through the MNI152 brain atlas into the test subject's voxel
+space.
 
 
-\paragraph{Three aspects under investigation}
+\subsubsection{Four aspects under investigation}
 
-\todo[inline]{strictly speaking, with comparison to anatomical alignment it's
-four aspects}
+\todo[inline]{this needs to be in line with the paragraph "In contrast to
+previous studies..." in the intro}
 
-\todo[inline]{biggest issue for discussion: how to separate validity /
-generalizability of \ac{cfs} from validity / generalizability of transformation
-matrices? If I do not find a solution for that the intro should be adjusted (to,
-maybe, just two points?)}
-
-\todo[inline]{the highest correlations between individual regressors and shared
-responses can be seen in the visual localizer => but the matrices based on
-localizer runs suck the most for estimation; interpretation?}
+\todo[inline]{biggest issue: how to separate validity / generalizability of
+\ac{cfs} from validity / generalizability of transformation matrices?}
 
 \todo[inline]{in any case: within-paradigm prediction is more about validity of
-model (and matrices?); cross-paradigm prediction is more generalizability of
-(model and) matrices}
-
-%
-Zero, we compare anatomical to functional alignment.
+model? cross-paradigm prediction is more generalizability of matrices?}
 %
 First, we assess the \textbf{validity of the \ac{cfs}} by estimating $Z$-maps
 from the analysis (i.e. $t$-contrast) of same paradigms used to align the test
@@ -1416,34 +1390,40 @@ prediction).
 Third, we explore the relationship between the estimation performance of the
 t-contrast's results and the quantity of data from each of the three paradigms
 used to functionally align the subject with the \ac{cfs}.
-
-
-\paragraph{Results}
-
-\todo[inline]{if a high-level summary of results is supposed to be written here
-(at the moment I think it does not make a lot of sense), the summary heavily
-depends on the "final" phrasing of the discussion}
-
-\todo[inline]{Maybe, it's simply better to write a stupid high-level discussion
-and ---to make the point--- cherry-pick some statistical tests as concrete
-examples}
-
-Results suggest that "partial alignment" works for multi-paradigm \ac{cfs}
-derived from concatenated time series of multiple paradigms.
 %
-For all criteria, the prediction performance improves continuously with more
-data of the paradigms used as predictors.
+Last, we compared the performance of our volume-based, functional alignment
+procedures to that of a volume-based, anatomical alignment approach, which
+served as a benchmark.
 
 
-\subsection{Functional alignment vs. anatomical alignment}
+\subsubsection{Results + Conclusion}
+%
+We found that using a partial alignment approach with a multi-paradigm \ac{cfs}
+derived from concatenated time series of multiple paradigms is effective.
+%
+The prediction performance improves as more data from the paradigms used to
+align a test subject included.
+%
+However, one movie segment outperformed an estimation using anatomical
+alignment.
+%
+This opens up the possibility of estimating results from many localizer
+paradigms using a naturalistic stimulus of similar duration of one traditional
+localizer paradigm.
+
+
+
+\subsection{Anatomical alignment vs. functional alignment}
+
+\todo[inline]{a.k.a it is actually not that bad; it's pretty consistent across
+paradigms, too (always a median correlation of about 0.6)}
+
 %
 When the visual paradigms (i.e. localizer and movie PPA) are estimated, the
-movie beats anatomical alignment with just one movie segment (which is
-statistically tested).
+movie beats anatomical alignment with just one movie segment.
 %
 Movie gets (sooner or later) as good as anatomical alignment when audio PPA is
 estimated (but is worse when just one movie segment is used).
-
 %
 Localizer runs suck compared to anatomical alignment when used to estimate
 localizer $Z$-map (within-paradigm prediction) and movie PPA (cross-paradigm
@@ -1464,55 +1444,22 @@ anatomical alignment (when more than 4-6 segments are used)
 %
 Generally, the more data of the audio-description is used, the narrower the gap
 between movie and audio-description gets.
-
 %
 For every alignment procedure (functional as well as anatomical), the outliers
 of Cronbach's of audio PPA are difficult to estimate.
 
 
-\paragraph{Summary \& conclusion on anatomical vs. functional alignment}
 
-\todo[inline]{Results suggest...? Interpretation}
-
-Anatomical alignment is actually not that bad.
-%
-It's pretty consistent across paradigms, too (always a median correlation of
-about 0.6).
-
-
-
-\subsection{Functional alignment across predictors \& criteria}
-
-\todo[inline]{at the moment, I think it's best to order by paradigm used as
-predictor; for every predictor, discuss each criterion and the quantity of
-data}
+\subsection{Functional alignment}
 
 \todo[inline]{problem: \citet{feilong2022individualized} already assessed data
 quantity; results suggest 30m are "good" in case of their model; plus, they
 model individual component.}
 
-The multi-paradigm model is kind of valid, I guess...
 
-
-
-
-
-
-\subsubsection{Validity \& generalizability of movie}
+\subsubsection{Movie for functional alignment}
 
 \todo[inline]{a.k.a. movie is best (which is in line with previous research)}
-
-\paragraph{criterion: localizer}
-
-\paragraph{criterion: movie PPA}
-
-%
-It's not a dynamic localizer employing video snippets of landscapes and faces
-but a "real naturalistic localizer".
-
-\paragraph{criterion: audio PPA}
-
-\paragraph{general stuff about quantity of data}
 
 %
 Results indicate that $\approx$15 minutes (\ac{tr}=2s) of movie watching used
@@ -1528,86 +1475,40 @@ scanning time than 30 minutes during audio-visual naturalistic stimulation.
 
 
 
-\subsubsection{Validity \& generalizability of visual localizer}
+\subsubsection{Visual localizer for functional alignment}
 
-\todo[inline]{a.k.a. why is it so "bad"???}
-
-\todo[inline]{We have way more \acp{tr} in case of naturalistic stimuli; however
-not necessarily equal number of events; and events are not "clean" events but
-heavily confounded by other stuff}
-
-\paragraph{criterion: localizer}
+\todo[inline]{a.k.a. why is it bad? which is not in line with previous research}
 
 %
 Surprisingly, prediction of localizer via localizer runs (i.e. within-experiment
 prediction) is worse than anatomical alignment.
 %
-How does that come? At least the correlations of regressors with shared
-responses show the "clearest" correlations of a regressor with a shared response
-(which is not the case in the \acp{tr} of the movie or audio-description).
-%
 Maybe, our naturalistic stimuli (about 7000 TRs) fucked up our shared responses
-in the 450 \acp{tr} within the SRM (imo, Fig.~\ref{fig:corr-vis-reg-srm}
-suggests otherwise)
-
-
-\paragraph{criterion: movie PPA}
-
-\paragraph{criterion: audio PPA}
-
-\paragraph{general stuff about quantity of data}
-
-
-
-
-\subsubsection{Validity \& generalizability of audio-description}
-
-\todo[inline]{a.k.a. it's totally different from different previous studies!}
-
-\todo[inline]{here it is about audio-description as predictor!}
-
-\todo[inline]{below is a paragraph about "audio PPA as criterion"; separate
-points more clearly or somehow merge if the two topics have too many
-intersecting points}
-
-
-\paragraph{criterion: localizer}
+in the 450 \acp{tr} within the SRM?
 %
-A daring cross-modal prediction.
+Imo, Fig.~\ref{fig:corr-vis-reg-srm} suggests otherwise: correlations of
+regressors with shared responses show the "highest" correlations of a regressor
+with a shared responses
 %
-Kind of works, but you need a shit ton of data, i.e. it gets better, the more
-data are available
+The matrices but the matrices based on localizer runs suck the most for
+estimation?
 
 
-\paragraph{criterion: movie PPA}
+\subsubsection{Audio-description for functional alignment}
+
+\todo[inline]{a.k.a. it's totally different from different previous research}
+
+Trying to estimate visual paradigms / cross-modal by using data from a
+non-visual paradigm is "daring" in the first place.
 %
-Another daring cross-modal prediction (similar pattern, eventually outperforms
-visual localizer for alignment and gap between audio-description and movie for
-alignment gets narrower the more data are used).
-
-\paragraph{criterion: audio PPA}
-%
-Even with just one segment it outperforms (slightly) the functional alignment
-using localizer runs or movie segments (not statistically tested though).
-%
-Eventually, audio-description based functional alignment outperforms anatomical
-alignment.
-
-
-\paragraph{general stuff about quantity of data}
-%
-It does not look like "garbage in, garbage out".
-
-\paragraph{Inference}
-
-\todo[inline]{yeah, what does that mean?}
+However, estimation performance increases the more data are available.
 
 %
-Audio-description is lacking visual stimulation, audio-description is
-"not-as-rich" as the movie.
+How to interpret the results?
 %
-Additionally, maybe, the auditory response in PPA is (too) different from visual
-response?
+Audio-description is lacking visual stimulation, is "not-as-rich" as the movie.
+%
+Maybe, the auditory response in PPA is (too) different from visual response?
 %
 Still, results show that data collected during listening to an audio-description
 [which is richer than a mere narrative] could, in principle, be used to estimate
@@ -1619,8 +1520,7 @@ Interesting would be estimation of results from a controlled speech
 paradigm, i.e. another same-modality criterion.
 
 
-\subsection{Interim summary: Validity \& generalizability of multi-stimulus
-model and validity \& generalizability of matrices}
+\subsubsection{Interim summary (on functional alignment)}
 
 \todo[inline]{how to separate validity \& generalizability of \ac{cfs} from
 validity \& generalizability of matrices?}
@@ -1630,32 +1530,20 @@ Our results provide evidence that transformation matrices calculated based on
 data from naturalistic stimuli promise an increased validity and [or?]
 generalizability for functional alignment over transformation matrices based on
 data of a controlled paradigm based on simplified stimuli.
-
-
-
 %
 This is the case for both within-paradigm prediction (e.g., audio-description
 for alignment to estimate $Z$-maps from the audio-description's $t$-contrast)
 and cross-paradigm prediction (e.g. audio-description for alignment to estimate
 $Z$-maps from the visual localizer's $t$-contrast).
 
-%
-One segment of audio-description is not statistically different from four
-runs of localizer to estimate the localizer (after Bonferroni correction;
-p=0.03).
-
-\todo[inline]{probably discuss \citet{haxby2011common} here; cf. templates at
-the very end of this chapter}
 
 \todo[inline]{if \citet{haxby2011common} is discussed (a lot), it should
 probably be primed before "Here, we..." in the introduction}
-
 %
 Our results are different results of \citet{haxby2011common} who found that the
 prediction of $Z$-maps from a controlled paradigm via matrices \& \ac{cfs} based
 on the same controlled paradigm was as good or better than prediction (of the
 same) $Z$-maps via matrices \& \ac{cfs} based on movie data.
-
 %
 In summary, the multi-stimulus \ac{cfs} generalizes over paradigms
 to be estimated but performance depends on the paradigm used to align the test
@@ -1665,18 +1553,12 @@ subject to the \ac{cfs}.
 
 \subsection{More specific stuff}
 
-\subsubsection{Localizer as criterion: "ground truth"?}
-
-\todo[inline]{imo, this is more a topic for the general discussion}
-
-\todo[inline]{cf. general discussion: pros \& cons of naturalistic stimuli}
-
-
 \subsubsection{audio PPA as criterion: the issue of reliability}
 
 \todo[inline]{also true (but less severe) in case of movie PPA}
 
-\todo[inline]{topic for general discussion, too: pros \& cons of naturalistic}
+\todo[inline]{cf. the text that is now in the general discussion about pros \&
+cons of naturalistic stimuli and difficult to control subject engagement}
 
 \todo[inline]{the "deviant" participants in the audio-description are the ones
 that have a poor Cronbach's; imo, they're not "reliable outliers" being
@@ -1689,7 +1571,7 @@ Results of \citet{haeusler2022processing} could be influenced by paradigm and
 methodological choices.
 
 
-\paragraph{Issues of methodological decisions}
+\paragraph{Less probable: issues of methodological decisions}
 
 \todo[inline]{a.k.a. operationalization \& construct validity}
 
@@ -1713,7 +1595,7 @@ Is the number of events across segments too unbalanced?
 Here again, the dead-end argument is that it worked for most subjects.
 
 
-\paragraph{Issues of the paradigm}
+\paragraph{More probable: issues of the paradigm}
 %
 Results of \citet{haeusler2022processing} suggest that the audio-description
 samples the responses to (at least auditory) spatial information.
@@ -1751,7 +1633,6 @@ to eye-tracking during movie);
 alertness (via EEG) should be possible though.
 
 
-
 \paragraph{Inference}
 
 \todo[inline]{add text about SRM as denoising technique?}
@@ -1776,14 +1657,6 @@ We need---of course!---further studies that use controlled paradigms to
 investigate auditory spatial information, and studies that use auditory
 narratives and employ more sophisticated models of event structure in order to
 assess the suitability of naturalistic stimuli as "true naturalistic localizer".
-
-
-
-\subsubsection{audio PPA as criterion: the issue of individual differences}
-
-\todo[inline]{imo, this topic can be dropped because the differences are not
-reliable}
-
 
 
 \subsection{Vision: calibration scan + database}
