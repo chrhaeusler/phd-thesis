@@ -727,7 +727,7 @@ to model hemodynamic responses during the audio-description \citep[cf. Table 3
 in][]{haeusler2022processing} and shared responses.
 
 
-\todo[inline]{What do the plots suggest?}
+\todo[inline]{what do the plots suggest?}
 
 \todo[inline]{make colors of non-used TRs more transparent (alpha=15)}
 
@@ -867,10 +867,6 @@ but being based on an increasing amount of data used to calculate the mapping.
 \subsubsection{Estimation of $t$-contrasts' results}
 
 % overview
-to estimate the results of
-the three $t$-contrast (i.e. the \textit{empirical $Z$-maps}).
-
-
 We estimated the results of the three $t$-contrast (i.e. the \textit{empirical
 $Z$-maps}) of the test subject by projecting the empirical $Z$-maps of all
 training subjects trough the \ac{cfs} into the test subject's voxel space:
@@ -933,7 +929,7 @@ $Z$-maps.
 \todo[inline]{I have no clue where \citet{jiahui2020predicting, jiahui2022cross}
 have the statement about what Cronbach's expresses from...}
 
-\todo[inline]{Shift results stated here to actual result section? In particular,
+\todo[inline]{shift results stated here to actual result section? In particular,
 in case a t-test involving Cronbach's is calculated (which is not the case so
 far)?}
 
@@ -959,9 +955,6 @@ Cronbach's $\alpha$ of empirical (i.e. second-level) $Z$-maps for each subject
 and paradigm can be seen in Fig.~\ref{fig:cronbachs}, descriptive statistics
 across subjects for each paradigm can be seen in Table~\ref{fig:cronbachs}.
 
-\todo[inline]{imo, descriptive statistics given in a text are not necessary;
-i.e. plot and, maybe, the additional table, are better}
-
 %Visual localizer:  mean=0.899990, std=0.087051, min=0.658523,
 %25\%=0.906643, 50\%=0.934019, 75\%=0.947906, max=0.963065.
 %
@@ -975,8 +968,11 @@ i.e. plot and, maybe, the additional table, are better}
 / she is not the outlier}
 
 \todo[inline]{audio-description's outlier: sub-05 (\textbf{-0.5!!}), sub-02
-(0.0), sub-20 (0.27); when audio PPA is predicted (based on max of functional
-data per paradigm), these three subjects are the outliers}
+(0.0), sub-20 (0.27); when audio PPA is predicted, these three subjects are the
+outliers}
+
+\todo[inline]{imo, descriptive statistics given in a text are not necessary;
+i.e. plot and, maybe, the additional table, are better}
 
 The Cronbach's $\alpha$ values for each paradigm are as follows:
 %
@@ -1081,15 +1077,13 @@ fulfilled; alternative: two sample permutation test?}
 
 \todo[inline]{correct the alpha-level (as it is done now) or the p-values?}
 
-\todo[inline]{report descriptive statistics of the correlations?}
-
-\todo[inline]{round the values or just write $p$<.0001}
-
-\todo[inline]{give one-sentence interpretations / summary à la "Results
-suggest..."? imo, that's not good}
+\todo[inline]{give one-sentence interpretations à la "Results suggest..."? imo,
+that's not good}
 
 \todo[inline]{so far, I did not test any difference(s) to Cronbach's; s.
 comments below where it would makes sense to test difference to Cronbach's}
+
+\todo[inline]{round the values or just write $p$<.0001}
 
 The unthresholded $Z$-maps in their respective subject's voxel space can be
 accessed at
@@ -1220,9 +1214,9 @@ correlations than the functional alignment via four localizer runs (Fisher
 z-transformed, t(14)=-2.3000009, $p$<0.0386588, will not be significant when
 Bonferroni corrected).
 
-\todo[inline]{possibly run test that compares 8 movie segments to Cronbach's
-alpha? a.k.a. 8 runs of movie for functional alignment are "not as good" as
-Cronbach's alpha}
+\todo[inline]{possibly run the test that compares 8 movie segments to Cronbach's
+alpha of localizer? a.k.a. 8 runs of movie for functional alignment are "not as
+good" as Cronbach's alpha}
 
 
 \paragraph{When estimating the $Z$-maps of the movie,...}
@@ -1257,9 +1251,9 @@ via the first segment of the audio-description yielded no significant difference
 in correlations compared to functional alignment via four localizer runs (Fisher
 z-transformed, t(14)=-1.8674144, $p$<0.084551).
 
-\todo[inline]{possibly run test that compares x movie segments for alignment to
-Cronbach's alpha of movie's empirical $Z$-map? a.k.a functional alignment will
-"sooner or later be better" than Cronbach.}
+\todo[inline]{possibly run the test that compares x movie segments for alignment
+to Cronbach's alpha of movie? a.k.a functional alignment will "sooner or later
+be better" than Cronbach.}
 
 
 \paragraph{When estimating the Z-maps of the audio-description,...}
@@ -1267,14 +1261,14 @@ Cronbach's alpha of movie's empirical $Z$-map? a.k.a functional alignment will
 \todo[inline]{This part is the ugly one; all samples will probably reject H0
 assuming normality}
 
-\todo[inline]{the three outliers are always sub-02, sub-05, sub-20 (always=
-anatomical alignment, 4 runs of localizer, 8 runs of movie, 8 runs of
+\todo[inline]{the three outliers are always sub-02, sub-05, sub-20
+(always=anatomical alignment, 4 runs of localizer, 8 runs of movie, 8 runs of
 audio-description)}
 
-\todo[inline]{test a differences compared to Cronbach's a? e.g.,
+\todo[inline]{run a test that compares <whatever> to Cronbach's a? for example:
 audio-description for alignment will sooner or later be significantly higher
 than Cronbach's; might be a cue that SRM does a denoising of the e.g., map (and
-does not estimate "reliable patterns deviant from the norm" wrongly)}
+does not estimate "reliable patterns deviant from the norm" incorrectly}
 
 %
 When estimating the Z-maps of the audio-description, correlations between
@@ -1305,8 +1299,10 @@ results (other studies discuss general stuff only, too; fucking joke, anyway)}
 general inference (how it is done now), or:}
 
 \todo[inline]{2. write general shit \& give some concrete examples (a.k.a.
-statistical tests) to make the point}
+statistical tests) to make the point (which would correspond to the structure of
+results section}
 
+\todo[inline]{Delete captions of subsubsections}
 
 \subsection{Introductory paragraph}
 
@@ -1715,6 +1711,8 @@ reliable and accurate \ac{cfs}''.
 
 \subsection{Future questions}
 
+\todo[inline]{just some ideas...}
+
 
 \subsubsection{Other ROIs than category-selective areas}
 
@@ -1795,8 +1793,8 @@ regions \citep{zhen2017quantifying, frost2012measuring}.
 
 \paragraph{Inference}
 
-\todo[inline]{cite studies (or review) that did research on other brain
-functions using naturalistic stimuli}
+\todo[inline]{cite a review that summarizes research the range of brain studied
+using naturalistic stimuli}
 
 %
 Therefore, future studies could investigate the extent to which functional
@@ -1815,18 +1813,21 @@ functional data in all of these domains.
 ``There are numerous other functional localizers in other perceptual and
 cognitive domains, such as simple visual motion, biological motion, tonotopy,
 voice perception, music perception, language, calculations, working memory, and
-theory of mind. Because naturalistic movies like Forrest Gump and Grand Budapest
-Hotel include people, human actions, conversations, social interactions,
-background music etc., we predict that hyperalignment transformation matrices
-based on these movies also will work for localizers of functional topographies
-for audition, language, and social cognition. Some high-level cognitive
-processes, such as calculation, working memory, and logical reasoning, may be
-less well sampled by movie viewing, and further work is necessary to test
-whether hyperalignment based on movie-viewing data can be used to estimate
-topographies for these other domains of high-level cognition. Researchers may
-need to select or develop movies that involve more calculations or logical
-inference-making to afford ac- curate estimation of topographies in these
-domains'' \citep{jiahui2020predicting}.
+theory of mind.
+%
+Because naturalistic movies include people, human actions, conversations, social
+interactions, background music etc., we predict functional alignment based on
+movies also will work for localizers of functional topographies for audition,
+language, and social cognition.
+%
+Some high-level cognitive processes, such as calculation, working memory, and
+logical reasoning, may be less well sampled by movie viewing, and further work
+is necessary to test whether hyperalignment based on movie-viewing data can be
+used to estimate topographies for these other domains of high-level cognition.
+%
+Researchers may need to select or develop movies that involve more calculations
+or logical inference-making to afford accurate estimation of topographies in
+these domains'' \citep{jiahui2020predicting}.
 
 
 \paragraph{Studyforrest dataset's other localizer t-contrasts}
@@ -1851,43 +1852,49 @@ objects.
 
 \subsubsection{Other functional alignment algorithms}
 
-\todo[inline]{In general, avoid a big treatise about different algos}
-
-\todo[inline]{Evtl. kann man alle Punkte dieser Subsubsection bereits oben
-verwursten; hier kommen die Punkte eh so ein wenig zusammenhangslos als
-Selbstzweck und ziehen allgemeine ganz am Ende die Ergebnisse runter (``a.k.a.
-"warum hast du nicht gleich Algo XY benutzt?'')}
+\todo[inline]{a big treatise on functional alignment algorithms should
+definitively be avoided}
 
 
 \paragraph{SRM}
 
-\todo[inline]{Check \citet{feilong2022individualized, jiahui2022cross,
-turek2018capturing}; at least two of them have modeled an individual component.}
 
-%
-A drawback of the SRM algorithm we employed here is that it models responses
-that are common across persons without an individual component.
-%
-A person's idiosyncratic responses are excluded from the shared response model
-but ``are not necessarily noise and may in fact be highly reliable within
-participants'' \citep{cohen2017computational}.
-%
-In order to predict a reliably atypical pattern (and not just quantify the
-deviation from norm), you need matching \ac{cfs} or---probably better---model
-has to have a shared response + individual component + noise.
-%
-Assess performance of whatever functional alignment algo to [directly] estimate
-[reliable] outliers in a sample.
-%
-Do you estimate the regular pattern (which allows you do quantify the difference
-of a deviant actual pattern to a norm) or do you directly estimate the deviant
-pattern from regular reference?
-%
-Hence, \ac{srm} might be problematic in case of atypical organization.
 
+The SRM algorithm used in this study has a drawback in that it only models
+responses that are common across individuals, without including an individual
+component.
 %
-Imo, present results suggest estimation of regular pattern (a.k.a. denoising).
+Although a person's idiosyncratic responses are excluded from the shared
+response model, they ``are not necessarily noise and may in fact be highly
+reliable within participants'' \citep{cohen2017representations}.
+%
+Based on the results of this study, it appears that we estimate a regular
+pattern in noisy data of a couple of participants  (i.e., we perform an
+\ac{srm}-based denoising).
+%
+However, to predict a reliably deviant pattern, it is necessary to use a
+matching CFS from a deviant reference, or preferably, a model that incorporates
+a shared response, an individual component, and noise.
+%
+Future studies should assess the performance of various functional alignment
+algorithms in estimating reliably deviant patterns, e.g. atypical topographies
+of language areas.
+%
+Does the algorithm estimate a regular pattern, which allows for quantifying the
+difference of a deviant actual pattern from a norm, or does it directly estimate
+the deviant pattern from a regular reference?
 
+\todo[inline]{if this topic is supposed to be discussed, check outsourced
+templates for atypical language topographies (in clinical populations)}
+
+\todo[inline]{at least two of \citet{feilong2022individualized, jiahui2022cross,
+turek2018capturing} have modeled an individual component.}
+
+
+
+
+% citep{cohen2017computational} on SRM and individual residuals
+\begin{comment}
 
 \paragraph{SRM and individual differences}
 %
@@ -1896,31 +1903,33 @@ residuals after removing shared group responses, or it can be applied
 hierarchically to the residuals to identify subgroups [\citet{chen2017shared}]
 '' \citep{cohen2017computational}.
 %
-``In cases where each subject's unique response is of more interest than the
-shared signal, SRM can be used to factor out the shared component thereby
-isolating the idiosyncratic response for each subject
-[\citep{chen2015reduced}]'' \citep{kumar2020brainiak}.
-%
 ``Recognizing that signal exists beyond the average or shared response of a
 group, such studies exploit idiosyncratic but stable responses to account for
 previously unexplained variance in brain function, behavioral performance and
 clinical measures [e.g., Finn (2015). Functional fingerprinting (based on
 connectivity)]'' \citep{cohen2017computational}.
+%
+``In cases where each subject's unique response is of more interest than the
+shared signal, SRM can be used to factor out the shared component thereby
+isolating the idiosyncratic response for each subject
+[\citep{chen2015reduced}]'' \citep{kumar2020brainiak}.
+
+\end{comment}
 
 
 
-\subsubsection{ROI vs. whole-brain (i.e. searchlight)}
 
-\todo[inline]{searchlight SRM \citep{zhang2016searchlight}}
+\subsubsection{ROI vs. whole-brain}
 
-\todo[inline]{negative: more parameters to vary and to assess}
+\todo[inline]{searchlight SRM: \citet{zhang2016searchlight}; negative:
+more (hyper) parameters to vary}
 
-``Searchlight functional alignment [\citep{zhang2016searchlight,
-guntupalli2016model}] learns local transformations and aggregates them into a
+``Searchlight functional alignment \citep{zhang2016searchlight,
+guntupalli2016model} learns local transformations and aggregates them into a
 single large-scale alignment.
 %
-The searchlight scheme [Kriegeskorte, 2006, Information-based functional brain
-mapping], popular in brain imaging [Guntupalli et al., 2018; 2016], has been
+The searchlight scheme [Kriegeskorte, 2006, Information-based...] , popular in
+brain imaging \citep{guntupalli2018computational, guntupalli2016model} has been
 used as a way to divide the cortex into small overlapping spheres of a field
 radius.
 %
@@ -1934,7 +1943,7 @@ averaging) across overlapping transforms.
 %
 The aggregated transformation produced is no longer guaranteed to bear the type
 of regularity (e.g orthogonality, isometry, or diffeomorphicity enforced during
-the local neighborhood fit)'' \citep{bazeille2021empirical}.
+the local neighborhood fit)..
 %
 ``In the case of searchlight Procrustes, we selected searchlight parameters to
 match those used in Guntupalli et al. (2016):
@@ -1947,16 +1956,13 @@ centers'' \citep{bazeille2021empirical}.
 
 \todo[inline]{An "issue" for reviewers but, imo, it's not a real issues}
 
-\todo[inline]{$Z$-maps of localizer were calculated in voxel space; cf. general
-discussion (opportunity costs)}
+\todo[inline]{opportunity costs: $Z$-maps of localizer were calculated in voxel
+space; we are nearer on the raw data (less error accumulation) because we work
+with voxels (surface vertices need additional mapping of $Z$-maps calculated
+from smoothed data); probably "difficult" to adapt to subcortical structures}
 
-\todo[inline]{we are nearer on the raw data (less error accumulation?) 'cause we
-work with voxels (surface vertices need additional mapping of $Z$-maps
-calculated from smoothed data), and both our anatomical and functional alignment
-use voxels as input (i.e. it is not mixed)}
-
-We compare volume-based [nonlinear] anatomical alignment to volume-based
-functional alignment.
+We compare volume-based anatomical alignment to volume-based functional
+alignment.
 %
 Future work could compare surface-based alignment that respects cortical folding
 structure -- that out-performs predictions based on [affine] volume-based
@@ -1966,59 +1972,25 @@ alignment.
 
 \subsubsection{Time series vs connectivity-based}
 
-\todo[inline]{kind of a killer cause you do not need intersection of
-time series}
-
-\todo[inline]{avoid a treatise by stating in the intro that response based
-aligns responses better, connectivity-based aligns connectivity better}
-
-\todo[inline]{what did \citep{nastase2019leveraging} do? As of now, I do not
-care anymore tbh}
-
 \todo[inline]{\citet{jiahui2022cross} do connectivity-based 1-step
 hyperalignment across different movie datasets which is as good as response
-hyperalignment; however, it's a shitty procedure to scale because the need a
+hyperalignment; however, it's a shitty procedure to scale because it needs a
 transformation matrix for every pair of subjects (i.e no \ac{cfs})}
 
+\todo[inline]{just some templates:}
 
 %
-``Response-based hyperalignment (RHA) mapped data from the anatomical space to a
-common information space based on time-point response patterns across cortical
+``Derivation of this common space can be based on either neural response
+profiles (e.g. data collected during tasks, such as movie viewing (Haxby et al.,
+2011)) or functional connectivity profiles files
+\citep{guntupalli2018computational}.
+%
+Response-based hyperalignment maps data from the anatomical space to a common
+information space based on time-point response patterns across cortical
 vertices.
 %
-Connectivity-based hyperalignment (CHA) mapped data from the
-anatomical space to a separate common information space based on functional
-connectivity patterns derived from the movie response data''
-\citep{busch2021hybrid}.
-
-``Response-based hyperalignment was shown to align response-based data better
-than connectivity-based hyperalignment, whereas connectivity-based
-hyperalignment was shown to better align connectivity-based data than
-response-based hyperalignment [Guntupalli et al., 2018]''
-\citep{busch2021hybrid}.
-%
-``Response-based common spaces better align held-out response data, whereas
-connectivity-based common spaces better align held-out connectivity data.
-[Guntupalli et al., 2018] \citep{busch2021hybrid}.
-
-%
-``Both connectivity hyperalignment and response hyperalignment increased ISCs
-and bsMVPC classification accuracies significantly over anatomy-based alignment,
-but each algorithm achieves better alignment for the information that it uses to
-derive a common model, namely connectivity profiles and patterns of response,
-respectively'' \citep{guntupalli2018computational}.
-
-
-%
-In other words, RHA outperforms CHA on response-based metrics of alignment,
-whereas CHA outperforms RHA on connectivity-based metrics'' ``Hyperalignment
-projects cortical pattern vectors into a common, high-dimensional information
-space \citep{haxby2020hyperalignment}.
-
-%
-Derivation of this common space can be based on either neural response profiles
-(e.g. data collected during tasks, such as movie viewing (Haxby et al., 2011))
-or functional connectivity profiles files \citep{guntupalli2018computational}''
+Connectivity-based hyperalignment maps data from the anatomical space to a
+common information space based on functional connectivity patterns''
 \citep{busch2021hybrid}.
 
 %
@@ -2034,6 +2006,7 @@ based on connectivity vectors.
 The length of these connectivity vectors is determined by the number of
 reference (or seed) regions in the brain'' [project proposal].
 
+
 % Kumar on Nastase's ugly mofo paper
 ``Estimating the SRM from functional connectivity data rather than response time
 series circumvents the need for a single shared stimulus across subjects.
@@ -2048,30 +2021,35 @@ depends on the variety of brain states over which connectivity is estimated''
 \citep{haxby2020hyperalignment}.
 
 
+%
+``Response-based hyperalignment was shown to align response-based data better
+than connectivity-based hyperalignment, whereas connectivity-based
+hyperalignment was shown to better align connectivity-based data than
+response-based hyperalignment
+%
+Response-based common spaces better align response data, whereas
+connectivity-based common spaces better align connectivity data
+\citep{guntupalli2018computational}'' \citep{busch2021hybrid}.
+
+
 \subsection{Short comings}
 
-\todo[inline]{Any other short comings (most is implicitly mentioned in "Future
-Questions")}
+\todo[inline]{Any other short comings? Most is (or can be implicitly) mentioned in "Future Questions")}
 
 \subsubsection{Bigger sample size}
-
 %
 The SRM is computationally less demanding [= "computationally more efficient"?]
 than hyperalignment, an advantage for scientists who want to replicate our
 results but do not have access to a high-performance computer cluster [or
 "high-throughput computer cluster" or simply "specialized hardware"?].
 %
-Moreover, it should scale pretty well (compared that to
-\citep{jiahui2020predicting, jiahui2022cross} 1-step alignment that needs
-pair-wise matrices for subjects 'cause no \ac{cfs}; similarly,
-\citep{busch2021hybrid})\todo{check Busch}.
+Moreover, it should scale pretty well to bigger sample sizes; compared to, for
+example, \citet{jiahui2020predicting, jiahui2022cross} 1-step hyperalignment
+alignment that needs pair-wise matrices for subjects (because no CFS).
 
 
 \paragraph{Small sample size lead to varying \ac{cfs} across subjects}
-
-\todo[inline]{topic might be dropped}
-
-% what is the case
+% "unstable" CFS
 The correlations of shared responses within the \acp{cfs} created from $N-1$
 training subjects varied across the folds of the cross-validation.
 % interpretation
