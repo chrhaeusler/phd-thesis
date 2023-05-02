@@ -597,7 +597,7 @@ sub-19 & 1369 \tabularnewline
 sub-20 & 1437 \tabularnewline
 \bottomrule
 \end{tabular}
-\caption*{The legend text goes here.}
+    % \caption*{The legend text goes here.}
 \end{table*}
 
 \end{comment}
@@ -775,23 +775,49 @@ the six categories of pictures that were presented in blocks.
 \centering
 \includegraphics[width=\linewidth]{figures/corr_av-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_3524-7123.pdf}
 \caption{
-%
-\textbf{Pearson correlation coefficients between regressors of the movie
-and shared features}
-%
-The time series of the shared features within the multi-paradigm \ac{cfs}
-%
-(as calculated for subject 01 in the first fold of the cross-validation)
-%
-were trimmed to match the corresponding \acp{tr} of the movie
-\citep{hanke2016simultaneous}.
-%
-The regressors \texttt{vse\_new} to \texttt{vno\_cut} are based on
-annotations movie frames, whereas the regressors
-\texttt{fg\_av\_ger\_lr} to \texttt{fg\_av\_ger\_ud} represent low-level
-visual or auditory confounds
-\citep[cf. Table 3 in][]{haeusler2022processing}.
-}
+    %
+    \textbf{Pearson correlation coefficients between regressors of the movie
+    and shared features}
+    %
+    The time series of the shared features within the multi-paradigm \ac{cfs}
+    %
+    (as calculated for subject 01 in the first fold of the cross-validation)
+    %
+    were trimmed to match the corresponding \acp{tr} of the movie
+    \citep{hanke2016simultaneous}.
+    %
+    The regressors \texttt{vse\_new} to \texttt{vno\_cut} are based on
+    annotations movie frames, whereas the regressors
+    \texttt{fg\_av\_ger\_lr} to \texttt{fg\_av\_ger\_ud} represent low-level
+    visual or auditory confounds
+    \citep[cf. Table 3 in][]{haeusler2022processing}.
+    %
+    \texttt{vse\_new}: change of the camera position to a setting not depicted
+    before;
+    \texttt{vse\_old}: change of the camera position to a recurring setting;
+    %
+    \texttt{vlo\_ch}: change of the camera position to another locale within
+    the same setting;
+    %
+    \texttt{vpe\_new}: change of the camera position within a locale not
+    depicted before;
+    %
+    \texttt{vpe\_old}: change of the camera position within a recurring locale;
+    %
+    \texttt{vno\_cut}: frames within a continuous movie shot;
+    %
+    \texttt{fg\_av\_ger\_lr}: left-right luminance difference;
+    %
+    \texttt{fg\_av\_ger\_lrdiff}: left-right volume difference;
+    %
+    \texttt{fg\_av\_ger\_ml}: mean luminance;
+    %
+    \texttt{fg\_av\_ger\_pd}: perceptual difference;
+    %
+    \texttt{fg\_av\_ger\_rms}: root mean square volume;
+    %
+    \texttt{fg\_av\_ger\_ud}: upper-lower luminance difference.
+    }
 \label{fig:corr-av-reg-srm}
 \end{figure*}
 
@@ -816,6 +842,32 @@ annotations of nouns spoken by the audio-description's narrator,
 whereas the regressors \texttt{fg\_ad\_ger\_lrdiff} and
 \texttt{fg\_ad\_ger\_rms} represent low-level auditory confounds
 \citep[cf. Table 3 in][]{haeusler2022processing}.
+%
+\texttt{body}: trunk of the body; overlaid clothes;
+%
+\texttt{bpart}: limbs and trousers;
+%
+\texttt{fahead}: face or head (parts);
+%
+\texttt{furn}: moveable furniture (insides \& outsides);
+%
+\texttt{geo}: immobile landmarks;
+%
+\texttt{groom}: rooms \& locales or geometry-defining elements;
+%
+\texttt{object}: countable entities with firm boundaries;
+%
+\texttt{se\_new}: a setting occurring for the first time;
+%
+\texttt{se\_old}: a recurring setting;
+%
+\texttt{sex\_f}: female person(s), name;
+%
+\texttt{sex\_m}: male person(s), name;
+%
+\texttt{fg\_ad\_lrdiff}: left-right volume difference;
+%
+\texttt{fg\_ad\_rms}: root mean square volume.
 %
 \texttt{geo\&groom} is a combination of
 regressors as used on the positive side of the primary contrasts aimed to
@@ -1037,7 +1089,7 @@ The minimum value is -0.526626, the 25th percentile is 0.428975, the median is
     max & 0.963065 & 0.800254 & 0.823584 \tabularnewline
     \bottomrule
 \end{tabular}
-     % \caption*{Legend would be here}
+     % \caption*{The legend text goes here.}
 \end{table*}
 
 
@@ -1122,12 +1174,12 @@ We used a Bonferroni correction to adjust the alpha level to $\alpha$ of $0.05 /
     \caption{
     %
     \textbf{Correlations between empirical and predicted
-    \textit{\textbf{Z}}-maps for each paradigm and subject.}
+    \textit{\textbf{Z}}-maps for each subject and paradigm.}
     %
     Functional alignment was performed based on an increasing amount of
     functional data used to align a test subject to the common functional space
-    (CFS): runs of the visual localizer paradigm lasted \unit[5.2]{min}; segments
-    of the naturalistic stimuli lasted $\approx$\unit[15]{min}.
+    (CFS): runs of the visual localizer paradigm lasted \unit[5.2]{min};
+    segments of the naturalistic stimuli lasted $\approx$\unit[15]{min}.
     %
     Solid horizontal lines:
     %
@@ -1137,39 +1189,31 @@ We used a Bonferroni correction to adjust the alpha level to $\alpha$ of $0.05 /
     Dotted horizontal lines:
     %
     mean of Cronbach's $\alpha$ across subjects for empirical $Z$-maps of the
-    respectively estimated paradigm (cf. Fig.~\ref{fig:cronbachs});
+    respectively estimated paradigm (cf. Fig.~\ref{fig:cronbachs}).
     %
     Grey dots:
     %
     correlations between empirical $Z$-maps and an estimation using anatomical
-    alignment.
-    %
-    A left-out subject's $Z$-map was estimated by projecting the training
-    subjects' $Z$-maps ($N=13$) from their respective voxel space through the
-    MNI152 space into the test subject's voxel space, then averaging the values
-    across projected $Z$-maps;
+    alignment;
     %
     Green dots:
     %
     correlations between empirical $Z$-map and an estimation using functional
-    alignment based an transformation matrices calculated from one up to four
-    runs (each lasting \unit[5.2]{min}) of the visual localizer.
+    alignment based on transformations calculated from one up to four
+    runs of the visual localizer.
     %
     Red dots:
     %
     correlations between empirical $Z$-map and an estimation using functional
-    alignment based an transformation matrices calculated from one up to eight
-    segments (each lasting $\approx$\unit[15]{min}) of the movie.
+    alignment based on transformations calculated from one up to eight
+    segments of the movie.
     %
     Blue dots:
     %
     correlations between empirical $Z$-map and an estimation using functional
-    alignment based an transformation matrices calculated from one up to eight
-    segments (each lasting $\approx$\unit[15]{min}) of the audio-description.
-    %
-    \textbf{to do: keep both, median and mean of Cronbach's? Improve legend
-    somehow without crowding figure / subplots?}
-   }
+    alignment based on transformations calculated from one up to eight
+    segments of the audio-description.
+    }
     \label{fig:stripplot}
 \end{figure*}
 
