@@ -1,5 +1,3 @@
-\todo[inline]{I use "prediction" and "estimation" pretty much interchangeably}
-
 \section{Introduction}
 
 % higher visual areas higher visual areas
@@ -65,8 +63,9 @@ functional data of persons in the reference group are anatomically aligned to
 (i.e.  projected into) a \textit{common anatomical space} (e.g., Montreal
 Neurological Institute brain atlas; \citep[MNI152,][]{fonov2011unbiased}).
 % project into test subject to estimate
-Then, data are projected from the common anatomical space into the individual
-person's brain anatomy to provide an estimate a functional region's location.
+Then, data are projected from the common anatomical space into\todo{?} the
+individual person's brain anatomy to provide an estimate a functional region's
+location.
 % volume-based alignment in one sentence
 Volume-based anatomical alignment \citep[s.][for a review]{klein2009evaluation}
 aligns voxels to a three-dimensional common anatomical space \citep[e.g., MNI152
@@ -117,8 +116,8 @@ underlying anatomical location.
 In order to address the issue of functional-anatomical variability across
 subjects, \textit{functional alignment} algorithms, such as
 \textit{hyperalignment} \citep{haxby2011common, guntupalli2016model} or the
-\textit{shared response model} \citep{chen2015reduced, zhang2016searchlight},
-have been developed.
+\textit{shared response model} (SRM) \citep{chen2015reduced,
+zhang2016searchlight}, have been developed.
 %
 Whereas anatomical alignment aligns voxels (or vertices) that share the same
 anatomical location to a common anatomical space, functional alignment aligns
@@ -130,7 +129,7 @@ high-dimensional, functional brain template (i.e. the \ac{cfs}) subject-specific
 transformations from the functional data of a study's participants.
 %
 A subject-specific transformation allows to project functional data from a
-subject's three-dimensional voxel space into the \ac{cfs} or vice versa
+subject's three-dimensional voxel space into\todo{?} the \ac{cfs} or vice versa
 \citep{haxby2020hyperalignment, kumar2020brainiak}.
 %
 The \ac{cfs} and transformations are calculated (i.e. \textit{trained}) by
@@ -172,16 +171,16 @@ Second, to address the issue of functional-anatomical variability across
 individuals, the functional data are functionally aligned (i.e. projected into)
 a \ac{cfs}.
 %
-Finally, data are projected from the \ac{cfs} into the individual's brain
-anatomy, serving as an estimate of a functional region's location.
+Finally, data are projected from the \ac{cfs} into the\todo{?} individual's
+brain anatomy, serving as an estimate of a functional region's location.
 % Example: Jiahui (2020)
 For instance, \citet{jiahui2020predicting} used surface-based hyperalignment to
 calculate \acp{cfs} and transformations based on data from
 %
-the movie ``Grand Budapest Hotel'' ($\approx$\unit[50]{m}; \ac{tr}=\unit[1]{s}),
+the movie ``Grand Budapest Hotel'' ($\approx$\unit[50]{min}; \ac{tr}=\unit[1]{s}),
 and
 %
-the movie ``Forrest Gump'' ($\approx$\unit[120]{m}; \ac{tr}=\unit[2]{s}).
+the movie ``Forrest Gump'' ($\approx$\unit[120]{min}; \ac{tr}=\unit[2]{s}).
 %
 \citet{jiahui2020predicting} then estimated $t$-contrast maps from a visual
 localizer that aimed at identifying the \ac{ffa} by projecting the $t$-contrast
@@ -210,16 +209,14 @@ the to predicted \textit{criteria}:
 (b) a movie \citep{haeusler2022processing}, and
 %
 (c) an auditory narrative \citep{haeusler2022processing}.
-% math stuff from citep{vodrahalli2018mapping}
-% ``SRM learns $N$ maps $W_{i}$ with orthogonal columns such that
-% $||X_{i}-W_{i}S||_{F}$ is minimized over $\left\{ W_{i}\right\} _{i=1}^{N},S$,
-% where $X_{i}\in\mathbb{R}^{v\times{T}}$ is the $i^{th}$ subject's fMRI
-% response ($v$ voxels by $T$ repetition times) and
-% $S\in\mathbb{R}^{k\times{T}}$ is a feature time-series in a $k$-dimensional
-% shared space'' \citep{vodrahalli2018mapping}.
-% Inverse vs. transpose of a matrix:
-% for orthogonal transformations (like we should have here, i.e. only rotation,
-% expansion) these two are one and the same thing:
+% math stuff from citep{vodrahalli2018mapping} ``SRM learns $N$ maps $W_{i}$
+% with orthogonal columns such that $||X_{i}-W_{i}S||_{F}$ is minimized over
+% $\left\{ W_{i}\right\} _{i=1}^{N},S$, where $X_{i}\in\mathbb{R}^{v\times{T}}$
+% is the $i^{th}$ subject's fMRI response ($v$ voxels by $T$ repetition times)
+% and $S\in\mathbb{R}^{k\times{T}}$ is a feature time-series in a
+% $k$-dimensional shared space'' \citep{vodrahalli2018mapping}.  Inverse vs.
+% transpose of a matrix: for orthogonal transformations (like we should have
+% here, i.e. only rotation, expansion) these two are one and the same thing:
 % https://www.quora.com/When-is-the-inverse-of-a-matrix-equal-to-its-transpose
 % why SRM
 Our volume-based functional alignment approach utilizes the \ac{srm} algorithm
@@ -232,7 +229,7 @@ The \ac{srm} is an unsupervised probabilistic latent-factor model that
 decomposes \ac{bold} \ac{fmri} response time series of participants who have
 experienced the same stimulus into a \ac{cfs} of \textit{shared features}
 \citep[also known as ``\textit{shared feature space}'';][]{chen2015reduced} and
-subject-specific linear transformations matrices.
+subject-specific linear transformations.
 % math stuff
 More specifically, the \ac{srm} algorithm uses each $n^{th}$ subject's response
 time series represented as matrix $X_{n}$ ({$v$} voxels by $t$ time points) to
@@ -242,7 +239,7 @@ responses) with orthonormal columns ($W_{n}^{T}W_{n}=I_{k}$).
 % iteratively fitted
 The algorithm randomly initializes and fits the transformation matrices over
 iterations to minimize the error in explaining the participants' data, while
-also learning the time course of the shared responses (s.
+also learning the time course of the shared responses (cf.
 \href{https://brainiak.org/tutorials/11-SRM/}{\url{brainiak.org/tutorials/11-SRM}}).
 % number of dimensions
 In contrast to hyperalignment, the number of dimensions of the \ac{cfs} is not
@@ -253,10 +250,10 @@ and reduces overfitting \citep{chen2015reduced}.
 As a result, each shared feature can be thought of as a weighted sum of many
 voxels across subjects \citep{kumar2020brainiak}.
 % result = alignment
-A subject-specific transformation matrix can thought of as the weight of each
-voxel in a subject's voxel space on each shared feature, and allows a subject's
-functionally data to be aligned to the \ac{cfs} by projecting responses within
-the voxels into the $k$-dimensional \ac{cfs}.
+A subject-specific transformation matrix can be thought of as the weight of each
+voxel in a subject's voxel space on each shared feature, and allows a
+subject's\todo{?} functionally data to be aligned to the \ac{cfs} by projecting
+responses within the voxels into\todo{?} the $k$-dimensional \ac{cfs}.
 
 
 \todo[inline]{check if $W_{n}^{T}W_{n}=I_{k}$ is True}
@@ -275,12 +272,12 @@ We followed an exhaustive leave-one-subject-out cross-validation (N$=$14
 subjects) to train a shared feature space (i.e. the \ac{cfs}) based on
 concatenated response time series of
 %
-the movie ``Forrest Gump'' ($\approx$\unit[120]{m}; \ac{tr}=\unit[2]{s}),
+the movie ``Forrest Gump'' ($\approx$\unit[120]{min}; \ac{tr}=\unit[2]{s}),
 %
 the movie's audio-description  that was produced for a visually impaired
-audience ($\approx$\unit[120]{m}; \ac{tr}=\unit[2]{s}), and
+audience ($\approx$\unit[120]{min}; \ac{tr}=\unit[2]{s}), and
 %
-a visual localizer ($\approx$\unit[21]{m}; \ac{tr}=\unit[2]{s})
+a visual localizer ($\approx$\unit[21]{min}; \ac{tr}=\unit[2]{s})
 %
 from $N-1$ \textit{training subjects} as seen in
 Fig.~\ref{fig:multi-stimulus-cfs}.
@@ -334,24 +331,25 @@ that serves as a benchmark.
 \includegraphics[width=\linewidth]{figures/multi-stimulus-cfs.pdf}
 \caption{
 %
-\textbf{Overview of the shared response model.
+    \textbf{Overview of the shared response model (SRM).
 }
     %
     For each fold of the leave-one-subject-out cross-validation, each training
     subject's response time series of
     %
-    a movie ($\approx$\unit[120]{m}; \ac{tr}=\unit[2]{s}),
+    the movie ($\approx$\unit[120]{min}; \ac{tr}=\unit[2]{s}),
     %
-    the movie's audio-description ($\approx$\unit[120]{m}; \ac{tr}=\unit[2]{s}),
+    the movie's audio-description ($\approx$\unit[120]{min};
+    \ac{tr}=\unit[2]{s}),
     %
-    and the visual localizer ($\approx$\unit[21]{m}; \ac{tr}=\unit[2]{s})
+    and the visual localizer ($\approx$\unit[21]{min}; \ac{tr}=\unit[2]{s})
     %
     were concatenated to serve as input for the \ac{srm} algorithm.
     %
     From these response time series represented as matrix $X_{n}$ ({$v$} voxels
     by $t$ time points), the algorithm calculates the common functional
     space (CFS) $C$ ($k$ shared features by $t$ time points) and
-    subject-specific, transformation matrices $W_{n}$
+    subject-specific transformation matrices $W_{n}$
     ($v$ voxels by $k$ shared features) with orthonormal columns
     ($W_{n}^{T}W_{n}=I_{k}$).
 } \label{fig:multi-stimulus-cfs} \end{figure*}
@@ -527,7 +525,7 @@ $\overline{X}=1592$, $SD=188$) can be seen in Fig.~\ref{fig:plot_voxel-counts}.
 Data of each run were normalized ($z$-scored) to a mean of zero
 ($\overline{X}=0$) and a standard deviation of one ($SD=1$).
 %
-Due to an image reconstruction problem \citep[s.][]{hanke2014audiomovie}, the
+Due to an image reconstruction problem \citep[cf.][]{hanke2014audiomovie}, the
 last 75 \acp{tr} of the audio-description were missing in subject 04.
 %
 The \ac{srm} allows for different numbers of voxels across subjects, but the
@@ -645,7 +643,7 @@ their voxel space into the \ac{cfs} using their transformation matrices.
 % project from CFS into test subject
 Finally, we projected the training subjects' $Z$-maps from the \ac{cfs} into the
 test subject's voxel space using the transpose of the test subject's
-transformation matrix
+transformation matrix.
 % actual prediction
 We obtained the test subject's predicted $Z$-maps by calculating the arithmetic
 mean of the projected Z-maps
@@ -853,9 +851,9 @@ that allow a mapping of data from a test subject's voxel space into the
 To investigate how the amount of data used to acquire a transformation matrix
 affects estimation performance, we also varied the number of runs per paradigm.
 %
-Specifically, we we used one up to four runs (each lasting \unit[5.2]{m}) of the
+Specifically, we we used one up to four runs (each lasting \unit[5.2]{min}) of the
 visual localizer, and one up to eight segments (each lasting
-$\approx$\unit[15]{m}) to align the test subject to the corresponding \acp{tr}
+$\approx$\unit[15]{min}) to align the test subject to the corresponding \acp{tr}
 within the \ac{cfs}.
 %
 Therefore, for each test subject, we obtained four matrices based on data from
@@ -1039,7 +1037,7 @@ The minimum value is -0.526626, the 25th percentile is 0.428975, the median is
     max & 0.963065 & 0.800254 & 0.823584 \tabularnewline
     \bottomrule
 \end{tabular}
-\caption*{Imo, a legend is not necesssary}
+     % \caption*{Legend would be here}
 \end{table*}
 
 
@@ -1050,7 +1048,7 @@ The minimum value is -0.526626, the 25th percentile is 0.428975, the median is
 \begin{comment}
 
 ``Because the localizer task comprises several scanning runs, we calculated the
-reliability of the localizer across runs with Cronbach's alpha to provide an
+reliability of the localizer across runs with Cronbach's $\alpha$ to provide an
 estimate of the noise ceiling for these correlations'' \citep{jiahui2022cross}.
 
 \end{comment}
@@ -1080,8 +1078,8 @@ fulfilled; alternative: two sample permutation test?}
 \todo[inline]{give one-sentence interpretations à la "Results suggest..."? imo,
 that's not good}
 
-\todo[inline]{so far, I did not test any difference(s) to Cronbach's; s.
-comments below where it would makes sense to test difference to Cronbach's}
+\todo[inline]{so far, I did not test any difference(s) to Cronbach's $\alpha$;
+s.  comments below where it would makes sense to test difference to Cronbach's}
 
 \todo[inline]{round the values or just write $p$<.0001}
 
@@ -1128,8 +1126,8 @@ We used a Bonferroni correction to adjust the alpha level to $\alpha$ of $0.05 /
     %
     Functional alignment was performed based on an increasing amount of
     functional data used to align a test subject to the common functional space
-    (CFS): runs of the visual localizer paradigm lasted \unit[5.2]{m}; segments
-    of the naturalistic stimuli lasted $\approx$\unit[15]{m}.
+    (CFS): runs of the visual localizer paradigm lasted \unit[5.2]{min}; segments
+    of the naturalistic stimuli lasted $\approx$\unit[15]{min}.
     %
     Solid horizontal lines:
     %
@@ -1155,19 +1153,19 @@ We used a Bonferroni correction to adjust the alpha level to $\alpha$ of $0.05 /
     %
     correlations between empirical $Z$-map and an estimation using functional
     alignment based an transformation matrices calculated from one up to four
-    runs (each lasting \unit[5.2]{m}) of the visual localizer.
+    runs (each lasting \unit[5.2]{min}) of the visual localizer.
     %
     Red dots:
     %
     correlations between empirical $Z$-map and an estimation using functional
     alignment based an transformation matrices calculated from one up to eight
-    segments (each lasting $\approx$\unit[15]{m}) of the movie.
+    segments (each lasting $\approx$\unit[15]{min}) of the movie.
     %
     Blue dots:
     %
     correlations between empirical $Z$-map and an estimation using functional
     alignment based an transformation matrices calculated from one up to eight
-    segments (each lasting $\approx$\unit[15]{m}) of the audio-description.
+    segments (each lasting $\approx$\unit[15]{min}) of the audio-description.
     %
     \textbf{to do: keep both, median and mean of Cronbach's? Improve legend
     somehow without crowding figure / subplots?}
@@ -1199,7 +1197,7 @@ $p$<0.0000532),
 The mean correlation between empirical $Z$-maps and $Z$-maps predicted via the
 first movie segment were significantly lower than the correlations between
 empirical $Z$-maps and $Z$-maps predicted via the first two movie segments
-(Fisher z-transformed, t(14)= -5.4946197, $p$=0.0001031, Bonferroni corrected).
+(Fisher z-transformed, t(14)= -5.4946197, $p$=0.0001031).
 %
 However, the difference between mean correlations based on two movie segments
 compared to the mean correlation based on three movie segments was not
@@ -1211,8 +1209,7 @@ more data, as evident by visual inspection.
 However, when comparing a similar amount of \acp{tr}, the functional alignment
 via the first segment of the audio-description yielded significantly lower
 correlations than the functional alignment via four localizer runs (Fisher
-z-transformed, t(14)=-2.3000009, $p$<0.0386588, will not be significant when
-Bonferroni corrected).
+z-transformed, t(14)=-2.3000009, $p$<0.0386588). \todo{only uncorrected}
 
 \todo[inline]{possibly run the test that compares 8 movie segments to Cronbach's
 alpha of localizer? a.k.a. 8 runs of movie for functional alignment are "not as
@@ -1419,7 +1416,7 @@ In within-paradigm prediction, audio-description eventually outperforms
 anatomical alignment when more than 4-6 segments are used.
 %
 Nevertheless, for every alignment procedure (both functional and anatomical), it
-is difficult to estimate the outliers of Cronbach's of audio PPA.
+is difficult to estimate the outliers of Cronbach's $\alpha$ of audio PPA.
 
 
 
@@ -1506,11 +1503,11 @@ paradigm, i.e., another same-modality criterion.
 naturalistic stimuli}
 
 %
-When estimating audio PPA, the participants with poor Cronbach's have the lowest
-correlation between predicted and empirical $Z$-maps.
+When estimating audio PPA, the participants with poor Cronbach's $\alpha$ have
+the lowest correlation between predicted and empirical $Z$-maps.
 %
-When estimating audio PPA, participants with poor Cronbach's have the lowest
-correlation between predicted and empirical $Z$-maps.
+When estimating audio PPA, participants with poor Cronbach's $\alpha$ have the
+lowest correlation between predicted and empirical $Z$-maps.
 %
 These participants are not "reliable outliers deviant from the norm" but may be
 considered as unreliable outliers due to their noisy data.
@@ -1543,7 +1540,8 @@ the shared features during TRs of the movie and audio-description seem to be
 more abstract.
 %
 Final point: given that the within-paradigm prediction works well for most
-subjects, the Cronbach's-a outliers do not significantly degrade the model.
+subjects, outliers of Cronbach's $\alpha$ do not significantly degrade the
+model.
 
 %
 Perhaps the large individual variability observed in some subjects during the
@@ -1646,7 +1644,7 @@ paradigms)}
 
 %
 Our results suggest that 15 minutes functional scanning using an engaging
-naturalistic stimuli could provide sufficient data for a \textit{calibration
+naturalistic stimulus could provide sufficient data for a \textit{calibration
 scan}.
 %
 A standardized calibration scan could be used to align a new subject to a
@@ -1866,7 +1864,7 @@ component.
 %
 Although a person's idiosyncratic responses are excluded from the shared
 response model, they ``are not necessarily noise and may in fact be highly
-reliable within participants'' \citep{cohen2017representations}.
+reliable within participants'' \citep{cohen2017computational}.
 %
 Based on the results of this study, it appears that we estimate a regular
 pattern in noisy data of a couple of participants  (i.e., we perform an
