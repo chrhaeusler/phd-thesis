@@ -292,6 +292,9 @@ different categories presented in spoken sentences.
 %
 Despite mixed results, the findings by \citet{aziz2008modulation} suggest that
 \ac{ppa} does not solely respond to visually presented scene-related stimuli.
+
+
+
 % SRM
 \begin{comment}
 %
@@ -299,12 +302,16 @@ I will evaluate the movie's and audio-description's potential to replace a
 visual localizer in two ways.
 
 
-\subsection{Approach 1: \ac{glm} $t$-contrasts}
+
 
 % 1. modeling hemodynamic responses
 First,
 
 \end{comment}
+
+
+
+\subsection{Approach 1: \ac{glm} $t$-contrasts}
 %
 Similarly to traditional localizer paradigms, we modeled hemodynamic activity
 correlating with the perception spatial information.
@@ -317,93 +324,75 @@ We then created \ac{glm} $t$-contrasts using these modeled hemodynamic time
 courses (i.e. regressors) to locate the \ac{ppa}, which was previously
 identified in the same group of participants by a conventional block-design
 functional localizer using static images \citep{sengupta2016extension}.
-%
+
+
 % SRM
-\begin{comment}
-
-
 \subsection{Approach 2: Estimation from ref}
 
 \todo[inline]{Estimation from reference mentioned here for the first time!}
 
-\todo[inline]{It's not written in the theory part above already (because it
-get's super messy there); therefor, the part here can be a little longer}
+\todo[inline]{do final revision when SRM study is fix; otherwise, the more
+general text here will change too often}
 
-\todo[inline]{When SRM study is written, revise accordingly}
+\todo[inline]{make this part really, really short; below is "specific objectives
+per study; especially write no "method section"; but mention SRM algo; prime the term "transformations" here, already?}
+
 
 % 2. estimation from reference
-Second, in order to address the practical and monetary constraints of a clinical
-context, we estimate the localizer results of participants from results of
-participants in a \textit{reference group}.
-
-
-\subsubsection{Anatomical alignment}
+Second, we estimate the results of the visual localizer's $t$-contrast in one
+participant from the results of the remaining participants (i.e. \textit{reference
+group}).
 % previous studies: anatomical alignment
-Previous studies have shown that the location of a participant's \ac{ppa} can be
-estimated using \textit{anatomical alignment} \citep{frost2012measuring,
+Previous studies estimated the location of participant's \ac{ppa} by performing
+an \textit{anatomical alignment} procedure \citep{frost2012measuring,
 rosenke2021probabilistic, weiner2018defining, zhen2017quantifying}.
 %
-First, in order to addresses the issue of anatomical variability, functional
-\acp{roi} of individuals in the reference group are anatomically aligned to a
-\textit{common anatomical space}, i.e. functional data are mapped (i.e.
-projected) from each person's brain space into an average brain anatomy such as
-the Montreal Neurological Institute brain atlas
-\citep[MNI152,][]{fonov2011unbiased}.
-%
-Then, the average of \acp{roi} is mapped from the common anatomical space into
-the individual person's brain anatomy serving as an estimation of a functional
+Functional data of the reference group are anatomically aligned to (i.e.
+projected into) a \textit{common anatomical space} (CAS), such as the Montreal
+Neurological Institute brain atlas \citep[MNI152,][]{fonov2011unbiased}, and
+then projected into a new participant's brain anatomy to estimate a functional
 region's most probable location.
 %
 However, even cortical surface-based alignment \citep{fischl1999cortical,
-yeo2009spherical} cannot eliminate the functional-anatomical variability of
-category-selective regions across persons \citep{frost2012measuring,
-weiner2018defining, weiner2014mid}.
+yeo2009spherical} can reduce but not eliminate the functional-anatomical
+variability of category-selective regions across persons
+\citep{frost2012measuring, weiner2018defining, weiner2014mid}.
 
 
-\subsubsection{Functional alignment}
-
-\todo[inline]{this is very high-level overview; SRM is not even mentioned}
+\todo[inline]{Rephrase as an actual goal and not a method section}
 
 % intro to functional alignment
-In order to address the issue of functional-anatomical variability across
-subjects, we will use \textit{functional alignment} \citep[cf.][for
-reviews]{haxby2020hyperalignment, bazeille2021empirical} to estimate a
-participant's localizer results from a reference group.
+In order to address the issue of functional-anatomical variability, we
+investigated the estimation performance of a new procedure that is based on
+\textit{functional alignment} \citep[cf.][for reviews]{haxby2020hyperalignment,
+bazeille2021empirical}.
 %
 Whereas anatomical alignment aligns voxels (or vertices) that share the same
 anatomical location to a common anatomical space, functional alignment aligns
 voxels (or vertices) that share similar functional properties to a
-\textit{\ac{cfs}}.
-
-
-\paragraph{Cross-validation}
-
-\todo[inline]{I really tried to simplify the next paragraph; problem is, it gets
-so vague that it gets almost wrong; at least I would be puzzled more if the text
-would give less details}
-
-\todo[inline]{"transformation matrix" was substituted with "mapping"}
-
+\textit{common functional space} (CFS).
 %
 Following an exhaustive leave-one-out cross-validation, we split the dataset
-(N$=$14 subjects) repeatedly in a set of $N-1$ \textit{training subjects} (the
-reference group) and one \textit{test subject} (the left-out subject).
+(N$=$14 subjects) repeatedly in a set of one \textit{test subject} and $N-1$
+\textit{training subjects} (i.e.  the reference group).
 %
-First, for every fold of the cross-validation, we train a model of a \ac{cfs}
-based on the training subjects' response time series to a movie, an auditory
-narrative and a visual localizer.
 %
-Second, we project the training subject's localizer results from their
-respective brain space into the \ac{cfs}.
+We then projected the training subject's localizer results from their respective
+brain space into the \ac{cfs}.
 %
-Third, the we align the test subject's response time series to the \ac{cfs} in
-order to obtain a mapping for the test subject.
+In order to derive a mapping that allowed projecting the data from the \ac{cfs}
+into a test subject's brain space, we aligned the test subject to the \ac{cfs}
+using a test subject's response time series to the movie, audio-description or
+localizer.
 %
-Last, we use the test subject's mapping to project the training subjects'
-localizer results from the \ac{cfs} into the test subject's brain space that
-serve as an estimation of the test subject's localizer result.
 
-\paragraph{Partial alignment}
+\paragraph{The actual aim}
+
+\todo[inline]{assess the transformations based on three stimuli and their
+respective quantity}
+
+\todo[inline]{stream line with specific aims and hypothesis}
+
 % problem
 However, using the entire time series data of a two-hour paradigm to obtain
 a test subject's mapping is inefficient and unsuitable for a clinical
@@ -415,9 +404,6 @@ Ideally, only a part of a movie or an auditory narrative could be used as a
 Therefore, we also examine the relationship between the quantity of functional
 data used to functionally align a test subject to the \ac{cfs} and the
 estimation performance.
-
-
-\end{comment}
 
 
 
@@ -623,6 +609,47 @@ supposed to be in 1.3.3 already}
 
 \todo[inline]{however, we agreed on SRM study not having at its own abstract; I
 might write a little more here (or add an abstract to Chapter 5)}
+
+
+%
+Following an exhaustive leave-one-out cross-validation, we split the dataset
+(N$=$14 subjects) repeatedly in a set of one \textit{test subject} and $N-1$
+\textit{training subjects} (i.e.  the reference group).
+
+
+%
+We then calculated a \ac{cfs} based on the training subject's response time
+series to a movie, an auditory narrative and a visual localizer.
+%
+We then projected the training subject's localizer results from their respective
+brain space into the \ac{cfs}.
+%
+In order to derive a mapping that allowed projecting the data from the \ac{cfs}
+into a test subject's brain space, we aligned the test subject to the \ac{cfs}
+using a test subject's response time series to the movie, audio-description or
+localizer.
+%
+
+
+
+\paragraph{The actual aim}
+
+\todo[inline]{assess the transformations based on three stimuli and their
+respective quantity}
+
+\todo[inline]{stream line with specific aims and hypothesis}
+
+% problem
+However, using the entire time series data of a two-hour paradigm to obtain
+a test subject's mapping is inefficient and unsuitable for a clinical
+population.
+%
+Ideally, only a part of a movie or an auditory narrative could be used as a
+``diagnostic'' run to estimate the localizer results.
+%
+Therefore, we also examine the relationship between the quantity of functional
+data used to functionally align a test subject to the \ac{cfs} and the
+estimation performance.
 
 
 \paragraph{Specific objectives \& goals}

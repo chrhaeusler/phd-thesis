@@ -149,7 +149,7 @@ provide
 %
 improved generalizability of the \ac{cfs}
 %
-and transformation matrices
+and transformations
 %
 to novel stimuli or tasks.
 %
@@ -190,11 +190,6 @@ anatomy.
 Results showed that $t$-contrast maps from the visual localizer correlated more
 highly with contrast maps that were estimated via hyperalignment than contrast
 maps that were estimated via surface-based anatomical alignment.
-
-
-\todo[inline]{\textit{criterion} and \textit{predictors} are defined here to
-make the discussion easier; however, it's not predictor / criterion in a
-strict sense as typically used (as referring to single variables)}
 
 % focus: ppa
 Here again, we focus on the \ac{ppa} \citep[e.g.,][for
@@ -469,8 +464,6 @@ and calling command line functions of FSL.
 % added back in for various practical reasons.
 % When FILM begins the linear modeling, it starts by removing this mean.
 
-\todo[inline]{restriction to ROIs is not mentioned in the intro. Is that okay?}
-
 % masks-from-mni-to-bold3Tp2.py:
 % - merges unilateral ROIs overlaps (already in MNI) to bilateral ROI
 % - output: 'masks/in_mni/PPA_overlap_prob.nii.gz'
@@ -508,7 +501,7 @@ In order to restrict the number of voxels, we created bilateral \acp{roi} for
 each subject.
 %
 Specifically, we warped the union of individual \acp{ppa}
-citep[s.][]{haeusler2022processing} from MNI space into each subject's voxel
+\citep[s.][]{haeusler2022processing} from MNI space into each subject's voxel
 space using subject-specific, non-linear transformation matrices that were
 previously computed
 \citep[][\href{https://github.com/psychoinformatics-de/studyforrest-data-templatetransforms
@@ -606,7 +599,6 @@ sub-20 & 1437 \tabularnewline
 
 
 \subsection{Estimation via functional alignment}
-
 
 \subsubsection{Overview}
 %
@@ -826,54 +818,54 @@ the six categories of pictures that were presented in blocks.
 \centering
 \includegraphics[width=\linewidth]{figures/corr_ao-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_0-3524.pdf}
 \caption{
-%
-\textbf{Pearson correlation coefficients between regressors of the
-audio-description and shared features.}
-%
-The time series of the shared features within the multi-paradigm \ac{cfs}
-%
-(as calculated for subject 01 in the first fold of the cross-validation)
-%
-were trimmed to match the corresponding \acp{tr} of the
-audio-description \citep{hanke2014audiomovie}.
-%
-The regressors \texttt{body} to \texttt{sex\_m} are based on
-annotations of nouns spoken by the audio-description's narrator,
-whereas the regressors \texttt{fg\_ad\_ger\_lrdiff} and
-\texttt{fg\_ad\_ger\_rms} represent low-level auditory confounds
-\citep[cf. Table 3 in][]{haeusler2022processing}.
-%
-\texttt{body}: trunk of the body; overlaid clothes;
-%
-\texttt{bpart}: limbs and trousers;
-%
-\texttt{fahead}: face or head (parts);
-%
-\texttt{furn}: moveable furniture (insides \& outsides);
-%
-\texttt{geo}: immobile landmarks;
-%
-\texttt{groom}: rooms \& locales or geometry-defining elements;
-%
-\texttt{object}: countable entities with firm boundaries;
-%
-\texttt{se\_new}: a setting occurring for the first time;
-%
-\texttt{se\_old}: a recurring setting;
-%
-\texttt{sex\_f}: female person(s), name;
-%
-\texttt{sex\_m}: male person(s), name;
-%
-\texttt{fg\_ad\_lrdiff}: left-right volume difference;
-%
-\texttt{fg\_ad\_rms}: root mean square volume.
-%
-\texttt{geo\&groom} is a combination of
-regressors as used on the positive side of the primary contrasts aimed to
-localize the \ac{ppa} \citep[cf. Table 5 in][]{haeusler2022processing}.
-}
-\label{fig:corr-ao-reg-srm}
+    %
+    \textbf{Pearson correlation coefficients between regressors of the
+    audio-description and shared features.}
+    %
+    The time series of the shared features within the multi-paradigm \ac{cfs}
+    %
+    (as calculated for subject 01 in the first fold of the cross-validation)
+    %
+    were trimmed to match the corresponding \acp{tr} of the
+    audio-description \citep{hanke2014audiomovie}.
+    %
+    The regressors \texttt{body} to \texttt{sex\_m} are based on
+    annotated classes of nouns spoken by the audio-description's narrator,
+    whereas the regressors \texttt{fg\_ad\_ger\_lrdiff} and
+    \texttt{fg\_ad\_ger\_rms} represent low-level auditory confounds
+    \citep[cf. Table 3 in][]{haeusler2022processing}.
+    %
+    \texttt{body}: trunk of the body; overlaid clothes;
+    %
+    \texttt{bpart}: limbs and trousers;
+    %
+    \texttt{fahead}: (parts) of the face or head;
+    %
+    \texttt{furn}: moveable furniture (insides \& outsides);
+    %
+    \texttt{geo}: immobile landmarks;
+    %
+    \texttt{groom}: rooms \& locales or geometry-defining elements;
+    %
+    \texttt{object}: moveable and countable entities with firm boundaries;
+    %
+    \texttt{se\_new}: a setting occurring for the first time;
+    %
+    \texttt{se\_old}: a recurring setting;
+    %
+    \texttt{sex\_f}: female name, female person(s);
+    %
+    \texttt{sex\_m}: male name, male person(s);
+    %
+    \texttt{fg\_ad\_lrdiff}: left-right volume difference;
+    %
+    \texttt{fg\_ad\_rms}: root mean square volume.
+    %
+    \texttt{geo\&groom} is a combination of
+    regressors as used on the positive side of the primary contrasts aimed to
+    localize the \ac{ppa} \citep[cf. Table 5 in][]{haeusler2022processing}.
+    }
+    \label{fig:corr-ao-reg-srm}
 \end{figure*}
 
 
@@ -943,6 +935,9 @@ subject's empirical $Z$-maps (hence, a \textit{predicted $Z$-maps}).
 but through a study-specific brain template co-registered to the MNI152 atlas,
 wasn't it?}
 
+\todo[inline]{here is a point where one could switch from "transformation
+matrices" back to simply "transformations".}
+
 \todo[inline]{was the matrix the transpose or a "totally" different one?}
 
 %
@@ -963,7 +958,7 @@ cross-subject-within-paradigm predictions).
 To do this, we projected the masked empirical $Z$-maps of each paradigm and each
 subject were projected from their native voxel space into the MNI space via
 previously computed subject-specific transformation matrices
-\citep[][\href{https://github.com/psychoinformatics-de/studyforrest-data-templatetransforms}{\url{github.com/psychoinformatics-de/studyforrest-data-templatetransforms}}]{hanke2014audiomovie}
+\citep[][\href{https://github.com/psychoinformatics-de/studyforrest-data-templatetransforms}{\url{github.com/psychoinformatics-de/studyforrest-data-templatetransforms}}]{hanke2014audiomovie}.
 % from MNI into subject
 We then used the transpose of the transformation matrix to project the data from
 the MNI space into the test subject's voxel space.
@@ -1005,46 +1000,25 @@ Cronbach's $\alpha$ of empirical (i.e. second-level) $Z$-maps for each subject
 and paradigm can be seen in Fig.~\ref{fig:cronbachs}, descriptive statistics
 across subjects for each paradigm can be seen in Table~\ref{fig:cronbachs}.
 
-%Visual localizer:  mean=0.899990, std=0.087051, min=0.658523,
-%25\%=0.906643, 50\%=0.934019, 75\%=0.947906, max=0.963065.
-%
-%Movie: mean=0.611332, std=0.137878, min=0.284440,
-%25\%=0.555529, 50\%=0.627240, 75\%=0.676353, max=0.800254.
-%
-%Audio-description: mean=0.476194, std=0.358019, min=-0.526626,
-%25\%=0.428975, 50\%=0.627799, 75\%=0.679987, max=0.823584.
+% The Cronbach's $\alpha$ values for each paradigm are as follows:
+% For the visual localizer, the mean is 0.899990 with a standard deviation of
+% 0.087051. The minimum value is 0.658523, the 25th percentile is 0.906643, the
+% median is 0.934019, the 75th percentile is 0.947906, and the maximum is
+% 0.963065.
 
-\todo[inline]{movie's outlier: sub-06 (0.28); but when movie PPA is predicted he
-/ she is not the outlier}
+% For the movie paradigm, the mean is 0.611332 with a standard deviation of
+% 0.137878. The minimum value is 0.284440, the 25th percentile is 0.555529, the
+% median is 0.627240, the 75th percentile is 0.676353, and the maximum is
+% 0.800254.
+% movie's outlier: sub-06 (0.28); but when movie PPA is predicted he / she is
+% not the outlier
 
-\todo[inline]{audio-description's outlier: sub-05 (\textbf{-0.5!!}), sub-02
-(0.0), sub-20 (0.27); when audio PPA is predicted, these three subjects are the
-outliers}
-
-\todo[inline]{imo, descriptive statistics given in a text are not necessary;
-i.e. plot and, maybe, the additional table, are better}
-
-The Cronbach's $\alpha$ values for each paradigm are as follows:
-%
-for the visual localizer,
-%
-the mean is 0.899990 with a standard deviation of 0.087051.
-%
-The minimum value is 0.658523, the 25th percentile is 0.906643, the median is
-0.934019, the 75th percentile is 0.947906, and the maximum is 0.963065.
-%
-For the movie paradigm,
-%
-the mean is 0.611332 with a standard deviation of 0.137878.
-%
-The minimum value is 0.284440, the 25th percentile is 0.555529, the median is
-0.627240, the 75th percentile is 0.676353, and the maximum is 0.800254.
-%
-Finally, for the audio-description paradigm, the mean is 0.476194 with a
-standard deviation of 0.358019.
-%
-The minimum value is -0.526626, the 25th percentile is 0.428975, the median is
-0.627799, the 75th percentile is 0.679987, and the maximum is 0.823584.
+% For the audio-description paradigm, the mean is 0.476194 with a
+% standard deviation of 0.358019. The minimum value is -0.526626, the 25th
+% percentile is 0.428975, the median is 0.627799, the 75th percentile is
+% 0.679987, and the maximum is 0.823584.
+% audio-description's outlier: sub-05 (-0.5!), sub-02 (0.0), sub-20 (0.27);
+% when audio PPA is predicted, these three subjects are the outliers
 
 
 \begin{figure*}[tbp] \centering
@@ -1105,35 +1079,9 @@ estimate of the noise ceiling for these correlations'' \citep{jiahui2022cross}.
 
 \end{comment}
 
-
-\todo[inline]{report descriptive statistics of the (un)transformed
-correlations?}
-%
-%The mean Pearson correlation values [not yet Fisher transformed] between
-%empirical $Z$-maps and predicted $Z$-maps via anatomical alignment were 0.xx
-%($N=14$, $\overline{X}=0.xx$, $SD=0.xx$, range [?], median
-% [9], 25\%, 50\%, 75\%).
-
-\todo[inline]{I tested all samples of Fisher transformed correlations for
-normality via Shapiro-Wilk test (imo, the most appropriate test here)}
-
-\todo[inline]{of all samples that were part of one of the eleven t-test, just
-one sample (4 runs of localizer in order to estimate localizer) accepted H1
-(i.e. the sample is NOT drawn from normal distribution); compute Wilcoxon
-signed-rank test (which is for dependent samples)?}
-
-\todo[inline]{t-test assumes equal variances which is probably often not
-fulfilled; alternative: two sample permutation test?}
-
-\todo[inline]{correct the alpha-level (as it is done now) or the p-values?}
-
-\todo[inline]{give one-sentence interpretations à la "Results suggest..."? imo,
-that's not good}
-
-\todo[inline]{so far, I did not test any difference(s) to Cronbach's $\alpha$;
-s.  comments below where it would makes sense to test difference to Cronbach's}
-
 \todo[inline]{round the values or just write $p$<.0001}
+
+\todo[inline]{give one line interpretations a la "...indicating that"}
 
 The unthresholded $Z$-maps in their respective subject's voxel space can be
 accessed at
@@ -1166,8 +1114,7 @@ These comparisons were not pre-planned, but rather were selected later as
 examples for further exploration.
 %
 We used a Bonferroni correction to adjust the alpha level to $\alpha$ of $0.05 /
-11 = 0.00\overline{45}$ for multiple comparisons.
-
+15 = 0.00\overline{3}$for multiple comparisons.
 
 \begin{figure*}[tbp] \centering
     \includegraphics[width=\linewidth]{figures/plot_corr-emp-vs-estimation.pdf}
@@ -1218,109 +1165,93 @@ We used a Bonferroni correction to adjust the alpha level to $\alpha$ of $0.05 /
 \end{figure*}
 
 
-
-
-\paragraph{When estimating the $Z$-maps of the visual localizer,...}
 %
-When estimating the $Z$-maps of the visual localizer, the correlations between
-empirical $Z$-maps and $Z$-maps predicted via the first movie segment were
-significantly higher than the correlations between empirical Z-maps and Z-maps
-predicted via anatomical alignment (Fisher z-transformed, t(14)=6.3525802,
-$p$=0.0000253).
+\textbf{When estimating the $Z$-maps of the visual localizer}, the correlations
+between empirical $Z$-maps and $Z$-maps predicted via $\approx$\unit[15]{min} of
+the visual localizer (within-paradigm prediction) were significantly higher than
+the correlations between empirical $Z$-maps and $Z$-maps predicted via
+anatomical alignment (t(14)=13.9946958 $p$=0.0000000).
 %
-However, the functional alignment based on data of the visual localizer
-(within-paradigm prediction) and audio-description was lower than anatomical
-alignment, independent of the number of runs/segments used to align the test
-subjects to the \ac{cfs}. This was evident from visual inspection.
+The prediction via $\approx$\unit[15]{min} of the movie (cross-paradigm
+prediction) was significantly worse than the prediction via
+$\approx$\unit[15]{min} of the localizer (t(14)=-11.6444837, $p$=0.0000000).
 %
-The functional alignment via the first movie segment (451 \acp{tr}) yielded
-significantly higher correlations than functional alignment via four localizer
-runs lasting 624 \acp{tr} (Fisher z-transformed, t(14)=5.8905545,
-$p$<0.0000532),
+However, the correlations between empirical $Z$-maps and $Z$-maps predicted via
+the $\approx$\unit[15]{min} of the movie were significantly higher than the
+correlations between empirical $Z$-maps and $Z$-maps predicted via anatomical
+alignment (t(14)=6.3525802, $p$=0.0000253).
 %
-The mean correlation between empirical $Z$-maps and $Z$-maps predicted via the
-first movie segment were significantly lower than the correlations between
-empirical $Z$-maps and $Z$-maps predicted via the first two movie segments
-(Fisher z-transformed, t(14)= -5.4946197, $p$=0.0001031).
+Moreover, the mean correlation between empirical $Z$-maps and $Z$-maps predicted
+via $\approx$\unit[30]{min} of the movie were significantly higher than the
+correlations between empirical $Z$-maps and $Z$-maps predicted via
+$\approx$\unit[15]{min} of the movie (t(14)=5.4946197, $p$=0.0001031).
 %
-However, the difference between mean correlations based on two movie segments
-compared to the mean correlation based on three movie segments was not
-significant (Fisher z-transformed, t(14)= -0.1293547, $p$=0.8990569).
+However, the difference between mean correlations based $\approx$\unit[45]{min}
+of the movie compared to the mean correlation based on $\approx$\unit[30]{min}
+was not significant (t(14)= 0.1293549, $p$=0.8990568).
 %
-The prediction performance based on data of the audio-description increased with
-more data, as evident by visual inspection.
+As evident by visual inspection, prediction performance based on
+$\approx$\unit[15]{min} of the audio-description was worse than a prediction
+based on anatomical alignment or based on functional via $\approx$\unit[15]{min}
+of the localizer and $\approx$\unit[15]{min} of the movie respectively.
 %
-However, when comparing a similar amount of \acp{tr}, the functional alignment
-via the first segment of the audio-description yielded significantly lower
-correlations than the functional alignment via four localizer runs (Fisher
-z-transformed, t(14)=-2.3000009, $p$<0.0386588). \todo{only uncorrected}
-
-\todo[inline]{possibly run the test that compares 8 movie segments to Cronbach's
-alpha of localizer? a.k.a. 8 runs of movie for functional alignment are "not as
-good" as Cronbach's alpha}
-
-
-\paragraph{When estimating the $Z$-maps of the movie,...}
+However, the prediction performance of the audio-descriptions monotonically
+increases the more data are used to align the test subjects.
 %
-When estimating the $Z$-maps of the movie, the correlations between empirical
-$Z$-maps and predicted $Z$-maps via the first movie segment were significantly
-higher than the correlations between empirical $Z$-maps and predicted $Z$-maps
-via anatomical alignment (Fisher z-transformed, t(14)= 5.7754451,
-$p$=0.0000643).
-%
-The functional alignment via the first movie segment (451 \acp{tr}) yielded
-significantly higher correlation than a functional alignment via four localizer
-runs lasting 624 \acp{tr} (Fisher z-transformed, t(14)=6.8532349,
-$p$<0.0000116).
-%
-The mean correlation between empirical $Z$-maps and predicted $Z$-maps via the
-first segment alone of the movie were significantly lower than the correlations
-between empirical $Z$-maps and predicted $Z$-maps predicted $Z$-maps via the
-first two movie segments (Fisher z-transformed, t(14)= -3.7454592,
-$p$=0.0024485).
-%
-The difference between mean correlations based on two movie segments in
-comparison the mean correlation based on three movie segments was [not]
-different [when adjusted alpha-level used] (Fisher z-transformed, t(14)=
--2.5759899, $p$=0.02303).
-%
-The prediction performance based on data of the audio-description increased with
-more data as evident by visual inspection.
-%
-However, when comparing a similar amount of \acp{tr}, the functional alignment
-via the first segment of the audio-description yielded no significant difference
-in correlations compared to functional alignment via four localizer runs (Fisher
-z-transformed, t(14)=-1.8674144, $p$<0.084551).
-
-\todo[inline]{possibly run the test that compares x movie segments for alignment
-to Cronbach's alpha of movie? a.k.a functional alignment will "sooner or later
-be better" than Cronbach.}
-
-
-\paragraph{When estimating the Z-maps of the audio-description,...}
-
-\todo[inline]{This part is the ugly one; all samples will probably reject H0
-assuming normality}
-
-\todo[inline]{the three outliers are always sub-02, sub-05, sub-20
-(always=anatomical alignment, 4 runs of localizer, 8 runs of movie, 8 runs of
-audio-description)}
-
-\todo[inline]{run a test that compares <whatever> to Cronbach's a? for example:
-audio-description for alignment will sooner or later be significantly higher
-than Cronbach's; might be a cue that SRM does a denoising of the e.g., map (and
-does not estimate "reliable patterns deviant from the norm" incorrectly}
+A t-test comparing the prediction performance based on $\approx$\unit[120]{min}
+of the audio-description compared to anatomical alignment yielded no significant
+difference (t(14)=-1.1675348, $p$=0.2639631).
 
 %
-When estimating the Z-maps of the audio-description, correlations between
-empirical $Z$-maps and predicted $Z$-maps via the first movie segment were
-significantly lower than the correlations between empirical $Z$-maps and
-predicted $Z$-maps via anatomical alignment (Fisher z-transformed, t(14)=
--4.2004329, $p$=0.0010387, Bonferroni corrected).
+\textbf{When estimating the $Z$-maps of the movie}, the correlations between
+empirical $Z$-maps and predicted $Z$-maps via $\approx$\unit[15]{min} of the
+movie (within-paradigm prediction) were significantly higher than the
+correlations between empirical $Z$-maps and predicted $Z$-maps via anatomical
+alignment (t(14)= 5.7754451, $p$=0.0000643).
+%
+The prediction via $\approx$\unit[15]{min} of the movie (within-paradigm
+prediction) was significantly higher than the prediction via
+$\approx$\unit[15]{min} of the localizer (cross-paradigm
+prediction)(t(14)=5.5254640 $p$=0.0000978).
+%
+There was no significant difference between the correlations between empirical
+$Z$-maps and $Z$-maps predicted via $\approx$\unit[15]{min} of the visual
+localizer (cross-paradigm prediction) and the correlations between empirical
+$Z$-maps and $Z$-maps predicted via anatomical alignment (t(14)=1.1456902,
+$p$=0.2725766).
+%
+The correlations between empirical $Z$-maps and predicted $Z$-maps via
+$\approx$\unit[30]{min} of the movie were significantly higher than correlation
+between empirical $Z$-maps and predicted $Z$-maps via $\approx$\unit[15]{min} of
+the movie (t(14)= 3.7454591, $p$=0.0024485).
+%
+The difference between mean correlations based $\approx$\unit[45]{min} of the
+movie compared to $\approx$\unit[30]{min} of the movie segments was not
+statistically significant (t(14)= -2.5759899, $p$=0.0230310).
+%
+As is evident by visual inspection, the prediction performance based on
+$\approx$\unit[15]{min} of the audio-description was worse than a prediction
+based on anatomical alignment and based on functional $\approx$\unit[15]{min} of
+the localizer and $\approx$\unit[15]{min} of the the movie respectively.
+%
+Alignment via $\approx$\unit[120]{min} of the audio-description compared to
+anatomical alignment yielded no significant difference (t(14)=-2.4041018,
+$p$=0.0318396).
 
-
-
-
+%
+\textbf{When estimating the $Z$-maps of the audio-description}, correlations
+between empirical $Z$-maps and predicted $Z$-maps via $\approx$\unit[15]{min} of
+the audio-description (within-paradigm prediction) were not significantly
+different to the correlations between empirical $Z$-maps and predicted $Z$-maps
+via anatomical alignment (t(14)=-1.8158931 $p$=0.0925110).
+%
+Testing functional alignment via $\approx$\unit[120]{min} of the
+audio-description compared to anatomical alignment yielded significant
+difference (t(14)=6.5605, $p$=0.0000182).
+%
+Testing functional alignment via $\approx$\unit[120]{min} of the movie compared
+to anatomical alignment yielded no significant difference (t(14)=-0.7570822,
+$p$=0.4625025).
 
 
 
@@ -1330,18 +1261,6 @@ predicted $Z$-maps via anatomical alignment (Fisher z-transformed, t(14)=
 
 
 \section{Discussion}
-
-\todo[inline]{generally, I think it's best to abstract A LOT from the specific
-results (other studies discuss general stuff only, too; fucking joke, anyway)}
-
-\todo[inline]{Two possibilities to structure the discussion:}
-
-\todo[inline]{1. discuss concrete examples (a.k.a. the tests) \& draw the
-general inference (how it is done now), or:}
-
-\todo[inline]{2. write general shit \& give some concrete examples (a.k.a.
-statistical tests) to make the point (which would correspond to the structure of
-results section}
 
 \todo[inline]{Delete captions of subsubsections}
 
@@ -1356,9 +1275,11 @@ to localize the \ac{ppa}.
 Following a leave-one-subject-out cross-validation, we fit a shared response
 model \citep{chen2015reduced} to the training subjects' concatenated response
 time series of three different paradigms in order to create a multi-paradigm
-\ac{cfs} and the training subjects' subject-specific transformation matrices.
+\ac{cfs} and the training subjects' subject-specific transformations.
 %
-In order to acquire the test subject's transformation matrix, we used an
+\todo{add what they are good for}
+%
+In order to acquire the test subject's transformation, we used an
 increasing amount of the test subject's response time series of the three
 paradigms (i.e. the predictors)  separately by functionally aligning the test
 subject to the corresponding \acp{tr} of the shared feature space (i.e.
@@ -1380,16 +1301,16 @@ space.
 studies..." in intro}
 
 \todo[inline]{biggest issue: how to separate validity / generalizability of
-\ac{cfs} from validity / generalizability of transformation matrices?}
+\ac{cfs} from validity / generalizability of transformations}
 
 \todo[inline]{in any case: within-paradigm prediction is more about validity of
-model? cross-paradigm prediction is more generalizability of matrices?}
+model? cross-paradigm prediction is more generalizability of transformations?}
 %
 First, we assess the \textbf{validity of the \ac{cfs}} by estimating $Z$-maps
 from the analysis (i.e. $t$-contrast) of same paradigms used to align the test
 subject (cross-subject-\textbf{within-paradigm} prediction).
 %
-Second, we assess the \textbf{generalizability of the transformation matrices}
+Second, we assess the \textbf{generalizability of the transformations}
 by estimating $Z$-maps from the analysis (i.e. $t$-contrast) of paradigms that
 were not used to align the test subject (cross-subject-\textbf{cross-paradigm}
 prediction).
@@ -1476,17 +1397,16 @@ is difficult to estimate the outliers of Cronbach's $\alpha$ of audio PPA.
 \todo[inline]{paragraph focuses on estimation of localizer though}
 
 %
-When estimating the visual localizer, results indicate that $\approx$15 minutes
+When estimating the visual localizer, results indicate that $\approx$$\approx$\unit[15]{min}utes
 (\ac{tr}=2s) of movie watching used for functional alignment outperform
 prediction using anatomical alignment.
 %
-Prediction performance further increases when $\approx$30 minutes of movie data
-submitted to the algorithm to calculate the subject-specific transformation
-matrices.
+Prediction performance further increases when $\approx$$\approx$\unit[30]{min}utes of movie data
+submitted to the algorithm to calculate the subject-specific transformations.
 %
 However, three segments ($\approx$45 minutes) do not lead to an significantly
 increased estimation performance suggesting a decreasing benefit of longer
-scanning time than 30 minutes during audio-visual naturalistic stimulation.
+scanning time than $\approx$\unit[30]{min}utes during audio-visual naturalistic stimulation.
 
 
 
@@ -1687,7 +1607,7 @@ not long anyway}
 paradigms)}
 
 %
-Our results suggest that 15 minutes functional scanning using an engaging
+Our results suggest that $\approx$\unit[15]{min}utes functional scanning using an engaging
 naturalistic stimulus could provide sufficient data for a \textit{calibration
 scan}.
 %
