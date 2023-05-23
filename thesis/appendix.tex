@@ -1,3 +1,8 @@
+\todo[inline]{Update with plots (and text) showing mean correlations across 1000
+models}
+
+\todo[inline]{add representation of time / model (cf. plots in SRM part)}
+
 \begin{figure*}[tbp]
 \centering
 \includegraphics[width=\linewidth]{figures/corr_vis-regressors-vs-cfs_sub-01_srm-ao-av-vis-shuffled_feat10-iter30_7123-7747.pdf}
@@ -17,7 +22,7 @@
     The six regressors of the visual localizer model hemodynamic responses to
     the six categories of pictures that were presented in blocks.
     }
-    \label{fig:corr-vis-reg-srm-shuffled}
+\label{fig:corr-vis-reg-srm-shuffled}
 \end{figure*}
 
 
@@ -42,8 +47,34 @@
     \texttt{fg\_av\_ger\_lr} to \texttt{fg\_av\_ger\_ud} represent low-level
     visual or auditory confounds
     \citep[cf. Table 3 in][]{haeusler2022processing}.
-}
-    \label{fig:corr-av-reg-srm-shuffled}
+    %
+    \texttt{vse\_new}: change of the camera position to a setting not depicted
+    before;
+    \texttt{vse\_old}: change of the camera position to a recurring setting;
+    %
+    \texttt{vlo\_ch}: change of the camera position to another locale within
+    the same setting;
+    %
+    \texttt{vpe\_new}: change of the camera position within a locale not
+    depicted before;
+    %
+    \texttt{vpe\_old}: change of the camera position within a recurring locale;
+    %
+    \texttt{vno\_cut}: frames within a continuous movie shot;
+    %
+    \texttt{fg\_av\_ger\_lr}: left-right luminance difference;
+    %
+    \texttt{fg\_av\_ger\_lrdiff}: left-right volume difference;
+    %
+    \texttt{fg\_av\_ger\_ml}: mean luminance;
+    %
+    \texttt{fg\_av\_ger\_pd}: perceptual difference;
+    %
+    \texttt{fg\_av\_ger\_rms}: root mean square volume;
+    %
+    \texttt{fg\_av\_ger\_ud}: upper-lower luminance difference.
+    }
+\label{fig:corr-av-reg-srm-shuffled}
 \end{figure*}
 
 
@@ -70,10 +101,36 @@
     \texttt{fg\_ad\_ger\_rms} represent low-level auditory confounds
     \citep[cf. Table 3 in][]{haeusler2022processing}.
     %
-    \texttt{geo\&groom} is a combination of
-    regressors as used on the positive side of the primary contrasts aimed to
-    localize the \ac{ppa} \citep[cf. Table 5 in][]{haeusler2022processing}.
+    \texttt{body}: trunk of the body; overlaid clothes;
+    %
+    \texttt{bpart}: limbs and trousers;
+    %
+    \texttt{fahead}: (parts) of the face or head;
+    %
+    \texttt{furn}: moveable furniture (insides \& outsides);
+    %
+    \texttt{geo}: immobile landmarks;
+    %
+    \texttt{groom}: rooms \& locales or geometry-defining elements;
+    %
+    \texttt{object}: moveable and countable entities with firm boundaries;
+    %
+    \texttt{se\_new}: a setting occurring for the first time;
+    %
+    \texttt{se\_old}: a recurring setting;
+    %
+    \texttt{sex\_f}: female name, female person(s);
+    %
+    \texttt{sex\_m}: male name, male person(s);
+    %
+    \texttt{fg\_ad\_lrdiff}: left-right volume difference;
+    %
+    \texttt{fg\_ad\_rms}: root mean square volume.
+    %
+    \texttt{geo\&groom} is a combination of regressors as used on the positive
+    side of the primary contrasts aimed to localize the \ac{ppa}
+    \citep[cf. Table 5 in][]{haeusler2022processing}.
     }
-    \label{fig:corr-ao-reg-srm-shuffled}
+\label{fig:corr-ao-reg-srm-shuffled}
 \end{figure*}
 

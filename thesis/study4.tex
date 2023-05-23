@@ -861,11 +861,11 @@ the six categories of pictures that were presented in blocks.
     %
     \texttt{fg\_ad\_rms}: root mean square volume.
     %
-    \texttt{geo\&groom} is a combination of
-    regressors as used on the positive side of the primary contrasts aimed to
-    localize the \ac{ppa} \citep[cf. Table 5 in][]{haeusler2022processing}.
+    \texttt{geo\&groom} is a combination of regressors as used on the positive
+    side of the primary contrasts aimed to localize the \ac{ppa}
+    \citep[cf. Table 5 in][]{haeusler2022processing}.
     }
-    \label{fig:corr-ao-reg-srm}
+\label{fig:corr-ao-reg-srm}
 \end{figure*}
 
 
@@ -994,7 +994,7 @@ These expected correlations, represented by Cronbach's $\alpha$, were calculated
 based on the first-level \ac{glm} $Z$-maps (four in case of the visual
 localizer; eight in case of the naturalistic stimuli) that were averaged in the
 second-level \ac{glm} analyses of \citet{sengupta2016extension} and
-\citet{haeusler2022processing}.
+\citet{haeusler2022processing} respectively.
 %
 Cronbach's $\alpha$ of empirical (i.e. second-level) $Z$-maps for each subject
 and paradigm can be seen in Fig.~\ref{fig:cronbachs}, descriptive statistics
@@ -1028,8 +1028,8 @@ across subjects for each paradigm can be seen in Table~\ref{fig:cronbachs}.
     %
     Cronbach's $\alpha$ was calculated based on the $Z$-maps yielded by the
     first-level \ac{glm} analyses of the visual localizer
-    \citep{sengupta2016extension} (four runs) and naturalistic stimuli
-    \citep{haeusler2022processing} (eight segments each) respectively.
+    \citep[four runs;][]{sengupta2016extension} and naturalistic stimuli
+    \citep[eight segments;][]{haeusler2022processing}.
     %
     The second-level \ac{glm} analyses across runs / segments yielded the
     empirical $Z$-maps that were estimated in the present study.
@@ -1054,13 +1054,13 @@ across subjects for each paradigm can be seen in Table~\ref{fig:cronbachs}.
     \toprule
     \textbf{statistic} & \textbf{localizer} & \textbf{movie} & \textbf{audio-description} \\
     \midrule
-    mean & 0.89999 & 0.611332 & 0.476194 \tabularnewline
-    std & 0.087051 & 0.137878 & 0.358019 \tabularnewline
-    min & 0.658523 & 0.28444 & -0.526626 \tabularnewline
-    25\% & 0.906643 & 0.555529 & 0.428975 \tabularnewline
-    50\% & 0.934019 & 0.62724 & 0.627799 \tabularnewline
-    75\% & 0.947906 & 0.676353 & 0.679987 \tabularnewline
-    max & 0.963065 & 0.800254 & 0.823584 \tabularnewline
+    mean & 0.90 & 0.61 & 0.48 \tabularnewline
+    std & 0.09 & 0.14 & 0.36 \tabularnewline
+    min & 0.66 & 0.28 & -0.53 \tabularnewline
+    25\% & 0.91 & 0.56 & 0.43 \tabularnewline
+    50\% & 0.93 & 0.63 & 0.63 \tabularnewline
+    75\% & 0.95 & 0.68 & 0.68 \tabularnewline
+    max & 0.96 & 0.80 & 0.82 \tabularnewline
     \bottomrule
 \end{tabular}
      % \caption*{The legend text goes here.}
@@ -1079,9 +1079,6 @@ estimate of the noise ceiling for these correlations'' \citep{jiahui2022cross}.
 
 \end{comment}
 
-\todo[inline]{round the values or just write $p$<.0001}
-
-\todo[inline]{give one line interpretations a la "...indicating that"}
 
 The unthresholded $Z$-maps in their respective subject's voxel space can be
 accessed at
@@ -1099,7 +1096,7 @@ audio-description), as well as the functional alignment procedure (anatomical
 vs. functional alignment).
 %
 In the case of functional alignment, the quantity of the paradigm's data used as
-a preditor and to align a test subject to the \ac{cfs} also affects the
+a predictor and to align a test subject to the \ac{cfs} also affects the
 correlation coefficients, as shown in Fig.~\ref{fig:stripplot}.
 %
 However, the functional alignment procedure consistently shows an increasing
@@ -1107,16 +1104,13 @@ estimation performance across criteria as more data of a predictor is used to
 align the test subjects.
 %
 In order to investigate potential differences between some conditions, we
-conducted several pairwise comparisons using Fisher z-transformed correlation
-values.
+conducted 15 pairwise comparisons using Fisher z-transformed correlation values.
 %
 These comparisons were not pre-planned, but rather were selected later as
 examples for further exploration.
 %
-We used a Bonferroni correction to adjust the alpha level to $\alpha$ of $0.05 /
-15 = 0.00\overline{3}$for multiple comparisons.
-
-\todo[inline]{Revise figure text according to minutes (now it's runs / segments}
+We used a Bonferroni correction for multiple comparisons to adjust the alpha
+level to an $\alpha$ of $0.05 / 15 = 0.00\overline{3}$.
 
 \begin{figure*}[tbp] \centering
     \includegraphics[width=\linewidth]{figures/plot_corr-emp-vs-estimation.pdf}
@@ -1127,7 +1121,8 @@ We used a Bonferroni correction to adjust the alpha level to $\alpha$ of $0.05 /
     %
     Functional alignment was performed based on an increasing amount of
     functional data used to align a test subject to the common functional space
-    (CFS): runs of the visual localizer paradigm lasted \unit[5.2]{min};
+    (CFS): each of the four runs of the visual localizer paradigm lasted
+    $\approx$\unit[5]{min};
     segments of the naturalistic stimuli lasted $\approx$\unit[15]{min}.
     %
     Solid horizontal lines:
@@ -1143,7 +1138,7 @@ We used a Bonferroni correction to adjust the alpha level to $\alpha$ of $0.05 /
     Grey dots:
     %
     correlations between empirical $Z$-maps and an estimation using anatomical
-    alignment;
+    alignment.
     %
     Green dots:
     %
@@ -1167,93 +1162,93 @@ We used a Bonferroni correction to adjust the alpha level to $\alpha$ of $0.05 /
 \end{figure*}
 
 
+% localizer: localizer data
+When estimating the $Z$-maps of the visual localizer, the mean correlation
+between empirical $Z$-maps and $Z$-maps predicted using $\approx$\unit[15]{min}
+of the visual localizer (within-paradigm prediction) was significantly higher
+than the mean correlation between empirical $Z$-maps and $Z$-maps predicted via
+anatomical alignment ($t(14)=13.99$, $p<.0001$).
+% localizer: movie data
+Similarly, the mean correlation between empirical $Z$-maps and $Z$-maps
+predicted using $\approx$\unit[15]{min} of the movie (cross-paradigm prediction)
+was significantly higher than the correlations between empirical $Z$-maps and
+$Z$-maps predicted via anatomical alignment ($t(14)=6.35$, $p<.0001$).
 %
-\textbf{When estimating the $Z$-maps of the visual localizer}, the correlations
-between empirical $Z$-maps and $Z$-maps predicted via $\approx$\unit[15]{min} of
-the visual localizer (within-paradigm prediction) were significantly higher than
-the correlations between empirical $Z$-maps and $Z$-maps predicted via
-anatomical alignment (t(14)=13.9946958 $p$=0.0000000).
+A comparison between the prediction based on $\approx$\unit[15]{min} of the
+movie and $\approx$\unit[15]{min} of localizer data revealed a significantly
+lower performance of functional alignment using the movie ($t(14)=-11.64$,
+$p<.0001$).
 %
-The prediction via $\approx$\unit[15]{min} of the movie (cross-paradigm
-prediction) was significantly worse than the prediction via
-$\approx$\unit[15]{min} of the localizer (t(14)=-11.6444837, $p$=0.0000000).
+The prediction performance based on $\approx$\unit[30]{min} of the movie was
+significantly higher than the prediction performance based on
+$\approx$\unit[15]{min} of the movie ($t(14)=5.49$, $p=.0001$), with no
+significant difference between $\approx$\unit[45]{min} and
+$\approx$\unit[30]{min} of the movie ($t(14)=0.13$, $p=.8990$).
+% localizer: audio data
+Visual inspection indicated that the prediction performance based on
+$\approx$\unit[15]{min} of the audio-description was lower than the prediction
+performance based on anatomical alignment, functional alignment using
+$\approx$\unit[15]{min} of the localizer, or $\approx$\unit[15]{min} of the
+movie.
 %
-However, the correlations between empirical $Z$-maps and $Z$-maps predicted via
-the $\approx$\unit[15]{min} of the movie were significantly higher than the
-correlations between empirical $Z$-maps and $Z$-maps predicted via anatomical
-alignment (t(14)=6.3525802, $p$=0.0000253).
+However, the prediction performance of the audio-description increased
+monotonically the more data were used to align the test subjects.
 %
-Moreover, the mean correlation between empirical $Z$-maps and $Z$-maps predicted
-via $\approx$\unit[30]{min} of the movie were significantly higher than the
-correlations between empirical $Z$-maps and $Z$-maps predicted via
-$\approx$\unit[15]{min} of the movie (t(14)=5.4946197, $p$=0.0001031).
-%
-However, the difference between mean correlations based $\approx$\unit[45]{min}
-of the movie compared to the mean correlation based on $\approx$\unit[30]{min}
-was not significant (t(14)= 0.1293549, $p$=0.8990568).
-%
-As evident by visual inspection, prediction performance based on
-$\approx$\unit[15]{min} of the audio-description was worse than a prediction
-based on anatomical alignment or based on functional via $\approx$\unit[15]{min}
-of the localizer and $\approx$\unit[15]{min} of the movie respectively.
-%
-However, the prediction performance of the audio-descriptions monotonically
-increases the more data are used to align the test subjects.
-%
-A t-test comparing the prediction performance based on $\approx$\unit[120]{min}
-of the audio-description compared to anatomical alignment yielded no significant
-difference (t(14)=-1.1675348, $p$=0.2639631).
+A $t$-test comparing the prediction performance based on
+$\approx$\unit[120]{min} of the audio-description to anatomical alignment
+yielded no significant difference ($t(14)=-1.17$, $p=.2640$).
 
 %
-\textbf{When estimating the $Z$-maps of the movie}, the correlations between
-empirical $Z$-maps and predicted $Z$-maps via $\approx$\unit[15]{min} of the
+When estimating the $Z$-maps of the movie, the mean correlation between
+empirical $Z$-maps and predicted $Z$-maps using $\approx$\unit[15]{min} of the
 movie (within-paradigm prediction) were significantly higher than the
 correlations between empirical $Z$-maps and predicted $Z$-maps via anatomical
-alignment (t(14)= 5.7754451, $p$=0.0000643).
+alignment ($t(14)= 5.78$, $p<.0001$).
 %
-The prediction via $\approx$\unit[15]{min} of the movie (within-paradigm
-prediction) was significantly higher than the prediction via
-$\approx$\unit[15]{min} of the localizer (cross-paradigm
-prediction)(t(14)=5.5254640 $p$=0.0000978).
+Comparing the within-paradigm prediction using $\approx$\unit[15]{min} of the
+movie to the cross-paradigm prediction using $\approx$\unit[15]{min} of the
+localizer revealed a higher prediction performance when using the movie data for
+alignment ($t(14)=5.53$, $p<.0001$).
 %
-There was no significant difference between the correlations between empirical
-$Z$-maps and $Z$-maps predicted via $\approx$\unit[15]{min} of the visual
-localizer (cross-paradigm prediction) and the correlations between empirical
-$Z$-maps and $Z$-maps predicted via anatomical alignment (t(14)=1.1456902,
-$p$=0.2725766).
+There was no significant difference between the prediction using
+$\approx$\unit[15]{min} of the localizer and the prediction via anatomical
+alignment ($t(14)=1.15$, $p=.2726$).
 %
-The correlations between empirical $Z$-maps and predicted $Z$-maps via
-$\approx$\unit[30]{min} of the movie were significantly higher than correlation
-between empirical $Z$-maps and predicted $Z$-maps via $\approx$\unit[15]{min} of
-the movie (t(14)= 3.7454591, $p$=0.0024485).
-%
-The difference between mean correlations based $\approx$\unit[45]{min} of the
-movie compared to $\approx$\unit[30]{min} of the movie segments was not
-statistically significant (t(14)= -2.5759899, $p$=0.0230310).
+The prediction performance based on $\approx$\unit[30]{min} of movie data was
+significantly higher than the prediction performance based on
+$\approx$\unit[15]{min} of the movie ($t(14)= 3.75$, $p=.0024$), whereas there
+was no significant difference between the performance based on
+$\approx$\unit[45]{min} and $\approx$\unit[30]{min} of the movie ($t(14)=2.58$,
+$p=.0230$).
 %
 As is evident by visual inspection, the prediction performance based on
-$\approx$\unit[15]{min} of the audio-description was worse than a prediction
-based on anatomical alignment and based on functional $\approx$\unit[15]{min} of
-the localizer and $\approx$\unit[15]{min} of the the movie respectively.
+$\approx$\unit[15]{min} of the audio-description was lower than a prediction
+based on anatomical alignment, functional alignment using
+$\approx$\unit[15]{min} of the localizer, or functional alignment using
+$\approx$\unit[15]{min} of the movie.
 %
-Alignment via $\approx$\unit[120]{min} of the audio-description compared to
-anatomical alignment yielded no significant difference (t(14)=-2.4041018,
-$p$=0.0318396).
+Here again, the prediction performance of the audio-description monotonically
+increased the more data were used to align the test subjects.
+%
+A $t$-test comparing the prediction performance based on
+$\approx$\unit[120]{min} of the audio-description to a prediction via anatomical
+alignment yielded no significant difference ($t(14)=-2.40$, $p=.0318$).
 
 %
-\textbf{When estimating the $Z$-maps of the audio-description}, correlations
+When estimating the $Z$-maps of the audio-description, the mean correlation
 between empirical $Z$-maps and predicted $Z$-maps via $\approx$\unit[15]{min} of
-the audio-description (within-paradigm prediction) were not significantly
-different to the correlations between empirical $Z$-maps and predicted $Z$-maps
-via anatomical alignment (t(14)=-1.8158931 $p$=0.0925110).
+the audio-description (within-paradigm prediction) was not significantly
+different to the mean correlation between empirical $Z$-maps and predicted
+$Z$-maps via anatomical alignment ($t(14)=-1.82$, $p=.0925$).
 %
-Testing functional alignment via $\approx$\unit[120]{min} of the
-audio-description compared to anatomical alignment yielded significant
-difference (t(14)=6.5605, $p$=0.0000182).
+Comparing the prediction based on $\approx$\unit[120]{min} of the
+audio-description to the anatomical alignment procedure yielded a significantly
+higher performance of the estimation via functional alignment ($t(14)=6.56$,
+$p<=.0001$).
 %
-Testing functional alignment via $\approx$\unit[120]{min} of the movie compared
-to anatomical alignment yielded no significant difference (t(14)=-0.7570822,
-$p$=0.4625025).
+Comparing the prediction based on functional alignment via
+$\approx$\unit[120]{min} of the movie to the anatomical alignment procedure
+yielded no significant difference ($t(14)=-0.76$, $p=.4625$).
 
 
 
