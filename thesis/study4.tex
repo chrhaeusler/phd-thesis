@@ -2,10 +2,11 @@
 
 % higher visual areas higher visual areas
 In the domain of higher-visual perception, functionally defined
-category-selective brain regions, such as the \ac{ppa} \citep{epstein1998ppa},
-the \ac{ffa} \citep{kanwisher1997ffa}, or \ac{eba} \citep{downing2001bodyarea}
-exhibit significantly increased \ac{bold} activity correlated with a
-``preferred'' \citep{debeck2008interpreting} stimulus class.
+category-selective brain regions, such as the \acl{ppa} (PPA)
+\citep{epstein1998ppa}, the \acl{ffa} (FFA) \citep{kanwisher1997ffa},
+or \ac{eba} \citep{downing2001bodyarea} exhibit significantly increased
+\ac{bold} activity correlated with a ``preferred'' \citep[][p.
+123]{debeck2008interpreting} stimulus class.
 %
 While the topographies (i.e. the location, size and shape) of these
 category-selective areas are similarly distributed across individuals, the exact
@@ -18,9 +19,9 @@ contrast modeled hemodynamic responses correlating with the corresponding
 stimulus classes, such as landscapes, faces, or bodies.
 % problem: one localizer for one domain
 Functional localizers are designed to maximize detection power and thus limited
-to mapping only one domain of brain functions, such as retinotopic visual areas
-\citep{wang2015probabilistic}, category-selective regions
-\citep{stigliani2015temporal}, theory of mind \citep{spunt2014validating}, or
+to mapping only one domain of brain functions, such as category-selective
+regions \citep{stigliani2015temporal}, retinotopic visual areas
+\citep{wang2015probabilistic}, theory of mind \citep{spunt2014validating}, or
 semantic processes \citep{fedorenko2010new, fernandez2001language}.
 % which gets messy
 However, when mapping multiple functional domains in a limited amount of time is
@@ -28,8 +29,8 @@ desired, the "one paradigm for one domain of functions" approach becomes
 impractical.
 % localizer batteries: intro
 To address this issue, researchers have attempted to create time-efficient,
-multi-functional localizer batteries \textit{localizer batteries}
-\citep[e.g.,][]{barch2013function, drobyshevsky2006rapid, pinel2007fast}.
+multi-functional \textit{localizer batteries} \citep[e.g.,][]{barch2013function,
+drobyshevsky2006rapid, pinel2007fast}.
 % task based = shit
 Nevertheless, the diagnostic quality of localizer paradigms heavily depends on a
 participant's comprehension of the task instructions and general compliance, a
@@ -45,12 +46,14 @@ region such as the \ac{ppa} can be localized using a model-driven \ac{glm}
 analysis that is based on the annotated temporal structure of a two-hour long
 naturalistic stimulus.
 % full feature film is too long
-However, for practical and monetary reasons, a two-hour long paradigm is
-unsuitable for clinical applications.
+However, conducting a two-hour long fMRI scan session may not be desirable or
+feasible due to potential compliance issues or constraints on time and
+resources.
 % hence, predict from reference
-One approach to reduce the time and costs is to identify a functional area in an
-individual person's brain anatomy based on data collected from an independent
-sample of different individuals (i.e. data from a \textit{reference group}).
+An alternative approach that addresses the challenges of a lengthy scanning
+procedure is to localize a functional area in an individual by leveraging data
+collected from an independent sample of other individuals (i.e.  from a
+\textit{reference group}).
 % intro: estimation via common anatomical space
 Previous studies have estimated the most probable location of a functional area
 in an individual from a reference group by performing either a volume-based
@@ -60,19 +63,20 @@ rosenke2021probabilistic, wang2015probabilistic} \textit{anatomical alignment}.
 %
 First, in order to address the issue of anatomical variability across persons,
 functional data of persons in the reference group are anatomically aligned to
-(i.e.  projected into) a \textit{common anatomical space} (e.g., Montreal
-Neurological Institute brain atlas; \citep[MNI152,][]{fonov2011unbiased}).
+(i.e.  projected into) a \acfi{cas}, such as the
+Montreal Neurological Institute brain atlas
+\citep[MNI152 atlas;][]{fonov2011unbiased}.
 % project into test subject to estimate
-Then, data are projected from the common anatomical space into\todo{?} the
+Then, data are projected from the \ac{cas} into\todo{?} the
 individual person's brain anatomy to provide an estimate a functional region's
 location.
 % volume-based alignment in one sentence
 Volume-based anatomical alignment \citep[s.][for a review]{klein2009evaluation}
-aligns voxels to a three-dimensional common anatomical space \citep[e.g., MNI152
+aligns voxels to a three-dimensional \ac{cas} \citep[e.g., MNI152
 atlas;][]{fonov2011unbiased}.
 % surface-based alignment in one sentence
 Surface-based anatomical alignment \citep{fischl1999cortical, yeo2009spherical}
-aligns vertices to a two-dimensional common anatomical space \citep[e.g.,
+aligns vertices to a two-dimensional \ac{cas} \citep[e.g.,
 FreeSurfer's fsaverage template;][]{fischl1999high}.
 % difference in one sentence
 Whereas volume-based alignment does not account for individual sulcal and gyral
@@ -116,17 +120,16 @@ underlying anatomical location.
 In order to address the issue of functional-anatomical variability across
 subjects, \textit{functional alignment} algorithms, such as
 \textit{hyperalignment} \citep{haxby2011common, guntupalli2016model} or the
-\textit{shared response model} (SRM) \citep{chen2015reduced,
-zhang2016searchlight}, have been developed.
+\acfi{srm} \citep{chen2015reduced, zhang2016searchlight}, have been developed.
 %
 Whereas anatomical alignment aligns voxels (or vertices) that share the same
 anatomical location to a common anatomical space, functional alignment aligns
-voxels (or vertices) that share similar functional properties to a
-\textit{common functional space} (CFS).
+voxels (or vertices) that share similar functional properties to a \acfi{cfs}.
 %
 Functional alignment algorithms are typically used to compute both a
-high-dimensional, functional brain template (i.e. the \ac{cfs}) subject-specific
-transformations from the functional data of a study's participants.
+high-dimensional, functional brain template (i.e. the \ac{cfs}) and
+subject-specific transformations from the functional data of a study's
+participants.
 %
 A subject-specific transformation allows to project functional data from a
 subject's three-dimensional voxel space into\todo{?} the \ac{cfs} or vice versa
@@ -156,9 +159,6 @@ to novel stimuli or tasks.
 This is presumably because naturalistic stimuli sample a broader range of brain
 states \citep{haxby2011common, guntupalli2016model}.
 
-\todo[inline]{imo, validity (\& generalizability) of CFS and matrices are
-non-separable claims!}
-
 A more recent procedure \citep[e.g., ][]{jiahui2020predicting,
 guntupalli2016model, haxby2011common} to estimate the most probable location of
 a functional area in an individual from a reference performs an functional
@@ -184,7 +184,7 @@ the movie ``Forrest Gump'' ($\approx$\unit[120]{min}; \ac{tr}=\unit[2]{s}).
 %
 \citet{jiahui2020predicting} then estimated $t$-contrast maps from a visual
 localizer that aimed at identifying the \ac{ffa} by projecting the $t$-contrast
-maps from a reference group through each \acp{cfs} into an individual's brain
+maps from a reference group through each \ac{cfs} into an individual's brain
 anatomy.
 %
 Results showed that $t$-contrast maps from the visual localizer correlated more
@@ -223,7 +223,7 @@ kumar2020brainiaktutorial}.
 The \ac{srm} is an unsupervised probabilistic latent-factor model that
 decomposes \ac{bold} \ac{fmri} response time series of participants who have
 experienced the same stimulus into a \ac{cfs} of \textit{shared features}
-\citep[also known as ``\textit{shared feature space}'';][]{chen2015reduced} and
+\citep[also known as \textit{shared feature space};][]{chen2015reduced} and
 subject-specific linear transformations.
 % math stuff
 More specifically, the \ac{srm} algorithm uses each $n^{th}$ subject's response
@@ -302,7 +302,7 @@ of the three paradigms serving as \textit{predictors} (i.e. one
 \textit{cross-subject-cross-paradigm predictions}).
 % partial alignment
 Third, considering the impracticality of using a complete naturalistic stimulus
-in a clinical setting to align a test subject, we also explored the relationship
+in a clinical\todo{drop it} setting to align a test subject, we also explored the relationship
 between the estimation performance of the results from each of the three
 paradigms and the quantity of data from each of the three paradigms used to
 functionally align the subject with the multi-paradigm \ac{cfs}.
@@ -406,15 +406,15 @@ $Z$-maps).
 % temporal filtering
 The preprocessing steps included high-pass temporal filtering (using a
 Gaussian-weighted least-squares straight line) for every run of the visual
-localizer (cutoff period of \unit[100]{s}), and every segment of the movie and
-audio-description (cutoff period of \unit[150]{s}).
+localizer (cutoff period of \unit[100]{s}) and naturalistic stimuli (cutoff
+period of \unit[150]{s}).
 % brain extraction & spatial smoothing
 Brain extraction was performed using BET \citep{smith2002bet}., and data from
 all three paradigms were spatially smoothed using a Gaussian kernel with a full
 width at half maximum of \unit[4.0]{mm}.
 % grand mean normalization
 A grand-mean intensity normalization was applied to each run of the functional
-localizer and each segment of the naturalistic stimuli.
+localizer and naturalistic stimuli.
 %
 Further analyses on these reproduced times series were performed using Python
 scripts that relied on
@@ -723,9 +723,9 @@ in][]{haeusler2022processing} and shared responses.
 
 % shuffle runs
 As a negative control, we randomly shuffled the order of runs of the visual
-localizer and the segments of the naturalistic stimuli separately for each
-paradigm and training subject. We then concatenated the time series, fit the
-\ac{srm}, and calculated the Pearson correlation coefficients.
+localizer and naturalistic stimuli separately for each paradigm and training
+subject. We then concatenated the time series, fit the \ac{srm}, and calculated
+the Pearson correlation coefficients.
 %
 We expected that the \ac{srm} algorithm would fail to fit ``meaningful''
 \todo{??} shared responses to randomly shuffled training data.
@@ -895,8 +895,8 @@ that allow a mapping of data from a test subject's voxel space into the
 To investigate how the amount of data used to acquire a transformation matrix
 affects estimation performance, we also varied the number of runs per paradigm.
 %
-Specifically, we we used one up to four runs (each lasting \unit[5.2]{min}) of the
-visual localizer, and one up to eight segments (each lasting
+Specifically, we we used one up to four runs (each lasting \unit[5.2]{min}) of
+the visual localizer, and one up to eight runs (each lasting
 $\approx$\unit[15]{min}) to align the test subject to the corresponding \acp{tr}
 within the \ac{cfs}.
 %
@@ -1029,12 +1029,12 @@ across subjects for each paradigm can be seen in Table~\ref{fig:cronbachs}.
     Cronbach's $\alpha$ was calculated based on the $Z$-maps yielded by the
     first-level \ac{glm} analyses of the visual localizer
     \citep[four runs;][]{sengupta2016extension} and naturalistic stimuli
-    \citep[eight segments;][]{haeusler2022processing}.
+    \citep[eight runs;][]{haeusler2022processing}.
     %
-    The second-level \ac{glm} analyses across runs / segments yielded the
-    empirical $Z$-maps that were estimated in the present study.
+    The second-level \ac{glm} analyses across runs yielded the empirical
+    $Z$-maps that were estimated in the present study.
     }
-    \label{fig:cronbachs}
+\label{fig:cronbachs}
 \end{figure*}
 
 
@@ -1121,9 +1121,11 @@ level to an $\alpha$ of $0.05 / 15 = 0.00\overline{3}$.
     %
     Functional alignment was performed based on an increasing amount of
     functional data used to align a test subject to the common functional space
-    (CFS): each of the four runs of the visual localizer paradigm lasted
-    $\approx$\unit[5]{min};
-    segments of the naturalistic stimuli lasted $\approx$\unit[15]{min}.
+    (CFS):
+    each of the four runs of the visual localizer paradigm lasted
+    $\approx$\unit[5]{min} (\ac{tr}=\unit[2]{s});
+    each of the eight runs of the naturalistic stimuli lasted
+    $\approx$\unit[15]{min} (\ac{tr}=\unit[2]{s}).
     %
     Solid horizontal lines:
     %
@@ -1149,16 +1151,16 @@ level to an $\alpha$ of $0.05 / 15 = 0.00\overline{3}$.
     Red dots:
     %
     correlations between empirical $Z$-map and an estimation using functional
-    alignment based on transformations calculated from one up to eight
-    segments of the movie.
+    alignment based on transformations calculated from one up to eight runs
+    of the movie.
     %
     Blue dots:
     %
     correlations between empirical $Z$-map and an estimation using functional
-    alignment based on transformations calculated from one up to eight
-    segments of the audio-description.
+    alignment based on transformations calculated from one up to eight runs
+    of the audio-description.
     }
-    \label{fig:stripplot}
+\label{fig:stripplot}
 \end{figure*}
 
 
@@ -1259,7 +1261,22 @@ yielded no significant difference ($t(14)=-0.76$, $p=.4625$).
 
 \section{Discussion}
 
+To overcome the limitations associated with lengthy scanning procedures, an
+alternative approach can be employed.
+%
+This approach involves localizing a functional area in an individual by
+utilizing data collected from an independent sample of other individuals, often
+referred to as a reference group. By leveraging the data from this reference
+group, it becomes possible to identify and characterize the functional area of
+interest without the need for extensive scanning sessions for each individual.
+%
+This method offers a more efficient and cost-effective solution while still
+providing valuable insights into individual brain functional anatomy.
+
+
 \todo[inline]{Delete captions of subsubsections}
+
+\todo[inline]{Discussion of poor performance of localizer is obsolete}
 
 \subsection{Introductory paragraph}
 
@@ -1329,8 +1346,8 @@ derived from concatenated time series of multiple paradigms is effective.
 The prediction performance improves as more data from the paradigms used to
 align a test subject included.
 %
-However, one movie segment outperformed an estimation using anatomical
-alignment.
+However, one movie run (a.k.a. 15 min) outperformed an estimation using
+anatomical alignment.
 %
 This opens up the possibility of estimating results from many localizer
 paradigms using a naturalistic stimulus of similar duration of one traditional
@@ -1347,13 +1364,13 @@ of about 0.6)}
 
 %
 When estimating the visual paradigms (localizer and movie PPA), using just one
-movie segment with partial alignment outperformed anatomical alignment.
+15 min of movie with partial alignment outperformed anatomical alignment.
 %
 When estimating audio PPA, as more movie data were included, the prediction
 performance of the multi-paradigm CFS improved the more data of the movie are
 included, and eventually became as good as anatomical alignment
 %
-However, using just one movie segment resulted in worse performance than
+However, using just 15 min movie resulted in worse performance than
 anatomical alignment.
 
 %
@@ -1369,13 +1386,13 @@ criterion that the visual localizer can estimate the best.
 The performance of audio-description is inferior to anatomical alignment for
 cross-paradigm estimation.
 %
-However, it improves when more segments are used for alignment.
+However, it improves when more data are used for alignment.
 %
 In cross-paradigm prediction, the gap between movie and audio-description
 narrows as more data of the audio-description is used.
 %
 In within-paradigm prediction, audio-description eventually outperforms
-anatomical alignment when more than 4-6 segments are used.
+anatomical alignment when more than 4-6 runs (a.k.a. minutes) are used.
 %
 Nevertheless, for every alignment procedure (both functional and anatomical), it
 is difficult to estimate the outliers of Cronbach's $\alpha$ of audio PPA.
@@ -1394,16 +1411,18 @@ is difficult to estimate the outliers of Cronbach's $\alpha$ of audio PPA.
 \todo[inline]{paragraph focuses on estimation of localizer though}
 
 %
-When estimating the visual localizer, results indicate that $\approx$$\approx$\unit[15]{min}utes
-(\ac{tr}=2s) of movie watching used for functional alignment outperform
-prediction using anatomical alignment.
+When estimating the visual localizer, results indicate that
+$\approx$$\approx$\unit[15]{min}utes (\ac{tr}=2s) of movie watching used for
+functional alignment outperform prediction using anatomical alignment.
 %
-Prediction performance further increases when $\approx$$\approx$\unit[30]{min}utes of movie data
-submitted to the algorithm to calculate the subject-specific transformations.
+Prediction performance further increases when
+$\approx$$\approx$\unit[30]{min}utes of movie data submitted to the algorithm to
+calculate the subject-specific transformations.
 %
-However, three segments ($\approx$45 minutes) do not lead to an significantly
+However, three runs ($\approx$45 minutes) do not lead to an significantly
 increased estimation performance suggesting a decreasing benefit of longer
-scanning time than $\approx$\unit[30]{min}utes during audio-visual naturalistic stimulation.
+scanning time than $\approx$\unit[30]{min}utes during audio-visual naturalistic
+stimulation.
 
 
 
@@ -1491,7 +1510,7 @@ to spatial information.
 %
 Rather, it is more likely an issue with the naturalistic paradigm, which allows
 for more individual variation over the course of the two-hour long stimulation,
-possibly influenced by an unbalanced number of events per stimulus segment.
+possibly influenced by an unbalanced number of events per stimulus runs.
 %
 Although the shared responses show the highest correlation with the regressors
 of the visual localizer, the plots of shared responses and regressors of the
@@ -1643,7 +1662,7 @@ limitations, monetary constraints, or compliance issues.
 %
 Moreover, this approach would allow for the quantification of the similarity (or
 difference) of a new subject's actual pattern (i.e., an empirical $Z$-map) to a
-pattern estimated from a healthy or clinical reference group.
+pattern estimated from a healthy or clinical\todo{drop?} reference group.
 
 
 \todo[inline]{essentially quoting the abstract of \citet{yates2021emergence}:}
