@@ -63,21 +63,19 @@ rosenke2021probabilistic, wang2015probabilistic} \textit{anatomical alignment}.
 %
 First, in order to address the issue of anatomical variability across persons,
 functional data of persons in the reference group are anatomically aligned to
-(i.e.  projected into) a \acfi{cas}, such as the
-Montreal Neurological Institute brain atlas
-\citep[MNI152 atlas;][]{fonov2011unbiased}.
+(i.e.  projected into) a \acfi{cas}, such as the Montreal Neurological Institute
+brain atlas \citep[MNI152 atlas;][]{fonov2011unbiased}.
 % project into test subject to estimate
-Then, data are projected from the \ac{cas} into\todo{?} the
-individual person's brain anatomy to provide an estimate a functional region's
-location.
+Then, data are projected from the \ac{cas} into\todo{?} the individual person's
+brain anatomy to provide an estimate a functional region's location.
 % volume-based alignment in one sentence
 Volume-based anatomical alignment \citep[s.][for a review]{klein2009evaluation}
 aligns voxels to a three-dimensional \ac{cas} \citep[e.g., MNI152
 atlas;][]{fonov2011unbiased}.
 % surface-based alignment in one sentence
 Surface-based anatomical alignment \citep{fischl1999cortical, yeo2009spherical}
-aligns vertices to a two-dimensional \ac{cas} \citep[e.g.,
-FreeSurfer's fsaverage template;][]{fischl1999high}.
+aligns vertices to a two-dimensional \ac{cas} \citep[e.g., FreeSurfer's
+fsaverage template;][]{fischl1999high}.
 % difference in one sentence
 Whereas volume-based alignment does not account for individual sulcal and gyral
 folding patterns, surface-based alignment respects interindividual variability
@@ -123,7 +121,7 @@ subjects, \textit{functional alignment} algorithms, such as
 \acfi{srm} \citep{chen2015reduced, zhang2016searchlight}, have been developed.
 %
 Whereas anatomical alignment aligns voxels (or vertices) that share the same
-anatomical location to a common anatomical space, functional alignment aligns
+anatomical location to a \ac{cas}, functional alignment aligns
 voxels (or vertices) that share similar functional properties to a \acfi{cfs}.
 %
 Functional alignment algorithms are typically used to compute both a
@@ -132,8 +130,11 @@ subject-specific transformations from the functional data of a study's
 participants.
 %
 A subject-specific transformation allows to project functional data from a
-subject's three-dimensional voxel space into\todo{?} the \ac{cfs} or vice versa
-\citep{haxby2020hyperalignment, kumar2020brainiak}.
+subject's three-dimensional voxel space into\todo{?} the \ac{cfs}.
+%
+Conversely, the inverse transformation allows to project data from the \ac{cfs}
+into the subject's voxel space \citep{haxby2020hyperalignment,
+kumar2020brainiak}.
 %
 The \ac{cfs} and transformations are calculated (i.e. \textit{trained}) by
 maximizing the inter-subject similarity of \ac{bold} response time series
@@ -159,13 +160,13 @@ to novel stimuli or tasks.
 This is presumably because naturalistic stimuli sample a broader range of brain
 states \citep{haxby2011common, guntupalli2016model}.
 
-A more recent procedure \citep[e.g., ][]{jiahui2020predicting,
+Consequently, a more recent procedure \citep[e.g., ][]{jiahui2020predicting,
 guntupalli2016model, haxby2011common} to estimate the most probable location of
 a functional area in an individual from a reference performs an functional
 alignment.
 % solve functional-anatomical variability
 First, the functional data of individuals in the reference group are
-anatomically aligned to a common anatomical space.
+anatomically aligned to a \ac{cas}.
 %
 Second, to address the issue of functional-anatomical variability across
 individuals, the functional data are functionally aligned (i.e. projected into)
@@ -177,8 +178,8 @@ brain anatomy, serving as an estimate of a functional region's location.
 For instance, \citet{jiahui2020predicting} used surface-based hyperalignment to
 calculate \acp{cfs} and transformations based on data from
 %
-the movie ``Grand Budapest Hotel'' ($\approx$\unit[50]{min}; \ac{tr}=\unit[1]{s}),
-and
+the movie ``Grand Budapest Hotel'' ($\approx$\unit[50]{min};
+\ac{tr}=\unit[1]{s}) and
 %
 the movie ``Forrest Gump'' ($\approx$\unit[120]{min}; \ac{tr}=\unit[2]{s}).
 %
@@ -191,6 +192,13 @@ Results showed that $t$-contrast maps from the visual localizer correlated more
 highly with contrast maps that were estimated via hyperalignment than contrast
 maps that were estimated via surface-based anatomical alignment.
 
+
+\pagebreak
+
+\todo[inline]{phrase general question}
+
+\todo[inline]{drop validity / generalizability thing?}
+
 % focus: ppa
 Here again, we focus on the \ac{ppa} \citep[e.g.,][for
 reviews]{epstein2014neural, aminoff2013role}, and investigate whether we can
@@ -199,7 +207,7 @@ identify the \ac{ppa} using functional data from three different paradigms as
 the to predicted \textit{criteria}:
 %
 (a) a classic visual localizer \citep{sengupta2016extension} as the assumed
-``gold standard'',
+``gold standard'' to localize the \ac{ppa},
 %
 (b) a movie \citep{haeusler2022processing}, and
 %
@@ -214,11 +222,60 @@ the to predicted \textit{criteria}:
 % here, i.e. only rotation, expansion) these two are one and the same thing:
 % https://www.quora.com/When-is-the-inverse-of-a-matrix-equal-to-its-transpose
 % why SRM
+
+% An orthonormal matrix and a matrix with orthonormal columns are closely
+% related concepts, but there is a difference between the two:
+
+% Orthonormal Matrix: An orthonormal matrix is a square matrix in which all its
+% columns and rows are orthogonal to each other and have a length of 1. In other
+% words, the dot product of any two distinct columns (or rows) of an orthonormal
+% matrix is 0, and the length (norm) of each column (or row) is 1. Additionally,
+% the transpose of an orthonormal matrix is equal to its inverse.
+
+% Matrix with Orthonormal Columns: A matrix with orthonormal columns refers to a
+% rectangular matrix in which the columns are pairwise orthogonal and have a
+% length of 1. The matrix may have more columns than rows, meaning it is not
+% necessarily a square matrix. The dot product of any two distinct columns is 0,
+% and the length of each column is 1.
+
+% The dot product of an orthonormal column vector with itself is always 1. This
+% is because an orthonormal column vector has a length (norm) of 1, and the dot
+% product of a vector with itself is equal to the square of its length.
+% Mathematically, if v is an orthonormal column vector, then:
+% v · v = ||v||^2 = 1^2 = 1
+% Therefore, the dot product of an orthonormal column vector with itself is
+% equal to 1.
+
+% In summary, the main distinction lies in the shape of the matrix. An
+% orthonormal matrix must be square, with both rows and columns being
+% orthonormal, while a matrix with orthonormal columns can be rectangular, with
+% only the columns satisfying the orthonormality condition.
+
+% A matrix with orthonormal columns is not necessarily a square matrix.
+% A matrix with orthonormal columns is called a column-orthonormal matrix or a
+% matrix with orthonormal column vectors. This means that the columns of the
+% matrix are unit vectors (vectors with a magnitude of 1) and they are
+% orthogonal to each other (the dot product between any two columns is zero).
+% Such a matrix can have any number of rows and columns. It can be a rectangular
+% matrix, where the number of rows is not necessarily equal to the number of
+% columns. The columns may still be orthonormal even if the matrix is not
+% square.
+
+% An orthonormal matrix is necessarily a square matrix. In order for a matrix to
+% be orthonormal, it must have the same number of rows and columns. This is
+% because the conditions for orthonormality involve the dot product between
+% columns, which can only be computed when the matrices have the same number of
+% elements in each column.
+% So, by definition, an orthonormal matrix is always square, meaning it has an
+% equal number of rows and columns.
+
+
 Our volume-based functional alignment approach utilizes the \ac{srm} algorithm
-\citep{chen2015reduced, richard2019fast} as implemented in the open-source
-software package BrainIAK \citep[Brain Imaging Analysis Kit;
-\href{https://brainiak.org}{\url{brainiak.org}};][]{kumar2020brainiak,
-kumar2020brainiaktutorial}.
+\citep{chen2015reduced, richard2019fast}.
+% as implemented in the open-source software package BrainIAK \citep[Brain
+% Imaging Analysis Kit;
+% \href{https://brainiak.org}{\url{brainiak.org}};][]{kumar2020brainiak,
+% kumar2020brainiaktutorial}.
 % general overview of SRM
 The \ac{srm} is an unsupervised probabilistic latent-factor model that
 decomposes \ac{bold} \ac{fmri} response time series of participants who have
@@ -246,16 +303,10 @@ As a result, each shared feature can be thought of as a weighted sum of many
 voxels across subjects \citep{kumar2020brainiak}.
 % result = alignment
 A subject-specific transformation matrix can be thought of as the weight of each
-voxel in a subject's voxel space on each shared feature, and allows a
-subject's\todo{?} functionally data to be aligned to the \ac{cfs} by projecting
+voxel in a subject's voxel space on each shared feature, and allows to
+functionally a line a subject to the \ac{cfs} by projecting hemodynamic
 responses within the voxels into\todo{?} the $k$-dimensional \ac{cfs}.
 
-
-\todo[inline]{check if $W_{n}^{T}W_{n}=I_{k}$ is True}
-
-\todo[inline]{biggest issue (for discussion, too): how to separate validity /
-generalizability of CFS from validity / generalizability of transformation
-matrices?}
 
 % multi-paradigm model
 In contrast to previous studies \citep[e.g.][]{jiahui2020predicting,
@@ -277,11 +328,11 @@ a visual localizer ($\approx$\unit[21]{min}; \ac{tr}=\unit[2]{s})
 from $N-1$ \textit{training subjects} as seen in
 Fig.~\ref{fig:multi-stimulus-cfs}.
 % four aspects to explore
-The purpose of this study was to investigate four aspects.
+\textbf{The purpose of this study was to investigate four aspects}.
 %
-First, we explored the validity and generalizability of our multi-paradigm
-\ac{cfs} by predicting a left-out \textit{test subject}'s results from the
-analysis of
+First, we explored the \textbf{validity and generalizability} of our
+multi-paradigm \ac{cfs} by predicting a left-out \textit{test subject}'s results
+from the analysis of
 %
 (a) the localizer \citep{sengupta2016extension} as the assumed ``gold
 standard'',
@@ -296,16 +347,16 @@ Second, we use a test subject's response time series from each of the three
 paradigms separately in order to align the test subject with the corresponding
 \acp{tr} within the \ac{cfs}.
 %
-This \textit{partial alignment} lets us assess the validity and generalizability
-of the three paradigms serving as \textit{predictors} (i.e. one
-\textit{cross-subject-within-paradigm prediction}, and two
+This \textit{partial alignment} lets us assess the \textbf{validity and
+generalizability} of the three paradigms serving as \textit{predictors} (i.e.
+one \textit{cross-subject-within-paradigm prediction}, and two
 \textit{cross-subject-cross-paradigm predictions}).
 % partial alignment
 Third, considering the impracticality of using a complete naturalistic stimulus
-in a clinical\todo{drop it} setting to align a test subject, we also explored the relationship
-between the estimation performance of the results from each of the three
-paradigms and the quantity of data from each of the three paradigms used to
-functionally align the subject with the multi-paradigm \ac{cfs}.
+in a clinical\todo{drop it} setting to align a test subject, we also explored
+the relationship between the estimation performance of the results from each of
+the three paradigms and the quantity of data from each of the three paradigms
+used to functionally align the subject with the multi-paradigm \ac{cfs}.
 % benchmark: anatomical alignment the criteria
 Fourth, we compared the performance of our volume-based, functional alignment
 procedures to the performance of a volume-based, anatomical alignment approach
@@ -339,7 +390,7 @@ that serves as a benchmark.
     %
     and the visual localizer ($\approx$\unit[21]{min}; \ac{tr}=\unit[2]{s})
     %
-    were concatenated to serve as input for the \ac{srm} algorithm.
+    were concatenated to serve as the input for the \ac{srm} algorithm.
     %
     From these response time series represented as matrix $X_{n}$ ({$v$} voxels
     by $t$ time points), the algorithm calculates the common functional
@@ -610,7 +661,7 @@ trained a \ac{srm} on $N-1$ training subjects' response time series of the
 movie, the audio-description, and the visual localizer.
 % results in...
 This step generated a \ac{cfs} for each fold of the cross-validation and an
-orthonormal transformation matrix for each training subject.
+transformation matrix with orthonormal columns for each training subject.
 % align test subject
 Second, we aligned the test subject to the corresponding \acp{tr} within the
 \ac{cfs} using time series data from the visual localizer, the movie, or the
@@ -635,10 +686,11 @@ their voxel space into the \ac{cfs} using their transformation matrices.
 % project from CFS into test subject
 Finally, we projected the training subjects' $Z$-maps from the \ac{cfs} into the
 test subject's voxel space using the transpose of the test subject's
-transformation matrix.
+transformation matrix (that is equivalent to the inverse of the transformation
+matrix due to its orthonormal columns).
 % actual prediction
 We obtained the test subject's predicted $Z$-maps by calculating the arithmetic
-mean of the projected Z-maps
+mean of the projected $Z$-maps.
 
 
 
@@ -888,7 +940,8 @@ the movie, or the audio-description to the corresponding \acp{tr} within the
 \ac{cfs} by factorizing the response time series data via singular value
 decomposition.
 %
-This step produced an orthonormal transformation matrix $W_{n}$ each paradigm
+This step produced a transformation matrix $W_{n}$ with orthonormal
+columns for each paradigm
 that allow a mapping of data from a test subject's voxel space into the
 \ac{cfs}.
 %
@@ -921,13 +974,14 @@ Then,  we used the transformation matrices derived during the training of the
 \ac{cfs} to map the masked empirical $Z$-maps from each training subject's voxel
 space into the \ac{cfs}.
 %
-Next, we used the transpose of a transformation matrix obtained from the
-alignment of the test subject to project the $Z$-maps from the \ac{cfs} into the
-test subject's voxel space.
+Next, we used the transpose of a transformation matrix obtained from
+the alignment of the test subject to project the $Z$-maps from the \ac{cfs} into
+the test subject's voxel space.
 % take the mean
 For each of the three $t$-contrasts, we computed the arithmetic mean of the
 respective projected $Z$-maps, which served as an estimation of the test
 subject's empirical $Z$-maps (hence, a \textit{predicted $Z$-maps}).
+
 
 \subsection{Estimation via anatomical alignment}
 
@@ -960,8 +1014,8 @@ subject were projected from their native voxel space into the MNI space via
 previously computed subject-specific transformation matrices
 \citep[][\href{https://github.com/psychoinformatics-de/studyforrest-data-templatetransforms}{\url{github.com/psychoinformatics-de/studyforrest-data-templatetransforms}}]{hanke2014audiomovie}.
 % from MNI into subject
-We then used the transpose of the transformation matrix to project the data from
-the MNI space into the test subject's voxel space.
+We then used the \textbf{transpose} of the transformation matrix to project the
+data from the MNI space into the test subject's voxel space.
 % take the mean
 Similar to our functional alignment procedure, we obtained an estimation of the
 test subject's empirical $Z$-maps by taking the arithmetic mean of the projected
@@ -1314,8 +1368,8 @@ space.
 \todo[inline]{this needs to be in line with paragraph "In contrast to previous
 studies..." in intro}
 
-\todo[inline]{biggest issue: how to separate validity / generalizability of
-\ac{cfs} from validity / generalizability of transformations}
+\todo[inline]{how to separate validity / generalizability of \ac{cfs} from
+validity / generalizability of transformations}
 
 \todo[inline]{in any case: within-paradigm prediction is more about validity of
 model? cross-paradigm prediction is more generalizability of transformations?}
