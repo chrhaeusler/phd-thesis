@@ -46,9 +46,9 @@ region such as the \ac{ppa} can be localized using a model-driven \ac{glm}
 analysis that is based on the annotated temporal structure of a two-hour long
 naturalistic stimulus.
 % full feature film is too long
-However, conducting a two-hour long fMRI scan session may not be desirable or
-feasible due to potential compliance issues or constraints on time and
-resources.
+However, conducting a two-hour long \ac{bold} \ac{fmri} scan session may not be
+desirable or feasible due to potential compliance issues or constraints on time
+and resources.
 % hence, predict from reference
 An alternative approach that addresses the challenges of a lengthy scanning
 procedure is to localize a functional area in an individual by leveraging data
@@ -160,9 +160,9 @@ to novel stimuli or tasks.
 This is presumably because naturalistic stimuli sample a broader range of brain
 states \citep{haxby2011common, guntupalli2016model}.
 
-Consequently, a more recent procedure \citep[e.g., ][]{jiahui2020predicting,
+Consequently, a more recent procedure \citep[e.g.,][]{jiahui2020predicting,
 guntupalli2016model, haxby2011common} to estimate the most probable location of
-a functional area in an individual from a reference performs an functional
+a functional area in an individual from a reference performs a functional
 alignment.
 % solve functional-anatomical variability
 First, the functional data of individuals in the reference group are
@@ -191,37 +191,6 @@ anatomy.
 Results showed that $t$-contrast maps from the visual localizer correlated more
 highly with contrast maps that were estimated via hyperalignment than contrast
 maps that were estimated via surface-based anatomical alignment.
-
-
-\pagebreak
-
-\todo[inline]{phrase general question}
-
-\todo[inline]{drop validity / generalizability thing?}
-
-% focus: ppa
-Here again, we focus on the \ac{ppa} \citep[e.g.,][for
-reviews]{epstein2014neural, aminoff2013role}, and investigate whether we can
-estimate the results of $t$-contrasts (i.e. $Z$-maps) that were created to
-identify the \ac{ppa} using functional data from three different paradigms as
-the to predicted \textit{criteria}:
-%
-(a) a classic visual localizer \citep{sengupta2016extension} as the assumed
-``gold standard'' to localize the \ac{ppa},
-%
-(b) a movie \citep{haeusler2022processing}, and
-%
-(c) an auditory narrative \citep{haeusler2022processing}.
-% math stuff from citep{vodrahalli2018mapping} ``SRM learns $N$ maps $W_{i}$
-% with orthogonal columns such that $||X_{i}-W_{i}S||_{F}$ is minimized over
-% $\left\{ W_{i}\right\} _{i=1}^{N},S$, where $X_{i}\in\mathbb{R}^{v\times{T}}$
-% is the $i^{th}$ subject's fMRI response ($v$ voxels by $T$ repetition times)
-% and $S\in\mathbb{R}^{k\times{T}}$ is a feature time-series in a
-% $k$-dimensional shared space'' \citep{vodrahalli2018mapping}.  Inverse vs.
-% transpose of a matrix: for orthogonal transformations (like we should have
-% here, i.e. only rotation, expansion) these two are one and the same thing:
-% https://www.quora.com/When-is-the-inverse-of-a-matrix-equal-to-its-transpose
-% why SRM
 
 % An orthonormal matrix and a matrix with orthonormal columns are closely
 % related concepts, but there is a difference between the two:
@@ -269,22 +238,38 @@ the to predicted \textit{criteria}:
 % So, by definition, an orthonormal matrix is always square, meaning it has an
 % equal number of rows and columns.
 
-
-Our volume-based functional alignment approach utilizes the \ac{srm} algorithm
-\citep{chen2015reduced, richard2019fast}.
+% focus: ppa
+Here again, our focus is on the \ac{ppa} \citep[e.g.,][for
+reviews]{epstein2014neural, aminoff2013role}.
+%
+We investigated whether we can estimate the results of $t$-contrasts (i.e.
+$Z$-maps) serving as the \textit{criteria} to be predicted.
+%
+The $t$-contrast were created in previous studies that aimed at identifying the
+\ac{ppa} using response time series from three different paradigms:
+%
+(a) a classic visual localizer \citep{sengupta2016extension} as the assumed
+``gold standard'' to localize the \ac{ppa},
+%
+(b) a movie \citep{haeusler2022processing}, and
+%
+(c) an auditory narrative \citep{haeusler2022processing}.
+%
+To estimate these three criteria, we employed a volume-based functional
+alignment approach that utilizes the \ac{srm} \citep{chen2015reduced,
+richard2019fast}.
 % as implemented in the open-source software package BrainIAK \citep[Brain
 % Imaging Analysis Kit;
 % \href{https://brainiak.org}{\url{brainiak.org}};][]{kumar2020brainiak,
-% kumar2020brainiaktutorial}.
-% general overview of SRM
+% kumar2020brainiaktutorial}.  general overview of SRM
 The \ac{srm} is an unsupervised probabilistic latent-factor model that
-decomposes \ac{bold} \ac{fmri} response time series of participants who have
-experienced the same stimulus into a \ac{cfs} of \textit{shared features}
-\citep[also known as \textit{shared feature space};][]{chen2015reduced} and
-subject-specific linear transformations.
+decomposes response time series of participants who have experienced the same
+stimulus into a \ac{cfs} of \textit{shared features} \citep[also known as
+\textit{shared feature space};][]{chen2015reduced} and subject-specific linear
+transformations.
 % math stuff
-More specifically, the \ac{srm} algorithm uses each $n^{th}$ subject's response
-time series represented as matrix $X_{n}$ ({$v$} voxels by $t$ time points) to
+Specifically, the \ac{srm} algorithm uses each $n^{th}$ subject's response time
+series represented as matrix $X_{n}$ ({$v$} voxels by $t$ time points) to
 compute the \ac{cfs} $C$ ($k$ shared responses by $t$ time points) and
 subject-specific transformation matrices $W_{n}$ ($v$ voxels by $k$ shared
 responses) with orthonormal columns ($W_{n}^{T}W_{n}=I_{k}$).
@@ -294,83 +279,67 @@ iterations to minimize the error in explaining the participants' data, while
 also learning the time course of the shared responses (cf.
 \href{https://brainiak.org/tutorials/11-SRM/}{\url{brainiak.org/tutorials/11-SRM}}).
 % number of dimensions
-In contrast to hyperalignment, the number of dimensions of the \ac{cfs} is not
-set by the number of voxels, but rather it is determined by the researcher to a
-number lower than the number of voxels, a procedure that also filters out noise
-and reduces overfitting \citep{chen2015reduced}.
+Unlike hyperalignment, the number of dimensions of the \ac{cfs} is not set by
+the number of voxels, but rather it is determined by the researcher to a number
+lower than the number of voxels, a procedure that also filters out noise and
+reduces overfitting \citep{chen2015reduced}.
 % phrase math in words
-As a result, each shared feature can be thought of as a weighted sum of many
+Consequently, each shared feature can be thought of as a weighted sum of many
 voxels across subjects \citep{kumar2020brainiak}.
 % result = alignment
-A subject-specific transformation matrix can be thought of as the weight of each
-voxel in a subject's voxel space on each shared feature, and allows to
-functionally a line a subject to the \ac{cfs} by projecting hemodynamic
-responses within the voxels into\todo{?} the $k$-dimensional \ac{cfs}.
-
+A subject-specific transformation matrix represents the weight of each voxel in
+a subject's voxel space on each shared feature, and allows to functionally align
+subjects by projecting hemodynamic responses within the voxels into the
+$k$-dimensional \ac{cfs}.
 
 % multi-paradigm model
 In contrast to previous studies \citep[e.g.][]{jiahui2020predicting,
 guntupalli2016model, haxby2011common} that calculated a \ac{cfs} based on data
 from a single paradigm, we calculated a \textit{multi-paradigm \ac{cfs}} based
-on data from three paradigms.
+on data from three different paradigms.
 % cross-validation
-We followed an exhaustive leave-one-subject-out cross-validation (N$=$14
-subjects) to train a shared feature space (i.e. the \ac{cfs}) based on
-concatenated response time series of
+Following an exhaustive leave-one-subject-out cross-validation (N$=$14
+subjects), each \textit{training subject}'s response time series from
 %
 the movie ``Forrest Gump'' ($\approx$\unit[120]{min}; \ac{tr}=\unit[2]{s}),
 %
-the movie's audio-description  that was produced for a visually impaired
-audience ($\approx$\unit[120]{min}; \ac{tr}=\unit[2]{s}), and
+the movie's audio-description that was produced for a visually impaired audience
+($\approx$\unit[120]{min}; \ac{tr}=\unit[2]{s}), and
 %
-a visual localizer ($\approx$\unit[21]{min}; \ac{tr}=\unit[2]{s})
+the visual localizer ($\approx$\unit[20]{min}; \ac{tr}=\unit[2]{s})
 %
-from $N-1$ \textit{training subjects} as seen in
-Fig.~\ref{fig:multi-stimulus-cfs}.
-% four aspects to explore
-\textbf{The purpose of this study was to investigate four aspects}.
+were concatenated and fed into the \ac{srm} algorithm in order to calculate the
+\ac{cfs} and the training subjects' transformations (see
+Fig.~\ref{fig:multi-stimulus-cfs}).
+% test subject's transformation
+In order to be able to investigate the prediction performance of each paradigm,
+we then performed a \textit{partial alignment} of the \textit{test subject}:
 %
-First, we explored the \textbf{validity and generalizability} of our
-multi-paradigm \ac{cfs} by predicting a left-out \textit{test subject}'s results
-from the analysis of
+a test subject's response time series from each of the three paradigms were
+separately aligned with the corresponding \acp{tr} within the \ac{cfs} to obtain
+three different transformations.
 %
-(a) the localizer \citep{sengupta2016extension} as the assumed ``gold
-standard'',
+In other words, the time series of each paradigm served as a separate
+\textit{predictor} to estimate three different criteria (i.e. one
+\textit{cross-subject-within-paradigm prediction} and two
+\textit{cross-subject-cross-paradigm predictions} per paradigm).
 %
-(b) the movie \citep{haeusler2022processing}, and
-%
-(c) the auditory narrative \citep{haeusler2022processing}
-%
-serving as the criteria.
-% three predictors
-Second, we use a test subject's response time series from each of the three
-paradigms separately in order to align the test subject with the corresponding
-\acp{tr} within the \ac{cfs}.
-%
-This \textit{partial alignment} lets us assess the \textbf{validity and
-generalizability} of the three paradigms serving as \textit{predictors} (i.e.
-one \textit{cross-subject-within-paradigm prediction}, and two
-\textit{cross-subject-cross-paradigm predictions}).
-% partial alignment
-Third, considering the impracticality of using a complete naturalistic stimulus
-in a clinical\todo{drop it} setting to align a test subject, we also explored
-the relationship between the estimation performance of the results from each of
-the three paradigms and the quantity of data from each of the three paradigms
-used to functionally align the subject with the multi-paradigm \ac{cfs}.
-% benchmark: anatomical alignment the criteria
-Fourth, we compared the performance of our volume-based, functional alignment
-procedures to the performance of a volume-based, anatomical alignment approach
-that serves as a benchmark.
+Further, considering that acquiring functional data from a two-hour long
+naturalistic stimulus to align an individual to a \ac{cfs} may not be desirable
+of feasible, we also investigated the relationship between the quantity of data
+of each predictor used to obtain a test subject's transformation and the
+subsequent performance of estimating each criterion.
 
-\todo[inline]{add 2-3 sentences stating the results}
-%
-% Our results provide evidence that transformation matrices calculated based
-% on data from naturalistic stimuli promise an increased validity of derived
-% transformation for functional alignment over transformation matrices based on
-% data (of the same!) paradigm based on simplified stimuli.
+\todo[inline]{add 1-3 sentences stating the results (that en passant explain the
+last sentence)}
 
-\todo[inline]{add 2-3 sentences stating a conclusion \& vision}
-% Our results suggest that it is possible to ``scan once, estimate many
+\todo[inline]{mention: number of minutes, generalization of predictors across
+criteria, and comparison to the volume-based, anatomical alignment that serves
+as a benchmark)}
+
+\todo[inline]{add 1 sentence stating a conclusion (\& vision)}
+
+% Our results suggest that it is possible to ``scan once, estimate many''
 
 \begin{figure*}[tbp]
 \centering
@@ -383,12 +352,12 @@ that serves as a benchmark.
     For each fold of the leave-one-subject-out cross-validation, each training
     subject's response time series of
     %
-    the movie ($\approx$\unit[120]{min}; \ac{tr}=\unit[2]{s}),
+    the movie ($\approx$\unit[120]{min}; \acf{tr}=\unit[2]{s}),
     %
     the movie's audio-description ($\approx$\unit[120]{min};
     \ac{tr}=\unit[2]{s}),
     %
-    and the visual localizer ($\approx$\unit[21]{min}; \ac{tr}=\unit[2]{s})
+    and the visual localizer ($\approx$\unit[20]{min}; \ac{tr}=\unit[2]{s})
     %
     were concatenated to serve as the input for the \ac{srm} algorithm.
     %
@@ -1315,6 +1284,14 @@ yielded no significant difference ($t(14)=-0.76$, $p=.4625$).
 
 \section{Discussion}
 
+\todo[inline]{delete captions of subsubsections}
+
+\subsection{Introductory paragraph}
+
+\todo[inline]{localizers are tedious; could a movie used to infer localization;
+do we need 120 min?}
+
+
 To overcome the limitations associated with lengthy scanning procedures, an
 alternative approach can be employed.
 %
@@ -1327,23 +1304,16 @@ interest without the need for extensive scanning sessions for each individual.
 This method offers a more efficient and cost-effective solution while still
 providing valuable insights into individual brain functional anatomy.
 
-
-\todo[inline]{Delete captions of subsubsections}
-
-\todo[inline]{Discussion of poor performance of localizer is obsolete}
-
-\subsection{Introductory paragraph}
-
 %
 We investigated the performance of a functional alignment procedure that we used
 to predict results of $t$-contrasts (i.e. the criteria) that were created in
 previous studies \citep{sengupta2016extension, haeusler2022processing} in order
 to localize the \ac{ppa}.
 %
-Following a leave-one-subject-out cross-validation, we fit a shared response
-model \citep{chen2015reduced} to the training subjects' concatenated response
+Following a leave-one-subject-out cross-validation, we fit a \acf{srm}
+\citep{chen2015reduced} to the training subjects' concatenated response
 time series of three different paradigms in order to create a multi-paradigm
-\ac{cfs} and the training subjects' subject-specific transformations.
+\acf{cfs} and the training subjects' subject-specific transformations.
 %
 \todo{add what they are good for}
 %
@@ -1390,7 +1360,6 @@ used to functionally align the subject with the \ac{cfs}.
 Last, we compared the performance of our volume-based, functional alignment
 procedures to that of a volume-based, anatomical alignment approach, which
 served as a benchmark.
-
 
 \subsubsection{Results + Conclusion}
 %
@@ -1456,13 +1425,21 @@ is difficult to estimate the outliers of Cronbach's $\alpha$ of audio PPA.
 \subsection{Functional alignment}
 
 
-
-
-\subsubsection{Movie for functional alignment}
-
 \todo[inline]{a.k.a. movie is best (which is in line with previous research)}
 
-\todo[inline]{paragraph focuses on estimation of localizer though}
+\todo[inline]{focus on estimation of localizer (because "gold standard")}
+
+
+\subsubsection{Visual localizer for functional alignment}
+
+\todo[inline]{results are in line with \citet{haxby2011common}}
+
+%
+Is best for within-paradigm prediction;
+%
+also works well if movie PPA is predicted
+
+\subsubsection{Movie for functional alignment}
 
 %
 When estimating the visual localizer, results indicate that
@@ -1479,30 +1456,9 @@ scanning time than $\approx$\unit[30]{min}utes during audio-visual naturalistic
 stimulation.
 
 
-
-\subsubsection{Visual localizer for functional alignment}
-
-\todo[inline]{a.k.a. why is it bad? which is not in line with previous research}
-
-\todo[inline]{is it our model or the transformation matrices?}
-
-%
-Unexpectedly, the prediction of the localizer using localizer runs (i.e.,
-within-experiment prediction) was worse than anatomical alignment.
-%
-It is possible that our naturalistic stimuli (about 7000 TRs) may have
-"disrupted" our shared responses during the 450 \acp{tr} within the SRM?
-%
-However, the correlations of regressors with shared responses (cf.
-Fig.~\ref{fig:corr-vis-reg-srm}) indicate that the shared responses show the
-highest correlation with regressors of the localizer.
-%
-Therefore, the matrices based on the localizer runs are less reliable for
-estimation compared to anatomical alignment?
-
-
-
 \subsubsection{Audio-description for functional alignment}
+
+\todo[inline]{cross-modal estimation}
 
 \todo[inline]{a.k.a. it's totally different from different previous research}
 
