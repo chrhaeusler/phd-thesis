@@ -131,7 +131,9 @@
 % cf. https://en.wikipedia.org/wiki/Widows_and_orphans
 \usepackage[all]{nowidow}
 
-
+% enable rounding of numpers
+% e.g. \nprounddigits{3}\numprint{13.9978}$ equals "13.998" in the pdf
+\usepackage{numprint}
 
 
 \begin{document}
@@ -499,13 +501,18 @@ individual subjects from data of a reference group}
 %\begin{comment}
 
 
-\chapter{Appendix}
+\chapter*{Appendix}
 %% The appendix contains:\\
 %% a) any existing survey materials, e.g. questionnaires\\
 %% b) detailed description of formulas and derivations\\
 %% Please do not include signed documents
 %% (e.g. the vote of the Ethics Committee)}
-%\appendix
+\addcontentsline{toc}{chapter}{Appendix}
+% \setheader{Appendix}
+\setcounter{figure}{0}                       % <---------------
+\renewcommand\thefigure{A.\arabic{figure}}   % <---------------
+
+% take input from external file
 \input{appendix}
 
 
