@@ -571,7 +571,7 @@ of each subject.}
 %
 In order to reduce the number of voxels, we warped the union of
 individual \acp{ppa} \citep[cf. Fig. 1 in][]{haeusler2022processing} from
-MNI152 space into each subject's native voxel space.
+MNI space into each subject's native voxel space.
 %
 The remaining voxels of each subject were further constrained to those
 voxels that are included in the respective subject's \ac{fov} of the
@@ -626,7 +626,7 @@ sub-20 & 1437 \tabularnewline
 
 \subsection{Estimation via functional alignment}
 
-\todo[inline]{Make this part shorter as an introduction}
+\todo[inline]{Make this part shorter (streamline with introduction)}
 
 \todo[inline]{Stuff explained but deleted here must be in the parts below}
 %
@@ -935,7 +935,7 @@ localizer, and
 one up to eight runs (each lasting $\approx$\unit[15]{min}) of the naturalistic
 stimuli
 %
-to align the test subject's time series to the their corresponding \acp{tr}
+to align the test subject's time series with the their corresponding \acp{tr}
 within the \ac{cfs}.
 %
 Therefore, for each test subject, we obtained four matrices based on data from
@@ -970,21 +970,9 @@ subject's empirical $Z$-maps (hence, predicted $Z$-maps).
 
 
 \subsection{Estimation via anatomical alignment}
-
-\todo[inline]{strictly speaking data were not projected through the MNI152 atlas
-but through a study-specific brain template co-registered to the MNI152 atlas,
-wasn't it?}
-
-\todo[inline]{here is a point where one could switch from "transformation
-matrices" back to simply "transformations".}
-
-\todo[inline]{was the matrix the transpose or a "totally" different one?}
-
 %
-As a baseline, we used an anatomical alignment procedure to estimate the results
-of $t$-contrast of each paradigm.
-%
-We predicted a test subject's empirical $Z$-maps from the analysis of
+As a baseline, we used an anatomical alignment procedure to estimate a test
+subject's empirical $Z$-maps from the analysis of
 %
 the visual localizer \citep{sengupta2016extension},
 %
@@ -992,34 +980,24 @@ the movie \citep{haeusler2022processing}, and
 %
 the audio-description \citep{haeusler2022processing}
 %
-using the training subjects' results of the same paradigm (hence,
+using the training subjects' results of the same paradigm (hence, three
 cross-subject-within-paradigm predictions).
 %
-To do this, we projected the masked empirical $Z$-maps of each paradigm and each
-subject were projected from their native voxel space into the MNI space via
-previously computed subject-specific transformation matrices
+First, we projected the masked empirical $Z$-maps of each paradigm and each
+training subject from their native voxel space into the MNI space via previously
+computed subject-specific transformation matrices
 \citep[][\href{https://github.com/psychoinformatics-de/studyforrest-data-templatetransforms}{\url{github.com/psychoinformatics-de/studyforrest-data-templatetransforms}}]{hanke2014audiomovie}.
 % from MNI into subject
-We then used the \textbf{transpose} of the transformation matrix to project the
-data from the MNI space into the test subject's voxel space.
+We then used the test subject's pseudoinverse transformation matrix to project
+the data from MNI space into the test subject's voxel space.
 % take the mean
 Similar to our functional alignment procedure, we obtained an estimation of the
-test subject's empirical $Z$-maps by taking the arithmetic mean of the projected
-$Z$-maps.
+test subject's empirical $Z$-maps by taking the arithmetic mean of the
+respective projected $Z$-maps.
 
 
 
-\subsection{Cronbach's alpha}
-
-\todo[inline]{I have no clue where \citet{jiahui2020predicting, jiahui2022cross}
-have the statement about what Cronbach's expresses from...}
-
-\todo[inline]{shift results stated here to actual result section? In particular,
-in case a t-test involving Cronbach's is calculated (which is not the case so
-far)?}
-
-
-
+\subsection{Cronbach's $\alpha$ of the empirical $Z$-maps}
 %
 We calculated Cronbach's $\alpha$ as a measure of reliability and the amount of
 measurement error \citep{cronbach1951coefficient, cortina1993coefficient}
@@ -1123,12 +1101,13 @@ estimate of the noise ceiling for these correlations'' \citep{jiahui2022cross}.
 The unthresholded $Z$-maps in their respective subject's voxel space can be
 accessed at
 \href{https://identifiers.org/neurovault.collection:12340}{\url{neurovault.org/collections/12340}}.
-\todo{still empty}
+\todo{empty}
 %
-We calculated the correlation between each individual's empirical $Z$-maps
-obtained from previous analyses \citep{haeusler2022processing,
-sengupta2016extension} and their respective predicted $Z$-maps (cf.
-Fig.~\ref{fig:stripplot}) to assess the performance of the alignment procedures.
+We calculated the Pearson correlation coefficients between each individual's
+empirical $Z$-maps obtained from previous analyses
+\citep{haeusler2022processing, sengupta2016extension} and their respective
+predicted $Z$-maps to assess the performance of the alignment procedures (see
+Fig.~\ref{fig:stripplot})
 %
 In general, the mean Pearson correlation coefficients vary depending on the
 criterion being estimated (i.e. $Z$-maps of the visual localizer, movie, or
@@ -1137,7 +1116,7 @@ vs. functional alignment).
 %
 In the case of functional alignment, the quantity of the paradigm's data used as
 a predictor and to align a test subject to the \ac{cfs} also affects the
-correlation coefficients, as shown in Fig.~\ref{fig:stripplot}.
+correlation coefficients.
 %
 However, the functional alignment procedure consistently shows an increasing
 estimation performance across criteria as more data of a predictor is used to
@@ -1151,6 +1130,7 @@ examples for further exploration.
 %
 We used a Bonferroni correction for multiple comparisons to adjust the alpha
 level to an $\alpha$ of $0.05 / 15 = 0.00\overline{3}$.
+
 
 \begin{figure*}[tbp] \centering
     \includegraphics[width=\linewidth]{figures/plot_corr-emp-vs-estimation.pdf}
@@ -1203,15 +1183,14 @@ level to an $\alpha$ of $0.05 / 15 = 0.00\overline{3}$.
 \label{fig:stripplot}
 \end{figure*}
 
-% use numprint's nprounddigits to round, well digits
-% e.g. \nprounddigits{2}\numprint{13.9978}$
 
 % localizer: localizer data
 When estimating the $Z$-maps of the visual localizer, the mean correlation
 between empirical $Z$-maps and $Z$-maps predicted using $\approx$\unit[15]{min}
 of the visual localizer (within-paradigm prediction) was significantly higher
 than the mean correlation between empirical $Z$-maps and $Z$-maps predicted via
-anatomical alignment ($t(14)=\nprounddigits{2}\numprint{13.99}$, $p<.0001$).
+the within-paradigm prediction based on an anatomical alignment
+($t(14)=\nprounddigits{2}\numprint{13.99}$, $p<.0001$).
 % localizer: movie data
 Similarly, the mean correlation between empirical $Z$-maps and $Z$-maps
 predicted using $\approx$\unit[15]{min} of the movie (cross-paradigm prediction)
@@ -1246,8 +1225,8 @@ yielded no significant difference ($t(14)=-1.17$, $p=.2640$).
 When estimating the $Z$-maps of the movie, the mean correlation between
 empirical $Z$-maps and predicted $Z$-maps using $\approx$\unit[15]{min} of the
 movie (within-paradigm prediction) were significantly higher than the
-correlations between empirical $Z$-maps and predicted $Z$-maps via anatomical
-alignment ($t(14)= 5.78$, $p<.0001$).
+correlations between empirical $Z$-maps and predicted $Z$-maps via
+the within-paradigm prediction based on an anatomical alignment ($t(14)= 5.78$, $p<.0001$).
 %
 Comparing the within-paradigm prediction using $\approx$\unit[15]{min} of the
 movie to the cross-paradigm prediction using $\approx$\unit[15]{min} of the
@@ -1297,20 +1276,17 @@ yielded no significant difference ($t(14)=-0.76$, $p=.4625$).
 
 
 
-
-\pagebreak
-
-
 \section{Discussion}
-
-\todo[inline]{delete captions of subsubsections}
 
 \subsection{Introductory paragraph}
 
-\todo[inline]{localizers are tedious; could a movie used to infer localization;
-do we need 120 min?}
+\todo[inline]{streamline with intro}
 
+\subsubsection{Problem space}
 
+\todo[inline]{localizers are tedious}
+
+%
 To overcome the limitations associated with lengthy scanning procedures, an
 alternative approach can be employed.
 %
@@ -1323,6 +1299,13 @@ interest without the need for extensive scanning sessions for each individual.
 This method offers a more efficient and cost-effective solution while still
 providing valuable insights into individual brain functional anatomy.
 
+
+\paragraph{So far: anatomical alignment}
+
+
+\subsubsection{We: functional alignment}
+
+\todo[inline]{could a movie used to localize? do we need 120 min?}
 %
 We investigated the performance of a functional alignment procedure that we used
 to predict results of $t$-contrasts (i.e. the criteria) that were created in
@@ -1334,7 +1317,6 @@ Following a leave-one-subject-out cross-validation, we fit a \acf{srm}
 time series of three different paradigms in order to create a multi-paradigm
 \acf{cfs} and the training subjects' subject-specific transformations.
 %
-\todo{add what they are good for}
 %
 In order to acquire the test subject's transformation, we used an
 increasing amount of the test subject's response time series of the three
@@ -1348,39 +1330,11 @@ to yield the test subject's predicted $Z$-maps.
 %
 In case of the anatomical alignment approach that served as a baseline, the
 training subjects' $Z$-maps were projected via nonlinear, volume-based
-transformation through the MNI152 brain atlas into the test subject's voxel
+transformation through the MNI space into the test subject's voxel
 space.
 
 
-\subsubsection{Four aspects under investigation}
-
-\todo[inline]{this needs to be in line with paragraph "In contrast to previous
-studies..." in intro}
-
-\todo[inline]{how to separate validity / generalizability of \ac{cfs} from
-validity / generalizability of transformations}
-
-\todo[inline]{in any case: within-paradigm prediction is more about validity of
-model? cross-paradigm prediction is more generalizability of transformations?}
-%
-First, we assess the \textbf{validity of the \ac{cfs}} by estimating $Z$-maps
-from the analysis (i.e. $t$-contrast) of same paradigms used to align the test
-subject (cross-subject-\textbf{within-paradigm} prediction).
-%
-Second, we assess the \textbf{generalizability of the transformations}
-by estimating $Z$-maps from the analysis (i.e. $t$-contrast) of paradigms that
-were not used to align the test subject (cross-subject-\textbf{cross-paradigm}
-prediction).
-%
-Third, we explore the relationship between the estimation performance of the
-t-contrast's results and the quantity of data from each of the three paradigms
-used to functionally align the subject with the \ac{cfs}.
-%
-Last, we compared the performance of our volume-based, functional alignment
-procedures to that of a volume-based, anatomical alignment approach, which
-served as a benchmark.
-
-\subsubsection{Results + Conclusion}
+\subsubsection{Results (if at all, very short)}
 %
 We found that using a partial alignment approach with a multi-paradigm \ac{cfs}
 derived from concatenated time series of multiple paradigms is effective.
@@ -1399,7 +1353,8 @@ localizer paradigm.
 
 \subsection{Anatomical alignment vs. functional alignment}
 
-\todo[inline]{it is actually not that bad}
+\todo[inline]{it is actually not that bad; but it's always within-paradigm
+prediction!}
 
 \todo[inline]{it's consistent across paradigms, too (always a median correlation
 of about 0.6)}
@@ -1443,26 +1398,25 @@ is difficult to estimate the outliers of Cronbach's $\alpha$ of audio PPA.
 
 \subsection{Functional alignment}
 
-
-\todo[inline]{a.k.a. movie is best (which is in line with previous research)}
-
 \todo[inline]{focus on estimation of localizer (because "gold standard")}
+
+\todo[inline]{generally, movie is best; which is in line with previous research}
 
 
 \subsubsection{Visual localizer for functional alignment}
 
-\todo[inline]{results are in line with \citet{haxby2011common}}
-
 %
 Is best for within-paradigm prediction;
 %
-also works well if movie PPA is predicted
+also works well if movie PPA is predicted;
+%
+results are in line with \citet{haxby2011common}
 
 \subsubsection{Movie for functional alignment}
 
 %
 When estimating the visual localizer, results indicate that
-$\approx$$\approx$\unit[15]{min}utes (\ac{tr}=2s) of movie watching used for
+$\approx$\unit[15]{min}utes (\ac{tr}=2s) of movie watching used for
 functional alignment outperform prediction using anatomical alignment.
 %
 Prediction performance further increases when
@@ -1507,6 +1461,11 @@ paradigm, i.e., another same-modality criterion.
 \paragraph{audio PPA as criterion: the issue of reliability}
 
 \todo[inline]{also true (but less severe) in case of movie PPA}
+
+\todo[inline]{What did the person's actually do during the experiment? Control
+of audibility, alertness etc..; it's not that task-free; keeping attention when
+merely listening without visual salient screen catching attention with
+movement's etc.}
 
 \todo[inline]{needs to be in line with general discussion's pros \& cons of
 naturalistic stimuli}
@@ -1600,16 +1559,6 @@ here when trying to interpret the results.
 
 \subsubsection{Interim summary (on functional alignment)}
 
-\todo[inline]{how to separate validity \& generalizability of \ac{cfs} from
-validity \& generalizability of matrices?}
-
-\todo[inline]{if \citet{haxby2011common} is discussed (a lot), it should
-probably be primed in the intro (right before "Here, we...")}
-
-\todo[inline]{problem: \citet{feilong2022individualized} already assessed data
-quantity; results suggest 30m are "good" in case of their model; plus, they
-model individual component.}
-
 %
 Our results provide evidence that transformation matrices calculated based on
 data from naturalistic stimuli promise an increased validity and [or?]
@@ -1632,93 +1581,28 @@ to the \ac{cfs}.
 
 
 
-\subsection{Vision}
-
-% A shared calibration scan across datasets could be used to transfer data
-% between datasets, a procedure that is easier to accomplish than shared
-% subjects across datasets \citep[cf.][an extension of the \ac{srm} for shared
-% subjects across datasets]{zhang2018transfer}.
-
-\todo[inline]{needs to be in line with general discussion's "Vision" (which
-is commented out at the moment)}
-
-\todo[inline]{Maybe, merge part here into general discussion? the part here is
-not long anyway}
-
-
-\subsubsection{Intro}
-
-\todo[inline]{maybe, repeat phrasing from introduction (cf. localizer
-paradigms)}
-
-%
-Our results suggest that $\approx$\unit[15]{min}utes functional scanning using an engaging
-naturalistic stimulus could provide sufficient data for a \textit{calibration
-scan}.
-%
-A standardized calibration scan could be used to align a new subject to a
-\ac{cfs} that was derived from extensive scans of a reference group.
-%
-The reference group's scans would include data collected from both naturalistic
-paradigms and controlled paradigms.
-%
-The controlled paradigms could include functional localizers that are
-specifically designed to reliably map brain processes involved in, for example,
-low-level auditory or visual perception, as well as higher cognition, such as
-theory of mind or \citep{spunt2014validating} or semantic processes
-\citep{fedorenko2010new, fernandez2001language}.
-%
-The diagnostic run would be based on a multifaceted naturalistic stimulus that
-samples a broad range of brain states in order to allow for a valid alignment to
-the reference \ac{cfs}.
-%
-Compared to a diagnostic run based on a controlled paradigm, a naturalistic
-stimulus would have the additional benefits of higher engagement and better
-compliance \citep{vanderwal2015inscapes, eickhoff2020towards}, especially in
-children or patients.
-
-
-\paragraph{Application: estimate \& quantify regular vs. deviant pattern}
-
-%
-Once a new subject is aligned to the \ac{cfs}, the functional patterns collected
-in a reference group could be mapped through the \ac{cfs} into the new subject's
-voxel space.
-%
-This would allow for the estimation of regular patterns in the new subject when
-additional functional scans are not feasible due to scanner availability, time
-limitations, monetary constraints, or compliance issues.
-%
-Moreover, this approach would allow for the quantification of the similarity (or
-difference) of a new subject's actual pattern (i.e., an empirical $Z$-map) to a
-pattern estimated from a healthy or clinical\todo{drop?} reference group.
-
-
-\todo[inline]{essentially quoting the abstract of \citet{yates2021emergence}:}
-%
-For instance, a recent study by \citet{yates2021emergence} ``employed shared
-response modeling to investigate the presence and localization of adult
-functions in children.
-%
-The authors learned a feature space from fMRI activity of adults watching a
-movie and then translated the shared features into the anatomical brain space of
-children aged 3 to 12 years old.
-%
-They found reliable correlations between reconstructed activity and children's
-actual fMRI activity as they watched the same movie.
-%
-The strength of the correlation in the precuneus, inferior frontal gyrus, and
-lateral occipital cortex predicted chronological age.
-%
-This approach demonstrates the potential to generalize findings across different
-populations and ages, further highlighting the importance of establishing a
-reliable and accurate \ac{cfs}''.
-
-
-
 \subsection{Future questions}
 
 \todo[inline]{just some ideas...}
+
+Our results are preliminary!
+
+\subsubsection{Bigger sample size}
+%
+The SRM is computationally less demanding [= "computationally more efficient"?]
+than hyperalignment, an advantage for scientists who want to replicate our
+results but do not have access to a high-performance computer cluster [or
+"high-throughput computer cluster" or simply "specialized hardware"?].
+%
+Moreover, it should scale pretty well to bigger sample sizes; compared to, for
+example, \citet{jiahui2020predicting, jiahui2022cross} 1-step hyperalignment
+alignment that needs pair-wise matrices for subjects (because no CFS).
+
+
+Functional alignment via movie (and visual localizer) to predict results of a
+other domains, e.g. speech localizer?
+%
+How far can we push it?
 
 
 \subsubsection{Other ROIs than category-selective areas}
@@ -1766,7 +1650,6 @@ character-selective regions showing the lowest consistency for both alignments,
 closely followed by mFus- and IOG-faces'' \citep{rosenke2021probabilistic}.
 
 \end{comment}
-
 
 %
 In the present study, we focused on the \ac{ppa} as a classic example of a
@@ -1865,7 +1748,7 @@ definitively be avoided}
 
 \paragraph{SRM}
 
-
+\todo[inline]{do not (explicitly) discuss clinical application}
 
 The SRM algorithm used in this study has a drawback in that it only models
 responses that are common across individuals, without including an individual
@@ -1891,13 +1774,8 @@ Does the algorithm estimate a regular pattern, which allows for quantifying the
 difference of a deviant actual pattern from a norm, or does it directly estimate
 the deviant pattern from a regular reference?
 
-\todo[inline]{if this topic is supposed to be discussed, check outsourced
-templates for atypical language topographies (in clinical populations)}
-
 \todo[inline]{at least two of \citet{feilong2022individualized, jiahui2022cross,
 turek2018capturing} have modeled an individual component.}
-
-
 
 
 % citep{cohen2017computational} on SRM and individual residuals
@@ -2039,33 +1917,90 @@ connectivity-based common spaces better align connectivity data
 \citep{guntupalli2018computational}'' \citep{busch2021hybrid}.
 
 
-\subsection{Short comings}
+\subsection{Vision}
 
-\todo[inline]{Any other short comings? Most is (or can be implicitly) mentioned in "Future Questions")}
+% A shared calibration scan across datasets could be used to transfer data
+% between datasets, a procedure that is easier to accomplish than shared
+% subjects across datasets \citep[cf.][an extension of the \ac{srm} for shared
+% subjects across datasets]{zhang2018transfer}.
 
-\subsubsection{Bigger sample size}
+
+\todo[inline]{probably, write more here regarding the Vision}
+
+\todo[inline]{general discussion is more about pro (functional alignment, yeah!)
+\& contra of naturalistic stimuli}
+
+\todo[inline]{do not speak about "clinical application" here, because this is
+about estimating deviations}
+
+\subsubsection{Intro}
+
+\todo[inline]{maybe, repeat phrasing from introduction (cf. localizer
+paradigms)}
+
 %
-The SRM is computationally less demanding [= "computationally more efficient"?]
-than hyperalignment, an advantage for scientists who want to replicate our
-results but do not have access to a high-performance computer cluster [or
-"high-throughput computer cluster" or simply "specialized hardware"?].
+Our results suggest that $\approx$\unit[15]{min} functional scanning using an
+engaging naturalistic stimulus could provide sufficient data for a
+\textit{calibration scan}.
 %
-Moreover, it should scale pretty well to bigger sample sizes; compared to, for
-example, \citet{jiahui2020predicting, jiahui2022cross} 1-step hyperalignment
-alignment that needs pair-wise matrices for subjects (because no CFS).
+A standardized calibration scan could be used to align a new subject to a
+\ac{cfs} that was derived from extensive scans of a reference group.
+%
+The reference group's scans would include data collected from both naturalistic
+paradigms and controlled paradigms.
+%
+The controlled paradigms could include functional localizers that are
+specifically designed to reliably map brain processes involved in, for example,
+low-level auditory or visual perception, as well as higher cognition, such as
+theory of mind or \citep{spunt2014validating} or semantic processes
+\citep{fedorenko2010new, fernandez2001language}.
+%
+The diagnostic run would be based on a multifaceted naturalistic stimulus that
+samples a broad range of brain states in order to allow for a valid alignment to
+the reference \ac{cfs}.
+%
+Compared to a diagnostic run based on a controlled paradigm, a naturalistic
+stimulus would have the additional benefits of higher engagement and better
+compliance \citep{vanderwal2015inscapes, eickhoff2020towards}, especially in
+children or patients.
 
 
-\paragraph{Small sample size lead to varying \ac{cfs} across subjects}
-% "unstable" CFS
-The correlations of shared responses within the \acp{cfs} created from $N-1$
-training subjects varied across the folds of the cross-validation.
-% interpretation
-That means, a change of 1/13 of the data for every subject's analysis is causing
-the estimates to vary [how much?].
-% conclusion
-Future studies, should create a \ac{cfs} based on data from more subjects and
-investigate the relationship between number of participants, variability of
-parameters, and estimation performance.
+\paragraph{Application: estimate \& quantify regular vs. deviant pattern}
+
+%
+Once a new subject is aligned to the \ac{cfs}, the functional patterns collected
+in a reference group could be mapped through the \ac{cfs} into the new subject's
+voxel space.
+%
+This would allow for the estimation of regular patterns in the new subject when
+additional functional scans are not feasible due to scanner availability, time
+limitations, monetary constraints, or compliance issues.
+%
+Moreover, this approach would allow for the quantification of the similarity (or
+difference) of a new subject's actual pattern (i.e., an empirical $Z$-map) to a
+pattern estimated from a healthy \textbf{or clinical} reference group.
+
+
+\todo[inline]{essentially quoting the abstract of \citet{yates2021emergence}:}
+%
+For instance, a recent study by \citet{yates2021emergence} ``employed shared
+response modeling to investigate the presence and localization of adult
+functions in children.
+%
+The authors learned a feature space from fMRI activity of adults watching a
+movie and then translated the shared features into the anatomical brain space of
+children aged 3 to 12 years old.
+%
+They found reliable correlations between reconstructed activity and children's
+actual fMRI activity as they watched the same movie.
+%
+The strength of the correlation in the precuneus, inferior frontal gyrus, and
+lateral occipital cortex predicted chronological age.
+%
+This approach demonstrates the potential to generalize findings across different
+populations and ages, further highlighting the importance of establishing a
+reliable and accurate \ac{cfs}''.
+
 
 
 \subsection{Conclusion}
