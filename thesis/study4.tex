@@ -1274,55 +1274,13 @@ yielded no significant difference ($t(14)=-0.76$, $p=.4625$).
 
 \todo[inline]{focus on localizer PPA (also in length of the text)}
 
-\todo[inline]{movie \& audio PPA are bonus}
-
-\todo[inline]{exact mean (z-transformed) correlation per paradigm for anatomical
-alignment?}
-
-
-
 
 \subsection{Introductory paragraph}
 
 \todo[inline]{(implicitly) define "predictors", "criteria", "multi-paradigm
-\ac{cfs} again}
+\ac{cfs}" again}
 
-
-
-
-\begin{comment}
-
-\subsubsection{Longer version of the introductory paragraph}
-%
-We investigated the performance of a functional alignment procedure that we used
-to predict results of $t$-contrasts (i.e. the criteria) that were created in
-previous studies \citep{sengupta2016extension, haeusler2022processing} in order
-to localize the \ac{ppa}.
-%
-Following a leave-one-subject-out cross-validation, we fit a \acf{srm}
-\citep{chen2015reduced} to the training subjects' concatenated response
-time series of three different paradigms in order to create a multi-paradigm
-\acf{cfs} and the training subjects' subject-specific transformations.
-%
-In order to acquire the test subject's transformation, we used an
-increasing amount of the test subject's response time series of the three
-paradigms (i.e. the predictors) separately by functionally aligning the test
-subject to the corresponding \acp{tr} of the shared feature space (i.e.
-\ac{cfs}).
-%
-The empirical $Z$-maps of each training subject were projected from their
-respective voxel space through the \ac{cfs} into the test subject's voxel space
-to yield the test subject's predicted $Z$-maps.
-%
-In case of the anatomical alignment approach that served as a baseline, the
-training subjects' $Z$-maps were projected via nonlinear, volume-based
-transformation through the MNI space into the test subject's voxel
-space.
-
-\end{comment}
-
-
-
+\todo[inline]{shift results / conclusions here to actual conclusions?}
 
 
 
@@ -1353,6 +1311,33 @@ align an individual with a \ac{cfs} may not be desirable or feasible, we also
 investigated the relationship between the quantity of data used to align an
 individual and the subsequent estimation performance.
 
+
+\subsubsection{Longer version of "Approach"}
+%
+We investigated the performance of a functional alignment procedure that we used
+to predict results of $t$-contrasts (i.e. the criteria) that were created in
+previous studies \citep{sengupta2016extension, haeusler2022processing} in order
+to localize the \ac{ppa}.
+%
+Following a leave-one-subject-out cross-validation, we fit a \acf{srm}
+\citep{chen2015reduced} to the training subjects' concatenated response
+time series of three different paradigms in order to create a multi-paradigm
+\acf{cfs} and the training subjects' subject-specific transformations.
+%
+In order to acquire the test subject's transformation, we used an
+increasing amount of the test subject's response time series of the three
+paradigms (i.e. the predictors) separately by functionally aligning the test
+subject to the corresponding \acp{tr} of the shared feature space (i.e.
+\ac{cfs}).
+%
+The empirical $Z$-maps of each training subject were projected from their
+respective voxel space through the \ac{cfs} into the test subject's voxel space
+to yield the test subject's predicted $Z$-maps.
+%
+In case of the anatomical alignment approach that served as a baseline, the
+training subjects' $Z$-maps were projected via nonlinear, volume-based
+transformation through the MNI space into the test subject's voxel
+space.
 
 \subsubsection{Results}
 
@@ -1396,7 +1381,7 @@ $\approx$\unit[15]{min} movie data used to functionally align a test subject to
 a \ac{cfs} are sufficient to estimate the results of the visual localizer with
 higher fidelity than an estimation procedure based on an anatomical alignment.
 %
-Comparing the within-paradigm-prediction based on $\approx$\unit[15]{min} of
+Comparing the within-paradigm prediction based on $\approx$\unit[15]{min} of
 localizer data to the cross-paradigm-prediction based on $\approx$\unit[15]{min}
 of movie data revealed a higher estimation performance of the within-paradigm
 prediction.
@@ -1412,19 +1397,16 @@ $\approx$\unit[30]{min} of the movie are used to align a test subject with the
 However, comparing $\approx$\unit[30]{min} to $\approx$\unit[45]{min} to align a
 test subject with the \ac{cfs} yield[ed] no difference.
 %
-Overall, results (cf. Fig.~\ref{fig:stripplot}) that the estimation based on
-functional alignment approaches a performance limit and a decreasing benefit of
-longer scanning time.
-
-
+Overall, results suggest  that the estimation based on functional alignment
+approaches a performance limit and a decreasing benefit of longer scanning time
+(cf. Fig.~\ref{fig:stripplot}).
 
 %
-We also explored a cross-paradigm prediction of the visual localizer' results
+We also explored a cross-paradigm prediction of the visual localizer's results
 based on an auditory narrative lacking a visual stimulation.
 %
-The prediction based on data of the audio-description revealed a lower
-performance compared to the anatomical alignment, and the functional alignment
-based on the localizer data or the movie data.
+The prediction based on data of the audio-description revealed the lowest of all
+alignment procedures, including anatomical alignment.
 %
 The prediction performance based on the audio-description increases the more
 data are used, and closes the gap to the prediction based on the same amount of
@@ -1434,92 +1416,73 @@ Comparing the prediction based on $\approx$\unit[120]{min} of the
 audio-description to the prediction based on an anatomical alignment revealed no
 statistical difference.
 %
-Results suggest that an auditory paradigm could, in principle, be substitute a
+Results suggest that an auditory paradigm could, in principle, substitute a
 visual paradigm for functional alignment and a subsequent estimation of a visual
 paradigm's results, however at the cost of a long functional scanning session
 needed to acquire a comparable estimation performance.
+
+\todo[inline]{Any other inference?}
 
 
 
 \subsection{Criterion: movie \& audio-description}
 
+\todo[inline]{cf. \citet{haeusler2022processing}: AO response (too) different
+from AV / VIS?}
 
-
-\todo[inline]{cf. time series plot of shared responses: weaker (or just smeared)
-responses across subject during the auditory paradigm}
-
-\todo[inline]{the ROI is biased to favor results of the visual localizer since
-it is the union of individual \acp{ppa} and therefore favors voxels that are
-significantly increased activity (tacit assumption is that localizer, movie,
-audio-description lead to increased activity in the same set voxels)}
-
+\todo[inline]{cf. plot with TRs of shared responses: lower amplitude}
 
 %
-Second, we estimated the results of \citet{haeusler2022processing} where we
+Second, we estimated the results of \citet{haeusler2022processing}, where we
 built $t$-contrast aimed at localizing the \ac{ppa} based on modeled hemodynamic
-activity based on stimulus annotations of the two naturalistic stimuli.
+activity based during two naturalistic stimuli.
 %
 When estimating the results of the naturalistic paradigms that served as an
-alternative way to localize the \ac{ppa}, the mean prediction performance of the
-anatomical alignment is similar to the prediction performance when estimating
-the dedicated localizer paradigm.\todo{why is that? numbers?}
+alternative way to localize the \ac{ppa}, the within-paradigm predictions based
+on functional alignment lead to the highest correlations between empirical and
+predicted $Z$-maps.
 
 %
-Similar to the estimation of the visual localizer's results, the within-paradigm
-predictions lead to the highest correlations between empirical and predicted
-$Z$-maps.
+Similar to the estimation of the visual localizer's results, estimating the
+results of the movie via the audio-description revealed the lowest estimation
+performance of all alignment procedures, including anatomical alignment.
 %
-Moreover, as in the visual localizer paradigm, estimating the results of the
-movie via the audio-description revealed the lowest estimation performance of
-all alignment approaches.
-
+The prediction performance improves the more data of the audio-description are
+used to align the test subjects and the gap to the estimation performance to the
+alignment using the same amount of movie data narrows.
 %
-Funnily, the within-paradigm prediction of the 15 min audio-description to
-predict the $Z$-maps from the audio-description is as good as / not better than
-an prediction via anatomical alignment.
-%
-This is different from the other two within-paradigm prediction via the visual
-paradigms.
-
-%
-The more data are used the better it gets.
-%
-When estimating visual paradigms (cross-paradigm) via audio-description the gap
-to estimation via movie gets more narrow.
-%
-When estimating the audio PPA (within-paradigm) the mean correlation gets
-better, higher than anatomical alignment and the Cronbach's a of the $Z$-maps
-(not tested statistically but judge by visual inspection).
-%
-\textbf{Inferences:} This suggests the in principle usability of an exclusively
-auditory paradigm to estimate the results of a visual paradigm, however at the
-expanse of an extensive data collection.
-%
-Moreover, results suggest that \ac{srm} might denoise data from outliers
-\todo{carefully, bro!}
+These results suggest the in principle usability of an exclusively auditory
+paradigm to estimate the results of a visual paradigm, however at the expanse of
+an extensive data collection.
 
 
+%
+Moreover, the within-paradigm prediction based on $\approx$\unit[15]{min}
+audio-description to predict the $Z$-maps from the audio-description did not
+yield a better performance than a prediction via anatomical alignment.
+%
+In case of the within-paradigm prediction it should be noted that the $Z$-maps
+of from the audio-description have the lowest reliability.
 
-\paragraph{Reasons why audio-description might suck}
+%
+Given the exploratory nature of the present study, tracking down possible
+reasons are difficult.
+%
+However, three interpretations seems feasible.
+%
 %
 A feasible reasons might be that the audio-description is ``simply not as rich''
-as the movie given that it lacks a visual simulation and therefore does not
-sample the response vector space as much as the movie.
+as the movie and does not sample the response vector space as much as the movie,
+and issues that is aggravate when estimating the results of the visual paradigms
+because the auditory fucking lacks a visual simulation.
 %
-Another, not mutually exclusive explanation might be that the response in the
-\ac{ppa} to an auditory paradigm is (too) different from a response in the
-\ac{ppa} to a visual paradigm.\todo{cf. \citet{haeusler2022processing}}
+Another, again not mutually exclusive explanation, might be that the response in
+the \ac{ppa} to an auditory paradigm is (too) different from a response in the
+\ac{ppa} to a visual paradigm.
 %
-A third, again not mutually exclusive, reason might be that the stimulation
-during the audio-description is correlated with weaker responses in the
-investigated \ac{roi}.
-
-%
-Nevertheless, the data collected during listening to an audio-description, which
-is richer than a mere narrative, could potentially be used to estimate a visual
-category-selective area. However, the current approach requires impractical
-amounts of data.
-
+A third, again not mutually exclusive, reason might be that the amplitudes of
+the shared responses during the \acp{tr} of the audio-description are lower than
+during the \acp{tr} of the movie and visual localizer.
 %
 It is hard to judge disentangle the influence of the model, transformation
 matrices of the test subject and the estimated criterion.
@@ -1532,132 +1495,15 @@ visual paradigms.
 %
 It would be interesting to estimate the results from another controlled
 same-modality criterion (e.g. speech localizer).
-%
-\textbf{Inference:} limited suitability to substitute a visual paradigm; an
-obvious question is to do the vice versa and estimate auditory process /
-paradigm via narrative and movie.
 
 
-
-\subsection{Interim summary}
-
-
-In summary, our results provide evidence that $\approx$\unit[15]{min} of movie
-data used to functionally align a test subject to a \ac{cfs} are sufficient to
-estimate the results of the visual localizer with higher fidelity than an
-estimation procedure based on an anatomical alignment.
+\paragraph{Support for \citet{haeusler2022processing}}
 %
-The prediction performance based on movie data increases significantly when
-$\approx$\unit[30]{min} of the movie are used to align a test subject with the
-\ac{cfs}.
-%
-However, comparing $\approx$\unit[30]{min} to $\approx$\unit[45]{min} to align a
-test subject with the \ac{cfs} yield[ed] no difference.
-%
-Overall, results (cf. Fig.~\ref{fig:stripplot}) that the estimation based on
-functional alignment approaches a performance limit and a decreasing benefit of
-longer scanning time.
-%
-Audio-description has comparatively low cross- and within-paradigm prediction
-when merely $\approx$\unit[15]{min} minutes are used to align a test subject.
-
-%
-We have shown that it is in principle possible to use an auditory
-paradigm to predict a visual paradigm (but does not really make sense?)
-%
-The movie has lower prediction performance than the within-prediction but
-potentially generalizes better / to more paradigms than the visual localizer.
-
-
-\subsubsection{Problems with naturalistic stimuli as localizer / criterion}
-
-\todo[inline]{needs to be in line with general discussion's pros \& cons of
-naturalistic stimuli}
-
-\todo[inline]{Lower Cronbach's; more naturalistic but highlights challenges of
-naturalistic stimuli: varying degree of events per runs; hard to model; no task}
-
-\todo[inline]{What did the person's actually do during the experiment? Control
-of audibility, alertness etc..; it's not that task-free; keeping attention when
-merely listening without visual salient screen catching attention with
-movement's etc.}
-
-%
-Notably, these alternative procedures to localize the \ac{ppa} revealed mediocre
-to poor reliability in some subjects.
-%
-When estimating audio PPA, participants with poor Cronbach's $\alpha$ have the
-lowest correlation between predicted and empirical $Z$-maps.
-%
-These participants are not "reliable outliers deviant from the norm" but may be
-considered as unreliable outliers due to their noisy data.
-%
-Therefore, the SRM may be performing some level of denoising instead of modeling
-these unreliable outliers incorrectly.
-
-%
-Was the construct "perception of auditory spatial information" modeled
-insufficiently in \citet{haeusler2022processing}?
-%
-The primary audio-description contrast yielded bilateral clusters in nine
-participants that overlapped with the block-design localizer results, and one
-cluster in the left-hemispheric PPA for one participant (sub-09). Thus, it seems
-that the construct was sufficiently modeled for more than 50\%.
-%
-The fact that it worked for most subjects suggests that the issue is not a
-methodological decision and that the audio-description does sample the responses
-to spatial information.
-%
-Rather, it is more likely an issue with the naturalistic paradigm, which allows
-for more individual variation over the course of the two-hour long stimulation,
-possibly influenced by an unbalanced number of events per stimulus runs.
-%
-Although the shared responses show the highest correlation with the regressors
-of the visual localizer, the plots of shared responses and regressors of the
-audio-description (cf. Fig.~\ref{fig:corr-ao-reg-srm}) suggest that the shared
-responses during TRs of the audio-description are not entirely noise but that
-the shared features during TRs of the movie and audio-description seem to be
-more abstract.
-%
-Final point: given that the within-paradigm prediction works well for most
-subjects, outliers of Cronbach's $\alpha$ do not significantly degrade the
-model.
-
-%
-Perhaps the large individual variability observed in some subjects during the
-audio-description paradigm is due to the paradigm itself, which allows for more
-variation over the two-hour long stimulation.
-%
-Another possibility is that the 2-hour long auditory stimulation is not as
-immersive or engaging as the multi-modal audio-visual movie.
-%
-A potential challenge in controlling for these factors is the difficulty in
-judging or controlling attentional focus compared to eye-tracking during a
-movie.
-%
-However, it may be possible to measure alertness using EEG recordings.
-%
-Alternatively, it could be related to the auditory domain in general, although
-this is difficult to determine precisely and needs a dedicated paradigm, imo.
-
-
-\paragraph{Just a bold inference}
-
-\todo[inline]{more unreliable criteria need more data to reach an estimation
-performance that is as good or better than anatomical alignment????}
-
-\todo[inline]{add text about SRM as denoising technique?}
-%
-The current results suggest that the processing of auditory spatial information
-is reliably engaged across subjects during the audio-description and in such a
-way that the ``SRM will improve sensitivity for detecting a cognitive process of
-interest in the test data'' \citep{cohen2017computational}.
-
-%
-Present results support evidence that results in \citet{haeusler2022processing}
-that are restricted to the anterior part of the localizer PPA are not based on
-the methodological decisions, and that the responses to auditory spatial
-information lead to different activity patterns than visual stimulation.
+Present results in be interpreted as support of \citet{haeusler2022processing}
+where we found hemodynamic activity during auditory stimulation that is
+restricted to the anterior part of the localizer PPA are not based on the
+methodological decisions, and that the responses to auditory spatial information
+lead to different activity patterns than visual stimulation.
 %
 Further studies using controlled paradigms are needed to investigate auditory
 spatial information and studies using auditory narratives should employ more
@@ -1670,9 +1516,93 @@ potential confounds and limitations leading to problems we have to struggle with
 here when trying to interpret the results.
 
 
-\subsubsection{Other ROIs than category-selective areas}
+\paragraph{ROI favors visual localizer}
+%
+The fact that the correlation mean correlation between empirial and predicted
+$Z$-maps based on $\approx$\unit[15]{min} exceeds the Cronbach's could be
+interpreted as denoising a test subject's data.\todo{bold, not statistically
+tested anyway}
+%
+The results are an incentive for future studies to develop a procedure that more
+reliably maps a functional area based on annotations of a naturalistic,
+preferably exclusively auditory, stimulus.
+%
+A more reliable criterion could than be estimated based on actual data used for
+alignment and compared to data with added artifical noise to investigate if the
+\ac{srm} filters out the noise.
 
-\todo[inline]{give example of speech study? s. backup file}
+
+\todo[inline]{cf. \citet{cohen2017computational, chen2015reduced}}
+
+
+\paragraph{Final statement before summary}
+%
+Lastly, it should be noted that we restricted the voxels to voxels located in
+the union of voxels that showed an significantly increased activity in an least
+one subject during the visual localizer paradigm leading to a tacit assumption
+that the localizer, movie and audio-description lead to increased activity in
+the same set of voxels.
+%
+Given that results of \citet{haeusler2022processing} suggest that hemodynamic
+activity during auditory semantic stimulation is more restricted to the anterior
+part of the \ac{ppa} defined by the visual localizer, the reliability measure
+disfavors the auditory paradigm because the \ac{roi} comprises more voxels
+compared to the localizer that do not exhibit significantly increased activity
+in at least one subject but random variation (or potentially decreased
+activation, but then it's less of a reliability measure).
+
+
+\subsection{Interim summary}
+
+\todo[inline]{visual localizer generalizes unexpectedly well}
+
+\todo[inline]{general opinion of naturalistic stimulus is hyped?}
+
+\todo[inline]{we need more studies that do other stuff than visual-areas}
+
+
+%
+In summary, audio-description has comparatively low cross- and within-paradigm
+prediction when merely $\approx$\unit[15]{min} minutes are used to align a test
+subject.
+%
+However, results sggest that it is in principle possible to use an auditory
+paradigm to predict a visual paradigm.
+%
+Nevertheless, the sutability to sibstitute a visual paradigm is limited by the
+amount of data necessary to be collected during listening to an
+audio-description to potentially estimate a visual category-selective area.
+%
+An obvious point for further investigatiom that estimates estimates the
+topography of an higher auditory functional area via an narrative and compare
+this estimation to an estimation done via an audio-visual movie used for
+functional alignment.
+
+%
+Our results provide evidence that $\approx$\unit[15]{min} of movie
+data used to functionally align a test subject to a \ac{cfs} are sufficient to
+estimate the results of the visual localizer with higher fidelity than an
+estimation procedure based on an anatomical alignment.
+%
+The prediction performance based on movie data increases significantly when
+$\approx$\unit[30]{min} of the movie are used to align a test subject with the
+\ac{cfs}.
+%
+However, comparing $\approx$\unit[30]{min} to $\approx$\unit[45]{min} to align a
+test subject with the \ac{cfs} yield[ed] no difference.
+%
+Overall, results  that the estimation based on functional alignment approaches a
+performance limit and a decreasing benefit of longer scanning time (cf.
+Fig.~\ref{fig:stripplot}).
+%
+The movie has lower prediction performance than the within-prediction but
+potentially generalizes better / to more paradigms than the visual localizer.
+
+\todo[inline]{add here why movies are so versatile}
+
+
+
+\subsubsection{Future studies: other ROIs than category-selective areas}
 
 % Results of \citet{frost2012measuring}: ``We localized 13 widely studied
 % functional areas and found a large variability in the degree to which
@@ -1715,8 +1645,6 @@ example of a higher-visual area.
 
 \paragraph{Previous studies}
 
-
-
 Low between-subject variability as found in retinotopically defined regions
 early visual cortex \citep{rosenke2021probabilistic} compared to high
 between-subject variability as found in language areas in compared to language
@@ -1750,29 +1678,7 @@ when estimating other functional areas with different levels of improvement
 compared to an anatomical alignment.
 
 
-\paragraph{Inference}
-
-\todo[inline]{cite a review that summarizes research the range of brain studied
-using naturalistic stimuli}
-
-Hence, further studies should investigate other functional areas, esp. other
-domains (a.k.a. no higher-visual areas)
-
-Interesting would be to test how far you can take the movie to generalize to
-other non-visual localizer;
-%
-Therefore, future studies could investigate the extent to which functional
-alignment leads to an increased estimation performance compared to anatomical
-alignment, especially in areas where the functional-anatomical correspondence is
-known to vary across subjects.
-%
-Naturalistic stimuli have been used to investigate a variety of domains like XYZ
-[check for, e.g., visual or auditory perception, spatial cognition; emotion;
-music, speech or social perception], and possibly allow valid mapping of
-functional data in all of these domains.
-
-
-\todo[inline]{Paraphrase:}
+\paragraph{Movies are (said to be) super fucking awesome}
 %
 ``There are numerous other functional localizers in other perceptual and
 cognitive domains, such as simple visual motion, biological motion, tonotopy,
@@ -1793,7 +1699,32 @@ Researchers may need to select or develop movies that involve more calculations
 or logical inference-making to afford accurate estimation of topographies in
 these domains'' \citep{jiahui2020predicting}.
 
+
+\paragraph{Inference}
+
+\todo[inline]{cite review summarizing range of brain functions studied during
+naturalistic stimulation}
+
+Hence, further studies should investigate other functional areas, esp. other
+domains (a.k.a. no higher-visual areas)
+
+Interesting would be to test how far you can take the movie to generalize to
+other non-visual localizer;
+%
+Therefore, future studies could investigate the extent to which functional
+alignment leads to an increased estimation performance compared to anatomical
+alignment, especially in areas where the functional-anatomical correspondence is
+known to vary across subjects.
+%
+Naturalistic stimuli have been used to investigate a variety of domains like XYZ
+[check for, e.g., visual or auditory perception, spatial cognition; emotion;
+music, speech or social perception], and possibly allow valid mapping of
+functional data in all of these domains.
+
+%
 Compare performance of narrative vs. movie when estimating speech localizer.
+
+
 
 
 \subsection{Vision}
@@ -1810,6 +1741,79 @@ about estimating deviations}
 transfer data between datasets, a procedure that is easier to accomplish than
 shared subjects across datasets \citep[cf.][an extension of the \ac{srm} for
 shared subjects across datasets]{zhang2018transfer}}
+
+
+
+\subsubsection{"Naturalistic" localizer = difficult; thefore estimate
+established one}
+
+\todo[inline]{Lower Cronbach's; more naturalistic but highlights challenges of
+naturalistic stimuli: varying degree of events per runs; hard to model; no task}
+
+\todo[inline]{What did the person's actually do during the experiment? Control
+of audibility, alertness etc..; it's not that task-free; keeping attention when
+merely listening without visual salient screen catching attention with
+movement's etc.}
+
+%
+Notably, these alternative procedures to localize the \ac{ppa} revealed mediocre
+to poor reliability in some subjects.
+%
+When estimating audio PPA, participants with poor Cronbach's $\alpha$ have the
+lowest correlation between predicted and empirical $Z$-maps.
+%
+These participants are not "reliable outliers deviant from the norm" but may be
+considered as unreliable outliers due to their noisy data.
+%
+Therefore, the SRM may be performing some level of denoising instead of modeling
+these unreliable outliers incorrectly.
+
+%
+Was the construct "perception of auditory spatial information" modeled
+insufficiently in \citet{haeusler2022processing}?
+%
+The primary audio-description contrast yielded bilateral clusters in nine
+participants that overlapped with the block-design localizer results, and one
+ in the left-hemispheric PPA for one participant (sub-09). Thus, it seems
+that the construct was sufficiently modeled for more than 50\%.
+%
+The fact that it worked for most subjects suggests that the issue is not a
+methodological decision and that the audio-description does sample the responses
+to spatial information.
+%
+Rather, it is more likely an issue with the naturalistic paradigm, which allows
+for more individual variation over the course of the two-hour long stimulation,
+possibly influenced by an unbalanced number of events per stimulus runs.
+%
+Although the shared responses show the highest correlation with the regressors
+of the visual localizer, the plots of shared responses and regressors of the
+audio-description (cf. Fig.~\ref{fig:corr-ao-reg-srm}) suggest that the shared
+responses during TRs of the audio-description are not entirely noise but that
+the shared features during TRs of the movie and audio-description seem to be
+more abstract.
+%
+Final point: given that the within-paradigm prediction works well for most
+subjects, outliers of Cronbach's $\alpha$ do not significantly degrade the
+model.
+
+%
+Perhaps the large individual variability observed in some subjects during the
+audio-description paradigm is due to the paradigm itself, which allows for more
+variation over the two-hour long stimulation.
+%
+Another possibility is that the 2-hour long auditory stimulation is not as
+immersive or engaging as the multi-modal audio-visual movie.
+%
+A potential challenge in controlling for these factors is the difficulty in
+judging or controlling attentional focus compared to eye-tracking during a
+movie.
+%
+However, it may be possible to measure alertness using EEG recordings.
+%
+Alternatively, it could be related to the auditory domain in general, although
+this is difficult to determine precisely and needs a dedicated paradigm, imo.
+
+
 
 
 \subsubsection{Intro}
@@ -1934,6 +1938,8 @@ populations and ages, further highlighting the importance of establishing a
 reliable and accurate \ac{cfs}''.
 
 
+
+
 \subsection{Future questions}
 
 Our results are preliminary!
@@ -1959,8 +1965,7 @@ A more stable criterion then audio ppa across subjects to better judge the
 influence of different predictors (audio-visual movie vs. exclusively auditory
 paradigm)
 
-
-\paragraph{ROI vs. whole-brain}
+\subsubsection{More data needed (problem: ROI vs. whole-brain)}
 
 \todo[inline]{Compared to anatomical alignment, the \ac{cfs} has way more
 parameters to estimate and need extensive scanning time; we restricted the
@@ -2011,6 +2016,8 @@ This is especially shitty, when the functional-anatomical variability across
 persons might be particularly high (auditory paradigm to localize a visual area
 in congenitally blind) or in cases of to expected atypical organization (e.g.
 language areas in left-handed person or generally after stroke)
+
+\todo[inline]{give example of speech study? s. backup file}
 
 
 \subsection{Conclusion}
