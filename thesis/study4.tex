@@ -1326,23 +1326,23 @@ sentences}
 and/or abstract}
 
 %
-We found that using a partial alignment approach with a multi-paradigm \ac{cfs}
+We found that using a partial alignment approach with a \ac{cfs}
 derived from concatenated time series of multiple paradigms is effective.
 %
 The prediction performance improves as more data from the paradigms used to
-align a test subject included.
+align a test subject with the \ac{cfs}.
 %
-However, merely one 15 minutes of movie data outperformed an estimation using
+However, $\approx$\unit[15]{min} of movie data outperformed an estimation using
 anatomical alignment.
 
-%
-This opens up the possibility of estimating results from many localizer
-paradigms using a naturalistic stimulus of similar duration of one traditional
-localizer paradigm.
 %
 By leveraging the data from this reference group, it becomes possible to
 identify and characterize the functional area of interest without the need for
 extensive scanning sessions for each individual.
+%
+This opens up the possibility of estimating results from many localizer
+paradigms using a naturalistic stimulus of similar duration of one traditional
+localizer paradigm.
 %
 This method offers a more efficient and cost-effective solution while still
 providing valuable insights into individual brain functional anatomy.
@@ -1363,8 +1363,19 @@ When comparing the within-paradigm prediction based on the localizer data to the
 cross-paradigm prediction based on the movie data, the within-paradigm
 prediction showed a superior estimation performance.
 %
-\todo[inline]{Add inference: These results are in line with
-\citep{haxby2011common} who showed that...}
+These results are in line with \citep{haxby2011common} who created two
+\acp{cfs}, one \ac{cfs} based on data of a controlled paradigm using a smaller
+stimulus set of still images [limited number of stimulus categories] and another
+\ac{cfs} based on movie data (of comparable length).
+%
+Results revealed a higher cross-subject classification of the traditional
+paradigm's stimulus categories via a \ac{cfs} and transformations calculated
+based on data of the same paradigm compared to a cross-subject classification of
+the stimuli via the \ac{cfs} and transformations calculated based on data
+%
+``Result suggests that the validity for a model of a specific subspace may be
+enhanced by designing a stimulus paradigm that \textbf{samples the brain states
+in that subspace more extensively}'' \citep{haxby2011common}.
 %
 The prediction performance based on movie data increases significantly when
 $\approx$\unit[30]{min} of the movie are used for alignment with the \ac{cfs}.
@@ -1401,6 +1412,7 @@ comparable estimation performance.
 \todo[inline]{Any other inference?}
 
 
+
 \subsection{Estimating the results of the movie \& audio-description}
 %
 We also estimated the results of \citet{haeusler2022processing}, where we
@@ -1433,24 +1445,21 @@ performance than a prediction via anatomical alignment.
 Given the exploratory nature of this study, pinpointing the exact reasons is
 challenging. However, three possible interpretations seem plausible.
 %
-\textbf{First}, it is possible that the audio-description is ``not as rich'' as
+\textbf{First}, it is possible that the audio-description ``not as rich'' [less
+diverse variety of representational states] as
 the movie and does not sample the response vector space as comprehensively,
 which becomes more pronounced when estimating the results of visual paradigms
 due to the lack of visual stimulation during the auditory paradigm.
+
 %
 \textbf{A second}, not mutually exclusive, explanation might be inferred from
 the fact that the amplitudes of the shared responses during the \acp{tr} of the
 audio-description are lower than during the \acp{tr} of the movie and visual
 localizer.
 
-\todo[inline]{which leads to what exactly???; if discussed, add plots of TRs
-of top 3 shared responses in the \ac{cfs}}
+\todo[inline]{cf. plot of TRs of top 3 shared responses in the \ac{cfs}}
 
-\todo[inline]{better convey that responses to spatial information during audio
-might be different but time series can still be used to predict visual paradigm}
-
-\todo[inline]{problem: maybe, the maps are well estimated in the anterior part
-but badly estimated in the posterior part}
+\todo[inline]{which leads to what inference exactly?}
 
 %
 \textbf{A third}, again not mutually exclusive, explanation might be that the
@@ -1467,6 +1476,42 @@ investigate responses of the \ac{ppa} to auditory spatial information as
 confounding variables such as a subject's alertness and attentional focus are
 difficult to experimentally or statistically control during naturalistic
 stimulation.
+
+\todo[inline]{\citet{haxby2011common} kind of contradicts the
+"too-different-response-hypothesis"}
+
+\todo[inline]{however: maybe, the maps are "amazingly well" estimated in the
+anterior part but "badly" estimated in the posterior part?}
+
+\todo[inline]{probably, it's more an issues of number of samples per brain
+state!}
+
+\citet{haxby2011common}: ``We also tested whether the general validity of the
+model space reflects responses to stimuli that are in both the movie and the
+category perception experiments or reflects stimulus properties that are not
+specific to these stimuli.
+%
+We recomputed the common model after removing all movie time points in which a
+monkey, a dog, an insect, or a bird appeared. We also removed time points for
+the 30 s that followed such episodes to factor out effects of delayed
+hemodynamic responses.
+%
+BSC of the face and object and animal species categories, including distinctions
+among monkeys, dogs, insects, and birds, was not affected by removing these time
+points from the movie data [65.0\% ± 1.9\% versus 64.8\% ± 2.3\% for faces and
+objects; 67.1\% ± 3.0\% versus 67.6\% ± 3.1\% for animal species; Figure S4B].
+%
+This result suggests that the movie-based hyperalignment parameters that afford
+generalization to these stimuli are not stimulus specific but, rather, reflect
+stimulus properties that are more abstract and of more general utility for
+object representations'' \citep{haxby2011common}.
+%
+``Moreover, the general validity of the model based on the responses to the
+movie is not dependent on responses to stimuli that are in both the movie and
+the category perception experiments but, rather, appears to rest on stimulus
+properties that are more abstract and of more general utility''
+\citep{haxby2011common}.
+
 
 %
 In the present study, calculating Cronbach's $\alpha$ of the audio-description's
@@ -1487,23 +1532,22 @@ in within-paradigm and cross-paradigm predictions.
 This suggests that an auditory narrative sufficiently samples responses vectors
 that can be used to align a test subject to a \ac{cfs} and acquire
 transformations that enable the estimation of a visual paradigm's results.
+
 %
 However, disentangling assessing the degree to which the modeled \ac{cfs}, the
 transformation matrices of a test subject, and the mean reliability of the
 $Z$-maps influence the estimation performance is challenging in the current
 study.
 %
-Given that the within-paradigm prediction works well for most subjects given
+Given that the within-paradigm prediction works "well" for most subjects given
 sufficient amount of data to align the subject, the time series of the outliers
-do not significantly degrade the model.  \todo{be careful!}
+do not significantly diminish the (validity of the) model and suggest that the
+\ac{srm} is robust against outliers.
 %
 The fact that the average correlation between empirical and predicted $Z$-maps
 starts to exceeds Cronbach's $\alpha$ of the empirical $Z$-maps the more data of
 the audio-description are used, could also be interpreted as the \ac{srm}
-denoising a test subject's data \citep[cf.][]{cohen2017computational,
-chen2015reduced}.
-%
-\todo{check}
+denoising a test subject's data \citep[cf.][]{chen2015reduced}.
 %
 Therefore, it would be interesting to estimate the results of a controlled
 exclusively auditory experiment, such as a speech localizer, that yield more
@@ -1516,9 +1560,12 @@ auditory paradigm.
 In order to test the hypothesis that the \ac{srm} filters out noise, a more
 reliable criterion could be estimated by aligning a test subject and estimate
 second-level $Z$-maps from actual time-series and second-level $Z$-maps
-calculated from time-series with added artificial noise.
+calculated from time-series with added artificial noise at different levels of
+intensity.
 %
-\todo{if you know what I mean}
+\todo[inline]{if you know what I mean: take the noisy time series for alignment;
+of test subject; does procedure better predict the $Z$-maps calculated from
+actual time-series or $Z$-maps calculated from noisy time-series?}
 
 
 \subsubsection{Final statement before summary}
@@ -1570,6 +1617,8 @@ test subject using $\approx$\unit[30]{min} compared to $\approx$\unit[30]{min}.
 Overall, our results indicate that functional alignment approaches a performance
 limit, and longer scanning times do not provide a substantial benefit (cf.
 Fig.~\ref{fig:stripplot}).
+
+
 
 % Results of \citet{frost2012measuring}: ``We localized 13 widely studied
 % functional areas and found a large variability in the degree to which
@@ -1651,6 +1700,95 @@ elicit brain processes that are not directly sampled during passive movie
 watching such as planning or decision-making.
 
 \todo[inline]{...which leads to "the Vision"}
+
+
+\subsubsection{"Problem": our matrices based on localizer generalize amazingly
+well}
+
+\todo[inline]{Haxby claims: dedicated paradigms do not generalize well}
+
+\todo[inline]{But their BSC of movie segments based on localizer \ac{cfs} is
+"more difficult" than our case}
+
+\todo[inline]{Raider movie: 1,700 TRs}
+
+\todo[inline]{Haxby's localizer: 1,536 TRs; 1.7 TRs per pic (896 pics shown)}
+
+\todo[inline]{Haxby's animals: 1,640 TRs; 1.4 TRs per pic (1140 pics shown)}
+
+\todo[inline]{our localizer: 624 TRs; 1.6 TRs per pic (384 pics shown)}
+
+\todo[inline]{is our multi-paradigm model so good? or is it the matrices? or is
+our test (estimating $Z$-maps not BSC of movie segments) easier?}
+
+
+\paragraph{Haxby templates}
+
+%
+``Our previous results showed that the sampling of response vectors from
+simpler, controlled experiments is impoverished and produces a model
+representational space that does not generalize well to new stimuli in other
+experiments \citep{haxby2020hyperalignment}'' \citep{guntupalli2016model}.
+
+%
+``We base the derivation of the transformation matrices and the common space on
+responses to the movie---a complex, naturalistic, dynamic stimulus.
+%
+Although the algorithm also can be applied to fMRI data from more controlled
+experiments, we found that a common model based on such data has greatly
+diminished general validity \citep{haxby2011common}, presumably because,
+relative to a rich and dynamic naturalistic stimulus, such experiments sample an
+impoverished range of brain states \citep{guntupalli2016model}''.
+
+%
+``Common models based on responses to smaller, more controlled stimulus
+sets---still images of a limited number of categories---were valid only for
+restricted stimulus domains, indicating that these models captured only a
+subspace of the substantially larger representational space in VT cortex''
+\citep{haxby2011common}.
+
+``We asked whether hyperalignment based on these simpler stimulus sets was
+sufficient to derive a common space with general validity across a wider array
+of \textbf{complex stimuli}.
+%
+We applied the hyperalignment parameters derived from the face and object data
+to the movie data in the Princeton subjects and the hyperalignment parameters
+derived from the animal species data to the movie data in the Dartmouth
+subjects.
+%
+BSC of 18s movie time segments after hyperalignment based on category perception
+experiment data was markedly worse than BSC after hyperalignment based on movie
+data (17.6\% ± 1.3\% versus 65.8\% ± 2.7\% for Princeton subjects; 28.3\% ±
+2.8\% versus 74.9\% ± 4.1\% for Dartmouth subjects; p < 0.001 in both cases;
+Figure 4).
+%
+Thus, hyperalignment of data using a set of stimuli that is less diverse than
+the movie is effective, but the resultant common space has validity that is
+limited to a small subspace of the representational space in VT cortex''
+\citep{haxby2011common}.
+
+%
+``We also tested whether the general validity of the model space reflects
+responses to stimuli that are in both the movie and the category perception
+experiments or reflects stimulus properties that are not specific to these
+stimuli.
+%
+We recomputed the common model after removing all movie time points in which a
+monkey, a dog, an insect, or a bird appeared. We also removed time points for
+the 30 s that followed such episodes to factor out effects of delayed
+hemodynamic responses.
+%
+BSC of the face and object and animal species categories, including distinctions
+among monkeys, dogs, insects, and birds, was not affected by removing these time
+points from the movie data [65.0\% ± 1.9\% versus 64.8\% ± 2.3\% for faces and
+objects; 67.1\% ± 3.0\% versus 67.6\% ± 3.1\% for animal species; Figure S4B].
+%
+This result suggests that the movie-based hyperalignment parameters that afford
+generalization to these stimuli are not stimulus specific but, rather, reflect
+stimulus properties that are more abstract and of more general utility for
+object representations'' \citep{haxby2011common}.
+
+
 
 \subsection{Vision}
 
