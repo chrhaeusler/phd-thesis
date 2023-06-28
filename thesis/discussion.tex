@@ -588,9 +588,10 @@ naturalistic stimulation used to align the test participant to the fixed
 
 \subsubsection{Interim summary and future studies}
 
-\todo[inline]{This topic is only touched in the SRM study's discussion}
+\todo[inline]{revise here with SRM part and vice versa}
 
-\todo[inline]{probably, it is better to discuss it here more than in SRM part}
+\todo[inline]{imo, it fits better into the SRM part; general discussion is more
+about pro \& contra of naturalistic stimuli}
 
 \todo[inline]{Following are some "templates" outlining the general idea}
 
@@ -730,6 +731,54 @@ language areas and potentially assess lateralization (or hemispheric asymmetry)
 of functional brain topography related to language (sub)functions, in order to
 guide pre- and perioperative assessment of neurosurgery, e.g., in case of
 epilepsy.
+
+
+\subsubsection{SRM}
+
+The SRM algorithm used in this study has a drawback in that it only models
+responses that are common across individuals, without including an individual
+component.
+%
+Although a person's idiosyncratic responses are excluded from the shared
+response model, they ``are not necessarily noise and may in fact be highly
+reliable within participants'' \citep{cohen2017computational}.
+%
+Based on the results of this study, it appears that we estimate a regular
+pattern in noisy data of a couple of participants  (i.e., we perform an
+\ac{srm}-based denoising).
+%
+However, to predict a reliably deviant pattern, it is necessary to use a
+matching CFS from a deviant reference, or preferably, a model that incorporates
+a shared response, an individual component, and noise.
+%
+Future studies should assess the performance of various functional alignment
+algorithms in estimating reliably deviant patterns, e.g. atypical topographies
+of language areas.
+%
+Does the algorithm estimate a regular pattern, which allows for quantifying the
+difference of a deviant actual pattern from a norm, or does it directly estimate
+the deviant pattern from a regular reference?
+
+\todo[inline]{at least two of \citet{feilong2022individualized, jiahui2022cross,
+turek2018capturing} have modeled an individual component.}
+
+\paragraph{SRM and individual differences}
+%
+``SRM can be used to isolate participant-unique responses by examining the
+residuals after removing shared group responses, or it can be applied
+hierarchically to the residuals to identify subgroups [\citet{chen2017shared}]
+'' \citep{cohen2017computational}.
+%
+``Recognizing that signal exists beyond the average or shared response of a
+group, such studies exploit idiosyncratic but stable responses to account for
+previously unexplained variance in brain function, behavioral performance and
+clinical measures [e.g., Finn (2015). Functional fingerprinting (based on
+connectivity)]'' \citep{cohen2017computational}.
+%
+``In cases where each subject's unique response is of more interest than the
+shared signal, SRM can be used to factor out the shared component thereby
+isolating the idiosyncratic response for each subject
+[\citep{chen2015reduced}]'' \citep{kumar2020brainiak}.
 
 
 
