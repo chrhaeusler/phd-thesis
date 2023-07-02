@@ -1357,13 +1357,14 @@ These results are in line with \citep{haxby2011common}, who created two
 one \ac{cfs} based on a controlled paradigm that employed still images of
 stimulus categories and another \ac{cfs} based on a movie.
 %
-They found that the cross-subject classification of the traditional paradigm's
-stimulus categories via the \ac{cfs} and transformations calculated from the
-same paradigm's data outperformed the classification based on the movie data.
+They found that a cross-subject classification of the controlled paradigm's
+categories via the \ac{cfs} and transformations calculated from the same
+paradigm's data outperformed the classification based on the movie data.
 %
 \citet{haxby2011common} interpreted these results gained from two paradigms
-providing roughly the same amount of \acp{tr} as the controlled paradigm
-sampling the investigated brain states more extensively than the movie.
+providing roughly the same amount of \acp{tr} to calculated the \ac{cfs} and
+align a test subject as the controlled paradigm sampling the investigated brain
+states more extensively than the movie.
 %
 In our study, the prediction performance based on movie data increases
 significantly when $\approx$\unit[30]{min} of the movie are used for alignment
@@ -1441,9 +1442,9 @@ However, three possible interpretations seem plausible.
 
 \textbf{First}, it is worth considering that the audio-description revealed
 shared responses of lower peak amplitudes compared to the movie and visual
-localizer despite normalizing all time series to a mean of 0 and variance of 1
-separately before concatenating the time series and calculating the shared
-responses.
+localizer despite normalizing all time series to a mean of zero and a standard
+deviation of one separately before concatenating the time series and calculating
+the shared responses.
 %
 The audio-description may have a lower signal-to-noise ratio\todo{is this the
 case???}, or evoke responses that are less congruent across subjects resulting
@@ -1471,7 +1472,7 @@ to a visual paradigm, and therefore contributing to the lower estimation
 performance.
 %
 If this explanation holds true, it could support the findings of
-\citet{haeusler2022processing} where we observed hemodynamic activity during
+\citet{haeusler2022processing}, where we observed hemodynamic activity during
 auditory stimulation that is restricted to the anterior part of the \ac{ppa} as
 identified with the visual localizer.
 %
@@ -1516,10 +1517,10 @@ processes that are typically not sampled during passive movie watching, such as
 planning or decision-making.
 
 %
-Untangling the individual contributions of the exclusively auditory stimulus,
-the multi-paradigm \ac{cfs}, the transformation matrices of test subjects, and
-the mean reliability of the audio-description's $Z$-maps on the estimation
-performance presents a challenge.
+It is challenging to untangle the individual contributions of the exclusively
+auditory stimulus, the multi-paradigm \ac{cfs}, the transformation matrices of
+test subjects, and the mean reliability of the audio-description's $Z$-maps on
+the estimation performance.
 %
 However, despite the presence of outliers, the within-paradigm prediction
 performs well for the majority of subjects when a sufficient amount of data is
@@ -1534,8 +1535,8 @@ audio-description are used can be interpreted as the \ac{srm} denoising a test
 subject's data \citep[cf.][]{chen2015reduced}.
 %
 Therefore, it would be interesting to estimate the results of a controlled
-auditory experiment, such as a speech localizer, that yields more
-reliable results in all subjects.
+auditory experiment, such as a speech localizer, that yields more reliable
+results in all subjects.
 %
 To test the hypothesis that the \ac{srm} filters out noise, one could calculate
 more reliable second-level $Z$-maps from actual time-series and time series with
@@ -1554,7 +1555,7 @@ activity in at least one subject during the visual localizer paradigm.
 %
 However, the findings of \citet{haeusler2022processing} suggest that hemodynamic
 activity during auditory semantic stimulation is confined to the anterior part
-of the \ac{ppa} as defined by the visual localizer.
+of the \ac{ppa}.
 %
 Consequently, the \ac{roi} introduced a bias against the reliability of the
 $Z$-maps derived from the audio-description.
@@ -1566,8 +1567,6 @@ not affect the reliability measure).
 
 
 \subsection{Summary, shortcomings \& future studies}
-
-\todo[inline]{revise; as is, last point seems to contradict first point}
 
 %
 In summary, our study revealed that using $\approx$\unit[15]{min} of the
@@ -1592,9 +1591,9 @@ $\approx$\unit[30]{min} of the movie are used.
 However, we found no significant difference in performance between aligning a
 test subject using $\approx$\unit[45]{min} compared to $\approx$\unit[30]{min}.
 %
-Overall, our results suggest that our functional alignment procedure is
-approaching a performance limit, and longer scanning times may not yield
-substantial benefits.
+Overall, our results suggest that the functional alignment based on movie data
+is approaching a performance limit, and longer scanning sessions during
+audio-visual stimulation may not yield substantial benefits.
 
 % Results of \citet{frost2012measuring}: ``We localized 13 widely studied
 % functional areas and found a large variability in the degree to which
@@ -1635,16 +1634,15 @@ within-prediction based on the localizer.
 However, movies offer a more complex stimulation compared to controlled
 paradigms.
 %
-While we focused on the \ac{ppa} as a higher-visual area in this study,
-naturalistic stimuli have been successfully employed to investigate various
-domains of brain function, including speech perception, music perception,
-spatial cognition, perceived of experienced emotions, and theory of mind
-\citep[s.][for a review]{jaaskelainen2021movies}.
+While we focused on the \ac{ppa} as a higher-visual area, naturalistic stimuli
+have been successfully employed to investigate various domains of brain
+function, including speech perception, music perception, spatial cognition,
+emotions, and theory of mind \citep[s.][for a review]{jaaskelainen2021movies}.
 %
 Given the ability of naturalistic stimuli to elicit responses across diverse
 domains, they potentially provide transformations that better generalize across
 a wider range of paradigms compared to transformations obtained from dedicated
-experiments such as the visual localizer paradigm used in our study.
+experiments such as a visual localizer.
 %
 Previous studies that used an anatomical alignment procedure to estimate the
 most probable location of functional areas have ``found a large variability in
@@ -1675,14 +1673,15 @@ as planning or decision-making.
 %
 Lastly, we emphasize that our study is exploratory, based on a sample of 14
 subjects, and therefore provides preliminary results that warrant further
-in-depth investigations into aspects that are beyond of scope in our study.
+in-depth investigations into aspects that are beyond of scope here.
 %
 For example, we restricted our analysis to voxels in a \ac{roi} with an average
 of $\approx$\unit[1600]{voxel} per subject.
 %
-The use of searchlight functional alignment \citep{zhang2016searchlight,
-guntupalli2016model} could cover the entire cortex but restricts the
-simultaneously aligned voxels to those within the searchlight's sphere.
+The use of searchlight functional alignment
+\citep[e.g.,][]{zhang2016searchlight, guntupalli2016model} could cover the
+entire cortex but restricts the simultaneously aligned voxels to those within
+the searchlight's sphere.
 %
 Future studies are needed to develop functional alignment algorithms that can
 align voxels across larger distances.
@@ -1732,9 +1731,9 @@ about pro (functional alignment, yeah!) \& contra of naturalistic stimuli}
 the general discussion}
 
 %
-Our results suggest that $\approx$\unit[15]{min} functional scanning using an
-engaging naturalistic stimulus could provide sufficient data for a functional
-\textit{calibration scan}.
+Our results suggest that $\approx$\unit[15]{min} \ac{frmi} scanning during a
+naturalistic stimulus capturing a wide range of brain states could provide
+sufficient data for a functional \textit{calibration scan}.
 %
 This calibration could be employed to align a new subject to a \ac{cfs} derived
 from extensive scans of a reference group.
@@ -1744,13 +1743,7 @@ naturalistic paradigms and controlled paradigms.
 %
 The controlled paradigms would include functional localizers specifically
 designed to reliably map brain processes related to low-level auditory or visual
-perception, as well as higher cognition, such as theory of mind or
-\citep{spunt2014validating} or semantic processes \citep{fedorenko2010new,
-fernandez2001language}.
-%
-The diagnostic run would be a complex naturalistic stimulus that captures a wide
-range of brain states, facilitating a valid alignment with the reference
-\ac{cfs}.
+perception, as well as cognition.
 %
 Compared to a diagnostic run based on a controlled paradigm, a naturalistic
 stimulus would offer the additional benefits of higher engagement and better
@@ -1765,9 +1758,9 @@ This enables the estimation of regular patterns in the new subject when
 obtaining additional functional scans is not feasible due to scanner
 availability, time constraints, financial limitations, or compliance issues
 %
-Furthermore, this approach allows for quantifying the similarity or
-dissimilarity between a new subject's actual pattern (e.g., an empirical Z-map)
-and the pattern estimated from a normative reference group.
+Furthermore, this approach allows for quantifying the similarity (or
+dissimilarity) between a new subject's actual pattern and the pattern estimated
+from a normative reference group.
 %
 For instance, \citet{yates2021emergence} calculated a \ac{srm} to investigate
 the presence and localization of adult brain functions in children.
@@ -1787,7 +1780,7 @@ children's age.
 
 \todo[inline]{Just a template}
 
-\todo[inline]{revise when rest of paper is fix (print, mark main points)}
+\todo[inline]{revise with fix, printed and marked discussion}
 
 %
 In conclusion, our study demonstrates the potential of using naturalistic
