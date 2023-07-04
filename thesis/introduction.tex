@@ -236,6 +236,8 @@ inappropriate as an individual diagnostic procedure.
 
 
 
+
+
 \section{Aims of thesis}
 %% At the end of the introduction, add a subchapter on the Aims of Thesis in
 %% which you describe the research question and the objectives of your work on
@@ -245,9 +247,9 @@ inappropriate as an individual diagnostic procedure.
 passive-voice-inferno)}
 
 % clinical application
-Functional localizer paradigms that aim to characterize the topography of
-functional areas on an individual level are a promising tool to advance brain
-mapping towards a clinical application.
+Functional localizers that aim to characterize the topography of functional areas
+on an individual level are a promising tool to advance brain mapping towards a
+clinical application.
 % contra localizers
 However, traditional localizer paradigms employ selectively sampled, tightly
 controlled stimuli, rely heavily on a participant's compliance, and can
@@ -277,31 +279,22 @@ open, transparent, and reproducible science---whether a movie and the movie's
 audio-description that was produced for a visually impaired audience could, in
 principle, replace a traditional localizer paradigm.
 % focus: ppa
-As a proof of concept, the dissertation focused on the \ac{ppa} that exhibits
+As a proof of concept, the dissertation focuses on the \ac{ppa} that exhibits
 increased hemodynamic activity when participants view images of landscapes,
 buildings or landmarks, as opposed to, for example, images of faces or tools
 \citep[s.][for reviews]{epstein2014neural, aminoff2013role}.
 % auditory semantics unclear
-To the author's knowledge, only one study \citep[cf.][]{aziz2008modulation}
+To the author's knowledge, only one study \citep{aziz2008modulation}
 compared hemodynamic activity levels in the \ac{ppa} that were correlated with
 different categories presented in spoken sentences.
 %
 Despite mixed results, the findings by \citet{aziz2008modulation} suggest that
 \ac{ppa} does not solely respond to visually presented scene-related stimuli.
 
-
-
 % SRM
-I will evaluate the movie's and audio-description's potential to replace a
-visual localizer in two ways.
+I evaluated the movie's and audio-description's potential to replace a visual
+localizer in two ways.
 % 1. modeling hemodynamic responses
-First,
-
-
-
-
-\subsection{Approach 1: \ac{glm} $t$-contrasts}
-%
 Similarly to traditional localizer paradigms, we modeled hemodynamic activity
 correlating with the perception spatial information.
 % based on stimulus annotations
@@ -313,95 +306,40 @@ We then created \ac{glm} $t$-contrasts using these modeled hemodynamic time
 courses (i.e. regressors) to locate the \ac{ppa}, which was previously
 identified in the same group of participants by a conventional block-design
 functional localizer using static images \citep{sengupta2016extension}.
-
-
-% SRM
-\subsection{Approach 2: Estimation from ref}
-
-\todo[inline]{Estimation from reference mentioned here for the first time!}
-
-\todo[inline]{do final revision when SRM study is fix; otherwise, the more
-general text here will change too often}
-
-\todo[inline]{make this part really, really short; below is "specific objectives
-per study; especially write no "method section"; but mention SRM algo; prime the
-term "transformations" here, already?}
-
-\todo[inline]{do not use acronym "CAS"}
-
-% 2. estimation from reference
-Second, we estimate the results of the visual localizer's $t$-contrast in one
-participant from the results of the remaining participants (i.e.
-\textit{reference group}).
+%
+However, conducting a two-hour long \ac{fmri} scan session may not be desirable
+or feasible due to potential compliance issues or constraints on time and
+resources.
+%
+Therefore, we also explored an alternative approach to localize the \ac{ppa} in
+an individual that leverages data collected from an independent sample of other
+individuals (i.e. data from a \textit{reference group}).
 % previous studies: anatomical alignment
-Previous studies estimated the location of participant's \ac{ppa} by performing
-an \textit{anatomical alignment} procedure \citep{frost2012measuring,
-rosenke2021probabilistic, weiner2018defining, zhen2017quantifying}.
+Previous studies estimated the location of a participant's functional area by
+performing an \textit{anatomical alignment} \citep{frost2012measuring,
+rosenke2021probabilistic, weiner2018defining, zhen2017quantifying} that is based
+on anatomical scans to address the issue of anatomical variability across
+persons.
 %
-Functional data of the reference group are anatomically aligned to (i.e.
-projected into) a \acfi{cas}, such as the Montreal
-Neurological Institute brain atlas \citep[MNI152 atlas;][]{fonov2011unbiased},
-and then projected into a new participant's brain anatomy to estimate a
-functional region's most probable location.
-%
-However, even cortical surface-based alignment \citep{fischl1999cortical,
-yeo2009spherical} can reduce but not eliminate the functional-anatomical
-variability of category-selective regions across persons
-\citep{frost2012measuring, weiner2018defining, weiner2014mid}.
-
-
-\todo[inline]{Rephrase as an actual goal and not a method section}
-
+However, the anatomical location of functional regions varies between
+individuals \citep{coalson2018impact, benson2014correction, natu2021sulcal,
+wang2015probabilistic, frost2012measuring, langers2014assessment, weiner2014mid,
+rosenke2021probabilistic}.
 % intro to functional alignment
-In order to address the issue of functional-anatomical variability, we
-investigated the estimation performance of a new procedure that is based on
-\textit{functional alignment} \citep[cf.][for reviews]{haxby2020hyperalignment,
-bazeille2021empirical}.
+To address the issue of functional-anatomical variability across persons, we
+therefore explored a new approach that is based on a \textit{functional
+alignment} \citep[cf.][for reviews]{haxby2020hyperalignment,
+bazeille2021empirical}, and investigated whether we can estimate the results of
+$t$-contrasts (i.e. statistical $Z$-maps) that we created in the previous
+studies to localize the \ac{ppa}.
 %
-Whereas anatomical alignment aligns voxels (or vertices) that share the same
-anatomical location to a \ac{cas}, functional alignment aligns
-voxels (or vertices) that share similar functional properties to a
-\acfi{cfs}.
-%
-Following an exhaustive leave-one-out cross-validation, we split the dataset
-(N$=$14 subjects) repeatedly in a set of one \textit{test subject} and $N-1$
-\textit{training subjects} (i.e.  the reference group).
-%
-%
-We then projected the training subject's localizer results from their respective
-brain space into the \ac{cfs}.
-%
-In order to derive a mapping that allowed projecting the data from the \ac{cfs}
-into a test subject's brain space, we aligned the test subject to the \ac{cfs}
-using a test subject's response time series to the movie, audio-description or
-localizer.
-%
-
-\paragraph{The actual aim}
-
-\todo[inline]{assess the transformations based on three stimuli and their
-respective quantity}
-
-\todo[inline]{stream line with specific aims and hypothesis}
-
-% problem
-However, using the entire time series data of a two-hour paradigm to obtain
-a test subject's mapping is inefficient and unsuitable for a clinical
-population.
-%
-Ideally, only a part of a movie or an auditory narrative could be used as a
-``diagnostic'' run to estimate the localizer results.
-%
-Therefore, we also examine the relationship between the quantity of functional
-data used to functionally align a test subject to the \ac{cfs} and the
-estimation performance.
+Considering that functional alignment relies on functional scans, we also
+evaluated the relationship between the quantity of functional data used for
+functional alignment and its subsequent estimation performance.
 
 
 
 \subsection{Open, transparent, and reproducible science}
-
-\todo[inline]{imo, present tense is correct in those cases text uses present
-tense}
 
 % reproducibility crisis
 In the last decade, there has been a growing awareness that the results of
@@ -483,18 +421,18 @@ published at Neurovault (\href{https://neurovault.org/}{\url{neurovault.org}}).
 
 \subsection{Specific objectives and hypotheses}
 
+\todo[inline]{method heavy but, imo, it's fine}
 
-\todo[inline]{report of result is reduced, imo, reporting some results make
-sense because they lead from one study to the next}
-
+\todo[inline]{results should be noted because they lead from one study to the
+next}
 
 % \subsubsection{DataLad: distributed system for joint management of code, data,
 % and their relationship}
 
 % what I did
-I contributed to the development of DataLad during its pre-alpha stage by
-testing its features on a real-world project, evaluating its user interface and
-documentation, and by providing feedback to the software engineering team.
+During the pre-alpha stage of DataLad, I contributed by testing its features on
+a real-world project, evaluating its user interface and documentation, and
+providing feedback to the software engineering team.
 % results
 This work laid the technical foundation for achieving the goal of a transparent
 and reproducible research project, and resulted in co-authorship of the
@@ -540,29 +478,22 @@ The results of the validation encouraged us to publish the annotation as an
 extension of the studyforrest dataset, and use it as the foundation to be
 adapted to our specific needs in \citet{haeusler2022processing}.
 
-
-% \subsubsection{Processing of visual and non-visual naturalistic spatial
-% information in the ``parahippocampal place area''}
-
-
 % study in one sentence
-In \citet{haeusler2022processing}, we investigated whether it is possible to
-localize the \ac{ppa} using \ac{glm} $t$-contrasts based on naturalistic stimuli
-annotations.
-% AV annotation
+In \citet{haeusler2022processing}, our goal was to investigate the possibility
+of localizing \ac{ppa} using GLM $t$-contrasts based annotations of the
+naturalistic stimuli.
+% AV annotation For the analysis of the
 For the analysis of the movie, we relied on a previously published annotation of
 movie cuts and the depicted location after each cut \citep{haeusler2016cutanno}.
 % AD annotation
 For the analysis of the audio-description, we extended the annotation of speech
-that was created in \citet{haeusler2021speechanno} by further annotating nouns
-that the audio-description's narrator uses to describe the missing visual
-content.
+by further annotating nouns that the audio-description's narrator uses to
+describe the missing visual content.
 % hypo
-We hypothesized that a conventional mass-univariate \ac{glm} analysis would
-reveal increased hemodynamic activity in medial temporal regions that were
-functionally identified as the \ac{ppa} in the same set of participants
-employing a traditional block-design functional localizer
-\citep{sengupta2016extension}.
+We hypothesized that a mass-univariate \ac{glm} analysis would reveal increased
+hemodynamic activity in medial temporal regions that were functionally
+identified as the \ac{ppa} in the same set of participants employing a
+traditional block-design functional localizer \citep{sengupta2016extension}.
 % group results
 On a group-average level, the results demonstrate that increased activation in
 the \ac{ppa} during the perception of static images generalizes to the
@@ -580,89 +511,47 @@ The analysis of the audio-description revealed bilateral clusters in nine
 participants and a unilateral cluster in one participant.
 %
 These results imply that model-driven \ac{glm} analysis based on a naturalistic
-stimulus' annotation could be used to localize functional areas in individual
+stimulus' annotation can be used to localize functional areas in individual
 subjects.
 
-
-% SRM
-\subsubsection{Using a varying amount of data from naturalistic stimulation for
-functional alignment to predict results from a task-based functional localizer
-paradigm}
-
-\todo[inline]{when SRM study is written, revise accordingly}
-
-\todo[inline]{proof of concept with "innovative" analysis / method}
-
-\todo[inline]{keep it short to goals \& hypotheses here; "general" theory is
-supposed to be in 1.3.3 already}
-
-\todo[inline]{however, we agreed on SRM study not having at its own abstract; I
-might write a little more here (or add an abstract to Chapter 5)}
-
-
 %
-Following an exhaustive leave-one-out cross-validation, we split the dataset
-(N$=$14 subjects) repeatedly in a set of one \textit{test subject} and $N-1$
-\textit{training subjects} (i.e.  the reference group).
-
-
+Conducting a two-hour long \ac{fmri} scan session may not be desirable or
+feasible due to potential compliance issues or constraints on time and
+resources.
 %
-We then calculated a \ac{cfs} based on the training subject's response time
-series to a movie, an auditory narrative and a visual localizer.
+In Chapter 5, we therefore aimed to explore an alternative approach to identify
+the \ac{ppa} in an individual by leveraging data from a reference group.
 %
-We then projected the training subject's localizer results from their respective
-brain space into the \ac{cfs}.
+To address the challenge of functional-anatomical variability across
+individuals, we employed a functional alignment approach using the \acf{srm}
+\citep{chen2015reduced}.
 %
-In order to derive a mapping that allowed projecting the data from the \ac{cfs}
-into a test subject's brain space, we aligned the test subject to the \ac{cfs}
-using a test subject's response time series to the movie, audio-description or
-localizer.
+This approach allowed us to predict an indiviual's results of $t$-contrasts,
+created in previous studies using time series from the visual localizer, movie,
+and audio-description, by projecting the results of persons in the reference
+group from their respective anatomical space through a \ac{cfs} into the
+individual's anatomical space.
 %
-
-
-
-\paragraph{The actual aim}
-
-\todo[inline]{assess the transformations based on three stimuli and their
-respective quantity}
-
-\todo[inline]{stream line with specific aims and hypothesis}
-
-% problem
-However, using the entire time series data of a two-hour paradigm to obtain
-a test subject's mapping is inefficient and unsuitable for a clinical
-population.
+Following a leave-one-subject-out cross-validation, we split the dataset
+repeatedly in a set of one \textit{test subject} and $N-1$ \textit{training
+subjects} (the reference group).
 %
-Ideally, only a part of a movie or an auditory narrative could be used as a
-``diagnostic'' run to estimate the localizer results.
+We then calculated a multi-paradigm \ac{cfs} and subject-specific
+transformations based on the training subjects' concatenated response time
+series of the visual localizer, the movie, and the audio-description.
 %
-Therefore, we also examine the relationship between the quantity of functional
-data used to functionally align a test subject to the \ac{cfs} and the
-estimation performance.
-
-
-\paragraph{Specific objectives \& goals}
+We assessed the prediction performance of each paradigm by aligning the test
+subject's response time series from each paradigm with the corresponding time
+points within the \ac{cfs}.
 %
-Results from \citet{haeusler2022processing} suggest that we might be able
-to use the response patterns measured during the presentation of the
-audio-description in order to generate a \ac{cfs} [needs to be defined above in
-overview] in chapter 5's study, and align an ``unknown'' test participant to
-that \ac{cfs}.
+In an ideal scenario, only a part of a naturalistic stimulus would serve as a
+``diagnostic'' run to align a new individual with a \ac{cfs} and estimate the
+results of other paradigms.
 %
-The first goal of the study in chapter 5 was to assess a procedure to
-estimate results of a dedicated localizer \citep{sengupta2016extension} based on
-data acquired during naturalistic stimulation.
+Therefore, we also aimed to explore the relationship between the quantity of
+data of each paradigm used for aligning a test subject with the \ac{cfs} and and
+the subsequent estimation performance.
 
-%
-However considering practical and monetary constraints in a clinical context, a
-paradigm lasting 90 to 120 minutes is inappropriate for even an extensive
-individual diagnostic procedure.
-% partial alignment
-The second goal was to assess the relationship between the length of
-naturalistic stimulation used to align the test participant to the fixed
-\ac{cfs} and the estimation performance.
+\todo[inline]{no specific hypothesis}
 
-
-\paragraph{Hypotheses}
-
-\todo[inline]{a.k.a. "we explored" / "we investigated"}
+\todo[inline]{provide results in 1-2 sentences?}

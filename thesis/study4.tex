@@ -1,12 +1,15 @@
-\todo[inline]{subject vs. participant? it's "participant" in PPA paper + general
-intro \& discussion}
+\todo[inline]{write abstract}
 
 \todo[inline]{negative control: shuffle runs within or across paradigms? imo,
 across...}
 
-\todo[inline]{finalize figures and figure captions}
+\todo[inline]{finalize figures \& figure captions}
 
-\todo[inline]{revise title; write abstract}
+\todo[inline]{note: I could not manage to only speak of "participants";
+"participant" and "subject" are used interchangably}
+
+\todo[inline]{get rid of term "partial alignment"; it's more confusing than
+helpful}
 
 \section{Introduction}
 
@@ -16,7 +19,7 @@ category-selective brain regions, such as the \acl{ppa} (PPA)
 \citep{epstein1998ppa}, the \acl{ffa} (FFA) \citep{kanwisher1997ffa}, or the
 \ac{eba} \citep{downing2001bodyarea} exhibit significantly increased \acf{bold}
 activity correlated with a ``preferred'' \citep[][p.
-123]{debeck2008interpreting} stimulus class.
+123]{debeck2008interpreting} stimulus category.
 %
 While the topographies, i.e. the location, size and shape, of these
 category-selective areas are similarly distributed across individuals, their
@@ -26,7 +29,7 @@ zhen2017quantifying, zhen2015quantifying, frost2012measuring}.
 To identify the topography of functional areas in individual persons,
 block-design \textit{functional localizer} paradigms are traditionally used that
 contrast modeled hemodynamic responses correlating with the corresponding
-stimulus classes, such as landscapes, faces, or bodies.
+stimulus category, such as landscapes, faces, or bodies.
 % problem: one localizer for one domain
 Functional localizers are designed to maximize detection power and thus limited
 to mapping only one domain of brain functions, such as category-selective
@@ -56,9 +59,9 @@ functionally defined region such as the \ac{ppa} can be localized using  a
 \acf{glm} that is based on the annotated temporal structure of a two-hour long
 naturalistic stimulus.
 % full feature film is too long
-However, conducting a two-hour long \ac{bold} \ac{fmri} scan session may not be
-desirable or feasible due to potential compliance issues or constraints on time
-and resources.
+However, conducting a two-hour long \ac{fmri} scan session may not be desirable
+or feasible due to potential compliance issues or constraints on time and
+resources.
 % hence, predict from reference
 An alternative approach that addresses the challenges of a lengthy scanning
 procedure is to localize a functional area in an individual by leveraging data
@@ -76,9 +79,8 @@ functional data of persons in the reference group are anatomically aligned with
 (i.e.  projected into) a common anatomical space, such as the Montreal
 Neurological Institute brain atlas \citep[MNI152 atlas;][]{fonov2011unbiased}.
 % project into test subject to estimate
-Then, data are projected from the common anatomical space into the
-individual person's brain anatomy to provide an estimate of a functional
-region's location.
+Then, data are projected from the common anatomical space into the individual
+person's brain anatomy to provide an estimate of a functional region's location.
 % volume-based alignment in one sentence
 Volume-based anatomical alignment \citep[s.][for a review]{klein2009evaluation}
 aligns voxels to a three-dimensional common anatomical space \citep[e.g., MNI152
@@ -196,7 +198,7 @@ the movie ``Grand Budapest Hotel'' ($\approx$\unit[50]{min};
 the movie ``Forrest Gump'' ($\approx$\unit[120]{min}; \ac{tr}=\unit[2]{s}).
 %
 \citet{jiahui2020predicting} then estimated $t$-contrast maps of a visual
-localizer that aimed at identifying the \ac{ffa} by projecting the $t$-contrast
+localizer that aimed to identify the \ac{ffa} by projecting the $t$-contrast
 maps of a reference group through each \ac{cfs} into an individual's brain
 anatomy.
 %
@@ -255,7 +257,7 @@ Here again, our focus is on the \ac{ppa} \citep[e.g.,][for
 reviews]{epstein2014neural, aminoff2013role}.
 %
 We investigated whether we can estimate the results of $t$-contrasts (i.e.
-statistical $Z$-maps) created in previous studies that aimed at identifying the
+statistical $Z$-maps) created in previous studies that aimed to identify the
 \ac{ppa} using response time series from three different paradigms:
 %
 (a) a classic visual localizer \citep{sengupta2016extension} as the assumed
@@ -308,8 +310,8 @@ guntupalli2016model, haxby2011common} that calculated a \ac{cfs} based on data
 from a single paradigm, we calculated a \textit{multi-paradigm \ac{cfs}} based
 on data from three different paradigms.
 % cross-validation
-Following an exhaustive leave-one-subject-out cross-validation (N$=$14
-subjects), each \textit{training subject}'s response time series from
+Following an exhaustive leave-one-subject-out cross-validation, each
+\textit{training subject}'s response time series from
 %
 the movie ``Forrest Gump'' ($\approx$\unit[120]{min}, split into eight runs;
 \ac{tr}=\unit[2]{s}),
@@ -325,14 +327,14 @@ were concatenated and fed into the \ac{srm} algorithm in order to calculate the
 Fig.~\ref{fig:multi-stimulus-cfs}).
 % test subject's transformation
 In order to investigate the prediction performance of each paradigm, we then
-performed a \textit{partial alignment} of the \textit{test subject}:
+performed a \textbf{partial alignment} of the \textit{test subject}:
 %
 a test subject's response time series from each of the three paradigms was
 separately aligned with the paradigm's corresponding \acp{tr} within the
 \ac{cfs} letting us obtain transformation matrices based on each paradigm.
 %
-In other words, the time series of each paradigm served as a separate
-\textit{predictor} to estimate three different empirical $Z$-maps (i.e. one
+In other words, the time series of each paradigm served as a separate predictor
+to estimate three different empirical $Z$-maps (i.e. one
 \textit{cross-subject-within-paradigm prediction} and two
 \textit{cross-subject-cross-paradigm predictions} per paradigm).
 %
@@ -344,7 +346,7 @@ subsequent performance of estimating each $Z$-map.
 
 \todo[inline]{add 1-3 sentences stating the results (that en passant explain the
 last sentence)? mention: number of minutes, generalization of predictors across
-criteria, and comparison to the volume-based, anatomical alignment}
+criteria, and comparison to the  non-linear volume-based, anatomical alignment}
 
 \todo[inline]{add 1 sentence stating a conclusion (\& vision)?}
 
@@ -430,7 +432,8 @@ We reran the preprocessing and analyses steps performed in
 v6.00 \citep[FMRI Expert Analysis Tool;][]{woolrich2001autocorr} as shipped with
 FSL v5.0.9 \citep[\href{https://www.fmrib.ox.ac.uk/fsl}{FMRIB's Software
 Library;}][]{smith2004fsl} to reproduce the time series that served as input for
-the previous statistical analyses and their results (i.e. the $Z$-maps).
+the previous statistical analyses and their results (i.e. the empirical
+$Z$-maps).
 % temporal filtering
 The preprocessing steps included high-pass temporal filtering (using a
 Gaussian-weighted least-squares straight line) for every run of the visual
@@ -524,25 +527,25 @@ and calling command line functions of FSL.
 % 'sub-*_task_visloc_run-1-4_bold-filtered.npy'
 
 % reason why we do it
-The \ac{srm} requires that the number of samples (i.e. the number of \acp{tr})
-exceed the number of features (the number of voxels).
+The \ac{srm} requires that the number of samples (i.e. \acp{tr}) exceed the
+number of features (i.e. voxels).
 %
 In order to restrict the number of voxels, we created bilateral \acp{roi} for
-each subject.
+each participant.
 %
 Specifically, we warped the union of individual \acp{ppa} \citep[s. Fig. 1
-in][]{haeusler2022processing} from MNI space into each subject's voxel space
+in][]{haeusler2022processing} from MNI space into each participant's voxel space
 using subject-specific, non-linear transformation matrices that were previously
 computed
 \citep[][\href{https://github.com/psychoinformatics-de/studyforrest-data-templatetransforms
 }{\url{github.com/psychoinformatics-de/studyforrest-data-templatetransforms}}]{hanke2014audiomovie}.
 % applying masks
-The time series data of each subject were then masked in their native voxel
+The time series data of each participant were then masked in their native voxel
 space by the union of individual \acp{ppa} and the subject-specific \ac{fov} of
 the audio-description.
 % voxels = [1665, 1732, 1400, 1575, 1664, 1951, 1376, 1383, 1683, 1887, 1441,
 % 1729, 1369, 1437] median = 1619.5
-The number of remaining voxels per subject (range 1369--1951,
+The number of remaining voxels per participant (range 1369--1951,
 $\overline{X}=1592$, $SD=188$) can be seen in Fig.~\ref{fig:plot_voxel-counts}.
 % normalization
 Data of each run were normalized ($z$-scored) to a mean of zero
@@ -555,7 +558,7 @@ The \ac{srm} allows for different numbers of voxels across subjects, but the
 number of \acp{tr} must be the same.
 %
 Consequently, we removed the last 75 \acp{tr} of the audio-description from the
-time series of all other subjects.
+time series of all other participants.
 % summary; AO + AV = 7123 TRs (not 7198 TRs anymore); localizer has 4 x 156 TRs
 As a result, the data used to fit the \ac{srm} in the next step included 3599
 \acp{tr} of the movie, 3524 \acp{tr} of the audio-description, and 624 \acp{tr}
@@ -569,14 +572,14 @@ The time series of all three paradigms were concatenated and $z$-scored.
 \caption{
 %
 \textbf{Number of voxels in the bilateral regions of interest (ROIs)
-of each subject.}
+of each participant.}
 %
 In order to reduce the number of voxels, we warped the union of
 individual \acp{ppa} \citep[cf. Fig. 1 in][]{haeusler2022processing} from
-MNI space into each subject's native voxel space.
+MNI space into each participant's native voxel space.
 %
-The remaining voxels of each subject were further constrained to those
-voxels that are included in the respective subject's \ac{fov} of the
+The remaining voxels of each participant were further constrained to those
+voxels that are included in the respective participant's \ac{fov} of the
 audio-description \citep[cf.][]{hanke2014audiomovie}.
 }
 \label{fig:plot_voxel-counts}
@@ -585,7 +588,7 @@ audio-description \citep[cf.][]{hanke2014audiomovie}.
 
 \begin{comment}
 
-The number of remaining voxels per subject can be seen in Table
+The number of remaining voxels per participant can be seen in Table
 \ref{tab:ppamaskvoxels} (range 1369--1951, $\overline{X}=1592$, $SD=188$).
 
 
@@ -594,8 +597,8 @@ The number of remaining voxels per subject can be seen in Table
 \textbf{Table heading.}
 %
 The number of remaining voxels after masking time series data of each paradigm
-and subject with the union of individual \acp{ppa} warped from MNI space
-into each individual's subjects-space and the subject-specific field of view
+and participant with the union of individual \acp{ppa} warped from MNI space
+into each participant's subjects-space and the subject-specific field of view
 of audio-description.
     }
 
@@ -631,9 +634,9 @@ sub-20 & 1437 \tabularnewline
 To estimate the empirical $Z$-maps (i.e. the results of the three $t$-contrast),
 we followed a three-step procedure.
 % create CFS and training subjects' matrices
-First, for every fold of the leave-one-out cross-validation (N$=$14 subjects),
-we fit a \ac{srm} to $N-1$ training subjects' response response time series from
-the movie, the audio-description, and the visual localizer.
+First, for every fold of the leave-one-subject-out cross-validation (N$=$14
+participants), we fit a \ac{srm} to $N-1$ training subjects' response response
+time series from the movie, the audio-description, and the visual localizer.
 % results in...
 This step generated a \ac{cfs} for each fold of the cross-validation and a
 transformation matrix with orthonormal columns for each training subject.
@@ -642,8 +645,9 @@ Second, we aligned the test subject's response time series data from the movie,
 audio-description, and visual localizer paradigms separately to the
 corresponding \acp{tr} within the \ac{cfs}.
 %
-This partial alignment with the \ac{cfs} produced different transformation
-matrices for the test subject based on data from different paradigms.
+This \textbf{partial alignment} with the \ac{cfs} produced different
+transformation matrices for the test subject based on data from different
+paradigms.
 % quantity vs. performance
 In order to examine the relationship between the estimation performance and the
 amount of data used to generate a transformation matrix, we also varied the
@@ -705,8 +709,8 @@ order to determine the subspace that is sufficient to capture the full range of
 response-pattern distinctions.
 %
 Results revealed that approximately 35 principal components (i.e. dimensions)
-were sufficient to represent the information content of a one-hour movie from
-which the \ac{cfs} was derived.
+were sufficient to represent the information content of a movie from which the
+\ac{cfs} was derived.
 %
 Results also showed that the cortical topographies of category-selective brain
 regions was preserved in the 35-dimensional \ac{cfs}.
@@ -720,8 +724,8 @@ The algorithm was set to iterate 30 times to minimize the error.
 % correlations of regressors
 In order to visualize characteristics of the \ac{cfs}, we calculated the Pearson
 correlation coefficients between the shared responses and the regressors that we
-previously created \citep[cf.][]{sengupta2016extension, haeusler2022processing}
-to model hemodynamic responses during the three paradigms.
+previously created to model hemodynamic responses during the three paradigms
+\citep[cf.][]{sengupta2016extension, haeusler2022processing}.
 %
 As an example, we chose the \ac{cfs} that was created in the first fold of the
 cross-validation from $N-1$ subjects to estimate the $Z$-maps of subject 01.
@@ -741,6 +745,9 @@ in][]{haeusler2022processing} and shared responses.
 
 
 \todo[inline]{make colors of non-used TRs more transparent (alpha=.15?)}
+
+\todo[inline]{imo, runs should be shuffled across paradigms, not just within
+paradigms}
 
 % shuffle runs
 As a negative control, we created 1000 models based on randomly shuffled time
@@ -795,7 +802,7 @@ the six categories of pictures that were presented in blocks.
 \caption{
     %
     \textbf{Pearson correlation coefficients between regressors of the movie
-    and shared features}
+    and shared features.}
     %
     The time series of the shared features within the multi-paradigm \ac{cfs}
     %
@@ -805,7 +812,7 @@ the six categories of pictures that were presented in blocks.
     \citep{hanke2016simultaneous}.
     %
     The regressors \texttt{vse\_new} to \texttt{vno\_cut} are based on
-    annotations movie frames, whereas the regressors
+    annotations of movie frames, whereas the regressors
     \texttt{fg\_av\_ger\_lr} to \texttt{fg\_av\_ger\_ud} represent low-level
     visual or auditory confounds
     \citep[cf. Table 3 in][]{haeusler2022processing}.
@@ -822,7 +829,8 @@ the six categories of pictures that were presented in blocks.
     %
     \texttt{vpe\_old}: change of the camera position within a recurring locale;
     %
-    \texttt{vno\_cut}: frames within a continuous movie shot;
+    \texttt{vno\_cut}: a pseudorandomly selected frames within a continuous
+    movie shot;
     %
     \texttt{fg\_av\_ger\_lr}: left-right luminance difference;
     %
@@ -856,7 +864,7 @@ the six categories of pictures that were presented in blocks.
     audio-description \citep{hanke2014audiomovie}.
     %
     The regressors \texttt{body} to \texttt{sex\_m} are based on
-    annotated classes of nouns spoken by the audio-description's narrator,
+    annotated categories of nouns spoken by the audio-description's narrator,
     whereas the regressors \texttt{fg\_ad\_ger\_lrdiff} and
     \texttt{fg\_ad\_ger\_rms} represent low-level auditory confounds
     \citep[cf. Table 3 in][]{haeusler2022processing}.
@@ -888,14 +896,14 @@ the six categories of pictures that were presented in blocks.
     \texttt{fg\_ad\_rms}: root mean square volume.
     %
     \texttt{geo\&groom} is a combination of regressors as used on the positive
-    side of the primary contrasts aimed at localizing the \ac{ppa}
+    side of the primary contrasts aimed to localize the \ac{ppa}
     \citep[cf. Table 5 in][]{haeusler2022processing}.
     }
 \label{fig:corr-ao-reg-srm}
 \end{figure*}
 
 
-\subsubsection{Alignment of the test subject}
+\subsubsection{Alignment of a test subject}
 
 % AO: 0-451, 0-892, 0-1330, 0-1818, 0-2280, 0-2719, 0-3261, 0-3524
 % AV: 3524-3975, 3524-4416, 3524-4854, 3524-5342, 3524-5804, 3524-6243,
@@ -940,7 +948,7 @@ but being based on an increasing amount of data used to calculate the linear
 transformation.
 
 
-\subsubsection{Estimation of the test subject's $Z$-maps}
+\subsubsection{Estimation of a test subject's $Z$-maps}
 
 % overview
 We estimated the empirical $Z$-maps of the test subject by projecting the
@@ -959,15 +967,14 @@ alignment of the test subject to project the $Z$-maps from the \ac{cfs} into the
 test subject's voxel space.
 % take the mean
 For each of the three $t$-contrasts, we obtained the test subject's predicted
-$Z$-map by calculating the arithmetic respective paradigm's projected empirical
-$Z$-maps.
-
+$Z$-map by calculating the arithmetic mean of the respective paradigm's
+projected empirical $Z$-maps.
 
 
 \subsection{Estimation via anatomical alignment}
 %
-As a baseline, we used an anatomical alignment procedure to estimate a test
-subject's empirical $Z$-maps.
+As a baseline, we used an non-linear anatomical alignment procedure to estimate
+a test subject's empirical $Z$-maps.
 %
 First, we projected the masked empirical $Z$-maps of each paradigm and each
 training subject from their native voxel space into the MNI space via previously
@@ -978,7 +985,7 @@ We then used the test subject's pseudoinverse transformation matrix to project
 the data from MNI space into the test subject's voxel space.
 % take the mean
 Similar to our functional alignment procedure, we obtained an estimation of the
-test subject's empirical $Z$-maps by taking the arithmetic mean of the
+test subject's empirical $Z$-maps by calculating the arithmetic mean of the
 respective paradigm's projected $Z$-maps.
 
 
@@ -1000,9 +1007,10 @@ localizer; eight in case of the naturalistic stimuli) that were averaged in the
 second-level \ac{glm} analyses of \citet{sengupta2016extension} and
 \citet{haeusler2022processing} respectively.
 %
-Cronbach's $\alpha$ of empirical (i.e. second-level) $Z$-maps for each subject
-and paradigm can be seen in Fig.~\ref{fig:cronbachs}, descriptive statistics
-across subjects for each paradigm can be seen in Table~\ref{fig:cronbachs}.
+Cronbach's $\alpha$ of the empirical (i.e. second-level) $Z$-maps for each
+subject and paradigm can be seen in Fig.~\ref{fig:cronbachs}, descriptive
+statistics across subjects for each paradigm can be seen in
+Table~\ref{fig:cronbachs}.
 
 % The Cronbach's $\alpha$ values for each paradigm are as follows:
 % For the visual localizer, the mean is 0.899990 with a standard deviation of
@@ -1095,8 +1103,8 @@ $Z$-maps obtained from the previous analyses \citep{haeusler2022processing,
 sengupta2016extension} and their respective predicted $Z$-maps (s.
 Fig.~\ref{fig:stripplot}).
 %
-In general, the mean Pearson correlation coefficients vary depending on the
-criterion being estimated (i.e. $Z$-maps of the visual localizer, movie, or
+In general, the mean Pearson correlation coefficients vary depending on paradigm
+being estimated (i.e. $Z$-maps of the visual localizer, movie, or
 audio-description), as well as the alignment procedure (anatomical vs.
 functional alignment).
 %
@@ -1105,8 +1113,8 @@ a predictor and to align a test subject to the \ac{cfs} also affects the
 correlation coefficients.
 %
 However, the functional alignment procedure consistently shows an increasing
-estimation performance across criteria as more data of a predictor is used to
-align the test subjects.
+estimation performance as more data of a predictor is used to align the test
+subjects.
 %
 In order to investigate potential differences between some conditions, we
 conducted 15 pairwise comparisons using Fisher z-transformed correlation values.
@@ -1309,7 +1317,7 @@ transformation through the MNI space into the test subject's anatomical voxel
 space.
 
 \todo[inline]{results \& conclusions: if stated at all, compress to 1-2
-sentences like in the abstract; mention "partial alignment"}
+sentences like in the abstract}
 
 \todo[inline]{otherwise, following paragraph is a template for the conclusions
 and/or abstract}
@@ -1438,9 +1446,9 @@ deviation of one separately before concatenating the time series and calculating
 the shared responses.
 %
 The audio-description may have a lower signal-to-noise ratio\todo{is this the
-case???}, or evoke responses that are less congruent across subjects resulting
-in shared responses of lower peak amplitude and therefore lower estimation
-performance.
+case???}, or evoke responses that are less congruent across participants
+resulting in shared responses of lower peak amplitude and therefore lower
+estimation performance.
 %
 Further investigations are needed to better understand the specific factors
 contributing to the observed lower amplitudes and their impact on the prediction
@@ -1469,13 +1477,13 @@ identified with the visual localizer.
 %
 Nevertheless, further studies using controlled paradigms are needed to
 investigate responses of the \ac{ppa} to auditory spatial information, as
-confounding variables such as a subject's alertness and attentional focus are
-difficult to experimentally and statistically control during naturalistic
+confounding variables such as a participant's alertness and attentional focus
+are difficult to experimentally and statistically control during naturalistic
 auditory stimulation.
 
 %
 Calculating Cronbach's $\alpha$ of the audio-description's $Z$-maps revealed
-mediocre to poor reliability in three subjects.
+mediocre to poor reliability in three participants.
 %
 The three participants with poor Cronbach's $\alpha$ also exhibited the lowest
 correlations between the audio-description's predicted and empirical $Z$-maps.
@@ -1485,10 +1493,10 @@ deviant response from the norm but rather exhibited more variable responses to
 auditory spatial information during the two-hour stimulation.
 %
 When estimating the $Z$-maps of the visual paradigms based on the
-audio-description, we did not identify the same subjects as outliers, suggesting
-that an auditory narrative sufficiently samples responses that can be used to
-align a test subject to a \ac{cfs} and acquire transformations that enable the
-estimation of a visual paradigm's results.
+audio-description, we did not identify the same participants as outliers,
+suggesting that an auditory narrative sufficiently samples responses that can be
+used to align a test subject to a \ac{cfs} and acquire transformations that
+enable the estimation of a visual paradigm's results.
 %
 These findings are in line the work of \citet{haxby2011common}, who demonstrated
 that the general validity of their functional alignment procedure ``based on the
@@ -1514,8 +1522,8 @@ test subjects, and the mean reliability of the audio-description's $Z$-maps on
 the estimation performance.
 %
 However, despite the presence of outliers, the within-paradigm prediction
-performs well for the majority of subjects when a sufficient amount of data is
-available for alignment.
+performs well for the majority of participants when a sufficient amount of data
+is available for alignment.
 %
 This indicates that outliers do not have a significant impact on the prediction
 performance.
@@ -1527,7 +1535,7 @@ subject's data \citep[cf.][]{chen2015reduced}.
 %
 Therefore, it would be interesting to estimate the results of a controlled
 auditory experiment, such as a speech localizer, that yields more reliable
-results in all subjects.
+results in all participants.
 %
 To test the hypothesis that the \ac{srm} filters out noise, one could calculate
 more reliable second-level $Z$-maps from actual time-series, and time series
@@ -1542,7 +1550,7 @@ more closely than the $Z$-maps calculated from noisy data.
 %
 Lastly, it is important to acknowledge that our analysis was restricted to
 voxels located in the union of voxels that exhibited significantly increased
-activity in at least one subject of the visual localizer's $Z$-maps.
+activity in at least one participant of the visual localizer's $Z$-maps.
 %
 However, the findings of \citet{haeusler2022processing} suggest that hemodynamic
 activity during auditory semantic stimulation is confined to the anterior part
@@ -1553,7 +1561,7 @@ $Z$-maps derived from the audio-description.
 %
 This is because the \ac{roi} includes voxels that did not show significantly
 increased activity in response to auditory spatial information in at least one
-subject, but rather exhibit random variation (or potentially significantly
+participant, but rather exhibit random variation (or potentially significantly
 decreased activation, which would not affect the reliability measure).
 
 
@@ -1606,7 +1614,7 @@ benefits.
 % \citep{frost2012measuring}.
 
 % studyforrest dataset: other t-contrasts of localizer: The visual localizer of
-% the studyforrest dataset also contains contrast that aimed at localizing the
+% the studyforrest dataset also contains contrast that aimed to localize the
 % \ac{ffa} and \ac{ofa} that are associated with face perception
 % \citep{kanwisher1997ffa, pitcher2011occipitalfacearea}, the \ac{eba} that is
 % associated with the perception of human bodies \citep{downing2001bodyarea},
@@ -1664,11 +1672,11 @@ planning or decision-making.
 
 %
 Lastly, we emphasize that our study is exploratory, based on a sample of 14
-subjects, and therefore provides preliminary results that warrant further
+participants, and therefore provides preliminary results that warrant further
 in-depth investigations into aspects that are beyond of scope here.
 %
 For example, we restricted our analysis to voxels in a \ac{roi} with an average
-of $\approx$\unit[1600]{voxel} per subject.
+of $\approx$\unit[1600]{voxel} per participant.
 %
 The use of searchlight functional alignment
 \citep[e.g.,][]{zhang2016searchlight, guntupalli2016model} could cover the
@@ -1717,10 +1725,8 @@ argument}
 % subjects across datasets \citep[cf.][an extension of the \ac{srm} for
 % shared subjects across datasets]{zhang2018transfer}}
 
-\todo[inline]{vision is here in the SRM part}
-
-\todo[inline]{I will only shortly mention it in the general discussion when
-discussing pro (\& contra) of naturalistic stimuli}
+\todo[inline]{vision is here; in general discussion just mentioned as pro of
+nat.  stim.}
 
 %
 Our results suggest that $\approx$\unit[15]{min} \ac{fmri} scanning during a
@@ -1769,7 +1775,7 @@ children's age.
 
 
 
-\subsection{Conclusion}
+\section{Conclusion}
 
 \todo[inline]{just a template}
 
