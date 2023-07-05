@@ -24,8 +24,8 @@ of open, transparent, and reproducible science---to investigate whether a movie
 and the movie's audio-description may, in principle, replace a traditional
 localizer paradigm.
 % PPA as proof of concept
-As a proof of concept, we focused on the \ac{ppa}, a ``classic'' higher visual
-area.
+As a proof of concept, we focused on the \ac{ppa}, as an example of a higher
+visual area.
 %
 The \ac{ppa} exhibits increased hemodynamic activity when participants view
 photos of landscapes, buildings or landmarks, compared to, for instance, photos
@@ -35,10 +35,6 @@ Moreover, results of \citet{aziz2008modulation}, who compared hemodynamic
 activity levels in the \ac{ppa} correlated with different categories presented
 in spoken sentences, revealed that semantic scene-related information also
 modulates the \ac{ppa}'s activity level.
-
-\todo[inline]{revise given that part on functional alignment is now in the
-thesis}
-
 %
 We assessed the potential of both the movie and the audio-description to replace
 a visual localizer by modifying the procedure for the analysis of data from
@@ -47,14 +43,17 @@ localizer paradigms to data from the two naturalistic stimuli.
 First, hemodynamic responses correlating with the temporal structure of
 annotated stimulus features \citep[cf.][]{haeusler2016cutanno,
 haeusler2021speechanno} were modeled in order to create \ac{glm} $t$-contrasts
-that aimed to localize the \ac{ppa}.
+that aimed to localize the \ac{ppa} as identified in the same participants using
+a visual localizer in \citet{sengupta2016extension}.
 % estimation
-Second, we applied functional alignment procedure as a novel method in order to
-estimate results from the visual localizer \citep[cf.][]{sengupta2016extension},
-movie and audio-description \citep[cf.][]{haeusler2022processing} in one
-participant from the results of participants in a reference group.
+Second, we applied a functional alignment procedure as a novel method in order
+to estimate results from the visual localizer, the movie and the
+audio-description in a participant from the results of participants in a
+reference group.
 
-
+\todo[inline]{add summary of findinds of the studies in 2-3 sentences? imo, no;
+here is "priming" before "Open Science"; actual discussion is after "Open
+Science"}
 
 
 \section{Open Science}
@@ -183,7 +182,7 @@ lateral occipital cortex that may correspond to the functionally defined
 Indeed, results revealed significantly increased activity in the medial parietal
 and lateral occipital cortex, and provide an incentive for further studies.
 % \citep[cf. algorithmic procedure in, e.g.,][]{julian2012algorithmic}.
-However, in the case of results from \citep{sengupta2016extension}, one would
+However, in the case of results of \citet{sengupta2016extension}, one would
 have to replicate the non-automatized procedure of \citet{sengupta2016extension}
 in order to create the corresponding masks.
 %
@@ -244,8 +243,8 @@ hemodynamic activity in the \ac{ppa} generalizes from blocks of images to
 spatial information embedded in a movie and an auditory narrative.
 %
 These results published in a peer-reviewed journal highlight the benefits of
-sharing and reusing data to explore research questions and to generate new
-insights.
+sharing and reusing data to explore unanticipated research questions and to
+generate new insights.
 % contra
 From a negative perspective, creating data, materials, and code to be published
 requires a considerable amount of time and effort.
@@ -332,8 +331,8 @@ This risk is aggravated in case of early-career scientists that created and
 maintain a public dataset, pre-registered studies based on a public dataset, or
 have to adhere to inflexible project plans.
 %
-Hence, undergraduate programs should teach the benefits and best practices, and
-risks of open science, and provide practical training in related software
+Hence, undergraduate programs should teach the benefits and best practices, but
+also risks of open science, and provide practical training in related software
 packages.
 %
 Postgraduate programs should create incentives to conduct open science projects.
@@ -354,9 +353,6 @@ innovation, and
 %
 (e) ultimately increase the public's trust in the scientific process and its
 findings.
-
-
-\pagebreak
 
 
 \section{Naturalistic stimuli for functional localization}
@@ -397,7 +393,7 @@ activation in the \ac{ppa} during the perception of static images generalizes to
 the perception of spatial information embedded in a movie and an auditory
 stimulus.
 %
-We have shown that a model-driven \ac{glm} analysis based on a naturalistic
+We have shown that a model-driven analysis based on a naturalistic
 stimulus' annotation can replicate findings of studies that employed traditional
 paradigms.
 %
@@ -417,33 +413,9 @@ could potentially replace a traditional localizer to assess brain functions in
 individuals.
 
 
-\paragraph{Functional localization via estimation from reference group}
-
-\todo[inline]{explicitly (re)state aims}
-
-%
-Results from \citet{haeusler2022processing} suggest that the movie as well as
-the audio-description sample hemodynamic responses that correlate with the
-occurrence of spatial information.
-%
-Therefore, we did the following ...
-
-% goal 1: new procedure
-We estimated results of a dedicated localizer \citep{sengupta2016extension} via
-functional alignment from results of a reference group.
-% the problem
-Considering practical and monetary constraints in a clinical context, a paradigm
-lasting 90 to 120 minutes is inappropriate for even an extensive individual
-diagnostic procedure, we also assessed the relationship between length of
-naturalistic stimulation used to align the test participant to the fixed
-\ac{cfs} and the estimation performance.
-
 
 
 \subsection{Current challenges and limitations}
-
-\todo[inline]{add that engagement is particularly hard to asses during
-audio-only}
 
 %
 The current thesis highlights obstacles in the pursuit of developing a
@@ -526,9 +498,6 @@ lack of statistical power due to insufficient data samples.
 
 
 \subsection{Interim summary}
-
-\todo[inline]{add functional alignment + vision}
-
 %
 Given the unsolved issues and current limitations, it is perhaps not surprising
 that, even 20 years after the group-level findings of
@@ -587,8 +556,74 @@ towards the presented stimulus or elicit, given the low demand characteristics
 reflecting a personal trait.
 
 
+\subsection{Estimation based on data of a reference group}
+
+%
+Given the current limitations of modeling hemodynamic response during
+naturalistic stimulation to reliably localize the \ac{ppa} in all participant,
+the thesis aimed to explore a second approach to identify a functional area
+based on data of naturalistic stimuli.
+%
+In Chapter 5, we estimated the empirical $Z$-maps acquired from the analysis of
+the visual localizer \citet{sengupta2016extension} in a participant by
+leveraging data from other participants.
+%
+Our findings indicate that $\approx$\unit[15]{min} of movie data sampled at
+\unit{0.5}{Hz} used for functional alignment can estimate the results of the
+visual localizer more accurately than an estimation procedure based on
+anatomical alignment.
+%
+Results suggest that a \ac{fmri} scanning session using a complex naturalistic
+stimulus lasting 15 to 30 minutes could serve as a functional calibration scan.
+%
+This calibration scan can be used to align a new subject to a common functional
+space derived from data from a reference group
+%
+Once aligned with the common functional space, functional data of controlled and
+naturalistic paradigms can be mapped through the common model space into the new
+subject's voxel space.
+%
+This approach enables the possibility of using a short movie to estimate the
+results of various localizers that are designed to provide reliable measures in
+all individuals.
+%
+Just presenting an engaging short movie to a new subject would allow to estimate
+patterns that are observed in the normative reference group, when additional
+functional scans are not feasible due to various constraints (such as scanner
+availability, time constraints, financial limitations, or compliance issues)
+%
+Furthermore, this approach would allow for quantifying the similarity or
+dissimilarity between a new subject's actual pattern and the common pattern
+estimated from the normative reference.
+%
+In particular, our results suggest that an auditory paradigm can be used to
+estimate the results of a visual paradigm.
+%
+Future studies should explore the performance of functional alignment in other
+domains than higher-visual perception.
+%
+It would be intriguing to investigate whether functional alignment can be
+utilized to predict brain patterns that are correlated with paradigms
+specifically designed to elicit brain processes not captured during passive
+movie viewing, such as planning or decision-making.
+%
+However, future developments are necessary to advance functional alignment to a
+clinical application.
+%
+Increased sampling rates and improved functional alignment algorithms are
+required to reduce scanning time and the amount of data needed to functionally
+align a higher number of voxels simultaneously.
+%
+Further developments that allow aligning a large number of voxels across larger
+distances would be particularly beneficial for functional areas that exhibit
+large interindividual variability in anatomical location, such as language
+areas, or in cases of atypical topography resulting from cortical reorganization
+after brain injuries.
+
 
 \section{Conclusion}
+
+\todo[inline]{add functional alignment}
 
 %
 Traditional localizer paradigms are designed to identify functional brain
