@@ -38,6 +38,19 @@
 \documentclass[english,12pt]{report}
 \usepackage[utf8]{inputenc}
 
+% allow abstracts (to be placed at the beginning of chapters)<w
+\usepackage{lipsum}
+\makeatletter
+\newenvironment{chapterabstract}
+               {\begin{center}\textbf{Abstract}\end{center}
+                 \list{}{\listparindent 1em%
+                        %\setlength{\leftmargin}{<value>} adjust if you need
+                        \itemindent\listparindent
+                        \rightmargin\leftmargin
+                        \parsep\z@ \@plus\p@}%
+                \item\relax}
+               {\endlist}
+
 % use ä, ü, ...
 \usepackage[T1]{fontenc}
 
