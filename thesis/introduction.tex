@@ -7,7 +7,7 @@ the late 19th century, it has been recognized that restricted lesions of the
 human brain result in location-specific sensory, motor or cognitive deficits''
 \citep[][p. 268]{cohen1994localization}.
 % human brain mapping
-Contemporary \textit{Human brain mapping} \citep[e.g.,][]{raichle2009brief}
+Contemporary \textit{human brain mapping} \citep[e.g.,][]{raichle2009brief}
 investigates in vivo the brain's topographic organization
 \citep[e.g.,][]{eickhoff2018topographic} by specifying ``in as much detail as
 possible the localisation of function in the human brain'' \citep[][p.
@@ -76,7 +76,7 @@ such as the perception of object categories \citep{kanwisher1997ffa} or theory
 of mind \citep{spunt2014validating}.
 % purpose: ROI improve the statistical power of the main experiment's analysis
 Functional localizers are frequently used as a separate experiment to
-identify a subject-specific functional \acp{roi} that reduce the number of
+identify a subject-specific functional \ac{roi} and reduce the number of
 voxels investigated in the main experiment \citep{poldrack2007region,
 saxe2006divide}.
 % clinical application
@@ -227,8 +227,6 @@ models of embedded stimulus features are ``notoriously'' \citep[][p.
 1]{richard2019fast}, if not ``prohibitively'' \citep[p.
 676]{nastase2019measuring} difficult to construct.
 % 120 minutes is too long
-
-
 % SRM
 Second, considering practical and monetary constraints in a clinical context,
 presenting a full feature film typically lasting 90 to 120 minutes is
@@ -292,17 +290,14 @@ Despite mixed results, the findings by \citet{aziz2008modulation} suggest that
 \ac{ppa} does not solely respond to visually presented scene-related stimuli.
 
 % SRM
-I evaluated the movie's and audio-description's potential to replace a visual
-localizer in two ways.
+I assessed the feasibility of using the movie and audio-description as
+alternatives to a visual localizer in two ways.
 % 1. modeling hemodynamic responses
-Similarly to traditional localizer paradigms, we modeled hemodynamic activity
-correlating with the perception spatial information.
-% based on stimulus annotations
-Differently from traditional localizers, we modeled hemodynamic activity based
-on annotated stimulus features that are embedded in the audio-visual movie and
-the movie's audio-description (each lasting $\approx$\unit[120]{m}).
+In the first approach, we modeled hemodynamic activity based on annotated
+stimulus features that are embedded in the audio-visual movie and the movie's
+audio-description (each lasting $\approx$\unit[120]{m}).
 % but technically similar to traditional localizers
-We then created \ac{glm} $t$-contrasts using these modeled hemodynamic time
+We then created \ac{glm} $t$-contrasts using the modeled hemodynamic time
 courses (i.e. regressors) to locate the \ac{ppa}, which was previously
 identified in the same group of participants by a conventional block-design
 functional localizer using static images \citep{sengupta2016extension}.
@@ -311,15 +306,15 @@ However, conducting a two-hour long \ac{fmri} scan session may not be desirable
 or feasible due to potential compliance issues or constraints on time and
 resources.
 %
-Therefore, we also explored an alternative approach to localize the \ac{ppa} in
-an individual that leverages data collected from an independent sample of other
+Therefore, we also explored a second approach to localize the \ac{ppa} in an
+individual that leverages data collected from an independent sample of other
 individuals (i.e. data from a \textit{reference group}).
 % previous studies: anatomical alignment
-Previous studies estimated the location of a participant's functional area by
-performing an \textit{anatomical alignment} \citep{frost2012measuring,
-rosenke2021probabilistic, weiner2018defining, zhen2017quantifying} that is based
-on anatomical scans to address the issue of anatomical variability across
-persons.
+To address the issue of anatomical variability across persons, previous studies
+estimated the location of a participant's functional area by performing an
+\textit{anatomical alignment} \citep{frost2012measuring,
+rosenke2021probabilistic, weiner2018defining, zhen2017quantifying} that relies
+on anatomical scans.
 %
 However, the anatomical location of functional regions varies between
 individuals \citep{coalson2018impact, benson2014correction, natu2021sulcal,
@@ -327,11 +322,10 @@ wang2015probabilistic, frost2012measuring, langers2014assessment, weiner2014mid,
 rosenke2021probabilistic}.
 % intro to functional alignment
 To address the issue of functional-anatomical variability across persons, we
-therefore explored a new approach that is based on a \textit{functional
-alignment} \citep[cf.][for reviews]{haxby2020hyperalignment,
-bazeille2021empirical}, and investigated whether we can estimate the results of
-$t$-contrasts (i.e. statistical $Z$-maps) that we created in the previous
-studies to localize the \ac{ppa}.
+therefore performed a \textit{functional alignment} \citep[cf.][for
+reviews]{haxby2020hyperalignment, bazeille2021empirical}, and investigated
+whether we can estimate the results of $t$-contrasts (i.e. statistical $Z$-maps)
+that we created in the previous studies to localize the \ac{ppa}.
 %
 Considering that functional alignment relies on functional scans, we also
 evaluated the relationship between the quantity of functional data used for
@@ -358,8 +352,8 @@ results'' \citep[][p. 111]{leek2017most}.
 A study is replicable if the same analysis of data from an equivalent experiment
 yields consistent results \citep{dubois2016building, leek2017most}.
 %
-One goal of the dissertation was to meet the requirements of open, shared,
-accessible, and transparent science \citep[cf.][]{watson2015will,
+The first goal in the context of open science was to meet the requirements of
+open, shared, accessible, and transparent science \citep[cf.][]{watson2015will,
 fecher2014open} as well as a reproducible and replicable research project:
 %
 To achieve this, the dissertation follows the guidelines and best practices for
@@ -368,9 +362,9 @@ data analyses \citep{nichols2017best, poldrack2017scanning,
 poldrack2019establishment}, and (c) sharing code, created data, and results
 \citep{eglen2017toward, nichols2017best, pernet2015improving}.
 % \paragraph{input data} open data \citep{eglen2017toward}
-A second goal in the context of open science was to reuse a publicly and freely
-available dataset for a new research question that was not anticipated at the
-time the data were released, to extend the dataset, and to generate novel
+The second goal in the context of open science was to reuse a publicly and
+freely available dataset for a new research question that was not anticipated at
+the time the data were released, to extend the dataset, and to generate novel
 findings to be published in open-access journals.
 
 %
@@ -414,8 +408,8 @@ Finally, because ``nature abhors a paywall'' \citep{dupre2020nature},
 publications describing generated data, methodological choices, analysis steps,
 and results are published in open-access journals.
 % neurovault
-Unthresholded statistical maps of all computed statistical $t$-contrasts are
-published at Neurovault (\href{https://neurovault.org/}{\url{neurovault.org}}).
+% Unthresholded statistical maps of all computed statistical $t$-contrasts are
+% published at Neurovault (\href{https://neurovault.org/}{\url{neurovault.org}}).
 
 
 
@@ -430,13 +424,13 @@ next}
 % and their relationship}
 
 % what I did
-During the pre-alpha stage of DataLad, I contributed by testing its features on
-a real-world project, evaluating its user interface and documentation, and
-providing feedback to the software engineering team.
+During the pre-alpha stage of DataLad, I contributed to its development by
+testing its features on a real-world project, evaluating its user interface and
+documentation, and providing feedback to the software engineering team.
 % results
 This work laid the technical foundation for achieving the goal of a transparent
 and reproducible research project, and resulted in co-authorship of the
-software's accompanying publication \citep[cf.][]{halchenko2021datalad}.
+software's accompanying publication \citep[s.][]{halchenko2021datalad}.
 
 
 %\subsubsection{A studyforrest extension, an annotation of spoken language in the
@@ -464,8 +458,8 @@ annotation.
 Regressors correlating with speech-related events were contrasted to a regressor
 correlating with events without speech.
 % hypothesis
-We hypothesized that results would reveal significant clusters in brain regions
-known to be involved in processing spoken language.
+We hypothesized that results would reveal clusters of significantly increased
+activity in brain regions known to be involved in processing spoken language.
 % results
 The analysis revealed statistically significant increased hemodynamic activity
 in a bilateral cortical network replicating results of previous studies that
@@ -526,7 +520,7 @@ To address the challenge of functional-anatomical variability across
 individuals, we employed a functional alignment approach using the \acf{srm}
 \citep{chen2015reduced}.
 %
-This approach allowed us to predict an indiviual's results of $t$-contrasts,
+This approach allowed us to predict an individual's results of $t$-contrasts,
 created in previous studies using time series from the visual localizer, movie,
 and audio-description, by projecting the results of persons in the reference
 group from their respective anatomical space through a \ac{cfs} into the
@@ -536,21 +530,21 @@ Following a leave-one-subject-out cross-validation, we split the dataset
 repeatedly in a set of one \textit{test subject} and $N-1$ \textit{training
 subjects} (the reference group).
 %
-We then calculated a multi-paradigm \ac{cfs} and subject-specific
-transformations based on the training subjects' concatenated response time
-series of the visual localizer, the movie, and the audio-description.
+We then calculated a \ac{cfs} and subject-specific transformations based on the
+training subjects' concatenated response time series of the visual localizer,
+the movie, and the audio-description.
 %
 We assessed the prediction performance of each paradigm by aligning the test
-subject's response time series from each paradigm with the corresponding time
-points within the \ac{cfs}.
+subject's response time series from each paradigm separately with the
+corresponding time points within the \ac{cfs}.
 %
 In an ideal scenario, only a part of a naturalistic stimulus would serve as a
 ``diagnostic'' run to align a new individual with a \ac{cfs} and estimate the
 results of other paradigms.
 %
 Therefore, we also aimed to explore the relationship between the quantity of
-data of each paradigm used for aligning a test subject with the \ac{cfs} and and
-the subsequent estimation performance.
+data of each paradigm used for aligning a test subject with the \ac{cfs} and the
+subsequent estimation performance.
 
 \todo[inline]{no specific hypothesis}
 
