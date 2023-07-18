@@ -85,7 +85,7 @@ resources.
 % hence, predict from reference
 An alternative approach that addresses the challenges of a lengthy scanning
 procedure is to localize a functional area in an individual by leveraging data
-collected from an independent sample of other individuals (i.e.  from a
+collected from an independent sample of other individuals (i.e. from a
 \textit{reference group}).
 % intro: estimation via common anatomical space
 Previous studies have estimated the most probable location of a functional area
@@ -96,7 +96,7 @@ wang2015probabilistic} \textit{anatomical alignment}.
 %
 First, in order to address the issue of anatomical variability across persons,
 functional data of persons in the reference group are anatomically aligned with
-(i.e.  projected into) a common anatomical space, such as the Montreal
+(i.e. projected into) a common anatomical space, such as the Montreal
 Neurological Institute brain atlas \citep[MNI152 atlas;][]{fonov2011unbiased}.
 % project into test subject to estimate
 Then, data are projected from the common anatomical space into the individual
@@ -1015,6 +1015,12 @@ respective paradigm's projected $Z$-maps.
 
 
 \subsection{Reliability of the empirical $Z$-maps}
+
+% ``Because the localizer task comprises several scanning runs, we calculated
+% the reliability of the localizer across runs with Cronbach's $\alpha$ to 
+% provide an estimate of the noise ceiling for these correlations'' 
+% \citep{jiahui2022cross}.
+
 %
 We calculated Cronbach's $\alpha$ as a measure of reliability and the amount of
 measurement error \citep{cronbach1951coefficient, cortina1993coefficient}
@@ -1106,20 +1112,6 @@ Table~\ref{fig:cronbachs}.
 
 \section{Results}
 
-
-\begin{comment}
-
-``Because the localizer task comprises several scanning runs, we calculated the
-reliability of the localizer across runs with Cronbach's $\alpha$ to provide an
-estimate of the noise ceiling for these correlations'' \citep{jiahui2022cross}.
-
-\end{comment}
-
-
-The unthresholded $Z$-maps in their respective subject's voxel space can be
-accessed at
-\href{https://identifiers.org/neurovault.collection:12340}{\url{neurovault.org/collections/12340}}.
-\todo{empty}
 %
 In order to assess the performance of the alignment procedures, we calculated
 the Pearson correlation coefficients between each individual's empirical
@@ -1900,8 +1892,8 @@ datasets at \emph{GitHub}
 The same data are available in a modified and merged form on OpenNeuro at
 \url{https://openneuro.org/datasets/ds000113}.
 % NeuroVault for z-maps of SRM
-Unthresholded $Z$-maps of all contrasts can be found at
-\href{https://identifiers.org/neurovault.collection:12340}{\url{neurovault.org/collections/12340}}.
+% Unthresholded $Z$-maps of all contrasts can be found at
+% \href{https://identifiers.org/neurovault.collection:12340}{\url{neurovault.org/collections/12340}}.
 
 
 \section*{Code Availability}
