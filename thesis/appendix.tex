@@ -3,27 +3,27 @@ models}
 
 \todo[inline]{manuall add representation of time / model (cf. plots in SRM part)}
 
-\todo[inline]{finalize text (cf. text in SRM part}
+\todo[inline]{finalize text and note that is shuffled (cf. text in SRM part}
 
 \begin{figure*}[tbp]
 \centering
 \includegraphics[width=\linewidth]{figures/corr_vis-regressors-vs-cfs_sub-01_srm-ao-av-vis-shuffled_feat10-iter30_7123-7747.pdf}
     \caption{
+	%
+	\textbf{Similarity of hemodynamic reponses modeled for the analysis of
+    visual localizer in \citet{sengupta2016extension} and shared features
+    calculated by the shared response model (SRM) for subject 01 in the first
+    fold of the cross-validation.}
     %
-    \textbf{Pearson correlation coefficients between regressors of the visual
-    localizer and shared features of a Shared Response Model that fitted to
-    shuffled time series data.}
+    Before calculating the Pearson correlation coefficients plotted in the
+    figure, the time series of the shared features within the multi-paradigm
+    \ac{cfs} were trimmed to match the corresponding \acp{tr} of the visual
+    localizer paradigm \citep{sengupta2016extension}.
     %
-    The time series of the shared features within the multi-paradigm \ac{cfs}
-    %
-    (as calculated for subject 01 in the first fold of the cross-validation)
-    %
-    were trimmed to match the corresponding \acp{tr} of the visual localizer
-    paradigm \citep{sengupta2016extension}.
-    %
-    The six regressors of the visual localizer model hemodynamic responses to
+    The modeled hemodynamic responses represent predicted responses to
     the six categories of pictures that were presented in blocks.
     }
+
 \label{fig:corr-vis-reg-srm-shuffled}
 \end{figure*}
 
@@ -33,19 +33,20 @@ models}
     \includegraphics[width=\linewidth]{figures/corr_av-regressors-vs-cfs_sub-01_srm-ao-av-vis-shuffled_feat10-iter30_3524-7123.pdf}
     \caption{
     %
-    \textbf{Pearson correlation coefficients between regressors of the movie
-    and shared features of a Shared Response Model that was fitted to shuffled
-    time series data.}
+    \textbf{Similarity of hemodynamic reponses modeled for the analysis of the
+    movie in \citet{haeusler2022processing}
+    and shared features calculated by
+    the shared response model (SRM) for subject 01 in the first fold of the
+    cross-validation.}
     %
-    The time series of the shared features within the multi-paradigm \ac{cfs}
+    Before calculating the Pearson correlation coefficients plotted in the
+    figure, the time series of the shared features within the multi-paradigm
+    \ac{cfs} were trimmed to match the corresponding \acp{tr} of the movie
+    \citep{hanke2016simultaneous}.
     %
-    (as calculated for subject 01 in the first fold of the cross-validation)
-    %
-    were trimmed to match the corresponding \acp{tr} of the movie paradigm
-    \citep{hanke2016simultaneous}
-    %
-    The regressors \texttt{vse\_new} to \texttt{vno\_cut} are based on
-    annotations of the content of movie frames, whereas the regressors
+    The modeled shared responses (i.e. regressors) \texttt{vse\_new} to 
+    \texttt{vno\_cut} are based on
+    annotations of movie frames, whereas the regressors
     \texttt{fg\_av\_ger\_lr} to \texttt{fg\_av\_ger\_ud} represent low-level
     visual or auditory confounds
     \citep[cf. Table 3 in][]{haeusler2022processing}.
@@ -62,7 +63,8 @@ models}
     %
     \texttt{vpe\_old}: change of the camera position within a recurring locale;
     %
-    \texttt{vno\_cut}: frames within a continuous movie shot;
+    \texttt{vno\_cut}: a pseudorandomly selected frames within a continuous
+    movie shot;
     %
     \texttt{fg\_av\_ger\_lr}: left-right luminance difference;
     %
@@ -86,19 +88,20 @@ models}
     \includegraphics[width=\linewidth]{figures/corr_ao-regressors-vs-cfs_sub-01_srm-ao-av-vis-shuffled_feat10-iter30_0-3524.pdf}
     \caption{
     %
-    \textbf{Pearson correlation coefficients between regressors of the
-    audio-description and shared features of Shared Response Model that was
-    fitted to shuffled time series data.}
+    \textbf{Similarity of hemodynamic reponses modeled for the analysis of the
+    audio-description in \citet{haeusler2022processing}
+    and shared features calculated by
+    the shared response model (SRM) for subject 01 in the first fold of the
+    cross-validation.}
     %
-    The time series of the shared features within the multi-paradigm \ac{cfs}
+    Before calculating the Pearson correlation coefficients plotted in the
+    figure, the time series of the shared features within the multi-paradigm
+    \ac{cfs} were trimmed to match the corresponding \acp{tr} of the
+    audio-description \citep{hanke2014audiomovie}.
     %
-    (as calculated for subject 01 in the first fold of the cross-validation)
-    %
-    were trimmed to match the corresponding \acp{tr} of the
-    audio-description paradigm \citep{hanke2014audiomovie}.
-    %
-    The regressors \texttt{body} to \texttt{sex\_m} are based on
-    annotations of nouns spoken by the audio-description's narrator,
+    The modeled shared responses (i.e. regressors) \texttt{body} to 
+    \texttt{sex\_m} are based on
+    annotated categories of nouns spoken by the audio-description's narrator,
     whereas the regressors \texttt{fg\_ad\_ger\_lrdiff} and
     \texttt{fg\_ad\_ger\_rms} represent low-level auditory confounds
     \citep[cf. Table 3 in][]{haeusler2022processing}.

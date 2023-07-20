@@ -22,13 +22,7 @@ Lore ipsum...
 
 \pagebreak
 
-\todo[inline]{negative control: shuffle runs within or across paradigms??? imo,
-across...}
-
 \todo[inline]{finalize figures \& figure captions}
-
-\todo[inline]{note: I could not manage to only speak of "participants";
-"participant" and "subject" are used interchangably}
 
 
 \section{Introduction}
@@ -493,7 +487,7 @@ kumar2020brainiaktutorial},
 %
 Matplotlib v3.5.3 (\href{https://matplotlib.org}{\url{matplotlib.org}}),
 %
-seaborn v0.12.2 (\href{https://seaborn.pydata.org}{\url{seaborn.pydata.org}}),
+seaborn v0.11.2 (\href{https://seaborn.pydata.org}{\url{seaborn.pydata.org}}),
 %
 and calling command line functions of FSL.
 
@@ -596,12 +590,11 @@ The time series of all three paradigms were concatenated and $z$-scored.
 \includegraphics[width=\linewidth]{figures/plot_voxel-counts.pdf}
 \caption{
 %
-\textbf{Number of voxels in the bilateral regions of interest (ROIs)
-of each participant.}
+    \textbf{Size of the regions of interest (ROIs) of each participant.}
 %
 In order to reduce the number of voxels, we warped the union of
 individual \acp{ppa} \citep[cf. Fig. 1 in][]{haeusler2022processing} from
-MNI space into each participant's native voxel space.
+MNI152 space into each participant's native voxel space.
 %
 The remaining voxels of each participant were further constrained to those
 voxels that are included in the respective participant's \ac{fov} of the
@@ -770,8 +763,7 @@ in][]{haeusler2022processing} and shared responses.
 
 \todo[inline]{make colors of non-used TRs more transparent (alpha=.15?)}
 
-\todo[inline]{shuffle runs across paradigms, not just within
-paradigms???}
+\todo[inline]{shuffle runs across paradigms}
 
 % shuffle runs
 As a negative control, we created 1000 models based on randomly shuffled time
@@ -803,19 +795,19 @@ Fig.~\ref{fig:corr-ao-reg-srm-shuffled}.
 \includegraphics[width=\linewidth]{figures/corr_vis-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_7123-7747.pdf}
 \caption{
 %
-\textbf{Pearson correlation coefficients between regressors of the visual
-localizer and shared features.}
-%
-The time series of the shared features within the multi-paradigm \ac{cfs}
-%
-(as calculated for subject 01 in the first fold of the cross-validation)
-%
-were trimmed to match the corresponding \acp{tr} of the visual localizer
-paradigm \citep{sengupta2016extension}.
-%
-The six regressors of the visual localizer model hemodynamic responses to
-the six categories of pictures that were presented in blocks.
-}
+\textbf{Similarity of hemodynamic reponses modeled for the analysis of
+    visual localizer in \citet{sengupta2016extension} and shared features
+    calculated by the shared response model (SRM) for subject 01 in the first
+    fold of the cross-validation.}
+    %
+    Before calculating the Pearson correlation coefficients plotted in the
+    figure, the time series of the shared features within the multi-paradigm
+    \ac{cfs} were trimmed to match the corresponding \acp{tr} of the visual
+    localizer paradigm \citep{sengupta2016extension}.
+    %
+    The modeled hemodynamic responses represent predicted responses to
+    the six categories of pictures that were presented in blocks.
+    }
 \label{fig:corr-vis-reg-srm}
 \end{figure*}
 
@@ -825,17 +817,19 @@ the six categories of pictures that were presented in blocks.
 \includegraphics[width=\linewidth]{figures/corr_av-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_3524-7123.pdf}
 \caption{
     %
-    \textbf{Pearson correlation coefficients between regressors of the movie
-    and shared features.}
+    \textbf{Similarity of hemodynamic reponses modeled for the analysis of the
+    movie in \citet{haeusler2022processing}
+    and shared features calculated by
+    the shared response model (SRM) for subject 01 in the first fold of the
+    cross-validation.}
     %
-    The time series of the shared features within the multi-paradigm \ac{cfs}
-    %
-    (as calculated for subject 01 in the first fold of the cross-validation)
-    %
-    were trimmed to match the corresponding \acp{tr} of the movie
+    Before calculating the Pearson correlation coefficients plotted in the
+    figure, the time series of the shared features within the multi-paradigm
+    \ac{cfs} were trimmed to match the corresponding \acp{tr} of the movie
     \citep{hanke2016simultaneous}.
     %
-    The regressors \texttt{vse\_new} to \texttt{vno\_cut} are based on
+    The modeled shared responses (i.e. regressors) \texttt{vse\_new} to
+    \texttt{vno\_cut} are based on
     annotations of movie frames, whereas the regressors
     \texttt{fg\_av\_ger\_lr} to \texttt{fg\_av\_ger\_ud} represent low-level
     visual or auditory confounds
@@ -877,17 +871,19 @@ the six categories of pictures that were presented in blocks.
 \includegraphics[width=\linewidth]{figures/corr_ao-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_0-3524.pdf}
 \caption{
     %
-    \textbf{Pearson correlation coefficients between regressors of the
-    audio-description and shared features.}
+    \textbf{Similarity of hemodynamic reponses modeled for the analysis of the
+    audio-description in \citet{haeusler2022processing}
+    and shared features calculated by
+    the shared response model (SRM) for subject 01 in the first fold of the
+    cross-validation.}
     %
-    The time series of the shared features within the multi-paradigm \ac{cfs}
-    %
-    (as calculated for subject 01 in the first fold of the cross-validation)
-    %
-    were trimmed to match the corresponding \acp{tr} of the
+    Before calculating the Pearson correlation coefficients plotted in the
+    figure, the time series of the shared features within the multi-paradigm
+    \ac{cfs} were trimmed to match the corresponding \acp{tr} of the
     audio-description \citep{hanke2014audiomovie}.
     %
-    The regressors \texttt{body} to \texttt{sex\_m} are based on
+    The modeled shared responses (i.e. regressors) \texttt{body} to
+    \texttt{sex\_m} are based on
     annotated categories of nouns spoken by the audio-description's narrator,
     whereas the regressors \texttt{fg\_ad\_ger\_lrdiff} and
     \texttt{fg\_ad\_ger\_rms} represent low-level auditory confounds
@@ -1017,8 +1013,8 @@ respective paradigm's projected $Z$-maps.
 \subsection{Reliability of the empirical $Z$-maps}
 
 % ``Because the localizer task comprises several scanning runs, we calculated
-% the reliability of the localizer across runs with Cronbach's $\alpha$ to 
-% provide an estimate of the noise ceiling for these correlations'' 
+% the reliability of the localizer across runs with Cronbach's $\alpha$ to
+% provide an estimate of the noise ceiling for these correlations''
 % \citep{jiahui2022cross}.
 
 %
@@ -1065,8 +1061,8 @@ Table~\ref{fig:cronbachs}.
 
 \begin{figure*}[tbp] \centering
     \includegraphics[width=\linewidth]{figures/plot_cronbachs.pdf}
-    \caption{\textbf{Cronbach's $\alpha$ of the empirical $Z$-maps for each
-    paradigm and subject.}
+    \caption{\textbf{Reliability of the empirical $Z$-maps for each paradigm
+    and subject.}
     %
     Cronbach's $\alpha$ was calculated based on the $Z$-maps yielded by the
     first-level \ac{glm} analyses of the visual localizer
@@ -1084,13 +1080,16 @@ Table~\ref{fig:cronbachs}.
 \centering
     \caption{
     %
-    \textbf{Descriptive statistics of Cronbach's $\alpha$ across subjects.}
+    \textbf{Descriptive statistics of the reliability measure.}
     %
-    Cronbach's $\alpha$ of the empirical $Z$-maps that are the result of the
-    second-level \ac{glm} analyses performed in
-    \citet{sengupta2016extension} and \citet{haeusler2022processing}. Values of
-    Cronbach's $\alpha$ were calculated based on the first-level $Z$-maps (four
-    in case of the visual localizer; eight in case of the naturalistic stimuli)}
+    Cronbach's $\alpha$ was calculated based on the $Z$-maps yielded by the
+    first-level \ac{glm} analyses of the visual localizer
+    \citep[four runs;][]{sengupta2016extension} and naturalistic stimuli
+    \citep[eight runs;][]{haeusler2022processing}.
+    %
+    The second-level \ac{glm} analyses across runs yielded the empirical
+    $Z$-maps that were estimated in the present study.
+    }
 \label{tab:cronbachs}
 \begin{tabular}{llll}
     \toprule
@@ -1286,9 +1285,6 @@ yielded no significant difference ($t(14)=-0.76$, $p=.4625$).
 
 \section{Discussion}
 
-\todo[inline]{introduction of discussion is long and method-heavy but, imo, it
-makes sense to repeat stuff 'cause the stuff done is pretty extensive}
-
 %
 Block-design functional localizer paradigms are traditionally used to identify
 functional areas in individual participants.
@@ -1344,8 +1340,6 @@ volume-based anatomical alignment approach.
 By leveraging data from a reference group, our procedure opens up the
 possibility of estimating results from many localizer paradigms using a
 naturalistic stimulus of similar duration of one traditional localizer paradigm.
-
-
 
 
 
@@ -1446,7 +1440,6 @@ the relatively poor performance of the audio-description is challenging.
 %
 However, three possible interpretations seem plausible.
 %
-\todo[inline]{just some wild speculations:}
 
 \textbf{First}, it is worth considering that the audio-description revealed
 shared responses of lower peak amplitudes compared to the movie and visual
@@ -1554,8 +1547,6 @@ with artificially added noise at different intensities.
 If the \ac{srm} filters out noise, the prediction based on an alignment using a
 test subject's time series with added noise should resemble the actual $Z$-maps
 more closely than the $Z$-maps calculated from noisy data.
-
-\todo[inline]{does that makes sense to you???}
 
 %
 Lastly, it is important to acknowledge that our analysis was restricted to
@@ -1701,9 +1692,6 @@ large interindividual variability in anatomical location, such as language
 areas, or for cases of atypical topography, e.g., resulting from cortical
 reorganization after brain injuries.
 
-\todo[inline]{imo, connectivity functional alignment (again) fucks up that
-argument}
-
 % \citep{bazeille2021empirical}: Searchlight functional alignment
 % \citep{zhang2016searchlight, guntupalli2016model} learns local transformations
 % and aggregates them into a single large-scale alignment. The searchlight
@@ -1784,8 +1772,6 @@ children's age.
 
 \section{Conclusion}
 
-\todo[inline]{just a template}
-
 \todo[inline]{revise with fix, printed and marked discussion}
 
 \footnotesize
@@ -1863,8 +1849,6 @@ providing valuable insights into individual brain functional anatomy.
 
 
 \section*{Data Availability}
-
-\todo[inline]{GIN link to an empty directory}
 
 % \href{https://gin.g-node.org/chaeusler/studyforrest-ppa-analysis}{\url{gin.g-node.org/chaeusler/studyforrest-ppa-analysis}}
 
