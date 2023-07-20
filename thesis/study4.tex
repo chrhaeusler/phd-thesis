@@ -22,7 +22,6 @@ Lore ipsum...
 
 \pagebreak
 
-\todo[inline]{finalize figures \& figure captions}
 
 
 \section{Introduction}
@@ -760,11 +759,6 @@ Fig.~\ref{fig:corr-ao-reg-srm} shows the correlations between regressors created
 to model hemodynamic responses during the audio-description \citep[cf. Table 3
 in][]{haeusler2022processing} and shared responses.
 
-
-\todo[inline]{make colors of non-used TRs more transparent (alpha=.15?)}
-
-\todo[inline]{shuffle runs across paradigms}
-
 % shuffle runs
 As a negative control, we created 1000 models based on randomly shuffled time
 series.
@@ -773,8 +767,7 @@ We expected that the \ac{srm} algorithm would yield ``shared'' responses that
 are not correlated with the regressors.
 %
 For each of the 1000 models, the order of runs of the visual localizer and
-naturalistic stimuli were shuffled separately for each paradigm and training
-subject.
+naturalistic stimuli were shuffled separately for each training subject.
 %
 Then, we concatenated the time series, fit the \ac{srm}, calculated the Person
 correlation coefficients per model, and finally their means across the 1000
