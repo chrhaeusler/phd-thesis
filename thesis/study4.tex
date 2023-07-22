@@ -2,7 +2,7 @@
 
 \begin{chapterabstract}
 
-% scientific background}
+% scientific background
 Lore ipsum...
 % current state of research
 
@@ -589,7 +589,7 @@ The time series of all three paradigms were concatenated and $z$-scored.
 \includegraphics[width=\linewidth]{figures/plot_voxel-counts.pdf}
 \caption{
 %
-    \textbf{Size of the regions of interest (ROIs) of each participant.}
+    \textbf{Size of the bilateral region of interest (ROI) of each participant.}
 %
 In order to reduce the number of voxels, we warped the union of
 individual \acp{ppa} \citep[cf. Fig. 1 in][]{haeusler2022processing} from
@@ -659,7 +659,7 @@ This step generated a \ac{cfs} for each fold of the cross-validation and a
 transformation matrix with orthonormal columns for each training subject.
 % align test subject
 Second, we aligned the test subject's response time series data from the movie,
-audio-description, and visual localizer paradigms separately to the
+audio-description, and visual localizer separately to the
 corresponding \acp{tr} within the \ac{cfs}.
 %
 This procedure yielded different transformation matrices for the test subject
@@ -788,9 +788,9 @@ Fig.~\ref{fig:corr-ao-reg-srm-shuffled}.
 \includegraphics[width=\linewidth]{figures/corr_vis-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_7123-7747.pdf}
 \caption{
 %
-\textbf{Similarity of hemodynamic reponses modeled for the analysis of
+\textbf{Similarity of hemodynamic responses modeled for the analysis of
     visual localizer in \citet{sengupta2016extension} and shared features
-    calculated by the shared response model (SRM) for subject 01 in the first
+    calculated by the shared response model (SRM) in the first
     fold of the cross-validation.}
     %
     Before calculating the Pearson correlation coefficients plotted in the
@@ -798,8 +798,8 @@ Fig.~\ref{fig:corr-ao-reg-srm-shuffled}.
     \ac{cfs} were trimmed to match the corresponding \acp{tr} of the visual
     localizer paradigm \citep{sengupta2016extension}.
     %
-    The modeled hemodynamic responses represent predicted responses to
-    the six categories of pictures that were presented in blocks.
+    The modeled hemodynamic responses (i.e. regressors) represent predicted
+    responses to the six categories of pictures that were presented in blocks.
     }
 \label{fig:corr-vis-reg-srm}
 \end{figure*}
@@ -810,10 +810,10 @@ Fig.~\ref{fig:corr-ao-reg-srm-shuffled}.
 \includegraphics[width=\linewidth]{figures/corr_av-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_3524-7123.pdf}
 \caption{
     %
-    \textbf{Similarity of hemodynamic reponses modeled for the analysis of the
+    \textbf{Similarity of hemodynamic responses modeled for the analysis of the
     movie in \citet{haeusler2022processing}
     and shared features calculated by
-    the shared response model (SRM) for subject 01 in the first fold of the
+    the shared response model (SRM) in the first fold of the
     cross-validation.}
     %
     Before calculating the Pearson correlation coefficients plotted in the
@@ -859,15 +859,13 @@ Fig.~\ref{fig:corr-ao-reg-srm-shuffled}.
 \end{figure*}
 
 
-\begin{figure*}[tbp]
-\centering
-\includegraphics[width=\linewidth]{figures/corr_ao-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_0-3524.pdf}
-\caption{
+\begin{figure*}[tbp] \centering
+    \includegraphics[width=\linewidth]{figures/corr_ao-regressors-vs-cfs_sub-01_srm-ao-av-vis_feat10-iter30_0-3524.pdf}
+    \caption{
     %
-    \textbf{Similarity of hemodynamic reponses modeled for the analysis of the
-    audio-description in \citet{haeusler2022processing}
-    and shared features calculated by
-    the shared response model (SRM) for subject 01 in the first fold of the
+    \textbf{Similarity of hemodynamic responses modeled for the analysis of the
+    audio-description in \citet{haeusler2022processing} and shared features
+    calculated by the shared response model (SRM) in the first fold of the
     cross-validation.}
     %
     Before calculating the Pearson correlation coefficients plotted in the
@@ -876,11 +874,11 @@ Fig.~\ref{fig:corr-ao-reg-srm-shuffled}.
     audio-description \citep{hanke2014audiomovie}.
     %
     The modeled shared responses (i.e. regressors) \texttt{body} to
-    \texttt{sex\_m} are based on
-    annotated categories of nouns spoken by the audio-description's narrator,
-    whereas the regressors \texttt{fg\_ad\_ger\_lrdiff} and
-    \texttt{fg\_ad\_ger\_rms} represent low-level auditory confounds
-    \citep[cf. Table 3 in][]{haeusler2022processing}.
+    \texttt{sex\_m} are based on annotated categories of nouns spoken by the
+    audio-description's narrator, whereas the regressors
+    \texttt{fg\_ad\_ger\_lrdiff} and \texttt{fg\_ad\_ger\_rms} represent
+    low-level auditory confounds \citep[cf. Table 3
+    in][]{haeusler2022processing}.
     %
     \texttt{body}: trunk of the body; overlaid clothes;
     %
@@ -909,11 +907,8 @@ Fig.~\ref{fig:corr-ao-reg-srm-shuffled}.
     \texttt{fg\_ad\_rms}: root mean square volume.
     %
     \texttt{geo\&groom} is a combination of regressors as used on the positive
-    side of the primary contrasts aimed to localize the \ac{ppa}
-    \citep[cf. Table 5 in][]{haeusler2022processing}.
-    }
-\label{fig:corr-ao-reg-srm}
-\end{figure*}
+side of the primary contrasts aimed to localize the \ac{ppa} \citep[cf. Table 5
+in][]{haeusler2022processing}.  } \label{fig:corr-ao-reg-srm} \end{figure*}
 
 
 \subsubsection{Alignment of a test subject}
@@ -1391,7 +1386,7 @@ When comparing the prediction based on $\approx$\unit[120]{min} of the
 audio-description to the prediction based on anatomical alignment, we found no
 statistical difference.
 %
-These findings suggest that an auditory paradigm could potentially substitute a
+These results suggest that an auditory paradigm could potentially substitute a
 visual paradigm for functional alignment and a subsequent estimation of a visual
 paradigm's results.
 %
@@ -1439,7 +1434,7 @@ comprehensively due to a sparser event structure.
 This limitation might have become particularly pronounced when estimating the
 results of the visual paradigms.
 %
-Second, not mutally exclusive with the previous explanation, the neural
+Second, not mutually exclusive with the previous explanation, the neural
 responses in the \ac{ppa} to an auditory paradigm might differ from responses to
 a visual paradigm, and therefore contributing to the lower estimation
 performance.
@@ -1540,7 +1535,7 @@ decreased activation, which would not affect the reliability measure).
 \subsection{Summary, shortcomings \& future studies}
 
 %
-In summary, our study revealed that using $\approx$\unit[15]{min} of the
+Our analyses reveal that using $\approx$\unit[15]{min} of the
 audio-description for aligning a test subject with the \ac{cfs} resulted in
 relatively low performance in cross- and within-paradigm prediction.
 %
@@ -1743,80 +1738,24 @@ children's age.
 
 \section{Conclusion}
 
-\todo[inline]{revise with fix, printed and marked discussion}
-
-\footnotesize
-
 %
-In conclusion, our study demonstrates the potential of using naturalistic
-stimuli for functional alignment to estimate brain activity patterns
-in individuals based on a normative reference group.
+Our findings suggest that 15 to 30 minutes of functional scanning using an
+engaging movie can generate a sufficient amount of data to functionally align an
+individual to a common functional space and estimate brain patterns with higher
+fidelity than a procedure based on anatomical alignment.
 %
-This study explores the feasibility of using naturalistic stimuli and functional
-alignment techniques to estimate brain activity patterns based on a normative
-reference group.
+By leveraging the data from a reference group, it becomes possible to estimate
+the results from many localizer paradigms using a naturalistic stimulus of
+similar duration of one traditional localizer.
 %
-Results indicate that approximately 15 minutes of functional scanning using an
-engaging naturalistic stimulus can generate sufficient data for alignment to a
-common functional space and estimate brain patterns with higher fidelity than an
-procedure based on anatomical alignment.
-%
-We found that approximately 15 minutes of data from an engaging
-naturalistic stimulus can provide sufficient data for a functional calibration
-scan, allowing alignment with a \ac{cfs} derived from a reference group's scans.
-%
-Specifically, our findings suggest that an auditory paradigm can be used to
-estimate the results of a visual paradigm, raising the possibility of employing
-functional alignment for estimating brain processes not directly sampled during
-passive movie watching, such as planning or decision-making.
-%
-By mapping functional data from the reference group through the CFS into a new
-subject's voxel space, we can estimate typical patterns and quantify the
-similarity or difference between a subject's actual brain activity and patterns
-derived from the reference group.
-%
-By mapping functional data through the common space, typical patterns can be
-estimated and similarities to a reference group quantified.
-%
-Our findings suggest that this approach holds promise for applications where
+This method offers a more efficient and cost-effective method to acquire
+valuable insights into the functional organization of an individual when
 additional functional scans are not feasible due to various constraints.
 %
-This approach offers several advantages over traditional controlled paradigms,
-including higher engagement and better compliance, particularly in children or
-patients.
-%
-Naturalistic stimuli provide transformations that potentially generalize better
-across a wider range of paradigms compared to dedicated experiments using
-controlled paradigms.
-%
-While our study focused on higher-visual perception as an example, future
-research should explore functional alignment performance in other domains and
-brain functions.
-%
-It is essential to note that our study is exploratory and based on a sample size
-of 14 subjects, providing preliminary results that warrant further
-investigation.
-%
-This broader content coverage is particularly valuable for investigating higher
-cognitive processes beyond basic perception.
-%
-Alternative approaches that enhance alignment across larger distances should be
-explored.
-
-%
-By leveraging the data from this reference group, it becomes possible to
-identify and characterize the functional area of interest without the need for
-extensive scanning sessions for each individual.
-%
-This opens up the possibility of estimating results from many localizer
-paradigms using a naturalistic stimulus of similar duration of one traditional
-localizer paradigm.
-%
-This method offers a more efficient and cost-effective solution while still
-providing valuable insights into individual brain functional anatomy.
-
-\normalsize
-
+While our study focused on the \ac{ppa} as an example of a higher-visual area,
+future research should explore the performance of functional alignment in other
+domains of brain functions, especially those not directly sampled during passive
+movie watching.
 
 
 \section*{Data Availability}
