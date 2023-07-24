@@ -1,81 +1,79 @@
 % scientific background
-\todo[inline]{name studyforrest dataset}
-
-\paragraph{Scientific background:}
-% clinical application
-Functional localizers that aim to characterize the topography of functional
-areas on an individual level are a promising tool to advance human brain
-mapping towards a clinical application.
-
+Functional localizers are fMRI experiment that aim to characterize the
+functional neuroanatomy on the level of individuals.
+%
+However, these paradigms employ selectively sampled, tightly controlled
+stimuli, rely on an individual's compliance, and can typically map only one
+domain of brain functions.
 % current state of research
-\paragraph{Current state of research:}
-% contra localizers
-However, traditional localizer paradigms employ selectively sampled, tightly
-controlled stimuli, rely heavily on a participant's compliance, and can
-typically map only one domain of brain functions.
-% naturalistic stimuli could replace
-Contrary, naturalistic stimuli like movies or auditory narratives provide an
-engaging, task-free paradigm that more closely resembles the richness of
-real-life experiences.
-%
-Naturalistic stimuli elicit a variety of different brain functions ranging from
-low-level perception to high-level cognition.
-
+In contrast, naturalistic stimuli, such as movies or auditory narratives,
+provide an engaging, task-free paradigm that more closely resembles the
+complexity and richness of real-life experiences, sampling a wide range of
+brain functions.
 % research question and objectives
-\paragraph{Research question and objectives:}
-% focus: ppa
-As a proof of concept, this dissertation focuses on the \ac{ppa} that exhibits
-increased hemodynamic activity when participants view images of landscapes or
-landmarks, as opposed to, for example, images of faces or tools.
+This dissertation focuses on the parahippocampal place (PPA), a higher-visual
+area, that exhibits increased hemodynamic activity when participants view
+images of landscapes or landmarks, as opposed to other stimuli like faces or
+tools.
+% stimuli
+Following the principles of open, transparent, and reproducible science, the
+thesis explores whether a movie and an auditory narrative could replace a
+visual localizer in two ways.
+
+% methodology speech-anno: haeusler2021speechanno; ppa-paper:
+% haeusler2022processing
+As the first approach, we performed a model-driven analysis of hemodynamic
+activity during the movie ``Forrest Gump'' and its audio-description, which are
+the core stimuli of the publicly accessible studyforrest dataset
+(\href{www.studyforrest.org}{\url{studyforrest.org}}).
 %
-While adhering to the principles of open, transparent, and reproducible
-science, the thesis explores whether a movie and the movie's audio-description
-that was produced for a visually impaired audience could, in principle, replace
-a visual localizer in two ways.
-
-% methodology
-\paragraph{Methodology, modeling:}
-
-\todo[inline]{analysis as usually done but adapted}
-
-% 1. modeling hemodynamic responses
-In the first approach, we modeled hemodynamic activity based on annotations of
-the movie and the audio-description.
-% but technically similar to traditional localizers
-We then created \ac{glm} $t$-contrasts using the modeled hemodynamic time
-courses (i.e. regressors) to locate the \ac{ppa}, which was previously
-identified in the same group of participants by a conventional visual localizer
-\citep{sengupta2016extension}.
-
+An exhaustive annotation of speech occurring in the movie and audio-description
+was created to establish the foundation for modeling hemodynamic responses and
+to extend the studyforrest project as an open science resource for
+investigating human brain functions under quasi-natural conditions.
+% but technically similar to traditional
+Subsequently, we performed a mass-univariate general linear model (GLM)
+analysis to localize the PPA, which had previously been identified in the same
+group of participants using a visual localizer.
 % results
-\paragraph{Results, modeling:}
-% previous studies: anatomical alignment
+Results suggest that a model-driven analysis based on annotations of a movie or
+an exclusively auditory naturalistic stimulus can be used to localize a
+functional area on an individual level.
 
-\paragraph{Methodology, estimation}
-
-\todo[inline]{fucking new}
+% SRM
+As the second approach, we explored a novel functional alignment procedure that
+allows to estimate the location of the PPA in an individual by leveraging data
+collected from of a reference group.
 %
-However, conducting a two-hour long \ac{fmri} scan session may not be desirable
-or feasible due to potential compliance issues or constraints on time and
-resources.
+Using a shared response model (SRM), we created a common functional space (CFS)
+and subject-specific transformations to project functional data from the
+reference through the CFS into an individual's brain space.
 %
-The second approach to localize the \ac{ppa} in an individual leverages data
-collected from an independent sample of other individuals (i.e.  data from a
-\textit{reference group}).
-% intro to functional alignment
-To address the issue of functional-anatomical variability across persons, we
-performed a functional alignment with a common functional space, and investigated
-whether we can estimate the results of $t$-contrasts (i.e. statistical
-$Z$-maps) that we created in the previously.
+Additionally, we investigated the relationship between the quantity of data used
+for functional alignment and the subsequent estimation performance.
 %
-Considering that functional alignment relies on functional scans, we also
-evaluated the relationship between the quantity of functional data used for
-functional alignment and its subsequent estimation performance.
-
-\paragraph{Results estimation:}
+Results suggest that an auditory narrative can in principle be used to estimate
+a visual area such as the PPA.
+%
+Moreover, 15 to 30 minutes of functional scanning during movie watching can
+generate a sufficient amount of data to estimate brain patterns
+more accurately than a procedure based on anatomical alignment.
 
 % discussion
-\paragraph{Discussion:}
-
+The thesis also highlights obstacles in the pursuit of developing a
+multi-functional naturalistic localizer.
+%
+Applying a model-driven analysis to naturalistic stimuli is challenging, as
+these stimuli stress physiological and statistical assumptions.
+%
+Moreover, traditional localizers aim to minimize inter-subject variability and
+reliably localize functional areas in all healthy individuals, whereas
+naturalistic stimuli allow for more variability.
 % conclusions
-\paragraph{Conclusions:}
+Therefore, the potential of a naturalistic stimulus to replace one or multiple
+traditional localizers relies on further developments that address the
+methodological and statistical challenges.
+%
+Nevertheless, a data-driven approach based on functional alignment using a
+naturalistic stimulus of similar duration to that of one traditional localizer
+could potentially estimate the results of many functional localizers.
