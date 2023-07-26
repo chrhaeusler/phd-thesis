@@ -3,47 +3,41 @@
 \begin{chapterabstract}
 
 % scientific background
-In the domain of high-visual perception, functionally defined
-    category-selective brain regions exhibit increased activity correlated with
-    specific stimulus categories.
-
+    Block-design functional localizers are traditionally used to identify
+    functional brain areas in individuals.
 % current state of research
-To identify the topography of functional areas in individuals, researchers
-    use functional localizer paradigms, which are limited to mapping one domain
-    of brain function.
-
-
-
-% research question and objectives
-    In this study, we investigated whether [...] by
-    leveraging data from a reference group, can estimate the results of
-    t-contrasts created in previous studies aimed at localizing the
-    parahippocampal place area (PPA) using three paradigms: a visual localizer,
-    a movie, and an auditory narrative.
-
+However, these paradigms rely on selectively sampled, tightly controlled stimuli
+    and participant compliance, and are typically limited to mapping a single
+    domain of brain functions.
+% objectives
+We explored an alternative procedure to identify functional areas and
+    investigated whether the results from our previous studies that used a
+    localizer, a movie or the movie's audio-description to localize the
+    ``parahippocampal place area'' (PPA), a high-visual area, could be estimated
+    in an individual by leveraging data from others individuals.
 % methodology
-    We employed a volume-based functional alignment approach, utilizing the
-    shared response model (SRM), to calculate a multi-paradigm common functional
-    space (CFS) based on data from a visual localizer, a movie, and an
-    audio-description. We aligned test subjects' data with the CFS to estimate
-    each paradigm's results.
+To address the challenge of functional-anatomical variability across persons,
+    our procedure utilizes a shared response model (SRM) to perform a functional
+    alignment of study participants with a common functional space (CFS) that we
+    derive[d] from the concatenated responses to the localizer, the movie and
+    its audio-description.
+% partial alignment
+In particular, we assess the relationship between the estimation performance and
+    the amount of data from each of the three paradigms used to align an
+    individual with the CFS.
+% results 1
+    Our results reveal that data from the audio-description allow[ed] to
+    estimate the results of the visual paradigms, however at the expense of a
+    long scanning session.
+% results 2
+Moreover, results indicate that 15 minutes of movie watching provide an
+    sufficient amount for our functional alignment procedure to more accurately
+    estimate the results of the visual localizer than a procedure based on
+    anatomical alignment.
+% discussion
+This opens up the possibility of estimating results from many localizers using a
+    a movie of similar duration to that of one traditional localizer.
 
-% results
-    Our findings indicate that an auditory narrative can be employed to estimate
-    the results of a visual localizer, but it requires a longer scanning
-    session. Moreover, $\approx$\unit[15]{minutes} of movie data used for functional alignment
-    can more accurately estimate the results of the visual localizer than
-    non-linear volume-based anatomical alignment.
-
-    % discussion
-This approach opens up the possibility of estimating results from many localizer
-    paradigms using a naturalistic stimulus. The results provide insights into
-    individual functional brain anatomy and have implications for clinical and
-    pediatric populations.
-
-    % conclusions
-Future studies can explore the performance of functional alignment in other
-    domains and develop algorithms for larger-scale cortical alignment.
 
 \end{chapterabstract}
 
@@ -184,10 +178,10 @@ high-dimensional, functional brain template (i.e. the \ac{cfs}) and
 subject-specific transformations based on functional data of a study's
 participants.
 %
-A subject-specific transformation allows to project functional data from a
+A subject-specific transformation allows projecting functional data from a
 subject's three-dimensional voxel space into the \ac{cfs}.
 %
-Conversely, the inverse transformation allows to project data from the \ac{cfs}
+Conversely, the inverse transformation allows projecting data from the \ac{cfs}
 into the subject's voxel space \citep{haxby2020hyperalignment,
 kumar2020brainiak}.
 %
@@ -342,9 +336,9 @@ Each shared feature can be thought of as a weighted sum of many voxels across
 subjects \citep{kumar2020brainiak}.
 % result = alignment
 A subject-specific transformation matrix represents the weight of each voxel in
-a subject's voxel space on each shared feature, and allows to functionally align
-subjects by projecting hemodynamic responses within the voxels into the
-$k$-dimensional \ac{cfs}.
+a subject's voxel space on each shared feature, and allows an functional
+alignment of subjects by projecting hemodynamic responses within the voxels into
+the $k$-dimensional \ac{cfs}.
 
 % multi-paradigm model
 In contrast to previous studies \citep{jiahui2020predicting,
@@ -384,7 +378,7 @@ to estimate three different empirical $Z$-maps (i.e. one
 Further, considering that acquiring functional data from a two-hour long
 naturalistic stimulus to align an individual to a \ac{cfs} may not be desirable
 or feasible, we also investigated the relationship between the quantity of data
-of each predictor used to obtain a test subject's transformation and the
+of each predictor used to obtain a test subject's transformation and
 subsequent performance of estimating each $Z$-map.
 %
 Our results indicate that an auditory narrative can be employed to estimate the
@@ -1337,7 +1331,7 @@ $Z$-maps for each test subject.
 %
 Considering the challenges of acquiring functional data from a two-hour paradigm
 to functionally align an individual with a \ac{cfs}, we also explored the
-relationship between the amount of data used for alignment and the subsequent
+relationship between the amount of data used for alignment and subsequent
 estimation performance.
 %
 As a baseline comparison, we employed an anatomical alignment procedure in which
@@ -1356,7 +1350,7 @@ volume-based anatomical alignment approach.
 %
 By leveraging data from a reference group, our procedure opens up the
 possibility of estimating results from many localizer paradigms using a
-naturalistic stimulus of similar duration of one traditional localizer paradigm.
+naturalistic stimulus of similar duration to one traditional localizer paradigm.
 
 
 
@@ -1767,7 +1761,7 @@ fidelity than a procedure based on anatomical alignment.
 %
 By leveraging the data from a reference group, it becomes possible to estimate
 the results from many localizer paradigms using a naturalistic stimulus of
-similar duration of one traditional localizer.
+similar duration to that of one traditional localizer.
 %
 This method offers a more efficient and cost-effective method to acquire
 valuable insights into the functional organization of an individual when
