@@ -23,8 +23,8 @@ area \citep{kanwisher1997ffa, kanwisher2006fusiform}, exhibit significantly
 increased \ac{bold} activity correlated with a ``preferred'' \citep[][p.
 123]{debeck2008interpreting} stimulus class.
 %
-The \ac{ppa} responds more strongly when participants are watching images of
-scenes and landscapes compared to images of, e.g., faces;
+The \ac{ppa} responds more strongly when participants are viewing images of
+landscapes or landmarks compared to images of, e.g., faces;
 %
 vice versa, the \ac{ffa} responds more strongly when participants are viewing
 images of faces compared to images of scenes.
@@ -47,7 +47,7 @@ of functional patterns.
 %
 Yet, in order advance human brain mapping towards clinical applications that
 assess health and disease, fMRI data need to be interpreted on the level of
-single individuals \citep{dubois2016building, wegrzyn2018thought}.
+individuals \citep{dubois2016building, wegrzyn2018thought}.
 
 
 
@@ -83,9 +83,9 @@ investigated in the main experiment \citep{poldrack2007region, saxe2006divide}.
 Additionally, they may be employed as a diagnostic tool before neurosurgery
 \citep[cf.][]{silva2018challenges, szaflarski2017practice}.
 % cons: designed for detection power
-However localizers are designed to maximize detection power, and use carefully
-selected, simplified, and tightly controlled stimuli presented in a block-wise
-manner that are often accompanied by a task to keep study participants
+However localizers are designed to maximize detection power, use carefully
+selected, simplified and tightly controlled stimuli presented in a block-wise
+manner, and are often accompanied by a task to keep study participants
 attentive.
 % one localizer = one domain of functions
 Consequently, one localizer paradigm can typically map only one domain of brain
@@ -192,7 +192,7 @@ used as a more life-like paradigm to replace traditional localizer paradigms.
 
 % engaging & essentially no task
 From a practical standpoint, naturalistic stimuli require minimal instructions
-given by the experimenter, and place minimal task demands on a study
+given by the experimenter, and place minimal task demands on study
 participants, who can simply enjoy the movie or audio story.
 %
 In addition, movies and narratives provide an interesting and engaging
@@ -264,7 +264,7 @@ the \ac{ppa} does not solely respond to visually presented scene-related
 stimuli.
 
 % SRM
-I assessed the feasibility of using the movie and audio-description as
+The thesis assessed the feasibility of using the movie and audio-description as
 alternatives to a visual localizer in two ways.
 % 1. modeling hemodynamic responses
 As the first approach, we modeled hemodynamic activity based on annotated
@@ -397,7 +397,7 @@ During the pre-alpha stage of DataLad, I contributed to its development by
 testing its features on a real-world project, evaluating its user interface and
 documentation, and providing feedback to the software engineering team.
 % results
-This work laid the technical foundation for achieving the aim of a transparent
+This work laid the technical foundation for conducting a transparent
 and reproducible research project, and resulted in co-authorship of the
 software's accompanying publication \citep[s.][]{halchenko2021datalad}.
 
@@ -424,10 +424,10 @@ In order to validate the annotation's quality, we conducted a canonical \ac{glm}
 analysis of modeled hemodynamic activity based on information drawn from the
 annotation.
 % contrast
-Regressors correlating with speech-related events were contrasted to a regressor
-correlating with events without speech.
+Regressors correlating with speech-related events were contrasted with a
+regressor correlating with events without speech.
 % hypothesis
-We hypothesized that results would reveal clusters of significantly increased
+We hypothesized that results would reveal clusters of increased
 activity in brain regions known to be involved in processing spoken language.
 % results
 The analysis revealed statistically significant increased hemodynamic activity
@@ -443,8 +443,8 @@ adapted to our specific needs in \citet{haeusler2022processing}.
 
 % study in one sentence
 In \citet{haeusler2022processing}, our objective was to investigate the
-possibility of localizing \ac{ppa} using GLM $t$-contrasts based annotations of
-the naturalistic stimuli.
+possibility of localizing the \ac{ppa} using GLM $t$-contrasts based annotations
+of the naturalistic stimuli.
 % AV annotation For the analysis of the
 For the analysis of the movie, we relied on a previously published annotation of
 movie cuts and the depicted location after each cut \citep{haeusler2016cutanno}.
@@ -475,7 +475,7 @@ participants and a unilateral cluster in one participant.
 %
 These results imply that a model-driven \ac{glm} analysis based on a
 naturalistic stimulus' annotation can be used to localize functional areas in
-individual subjects.
+individuals.
 
 %
 Conducting a two-hour long \ac{fmri} scan session may not be desirable or
@@ -492,8 +492,8 @@ individuals, we employed a functional alignment approach using the \acf{srm}
 This approach allowed us to predict an individual's results of $t$-contrasts,
 created in previous studies using time series from the visual localizer, movie,
 and audio-description, by projecting the results of persons in the reference
-group from their respective anatomical space through a \ac{cfs} into the
-individual's anatomical space.
+group from their respective voxel space through a \ac{cfs} into the
+individual's voxel space.
 %
 Following a leave-one-subject-out cross-validation, we split the dataset
 repeatedly in a set of one \textit{test subject} and $N-1$ \textit{training
