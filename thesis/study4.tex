@@ -1351,6 +1351,7 @@ By leveraging data from a reference group, our procedure opens up the
 possibility of estimating results from many localizer paradigms using a
 naturalistic stimulus of similar duration to one traditional localizer.
 
+\pagebreak
 
 
 \subsection{Estimating the results of the visual localizer}
@@ -1393,6 +1394,9 @@ Overall, these results suggest that the estimation based on functional alignment
 using a movie approaches a performance limit, with diminishing benefits of
 longer scanning time (cf. Fig.~\ref{fig:stripplot}).
 
+
+
+
 %
 We also explored a cross-paradigm prediction of the visual localizer's results
 using time series from the audio-description that lacks a visual stimulation.
@@ -1419,6 +1423,42 @@ Further investigations might explore alternative auditory paradigms that more
 extensively sample the targeted responses to achieve higher estimation
 performances.
 
+%
+First, the auditory paradigm might not sample neural responses as
+comprehensively due to a sparser event structure.
+%
+Second, not mutually exclusive with the previous explanation, the neural
+responses in the \ac{ppa} to an auditory paradigm might differ from responses to
+a visual paradigm, and therefore contributing to the lower estimation
+performance.
+%
+If this explanation holds true, it could support the findings of
+\citet{haeusler2022processing}, where we observed hemodynamic activity during
+auditory stimulation that is restricted to the anterior part of the \ac{ppa}.
+%
+Nevertheless, further studies using controlled paradigms are needed to
+investigate responses of the \ac{ppa} to auditory spatial information.
+
+
+%
+These findings are in line the work of \citet{haxby2011common}, who demonstrated
+that the general validity of their functional alignment procedure ``based on the
+responses to the movie is not dependent on responses to stimuli that are in both
+the movie and the category perception experiments but, rather, appears to rest
+on stimulus properties that are more abstract and of more general utility''
+\citep[][p. 409]{haxby2011common}.
+%
+In light of our current findings, we hypothesize that a stimulus used for
+functional alignment does not necessarily need to sample hemodynamic responses
+identical to those evoked by the target paradigm, however with the disadvantage
+of a longer scanning time.
+%
+Therefore, it would be interesting to explore whether functional alignment can
+be employed to estimate $Z$-maps from paradigms designed to elicit brain
+processes that are typically not sampled during passive movie watching, such as
+planning or decision-making.
+
+
 
 \subsection{Estimating the results of the movie \& audio-description}
 %
@@ -1440,30 +1480,19 @@ alignment, the prediction performance improved.
 Moreover, similar to the estimation of the visual localizer, the gap between the
 estimation performance using the audio-description and the same amount of movie
 data narrowed.
+
+
 %
 Notably, the within-paradigm prediction based on $\approx$\unit[15]{min} of the
 audio-description did not outperform the prediction via the anatomical
 alignment.
+
 %
-Given the exploratory nature of this study, identifying the exact reasons for
-the relatively poor performance of the audio-description is challenging.
-%
-However, two possible interpretations seem plausible.
-%
-First, the auditory paradigm might not sample neural responses as
-comprehensively due to a sparser event structure.
-%
-Second, not mutually exclusive with the previous explanation, the neural
-responses in the \ac{ppa} to an auditory paradigm might differ from responses to
-a visual paradigm, and therefore contributing to the lower estimation
-performance.
-%
-If this explanation holds true, it could support the findings of
-\citet{haeusler2022processing}, where we observed hemodynamic activity during
-auditory stimulation that is restricted to the anterior part of the \ac{ppa}.
-%
-Nevertheless, further studies using controlled paradigms are needed to
-investigate responses of the \ac{ppa} to auditory spatial information.
+It is challenging to untangle the individual contributions of the exclusively
+auditory stimulus, the multi-paradigm \ac{cfs}, the transformation matrices of
+test subjects, and the mean reliability of the audio-description's $Z$-maps on
+the estimation performance.
+
 
 %
 Calculating Cronbach's $\alpha$ of the audio-description's $Z$-maps revealed
@@ -1475,42 +1504,14 @@ correlations between the audio-description's predicted and empirical $Z$-maps.
 Results suggest that these participants are not outliers showing a consistently
 deviant response from the norm but rather exhibited more variable responses to
 auditory spatial information during the two-hour stimulation.
+
 %
 When estimating the $Z$-maps of the visual paradigms based on the
 audio-description, we did not identify the same participants as outliers,
 suggesting that an auditory narrative sufficiently samples responses that can be
 used to align a test subject to a \ac{cfs} and acquire transformations that
 enable the estimation of a visual paradigm's results.
-%
-These findings are in line the work of \citet{haxby2011common}, who demonstrated
-that the general validity of their functional alignment procedure ``based on the
-responses to the movie is not dependent on responses to stimuli that are in both
-the movie and the category perception experiments but, rather, appears to rest
-on stimulus properties that are more abstract and of more general utility''
-\citep[][p. 409]{haxby2011common}.
-%
-In light of our current findings, we hypothesize that a stimulus used for
-functional alignment does not necessarily need to sample hemodynamic responses
-identical to those evoked by the target paradigm, however with the disadvantage
-of a longer scanning time.
-%
-Therefore, it would be interesting to explore whether functional alignment can
-be employed to estimate $Z$-maps from paradigms designed to elicit brain
-processes that are typically not sampled during passive movie watching, such as
-planning or decision-making.
 
-%
-It is challenging to untangle the individual contributions of the exclusively
-auditory stimulus, the multi-paradigm \ac{cfs}, the transformation matrices of
-test subjects, and the mean reliability of the audio-description's $Z$-maps on
-the estimation performance.
-%
-However, despite the presence of outliers, the within-paradigm prediction
-performs well for the majority of participants when a sufficient amount of data
-is available for alignment.
-%
-This indicates that outliers do not have a significant impact on the prediction
-performance.
 %
 Moreover, the observation that the mean correlation between empirical and
 predicted $Z$-maps exceeds mean Cronbach's $\alpha$ as more data from the
@@ -1528,6 +1529,9 @@ with artificially added noise at different intensities.
 If the \ac{srm} filters out noise, the prediction based on an alignment using a
 test subject's time series with added noise should resemble the actual $Z$-maps
 more closely than the $Z$-maps calculated from noisy data.
+
+
+\pagebreak
 
 %
 Lastly, it is important to acknowledge that our analysis was restricted to
